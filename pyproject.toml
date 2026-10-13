@@ -1,0 +1,114 @@
+[build-system]
+requires=["setuptools>=68","wheel"]
+build-backend="setuptools.build_meta"
+[project]
+name="engineeringkit"
+version="0.1.0"
+description="Inspectable computational engineering for learning and teaching."
+readme="README.md"
+requires-python=">=3.10"
+license={text="MIT"}
+authors=[{name="Charles Poli", email="cpoli374@gmail.com"}]
+maintainers=[{name="Charles Poli", email="cpoli374@gmail.com"}]
+keywords=["engineering", "computational-engineering", "education", "control-systems", "structural-engineering", "thermodynamics", "heat-transfer", "signal-processing"]
+classifiers=[
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Education",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Scientific/Engineering",
+    "Topic :: Education",
+]
+dependencies=["numpy>=1.24","scipy>=1.10","matplotlib>=3.6"]
+[project.urls]
+Homepage="https://github.com/cpoli/engineeringkit"
+Documentation="https://cpoli.github.io/engineeringkit/"
+Issues="https://github.com/cpoli/engineeringkit/issues"
+Changelog="https://github.com/cpoli/engineeringkit/blob/main/CHANGELOG.md"
+[project.optional-dependencies]
+test=["pytest>=7","pytest-cov"]
+docs=["sphinx-design>=0.6","sphinx-gallery>=0.19","sphinx-autodoc-typehints>=2", "sphinx>=7","pydata-sphinx-theme>=0.15","myst-parser>=2"]
+dev=["sphinx-design>=0.6","sphinx-gallery>=0.19","sphinx-autodoc-typehints>=2", "pytest>=7","pytest-cov","sphinx>=7","pydata-sphinx-theme>=0.15","ruff>=0.6","mypy>=1.10","build>=1.2"]
+[tool.setuptools.packages.find]
+include=["engineeringkit*"]
+[tool.pytest.ini_options]
+testpaths=["engineeringkit"]
+filterwarnings=["error"]
+[tool.ruff]
+line-length=140
+extend-exclude=["docs/source/api/gallery", "docs/_build"]
+[tool.ruff.lint]
+select=["E","F","I"]
+ignore=["E741"] # Conventional engineering symbols I (inertia), l (length).
+
+[tool.ruff.lint.per-file-ignores]
+"**/test_*.py"=["F403","F405"]
+
+[tool.setuptools.package-data]
+engineeringkit=["py.typed"]
+
+[tool.coverage.run]
+omit=["*/test_*.py", "*/tests/*"]
+[tool.coverage.report]
+show_missing=true
+fail_under=100
+
+[tool.mypy]
+# Not the supported Python range (requires-python above): numpy's stubs use
+# PEP 695 type aliases, which mypy only parses when targeting 3.12+.
+python_version="3.12"
+ignore_missing_imports=true
+warn_redundant_casts=true
+warn_unused_ignores=true
+# `mypy` with no arguments checks the whole package; CI runs it as a
+# blocking job. See CONTRIBUTING.md.
+files=["engineeringkit"]
+
+[[tool.mypy.overrides]]
+# Library code: check the bodies of every function, annotated or not.
+module=["engineeringkit", "engineeringkit.*"]
+check_untyped_defs=true
+strict_equality=true
+warn_unreachable=true
+
+[[tool.mypy.overrides]]
+# Tests are checked at the signature level only: their bodies pass
+# deliberately invalid arguments and poke at matplotlib internals.
+# The sibling test_*.py modules are listed until they move into tests/.
+module=[
+    "engineeringkit.tests.*",
+    "engineeringkit.*.tests.*",
+    "engineeringkit.heat_transfer.test_benchmarks",
+    "engineeringkit.heat_transfer.test_complete_api",
+    "engineeringkit.heat_transfer.test_heat_transfer",
+    "engineeringkit.heat_transfer.test_limits",
+    "engineeringkit.integrators.test_complete_api",
+    "engineeringkit.integrators.test_integrators",
+    "engineeringkit.materials.test_benchmarks",
+    "engineeringkit.materials.test_complete_api",
+    "engineeringkit.materials.test_materials",
+    "engineeringkit.mechanical_engineering.test_benchmarks",
+    "engineeringkit.mechanical_engineering.test_complete_api",
+    "engineeringkit.mechanical_engineering.test_dynamics",
+    "engineeringkit.mechanical_engineering.test_mechanical_engineering",
+    "engineeringkit.reliability.test_benchmarks",
+    "engineeringkit.reliability.test_complete_api",
+    "engineeringkit.reliability.test_reliability",
+    "engineeringkit.signal_processing.test_benchmarks",
+    "engineeringkit.signal_processing.test_complete_api",
+    "engineeringkit.signal_processing.test_quantization",
+    "engineeringkit.signal_processing.test_signal_processing",
+    "engineeringkit.units.test_units",
+    "engineeringkit.visualizers.test_invalid_plots",
+    "engineeringkit.visualizers.test_visualizers",
+]
+check_untyped_defs=false
+strict_equality=false
+warn_unreachable=false

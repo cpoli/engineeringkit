@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+message: "If you use engineeringkit in your research or teaching, please cite it as below."
+title: "engineeringkit: inspectable computational engineering for learning and teaching"
+type: software
+version: 0.1.0
+license: MIT
+repository-code: "https://github.com/cpoli/engineeringkit"
+url: "https://cpoli.github.io/engineeringkit/"
+authors:
+  - given-names: "Charles"
+    family-names: "Poli"
+    email: "cpoli374@gmail.com"
+keywords:
+  - engineering
+  - computational-engineering
+  - education
+  - control-systems
+  - structural-engineering
+  - thermodynamics
+  - heat-transfer
+  - fluid-mechanics
+  - signal-processing
+  - aerodynamics

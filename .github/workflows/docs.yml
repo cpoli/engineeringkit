@@ -1,0 +1,35 @@
+name: Docs
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    name: Build Sphinx docs
+    runs-on: ubuntu-latest
+    # Pushes to main also deploy to gh-pages, so the hosted docs follow
+    # main between releases. The group is shared with release.yml.
+    permissions:
+      contents: write
+    concurrency:
+      group: ${{ github.event_name == 'push' && 'gh-pages' || format('docs-{0}', github.ref) }}
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -e ".[docs]"
+      - run: MPLBACKEND=Agg python -m sphinx -W --keep-going -b html docs/source docs/_build/html
+      - if: github.event_name == 'push'
+        run: touch docs/_build/html/.nojekyll
+      - if: github.event_name == 'push'
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ github.token }}
+          publish_dir: docs/_build/html
+          commit_message: "Deploy docs for ${{ github.sha }}"
