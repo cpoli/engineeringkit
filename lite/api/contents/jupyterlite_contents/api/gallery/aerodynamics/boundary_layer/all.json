@@ -1,0 +1,57 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-10-14T04:23:30.282266Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-14T04:23:26.972434Z",
+      "mimetype": null,
+      "name": "plot_01_reynolds_similarity.ipynb",
+      "path": "jupyterlite_contents/api/gallery/aerodynamics/boundary_layer/plot_01_reynolds_similarity.ipynb",
+      "size": 3812,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-14T04:23:30.282937Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-14T04:23:26.973033Z",
+      "mimetype": null,
+      "name": "plot_03_turbulent_skin_friction.ipynb",
+      "path": "jupyterlite_contents/api/gallery/aerodynamics/boundary_layer/plot_03_turbulent_skin_friction.ipynb",
+      "size": 3460,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-14T04:23:30.282620Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-14T04:23:26.972750Z",
+      "mimetype": null,
+      "name": "plot_02_prandtl_blasius_boundary_layer.ipynb",
+      "path": "jupyterlite_contents/api/gallery/aerodynamics/boundary_layer/plot_02_prandtl_blasius_boundary_layer.ipynb",
+      "size": 3778,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2026-10-14T04:23:30.282937Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-10-14T04:23:30.282937Z",
+  "mimetype": null,
+  "name": "boundary_layer",
+  "path": "jupyterlite_contents/api/gallery/aerodynamics/boundary_layer",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

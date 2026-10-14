@@ -11,7 +11,7 @@
         :class: sphx-glr-download-link-note
 
         :ref:`Go to the end <sphx_glr_download_api_gallery_communications_modulation_plot_02_carson_suppressed_carrier.py>`
-        to download the full example code.
+        to download the full example code or to run this example in your browser via JupyterLite.
 
 .. rst-class:: sphx-glr-example-title
 
@@ -91,7 +91,7 @@ Coherent demodulation and phase error
     phase error  45 deg: recovered gain +0.708 (cos phi = +0.707)
     phase error  90 deg: recovered gain -0.000 (cos phi = +0.000)
 
-    <matplotlib.legend.Legend object at 0x7f7830e23fb0>
+    <matplotlib.legend.Legend object at 0x7f0af4f6b5c0>
 
 
 
@@ -123,7 +123,7 @@ No carrier line in the spectrum
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.161 seconds)
+   **Total running time of the script:** (0 minutes 0.166 seconds)
 
 
 .. _sphx_glr_download_api_gallery_communications_modulation_plot_02_carson_suppressed_carrier.py:
@@ -131,6 +131,13 @@ No carrier line in the spectrum
 .. only:: html
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
+
+    .. container:: lite-badge
+
+      .. image:: images/jupyterlite_badge_logo.svg
+        :target: ../../../../lite/lab/index.html?path=api/gallery/communications/modulation/plot_02_carson_suppressed_carrier.ipynb
+        :alt: Launch JupyterLite
+        :width: 150 px
 
     .. container:: sphx-glr-download sphx-glr-download-jupyter
 

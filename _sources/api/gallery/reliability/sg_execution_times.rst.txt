@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.149** total execution time for 2 files **from api/gallery/reliability**:
+**00:00.154** total execution time for 2 files **from api/gallery/reliability**:
 
 .. container::
 
@@ -33,8 +33,8 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_reliability_plot_reliability_benchmark.py` (``plot_reliability_benchmark.py``)
-     - 00:00.076
+     - 00:00.079
      - 0.0
    * - :ref:`sphx_glr_api_gallery_reliability_plot_reliability_models.py` (``plot_reliability_models.py``)
-     - 00:00.073
+     - 00:00.075
      - 0.0

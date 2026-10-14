@@ -11,7 +11,7 @@
         :class: sphx-glr-download-link-note
 
         :ref:`Go to the end <sphx_glr_download_api_gallery_aerodynamics_wings_plot_01_prandtl_lifting_line.py>`
-        to download the full example code.
+        to download the full example code or to run this example in your browser via JupyterLite.
 
 .. rst-class:: sphx-glr-example-title
 
@@ -133,7 +133,7 @@ Slope approaches 2π only as the span becomes infinite
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.208 seconds)
+   **Total running time of the script:** (0 minutes 0.216 seconds)
 
 
 .. _sphx_glr_download_api_gallery_aerodynamics_wings_plot_01_prandtl_lifting_line.py:
@@ -141,6 +141,13 @@ Slope approaches 2π only as the span becomes infinite
 .. only:: html
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
+
+    .. container:: lite-badge
+
+      .. image:: images/jupyterlite_badge_logo.svg
+        :target: ../../../../lite/lab/index.html?path=api/gallery/aerodynamics/wings/plot_01_prandtl_lifting_line.ipynb
+        :alt: Launch JupyterLite
+        :width: 150 px
 
     .. container:: sphx-glr-download sphx-glr-download-jupyter
 

@@ -30,6 +30,9 @@
 <link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/plot_directive.css" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Vibur" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/jupyterlite_sphinx.css?v=f676e775" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery.css?v=c83e6b79" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-binder.css?v=f4aeca0c" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
@@ -47,6 +50,7 @@
     <script src="../../../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../../../_static/sg-tags.js?v=d80f6fa4"></script>
+    <script src="../../../../_static/jupyterlite_sphinx.js?v=96e329c5"></script>
     <script src="../../../../_static/design-tabs.js?v=f930bc37"></script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'api/gallery/control_systems/frequency/plot_02_bode_stability_margins';</script>
@@ -403,6 +407,28 @@
 </details></li>
 </ul>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../tutorials/index.html">Tutorials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tutorials/beam_to_fatigue_life.html">A beam from load to fatigue life</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tutorials/feedback_time_and_frequency.html">A feedback loop in the time and frequency domains</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tutorials/power_plant_to_cooling_tower.html">A power plant from cycle to cooling tower</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tutorials/radio_link_to_bit_errors.html">A radio link from antenna to bit errors</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../exercises/index.html">Exercises</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../exercises/structural_engineering.html">Structural engineering exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../exercises/mechanical_engineering.html">Mechanical engineering exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../exercises/thermodynamics.html">Thermodynamics exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../exercises/fluid_engineering.html">Fluid engineering exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../exercises/heat_transfer.html">Heat transfer exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../exercises/aerodynamics.html">Aerodynamics exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../exercises/electrical_engineering.html">Electrical engineering exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../exercises/control_systems.html">Control systems exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../exercises/signal_processing.html">Signal processing exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../exercises/communications.html">Communications exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../exercises/materials.html">Materials exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../exercises/reliability.html">Reliability exercises</a></li>
+</ul>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../quickstart.html">Installation and quickstart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../numerical_methods.html">Numerical methods and inspectable histories</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../guides/structural_engineering.html">Structural engineering: loads, signs and linear elasticity</a></li>
@@ -486,7 +512,7 @@
   <div class="sphx-glr-download-link-note admonition note">
 <p class="admonition-title">Note</p>
 <p><a class="reference internal" href="#sphx-glr-download-api-gallery-control-systems-frequency-plot-02-bode-stability-margins-py"><span class="std std-ref">Go to the end</span></a>
-to download the full example code.</p>
+to download the full example code or to run this example in your browser via JupyterLite.</p>
 </div>
 <section class="sphx-glr-example-title" id="bode-s-gain-and-phase-margins">
 <span id="sphx-glr-api-gallery-control-systems-frequency-plot-02-bode-stability-margins-py"></span><h1>Bode’s gain and phase margins<a class="headerlink" href="#bode-s-gain-and-phase-margins" title="Link to this heading">#</a></h1>
@@ -533,8 +559,12 @@ For <span class="math notranslate nohighlight">\(L = 2/(s(s+1)(s+2))\)</span> th
 </span><span class="w">
 </span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="p">)</span><span class="w">
 </span></pre></div></div>
-<img src="../../../../_images/sphx_glr_plot_02_bode_stability_margins_001.png" srcset="../../../../_images/sphx_glr_plot_02_bode_stability_margins_001.png" alt="plot 02 bode stability margins" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.201 seconds)</p>
+<img src="../../../../_images/sphx_glr_plot_02_bode_stability_margins_001.png" srcset="../../../../_images/sphx_glr_plot_02_bode_stability_margins_001.png" alt="plot 02 bode stability margins" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.211 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-api-gallery-control-systems-frequency-plot-02-bode-stability-margins-py">
+<div class="lite-badge docutils container">
+<a class="reference external image-reference" href="../../../../lite/lab/index.html?path=api/gallery/control_systems/frequency/plot_02_bode_stability_margins.ipynb"><img alt="Launch JupyterLite" src="../../../../_images/jupyterlite_badge_logo17.svg" style="width: 150px;" />
+</a>
+</div>
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
 <p><a class="reference download internal" download="" href="../../../../_downloads/d7ff02820e81d532831298b9a6f3e21f/plot_02_bode_stability_margins.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_02_bode_stability_margins.ipynb</span></code></a></p>
 </div>

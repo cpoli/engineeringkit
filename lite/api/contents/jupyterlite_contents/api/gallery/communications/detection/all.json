@@ -1,0 +1,43 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-10-14T04:23:30.289842Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-14T04:23:26.978401Z",
+      "mimetype": null,
+      "name": "plot_01_kotelnikov_bpsk_detection.ipynb",
+      "path": "jupyterlite_contents/api/gallery/communications/detection/plot_01_kotelnikov_bpsk_detection.ipynb",
+      "size": 2956,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-14T04:23:30.290147Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-14T04:23:26.978682Z",
+      "mimetype": null,
+      "name": "plot_02_cahn_quadrature_qpsk.ipynb",
+      "path": "jupyterlite_contents/api/gallery/communications/detection/plot_02_cahn_quadrature_qpsk.ipynb",
+      "size": 3633,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2026-10-14T04:23:30.290147Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-10-14T04:23:30.290147Z",
+  "mimetype": null,
+  "name": "detection",
+  "path": "jupyterlite_contents/api/gallery/communications/detection",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

@@ -1,0 +1,43 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-10-14T04:23:30.281211Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-14T04:23:26.971810Z",
+      "mimetype": null,
+      "name": "plot_02_thin_airfoil_theory.ipynb",
+      "path": "jupyterlite_contents/api/gallery/aerodynamics/airfoils/plot_02_thin_airfoil_theory.ipynb",
+      "size": 3608,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-14T04:23:30.280230Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-14T04:23:26.971083Z",
+      "mimetype": null,
+      "name": "plot_01_naca_four_digit_sections.ipynb",
+      "path": "jupyterlite_contents/api/gallery/aerodynamics/airfoils/plot_01_naca_four_digit_sections.ipynb",
+      "size": 2577,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2026-10-14T04:23:30.281211Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-10-14T04:23:30.281211Z",
+  "mimetype": null,
+  "name": "airfoils",
+  "path": "jupyterlite_contents/api/gallery/aerodynamics/airfoils",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

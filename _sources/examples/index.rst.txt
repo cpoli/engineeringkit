@@ -22,12 +22,18 @@ Executed galleries built from the scripts under examples/<domain>/. Download sou
    /api/gallery/materials/index
    /api/gallery/reliability/index
 
-Tutorials and model guides
---------------------------
+Tutorials, exercises and model guides
+-------------------------------------
+
+:doc:`/tutorials/index` follow one problem across several domains, and
+:doc:`/exercises/index` give a problem set per domain with worked
+solutions.
 
 .. toctree::
    :maxdepth: 1
 
+   /tutorials/index
+   /exercises/index
    /quickstart
    /numerical_methods
    /guides/structural_engineering

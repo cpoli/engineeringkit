@@ -30,6 +30,9 @@
 <link href="../_static/styles/pydata-sphinx-theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Vibur" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyterlite_sphinx.css?v=f676e775" />
     <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=c83e6b79" />
     <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
     <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
@@ -47,6 +50,7 @@
     <script src="../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/sg-tags.js?v=d80f6fa4"></script>
+    <script src="../_static/jupyterlite_sphinx.js?v=96e329c5"></script>
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'examples/index';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
@@ -402,6 +406,28 @@
 </details></li>
 </ul>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tutorials/index.html">Tutorials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/beam_to_fatigue_life.html">A beam from load to fatigue life</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/feedback_time_and_frequency.html">A feedback loop in the time and frequency domains</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/power_plant_to_cooling_tower.html">A power plant from cycle to cooling tower</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/radio_link_to_bit_errors.html">A radio link from antenna to bit errors</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../exercises/index.html">Exercises</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../exercises/structural_engineering.html">Structural engineering exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises/mechanical_engineering.html">Mechanical engineering exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises/thermodynamics.html">Thermodynamics exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises/fluid_engineering.html">Fluid engineering exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises/heat_transfer.html">Heat transfer exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises/aerodynamics.html">Aerodynamics exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises/electrical_engineering.html">Electrical engineering exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises/control_systems.html">Control systems exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises/signal_processing.html">Signal processing exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises/communications.html">Communications exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises/materials.html">Materials exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises/reliability.html">Reliability exercises</a></li>
+</ul>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Installation and quickstart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../numerical_methods.html">Numerical methods and inspectable histories</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/structural_engineering.html">Structural engineering: loads, signs and linear elasticity</a></li>
@@ -606,10 +632,15 @@ engineeringkit.reliability</div>
 </div>
 <div class="toctree-wrapper compound">
 </div>
-<section id="tutorials-and-model-guides">
-<h2>Tutorials and model guides<a class="headerlink" href="#tutorials-and-model-guides" title="Link to this heading">#</a></h2>
+<section id="tutorials-exercises-and-model-guides">
+<h2>Tutorials, exercises and model guides<a class="headerlink" href="#tutorials-exercises-and-model-guides" title="Link to this heading">#</a></h2>
+<p><a class="reference internal" href="../tutorials/index.html"><span class="doc">Tutorials</span></a> follow one problem across several domains, and
+<a class="reference internal" href="../exercises/index.html"><span class="doc">Exercises</span></a> give a problem set per domain with worked
+solutions.</p>
 <div class="toctree-wrapper compound">
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/index.html">Exercises</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Installation and quickstart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../numerical_methods.html">Numerical methods and inspectable histories</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/structural_engineering.html">Structural engineering: loads, signs and linear elasticity</a></li>
@@ -676,7 +707,7 @@ engineeringkit.reliability</div>
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="pst-show_toc_level nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tutorials-and-model-guides">Tutorials and model guides</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tutorials-exercises-and-model-guides">Tutorials, exercises and model guides</a></li>
 </ul>
   </nav></div>
 

@@ -11,7 +11,7 @@
         :class: sphx-glr-download-link-note
 
         :ref:`Go to the end <sphx_glr_download_api_gallery_thermodynamics_plot_thermodynamics_benchmark.py>`
-        to download the full example code.
+        to download the full example code or to run this example in your browser via JupyterLite.
 
 .. rst-class:: sphx-glr-example-title
 
@@ -67,7 +67,7 @@ difference must remain positive and absolute temperatures are used.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.170 seconds)
+   **Total running time of the script:** (0 minutes 0.175 seconds)
 
 
 .. _sphx_glr_download_api_gallery_thermodynamics_plot_thermodynamics_benchmark.py:
@@ -75,6 +75,13 @@ difference must remain positive and absolute temperatures are used.
 .. only:: html
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
+
+    .. container:: lite-badge
+
+      .. image:: images/jupyterlite_badge_logo.svg
+        :target: ../../../lite/lab/index.html?path=api/gallery/thermodynamics/plot_thermodynamics_benchmark.ipynb
+        :alt: Launch JupyterLite
+        :width: 150 px
 
     .. container:: sphx-glr-download sphx-glr-download-jupyter
 

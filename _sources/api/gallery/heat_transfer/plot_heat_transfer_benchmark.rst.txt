@@ -11,7 +11,7 @@
         :class: sphx-glr-download-link-note
 
         :ref:`Go to the end <sphx_glr_download_api_gallery_heat_transfer_plot_heat_transfer_benchmark.py>`
-        to download the full example code.
+        to download the full example code or to run this example in your browser via JupyterLite.
 
 .. rst-class:: sphx-glr-example-title
 
@@ -62,7 +62,7 @@ lumped time constant. All temperatures are absolute.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.056 seconds)
+   **Total running time of the script:** (0 minutes 0.060 seconds)
 
 
 .. _sphx_glr_download_api_gallery_heat_transfer_plot_heat_transfer_benchmark.py:
@@ -70,6 +70,13 @@ lumped time constant. All temperatures are absolute.
 .. only:: html
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
+
+    .. container:: lite-badge
+
+      .. image:: images/jupyterlite_badge_logo.svg
+        :target: ../../../lite/lab/index.html?path=api/gallery/heat_transfer/plot_heat_transfer_benchmark.ipynb
+        :alt: Launch JupyterLite
+        :width: 150 px
 
     .. container:: sphx-glr-download sphx-glr-download-jupyter
 

@@ -1,0 +1,57 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-10-14T04:23:30.288553Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-14T04:23:26.977565Z",
+      "mimetype": null,
+      "name": "plot_03_oswald_drag_polar.ipynb",
+      "path": "jupyterlite_contents/api/gallery/aerodynamics/wings/plot_03_oswald_drag_polar.ipynb",
+      "size": 2911,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-14T04:23:30.287885Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-14T04:23:26.976984Z",
+      "mimetype": null,
+      "name": "plot_01_prandtl_lifting_line.ipynb",
+      "path": "jupyterlite_contents/api/gallery/aerodynamics/wings/plot_01_prandtl_lifting_line.ipynb",
+      "size": 4253,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-14T04:23:30.288204Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-14T04:23:26.977273Z",
+      "mimetype": null,
+      "name": "plot_02_induced_drag_elliptic_loading.ipynb",
+      "path": "jupyterlite_contents/api/gallery/aerodynamics/wings/plot_02_induced_drag_elliptic_loading.ipynb",
+      "size": 3450,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2026-10-14T04:23:30.288553Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-10-14T04:23:30.288553Z",
+  "mimetype": null,
+  "name": "wings",
+  "path": "jupyterlite_contents/api/gallery/aerodynamics/wings",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

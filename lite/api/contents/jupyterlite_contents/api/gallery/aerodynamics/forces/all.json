@@ -1,0 +1,71 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-10-14T04:23:30.286438Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-14T04:23:26.975836Z",
+      "mimetype": null,
+      "name": "plot_02_cayley_lift_and_drag.ipynb",
+      "path": "jupyterlite_contents/api/gallery/aerodynamics/forces/plot_02_cayley_lift_and_drag.ipynb",
+      "size": 3528,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-14T04:23:30.287053Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-14T04:23:26.976417Z",
+      "mimetype": null,
+      "name": "plot_04_wright_smeaton_stall_speed.ipynb",
+      "path": "jupyterlite_contents/api/gallery/aerodynamics/forces/plot_04_wright_smeaton_stall_speed.ipynb",
+      "size": 3553,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-14T04:23:30.286747Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-14T04:23:26.976125Z",
+      "mimetype": null,
+      "name": "plot_03_lilienthal_coefficients.ipynb",
+      "path": "jupyterlite_contents/api/gallery/aerodynamics/forces/plot_03_lilienthal_coefficients.ipynb",
+      "size": 3813,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-14T04:23:30.286093Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-14T04:23:26.975538Z",
+      "mimetype": null,
+      "name": "plot_01_bernoulli_dynamic_pressure.ipynb",
+      "path": "jupyterlite_contents/api/gallery/aerodynamics/forces/plot_01_bernoulli_dynamic_pressure.ipynb",
+      "size": 3612,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2026-10-14T04:23:30.287053Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-10-14T04:23:30.287053Z",
+  "mimetype": null,
+  "name": "forces",
+  "path": "jupyterlite_contents/api/gallery/aerodynamics/forces",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

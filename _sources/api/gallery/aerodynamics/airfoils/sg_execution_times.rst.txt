@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.501** total execution time for 2 files **from api/gallery/aerodynamics/airfoils**:
+**00:00.531** total execution time for 2 files **from api/gallery/aerodynamics/airfoils**:
 
 .. container::
 
@@ -33,8 +33,8 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_aerodynamics_airfoils_plot_01_naca_four_digit_sections.py` (``plot_01_naca_four_digit_sections.py``)
-     - 00:00.289
+     - 00:00.303
      - 0.0
    * - :ref:`sphx_glr_api_gallery_aerodynamics_airfoils_plot_02_thin_airfoil_theory.py` (``plot_02_thin_airfoil_theory.py``)
-     - 00:00.212
+     - 00:00.228
      - 0.0

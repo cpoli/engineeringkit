@@ -1,0 +1,43 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-10-14T04:23:30.301640Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-14T04:23:26.987457Z",
+      "mimetype": null,
+      "name": "plot_heat_transfer_models.ipynb",
+      "path": "jupyterlite_contents/api/gallery/heat_transfer/plot_heat_transfer_models.ipynb",
+      "size": 1754,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-14T04:23:30.301281Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-14T04:23:26.987214Z",
+      "mimetype": null,
+      "name": "plot_heat_transfer_benchmark.ipynb",
+      "path": "jupyterlite_contents/api/gallery/heat_transfer/plot_heat_transfer_benchmark.ipynb",
+      "size": 1856,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2026-10-14T04:23:30.301640Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-10-14T04:23:30.301640Z",
+  "mimetype": null,
+  "name": "heat_transfer",
+  "path": "jupyterlite_contents/api/gallery/heat_transfer",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

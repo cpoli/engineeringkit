@@ -1,0 +1,43 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-10-14T04:23:30.293681Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-14T04:23:26.981559Z",
+      "mimetype": null,
+      "name": "plot_02_friis_cascaded_noise.ipynb",
+      "path": "jupyterlite_contents/api/gallery/communications/noise/plot_02_friis_cascaded_noise.ipynb",
+      "size": 3573,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-14T04:23:30.293347Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-14T04:23:26.981242Z",
+      "mimetype": null,
+      "name": "plot_01_johnson_nyquist_noise.ipynb",
+      "path": "jupyterlite_contents/api/gallery/communications/noise/plot_01_johnson_nyquist_noise.ipynb",
+      "size": 3627,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2026-10-14T04:23:30.293681Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-10-14T04:23:30.293681Z",
+  "mimetype": null,
+  "name": "noise",
+  "path": "jupyterlite_contents/api/gallery/communications/noise",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

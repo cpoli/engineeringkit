@@ -1,0 +1,43 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-10-14T04:23:30.304201Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-14T04:23:26.989187Z",
+      "mimetype": null,
+      "name": "plot_signal_processing_benchmark.ipynb",
+      "path": "jupyterlite_contents/api/gallery/signal_processing/plot_signal_processing_benchmark.ipynb",
+      "size": 1897,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-14T04:23:30.304531Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-14T04:23:26.989442Z",
+      "mimetype": null,
+      "name": "plot_signal_processing_models.ipynb",
+      "path": "jupyterlite_contents/api/gallery/signal_processing/plot_signal_processing_models.ipynb",
+      "size": 1491,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2026-10-14T04:23:30.304531Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-10-14T04:23:30.304531Z",
+  "mimetype": null,
+  "name": "signal_processing",
+  "path": "jupyterlite_contents/api/gallery/signal_processing",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

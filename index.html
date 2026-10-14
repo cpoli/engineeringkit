@@ -30,6 +30,9 @@
 <link href="_static/styles/pydata-sphinx-theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/plot_directive.css" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Vibur" />
+    <link rel="stylesheet" type="text/css" href="_static/jupyterlite_sphinx.css?v=f676e775" />
     <link rel="stylesheet" type="text/css" href="_static/sg_gallery.css?v=c83e6b79" />
     <link rel="stylesheet" type="text/css" href="_static/sg_gallery-binder.css?v=f4aeca0c" />
     <link rel="stylesheet" type="text/css" href="_static/sg_gallery-dataframe.css?v=2082cf3c" />
@@ -47,6 +50,7 @@
     <script src="_static/doctools.js?v=fd6eb6e6"></script>
     <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="_static/sg-tags.js?v=d80f6fa4"></script>
+    <script src="_static/jupyterlite_sphinx.js?v=96e329c5"></script>
     <script src="_static/design-tabs.js?v=f930bc37"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'index';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
@@ -479,7 +483,15 @@ engineeringkit.reliability</div>
 </section>
 <section id="start-here">
 <h2>Start here<a class="headerlink" href="#start-here" title="Link to this heading">#</a></h2>
-<p><a class="reference internal" href="quickstart.html"><span class="doc">Installation and quickstart</span></a> explains installation and basic use. The domain guides describe
+<p><a class="reference internal" href="quickstart.html"><span class="doc">Installation and quickstart</span></a> explains installation and basic use, and the
+<a class="reference external" href="https://colab.research.google.com/github/cpoli/engineeringkit/blob/main/notebooks/quickstart.ipynb">quickstart notebook</a>
+runs in Colab or <a class="reference external" href="lite/lab/index.html?path=quickstart.ipynb">in JupyterLite</a>.
+Four <a class="reference internal" href="tutorials/index.html"><span class="doc">tutorials</span></a> follow one problem across several
+domains: <a class="reference internal" href="tutorials/beam_to_fatigue_life.html"><span class="doc">A beam from load to fatigue life</span></a>,
+<a class="reference internal" href="tutorials/feedback_time_and_frequency.html"><span class="doc">A feedback loop in the time and frequency domains</span></a>,
+<a class="reference internal" href="tutorials/power_plant_to_cooling_tower.html"><span class="doc">A power plant from cycle to cooling tower</span></a> and
+<a class="reference internal" href="tutorials/radio_link_to_bit_errors.html"><span class="doc">A radio link from antenna to bit errors</span></a>. Each domain also has a set of
+<a class="reference internal" href="exercises/index.html"><span class="doc">exercises</span></a> with worked solutions. The domain guides describe
 units, sign conventions and model assumptions; <a class="reference internal" href="validation.html"><span class="doc">Numerical validation policy</span></a> records the
 benchmark policy, and <a class="reference internal" href="limitations.html"><span class="doc">Scope and remaining limitations</span></a> identifies remaining scope limits.
 Version 0.1.0 includes all twelve domains and enforces 100% production statement

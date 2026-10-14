@@ -1,0 +1,71 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-10-14T04:23:30.291177Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-14T04:23:26.979524Z",
+      "mimetype": null,
+      "name": "plot_03_shannon_entropy.ipynb",
+      "path": "jupyterlite_contents/api/gallery/communications/information/plot_03_shannon_entropy.ipynb",
+      "size": 3804,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-14T04:23:30.290876Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-14T04:23:26.979225Z",
+      "mimetype": null,
+      "name": "plot_02_hartley_law.ipynb",
+      "path": "jupyterlite_contents/api/gallery/communications/information/plot_02_hartley_law.ipynb",
+      "size": 3474,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-14T04:23:30.290570Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-14T04:23:26.978946Z",
+      "mimetype": null,
+      "name": "plot_01_nyquist_signalling_rate.ipynb",
+      "path": "jupyterlite_contents/api/gallery/communications/information/plot_01_nyquist_signalling_rate.ipynb",
+      "size": 2934,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-14T04:23:30.291501Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-14T04:23:26.979806Z",
+      "mimetype": null,
+      "name": "plot_04_shannon_hartley_capacity.ipynb",
+      "path": "jupyterlite_contents/api/gallery/communications/information/plot_04_shannon_hartley_capacity.ipynb",
+      "size": 3548,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2026-10-14T04:23:30.291501Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-10-14T04:23:30.291501Z",
+  "mimetype": null,
+  "name": "information",
+  "path": "jupyterlite_contents/api/gallery/communications/information",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

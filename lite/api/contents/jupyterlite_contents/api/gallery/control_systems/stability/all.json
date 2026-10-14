@@ -1,0 +1,71 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-10-14T04:23:30.299029Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-14T04:23:26.985792Z",
+      "mimetype": null,
+      "name": "plot_04_hurwitz_determinants.ipynb",
+      "path": "jupyterlite_contents/api/gallery/control_systems/stability/plot_04_hurwitz_determinants.ipynb",
+      "size": 3059,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-14T04:23:30.298731Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-14T04:23:26.985532Z",
+      "mimetype": null,
+      "name": "plot_03_lyapunov_direct_method.ipynb",
+      "path": "jupyterlite_contents/api/gallery/control_systems/stability/plot_03_lyapunov_direct_method.ipynb",
+      "size": 3039,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-14T04:23:30.298097Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-14T04:23:26.984976Z",
+      "mimetype": null,
+      "name": "plot_01_maxwell_on_governors.ipynb",
+      "path": "jupyterlite_contents/api/gallery/control_systems/stability/plot_01_maxwell_on_governors.ipynb",
+      "size": 3488,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-14T04:23:30.298427Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-14T04:23:26.985253Z",
+      "mimetype": null,
+      "name": "plot_02_routh_stability_criterion.ipynb",
+      "path": "jupyterlite_contents/api/gallery/control_systems/stability/plot_02_routh_stability_criterion.ipynb",
+      "size": 3368,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2026-10-14T04:23:30.299029Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-10-14T04:23:30.299029Z",
+  "mimetype": null,
+  "name": "stability",
+  "path": "jupyterlite_contents/api/gallery/control_systems/stability",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

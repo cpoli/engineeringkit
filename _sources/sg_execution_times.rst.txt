@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:13.264** total execution time for 69 files **from all galleries**:
+**00:13.882** total execution time for 69 files **from all galleries**:
 
 .. container::
 
@@ -33,209 +33,209 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_control_systems_time_response_plot_01_hazen_servomechanism.py` (``../../examples/control_systems/time_response/plot_01_hazen_servomechanism.py``)
-     - 00:00.640
+     - 00:00.664
      - 0.0
    * - :ref:`sphx_glr_api_gallery_communications_information_plot_02_hartley_law.py` (``../../examples/communications/information/plot_02_hartley_law.py``)
-     - 00:00.437
+     - 00:00.482
      - 0.0
    * - :ref:`sphx_glr_api_gallery_communications_propagation_plot_02_friis_transmission.py` (``../../examples/communications/propagation/plot_02_friis_transmission.py``)
-     - 00:00.424
+     - 00:00.448
      - 0.0
    * - :ref:`sphx_glr_api_gallery_aerodynamics_compressible_plot_06_de_laval_nozzle.py` (``../../examples/aerodynamics/compressible/plot_06_de_laval_nozzle.py``)
-     - 00:00.358
+     - 00:00.370
      - 0.0
    * - :ref:`sphx_glr_api_gallery_communications_coding_plot_01_hamming_code.py` (``../../examples/communications/coding/plot_01_hamming_code.py``)
-     - 00:00.350
+     - 00:00.362
      - 0.0
    * - :ref:`sphx_glr_api_gallery_communications_modulation_plot_01_fessenden_amplitude_modulation.py` (``../../examples/communications/modulation/plot_01_fessenden_amplitude_modulation.py``)
-     - 00:00.318
+     - 00:00.331
      - 0.0
    * - :ref:`sphx_glr_api_gallery_aerodynamics_boundary_layer_plot_02_prandtl_blasius_boundary_layer.py` (``../../examples/aerodynamics/boundary_layer/plot_02_prandtl_blasius_boundary_layer.py``)
-     - 00:00.304
+     - 00:00.318
      - 0.0
    * - :ref:`sphx_glr_api_gallery_communications_noise_plot_01_johnson_nyquist_noise.py` (``../../examples/communications/noise/plot_01_johnson_nyquist_noise.py``)
-     - 00:00.294
+     - 00:00.308
      - 0.0
    * - :ref:`sphx_glr_api_gallery_aerodynamics_airfoils_plot_01_naca_four_digit_sections.py` (``../../examples/aerodynamics/airfoils/plot_01_naca_four_digit_sections.py``)
-     - 00:00.289
-     - 0.0
-   * - :ref:`sphx_glr_api_gallery_control_systems_stability_plot_01_maxwell_on_governors.py` (``../../examples/control_systems/stability/plot_01_maxwell_on_governors.py``)
-     - 00:00.278
-     - 0.0
-   * - :ref:`sphx_glr_api_gallery_aerodynamics_atmosphere_plot_01_international_standard_atmosphere.py` (``../../examples/aerodynamics/atmosphere/plot_01_international_standard_atmosphere.py``)
-     - 00:00.276
+     - 00:00.303
      - 0.0
    * - :ref:`sphx_glr_api_gallery_aerodynamics_boundary_layer_plot_01_reynolds_similarity.py` (``../../examples/aerodynamics/boundary_layer/plot_01_reynolds_similarity.py``)
-     - 00:00.273
+     - 00:00.292
      - 0.0
    * - :ref:`sphx_glr_api_gallery_aerodynamics_boundary_layer_plot_03_turbulent_skin_friction.py` (``../../examples/aerodynamics/boundary_layer/plot_03_turbulent_skin_friction.py``)
-     - 00:00.273
+     - 00:00.291
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_control_systems_stability_plot_01_maxwell_on_governors.py` (``../../examples/control_systems/stability/plot_01_maxwell_on_governors.py``)
+     - 00:00.290
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_aerodynamics_atmosphere_plot_01_international_standard_atmosphere.py` (``../../examples/aerodynamics/atmosphere/plot_01_international_standard_atmosphere.py``)
+     - 00:00.288
      - 0.0
    * - :ref:`sphx_glr_api_gallery_control_systems_stability_plot_03_lyapunov_direct_method.py` (``../../examples/control_systems/stability/plot_03_lyapunov_direct_method.py``)
-     - 00:00.259
+     - 00:00.280
      - 0.0
    * - :ref:`sphx_glr_api_gallery_communications_propagation_plot_01_hertz_wavelength.py` (``../../examples/communications/propagation/plot_01_hertz_wavelength.py``)
-     - 00:00.258
-     - 0.0
-   * - :ref:`sphx_glr_api_gallery_fluid_engineering_plot_fluid_engineering_models.py` (``../../examples/fluid_engineering/plot_fluid_engineering_models.py``)
-     - 00:00.257
-     - 0.0
-   * - :ref:`sphx_glr_api_gallery_control_systems_stability_plot_04_hurwitz_determinants.py` (``../../examples/control_systems/stability/plot_04_hurwitz_determinants.py``)
-     - 00:00.255
+     - 00:00.272
      - 0.0
    * - :ref:`sphx_glr_api_gallery_communications_information_plot_04_shannon_hartley_capacity.py` (``../../examples/communications/information/plot_04_shannon_hartley_capacity.py``)
-     - 00:00.255
+     - 00:00.267
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_fluid_engineering_plot_fluid_engineering_models.py` (``../../examples/fluid_engineering/plot_fluid_engineering_models.py``)
+     - 00:00.267
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_control_systems_stability_plot_04_hurwitz_determinants.py` (``../../examples/control_systems/stability/plot_04_hurwitz_determinants.py``)
+     - 00:00.263
      - 0.0
    * - :ref:`sphx_glr_api_gallery_aerodynamics_compressible_plot_05_rankine_hugoniot_normal_shock.py` (``../../examples/aerodynamics/compressible/plot_05_rankine_hugoniot_normal_shock.py``)
-     - 00:00.247
+     - 00:00.257
      - 0.0
    * - :ref:`sphx_glr_api_gallery_communications_information_plot_03_shannon_entropy.py` (``../../examples/communications/information/plot_03_shannon_entropy.py``)
-     - 00:00.234
+     - 00:00.242
      - 0.0
    * - :ref:`sphx_glr_api_gallery_communications_detection_plot_01_kotelnikov_bpsk_detection.py` (``../../examples/communications/detection/plot_01_kotelnikov_bpsk_detection.py``)
-     - 00:00.228
+     - 00:00.237
      - 0.0
    * - :ref:`sphx_glr_api_gallery_control_systems_frequency_plot_01_nyquist_stability_criterion.py` (``../../examples/control_systems/frequency/plot_01_nyquist_stability_criterion.py``)
-     - 00:00.219
+     - 00:00.233
      - 0.0
    * - :ref:`sphx_glr_api_gallery_aerodynamics_airfoils_plot_02_thin_airfoil_theory.py` (``../../examples/aerodynamics/airfoils/plot_02_thin_airfoil_theory.py``)
-     - 00:00.212
+     - 00:00.228
      - 0.0
    * - :ref:`sphx_glr_api_gallery_communications_modulation_plot_03_armstrong_frequency_modulation.py` (``../../examples/communications/modulation/plot_03_armstrong_frequency_modulation.py``)
-     - 00:00.208
+     - 00:00.217
      - 0.0
    * - :ref:`sphx_glr_api_gallery_aerodynamics_wings_plot_01_prandtl_lifting_line.py` (``../../examples/aerodynamics/wings/plot_01_prandtl_lifting_line.py``)
-     - 00:00.208
-     - 0.0
-   * - :ref:`sphx_glr_api_gallery_control_systems_feedback_plot_03_black_negative_feedback_amplifier.py` (``../../examples/control_systems/feedback/plot_03_black_negative_feedback_amplifier.py``)
-     - 00:00.203
+     - 00:00.216
      - 0.0
    * - :ref:`sphx_glr_api_gallery_aerodynamics_circulation_plot_01_kutta_joukowski_spinning_cylinder.py` (``../../examples/aerodynamics/circulation/plot_01_kutta_joukowski_spinning_cylinder.py``)
-     - 00:00.203
+     - 00:00.215
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_control_systems_feedback_plot_03_black_negative_feedback_amplifier.py` (``../../examples/control_systems/feedback/plot_03_black_negative_feedback_amplifier.py``)
+     - 00:00.212
      - 0.0
    * - :ref:`sphx_glr_api_gallery_control_systems_frequency_plot_02_bode_stability_margins.py` (``../../examples/control_systems/frequency/plot_02_bode_stability_margins.py``)
-     - 00:00.201
+     - 00:00.211
      - 0.0
    * - :ref:`sphx_glr_api_gallery_aerodynamics_performance_plot_01_breguet_range.py` (``../../examples/aerodynamics/performance/plot_01_breguet_range.py``)
-     - 00:00.195
+     - 00:00.203
      - 0.0
    * - :ref:`sphx_glr_api_gallery_aerodynamics_compressible_plot_01_laplace_speed_of_sound.py` (``../../examples/aerodynamics/compressible/plot_01_laplace_speed_of_sound.py``)
-     - 00:00.193
-     - 0.0
-   * - :ref:`sphx_glr_api_gallery_communications_multiplexing_plot_01_ofdm_cyclic_prefix.py` (``../../examples/communications/multiplexing/plot_01_ofdm_cyclic_prefix.py``)
-     - 00:00.193
-     - 0.0
-   * - :ref:`sphx_glr_api_gallery_aerodynamics_forces_plot_02_cayley_lift_and_drag.py` (``../../examples/aerodynamics/forces/plot_02_cayley_lift_and_drag.py``)
-     - 00:00.191
-     - 0.0
-   * - :ref:`sphx_glr_api_gallery_communications_detection_plot_02_cahn_quadrature_qpsk.py` (``../../examples/communications/detection/plot_02_cahn_quadrature_qpsk.py``)
-     - 00:00.187
-     - 0.0
-   * - :ref:`sphx_glr_api_gallery_communications_propagation_plot_03_telstar_link_budget.py` (``../../examples/communications/propagation/plot_03_telstar_link_budget.py``)
-     - 00:00.186
+     - 00:00.201
      - 0.0
    * - :ref:`sphx_glr_api_gallery_aerodynamics_forces_plot_01_bernoulli_dynamic_pressure.py` (``../../examples/aerodynamics/forces/plot_01_bernoulli_dynamic_pressure.py``)
-     - 00:00.184
+     - 00:00.200
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_aerodynamics_forces_plot_02_cayley_lift_and_drag.py` (``../../examples/aerodynamics/forces/plot_02_cayley_lift_and_drag.py``)
+     - 00:00.198
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_communications_multiplexing_plot_01_ofdm_cyclic_prefix.py` (``../../examples/communications/multiplexing/plot_01_ofdm_cyclic_prefix.py``)
+     - 00:00.198
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_communications_propagation_plot_03_telstar_link_budget.py` (``../../examples/communications/propagation/plot_03_telstar_link_budget.py``)
+     - 00:00.192
      - 0.0
    * - :ref:`sphx_glr_api_gallery_aerodynamics_compressible_plot_03_saint_venant_stagnation.py` (``../../examples/aerodynamics/compressible/plot_03_saint_venant_stagnation.py``)
-     - 00:00.184
+     - 00:00.192
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_communications_detection_plot_02_cahn_quadrature_qpsk.py` (``../../examples/communications/detection/plot_02_cahn_quadrature_qpsk.py``)
+     - 00:00.192
      - 0.0
    * - :ref:`sphx_glr_api_gallery_control_systems_feedback_plot_04_ziegler_nichols_tuning.py` (``../../examples/control_systems/feedback/plot_04_ziegler_nichols_tuning.py``)
-     - 00:00.181
+     - 00:00.189
      - 0.0
    * - :ref:`sphx_glr_api_gallery_aerodynamics_wings_plot_02_induced_drag_elliptic_loading.py` (``../../examples/aerodynamics/wings/plot_02_induced_drag_elliptic_loading.py``)
-     - 00:00.174
+     - 00:00.183
      - 0.0
    * - :ref:`sphx_glr_api_gallery_control_systems_sampled_plot_01_ragazzini_zadeh_zero_order_hold.py` (``../../examples/control_systems/sampled/plot_01_ragazzini_zadeh_zero_order_hold.py``)
-     - 00:00.171
+     - 00:00.176
      - 0.0
    * - :ref:`sphx_glr_api_gallery_thermodynamics_plot_thermodynamics_benchmark.py` (``../../examples/thermodynamics/plot_thermodynamics_benchmark.py``)
-     - 00:00.170
+     - 00:00.175
      - 0.0
    * - :ref:`sphx_glr_api_gallery_communications_modulation_plot_02_carson_suppressed_carrier.py` (``../../examples/communications/modulation/plot_02_carson_suppressed_carrier.py``)
-     - 00:00.161
+     - 00:00.166
      - 0.0
    * - :ref:`sphx_glr_api_gallery_communications_information_plot_01_nyquist_signalling_rate.py` (``../../examples/communications/information/plot_01_nyquist_signalling_rate.py``)
-     - 00:00.155
-     - 0.0
-   * - :ref:`sphx_glr_api_gallery_control_systems_feedback_plot_02_minorsky_pid_ship_steering.py` (``../../examples/control_systems/feedback/plot_02_minorsky_pid_ship_steering.py``)
-     - 00:00.154
+     - 00:00.162
      - 0.0
    * - :ref:`sphx_glr_api_gallery_aerodynamics_compressible_plot_04_prandtl_glauert.py` (``../../examples/aerodynamics/compressible/plot_04_prandtl_glauert.py``)
-     - 00:00.151
+     - 00:00.159
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_control_systems_feedback_plot_02_minorsky_pid_ship_steering.py` (``../../examples/control_systems/feedback/plot_02_minorsky_pid_ship_steering.py``)
+     - 00:00.159
      - 0.0
    * - :ref:`sphx_glr_api_gallery_aerodynamics_wings_plot_03_oswald_drag_polar.py` (``../../examples/aerodynamics/wings/plot_03_oswald_drag_polar.py``)
-     - 00:00.150
+     - 00:00.157
      - 0.0
    * - :ref:`sphx_glr_api_gallery_mechanical_engineering_plot_mechanical_engineering_models.py` (``../../examples/mechanical_engineering/plot_mechanical_engineering_models.py``)
-     - 00:00.147
+     - 00:00.154
      - 0.0
    * - :ref:`sphx_glr_api_gallery_control_systems_root_locus_plot_01_evans_root_locus.py` (``../../examples/control_systems/root_locus/plot_01_evans_root_locus.py``)
-     - 00:00.146
+     - 00:00.153
      - 0.0
    * - :ref:`sphx_glr_api_gallery_control_systems_feedback_plot_01_watt_centrifugal_governor.py` (``../../examples/control_systems/feedback/plot_01_watt_centrifugal_governor.py``)
-     - 00:00.139
+     - 00:00.145
      - 0.0
    * - :ref:`sphx_glr_api_gallery_structural_engineering_plot_structural_engineering_models.py` (``../../examples/structural_engineering/plot_structural_engineering_models.py``)
-     - 00:00.137
-     - 0.0
-   * - :ref:`sphx_glr_api_gallery_aerodynamics_forces_plot_04_wright_smeaton_stall_speed.py` (``../../examples/aerodynamics/forces/plot_04_wright_smeaton_stall_speed.py``)
-     - 00:00.129
+     - 00:00.143
      - 0.0
    * - :ref:`sphx_glr_api_gallery_mechanical_engineering_plot_mechanical_engineering_benchmark.py` (``../../examples/mechanical_engineering/plot_mechanical_engineering_benchmark.py``)
-     - 00:00.127
+     - 00:00.133
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_aerodynamics_forces_plot_04_wright_smeaton_stall_speed.py` (``../../examples/aerodynamics/forces/plot_04_wright_smeaton_stall_speed.py``)
+     - 00:00.133
      - 0.0
    * - :ref:`sphx_glr_api_gallery_aerodynamics_forces_plot_03_lilienthal_coefficients.py` (``../../examples/aerodynamics/forces/plot_03_lilienthal_coefficients.py``)
-     - 00:00.122
+     - 00:00.127
      - 0.0
    * - :ref:`sphx_glr_api_gallery_control_systems_stability_plot_02_routh_stability_criterion.py` (``../../examples/control_systems/stability/plot_02_routh_stability_criterion.py``)
-     - 00:00.114
+     - 00:00.119
      - 0.0
    * - :ref:`sphx_glr_api_gallery_structural_engineering_plot_structural_engineering_benchmark.py` (``../../examples/structural_engineering/plot_structural_engineering_benchmark.py``)
-     - 00:00.102
+     - 00:00.103
      - 0.0
    * - :ref:`sphx_glr_api_gallery_aerodynamics_compressible_plot_02_mach_cone.py` (``../../examples/aerodynamics/compressible/plot_02_mach_cone.py``)
-     - 00:00.099
+     - 00:00.103
      - 0.0
    * - :ref:`sphx_glr_api_gallery_signal_processing_plot_signal_processing_benchmark.py` (``../../examples/signal_processing/plot_signal_processing_benchmark.py``)
-     - 00:00.094
+     - 00:00.100
      - 0.0
    * - :ref:`sphx_glr_api_gallery_communications_noise_plot_02_friis_cascaded_noise.py` (``../../examples/communications/noise/plot_02_friis_cascaded_noise.py``)
-     - 00:00.092
+     - 00:00.095
      - 0.0
    * - :ref:`sphx_glr_api_gallery_communications_decibels_plot_01_bell_decibel.py` (``../../examples/communications/decibels/plot_01_bell_decibel.py``)
-     - 00:00.088
+     - 00:00.092
      - 0.0
    * - :ref:`sphx_glr_api_gallery_heat_transfer_plot_heat_transfer_models.py` (``../../examples/heat_transfer/plot_heat_transfer_models.py``)
-     - 00:00.086
+     - 00:00.089
      - 0.0
    * - :ref:`sphx_glr_api_gallery_materials_plot_materials_models.py` (``../../examples/materials/plot_materials_models.py``)
-     - 00:00.083
+     - 00:00.086
      - 0.0
    * - :ref:`sphx_glr_api_gallery_electrical_engineering_plot_electrical_engineering_models.py` (``../../examples/electrical_engineering/plot_electrical_engineering_models.py``)
-     - 00:00.083
-     - 0.0
-   * - :ref:`sphx_glr_api_gallery_reliability_plot_reliability_benchmark.py` (``../../examples/reliability/plot_reliability_benchmark.py``)
-     - 00:00.076
+     - 00:00.085
      - 0.0
    * - :ref:`sphx_glr_api_gallery_thermodynamics_plot_thermodynamics_models.py` (``../../examples/thermodynamics/plot_thermodynamics_models.py``)
-     - 00:00.076
+     - 00:00.079
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_reliability_plot_reliability_benchmark.py` (``../../examples/reliability/plot_reliability_benchmark.py``)
+     - 00:00.079
      - 0.0
    * - :ref:`sphx_glr_api_gallery_materials_plot_materials_benchmark.py` (``../../examples/materials/plot_materials_benchmark.py``)
-     - 00:00.076
+     - 00:00.078
      - 0.0
    * - :ref:`sphx_glr_api_gallery_reliability_plot_reliability_models.py` (``../../examples/reliability/plot_reliability_models.py``)
-     - 00:00.073
+     - 00:00.075
      - 0.0
    * - :ref:`sphx_glr_api_gallery_electrical_engineering_plot_electrical_engineering_benchmark.py` (``../../examples/electrical_engineering/plot_electrical_engineering_benchmark.py``)
-     - 00:00.061
+     - 00:00.063
      - 0.0
    * - :ref:`sphx_glr_api_gallery_signal_processing_plot_signal_processing_models.py` (``../../examples/signal_processing/plot_signal_processing_models.py``)
-     - 00:00.060
+     - 00:00.062
      - 0.0
    * - :ref:`sphx_glr_api_gallery_fluid_engineering_plot_fluid_engineering_benchmark.py` (``../../examples/fluid_engineering/plot_fluid_engineering_benchmark.py``)
-     - 00:00.058
+     - 00:00.062
      - 0.0
    * - :ref:`sphx_glr_api_gallery_heat_transfer_plot_heat_transfer_benchmark.py` (``../../examples/heat_transfer/plot_heat_transfer_benchmark.py``)
-     - 00:00.056
+     - 00:00.060
      - 0.0

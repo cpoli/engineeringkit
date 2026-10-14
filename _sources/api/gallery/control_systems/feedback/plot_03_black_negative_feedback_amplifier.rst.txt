@@ -11,7 +11,7 @@
         :class: sphx-glr-download-link-note
 
         :ref:`Go to the end <sphx_glr_download_api_gallery_control_systems_feedback_plot_03_black_negative_feedback_amplifier.py>`
-        to download the full example code.
+        to download the full example code or to run this example in your browser via JupyterLite.
 
 .. rst-class:: sphx-glr-example-title
 
@@ -117,7 +117,7 @@ Gain traded for bandwidth
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.203 seconds)
+   **Total running time of the script:** (0 minutes 0.212 seconds)
 
 
 .. _sphx_glr_download_api_gallery_control_systems_feedback_plot_03_black_negative_feedback_amplifier.py:
@@ -125,6 +125,13 @@ Gain traded for bandwidth
 .. only:: html
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
+
+    .. container:: lite-badge
+
+      .. image:: images/jupyterlite_badge_logo.svg
+        :target: ../../../../lite/lab/index.html?path=api/gallery/control_systems/feedback/plot_03_black_negative_feedback_amplifier.ipynb
+        :alt: Launch JupyterLite
+        :width: 150 px
 
     .. container:: sphx-glr-download sphx-glr-download-jupyter
 
