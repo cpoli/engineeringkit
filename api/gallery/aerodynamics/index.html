@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Examples &#8212; engineeringkit 0.1.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css?v=c83e6b79" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/engineeringkit.css?v=62935cec" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../../_static/scripts/fontawesome.js?digest=18bd87630a240e9c25be"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be" />
+
+    <script src="../../../_static/documentation_options.js?v=38b66d78"></script>
+    <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../_static/sg-tags.js?v=d80f6fa4"></script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'api/gallery/aerodynamics/index';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Airfoils" href="airfoils/index.html" />
+    <link rel="prev" title="Parallel and counterflow heat exchangers" href="../heat_transfer/plot_heat_transfer_models.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="color-scheme" content="light dark"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../../_static/searchtools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script src="../../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/engineeringkit_logo_transparent.png" class="logo__image only-light" alt="engineeringkit logo"/>
+    <img src="../../../_static/engineeringkit_logo_transparent.png" class="logo__image only-dark pst-js-only" alt="engineeringkit logo"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../subpackages/index.html">
+    Subpackages
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../history/index.html">
+    History
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../index.html">
+    API
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button type="button" class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../subpackages/index.html">
+    Subpackages
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../history/index.html">
+    History
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../index.html">
+    API
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button type="button" id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar">
+  <svg class="pst-icon" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../structural_engineering/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../structural_engineering/plot_structural_engineering_benchmark.html">Buckling and effective length</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../structural_engineering/plot_structural_engineering_models.html">Beam deflection under a uniform load</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../mechanical_engineering/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../mechanical_engineering/plot_mechanical_engineering_benchmark.html">Oscillator energy balance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mechanical_engineering/plot_mechanical_engineering_models.html">Damping and vibration histories</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../thermodynamics/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../thermodynamics/plot_thermodynamics_benchmark.html">Carnot engine and heat-pump limits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../thermodynamics/plot_thermodynamics_models.html">Ideal power-cycle efficiency</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../fluid_engineering/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../fluid_engineering/plot_fluid_engineering_benchmark.html">Poiseuille profile and volume flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fluid_engineering/plot_fluid_engineering_models.html">Darcy friction across two flow regimes</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../heat_transfer/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../heat_transfer/plot_heat_transfer_benchmark.html">Cooling and the lumped time constant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../heat_transfer/plot_heat_transfer_models.html">Parallel and counterflow heat exchangers</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a aria-current="page" class="current reference internal" href="#">Examples</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="airfoils/index.html">Airfoils</a></li>
+<li class="toctree-l2"><a class="reference internal" href="atmosphere/index.html">Standard atmosphere</a></li>
+<li class="toctree-l2"><a class="reference internal" href="boundary_layer/index.html">Boundary layers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="circulation/index.html">Circulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compressible/index.html">Compressible flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="forces/index.html">Forces and coefficients</a></li>
+<li class="toctree-l2"><a class="reference internal" href="performance/index.html">Performance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wings/index.html">Finite wings</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../electrical_engineering/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../electrical_engineering/plot_electrical_engineering_benchmark.html">RC charge and energy accounting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../electrical_engineering/plot_electrical_engineering_models.html">RLC current after a voltage step</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../control_systems/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../control_systems/feedback/index.html">Feedback</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../control_systems/frequency/index.html">Frequency response</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../control_systems/optimal/index.html">Optimal control and estimation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../control_systems/root_locus/index.html">Root locus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../control_systems/sampled/index.html">Sampled-data control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../control_systems/stability/index.html">Stability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../control_systems/state_space/index.html">State space</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../control_systems/time_response/index.html">Time response</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../signal_processing/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../signal_processing/plot_signal_processing_benchmark.html">Aliasing before reconstruction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../signal_processing/plot_signal_processing_models.html">Sampling and a signal spectrum</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../communications/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../communications/coding/index.html">Coding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../communications/decibels/index.html">Decibels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../communications/detection/index.html">Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../communications/information/index.html">Information and capacity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../communications/modulation/index.html">Modulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../communications/multiplexing/index.html">Multiplexing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../communications/noise/index.html">Noise</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../communications/propagation/index.html">Propagation</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../materials/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../materials/plot_materials_benchmark.html">Crack size and fracture threshold</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../materials/plot_materials_models.html">Voigt and Reuss composite bounds</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../reliability/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../reliability/plot_reliability_benchmark.html">Redundancy under independent failures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reliability/plot_reliability_models.html">Weibull survival and shape</a></li>
+</ul>
+</details></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../quickstart.html">Installation and quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../numerical_methods.html">Numerical methods and inspectable histories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../guides/structural_engineering.html">Structural engineering: loads, signs and linear elasticity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../guides/mechanical_engineering.html">Mechanical engineering: power, vibration and mechanism geometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../guides/thermodynamics.html">Thermodynamics: total versus specific quantities and cycle states</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../guides/fluid_engineering.html">Fluid engineering: flow regimes and signed quantities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../guides/heat_transfer.html">Heat transfer: absolute temperatures and resistance accounting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../guides/aerodynamics.html">Aerodynamics: incompressible limits and compressible conservation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../guides/electrical_engineering.html">Electrical engineering: passive components and circuit responses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../guides/control_systems.html">Control systems: matrix contracts and numerical stability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../guides/signal_processing.html">Signal processing: sampled energy, spectra and quantization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../guides/communications.html">Communications: linear ratios, modulation phase and channel scope</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../guides/materials.html">Materials: elasticity, fracture and fatigue conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../guides/reliability.html">Reliability: distributions, independence and rate units</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../../examples/index.html" class="nav-link">Examples</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Examples</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="examples">
+<h1>Examples<a class="headerlink" href="#examples" title="Link to this heading">#</a></h1>
+<div class="subpkg-nav docutils container">
+<p><a class="reference internal" href="../../../_generated/subpackages/aerodynamics.html"><span class="doc">Domain hub</span></a> · <a class="reference internal" href="../../../history/aerodynamics_breakthroughs.html"><span class="doc">History</span></a> · <a class="reference internal" href="#"><span class="doc">Examples</span></a> · <a class="reference internal" href="../../aerodynamics.html"><span class="doc">API reference</span></a></p>
+</div>
+<p>This gallery walks through every public feature of <code class="docutils literal notranslate"><span class="pre">engineeringkit.aerodynamics</span></code>,
+one breakthrough per script: dynamic pressure and force coefficients,
+circulation lift, airfoil sections, finite wings, cruise performance,
+boundary layers, compressible flow and the standard atmosphere.</p>
+<p><a class="reference internal" href="../../../guides/aerodynamics.html"><span class="doc">Units, assumptions and numerical validation</span></a>
+gives the physical validity limits. Each script is self-contained and can be
+run directly with <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">examples/aerodynamics/&lt;section&gt;/&lt;script&gt;.py</span></code>.</p>
+<section id="sections">
+<h2>Sections<a class="headerlink" href="#sections" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>forces</strong> – Bernoulli’s dynamic pressure, Cayley’s lift/drag split,
+Lilienthal’s coefficients and the Wrights’ correction of Smeaton’s coefficient.</p></li>
+<li><p><strong>circulation</strong> – the Kutta-Joukowski theorem on a spinning cylinder.</p></li>
+<li><p><strong>airfoils</strong> – NACA four-digit sections and thin-airfoil theory.</p></li>
+<li><p><strong>wings</strong> – Prandtl’s lifting line, induced drag and the Oswald drag polar.</p></li>
+<li><p><strong>performance</strong> – the Breguet range equation.</p></li>
+<li><p><strong>boundary_layer</strong> – Reynolds similarity, the Blasius layer and turbulent skin friction.</p></li>
+<li><p><strong>compressible</strong> – sound speed, the Mach cone, stagnation states,
+Prandtl-Glauert, normal shocks and the de Laval nozzle.</p></li>
+<li><p><strong>atmosphere</strong> – the International Standard Atmosphere.</p></li>
+</ul>
+<div id='sg-tag-list' class='sphx-glr-tag-list'></div><div class="sphx-glr-thumbnails"></div></section>
+<section id="airfoils">
+<h2>Airfoils<a class="headerlink" href="#airfoils" title="Link to this heading">#</a></h2>
+<p>NACA four-digit section geometry and thin-airfoil theory.</p>
+<div id='sg-tag-list' class='sphx-glr-tag-list'></div><div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="In NACA Report 460 (1933) Eastman Jacobs and colleagues tested 78 related sections in the variable-density tunnel. Each is defined by a single thickness polynomial wrapped around a two-parabola camber line, so four digits specify the whole shape: 2412 has 2% camber at 40% chord and is 12% thick. naca4_airfoil builds the coordinates; summary recovers the digits from the geometry."><img alt="" src="../../../_images/sphx_glr_plot_01_naca_four_digit_sections_thumb.png" />
+<p><a class="reference internal" href="airfoils/plot_01_naca_four_digit_sections.html"><span class="doc">The NACA four-digit airfoil family</span></a></p>
+  <div class="sphx-glr-thumbnail-title">The NACA four-digit airfoil family</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Max Munk (1922) and Hermann Glauert (1926) replaced a thin section by a vortex sheet on its camber line. Satisfying flow tangency gives a lift slope of exactly 2\pi per radian for every thin section, while camber only shifts the curve by a zero-lift angle given by an integral of the camber slope. naca4_zero_lift_angle evaluates that integral for NACA four-digit camber lines, and thin_airfoil_cl gives the lift line."><img alt="" src="../../../_images/sphx_glr_plot_02_thin_airfoil_theory_thumb.png" />
+<p><a class="reference internal" href="airfoils/plot_02_thin_airfoil_theory.html"><span class="doc">Thin-airfoil theory: lift slope 2π and the camber shift</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Thin-airfoil theory: lift slope 2π and the camber shift</div>
+</div></div></section>
+<section id="standard-atmosphere">
+<h2>Standard atmosphere<a class="headerlink" href="#standard-atmosphere" title="Link to this heading">#</a></h2>
+<p>Temperature, pressure and density with altitude.</p>
+<div id='sg-tag-list' class='sphx-glr-tag-list'></div><div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Aircraft performance depends on air density, which changes with weather. Albert Toussaint proposed a reference atmosphere in 1919, and ICAO adopted the International Standard Atmosphere in 1952: a 6.5 K/km linear lapse to the tropopause at 11 km, then an isothermal layer. Hydrostatic balance and the ideal-gas law give closed-form pressure and density (~engineeringkit.aerodynamics.isa_atmosphere). This example checks hydrostatic balance numerically and shows how thin air raises the stall speed."><img alt="" src="../../../_images/sphx_glr_plot_01_international_standard_atmosphere_thumb.png" />
+<p><a class="reference internal" href="atmosphere/plot_01_international_standard_atmosphere.html"><span class="doc">The International Standard Atmosphere</span></a></p>
+  <div class="sphx-glr-thumbnail-title">The International Standard Atmosphere</div>
+</div></div></section>
+<section id="boundary-layers">
+<h2>Boundary layers<a class="headerlink" href="#boundary-layers" title="Link to this heading">#</a></h2>
+<p>Reynolds-number similarity and laminar/turbulent flat-plate friction.</p>
+<div id='sg-tag-list' class='sphx-glr-tag-list'></div><div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Osborne Reynolds&#x27; dye experiments (1883) showed that pipe flow turns turbulent when \rho V D/\mu exceeds a critical value, whatever the individual fluid, speed or diameter. The same number (~engineeringkit.aerodynamics.reynolds_number) decides whether a scale model reproduces full-scale flow: matching it at reduced size forces higher speed or denser gas, which is why NACA built a pressurised variable-density tunnel in 1923."><img alt="" src="../../../_images/sphx_glr_plot_01_reynolds_similarity_thumb.png" />
+<p><a class="reference internal" href="boundary_layer/plot_01_reynolds_similarity.html"><span class="doc">Reynolds’ dimensionless number and wind-tunnel similarity</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Reynolds' dimensionless number and wind-tunnel similarity</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="At the 1904 Heidelberg congress Ludwig Prandtl proposed that viscosity matters only in a thin boundary layer next to a surface. His student Heinrich Blasius (1908) reduced the flat-plate layer to the ordinary differential equation f&#x27;&#x27;&#x27; + \tfrac12 f f&#x27;&#x27; = 0. Solving it by shooting recovers the constants behind boundary_layer_laminar (\delta_{99} \approx 5x/\sqrt{Re_x}) and skin_friction_laminar (C_f = 1.328/\sqrt{Re_L})."><img alt="" src="../../../_images/sphx_glr_plot_02_prandtl_blasius_boundary_layer_thumb.png" />
+<p><a class="reference internal" href="boundary_layer/plot_02_prandtl_blasius_boundary_layer.html"><span class="doc">Prandtl’s boundary layer and the Blasius solution</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Prandtl's boundary layer and the Blasius solution</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Prandtl (1927) carried Blasius&#x27;s empirical pipe-friction law over to the turbulent flat plate, with a u \propto y^{1/7} velocity profile. The result, C_f = 0.074\,Re_L^{-1/5} (~engineeringkit.aerodynamics.skin_friction_turbulent), decays far more slowly with Reynolds number than the laminar 1.328\,Re_L^{-1/2}; a turbulent layer can carry several times the friction drag. This example compares the two and the payoff of delaying transition."><img alt="" src="../../../_images/sphx_glr_plot_03_turbulent_skin_friction_thumb.png" />
+<p><a class="reference internal" href="boundary_layer/plot_03_turbulent_skin_friction.html"><span class="doc">Turbulent skin friction and the one-fifth-power law</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Turbulent skin friction and the one-fifth-power law</div>
+</div></div></section>
+<section id="circulation">
+<h2>Circulation<a class="headerlink" href="#circulation" title="Link to this heading">#</a></h2>
+<p>Lift as the product of density, speed and circulation.</p>
+<div id='sg-tag-list' class='sphx-glr-tag-list'></div><div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Martin Kutta (1902) and Nikolai Joukowski (1906) showed that the lift per unit span on any two-dimensional body in a steady inviscid stream is L&#x27; = \rho V \Gamma, where \Gamma is the circulation around the body (~engineeringkit.aerodynamics.kutta_joukowski_lift). The cleanest check is potential flow past a cylinder with circulation (a model of the Magnus effect): integrating the Bernoulli surface pressure around the cylinder reproduces \rho V\Gamma exactly, and the drag integrates to zero (d&#x27;Alembert&#x27;s paradox)."><img alt="" src="../../../_images/sphx_glr_plot_01_kutta_joukowski_spinning_cylinder_thumb.png" />
+<p><a class="reference internal" href="circulation/plot_01_kutta_joukowski_spinning_cylinder.html"><span class="doc">The Kutta-Joukowski theorem on a spinning cylinder</span></a></p>
+  <div class="sphx-glr-thumbnail-title">The Kutta-Joukowski theorem on a spinning cylinder</div>
+</div></div></section>
+<section id="compressible-flow">
+<h2>Compressible flow<a class="headerlink" href="#compressible-flow" title="Link to this heading">#</a></h2>
+<p>Sound speed, Mach waves, isentropic stagnation states, compressibility corrections, shocks and nozzles.</p>
+<div id='sg-tag-list' class='sphx-glr-tag-list'></div><div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Newton&#x27;s Principia (1687) predicted the speed of sound assuming the compressions are isothermal, a = \sqrt{p/\rho} = \sqrt{RT}, about 15% below measurement. Pierre-Simon Laplace (1816) argued that the compressions are too fast to exchange heat, so they are adiabatic and the stiffness rises by \gamma: a = \sqrt{\gamma R T} (~engineeringkit.aerodynamics.speed_of_sound). The Mach number (~engineeringkit.aerodynamics.mach_number) measures speed in units of this local sound speed."><img alt="" src="../../../_images/sphx_glr_plot_01_laplace_speed_of_sound_thumb.png" />
+<p><a class="reference internal" href="compressible/plot_01_laplace_speed_of_sound.html"><span class="doc">Newton, Laplace and the speed of sound</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Newton, Laplace and the speed of sound</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="In 1887 Ernst Mach and Peter Salcher photographed a supersonic bullet and saw a conical wave trailing from its nose. A source moving faster than sound outruns its own wavefronts; their envelope is a cone of half-angle \mu = \arcsin(1/M) (~engineeringkit.aerodynamics.mach_angle). This example draws the wavefronts emitted along the path and checks that the envelope matches the Mach angle."><img alt="" src="../../../_images/sphx_glr_plot_02_mach_cone_thumb.png" />
+<p><a class="reference internal" href="compressible/plot_02_mach_cone.html"><span class="doc">Ernst Mach’s shock photographs and the Mach cone</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Ernst Mach's shock photographs and the Mach cone</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Adhémar Barré de Saint-Venant and Pierre Wantzel&#x27;s 1839 experiments on air escaping from a reservoir gave the first correct compressible-flow formula: along an adiabatic, frictionless streamline T_0/T = 1 + \tfrac{\gamma-1}{2}M^2 and p_0/p = (T_0/T)^{\gamma/(\gamma-1)} (~engineeringkit.aerodynamics.stagnation_temperature, stagnation_pressure). Expanding for small M recovers Bernoulli&#x27;s p_0 - p = \tfrac12\rho V^2; the difference measures how wrong an incompressible pitot formula becomes."><img alt="" src="../../../_images/sphx_glr_plot_03_saint_venant_stagnation_thumb.png" />
+<p><a class="reference internal" href="compressible/plot_03_saint_venant_stagnation.html"><span class="doc">Saint-Venant and Wantzel: isentropic stagnation states</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Saint-Venant and Wantzel: isentropic stagnation states</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Hermann Glauert (1928), building on remarks by Prandtl, showed that the linearised subsonic potential equation is Laplace&#x27;s equation in stretched coordinates. Every pressure coefficient of a thin body is therefore amplified by 1/\sqrt{1-M_\infty^2} (~engineeringkit.aerodynamics.prandtl_glauert_cp), a factor that blows up at M = 1 and fed the myth of an impenetrable &quot;sound barrier&quot;. The Kármán-Tsien rule (1939) is plotted alongside: the two agree at low Mach and diverge as the flow becomes transonic."><img alt="" src="../../../_images/sphx_glr_plot_04_prandtl_glauert_thumb.png" />
+<p><a class="reference internal" href="compressible/plot_04_prandtl_glauert.html"><span class="doc">The Prandtl-Glauert compressibility correction</span></a></p>
+  <div class="sphx-glr-thumbnail-title">The Prandtl-Glauert compressibility correction</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="W. J. Macquorn Rankine (1870) and Pierre-Henri Hugoniot (1887-1889) derived the jump in state across a shock from conservation of mass, momentum and energy alone. For a normal shock in a perfect gas the downstream Mach number and pressure ratio are normal_shock_mach2 and normal_shock_pressure_ratio. This example reconstructs the full downstream state and checks the three conservation laws, the entropy rise, and the loss of stagnation pressure."><img alt="" src="../../../_images/sphx_glr_plot_05_rankine_hugoniot_normal_shock_thumb.png" />
+<p><a class="reference internal" href="compressible/plot_05_rankine_hugoniot_normal_shock.html"><span class="doc">Rankine-Hugoniot jump conditions across a normal shock</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Rankine-Hugoniot jump conditions across a normal shock</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Gustaf de Laval&#x27;s 1888 steam-turbine nozzle first converged and then diverged, and accelerated steam beyond the speed of sound. The quasi-one- dimensional isentropic relation A/A^* (~engineeringkit.aerodynamics.area_mach_ratio) explains why: subsonic flow speeds up in a converging duct, supersonic flow in a diverging one, and the sonic point sits at the throat. Each area ratio has a subsonic and a supersonic solution; this example finds both with a root bracket and traces the Mach number through a nozzle."><img alt="" src="../../../_images/sphx_glr_plot_06_de_laval_nozzle_thumb.png" />
+<p><a class="reference internal" href="compressible/plot_06_de_laval_nozzle.html"><span class="doc">De Laval’s converging-diverging nozzle</span></a></p>
+  <div class="sphx-glr-thumbnail-title">De Laval's converging-diverging nozzle</div>
+</div></div></section>
+<section id="forces-and-coefficients">
+<h2>Forces and coefficients<a class="headerlink" href="#forces-and-coefficients" title="Link to this heading">#</a></h2>
+<p>Dynamic pressure, the lift/drag decomposition and dimensionless force coefficients.</p>
+<div id='sg-tag-list' class='sphx-glr-tag-list'></div><div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Daniel Bernoulli&#x27;s Hydrodynamica (1738) traded pressure for speed along a streamline: p + \tfrac12\rho V^2 is constant. A pitot tube brings the flow to rest and reads the total pressure; the static port reads p; their difference is the dynamic pressure q = \tfrac12\rho V^2 from dynamic_pressure. Inverting it gives the airspeed, but only if the right density is used: the same pitot reading means a higher true airspeed at altitude."><img alt="" src="../../../_images/sphx_glr_plot_01_bernoulli_dynamic_pressure_thumb.png" />
+<p><a class="reference internal" href="forces/plot_01_bernoulli_dynamic_pressure.html"><span class="doc">Bernoulli’s dynamic pressure and the pitot-static airspeed</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Bernoulli's dynamic pressure and the pitot-static airspeed</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="George Cayley&#x27;s On Aerial Navigation (1809-1810) proposed the modern aeroplane by separating the problem: a fixed wing supports the weight (lift), and a separate propulsion system overcomes the resistance (drag). In steady level flight lift equals weight and thrust equals drag. Here lift and drag turn coefficients into forces for a light aircraft, and the required lift coefficient and thrust are traced across the speed range."><img alt="" src="../../../_images/sphx_glr_plot_02_cayley_lift_and_drag_thumb.png" />
+<p><a class="reference internal" href="forces/plot_02_cayley_lift_and_drag.html"><span class="doc">Cayley’s separation of lift and drag in level flight</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Cayley's separation of lift and drag in level flight</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Otto Lilienthal&#x27;s Der Vogelflug als Grundlage der Fliegekunst (1889) tabulated the forces on cambered wings measured on a whirling arm, reduced to dimensionless coefficients and plotted against each other in a polar diagram. Dividing a measured force by qS removes the dependence on speed and size, so tests at one speed predict forces at another. This example reduces synthetic whirling-arm measurements with lift_coefficient and drag_coefficient and reads the best glide ratio off the polar with glide_ratio."><img alt="" src="../../../_images/sphx_glr_plot_03_lilienthal_coefficients_thumb.png" />
+<p><a class="reference internal" href="forces/plot_03_lilienthal_coefficients.html"><span class="doc">Lilienthal’s lift and drag coefficients and the polar diagram</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Lilienthal's lift and drag coefficients and the polar diagram</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="The nineteenth-century lift equation was L = k V^2 S C_L with Smeaton&#x27;s coefficient k = 0.005 lb/(ft² mph²). After their 1901 glider lifted far less than predicted, Wilbur and Orville Wright measured k \approx 0.0033 in their own wind tunnel; the modern value, \tfrac12\rho at sea level, is 0.00256. Since the minimum flying speed V_s = \sqrt{2W/(\rho S C_{L,\max})} (~engineeringkit.aerodynamics.stall_speed) scales as 1/\sqrt{k}, Smeaton&#x27;s value under-predicts the take-off speed of the 1903 Flyer by about 30%."><img alt="" src="../../../_images/sphx_glr_plot_04_wright_smeaton_stall_speed_thumb.png" />
+<p><a class="reference internal" href="forces/plot_04_wright_smeaton_stall_speed.html"><span class="doc">The Wright brothers, Smeaton’s coefficient and the stall speed</span></a></p>
+  <div class="sphx-glr-thumbnail-title">The Wright brothers, Smeaton's coefficient and the stall speed</div>
+</div></div></section>
+<section id="performance">
+<h2>Performance<a class="headerlink" href="#performance" title="Link to this heading">#</a></h2>
+<p>Cruise range from aerodynamic efficiency and engine fuel consumption.</p>
+<div id='sg-tag-list' class='sphx-glr-tag-list'></div><div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Louis Breguet&#x27;s range formula (1923) follows from three facts: thrust equals drag, drag equals weight divided by L/D, and fuel flow is the thrust-specific fuel consumption times thrust. Integrating the weight loss gives R = \frac{V}{g c_T}\frac{L}{D}\ln\frac{W_i}{W_f} (~engineeringkit.aerodynamics.breguet_range): range is the product of engine efficiency, aerodynamic efficiency and a logarithmic fuel fraction. This example checks it against a time-stepped cruise and shows why airliners fly near the best-glide lift coefficient."><img alt="" src="../../../_images/sphx_glr_plot_01_breguet_range_thumb.png" />
+<p><a class="reference internal" href="performance/plot_01_breguet_range.html"><span class="doc">The Breguet range equation</span></a></p>
+  <div class="sphx-glr-thumbnail-title">The Breguet range equation</div>
+</div></div></section>
+<section id="finite-wings">
+<h2>Finite wings<a class="headerlink" href="#finite-wings" title="Link to this heading">#</a></h2>
+<p>Lifting-line theory, induced drag and the parabolic drag polar.</p>
+<div id='sg-tag-list' class='sphx-glr-tag-list'></div><div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Ludwig Prandtl&#x27;s Tragflügeltheorie (1918) modelled a wing as a bound vortex of varying strength shedding a sheet of trailing vortices. The downwash they induce lowers the effective angle of attack, so a finite wing&#x27;s lift slope is a = a_0/(1 + a_0/(\pi e AR)) (~engineeringkit.aerodynamics.finite_wing_lift_slope). This example solves Glauert&#x27;s Fourier form of the lifting-line equation for a rectangular wing and compares the computed slope with the closed form."><img alt="" src="../../../_images/sphx_glr_plot_01_prandtl_lifting_line_thumb.png" />
+<p><a class="reference internal" href="wings/plot_01_prandtl_lifting_line.html"><span class="doc">Prandtl’s lifting-line theory and the finite-wing lift slope</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Prandtl's lifting-line theory and the finite-wing lift slope</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Prandtl and Max Munk (1918-1919) showed that the trailing vortices carry away kinetic energy at a rate that appears as an induced drag, C_{D,i} = C_L^2/(\pi e AR) (~engineeringkit.aerodynamics.induced_drag_coefficient), and that the elliptic spanwise load (e = 1) minimises it for a given span and lift. This example builds spanwise loads, computes their induced drag from the Fourier coefficients, and confirms the ellipse wins."><img alt="" src="../../../_images/sphx_glr_plot_02_induced_drag_elliptic_loading_thumb.png" />
+<p><a class="reference internal" href="wings/plot_02_induced_drag_elliptic_loading.html"><span class="doc">Induced drag and the optimality of elliptic loading</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Induced drag and the optimality of elliptic loading</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="W. Bailey Oswald&#x27;s NACA Report 408 (1933) folded every source of lift-dependent drag of a whole aeroplane into one efficiency factor, so its drag polar becomes C_D = C_{D0} + C_L^2/(\pi e AR) (~engineeringkit.aerodynamics.drag_polar). The maximum lift-to-drag ratio lies where a line from the origin is tangent to the polar, at C_L = \sqrt{\pi e AR C_{D0}} (~engineeringkit.aerodynamics.best_glide_cl). The empirical oswald_efficiency_estimate supplies e for straight wings."><img alt="" src="../../../_images/sphx_glr_plot_03_oswald_drag_polar_thumb.png" />
+<p><a class="reference internal" href="wings/plot_03_oswald_drag_polar.html"><span class="doc">Oswald’s efficiency factor and the parabolic drag polar</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Oswald's efficiency factor and the parabolic drag polar</div>
+</div></div><div class="toctree-wrapper compound">
+</div>
+<div class="sphx-glr-footer sphx-glr-footer-gallery docutils container">
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../../../_downloads/bf7a77fff960efd21e21ef7be7594029/aerodynamics_python.zip"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">all</span> <span class="pre">examples</span> <span class="pre">in</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">aerodynamics_python.zip</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
+<p><a class="reference download internal" download="" href="../../../_downloads/bf5b8e80ab504819cb85029cf62bd802/aerodynamics_jupyter.zip"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">all</span> <span class="pre">examples</span> <span class="pre">in</span> <span class="pre">Jupyter</span> <span class="pre">notebooks:</span> <span class="pre">aerodynamics_jupyter.zip</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../heat_transfer/plot_heat_transfer_models.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Parallel and counterflow heat exchangers</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="airfoils/index.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Airfoils</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sections">Sections</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#airfoils">Airfoils</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-atmosphere">Standard atmosphere</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boundary-layers">Boundary layers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#circulation">Circulation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compressible-flow">Compressible flow</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#forces-and-coefficients">Forces and coefficients</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#performance">Performance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finite-wings">Finite wings</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../../../_sources/api/gallery/aerodynamics/index.rst.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.23.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

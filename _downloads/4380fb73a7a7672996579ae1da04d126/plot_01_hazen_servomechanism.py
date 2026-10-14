@@ -1,0 +1,48 @@
+r"""
+Hazen's theory of servomechanisms
+=================================
+
+Harold Hazen at MIT (1934) coined *servomechanism* and analysed
+position-following systems as second-order dynamics,
+:math:`\omega_n^2/(s^2 + 2\zeta\omega_n s + \omega_n^2)`. The damping ratio
+:math:`\zeta` alone fixes the overshoot, and :math:`\zeta` with the natural
+frequency :math:`\omega_n` sets peak and settling times
+(:func:`~engineeringkit.control_systems.second_order_metrics`). The
+simulated step and impulse responses
+(:func:`~engineeringkit.control_systems.step_response`,
+:func:`~engineeringkit.control_systems.impulse_response`) confirm the
+formulas.
+"""
+
+# %%
+import matplotlib.pyplot as plt
+import numpy as np
+
+from engineeringkit.control_systems import impulse_response, second_order_metrics, step_response, transfer_function
+
+wn = 2.0
+t = np.linspace(0, 10, 20001)
+fig, axes = plt.subplots(1, 2, figsize=(10, 3.8))
+for zeta in [0.2, 0.4, 0.6, 0.8]:
+    servo = transfer_function([wn**2], [1, 2 * zeta * wn, wn**2])
+    _, y = step_response(servo, t)
+    _, h = impulse_response(servo, t)
+    spec = second_order_metrics(zeta, wn)
+    overshoot, peak_time = 100 * (y.max() - 1), t[np.argmax(y)]
+    settled = t[np.flatnonzero(np.abs(y - 1) > 0.02)[-1]]
+    print(
+        f"zeta={zeta}: overshoot {overshoot:5.2f}% (formula {spec['percent_overshoot']:5.2f}%), "
+        f"settling {settled:.2f} s (estimate {spec['settling_time_2pct']:.2f} s)"
+    )
+    assert abs(overshoot - spec["percent_overshoot"]) < 0.01 and abs(peak_time - spec["peak_time"]) < 1e-3
+    # The impulse response is the derivative of the step response; it first crosses zero at the peak.
+    assert abs(t[np.argmax(h < 0)] - spec["peak_time"]) < 1e-3
+    axes[0].plot(t, y, label=rf"$\zeta$ = {zeta}")
+    axes[1].plot(t, h, label=rf"$\zeta$ = {zeta}")
+axes[0].axhspan(0.98, 1.02, color="gray", alpha=0.2)
+axes[0].set(xlabel="time [s]", ylabel="step response")
+axes[1].set(xlabel="time [s]", ylabel="impulse response [1/s]")
+axes[0].legend()
+fig.tight_layout()
+
+plt.show()

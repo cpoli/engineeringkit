@@ -1,0 +1,140 @@
+
+
+.. _sphx_glr_api_gallery_aerodynamics_compressible:
+
+Compressible flow
+-----------------
+
+Sound speed, Mach waves, isentropic stagnation states, compressibility corrections, shocks and nozzles.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Newton&#x27;s Principia (1687) predicted the speed of sound assuming the compressions are isothermal, a = \sqrt{p/\rho} = \sqrt{RT}, about 15% below measurement. Pierre-Simon Laplace (1816) argued that the compressions are too fast to exchange heat, so they are adiabatic and the stiffness rises by \gamma: a = \sqrt{\gamma R T} (~engineeringkit.aerodynamics.speed_of_sound). The Mach number (~engineeringkit.aerodynamics.mach_number) measures speed in units of this local sound speed.">
+
+.. only:: html
+
+  .. image:: /api/gallery/aerodynamics/compressible/images/thumb/sphx_glr_plot_01_laplace_speed_of_sound_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/aerodynamics/compressible/plot_01_laplace_speed_of_sound`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Newton, Laplace and the speed of sound</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In 1887 Ernst Mach and Peter Salcher photographed a supersonic bullet and saw a conical wave trailing from its nose. A source moving faster than sound outruns its own wavefronts; their envelope is a cone of half-angle \mu = \arcsin(1/M) (~engineeringkit.aerodynamics.mach_angle). This example draws the wavefronts emitted along the path and checks that the envelope matches the Mach angle.">
+
+.. only:: html
+
+  .. image:: /api/gallery/aerodynamics/compressible/images/thumb/sphx_glr_plot_02_mach_cone_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/aerodynamics/compressible/plot_02_mach_cone`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Ernst Mach's shock photographs and the Mach cone</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Adhémar Barré de Saint-Venant and Pierre Wantzel&#x27;s 1839 experiments on air escaping from a reservoir gave the first correct compressible-flow formula: along an adiabatic, frictionless streamline T_0/T = 1 + \tfrac{\gamma-1}{2}M^2 and p_0/p = (T_0/T)^{\gamma/(\gamma-1)} (~engineeringkit.aerodynamics.stagnation_temperature, stagnation_pressure). Expanding for small M recovers Bernoulli&#x27;s p_0 - p = \tfrac12\rho V^2; the difference measures how wrong an incompressible pitot formula becomes.">
+
+.. only:: html
+
+  .. image:: /api/gallery/aerodynamics/compressible/images/thumb/sphx_glr_plot_03_saint_venant_stagnation_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/aerodynamics/compressible/plot_03_saint_venant_stagnation`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Saint-Venant and Wantzel: isentropic stagnation states</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Hermann Glauert (1928), building on remarks by Prandtl, showed that the linearised subsonic potential equation is Laplace&#x27;s equation in stretched coordinates. Every pressure coefficient of a thin body is therefore amplified by 1/\sqrt{1-M_\infty^2} (~engineeringkit.aerodynamics.prandtl_glauert_cp), a factor that blows up at M = 1 and fed the myth of an impenetrable &quot;sound barrier&quot;. The Kármán-Tsien rule (1939) is plotted alongside: the two agree at low Mach and diverge as the flow becomes transonic.">
+
+.. only:: html
+
+  .. image:: /api/gallery/aerodynamics/compressible/images/thumb/sphx_glr_plot_04_prandtl_glauert_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/aerodynamics/compressible/plot_04_prandtl_glauert`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">The Prandtl-Glauert compressibility correction</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="W. J. Macquorn Rankine (1870) and Pierre-Henri Hugoniot (1887-1889) derived the jump in state across a shock from conservation of mass, momentum and energy alone. For a normal shock in a perfect gas the downstream Mach number and pressure ratio are normal_shock_mach2 and normal_shock_pressure_ratio. This example reconstructs the full downstream state and checks the three conservation laws, the entropy rise, and the loss of stagnation pressure.">
+
+.. only:: html
+
+  .. image:: /api/gallery/aerodynamics/compressible/images/thumb/sphx_glr_plot_05_rankine_hugoniot_normal_shock_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/aerodynamics/compressible/plot_05_rankine_hugoniot_normal_shock`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Rankine-Hugoniot jump conditions across a normal shock</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Gustaf de Laval&#x27;s 1888 steam-turbine nozzle first converged and then diverged, and accelerated steam beyond the speed of sound. The quasi-one- dimensional isentropic relation A/A^* (~engineeringkit.aerodynamics.area_mach_ratio) explains why: subsonic flow speeds up in a converging duct, supersonic flow in a diverging one, and the sonic point sits at the throat. Each area ratio has a subsonic and a supersonic solution; this example finds both with a root bracket and traces the Mach number through a nozzle.">
+
+.. only:: html
+
+  .. image:: /api/gallery/aerodynamics/compressible/images/thumb/sphx_glr_plot_06_de_laval_nozzle_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/aerodynamics/compressible/plot_06_de_laval_nozzle`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">De Laval's converging-diverging nozzle</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/aerodynamics/compressible/plot_01_laplace_speed_of_sound
+   /api/gallery/aerodynamics/compressible/plot_02_mach_cone
+   /api/gallery/aerodynamics/compressible/plot_03_saint_venant_stagnation
+   /api/gallery/aerodynamics/compressible/plot_04_prandtl_glauert
+   /api/gallery/aerodynamics/compressible/plot_05_rankine_hugoniot_normal_shock
+   /api/gallery/aerodynamics/compressible/plot_06_de_laval_nozzle
+

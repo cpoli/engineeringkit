@@ -1,0 +1,50 @@
+
+
+.. _sphx_glr_api_gallery_control_systems_time_response:
+
+Time response
+-------------
+
+Transient specifications of second-order servomechanisms.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Harold Hazen at MIT (1934) coined servomechanism and analysed position-following systems as second-order dynamics, \omega_n^2/(s^2 + 2\zeta\omega_n s + \omega_n^2). The damping ratio \zeta alone fixes the overshoot, and \zeta with the natural frequency \omega_n sets peak and settling times (~engineeringkit.control_systems.second_order_metrics). The simulated step and impulse responses (~engineeringkit.control_systems.step_response, impulse_response) confirm the formulas.">
+
+.. only:: html
+
+  .. image:: /api/gallery/control_systems/time_response/images/thumb/sphx_glr_plot_01_hazen_servomechanism_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/control_systems/time_response/plot_01_hazen_servomechanism`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Hazen's theory of servomechanisms</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/control_systems/time_response/plot_01_hazen_servomechanism
+

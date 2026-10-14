@@ -1,0 +1,50 @@
+
+
+.. _sphx_glr_api_gallery_communications_multiplexing:
+
+Multiplexing
+------------
+
+Orthogonal frequency-division multiplexing.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Robert Chang (1966) showed that subcarriers whose spectra overlap remain orthogonal if they are spaced by the symbol rate. Stephen Weinstein and Paul Ebert (1971) generated the whole set with a single inverse DFT (~engineeringkit.communications.ofdm_modulate) and prefixed each block with a copy of its tail. This cyclic prefix turns a dispersive channel&#x27;s linear convolution into a circular one, so after the receiver&#x27;s DFT (~engineeringkit.communications.ofdm_demodulate) every subcarrier sees one complex gain, removed by a single division. The idea now carries Wi-Fi, LTE and digital television.">
+
+.. only:: html
+
+  .. image:: /api/gallery/communications/multiplexing/images/thumb/sphx_glr_plot_01_ofdm_cyclic_prefix_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/communications/multiplexing/plot_01_ofdm_cyclic_prefix`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">OFDM: many subcarriers from one inverse DFT</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/communications/multiplexing/plot_01_ofdm_cyclic_prefix
+

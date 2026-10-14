@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>engineeringkit.aerodynamics.systems.boundary_layer &#8212; engineeringkit 0.1.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery.css?v=c83e6b79" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/engineeringkit.css?v=62935cec" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../../../_static/scripts/fontawesome.js?digest=18bd87630a240e9c25be"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be" />
+
+    <script src="../../../../_static/documentation_options.js?v=38b66d78"></script>
+    <script src="../../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../../_static/sg-tags.js?v=d80f6fa4"></script>
+    <script src="../../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/engineeringkit/aerodynamics/systems/boundary_layer';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="color-scheme" content="light dark"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../../../_static/searchtools.js"></script>
+    <script src="../../../../_static/language_data.js"></script>
+    <script src="../../../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../_static/engineeringkit_logo_transparent.png" class="logo__image only-light" alt="engineeringkit logo"/>
+    <img src="../../../../_static/engineeringkit_logo_transparent.png" class="logo__image only-dark pst-js-only" alt="engineeringkit logo"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../subpackages/index.html">
+    Subpackages
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../history/index.html">
+    History
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../api/index.html">
+    API
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../subpackages/index.html">
+    Subpackages
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../history/index.html">
+    History
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../api/index.html">
+    API
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">engineeringkit.aerodynamics.systems.boundary_layer</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for engineeringkit.aerodynamics.systems.boundary_layer</h1><div class="highlight"><pre>
+<span></span><span class="sa">r</span><span class="sd">"""Reynolds-number similarity and flat-plate boundary layers.</span>
+
+<span class="sd">Reynolds (1883) showed that the ratio of inertial to viscous forces governs</span>
+<span class="sd">the transition from laminar to turbulent flow; Prandtl (1904) confined the</span>
+<span class="sd">viscous effects to a thin boundary layer, which Blasius (1908) solved exactly</span>
+<span class="sd">for a flat plate.</span>
+<span class="sd">"""</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit._validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">nonnegative</span> <span class="k">as</span> <span class="n">_nonnegative</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit._validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">positive</span> <span class="k">as</span> <span class="n">_positive</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"reynolds_number"</span><span class="p">,</span> <span class="s2">"skin_friction_laminar"</span><span class="p">,</span> <span class="s2">"skin_friction_turbulent"</span><span class="p">,</span> <span class="s2">"boundary_layer_laminar"</span><span class="p">]</span>
+
+
+<div class="viewcode-block" id="reynolds_number">
+<a class="viewcode-back" href="../../../../api/aerodynamics.html#engineeringkit.aerodynamics.reynolds_number">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">reynolds_number</span><span class="p">(</span><span class="n">rho</span><span class="p">,</span> <span class="n">V</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">mu</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Reynolds number :math:`Re = \rho V L / \mu`.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    rho : float or array_like</span>
+<span class="sd">        Density [kg/m^3], positive.</span>
+<span class="sd">    V : float or array_like</span>
+<span class="sd">        Speed [m/s], nonnegative.</span>
+<span class="sd">    L : float or array_like</span>
+<span class="sd">        Reference length (chord, plate distance) [m], positive.</span>
+<span class="sd">    mu : float or array_like</span>
+<span class="sd">        Dynamic viscosity [Pa s], positive.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float or ndarray</span>
+<span class="sd">        Reynolds number [-].</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Inputs are raw SI numbers with no dimensional metadata; see</span>
+<span class="sd">    :doc:`/guides/aerodynamics`.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; round(float(reynolds_number(1.0, 10.0, 1.0, 1e-5)))</span>
+<span class="sd">    1000000</span>
+<span class="sd">    """</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">rho</span><span class="o">=</span><span class="n">rho</span><span class="p">,</span> <span class="n">L</span><span class="o">=</span><span class="n">L</span><span class="p">,</span> <span class="n">mu</span><span class="o">=</span><span class="n">mu</span><span class="p">)</span>
+    <span class="n">_nonnegative</span><span class="p">(</span><span class="n">V</span><span class="o">=</span><span class="n">V</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">rho</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">V</span><span class="p">)</span> <span class="o">*</span> <span class="n">L</span> <span class="o">/</span> <span class="n">mu</span></div>
+
+
+
+<div class="viewcode-block" id="skin_friction_laminar">
+<a class="viewcode-back" href="../../../../api/aerodynamics.html#engineeringkit.aerodynamics.skin_friction_laminar">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">skin_friction_laminar</span><span class="p">(</span><span class="n">Re</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Blasius average skin-friction coefficient of a laminar flat plate, :math:`C_f = 1.328/\sqrt{Re_L}`.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    Re : float or array_like</span>
+<span class="sd">        Plate-length Reynolds number [-], positive; laminar flow</span>
+<span class="sd">        (typically :math:`Re_L &lt; 5\times10^5`) is assumed, not checked.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float or ndarray</span>
+<span class="sd">        Average skin-friction coefficient (both sides not included) [-].</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Inputs are raw SI numbers; see :doc:`/guides/aerodynamics`.</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    H. Blasius, "Grenzschichten in Flüssigkeiten mit kleiner Reibung,"</span>
+<span class="sd">    *Z. Math. Phys.* 56 (1908) 1-37.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; round(float(skin_friction_laminar(1e6)), 6)</span>
+<span class="sd">    0.001328</span>
+<span class="sd">    """</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">Re</span><span class="o">=</span><span class="n">Re</span><span class="p">)</span>
+    <span class="k">return</span> <span class="mf">1.328</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">Re</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="skin_friction_turbulent">
+<a class="viewcode-back" href="../../../../api/aerodynamics.html#engineeringkit.aerodynamics.skin_friction_turbulent">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">skin_friction_turbulent</span><span class="p">(</span><span class="n">Re</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Prandtl's one-fifth-power turbulent flat-plate skin friction, :math:`C_f = 0.074/Re_L^{1/5}`.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    Re : float or array_like</span>
+<span class="sd">        Plate-length Reynolds number [-], positive; fully turbulent flow</span>
+<span class="sd">        from the leading edge, roughly :math:`5\times10^5 &lt; Re_L &lt; 10^7`.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float or ndarray</span>
+<span class="sd">        Average skin-friction coefficient [-].</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Inputs are raw SI numbers; see :doc:`/guides/aerodynamics`.</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    H. Schlichting and K. Gersten, *Boundary-Layer Theory*, 9th ed.</span>
+<span class="sd">    (Springer, 2017), ch. 18.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; round(float(skin_friction_turbulent(1e5)), 6)</span>
+<span class="sd">    0.0074</span>
+<span class="sd">    """</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">Re</span><span class="o">=</span><span class="n">Re</span><span class="p">)</span>
+    <span class="k">return</span> <span class="mf">0.074</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">Re</span><span class="p">)</span> <span class="o">**</span> <span class="mf">0.2</span></div>
+
+
+
+<div class="viewcode-block" id="boundary_layer_laminar">
+<a class="viewcode-back" href="../../../../api/aerodynamics.html#engineeringkit.aerodynamics.boundary_layer_laminar">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">boundary_layer_laminar</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">Re_x</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Laminar boundary-layer thickness :math:`\delta \approx 5x/\sqrt{Re_x}`.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    x : float or array_like</span>
+<span class="sd">        Distance from the leading edge [m], nonnegative.</span>
+<span class="sd">    Re_x : float or array_like</span>
+<span class="sd">        Local Reynolds number :math:`\rho V x/\mu` [-], positive.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float or ndarray</span>
+<span class="sd">        99%-velocity thickness [m] (Blasius gives 4.91; 5 is the textbook rounding).</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Inputs are raw SI numbers; see :doc:`/guides/aerodynamics`.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; round(float(boundary_layer_laminar(1.0, 1e6)), 6)</span>
+<span class="sd">    0.005</span>
+<span class="sd">    """</span>
+    <span class="n">_nonnegative</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">Re_x</span><span class="o">=</span><span class="n">Re_x</span><span class="p">)</span>
+    <span class="k">return</span> <span class="mi">5</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">Re_x</span><span class="p">)</span></div>
+
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../../_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be"></script>
+<script defer src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.23.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

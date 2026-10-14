@@ -1,0 +1,86 @@
+
+
+.. _sphx_glr_api_gallery_communications_propagation:
+
+Propagation
+-----------
+
+Wavelength, free-space path loss and link budgets.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Maxwell&#x27;s equations (1865) predicted electromagnetic waves travelling at the speed of light. Heinrich Hertz confirmed them in 1887-1888: a spark gap drove waves at a few hundred megahertz, a metal sheet reflected them into a standing wave, and the spacing of the nodes, half a wavelength, multiplied by the frequency gave the speed. wavelength computes \lambda = c/f; the example reconstructs Hertz&#x27;s standing-wave measurement and maps the radio spectrum.">
+
+.. only:: html
+
+  .. image:: /api/gallery/communications/propagation/images/thumb/sphx_glr_plot_01_hertz_wavelength_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/communications/propagation/plot_01_hertz_wavelength`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Hertz's electromagnetic waves and their wavelength</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Harald Friis (1946) wrote the received power between two antennas in free space as P_r = P_t G_t G_r (\lambda/4\pi d)^2 (~engineeringkit.communications.friis_received_power). The 1/d^2 factor is pure geometry: power spreads over a sphere of area 4\pi d^2. The \lambda^2 factor comes from an antenna&#x27;s effective aperture, A_e = G\lambda^2/4\pi. This example checks both interpretations and the 6 dB-per-doubling slope of free_space_path_loss_db.">
+
+.. only:: html
+
+  .. image:: /api/gallery/communications/propagation/images/thumb/sphx_glr_plot_02_friis_transmission_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/communications/propagation/plot_02_friis_transmission`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">The Friis transmission formula</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Telstar 1 (1962) relayed the first live transatlantic television. Engineers planned such links with a link budget: transmitter power, antenna gains, path loss and miscellaneous losses added in decibels (~engineeringkit.communications.link_budget_db), then compared with the receiver noise floor. The figures below are representative of the 4 GHz Andover-Telstar downlink, not archival values.">
+
+.. only:: html
+
+  .. image:: /api/gallery/communications/propagation/images/thumb/sphx_glr_plot_03_telstar_link_budget_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/communications/propagation/plot_03_telstar_link_budget`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">The Telstar satellite link budget</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/communications/propagation/plot_01_hertz_wavelength
+   /api/gallery/communications/propagation/plot_02_friis_transmission
+   /api/gallery/communications/propagation/plot_03_telstar_link_budget
+

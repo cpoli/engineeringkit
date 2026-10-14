@@ -1,0 +1,1882 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>engineeringkit.aerodynamics &#8212; engineeringkit 0.1.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=c83e6b79" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/engineeringkit.css?v=62935cec" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=18bd87630a240e9c25be"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be" />
+
+    <script src="../_static/documentation_options.js?v=38b66d78"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/sg-tags.js?v=d80f6fa4"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'api/aerodynamics';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="engineeringkit.electrical_engineering" href="electrical_engineering.html" />
+    <link rel="prev" title="engineeringkit.heat_transfer" href="heat_transfer.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="color-scheme" content="light dark"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/engineeringkit_logo_transparent.png" class="logo__image only-light" alt="engineeringkit logo"/>
+    <img src="../_static/engineeringkit_logo_transparent.png" class="logo__image only-dark pst-js-only" alt="engineeringkit logo"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../subpackages/index.html">
+    Subpackages
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../history/index.html">
+    History
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    API
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button type="button" class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../subpackages/index.html">
+    Subpackages
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../history/index.html">
+    History
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    API
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button type="button" id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar">
+  <svg class="pst-icon" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="structural_engineering.html">engineeringkit.structural_engineering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mechanical_engineering.html">engineeringkit.mechanical_engineering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="thermodynamics.html">engineeringkit.thermodynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fluid_engineering.html">engineeringkit.fluid_engineering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="heat_transfer.html">engineeringkit.heat_transfer</a></li>
+<li class="toctree-l1 current active"><a aria-current="page" class="current reference internal" href="#">engineeringkit.aerodynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="electrical_engineering.html">engineeringkit.electrical_engineering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="control_systems.html">engineeringkit.control_systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signal_processing.html">engineeringkit.signal_processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="communications.html">engineeringkit.communications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="materials.html">engineeringkit.materials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reliability.html">engineeringkit.reliability</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="integrators.html">Integrators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="visualizers.html">Visualizers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="units.html">Units</a></li>
+<li class="toctree-l1"><a class="reference internal" href="constants.html">Constants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../validation.html">Numerical validation policy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../limitations.html">Scope and remaining limitations</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">API</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">engineeringkit.aerodynamics</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="engineeringkit-aerodynamics">
+<h1>engineeringkit.aerodynamics<a class="headerlink" href="#engineeringkit-aerodynamics" title="Link to this heading">#</a></h1>
+<div class="subpkg-nav docutils container">
+<p><a class="reference internal" href="../_generated/subpackages/aerodynamics.html"><span class="doc">Domain hub</span></a> · <a class="reference internal" href="../history/aerodynamics_breakthroughs.html"><span class="doc">History</span></a> · <a class="reference internal" href="gallery/aerodynamics/index.html"><span class="doc">Examples</span></a> · <a class="reference internal" href="#"><span class="doc">API reference</span></a></p>
+</div>
+<p>Dynamic pressure and force coefficients; Kutta-Joukowski circulation lift;
+thin-airfoil theory (with Glauert’s zero-lift integral by
+<code class="docutils literal notranslate"><span class="pre">scipy.integrate.quad</span></code>) and NACA four-digit sections; Prandtl’s lifting
+line, induced drag, the Oswald drag polar and the Breguet range equation;
+Reynolds similarity and Blasius/Prandtl flat-plate friction; sound speed,
+the Mach cone, isentropic stagnation states, Prandtl-Glauert, normal shocks
+and the area-Mach relation; and the International Standard Atmosphere. All
+models are hand-written closed forms, because the formula is the subject.</p>
+<p id="module-engineeringkit.aerodynamics">engineeringkit.aerodynamics: from dynamic pressure to finite wings and compressible flow.</p>
+<p>Force coefficients and dynamic pressure; Kutta-Joukowski circulation lift;
+thin-airfoil theory and NACA four-digit sections; Prandtl’s lifting line,
+induced drag, the parabolic drag polar and Breguet range; Reynolds-number
+similarity and Blasius/Prandtl flat-plate boundary layers; perfect-gas sound
+speed, isentropic stagnation states, the Mach cone, Prandtl-Glauert,
+Rankine-Hugoniot normal shocks and the de Laval area-Mach relation; and the
+International Standard Atmosphere. Every model is a hand-written closed-form
+relation (the formula is the pedagogical subject); SciPy is used only for the
+thin-airfoil quadrature.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="engineeringkit.aerodynamics.Airfoil">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">engineeringkit.aerodynamics.</span></span><span class="sig-name descname"><span class="pre">Airfoil</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">camber</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">thickness</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upper</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lower</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/aerodynamics/core/base.html#Airfoil"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.aerodynamics.Airfoil" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Coordinates of an airfoil section on a unit chord.</p>
+<p>All coordinates are fractions of the chord <code class="docutils literal notranslate"><span class="pre">c</span></code>; multiply by <code class="docutils literal notranslate"><span class="pre">c</span></code> [m]
+for physical dimensions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>)</p></li>
+<li><p><strong>x</strong> (<em>ndarray</em>)</p></li>
+<li><p><strong>camber</strong> (<em>ndarray</em>)</p></li>
+<li><p><strong>thickness</strong> (<em>ndarray</em>)</p></li>
+<li><p><strong>upper</strong> (<em>ndarray</em>)</p></li>
+<li><p><strong>lower</strong> (<em>ndarray</em>)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="engineeringkit.aerodynamics.Airfoil.camber">
+<span class="sig-name descname"><span class="pre">camber</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></span><a class="headerlink" href="#engineeringkit.aerodynamics.Airfoil.camber" title="Link to this definition">#</a></dt>
+<dd><p>Mean-camber-line ordinate at each station.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="engineeringkit.aerodynamics.Airfoil.lower">
+<span class="sig-name descname"><span class="pre">lower</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></span><a class="headerlink" href="#engineeringkit.aerodynamics.Airfoil.lower" title="Link to this definition">#</a></dt>
+<dd><p>Lower-surface points, shape <code class="docutils literal notranslate"><span class="pre">(n,</span> <span class="pre">2)</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="engineeringkit.aerodynamics.Airfoil.name">
+<span class="sig-name descname"><span class="pre">name</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></span><a class="headerlink" href="#engineeringkit.aerodynamics.Airfoil.name" title="Link to this definition">#</a></dt>
+<dd><p>Section designation, e.g. <code class="docutils literal notranslate"><span class="pre">&quot;NACA</span> <span class="pre">2412&quot;</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="engineeringkit.aerodynamics.Airfoil.plot">
+<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/aerodynamics/core/base.html#Airfoil.plot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.aerodynamics.Airfoil.plot" title="Link to this definition">#</a></dt>
+<dd><p>Draw the section outline and camber line; return <code class="docutils literal notranslate"><span class="pre">(fig,</span> <span class="pre">ax)</span></code>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="engineeringkit.aerodynamics.Airfoil.summary">
+<span class="sig-name descname"><span class="pre">summary</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/aerodynamics/core/base.html#Airfoil.summary"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.aerodynamics.Airfoil.summary" title="Link to this definition">#</a></dt>
+<dd><p>Maximum thickness and camber (fractions of chord) and their locations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="engineeringkit.aerodynamics.Airfoil.thickness">
+<span class="sig-name descname"><span class="pre">thickness</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></span><a class="headerlink" href="#engineeringkit.aerodynamics.Airfoil.thickness" title="Link to this definition">#</a></dt>
+<dd><p>Half-thickness at each station.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="engineeringkit.aerodynamics.Airfoil.upper">
+<span class="sig-name descname"><span class="pre">upper</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></span><a class="headerlink" href="#engineeringkit.aerodynamics.Airfoil.upper" title="Link to this definition">#</a></dt>
+<dd><p>Upper-surface points, shape <code class="docutils literal notranslate"><span class="pre">(n,</span> <span class="pre">2)</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="engineeringkit.aerodynamics.Airfoil.x">
+<span class="sig-name descname"><span class="pre">x</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></span><a class="headerlink" href="#engineeringkit.aerodynamics.Airfoil.x" title="Link to this definition">#</a></dt>
+<dd><p>Chordwise stations of the mean camber line, from 0 to 1.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="engineeringkit.aerodynamics.AtmosphereState">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">engineeringkit.aerodynamics.</span></span><span class="sig-name descname"><span class="pre">AtmosphereState</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">altitude</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">temperature</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pressure</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">density</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">speed_of_sound</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/aerodynamics/core/base.html#AtmosphereState"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.aerodynamics.AtmosphereState" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Thermodynamic state of the standard atmosphere at a geometric altitude.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>altitude</strong> (<em>ndarray</em>)</p></li>
+<li><p><strong>temperature</strong> (<em>ndarray</em>)</p></li>
+<li><p><strong>pressure</strong> (<em>ndarray</em>)</p></li>
+<li><p><strong>density</strong> (<em>ndarray</em>)</p></li>
+<li><p><strong>speed_of_sound</strong> (<em>ndarray</em>)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="engineeringkit.aerodynamics.AtmosphereState.altitude">
+<span class="sig-name descname"><span class="pre">altitude</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></span><a class="headerlink" href="#engineeringkit.aerodynamics.AtmosphereState.altitude" title="Link to this definition">#</a></dt>
+<dd><p>Altitude above mean sea level [m].</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="engineeringkit.aerodynamics.AtmosphereState.density">
+<span class="sig-name descname"><span class="pre">density</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></span><a class="headerlink" href="#engineeringkit.aerodynamics.AtmosphereState.density" title="Link to this definition">#</a></dt>
+<dd><p>Density [kg/m^3].</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="engineeringkit.aerodynamics.AtmosphereState.plot">
+<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/aerodynamics/core/base.html#AtmosphereState.plot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.aerodynamics.AtmosphereState.plot" title="Link to this definition">#</a></dt>
+<dd><p>Plot temperature, pressure and density against altitude; return <code class="docutils literal notranslate"><span class="pre">(fig,</span> <span class="pre">axes)</span></code>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="engineeringkit.aerodynamics.AtmosphereState.pressure">
+<span class="sig-name descname"><span class="pre">pressure</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></span><a class="headerlink" href="#engineeringkit.aerodynamics.AtmosphereState.pressure" title="Link to this definition">#</a></dt>
+<dd><p>Static pressure [Pa].</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="engineeringkit.aerodynamics.AtmosphereState.speed_of_sound">
+<span class="sig-name descname"><span class="pre">speed_of_sound</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></span><a class="headerlink" href="#engineeringkit.aerodynamics.AtmosphereState.speed_of_sound" title="Link to this definition">#</a></dt>
+<dd><p>Speed of sound [m/s].</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="engineeringkit.aerodynamics.AtmosphereState.summary">
+<span class="sig-name descname"><span class="pre">summary</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/aerodynamics/core/base.html#AtmosphereState.summary"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.aerodynamics.AtmosphereState.summary" title="Link to this definition">#</a></dt>
+<dd><p>Sea-level-relative density and pressure at the highest altitude.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="engineeringkit.aerodynamics.AtmosphereState.temperature">
+<span class="sig-name descname"><span class="pre">temperature</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></span><a class="headerlink" href="#engineeringkit.aerodynamics.AtmosphereState.temperature" title="Link to this definition">#</a></dt>
+<dd><p>Static temperature [K].</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.aerodynamics.area_mach_ratio">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.aerodynamics.</span></span><span class="sig-name descname"><span class="pre">area_mach_ratio</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">M</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.4</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/aerodynamics/systems/compressible.html#area_mach_ratio"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.aerodynamics.area_mach_ratio" title="Link to this definition">#</a></dt>
+<dd><p>Isentropic area ratio <span class="math notranslate nohighlight">\(A/A^*\)</span> of a quasi-one-dimensional nozzle.</p>
+<div class="math notranslate nohighlight">
+\[\frac{A}{A^*} = \frac{1}{M}\left[\frac{2}{\gamma+1}\left(1 + \frac{\gamma-1}{2}M^2\right)\right]^{\frac{\gamma+1}{2(\gamma-1)}}\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>M</strong> (<em>float</em><em> or </em><em>array_like</em>) – Mach number [-], positive.</p></li>
+<li><p><strong>gamma</strong> (<em>float</em><em>, </em><em>optional</em>) – Ratio of specific heats [-], greater than one.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Area relative to the sonic throat [-]; one at <span class="math notranslate nohighlight">\(M = 1\)</span>. Each
+ratio above one corresponds to one subsonic and one supersonic Mach
+number; this function does not invert.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers; see <a class="reference internal" href="../guides/aerodynamics.html"><span class="doc">Aerodynamics: incompressible limits and compressible conservation</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">area_mach_ratio</span><span class="p">(</span><span class="mf">2.0</span><span class="p">)),</span> <span class="mi">4</span><span class="p">)</span>
+<span class="go">1.6875</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.aerodynamics.aspect_ratio">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.aerodynamics.</span></span><span class="sig-name descname"><span class="pre">aspect_ratio</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">span</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">area</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/aerodynamics/systems/wings.html#aspect_ratio"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.aerodynamics.aspect_ratio" title="Link to this definition">#</a></dt>
+<dd><p>Wing aspect ratio <span class="math notranslate nohighlight">\(AR = b^2 / S\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>span</strong> (<em>float</em><em> or </em><em>array_like</em>) – Wing span [m], positive.</p></li>
+<li><p><strong>area</strong> (<em>float</em><em> or </em><em>array_like</em>) – Planform area [m^2], positive.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Aspect ratio [-].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/aerodynamics.html"><span class="doc">Aerodynamics: incompressible limits and compressible conservation</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">float</span><span class="p">(</span><span class="n">aspect_ratio</span><span class="p">(</span><span class="mf">10.0</span><span class="p">,</span> <span class="mf">20.0</span><span class="p">))</span>
+<span class="go">5.0</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.aerodynamics.best_glide_cl">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.aerodynamics.</span></span><span class="sig-name descname"><span class="pre">best_glide_cl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Cd0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">AR</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">e</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/aerodynamics/systems/wings.html#best_glide_cl"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.aerodynamics.best_glide_cl" title="Link to this definition">#</a></dt>
+<dd><p>Lift coefficient of maximum <span class="math notranslate nohighlight">\(L/D\)</span> for a parabolic polar, <span class="math notranslate nohighlight">\(\sqrt{\pi e AR C_{D0}}\)</span>.</p>
+<p>At this point induced drag equals parasite drag, so
+<span class="math notranslate nohighlight">\((L/D)_{\max} = \tfrac12\sqrt{\pi e AR / C_{D0}}\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Cd0</strong> (<em>float</em><em> or </em><em>array_like</em>) – Zero-lift drag coefficient [-], positive.</p></li>
+<li><p><strong>AR</strong> (<em>float</em><em> or </em><em>array_like</em>) – Aspect ratio [-], positive.</p></li>
+<li><p><strong>e</strong> (<em>float</em><em> or </em><em>array_like</em><em>, </em><em>optional</em>) – Oswald efficiency factor [-] in <code class="docutils literal notranslate"><span class="pre">(0,</span> <span class="pre">1]</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Lift coefficient for best glide [-].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers; see <a class="reference internal" href="../guides/aerodynamics.html"><span class="doc">Aerodynamics: incompressible limits and compressible conservation</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">best_glide_cl</span><span class="p">(</span><span class="mf">0.02</span><span class="p">,</span> <span class="mf">8.0</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">)),</span> <span class="mi">4</span><span class="p">)</span>
+<span class="go">0.6341</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.aerodynamics.boundary_layer_laminar">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.aerodynamics.</span></span><span class="sig-name descname"><span class="pre">boundary_layer_laminar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Re_x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/aerodynamics/systems/boundary_layer.html#boundary_layer_laminar"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.aerodynamics.boundary_layer_laminar" title="Link to this definition">#</a></dt>
+<dd><p>Laminar boundary-layer thickness <span class="math notranslate nohighlight">\(\delta \approx 5x/\sqrt{Re_x}\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>float</em><em> or </em><em>array_like</em>) – Distance from the leading edge [m], nonnegative.</p></li>
+<li><p><strong>Re_x</strong> (<em>float</em><em> or </em><em>array_like</em>) – Local Reynolds number <span class="math notranslate nohighlight">\(\rho V x/\mu\)</span> [-], positive.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>99%-velocity thickness [m] (Blasius gives 4.91; 5 is the textbook rounding).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers; see <a class="reference internal" href="../guides/aerodynamics.html"><span class="doc">Aerodynamics: incompressible limits and compressible conservation</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">boundary_layer_laminar</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1e6</span><span class="p">)),</span> <span class="mi">6</span><span class="p">)</span>
+<span class="go">0.005</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.aerodynamics.breguet_range">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.aerodynamics.</span></span><span class="sig-name descname"><span class="pre">breguet_range</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">V</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tsfc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lift_to_drag</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">W_initial</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">W_final</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">g</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">9.80665</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/aerodynamics/systems/wings.html#breguet_range"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.aerodynamics.breguet_range" title="Link to this definition">#</a></dt>
+<dd><p>Jet-aircraft cruise range <span class="math notranslate nohighlight">\(R = \dfrac{V}{g\,c_T}\dfrac{L}{D}\ln\dfrac{W_i}{W_f}\)</span> (Breguet).</p>
+<p>Integrates <span class="math notranslate nohighlight">\(dR = V\,dt\)</span> while fuel burns at <span class="math notranslate nohighlight">\(\dot m = c_T T\)</span>
+and thrust equals drag, <span class="math notranslate nohighlight">\(T = W/(L/D)\)</span>, at constant speed and
+lift-to-drag ratio.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>V</strong> (<em>float</em><em> or </em><em>array_like</em>) – Cruise true airspeed [m/s], positive.</p></li>
+<li><p><strong>tsfc</strong> (<em>float</em><em> or </em><em>array_like</em>) – Thrust-specific fuel consumption [kg/(N s)], positive
+(e.g. <code class="docutils literal notranslate"><span class="pre">1.6e-5</span></code> for a modern turbofan).</p></li>
+<li><p><strong>lift_to_drag</strong> (<em>float</em><em> or </em><em>array_like</em>) – Cruise lift-to-drag ratio [-], positive.</p></li>
+<li><p><strong>W_initial</strong> (<em>float</em><em> or </em><em>array_like</em>) – Weight at the start and end of cruise [N], with <code class="docutils literal notranslate"><span class="pre">W_initial</span> <span class="pre">&gt;=</span> <span class="pre">W_final</span> <span class="pre">&gt;</span> <span class="pre">0</span></code>.</p></li>
+<li><p><strong>W_final</strong> (<em>float</em><em> or </em><em>array_like</em>) – Weight at the start and end of cruise [N], with <code class="docutils literal notranslate"><span class="pre">W_initial</span> <span class="pre">&gt;=</span> <span class="pre">W_final</span> <span class="pre">&gt;</span> <span class="pre">0</span></code>.</p></li>
+<li><p><strong>g</strong> (<em>float</em><em>, </em><em>optional</em>) – Gravitational acceleration [m/s^2].</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Still-air range [m].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers; see <a class="reference internal" href="../guides/aerodynamics.html"><span class="doc">Aerodynamics: incompressible limits and compressible conservation</span></a>.</p>
+<p class="rubric">References</p>
+<p>J. D. Anderson, <em>Aircraft Performance and Design</em> (McGraw-Hill, 1999),
+sec. 5.13, for the derivation of the range equation attributed to
+Louis Breguet.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">breguet_range</span><span class="p">(</span><span class="mf">230.0</span><span class="p">,</span> <span class="mf">1.6e-5</span><span class="p">,</span> <span class="mf">18.0</span><span class="p">,</span> <span class="mf">7.0e5</span><span class="p">,</span> <span class="mf">5.0e5</span><span class="p">))</span> <span class="o">/</span> <span class="mf">1e3</span><span class="p">)</span>
+<span class="go">8878</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.aerodynamics.drag">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.aerodynamics.</span></span><span class="sig-name descname"><span class="pre">drag</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">q</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">S</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Cd</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/aerodynamics/systems/lift.html#drag"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.aerodynamics.drag" title="Link to this definition">#</a></dt>
+<dd><p>Drag force <span class="math notranslate nohighlight">\(D = q S C_D\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>q</strong> (<em>float</em><em> or </em><em>array_like</em>) – Dynamic pressure [Pa], nonnegative.</p></li>
+<li><p><strong>S</strong> (<em>float</em><em> or </em><em>array_like</em>) – Reference area [m^2], positive.</p></li>
+<li><p><strong>Cd</strong> (<em>float</em><em> or </em><em>array_like</em>) – Drag coefficient [-], nonnegative.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Drag [N], parallel to the free stream.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; assumptions and
+validity limits are in <a class="reference internal" href="../guides/aerodynamics.html"><span class="doc">Aerodynamics: incompressible limits and compressible conservation</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">float</span><span class="p">(</span><span class="n">drag</span><span class="p">(</span><span class="mf">1500.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">))</span>
+<span class="go">60.0</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.aerodynamics.drag_coefficient">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.aerodynamics.</span></span><span class="sig-name descname"><span class="pre">drag_coefficient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">D</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rho</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">V</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">S</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/aerodynamics/systems/lift.html#drag_coefficient"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.aerodynamics.drag_coefficient" title="Link to this definition">#</a></dt>
+<dd><p>Drag coefficient <span class="math notranslate nohighlight">\(C_D = D / (q S)\)</span> from a measured drag force.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>D</strong> (<em>float</em><em> or </em><em>array_like</em>) – Drag [N], nonnegative.</p></li>
+<li><p><strong>rho</strong> (<em>float</em><em> or </em><em>array_like</em>) – Density [kg/m^3], positive.</p></li>
+<li><p><strong>V</strong> (<em>float</em><em> or </em><em>array_like</em>) – Speed [m/s], positive.</p></li>
+<li><p><strong>S</strong> (<em>float</em><em> or </em><em>array_like</em>) – Reference area [m^2], positive.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Drag coefficient [-].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; assumptions and
+validity limits are in <a class="reference internal" href="../guides/aerodynamics.html"><span class="doc">Aerodynamics: incompressible limits and compressible conservation</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">float</span><span class="p">(</span><span class="n">drag_coefficient</span><span class="p">(</span><span class="mf">60.0</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">,</span> <span class="mf">50.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">))</span>
+<span class="go">0.02</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.aerodynamics.drag_polar">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.aerodynamics.</span></span><span class="sig-name descname"><span class="pre">drag_polar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Cl</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Cd0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">AR</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">e</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/aerodynamics/systems/wings.html#drag_polar"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.aerodynamics.drag_polar" title="Link to this definition">#</a></dt>
+<dd><p>Parabolic drag polar <span class="math notranslate nohighlight">\(C_D = C_{D0} + C_L^2/(\pi e AR)\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Cl</strong> (<em>float</em><em> or </em><em>array_like</em>) – Lift coefficient [-].</p></li>
+<li><p><strong>Cd0</strong> (<em>float</em><em> or </em><em>array_like</em>) – Zero-lift (parasite) drag coefficient [-], nonnegative.</p></li>
+<li><p><strong>AR</strong> (<em>float</em><em> or </em><em>array_like</em>) – Aspect ratio [-], positive.</p></li>
+<li><p><strong>e</strong> (<em>float</em><em> or </em><em>array_like</em><em>, </em><em>optional</em>) – Oswald efficiency factor [-] in <code class="docutils literal notranslate"><span class="pre">(0,</span> <span class="pre">1]</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Total drag coefficient [-].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Compressibility and Reynolds-number variation of <span class="math notranslate nohighlight">\(C_{D0}\)</span> are not
+modelled. Inputs are raw SI numbers; see <a class="reference internal" href="../guides/aerodynamics.html"><span class="doc">Aerodynamics: incompressible limits and compressible conservation</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">drag_polar</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">,</span> <span class="mf">8.0</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">)),</span> <span class="mi">6</span><span class="p">)</span>
+<span class="go">0.032434</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.aerodynamics.dynamic_pressure">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.aerodynamics.</span></span><span class="sig-name descname"><span class="pre">dynamic_pressure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rho</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">V</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/aerodynamics/systems/lift.html#dynamic_pressure"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.aerodynamics.dynamic_pressure" title="Link to this definition">#</a></dt>
+<dd><p>Dynamic pressure <span class="math notranslate nohighlight">\(q = \tfrac12 \rho V^2\)</span>.</p>
+<p>Bernoulli’s kinetic-energy term per unit volume: the pressure rise
+available when a stream is brought to rest without losses.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>rho</strong> (<em>float</em><em> or </em><em>array_like</em>) – Fluid density [kg/m^3], positive.</p></li>
+<li><p><strong>V</strong> (<em>float</em><em> or </em><em>array_like</em>) – Flow speed [m/s], nonnegative.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dynamic pressure [Pa].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; assumptions and
+validity limits are in <a class="reference internal" href="../guides/aerodynamics.html"><span class="doc">Aerodynamics: incompressible limits and compressible conservation</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">float</span><span class="p">(</span><span class="n">dynamic_pressure</span><span class="p">(</span><span class="mf">1.2</span><span class="p">,</span> <span class="mf">50.0</span><span class="p">))</span>
+<span class="go">1500.0</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.aerodynamics.finite_wing_cl">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.aerodynamics.</span></span><span class="sig-name descname"><span class="pre">finite_wing_cl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alpha_rad</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">AR</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">e</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha_l0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/aerodynamics/systems/wings.html#finite_wing_cl"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.aerodynamics.finite_wing_cl" title="Link to this definition">#</a></dt>
+<dd><p>Wing lift coefficient <span class="math notranslate nohighlight">\(C_L = a(\alpha - \alpha_{L=0})\)</span> with the lifting-line slope.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>alpha_rad</strong> (<em>float</em><em> or </em><em>array_like</em>) – Angle of attack [rad].</p></li>
+<li><p><strong>AR</strong> (<em>float</em><em> or </em><em>array_like</em>) – Aspect ratio [-], positive.</p></li>
+<li><p><strong>e</strong> (<em>float</em><em>, </em><em>optional</em>) – Span efficiency factor [-] in <code class="docutils literal notranslate"><span class="pre">(0,</span> <span class="pre">1]</span></code>.</p></li>
+<li><p><strong>alpha_l0</strong> (<em>float</em><em>, </em><em>optional</em>) – Zero-lift angle [rad].</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Wing lift coefficient [-].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/aerodynamics.html"><span class="doc">Aerodynamics: incompressible limits and compressible conservation</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">finite_wing_cl</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">8.0</span><span class="p">)),</span> <span class="mi">5</span><span class="p">)</span>
+<span class="go">0.50265</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.aerodynamics.finite_wing_lift_slope">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.aerodynamics.</span></span><span class="sig-name descname"><span class="pre">finite_wing_lift_slope</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">AR</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">e</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">6.283185307179586</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/aerodynamics/systems/wings.html#finite_wing_lift_slope"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.aerodynamics.finite_wing_lift_slope" title="Link to this definition">#</a></dt>
+<dd><p>Lifting-line lift-curve slope <span class="math notranslate nohighlight">\(a = a_0 / (1 + a_0/(\pi e AR))\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>AR</strong> (<em>float</em><em> or </em><em>array_like</em>) – Aspect ratio [-], positive.</p></li>
+<li><p><strong>e</strong> (<em>float</em><em> or </em><em>array_like</em><em>, </em><em>optional</em>) – Span efficiency factor [-] in <code class="docutils literal notranslate"><span class="pre">(0,</span> <span class="pre">1]</span></code>.</p></li>
+<li><p><strong>a0</strong> (<em>float</em><em>, </em><em>optional</em>) – Two-dimensional section lift slope [1/rad]; <span class="math notranslate nohighlight">\(2\pi\)</span> from thin-airfoil theory.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Wing lift-curve slope [1/rad]; tends to <code class="docutils literal notranslate"><span class="pre">a0</span></code> as <code class="docutils literal notranslate"><span class="pre">AR</span></code> grows.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Valid for unswept, moderate-to-high aspect-ratio wings in attached
+incompressible flow. Inputs are raw SI numbers; see
+<a class="reference internal" href="../guides/aerodynamics.html"><span class="doc">Aerodynamics: incompressible limits and compressible conservation</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">finite_wing_lift_slope</span><span class="p">(</span><span class="mf">8.0</span><span class="p">)),</span> <span class="mi">4</span><span class="p">)</span>
+<span class="go">5.0265</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.aerodynamics.glide_ratio">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.aerodynamics.</span></span><span class="sig-name descname"><span class="pre">glide_ratio</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Cl</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Cd</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/aerodynamics/systems/wings.html#glide_ratio"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.aerodynamics.glide_ratio" title="Link to this definition">#</a></dt>
+<dd><p>Lift-to-drag ratio <span class="math notranslate nohighlight">\(L/D = C_L/C_D\)</span>, the still-air glide distance per unit height lost.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Cl</strong> (<em>float</em><em> or </em><em>array_like</em>) – Lift coefficient [-].</p></li>
+<li><p><strong>Cd</strong> (<em>float</em><em> or </em><em>array_like</em>) – Drag coefficient [-], positive.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Glide ratio [-].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers; see <a class="reference internal" href="../guides/aerodynamics.html"><span class="doc">Aerodynamics: incompressible limits and compressible conservation</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">float</span><span class="p">(</span><span class="n">glide_ratio</span><span class="p">(</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">))</span>
+<span class="go">16.0</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.aerodynamics.induced_drag_coefficient">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.aerodynamics.</span></span><span class="sig-name descname"><span class="pre">induced_drag_coefficient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Cl</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">AR</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">e</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/aerodynamics/systems/wings.html#induced_drag_coefficient"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.aerodynamics.induced_drag_coefficient" title="Link to this definition">#</a></dt>
+<dd><p>Induced (vortex) drag coefficient <span class="math notranslate nohighlight">\(C_{D,i} = C_L^2/(\pi e AR)\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Cl</strong> (<em>float</em><em> or </em><em>array_like</em>) – Wing lift coefficient [-].</p></li>
+<li><p><strong>AR</strong> (<em>float</em><em> or </em><em>array_like</em>) – Aspect ratio [-], positive.</p></li>
+<li><p><strong>e</strong> (<em>float</em><em> or </em><em>array_like</em><em>, </em><em>optional</em>) – Span efficiency factor [-] in <code class="docutils literal notranslate"><span class="pre">(0,</span> <span class="pre">1]</span></code>; one for an elliptic load.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Induced drag coefficient [-].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/aerodynamics.html"><span class="doc">Aerodynamics: incompressible limits and compressible conservation</span></a>.</p>
+<p class="rubric">References</p>
+<ol class="upperalpha simple" start="12">
+<li><p>Prandtl, “Tragflügeltheorie,” <em>Nachr. Ges. Wiss. Göttingen</em> (1918).</p></li>
+</ol>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">induced_drag_coefficient</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">8.0</span><span class="p">)),</span> <span class="mi">6</span><span class="p">)</span>
+<span class="go">0.009947</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.aerodynamics.isa_atmosphere">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.aerodynamics.</span></span><span class="sig-name descname"><span class="pre">isa_atmosphere</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">altitude</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/aerodynamics/systems/atmosphere.html#isa_atmosphere"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.aerodynamics.isa_atmosphere" title="Link to this definition">#</a></dt>
+<dd><p>Standard-atmosphere temperature, pressure, density and sound speed.</p>
+<div class="math notranslate nohighlight">
+\[T = T_0 - L h,\quad p = p_0 (T/T_0)^{g_0/(R L)} \quad (h \le 11\,\mathrm{km}),
+\qquad p = p_{11}\, e^{-g_0 (h - 11\,\mathrm{km})/(R T_{11})} \quad (11 &lt; h \le 20\,\mathrm{km})\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>altitude</strong> (<em>float</em><em> or </em><em>array_like</em>) – Geopotential altitude [m] in <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">20000]</span></code>.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#engineeringkit.aerodynamics.AtmosphereState" title="engineeringkit.aerodynamics.core.base.AtmosphereState"><code class="xref py py-class docutils literal notranslate"><span class="pre">AtmosphereState</span></code></a></span></p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Sea-level values are 288.15 K, 101325 Pa and 1.225 kg/m^3 with a lapse
+rate of 6.5 K/km. Inputs are raw SI numbers; see <a class="reference internal" href="../guides/aerodynamics.html"><span class="doc">Aerodynamics: incompressible limits and compressible conservation</span></a>.</p>
+<p class="rubric">References</p>
+<p>ISO 2533:1975, <em>Standard Atmosphere</em>; ICAO Doc 7488 (1952).</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">state</span> <span class="o">=</span> <span class="n">isa_atmosphere</span><span class="p">(</span><span class="mf">11000.0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">state</span><span class="o">.</span><span class="n">temperature</span><span class="p">),</span> <span class="mi">2</span><span class="p">),</span> <span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">state</span><span class="o">.</span><span class="n">pressure</span><span class="p">))</span>
+<span class="go">(216.65, 22632)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.aerodynamics.isentropic_factor">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.aerodynamics.</span></span><span class="sig-name descname"><span class="pre">isentropic_factor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">M</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.4</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/aerodynamics/utils/gas.html#isentropic_factor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.aerodynamics.isentropic_factor" title="Link to this definition">#</a></dt>
+<dd><p>Stagnation-to-static temperature ratio <span class="math notranslate nohighlight">\(1 + \tfrac{\gamma-1}{2}M^2\)</span>.</p>
+<p>Every isentropic relation (stagnation temperature and pressure, the
+area-Mach relation) is a power of this one factor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>M</strong> (<em>float</em><em> or </em><em>array_like</em>) – Mach number [-], nonnegative.</p></li>
+<li><p><strong>gamma</strong> (<em>float</em><em>, </em><em>optional</em>) – Ratio of specific heats [-], greater than one.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="math notranslate nohighlight">\(T_0/T\)</span> [-].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">float</span><span class="p">(</span><span class="n">isentropic_factor</span><span class="p">(</span><span class="mf">1.0</span><span class="p">))</span>
+<span class="go">1.2</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.aerodynamics.kutta_joukowski_lift">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.aerodynamics.</span></span><span class="sig-name descname"><span class="pre">kutta_joukowski_lift</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rho</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">V</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">circulation</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/aerodynamics/systems/lift.html#kutta_joukowski_lift"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.aerodynamics.kutta_joukowski_lift" title="Link to this definition">#</a></dt>
+<dd><p>Lift per unit span <span class="math notranslate nohighlight">\(L' = \rho V \Gamma\)</span> (Kutta-Joukowski theorem).</p>
+<p>Any two-dimensional body in a steady inviscid stream carries a lift per
+unit span proportional to the circulation <span class="math notranslate nohighlight">\(\Gamma\)</span> around it, and
+no drag (d’Alembert).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>rho</strong> (<em>float</em><em> or </em><em>array_like</em>) – Density [kg/m^3], positive.</p></li>
+<li><p><strong>V</strong> (<em>float</em><em> or </em><em>array_like</em>) – Free-stream speed [m/s], nonnegative.</p></li>
+<li><p><strong>circulation</strong> (<em>float</em><em> or </em><em>array_like</em>) – Circulation <span class="math notranslate nohighlight">\(\Gamma\)</span> [m^2/s]; positive for clockwise flow
+about a body in a stream moving in the +x direction.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Lift per unit span [N/m].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; assumptions and
+validity limits are in <a class="reference internal" href="../guides/aerodynamics.html"><span class="doc">Aerodynamics: incompressible limits and compressible conservation</span></a>.</p>
+<p class="rubric">References</p>
+<ol class="upperalpha simple" start="13">
+<li><ol class="upperalpha simple" start="23">
+<li><p>Kutta, <em>Illustrierte Aeronautische Mitteilungen</em> 6 (1902);</p></li>
+</ol>
+</li>
+<li><p>Joukowski, <em>Bull. Inst. Aérodyn. Koutchino</em> 1 (1906).</p></li>
+</ol>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">float</span><span class="p">(</span><span class="n">kutta_joukowski_lift</span><span class="p">(</span><span class="mf">1.2</span><span class="p">,</span> <span class="mf">50.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">))</span>
+<span class="go">600.0</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.aerodynamics.lift">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.aerodynamics.</span></span><span class="sig-name descname"><span class="pre">lift</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">q</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">S</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Cl</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/aerodynamics/systems/lift.html#lift"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.aerodynamics.lift" title="Link to this definition">#</a></dt>
+<dd><p>Lift force <span class="math notranslate nohighlight">\(L = q S C_L\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>q</strong> (<em>float</em><em> or </em><em>array_like</em>) – Dynamic pressure [Pa], nonnegative.</p></li>
+<li><p><strong>S</strong> (<em>float</em><em> or </em><em>array_like</em>) – Reference (wing planform) area [m^2], positive.</p></li>
+<li><p><strong>Cl</strong> (<em>float</em><em> or </em><em>array_like</em>) – Lift coefficient [-]; signed.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Lift [N], perpendicular to the free stream.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; assumptions and
+validity limits are in <a class="reference internal" href="../guides/aerodynamics.html"><span class="doc">Aerodynamics: incompressible limits and compressible conservation</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">float</span><span class="p">(</span><span class="n">lift</span><span class="p">(</span><span class="mf">1500.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">))</span>
+<span class="go">1500.0</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.aerodynamics.lift_coefficient">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.aerodynamics.</span></span><span class="sig-name descname"><span class="pre">lift_coefficient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">L</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rho</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">V</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">S</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/aerodynamics/systems/lift.html#lift_coefficient"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.aerodynamics.lift_coefficient" title="Link to this definition">#</a></dt>
+<dd><p>Lift coefficient <span class="math notranslate nohighlight">\(C_L = L / (q S)\)</span> from a measured lift force.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>L</strong> (<em>float</em><em> or </em><em>array_like</em>) – Lift [N]; signed.</p></li>
+<li><p><strong>rho</strong> (<em>float</em><em> or </em><em>array_like</em>) – Density [kg/m^3], positive.</p></li>
+<li><p><strong>V</strong> (<em>float</em><em> or </em><em>array_like</em>) – Speed [m/s], positive.</p></li>
+<li><p><strong>S</strong> (<em>float</em><em> or </em><em>array_like</em>) – Reference area [m^2], positive.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Lift coefficient [-].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; assumptions and
+validity limits are in <a class="reference internal" href="../guides/aerodynamics.html"><span class="doc">Aerodynamics: incompressible limits and compressible conservation</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">float</span><span class="p">(</span><span class="n">lift_coefficient</span><span class="p">(</span><span class="mf">1500.0</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">,</span> <span class="mf">50.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">))</span>
+<span class="go">0.5</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.aerodynamics.mach_angle">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.aerodynamics.</span></span><span class="sig-name descname"><span class="pre">mach_angle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">M</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/aerodynamics/systems/compressible.html#mach_angle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.aerodynamics.mach_angle" title="Link to this definition">#</a></dt>
+<dd><p>Half-angle of the Mach cone, <span class="math notranslate nohighlight">\(\mu = \arcsin(1/M)\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>M</strong> (<em>float</em><em> or </em><em>array_like</em>) – Mach number [-], at least one.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Mach angle [rad]; <span class="math notranslate nohighlight">\(\pi/2\)</span> at <span class="math notranslate nohighlight">\(M = 1\)</span>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers; see <a class="reference internal" href="../guides/aerodynamics.html"><span class="doc">Aerodynamics: incompressible limits and compressible conservation</span></a>.</p>
+<p class="rubric">References</p>
+<p>E. Mach and P. Salcher, “Photographische Fixirung der durch Projectile in
+der Luft eingeleiteten Vorgänge,” <em>Sitzungsber. Akad. Wiss. Wien</em> 95 (1887).</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">degrees</span><span class="p">(</span><span class="n">mach_angle</span><span class="p">(</span><span class="mf">2.0</span><span class="p">))),</span> <span class="mi">6</span><span class="p">)</span>
+<span class="go">30.0</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.aerodynamics.mach_number">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.aerodynamics.</span></span><span class="sig-name descname"><span class="pre">mach_number</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">V</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/aerodynamics/systems/compressible.html#mach_number"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.aerodynamics.mach_number" title="Link to this definition">#</a></dt>
+<dd><p>Mach number <span class="math notranslate nohighlight">\(M = V/a\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>V</strong> (<em>float</em><em> or </em><em>array_like</em>) – Flow speed [m/s], nonnegative.</p></li>
+<li><p><strong>a</strong> (<em>float</em><em> or </em><em>array_like</em>) – Speed of sound [m/s], positive.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Mach number [-].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers; see <a class="reference internal" href="../guides/aerodynamics.html"><span class="doc">Aerodynamics: incompressible limits and compressible conservation</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">float</span><span class="p">(</span><span class="n">mach_number</span><span class="p">(</span><span class="mf">170.0</span><span class="p">,</span> <span class="mf">340.0</span><span class="p">))</span>
+<span class="go">0.5</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.aerodynamics.naca4_airfoil">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.aerodynamics.</span></span><span class="sig-name descname"><span class="pre">naca4_airfoil</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">designation</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">101</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">closed_trailing_edge</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/aerodynamics/systems/airfoils.html#naca4_airfoil"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.aerodynamics.naca4_airfoil" title="Link to this definition">#</a></dt>
+<dd><p>Coordinates of a NACA four-digit section on a unit chord.</p>
+<p>The half-thickness is</p>
+<div class="math notranslate nohighlight">
+\[y_t = 5t\,(0.2969\sqrt{x} - 0.1260x - 0.3516x^2 + 0.2843x^3 - 0.1015x^4),\]</div>
+<p>and the surfaces are offset from the camber line along its normal.
+Stations are cosine-spaced to resolve the leading edge.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>designation</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – Four digits, e.g. <code class="docutils literal notranslate"><span class="pre">&quot;0012&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;2412&quot;</span></code>.</p></li>
+<li><p><strong>n</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – Number of chordwise stations, at least 3.</p></li>
+<li><p><strong>closed_trailing_edge</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – Use <code class="docutils literal notranslate"><span class="pre">-0.1036</span></code> instead of <code class="docutils literal notranslate"><span class="pre">-0.1015</span></code> for the quartic coefficient so
+the trailing edge has zero thickness.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#engineeringkit.aerodynamics.Airfoil" title="engineeringkit.aerodynamics.core.base.Airfoil"><code class="xref py py-class docutils literal notranslate"><span class="pre">Airfoil</span></code></a></span></p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Coordinates are fractions of chord; see <a class="reference internal" href="../guides/aerodynamics.html"><span class="doc">Aerodynamics: incompressible limits and compressible conservation</span></a>.</p>
+<p class="rubric">References</p>
+<p>E. N. Jacobs, K. E. Ward and R. M. Pinkerton, “The characteristics of 78
+related airfoil sections from tests in the variable-density wind tunnel,”
+NACA Report 460 (1933).</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">foil</span> <span class="o">=</span> <span class="n">naca4_airfoil</span><span class="p">(</span><span class="s2">"2412"</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="n">foil</span><span class="o">.</span><span class="n">summary</span><span class="p">()[</span><span class="s2">"max_thickness"</span><span class="p">],</span> <span class="mi">3</span><span class="p">)</span>
+<span class="go">0.12</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.aerodynamics.naca4_zero_lift_angle">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.aerodynamics.</span></span><span class="sig-name descname"><span class="pre">naca4_zero_lift_angle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/aerodynamics/systems/lift.html#naca4_zero_lift_angle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.aerodynamics.naca4_zero_lift_angle" title="Link to this definition">#</a></dt>
+<dd><p>Thin-airfoil zero-lift angle of a NACA four-digit camber line.</p>
+<p>Glauert’s integral</p>
+<div class="math notranslate nohighlight">
+\[\alpha_{L=0} = -\frac{1}{\pi}\int_0^\pi \frac{dz}{dx}(\theta)\,(\cos\theta - 1)\,d\theta,
+\qquad x = \tfrac12(1-\cos\theta),\]</div>
+<p>is evaluated numerically for the two-parabola camber line with maximum
+camber <code class="docutils literal notranslate"><span class="pre">m</span></code> at chordwise position <code class="docutils literal notranslate"><span class="pre">p</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>m</strong> (<em>float</em>) – Maximum camber as a fraction of chord, in <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">0.095]</span></code>
+(first digit / 100).</p></li>
+<li><p><strong>p</strong> (<em>float</em>) – Position of maximum camber as a fraction of chord, in <code class="docutils literal notranslate"><span class="pre">(0,</span> <span class="pre">1)</span></code>
+(second digit / 10).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Zero-lift angle of attack [rad]; zero for <code class="docutils literal notranslate"><span class="pre">m</span> <span class="pre">=</span> <span class="pre">0</span></code>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/aerodynamics.html"><span class="doc">Aerodynamics: incompressible limits and compressible conservation</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">degrees</span><span class="p">(</span><span class="n">naca4_zero_lift_angle</span><span class="p">(</span><span class="mf">0.02</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">))),</span> <span class="mi">2</span><span class="p">)</span>
+<span class="go">-2.08</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.aerodynamics.normal_shock_mach2">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.aerodynamics.</span></span><span class="sig-name descname"><span class="pre">normal_shock_mach2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">M1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.4</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/aerodynamics/systems/compressible.html#normal_shock_mach2"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.aerodynamics.normal_shock_mach2" title="Link to this definition">#</a></dt>
+<dd><p>Downstream Mach number of a normal shock.</p>
+<div class="math notranslate nohighlight">
+\[M_2^2 = \frac{1 + \tfrac{\gamma-1}{2}M_1^2}{\gamma M_1^2 - \tfrac{\gamma-1}{2}}\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>M1</strong> (<em>float</em><em> or </em><em>array_like</em>) – Upstream Mach number [-], at least one.</p></li>
+<li><p><strong>gamma</strong> (<em>float</em><em>, </em><em>optional</em>) – Ratio of specific heats [-], greater than one.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Downstream Mach number [-], at most one.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers; see <a class="reference internal" href="../guides/aerodynamics.html"><span class="doc">Aerodynamics: incompressible limits and compressible conservation</span></a>.</p>
+<p class="rubric">References</p>
+<p>W. J. M. Rankine, <em>Phil. Trans. R. Soc.</em> 160 (1870) 277-288;
+H. Hugoniot, <em>J. École Polytech.</em> 57 (1887) 3-97; 58 (1889) 1-125.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">normal_shock_mach2</span><span class="p">(</span><span class="mf">2.0</span><span class="p">)),</span> <span class="mi">6</span><span class="p">)</span>
+<span class="go">0.57735</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.aerodynamics.normal_shock_pressure_ratio">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.aerodynamics.</span></span><span class="sig-name descname"><span class="pre">normal_shock_pressure_ratio</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">M1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.4</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/aerodynamics/systems/compressible.html#normal_shock_pressure_ratio"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.aerodynamics.normal_shock_pressure_ratio" title="Link to this definition">#</a></dt>
+<dd><p>Static pressure ratio across a normal shock, <span class="math notranslate nohighlight">\(p_2/p_1 = 1 + \tfrac{2\gamma}{\gamma+1}(M_1^2 - 1)\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>M1</strong> (<em>float</em><em> or </em><em>array_like</em>) – Upstream Mach number [-], at least one.</p></li>
+<li><p><strong>gamma</strong> (<em>float</em><em>, </em><em>optional</em>) – Ratio of specific heats [-], greater than one.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Pressure ratio [-], at least one.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers; see <a class="reference internal" href="../guides/aerodynamics.html"><span class="doc">Aerodynamics: incompressible limits and compressible conservation</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">normal_shock_pressure_ratio</span><span class="p">(</span><span class="mf">2.0</span><span class="p">)),</span> <span class="mi">6</span><span class="p">)</span>
+<span class="go">4.5</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.aerodynamics.oswald_efficiency_estimate">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.aerodynamics.</span></span><span class="sig-name descname"><span class="pre">oswald_efficiency_estimate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">AR</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/aerodynamics/systems/wings.html#oswald_efficiency_estimate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.aerodynamics.oswald_efficiency_estimate" title="Link to this definition">#</a></dt>
+<dd><p>Empirical Oswald factor for straight wings, <span class="math notranslate nohighlight">\(e = 1.78(1 - 0.045 AR^{0.68}) - 0.64\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>AR</strong> (<em>float</em><em> or </em><em>array_like</em>) – Aspect ratio [-] in <code class="docutils literal notranslate"><span class="pre">[2,</span> <span class="pre">10]</span></code>, the range of the underlying data.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Oswald efficiency factor [-].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers; see <a class="reference internal" href="../guides/aerodynamics.html"><span class="doc">Aerodynamics: incompressible limits and compressible conservation</span></a>.</p>
+<p class="rubric">References</p>
+<p>D. P. Raymer, <em>Aircraft Design: A Conceptual Approach</em>, 6th ed. (AIAA,
+2018), eq. 12.48.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">oswald_efficiency_estimate</span><span class="p">(</span><span class="mf">8.0</span><span class="p">)),</span> <span class="mi">4</span><span class="p">)</span>
+<span class="go">0.8106</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.aerodynamics.prandtl_glauert_cp">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.aerodynamics.</span></span><span class="sig-name descname"><span class="pre">prandtl_glauert_cp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cp0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">M</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/aerodynamics/systems/compressible.html#prandtl_glauert_cp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.aerodynamics.prandtl_glauert_cp" title="Link to this definition">#</a></dt>
+<dd><p>Prandtl-Glauert compressibility correction <span class="math notranslate nohighlight">\(C_p = C_{p,0}/\sqrt{1 - M_\infty^2}\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cp0</strong> (<em>float</em><em> or </em><em>array_like</em>) – Incompressible pressure coefficient [-].</p></li>
+<li><p><strong>M</strong> (<em>float</em><em> or </em><em>array_like</em>) – Free-stream Mach number [-] in <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">1)</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Compressible pressure coefficient [-].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Linearized subsonic theory; it diverges as <span class="math notranslate nohighlight">\(M \to 1\)</span> and is
+unreliable above roughly <span class="math notranslate nohighlight">\(M = 0.7\)</span>. Inputs are raw SI numbers; see
+<a class="reference internal" href="../guides/aerodynamics.html"><span class="doc">Aerodynamics: incompressible limits and compressible conservation</span></a>.</p>
+<p class="rubric">References</p>
+<p>H. Glauert, “The effect of compressibility on the lift of an aerofoil,”
+<em>Proc. R. Soc. Lond. A</em> 118 (1928) 113-119.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">prandtl_glauert_cp</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">)),</span> <span class="mi">6</span><span class="p">)</span>
+<span class="go">-1.25</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.aerodynamics.reynolds_number">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.aerodynamics.</span></span><span class="sig-name descname"><span class="pre">reynolds_number</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rho</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">V</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">L</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mu</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/aerodynamics/systems/boundary_layer.html#reynolds_number"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.aerodynamics.reynolds_number" title="Link to this definition">#</a></dt>
+<dd><p>Reynolds number <span class="math notranslate nohighlight">\(Re = \rho V L / \mu\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>rho</strong> (<em>float</em><em> or </em><em>array_like</em>) – Density [kg/m^3], positive.</p></li>
+<li><p><strong>V</strong> (<em>float</em><em> or </em><em>array_like</em>) – Speed [m/s], nonnegative.</p></li>
+<li><p><strong>L</strong> (<em>float</em><em> or </em><em>array_like</em>) – Reference length (chord, plate distance) [m], positive.</p></li>
+<li><p><strong>mu</strong> (<em>float</em><em> or </em><em>array_like</em>) – Dynamic viscosity [Pa s], positive.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Reynolds number [-].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/aerodynamics.html"><span class="doc">Aerodynamics: incompressible limits and compressible conservation</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">reynolds_number</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1e-5</span><span class="p">)))</span>
+<span class="go">1000000</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.aerodynamics.skin_friction_laminar">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.aerodynamics.</span></span><span class="sig-name descname"><span class="pre">skin_friction_laminar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Re</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/aerodynamics/systems/boundary_layer.html#skin_friction_laminar"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.aerodynamics.skin_friction_laminar" title="Link to this definition">#</a></dt>
+<dd><p>Blasius average skin-friction coefficient of a laminar flat plate, <span class="math notranslate nohighlight">\(C_f = 1.328/\sqrt{Re_L}\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Re</strong> (<em>float</em><em> or </em><em>array_like</em>) – Plate-length Reynolds number [-], positive; laminar flow
+(typically <span class="math notranslate nohighlight">\(Re_L &lt; 5\times10^5\)</span>) is assumed, not checked.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Average skin-friction coefficient (both sides not included) [-].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers; see <a class="reference internal" href="../guides/aerodynamics.html"><span class="doc">Aerodynamics: incompressible limits and compressible conservation</span></a>.</p>
+<p class="rubric">References</p>
+<p>H. Blasius, “Grenzschichten in Flüssigkeiten mit kleiner Reibung,”
+<em>Z. Math. Phys.</em> 56 (1908) 1-37.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">skin_friction_laminar</span><span class="p">(</span><span class="mf">1e6</span><span class="p">)),</span> <span class="mi">6</span><span class="p">)</span>
+<span class="go">0.001328</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.aerodynamics.skin_friction_turbulent">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.aerodynamics.</span></span><span class="sig-name descname"><span class="pre">skin_friction_turbulent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Re</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/aerodynamics/systems/boundary_layer.html#skin_friction_turbulent"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.aerodynamics.skin_friction_turbulent" title="Link to this definition">#</a></dt>
+<dd><p>Prandtl’s one-fifth-power turbulent flat-plate skin friction, <span class="math notranslate nohighlight">\(C_f = 0.074/Re_L^{1/5}\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Re</strong> (<em>float</em><em> or </em><em>array_like</em>) – Plate-length Reynolds number [-], positive; fully turbulent flow
+from the leading edge, roughly <span class="math notranslate nohighlight">\(5\times10^5 &lt; Re_L &lt; 10^7\)</span>.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Average skin-friction coefficient [-].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers; see <a class="reference internal" href="../guides/aerodynamics.html"><span class="doc">Aerodynamics: incompressible limits and compressible conservation</span></a>.</p>
+<p class="rubric">References</p>
+<p>H. Schlichting and K. Gersten, <em>Boundary-Layer Theory</em>, 9th ed.
+(Springer, 2017), ch. 18.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">skin_friction_turbulent</span><span class="p">(</span><span class="mf">1e5</span><span class="p">)),</span> <span class="mi">6</span><span class="p">)</span>
+<span class="go">0.0074</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.aerodynamics.speed_of_sound">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.aerodynamics.</span></span><span class="sig-name descname"><span class="pre">speed_of_sound</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gamma</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">R</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/aerodynamics/systems/compressible.html#speed_of_sound"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.aerodynamics.speed_of_sound" title="Link to this definition">#</a></dt>
+<dd><p>Speed of sound in a perfect gas, <span class="math notranslate nohighlight">\(a = \sqrt{\gamma R T}\)</span> (Laplace).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>gamma</strong> (<em>float</em><em> or </em><em>array_like</em>) – Ratio of specific heats [-], greater than one.</p></li>
+<li><p><strong>R</strong> (<em>float</em><em> or </em><em>array_like</em>) – Specific gas constant [J/(kg K)], positive (287.05 for air).</p></li>
+<li><p><strong>T</strong> (<em>float</em><em> or </em><em>array_like</em>) – Absolute temperature [K], positive.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Speed of sound [m/s].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Newton’s isothermal estimate is <span class="math notranslate nohighlight">\(\sqrt{RT}\)</span>; Laplace’s adiabatic
+correction multiplies it by <span class="math notranslate nohighlight">\(\sqrt{\gamma}\)</span>. Inputs are raw SI
+numbers; see <a class="reference internal" href="../guides/aerodynamics.html"><span class="doc">Aerodynamics: incompressible limits and compressible conservation</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">speed_of_sound</span><span class="p">(</span><span class="mf">1.4</span><span class="p">,</span> <span class="mf">287.05</span><span class="p">,</span> <span class="mf">288.15</span><span class="p">)),</span> <span class="mi">2</span><span class="p">)</span>
+<span class="go">340.29</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.aerodynamics.stagnation_pressure">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.aerodynamics.</span></span><span class="sig-name descname"><span class="pre">stagnation_pressure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">p</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">M</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.4</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/aerodynamics/systems/compressible.html#stagnation_pressure"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.aerodynamics.stagnation_pressure" title="Link to this definition">#</a></dt>
+<dd><p>Isentropic stagnation pressure <span class="math notranslate nohighlight">\(p_0 = p(1 + \tfrac{\gamma-1}{2}M^2)^{\gamma/(\gamma-1)}\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p</strong> (<em>float</em><em> or </em><em>array_like</em>) – Static pressure [Pa], positive.</p></li>
+<li><p><strong>M</strong> (<em>float</em><em> or </em><em>array_like</em>) – Mach number [-], nonnegative.</p></li>
+<li><p><strong>gamma</strong> (<em>float</em><em>, </em><em>optional</em>) – Ratio of specific heats [-], greater than one.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Stagnation (total) pressure [Pa].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Not conserved across a shock wave. Inputs are raw SI numbers; see
+<a class="reference internal" href="../guides/aerodynamics.html"><span class="doc">Aerodynamics: incompressible limits and compressible conservation</span></a>.</p>
+<p class="rubric">References</p>
+<p>A. J. C. B. de Saint-Venant and L. Wantzel, “Mémoire et expériences sur
+l’écoulement de l’air,” <em>J. École Polytech.</em> 16 (1839) 85-122.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">stagnation_pressure</span><span class="p">(</span><span class="mf">100.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">)),</span> <span class="mi">3</span><span class="p">)</span>
+<span class="go">782.445</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.aerodynamics.stagnation_temperature">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.aerodynamics.</span></span><span class="sig-name descname"><span class="pre">stagnation_temperature</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">T</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">M</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.4</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/aerodynamics/systems/compressible.html#stagnation_temperature"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.aerodynamics.stagnation_temperature" title="Link to this definition">#</a></dt>
+<dd><p>Isentropic stagnation temperature <span class="math notranslate nohighlight">\(T_0 = T(1 + \tfrac{\gamma-1}{2}M^2)\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>T</strong> (<em>float</em><em> or </em><em>array_like</em>) – Static temperature [K], positive.</p></li>
+<li><p><strong>M</strong> (<em>float</em><em> or </em><em>array_like</em>) – Mach number [-], nonnegative.</p></li>
+<li><p><strong>gamma</strong> (<em>float</em><em>, </em><em>optional</em>) – Ratio of specific heats [-], greater than one.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Stagnation (total) temperature [K].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers; see <a class="reference internal" href="../guides/aerodynamics.html"><span class="doc">Aerodynamics: incompressible limits and compressible conservation</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">stagnation_temperature</span><span class="p">(</span><span class="mf">300.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">)),</span> <span class="mi">6</span><span class="p">)</span>
+<span class="go">540.0</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.aerodynamics.stall_speed">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.aerodynamics.</span></span><span class="sig-name descname"><span class="pre">stall_speed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">weight</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rho</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">S</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Clmax</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/aerodynamics/systems/lift.html#stall_speed"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.aerodynamics.stall_speed" title="Link to this definition">#</a></dt>
+<dd><p>Minimum level-flight speed <span class="math notranslate nohighlight">\(V_s = \sqrt{2W / (\rho S C_{L,\max})}\)</span>.</p>
+<p>Setting lift equal to weight at the largest attainable lift coefficient
+gives the slowest speed at which the wing can still support the aircraft.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>weight</strong> (<em>float</em><em> or </em><em>array_like</em>) – Aircraft weight [N], positive.</p></li>
+<li><p><strong>rho</strong> (<em>float</em><em> or </em><em>array_like</em>) – Air density [kg/m^3], positive.</p></li>
+<li><p><strong>S</strong> (<em>float</em><em> or </em><em>array_like</em>) – Wing area [m^2], positive.</p></li>
+<li><p><strong>Clmax</strong> (<em>float</em><em> or </em><em>array_like</em>) – Maximum lift coefficient [-], positive.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Stall speed [m/s].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; assumptions and
+validity limits are in <a class="reference internal" href="../guides/aerodynamics.html"><span class="doc">Aerodynamics: incompressible limits and compressible conservation</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">stall_speed</span><span class="p">(</span><span class="mf">12000.0</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">,</span> <span class="mf">20.0</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">)),</span> <span class="mi">4</span><span class="p">)</span>
+<span class="go">25.8199</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.aerodynamics.thin_airfoil_cl">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.aerodynamics.</span></span><span class="sig-name descname"><span class="pre">thin_airfoil_cl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alpha_rad</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha_l0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/aerodynamics/systems/lift.html#thin_airfoil_cl"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.aerodynamics.thin_airfoil_cl" title="Link to this definition">#</a></dt>
+<dd><p>Thin-airfoil section lift coefficient <span class="math notranslate nohighlight">\(c_l = 2\pi(\alpha - \alpha_{L=0})\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>alpha_rad</strong> (<em>float</em><em> or </em><em>array_like</em>) – Angle of attack [rad].</p></li>
+<li><p><strong>alpha_l0</strong> (<em>float</em><em>, </em><em>optional</em>) – Zero-lift angle of attack [rad]; zero for a symmetric section and
+negative for positive camber (see <a class="reference internal" href="#engineeringkit.aerodynamics.naca4_zero_lift_angle" title="engineeringkit.aerodynamics.naca4_zero_lift_angle"><code class="xref py py-func docutils literal notranslate"><span class="pre">naca4_zero_lift_angle()</span></code></a>).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Section lift coefficient [-].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Small angles and attached, inviscid, incompressible flow are assumed;
+stall is not predicted. Inputs are raw SI numbers with no dimensional
+metadata; see <a class="reference internal" href="../guides/aerodynamics.html"><span class="doc">Aerodynamics: incompressible limits and compressible conservation</span></a>.</p>
+<p class="rubric">References</p>
+<p>H. Glauert, <em>The Elements of Aerofoil and Airscrew Theory</em> (Cambridge
+University Press, 1926), ch. 7.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">thin_airfoil_cl</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)),</span> <span class="mi">6</span><span class="p">)</span>
+<span class="go">0.628319</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<section id="module-engineeringkit.aerodynamics.visualizers">
+<span id="visualizers"></span><h2>Visualizers<a class="headerlink" href="#module-engineeringkit.aerodynamics.visualizers" title="Link to this heading">#</a></h2>
+<p>Matplotlib visualizers for engineeringkit.aerodynamics.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.aerodynamics.visualizers.plot_airfoil">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.aerodynamics.visualizers.</span></span><span class="sig-name descname"><span class="pre">plot_airfoil</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">airfoil</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/aerodynamics/visualizers/plots.html#plot_airfoil"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.aerodynamics.visualizers.plot_airfoil" title="Link to this definition">#</a></dt>
+<dd><p>Draw an airfoil outline and its mean camber line on equal axes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>airfoil</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#engineeringkit.aerodynamics.Airfoil" title="engineeringkit.aerodynamics.core.base.Airfoil"><code class="xref py py-class docutils literal notranslate"><span class="pre">Airfoil</span></code></a></span>) – From <a class="reference internal" href="#engineeringkit.aerodynamics.naca4_airfoil" title="engineeringkit.aerodynamics.naca4_airfoil"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.aerodynamics.naca4_airfoil()</span></code></a>.</p></li>
+<li><p><strong>ax</strong> (<em>matplotlib.axes.Axes</em><em>, </em><em>optional</em>) – Axes to draw on; a new figure is created if omitted.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>matplotlib.axes.Axes</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.aerodynamics.visualizers.plot_atmosphere">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.aerodynamics.visualizers.</span></span><span class="sig-name descname"><span class="pre">plot_atmosphere</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/aerodynamics/visualizers/plots.html#plot_atmosphere"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.aerodynamics.visualizers.plot_atmosphere" title="Link to this definition">#</a></dt>
+<dd><p>Plot temperature, pressure and density against altitude side by side.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>state</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#engineeringkit.aerodynamics.AtmosphereState" title="engineeringkit.aerodynamics.core.base.AtmosphereState"><code class="xref py py-class docutils literal notranslate"><span class="pre">AtmosphereState</span></code></a></span>) – From <a class="reference internal" href="#engineeringkit.aerodynamics.isa_atmosphere" title="engineeringkit.aerodynamics.isa_atmosphere"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.aerodynamics.isa_atmosphere()</span></code></a> with an altitude array.</p></li>
+<li><p><strong>axes</strong> (<em>sequence</em><em> of </em><em>three matplotlib.axes.Axes</em><em>, </em><em>optional</em>) – Axes to draw on; a new figure is created if omitted.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>ndarray of matplotlib.axes.Axes</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.aerodynamics.visualizers.plot_drag_polar">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.aerodynamics.visualizers.</span></span><span class="sig-name descname"><span class="pre">plot_drag_polar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cl</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/aerodynamics/visualizers/plots.html#plot_drag_polar"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.aerodynamics.visualizers.plot_drag_polar" title="Link to this definition">#</a></dt>
+<dd><p>Plot lift coefficient against drag coefficient and mark the best-glide tangent.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cl</strong> (<em>array_like</em>) – Matching lift and drag coefficients [-].</p></li>
+<li><p><strong>cd</strong> (<em>array_like</em>) – Matching lift and drag coefficients [-].</p></li>
+<li><p><strong>ax</strong> (<em>matplotlib.axes.Axes</em><em>, </em><em>optional</em>) – Axes to draw on; a new figure is created if omitted.</p></li>
+<li><p><strong>label</strong> (<em>str</em><em>, </em><em>optional</em>) – Legend label for the polar.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>matplotlib.axes.Axes</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="heat_transfer.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">engineeringkit.heat_transfer</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="electrical_engineering.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">engineeringkit.electrical_engineering</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.aerodynamics.Airfoil"><code class="docutils literal notranslate"><span class="pre">Airfoil</span></code></a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.aerodynamics.Airfoil.camber"><code class="docutils literal notranslate"><span class="pre">Airfoil.camber</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.aerodynamics.Airfoil.lower"><code class="docutils literal notranslate"><span class="pre">Airfoil.lower</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.aerodynamics.Airfoil.name"><code class="docutils literal notranslate"><span class="pre">Airfoil.name</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.aerodynamics.Airfoil.plot"><code class="docutils literal notranslate"><span class="pre">Airfoil.plot()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.aerodynamics.Airfoil.summary"><code class="docutils literal notranslate"><span class="pre">Airfoil.summary()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.aerodynamics.Airfoil.thickness"><code class="docutils literal notranslate"><span class="pre">Airfoil.thickness</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.aerodynamics.Airfoil.upper"><code class="docutils literal notranslate"><span class="pre">Airfoil.upper</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.aerodynamics.Airfoil.x"><code class="docutils literal notranslate"><span class="pre">Airfoil.x</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.aerodynamics.AtmosphereState"><code class="docutils literal notranslate"><span class="pre">AtmosphereState</span></code></a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.aerodynamics.AtmosphereState.altitude"><code class="docutils literal notranslate"><span class="pre">AtmosphereState.altitude</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.aerodynamics.AtmosphereState.density"><code class="docutils literal notranslate"><span class="pre">AtmosphereState.density</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.aerodynamics.AtmosphereState.plot"><code class="docutils literal notranslate"><span class="pre">AtmosphereState.plot()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.aerodynamics.AtmosphereState.pressure"><code class="docutils literal notranslate"><span class="pre">AtmosphereState.pressure</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.aerodynamics.AtmosphereState.speed_of_sound"><code class="docutils literal notranslate"><span class="pre">AtmosphereState.speed_of_sound</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.aerodynamics.AtmosphereState.summary"><code class="docutils literal notranslate"><span class="pre">AtmosphereState.summary()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.aerodynamics.AtmosphereState.temperature"><code class="docutils literal notranslate"><span class="pre">AtmosphereState.temperature</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.aerodynamics.area_mach_ratio"><code class="docutils literal notranslate"><span class="pre">area_mach_ratio()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.aerodynamics.aspect_ratio"><code class="docutils literal notranslate"><span class="pre">aspect_ratio()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.aerodynamics.best_glide_cl"><code class="docutils literal notranslate"><span class="pre">best_glide_cl()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.aerodynamics.boundary_layer_laminar"><code class="docutils literal notranslate"><span class="pre">boundary_layer_laminar()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.aerodynamics.breguet_range"><code class="docutils literal notranslate"><span class="pre">breguet_range()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.aerodynamics.drag"><code class="docutils literal notranslate"><span class="pre">drag()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.aerodynamics.drag_coefficient"><code class="docutils literal notranslate"><span class="pre">drag_coefficient()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.aerodynamics.drag_polar"><code class="docutils literal notranslate"><span class="pre">drag_polar()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.aerodynamics.dynamic_pressure"><code class="docutils literal notranslate"><span class="pre">dynamic_pressure()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.aerodynamics.finite_wing_cl"><code class="docutils literal notranslate"><span class="pre">finite_wing_cl()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.aerodynamics.finite_wing_lift_slope"><code class="docutils literal notranslate"><span class="pre">finite_wing_lift_slope()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.aerodynamics.glide_ratio"><code class="docutils literal notranslate"><span class="pre">glide_ratio()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.aerodynamics.induced_drag_coefficient"><code class="docutils literal notranslate"><span class="pre">induced_drag_coefficient()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.aerodynamics.isa_atmosphere"><code class="docutils literal notranslate"><span class="pre">isa_atmosphere()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.aerodynamics.isentropic_factor"><code class="docutils literal notranslate"><span class="pre">isentropic_factor()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.aerodynamics.kutta_joukowski_lift"><code class="docutils literal notranslate"><span class="pre">kutta_joukowski_lift()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.aerodynamics.lift"><code class="docutils literal notranslate"><span class="pre">lift()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.aerodynamics.lift_coefficient"><code class="docutils literal notranslate"><span class="pre">lift_coefficient()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.aerodynamics.mach_angle"><code class="docutils literal notranslate"><span class="pre">mach_angle()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.aerodynamics.mach_number"><code class="docutils literal notranslate"><span class="pre">mach_number()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.aerodynamics.naca4_airfoil"><code class="docutils literal notranslate"><span class="pre">naca4_airfoil()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.aerodynamics.naca4_zero_lift_angle"><code class="docutils literal notranslate"><span class="pre">naca4_zero_lift_angle()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.aerodynamics.normal_shock_mach2"><code class="docutils literal notranslate"><span class="pre">normal_shock_mach2()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.aerodynamics.normal_shock_pressure_ratio"><code class="docutils literal notranslate"><span class="pre">normal_shock_pressure_ratio()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.aerodynamics.oswald_efficiency_estimate"><code class="docutils literal notranslate"><span class="pre">oswald_efficiency_estimate()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.aerodynamics.prandtl_glauert_cp"><code class="docutils literal notranslate"><span class="pre">prandtl_glauert_cp()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.aerodynamics.reynolds_number"><code class="docutils literal notranslate"><span class="pre">reynolds_number()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.aerodynamics.skin_friction_laminar"><code class="docutils literal notranslate"><span class="pre">skin_friction_laminar()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.aerodynamics.skin_friction_turbulent"><code class="docutils literal notranslate"><span class="pre">skin_friction_turbulent()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.aerodynamics.speed_of_sound"><code class="docutils literal notranslate"><span class="pre">speed_of_sound()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.aerodynamics.stagnation_pressure"><code class="docutils literal notranslate"><span class="pre">stagnation_pressure()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.aerodynamics.stagnation_temperature"><code class="docutils literal notranslate"><span class="pre">stagnation_temperature()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.aerodynamics.stall_speed"><code class="docutils literal notranslate"><span class="pre">stall_speed()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.aerodynamics.thin_airfoil_cl"><code class="docutils literal notranslate"><span class="pre">thin_airfoil_cl()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-engineeringkit.aerodynamics.visualizers">Visualizers</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.aerodynamics.visualizers.plot_airfoil"><code class="docutils literal notranslate"><span class="pre">plot_airfoil()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.aerodynamics.visualizers.plot_atmosphere"><code class="docutils literal notranslate"><span class="pre">plot_atmosphere()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.aerodynamics.visualizers.plot_drag_polar"><code class="docutils literal notranslate"><span class="pre">plot_drag_polar()</span></code></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../_sources/api/aerodynamics.rst.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.23.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

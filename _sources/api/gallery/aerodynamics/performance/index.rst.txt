@@ -1,0 +1,50 @@
+
+
+.. _sphx_glr_api_gallery_aerodynamics_performance:
+
+Performance
+-----------
+
+Cruise range from aerodynamic efficiency and engine fuel consumption.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Louis Breguet&#x27;s range formula (1923) follows from three facts: thrust equals drag, drag equals weight divided by L/D, and fuel flow is the thrust-specific fuel consumption times thrust. Integrating the weight loss gives R = \frac{V}{g c_T}\frac{L}{D}\ln\frac{W_i}{W_f} (~engineeringkit.aerodynamics.breguet_range): range is the product of engine efficiency, aerodynamic efficiency and a logarithmic fuel fraction. This example checks it against a time-stepped cruise and shows why airliners fly near the best-glide lift coefficient.">
+
+.. only:: html
+
+  .. image:: /api/gallery/aerodynamics/performance/images/thumb/sphx_glr_plot_01_breguet_range_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/aerodynamics/performance/plot_01_breguet_range`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">The Breguet range equation</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/aerodynamics/performance/plot_01_breguet_range
+

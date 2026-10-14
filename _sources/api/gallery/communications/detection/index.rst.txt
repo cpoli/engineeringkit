@@ -1,0 +1,68 @@
+
+
+.. _sphx_glr_api_gallery_communications_detection:
+
+Detection
+---------
+
+Bit-error rates of coherent BPSK and QPSK in Gaussian noise.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Vladimir Kotel&#x27;nikov&#x27;s 1947 thesis, The Theory of Optimum Noise Immunity, asked which receiver makes the fewest errors when known signals are buried in white Gaussian noise. For two antipodal signals the answer is a correlator (or matched filter) followed by a sign decision, with bit-error rate Q(\sqrt{2E_b/N_0}) (~engineeringkit.communications.ber_bpsk_awgn, q_function). A Monte Carlo simulation of bpsk through noise reproduces the curve.">
+
+.. only:: html
+
+  .. image:: /api/gallery/communications/detection/images/thumb/sphx_glr_plot_01_kotelnikov_bpsk_detection_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/communications/detection/plot_01_kotelnikov_bpsk_detection`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Kotel'nikov's optimum receiver: BPSK in white Gaussian noise</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Charles Cahn&#x27;s 1960 analysis of combined phase and amplitude modulation formalised what quadrature carriers make possible. Cosine and sine carriers at the same frequency are orthogonal, so each can carry an independent BPSK stream. Gray-labelled QPSK (~engineeringkit.communications.qpsk) sends two bits per symbol in the bandwidth of one. Its bit-error rate per unit E_b/N_0 equals that of BPSK (~engineeringkit.communications.ber_qpsk_awgn).">
+
+.. only:: html
+
+  .. image:: /api/gallery/communications/detection/images/thumb/sphx_glr_plot_02_cahn_quadrature_qpsk_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/communications/detection/plot_02_cahn_quadrature_qpsk`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Quadrature modulation: QPSK doubles the rate at the same error rate</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/communications/detection/plot_01_kotelnikov_bpsk_detection
+   /api/gallery/communications/detection/plot_02_cahn_quadrature_qpsk
+

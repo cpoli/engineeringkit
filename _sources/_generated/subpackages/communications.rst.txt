@@ -1,0 +1,28 @@
+engineeringkit.communications
+=============================
+
+Modulation, noise, channel capacity, detection and link budgets.
+
+.. grid:: 1 2 3 3
+   :gutter: 2
+
+   .. grid-item-card:: History
+      :link: /history/communications_breakthroughs
+      :link-type: doc
+
+      Foundational ideas linked to the implementation.
+
+   .. grid-item-card:: Examples
+      :link: /api/gallery/communications/index
+      :link-type: doc
+
+      Executed scripts, plots, source and notebook downloads.
+
+   .. grid-item-card:: API reference
+      :link: /api/communications
+      :link-type: doc
+
+      Public classes, functions and result objects.
+
+
+:doc:`Units, assumptions and numerical validation </guides/communications>`.

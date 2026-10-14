@@ -1,0 +1,28 @@
+engineeringkit.control_systems
+==============================
+
+Classical stability, PID responses, state feedback, LQR and estimation.
+
+.. grid:: 1 2 3 3
+   :gutter: 2
+
+   .. grid-item-card:: History
+      :link: /history/control_systems_breakthroughs
+      :link-type: doc
+
+      Foundational ideas linked to the implementation.
+
+   .. grid-item-card:: Examples
+      :link: /api/gallery/control_systems/index
+      :link-type: doc
+
+      Executed scripts, plots, source and notebook downloads.
+
+   .. grid-item-card:: API reference
+      :link: /api/control_systems
+      :link-type: doc
+
+      Public classes, functions and result objects.
+
+
+:doc:`Units, assumptions and numerical validation </guides/control_systems>`.

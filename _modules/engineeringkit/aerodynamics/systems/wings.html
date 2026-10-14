@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>engineeringkit.aerodynamics.systems.wings &#8212; engineeringkit 0.1.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery.css?v=c83e6b79" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/engineeringkit.css?v=62935cec" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../../../_static/scripts/fontawesome.js?digest=18bd87630a240e9c25be"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be" />
+
+    <script src="../../../../_static/documentation_options.js?v=38b66d78"></script>
+    <script src="../../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../../_static/sg-tags.js?v=d80f6fa4"></script>
+    <script src="../../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/engineeringkit/aerodynamics/systems/wings';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="color-scheme" content="light dark"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../../../_static/searchtools.js"></script>
+    <script src="../../../../_static/language_data.js"></script>
+    <script src="../../../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../_static/engineeringkit_logo_transparent.png" class="logo__image only-light" alt="engineeringkit logo"/>
+    <img src="../../../../_static/engineeringkit_logo_transparent.png" class="logo__image only-dark pst-js-only" alt="engineeringkit logo"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../subpackages/index.html">
+    Subpackages
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../history/index.html">
+    History
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../api/index.html">
+    API
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../subpackages/index.html">
+    Subpackages
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../history/index.html">
+    History
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../api/index.html">
+    API
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">engineeringkit.aerodynamics.systems.wings</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for engineeringkit.aerodynamics.systems.wings</h1><div class="highlight"><pre>
+<span></span><span class="sa">r</span><span class="sd">"""Finite wings: lifting-line slope, induced drag, drag polars, and cruise performance.</span>
+
+<span class="sd">Prandtl's lifting-line theory replaces a wing by a bound vortex whose</span>
+<span class="sd">trailing vortices induce a downwash; the downwash tilts the local lift</span>
+<span class="sd">backwards, producing the induced drag :math:`C_L^2/(\pi e AR)` and lowering</span>
+<span class="sd">the lift-curve slope relative to the two-dimensional section.</span>
+<span class="sd">"""</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit._validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">finite</span> <span class="k">as</span> <span class="n">_finite</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit._validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">interval</span> <span class="k">as</span> <span class="n">_interval</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit._validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">nonnegative</span> <span class="k">as</span> <span class="n">_nonnegative</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit._validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">positive</span> <span class="k">as</span> <span class="n">_positive</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">"aspect_ratio"</span><span class="p">,</span>
+    <span class="s2">"induced_drag_coefficient"</span><span class="p">,</span>
+    <span class="s2">"drag_polar"</span><span class="p">,</span>
+    <span class="s2">"finite_wing_lift_slope"</span><span class="p">,</span>
+    <span class="s2">"finite_wing_cl"</span><span class="p">,</span>
+    <span class="s2">"oswald_efficiency_estimate"</span><span class="p">,</span>
+    <span class="s2">"glide_ratio"</span><span class="p">,</span>
+    <span class="s2">"best_glide_cl"</span><span class="p">,</span>
+    <span class="s2">"breguet_range"</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="n">STANDARD_GRAVITY</span> <span class="o">=</span> <span class="mf">9.80665</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_span_efficiency</span><span class="p">(</span><span class="n">e</span><span class="p">):</span>
+    <span class="n">_interval</span><span class="p">(</span><span class="s2">"e"</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="s2">"right"</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="aspect_ratio">
+<a class="viewcode-back" href="../../../../api/aerodynamics.html#engineeringkit.aerodynamics.aspect_ratio">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">aspect_ratio</span><span class="p">(</span><span class="n">span</span><span class="p">,</span> <span class="n">area</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Wing aspect ratio :math:`AR = b^2 / S`.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    span : float or array_like</span>
+<span class="sd">        Wing span [m], positive.</span>
+<span class="sd">    area : float or array_like</span>
+<span class="sd">        Planform area [m^2], positive.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float or ndarray</span>
+<span class="sd">        Aspect ratio [-].</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Inputs are raw SI numbers with no dimensional metadata; see</span>
+<span class="sd">    :doc:`/guides/aerodynamics`.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; float(aspect_ratio(10.0, 20.0))</span>
+<span class="sd">    5.0</span>
+<span class="sd">    """</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">span</span><span class="o">=</span><span class="n">span</span><span class="p">,</span> <span class="n">area</span><span class="o">=</span><span class="n">area</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">span</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">/</span> <span class="n">area</span></div>
+
+
+
+<div class="viewcode-block" id="induced_drag_coefficient">
+<a class="viewcode-back" href="../../../../api/aerodynamics.html#engineeringkit.aerodynamics.induced_drag_coefficient">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">induced_drag_coefficient</span><span class="p">(</span><span class="n">Cl</span><span class="p">,</span> <span class="n">AR</span><span class="p">,</span> <span class="n">e</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Induced (vortex) drag coefficient :math:`C_{D,i} = C_L^2/(\pi e AR)`.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    Cl : float or array_like</span>
+<span class="sd">        Wing lift coefficient [-].</span>
+<span class="sd">    AR : float or array_like</span>
+<span class="sd">        Aspect ratio [-], positive.</span>
+<span class="sd">    e : float or array_like, optional</span>
+<span class="sd">        Span efficiency factor [-] in ``(0, 1]``; one for an elliptic load.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float or ndarray</span>
+<span class="sd">        Induced drag coefficient [-].</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Inputs are raw SI numbers with no dimensional metadata; see</span>
+<span class="sd">    :doc:`/guides/aerodynamics`.</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    L. Prandtl, "Tragflügeltheorie," *Nachr. Ges. Wiss. Göttingen* (1918).</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; round(float(induced_drag_coefficient(0.5, 8.0)), 6)</span>
+<span class="sd">    0.009947</span>
+<span class="sd">    """</span>
+    <span class="n">_finite</span><span class="p">(</span><span class="n">Cl</span><span class="o">=</span><span class="n">Cl</span><span class="p">)</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">AR</span><span class="o">=</span><span class="n">AR</span><span class="p">)</span>
+    <span class="n">_span_efficiency</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">Cl</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">/</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">e</span> <span class="o">*</span> <span class="n">AR</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="drag_polar">
+<a class="viewcode-back" href="../../../../api/aerodynamics.html#engineeringkit.aerodynamics.drag_polar">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">drag_polar</span><span class="p">(</span><span class="n">Cl</span><span class="p">,</span> <span class="n">Cd0</span><span class="p">,</span> <span class="n">AR</span><span class="p">,</span> <span class="n">e</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Parabolic drag polar :math:`C_D = C_{D0} + C_L^2/(\pi e AR)`.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    Cl : float or array_like</span>
+<span class="sd">        Lift coefficient [-].</span>
+<span class="sd">    Cd0 : float or array_like</span>
+<span class="sd">        Zero-lift (parasite) drag coefficient [-], nonnegative.</span>
+<span class="sd">    AR : float or array_like</span>
+<span class="sd">        Aspect ratio [-], positive.</span>
+<span class="sd">    e : float or array_like, optional</span>
+<span class="sd">        Oswald efficiency factor [-] in ``(0, 1]``.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float or ndarray</span>
+<span class="sd">        Total drag coefficient [-].</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Compressibility and Reynolds-number variation of :math:`C_{D0}` are not</span>
+<span class="sd">    modelled. Inputs are raw SI numbers; see :doc:`/guides/aerodynamics`.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; round(float(drag_polar(0.5, 0.02, 8.0, 0.8)), 6)</span>
+<span class="sd">    0.032434</span>
+<span class="sd">    """</span>
+    <span class="n">_nonnegative</span><span class="p">(</span><span class="n">Cd0</span><span class="o">=</span><span class="n">Cd0</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">Cd0</span> <span class="o">+</span> <span class="n">induced_drag_coefficient</span><span class="p">(</span><span class="n">Cl</span><span class="p">,</span> <span class="n">AR</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="finite_wing_lift_slope">
+<a class="viewcode-back" href="../../../../api/aerodynamics.html#engineeringkit.aerodynamics.finite_wing_lift_slope">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">finite_wing_lift_slope</span><span class="p">(</span><span class="n">AR</span><span class="p">,</span> <span class="n">e</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">a0</span><span class="o">=</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Lifting-line lift-curve slope :math:`a = a_0 / (1 + a_0/(\pi e AR))`.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    AR : float or array_like</span>
+<span class="sd">        Aspect ratio [-], positive.</span>
+<span class="sd">    e : float or array_like, optional</span>
+<span class="sd">        Span efficiency factor [-] in ``(0, 1]``.</span>
+<span class="sd">    a0 : float, optional</span>
+<span class="sd">        Two-dimensional section lift slope [1/rad]; :math:`2\pi` from thin-airfoil theory.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float or ndarray</span>
+<span class="sd">        Wing lift-curve slope [1/rad]; tends to ``a0`` as ``AR`` grows.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Valid for unswept, moderate-to-high aspect-ratio wings in attached</span>
+<span class="sd">    incompressible flow. Inputs are raw SI numbers; see</span>
+<span class="sd">    :doc:`/guides/aerodynamics`.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; round(float(finite_wing_lift_slope(8.0)), 4)</span>
+<span class="sd">    5.0265</span>
+<span class="sd">    """</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">AR</span><span class="o">=</span><span class="n">AR</span><span class="p">,</span> <span class="n">a0</span><span class="o">=</span><span class="n">a0</span><span class="p">)</span>
+    <span class="n">_span_efficiency</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">a0</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">a0</span> <span class="o">/</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">e</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">AR</span><span class="p">)))</span></div>
+
+
+
+<div class="viewcode-block" id="finite_wing_cl">
+<a class="viewcode-back" href="../../../../api/aerodynamics.html#engineeringkit.aerodynamics.finite_wing_cl">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">finite_wing_cl</span><span class="p">(</span><span class="n">alpha_rad</span><span class="p">,</span> <span class="n">AR</span><span class="p">,</span> <span class="n">e</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">alpha_l0</span><span class="o">=</span><span class="mf">0.0</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Wing lift coefficient :math:`C_L = a(\alpha - \alpha_{L=0})` with the lifting-line slope.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    alpha_rad : float or array_like</span>
+<span class="sd">        Angle of attack [rad].</span>
+<span class="sd">    AR : float or array_like</span>
+<span class="sd">        Aspect ratio [-], positive.</span>
+<span class="sd">    e : float, optional</span>
+<span class="sd">        Span efficiency factor [-] in ``(0, 1]``.</span>
+<span class="sd">    alpha_l0 : float, optional</span>
+<span class="sd">        Zero-lift angle [rad].</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float or ndarray</span>
+<span class="sd">        Wing lift coefficient [-].</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Inputs are raw SI numbers with no dimensional metadata; see</span>
+<span class="sd">    :doc:`/guides/aerodynamics`.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; round(float(finite_wing_cl(0.1, 8.0)), 5)</span>
+<span class="sd">    0.50265</span>
+<span class="sd">    """</span>
+    <span class="n">_finite</span><span class="p">(</span><span class="n">alpha_rad</span><span class="o">=</span><span class="n">alpha_rad</span><span class="p">,</span> <span class="n">alpha_l0</span><span class="o">=</span><span class="n">alpha_l0</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">finite_wing_lift_slope</span><span class="p">(</span><span class="n">AR</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">alpha_rad</span><span class="p">)</span> <span class="o">-</span> <span class="n">alpha_l0</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="oswald_efficiency_estimate">
+<a class="viewcode-back" href="../../../../api/aerodynamics.html#engineeringkit.aerodynamics.oswald_efficiency_estimate">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">oswald_efficiency_estimate</span><span class="p">(</span><span class="n">AR</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Empirical Oswald factor for straight wings, :math:`e = 1.78(1 - 0.045 AR^{0.68}) - 0.64`.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    AR : float or array_like</span>
+<span class="sd">        Aspect ratio [-] in ``[2, 10]``, the range of the underlying data.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float or ndarray</span>
+<span class="sd">        Oswald efficiency factor [-].</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Inputs are raw SI numbers; see :doc:`/guides/aerodynamics`.</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    D. P. Raymer, *Aircraft Design: A Conceptual Approach*, 6th ed. (AIAA,</span>
+<span class="sd">    2018), eq. 12.48.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; round(float(oswald_efficiency_estimate(8.0)), 4)</span>
+<span class="sd">    0.8106</span>
+<span class="sd">    """</span>
+    <span class="n">_interval</span><span class="p">(</span><span class="s2">"AR"</span><span class="p">,</span> <span class="n">AR</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+    <span class="k">return</span> <span class="mf">1.78</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="mf">0.045</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">AR</span><span class="p">)</span> <span class="o">**</span> <span class="mf">0.68</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.64</span></div>
+
+
+
+<div class="viewcode-block" id="glide_ratio">
+<a class="viewcode-back" href="../../../../api/aerodynamics.html#engineeringkit.aerodynamics.glide_ratio">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">glide_ratio</span><span class="p">(</span><span class="n">Cl</span><span class="p">,</span> <span class="n">Cd</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Lift-to-drag ratio :math:`L/D = C_L/C_D`, the still-air glide distance per unit height lost.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    Cl : float or array_like</span>
+<span class="sd">        Lift coefficient [-].</span>
+<span class="sd">    Cd : float or array_like</span>
+<span class="sd">        Drag coefficient [-], positive.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float or ndarray</span>
+<span class="sd">        Glide ratio [-].</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Inputs are raw SI numbers; see :doc:`/guides/aerodynamics`.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; float(glide_ratio(0.8, 0.05))</span>
+<span class="sd">    16.0</span>
+<span class="sd">    """</span>
+    <span class="n">_finite</span><span class="p">(</span><span class="n">Cl</span><span class="o">=</span><span class="n">Cl</span><span class="p">)</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">Cd</span><span class="o">=</span><span class="n">Cd</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">Cl</span><span class="p">)</span> <span class="o">/</span> <span class="n">Cd</span></div>
+
+
+
+<div class="viewcode-block" id="best_glide_cl">
+<a class="viewcode-back" href="../../../../api/aerodynamics.html#engineeringkit.aerodynamics.best_glide_cl">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">best_glide_cl</span><span class="p">(</span><span class="n">Cd0</span><span class="p">,</span> <span class="n">AR</span><span class="p">,</span> <span class="n">e</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Lift coefficient of maximum :math:`L/D` for a parabolic polar, :math:`\sqrt{\pi e AR C_{D0}}`.</span>
+
+<span class="sd">    At this point induced drag equals parasite drag, so</span>
+<span class="sd">    :math:`(L/D)_{\max} = \tfrac12\sqrt{\pi e AR / C_{D0}}`.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    Cd0 : float or array_like</span>
+<span class="sd">        Zero-lift drag coefficient [-], positive.</span>
+<span class="sd">    AR : float or array_like</span>
+<span class="sd">        Aspect ratio [-], positive.</span>
+<span class="sd">    e : float or array_like, optional</span>
+<span class="sd">        Oswald efficiency factor [-] in ``(0, 1]``.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float or ndarray</span>
+<span class="sd">        Lift coefficient for best glide [-].</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Inputs are raw SI numbers; see :doc:`/guides/aerodynamics`.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; round(float(best_glide_cl(0.02, 8.0, 0.8)), 4)</span>
+<span class="sd">    0.6341</span>
+<span class="sd">    """</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">Cd0</span><span class="o">=</span><span class="n">Cd0</span><span class="p">,</span> <span class="n">AR</span><span class="o">=</span><span class="n">AR</span><span class="p">)</span>
+    <span class="n">_span_efficiency</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">e</span> <span class="o">*</span> <span class="n">AR</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">Cd0</span><span class="p">))</span></div>
+
+
+
+<div class="viewcode-block" id="breguet_range">
+<a class="viewcode-back" href="../../../../api/aerodynamics.html#engineeringkit.aerodynamics.breguet_range">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">breguet_range</span><span class="p">(</span><span class="n">V</span><span class="p">,</span> <span class="n">tsfc</span><span class="p">,</span> <span class="n">lift_to_drag</span><span class="p">,</span> <span class="n">W_initial</span><span class="p">,</span> <span class="n">W_final</span><span class="p">,</span> <span class="n">g</span><span class="o">=</span><span class="n">STANDARD_GRAVITY</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Jet-aircraft cruise range :math:`R = \dfrac{V}{g\,c_T}\dfrac{L}{D}\ln\dfrac{W_i}{W_f}` (Breguet).</span>
+
+<span class="sd">    Integrates :math:`dR = V\,dt` while fuel burns at :math:`\dot m = c_T T`</span>
+<span class="sd">    and thrust equals drag, :math:`T = W/(L/D)`, at constant speed and</span>
+<span class="sd">    lift-to-drag ratio.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    V : float or array_like</span>
+<span class="sd">        Cruise true airspeed [m/s], positive.</span>
+<span class="sd">    tsfc : float or array_like</span>
+<span class="sd">        Thrust-specific fuel consumption [kg/(N s)], positive</span>
+<span class="sd">        (e.g. ``1.6e-5`` for a modern turbofan).</span>
+<span class="sd">    lift_to_drag : float or array_like</span>
+<span class="sd">        Cruise lift-to-drag ratio [-], positive.</span>
+<span class="sd">    W_initial, W_final : float or array_like</span>
+<span class="sd">        Weight at the start and end of cruise [N], with ``W_initial &gt;= W_final &gt; 0``.</span>
+<span class="sd">    g : float, optional</span>
+<span class="sd">        Gravitational acceleration [m/s^2].</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float or ndarray</span>
+<span class="sd">        Still-air range [m].</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Inputs are raw SI numbers; see :doc:`/guides/aerodynamics`.</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    J. D. Anderson, *Aircraft Performance and Design* (McGraw-Hill, 1999),</span>
+<span class="sd">    sec. 5.13, for the derivation of the range equation attributed to</span>
+<span class="sd">    Louis Breguet.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; round(float(breguet_range(230.0, 1.6e-5, 18.0, 7.0e5, 5.0e5)) / 1e3)</span>
+<span class="sd">    8878</span>
+<span class="sd">    """</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">V</span><span class="o">=</span><span class="n">V</span><span class="p">,</span> <span class="n">tsfc</span><span class="o">=</span><span class="n">tsfc</span><span class="p">,</span> <span class="n">lift_to_drag</span><span class="o">=</span><span class="n">lift_to_drag</span><span class="p">,</span> <span class="n">W_final</span><span class="o">=</span><span class="n">W_final</span><span class="p">,</span> <span class="n">g</span><span class="o">=</span><span class="n">g</span><span class="p">)</span>
+    <span class="n">_finite</span><span class="p">(</span><span class="n">W_initial</span><span class="o">=</span><span class="n">W_initial</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">W_initial</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">W_final</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"W_initial must be at least W_final"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">V</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">g</span> <span class="o">*</span> <span class="n">tsfc</span><span class="p">)</span> <span class="o">*</span> <span class="n">lift_to_drag</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">W_initial</span><span class="p">)</span> <span class="o">/</span> <span class="n">W_final</span><span class="p">)</span></div>
+
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../../_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be"></script>
+<script defer src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.23.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

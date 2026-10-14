@@ -1,0 +1,55 @@
+r"""
+Saint-Venant and Wantzel: isentropic stagnation states
+======================================================
+
+Adhémar Barré de Saint-Venant and Pierre Wantzel's 1839 experiments on air
+escaping from a reservoir gave the first correct compressible-flow formula:
+along an adiabatic, frictionless streamline
+:math:`T_0/T = 1 + \tfrac{\gamma-1}{2}M^2` and
+:math:`p_0/p = (T_0/T)^{\gamma/(\gamma-1)}`
+(:func:`~engineeringkit.aerodynamics.stagnation_temperature`,
+:func:`~engineeringkit.aerodynamics.stagnation_pressure`). Expanding for small
+:math:`M` recovers Bernoulli's :math:`p_0 - p = \tfrac12\rho V^2`; the
+difference measures how wrong an incompressible pitot formula becomes.
+"""
+
+# %%
+import matplotlib.pyplot as plt
+import numpy as np
+
+from engineeringkit.aerodynamics import dynamic_pressure, stagnation_pressure, stagnation_temperature
+
+# %%
+# Compressible versus incompressible pitot reading
+# ------------------------------------------------
+#
+# With :math:`\tfrac12\rho V^2 = \tfrac{\gamma}{2} p M^2`, the ratio of the
+# true pitot rise to the dynamic pressure is
+# :math:`1 + M^2/4 + (2-\gamma)M^4/24 + \dots`
+
+gamma, p, T = 1.4, 101325.0, 288.15
+rho = p / (287.05287 * T)
+M = np.linspace(0.01, 1.0, 100)
+V = M * np.sqrt(gamma * 287.05287 * T)
+rise = stagnation_pressure(p, M, gamma) - p
+q = dynamic_pressure(rho, V)
+error = rise / q - 1
+for m in [0.1, 0.3, 0.5, 0.8]:
+    print(f"M = {m}: compressibility error of Bernoulli pitot = {100 * np.interp(m, M, error):.2f} %")
+assert np.allclose(error[:10], M[:10] ** 2 / 4, atol=1e-5)
+
+# %%
+# Recovery temperature on a fast aircraft
+# ---------------------------------------
+
+fig, axes = plt.subplots(1, 2, figsize=(9, 3.6))
+axes[0].plot(M, 100 * error, label="exact isentropic")
+axes[0].plot(M, 100 * M**2 / 4, "--", label="$M^2/4$")
+axes[0].set(xlabel="Mach number", ylabel="error of incompressible pitot [%]")
+axes[0].legend()
+Mh = np.linspace(0, 3, 100)
+axes[1].plot(Mh, stagnation_temperature(216.65, Mh) - 273.15)
+axes[1].set(xlabel="Mach number", ylabel="stagnation temperature [°C]", title="Static 216.65 K (11 km)")
+fig.tight_layout()
+
+plt.show()

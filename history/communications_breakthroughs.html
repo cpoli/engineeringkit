@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Breakthroughs in Communications &#8212; engineeringkit 0.1.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=c83e6b79" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/engineeringkit.css?v=62935cec" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=18bd87630a240e9c25be"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be" />
+
+    <script src="../_static/documentation_options.js?v=38b66d78"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/sg-tags.js?v=d80f6fa4"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'history/communications_breakthroughs';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Breakthroughs in Materials" href="materials_breakthroughs.html" />
+    <link rel="prev" title="Breakthroughs in Signal Processing" href="signal_processing_breakthroughs.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="color-scheme" content="light dark"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/engineeringkit_logo_transparent.png" class="logo__image only-light" alt="engineeringkit logo"/>
+    <img src="../_static/engineeringkit_logo_transparent.png" class="logo__image only-dark pst-js-only" alt="engineeringkit logo"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../subpackages/index.html">
+    Subpackages
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    History
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../api/index.html">
+    API
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button type="button" class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../subpackages/index.html">
+    Subpackages
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    History
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../api/index.html">
+    API
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button type="button" id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar">
+  <svg class="pst-icon" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="structural_engineering_breakthroughs.html">Breakthroughs in Structural Engineering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mechanical_engineering_breakthroughs.html">Breakthroughs in Mechanical Engineering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="thermodynamics_breakthroughs.html">Breakthroughs in Thermodynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fluid_engineering_breakthroughs.html">Breakthroughs in Fluid Engineering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="heat_transfer_breakthroughs.html">Breakthroughs in Heat Transfer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aerodynamics_breakthroughs.html">Breakthroughs in Aerodynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="electrical_engineering_breakthroughs.html">Breakthroughs in Electrical Engineering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="control_systems_breakthroughs.html">Breakthroughs in Control Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signal_processing_breakthroughs.html">Breakthroughs in Signal Processing</a></li>
+<li class="toctree-l1 current active"><a aria-current="page" class="current reference internal" href="#">Breakthroughs in Communications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="materials_breakthroughs.html">Breakthroughs in Materials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reliability_breakthroughs.html">Breakthroughs in Reliability</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">History</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Breakthroughs in Communications</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="breakthroughs-in-communications">
+<h1>Breakthroughs in Communications<a class="headerlink" href="#breakthroughs-in-communications" title="Link to this heading">#</a></h1>
+<div class="subpkg-nav docutils container">
+<p><a class="reference internal" href="../_generated/subpackages/communications.html"><span class="doc">Domain hub</span></a> · <a class="reference internal" href="#"><span class="doc">History</span></a> · <a class="reference internal" href="../api/gallery/communications/index.html"><span class="doc">Examples</span></a> · <a class="reference internal" href="../api/communications.html"><span class="doc">API reference</span></a></p>
+</div>
+<blockquote class="epigraph">
+<div><p>“The fundamental problem of communication is that of reproducing at one
+point either exactly or approximately a message selected at another point.”
+– Claude E. Shannon, 1948</p>
+</div></blockquote>
+<p>Electrical communication grew from Hertz’s laboratory sparks to a theory
+precise enough to say how many bits per second any channel can carry.
+Telephone and radio engineers at Bell Labs and elsewhere supplied most of the
+tools in this chronology: modulation, the decibel, the noise figure and the
+link budget. Shannon’s information theory then turned the field from an
+art into a science with a hard limit. The entries trace the ideas behind
+<a class="reference internal" href="../api/communications.html#module-engineeringkit.communications" title="engineeringkit.communications"><code class="xref py py-mod docutils literal notranslate"><span class="pre">engineeringkit.communications</span></code></a>. Each links to the implementing function
+and to a gallery example devoted to it.</p>
+<nav class="contents local" id="timeline">
+<p class="topic-title">Timeline</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#hertz-generates-and-measures-radio-waves" id="id1">1887-1888 – Hertz Generates and Measures Radio Waves</a></p></li>
+<li><p><a class="reference internal" href="#fessenden-s-amplitude-modulation" id="id2">1906 – Fessenden’s Amplitude Modulation</a></p></li>
+<li><p><a class="reference internal" href="#carson-s-suppressed-carrier-and-single-sideband-modulation" id="id3">1915 – Carson’s Suppressed-Carrier and Single-Sideband Modulation</a></p></li>
+<li><p><a class="reference internal" href="#the-decibel" id="id4">1924-1929 – The Decibel</a></p></li>
+<li><p><a class="reference internal" href="#nyquist-s-signalling-rate" id="id5">1928 – Nyquist’s Signalling Rate</a></p></li>
+<li><p><a class="reference internal" href="#hartley-s-law" id="id6">1928 – Hartley’s Law</a></p></li>
+<li><p><a class="reference internal" href="#johnson-nyquist-thermal-noise" id="id7">1928 – Johnson-Nyquist Thermal Noise</a></p></li>
+<li><p><a class="reference internal" href="#armstrong-s-wideband-fm" id="id8">1933-1936 – Armstrong’s Wideband FM</a></p></li>
+<li><p><a class="reference internal" href="#friis-s-noise-figure" id="id9">1944 – Friis’s Noise Figure</a></p></li>
+<li><p><a class="reference internal" href="#the-friis-transmission-formula" id="id10">1946 – The Friis Transmission Formula</a></p></li>
+<li><p><a class="reference internal" href="#kotel-nikov-s-theory-of-optimum-noise-immunity" id="id11">1947 – Kotel’nikov’s Theory of Optimum Noise Immunity</a></p></li>
+<li><p><a class="reference internal" href="#shannon-s-entropy-and-the-binary-symmetric-channel" id="id12">1948 – Shannon’s Entropy and the Binary Symmetric Channel</a></p></li>
+<li><p><a class="reference internal" href="#the-shannon-hartley-capacity-theorem" id="id13">1949 – The Shannon-Hartley Capacity Theorem</a></p></li>
+<li><p><a class="reference internal" href="#hamming-s-error-correcting-codes" id="id14">1950 – Hamming’s Error-Correcting Codes</a></p></li>
+<li><p><a class="reference internal" href="#quadrature-modulation" id="id15">1960 – Quadrature Modulation</a></p></li>
+<li><p><a class="reference internal" href="#telstar-and-the-satellite-link-budget" id="id16">1962 – Telstar and the Satellite Link Budget</a></p></li>
+<li><p><a class="reference internal" href="#orthogonal-frequency-division-multiplexing" id="id17">1966-1971 – Orthogonal Frequency-Division Multiplexing</a></p></li>
+<li><p><a class="reference internal" href="#see-also" id="id18">See Also</a></p></li>
+</ul>
+</nav>
+<section id="hertz-generates-and-measures-radio-waves">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">1887-1888 – Hertz Generates and Measures Radio Waves</a><a class="headerlink" href="#hertz-generates-and-measures-radio-waves" title="Link to this heading">#</a></h2>
+<p>James Clerk Maxwell’s equations (1865) predicted electromagnetic waves
+travelling at the speed of light, but no one had produced or detected them.
+Heinrich Hertz drove a spark-gap dipole at a few hundred megahertz and
+detected the radiation with a resonant loop across the room. A metal sheet
+reflected the waves into a standing pattern, and the spacing of the nodes,
+half a wavelength, multiplied by the oscillation frequency gave the speed of
+light. Hertz thought the waves had no practical use. Within a decade
+Marconi was sending telegraph messages with them.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/communications.html#engineeringkit.communications.wavelength" title="engineeringkit.communications.wavelength"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.communications.wavelength()</span></code></a>. The
+example reconstructs the standing-wave measurement and maps wavelengths
+across the radio spectrum.</p>
+<p><em>References:</em> H. Hertz, “Über Strahlen elektrischer Kraft,” <em>Annalen der
+Physik</em> 36 (1888) 769-783.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Maxwell&#x27;s equations (1865) predicted electromagnetic waves travelling at the speed of light. Heinrich Hertz confirmed them in 1887-1888: a spark gap drove waves at a few hundred megahertz, a metal sheet reflected them into a standing wave, and the spacing of the nodes, half a wavelength, multiplied by the frequency gave the speed. wavelength computes \lambda = c/f; the example reconstructs Hertz&#x27;s standing-wave measurement and maps the radio spectrum."><img alt="" src="../_images/sphx_glr_plot_01_hertz_wavelength_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/communications/propagation/plot_01_hertz_wavelength.html"><span class="doc">Hertz’s electromagnetic waves and their wavelength</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Hertz's electromagnetic waves and their wavelength</div>
+</div></div></section>
+<section id="fessenden-s-amplitude-modulation">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">1906 – Fessenden’s Amplitude Modulation</a><a class="headerlink" href="#fessenden-s-amplitude-modulation" title="Link to this heading">#</a></h2>
+<p>Spark transmitters could send only on-off Morse code. Reginald Fessenden
+used a high-frequency alternator to produce a continuous carrier and varied
+its amplitude with a microphone. On Christmas Eve 1906 he is said to have
+broadcast voice and violin music from Brant Rock, Massachusetts, to ships at
+sea. Conventional AM, <span class="math notranslate nohighlight">\(A_c[1 + \mu m(t)]\cos 2\pi f_c t\)</span>, keeps the
+carrier so that a simple envelope detector (later a crystal set) can
+recover the message, at the cost of spending most of the power on the
+carrier.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/communications.html#engineeringkit.communications.am_signal" title="engineeringkit.communications.am_signal"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.communications.am_signal()</span></code></a>. The
+example shows envelope detection succeeding at <span class="math notranslate nohighlight">\(\mu = 0.7\)</span>, failing
+under overmodulation, and the one-third limit on sideband power.</p>
+<p><em>References:</em> R. A. Fessenden, “Wireless telephony,” <em>Trans. AIEE</em> 27
+(1908) 553-629.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="On Christmas Eve 1906 Reginald Fessenden is said to have broadcast voice and music from Brant Rock, Massachusetts, by varying the amplitude of a continuous high-frequency wave. Conventional AM, s(t) = A_c[1+\mu m(t)]\cos 2\pi f_c t (~engineeringkit.communications.am_signal), keeps the carrier so a simple envelope detector can recover the message, provided the modulation index stays at or below one. The spectrum shows the cost: a strong carrier and two sidebands, so at most one third of the power carries the message."><img alt="" src="../_images/sphx_glr_plot_01_fessenden_amplitude_modulation_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/communications/modulation/plot_01_fessenden_amplitude_modulation.html"><span class="doc">Fessenden’s amplitude modulation</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Fessenden's amplitude modulation</div>
+</div></div></section>
+<section id="carson-s-suppressed-carrier-and-single-sideband-modulation">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">1915 – Carson’s Suppressed-Carrier and Single-Sideband Modulation</a><a class="headerlink" href="#carson-s-suppressed-carrier-and-single-sideband-modulation" title="Link to this heading">#</a></h2>
+<p>John Renshaw Carson of AT&amp;T analysed modulation mathematically and saw that
+the AM carrier conveys no information: the message lives entirely in the
+two sidebands, each a mirror of the other. His 1915 patent application
+suppressed the carrier, and then one sideband, halving the bandwidth and
+saving most of the power. That made carrier-frequency multiplexing of many
+telephone calls on one long-distance line practical. The receiver must
+regenerate a coherent carrier, and any phase error scales the recovered
+message by <span class="math notranslate nohighlight">\(\cos\phi\)</span>.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/communications.html#engineeringkit.communications.dsb_sc" title="engineeringkit.communications.dsb_sc"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.communications.dsb_sc()</span></code></a>. The example
+demodulates coherently with phase errors of 0°, 45° and 90° and shows the
+missing carrier line.</p>
+<p><em>References:</em> J. R. Carson, “Method and means for signaling with high
+frequency waves,” U.S. Patent 1,449,382 (filed 1915, issued 1923).</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="In 1915 John Renshaw Carson of AT&amp;T showed that the carrier in AM carries no information. Multiplying the message by the carrier alone, s(t) = m(t)\cos 2\pi f_c t (~engineeringkit.communications.dsb_sc), puts all the transmitted power into the sidebands. The receiver must supply a coherent carrier: mix, low-pass filter, and the message returns, scaled by \tfrac12\cos\phi for a phase error \phi. Carson also showed that one sideband is enough, the basis of single-sideband telephony."><img alt="" src="../_images/sphx_glr_plot_02_carson_suppressed_carrier_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/communications/modulation/plot_02_carson_suppressed_carrier.html"><span class="doc">Carson’s suppressed-carrier modulation</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Carson's suppressed-carrier modulation</div>
+</div></div></section>
+<section id="the-decibel">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">1924-1929 – The Decibel</a><a class="headerlink" href="#the-decibel" title="Link to this heading">#</a></h2>
+<p>Telephone engineers once measured loss in “miles of standard cable”, a unit
+that depended on frequency. In 1924 the Bell System adopted the
+<em>transmission unit</em>, ten times the common logarithm of a power ratio, and in
+1929 W. H. Martin announced its new name, the decibel, after Alexander
+Graham Bell. Because logarithms turn products into sums, the gains and
+losses along a chain of cables, repeaters and antennas can be budgeted by
+simple addition.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/communications.html#engineeringkit.communications.db" title="engineeringkit.communications.db"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.communications.db()</span></code></a>,
+<a class="reference internal" href="../api/communications.html#engineeringkit.communications.from_db" title="engineeringkit.communications.from_db"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.communications.from_db()</span></code></a>,
+<a class="reference internal" href="../api/communications.html#engineeringkit.communications.dbm" title="engineeringkit.communications.dbm"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.communications.dbm()</span></code></a> and
+<a class="reference internal" href="../api/communications.html#engineeringkit.communications.from_dbm" title="engineeringkit.communications.from_dbm"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.communications.from_dbm()</span></code></a>. The example checks that the
+decibel sum along a repeater chain equals the linear product.</p>
+<p><em>References:</em> W. H. Martin, “DeciBel – the name for the transmission unit,”
+<em>Bell Syst. Tech. J.</em> 8 (1929) 1-2.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Early telephone engineers measured loss in &quot;miles of standard cable&quot;, a unit that depended on frequency. In 1924 the Bell System replaced it with the transmission unit, ten times the base-ten logarithm of a power ratio, and in 1929 W. H. Martin named it the decibel. Logarithms turn the products of gains and losses along a line into sums, so a long chain of amplifiers and cables can be budgeted by addition. db, dbm and their inverses convert both ways."><img alt="" src="../_images/sphx_glr_plot_01_bell_decibel_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/communications/decibels/plot_01_bell_decibel.html"><span class="doc">The decibel: the Bell System’s transmission unit</span></a></p>
+  <div class="sphx-glr-thumbnail-title">The decibel: the Bell System's transmission unit</div>
+</div></div></section>
+<section id="nyquist-s-signalling-rate">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">1928 – Nyquist’s Signalling Rate</a><a class="headerlink" href="#nyquist-s-signalling-rate" title="Link to this heading">#</a></h2>
+<p>How fast can telegraph pulses be sent through a line of limited bandwidth?
+Harry Nyquist showed that a channel of bandwidth <span class="math notranslate nohighlight">\(B\)</span> passes at most
+<span class="math notranslate nohighlight">\(2B\)</span> independent pulses per second. At that rate suitably shaped
+pulses, in the ideal case <span class="math notranslate nohighlight">\(\operatorname{sinc}(2Bt)\)</span>, vanish at every
+other pulse’s sampling instant, so there is no intersymbol interference.
+The same paper contains the seed of the sampling theorem and the Nyquist
+criterion for pulse shaping still used in every modem.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/communications.html#engineeringkit.communications.nyquist_symbol_rate" title="engineeringkit.communications.nyquist_symbol_rate"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.communications.nyquist_symbol_rate()</span></code></a>
+and <a class="reference internal" href="../api/communications.html#engineeringkit.communications.symbol_rate" title="engineeringkit.communications.symbol_rate"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.communications.symbol_rate()</span></code></a>. The example sends
+BPSK sinc pulses at and above <span class="math notranslate nohighlight">\(2B\)</span> and measures the interference.</p>
+<p><em>References:</em> H. Nyquist, “Certain topics in telegraph transmission
+theory,” <em>Trans. AIEE</em> 47 (1928) 617-644.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Harry Nyquist&#x27;s &quot;Certain topics in telegraph transmission theory&quot; (1928) showed that a channel of bandwidth B can carry at most 2B independent pulses per second without intersymbol interference (~engineeringkit.communications.nyquist_symbol_rate). Sinc-shaped pulses spaced 1/2B apart are each zero at all the other sampling instants, so every pulse can be read without seeing its neighbours. Sending faster makes the pulses blur together."><img alt="" src="../_images/sphx_glr_plot_01_nyquist_signalling_rate_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/communications/information/plot_01_nyquist_signalling_rate.html"><span class="doc">Nyquist’s signalling rate: 2B pulses per second</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Nyquist's signalling rate: 2B pulses per second</div>
+</div></div></section>
+<section id="hartley-s-law">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">1928 – Hartley’s Law</a><a class="headerlink" href="#hartley-s-law" title="Link to this heading">#</a></h2>
+<p>Ralph Hartley stripped “information” of meaning and defined it by choice. A
+sequence of <span class="math notranslate nohighlight">\(n\)</span> symbols, each drawn from <span class="math notranslate nohighlight">\(M\)</span> distinguishable
+values, singles out one of <span class="math notranslate nohighlight">\(M^n\)</span> possibilities and so carries
+<span class="math notranslate nohighlight">\(n\log M\)</span> units. Combined with Nyquist’s <span class="math notranslate nohighlight">\(2B\)</span> symbols per
+second, the line rate is <span class="math notranslate nohighlight">\(2B\log_2 M\)</span> bits per second. Hartley
+recognised that noise limits how many levels can be distinguished, but it
+took Shannon to say exactly how.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/communications.html#engineeringkit.communications.hartley_capacity" title="engineeringkit.communications.hartley_capacity"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.communications.hartley_capacity()</span></code></a>.
+The example sends multilevel symbols through Gaussian noise and shows the
+error rate rising as the levels crowd together.</p>
+<p><em>References:</em> R. V. L. Hartley, “Transmission of information,” <em>Bell Syst.
+Tech. J.</em> 7 (1928) 535-563.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Ralph Hartley (1928) argued that a message selected from M distinguishable symbols carries \log M units of information, so a channel of bandwidth B carrying 2B symbols per second has a line rate of 2B\log_2 M bits per second (~engineeringkit.communications.hartley_capacity). More levels raise the rate only logarithmically, and noise limits how many levels can be told apart. This example sends multilevel symbols through a noisy channel to show that limit."><img alt="" src="../_images/sphx_glr_plot_02_hartley_law_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/communications/information/plot_02_hartley_law.html"><span class="doc">Hartley’s law: information grows with the logarithm of the levels</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Hartley's law: information grows with the logarithm of the levels</div>
+</div></div></section>
+<section id="johnson-nyquist-thermal-noise">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">1928 – Johnson-Nyquist Thermal Noise</a><a class="headerlink" href="#johnson-nyquist-thermal-noise" title="Link to this heading">#</a></h2>
+<p>John B. Johnson at Bell Labs found a random voltage across every resistor,
+proportional to its resistance, its absolute temperature and the measurement
+bandwidth, and independent of its material. In the same issue of <em>Physical
+Review</em>, Nyquist derived the result from thermodynamics and the equipartition
+of energy among the modes of a transmission line. The available noise
+power, <span class="math notranslate nohighlight">\(kTB\)</span> or -174 dBm/Hz at 290 K, is the floor against which
+every receiver’s sensitivity is measured.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/communications.html#engineeringkit.communications.thermal_noise_power" title="engineeringkit.communications.thermal_noise_power"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.communications.thermal_noise_power()</span></code></a>.
+The example synthesises resistor noise, recovers <span class="math notranslate nohighlight">\(kTB\)</span> and the
+open-circuit voltage <span class="math notranslate nohighlight">\(\sqrt{4kTRB}\)</span>, and checks that the spectrum is
+flat.</p>
+<p><em>References:</em> J. B. Johnson, “Thermal agitation of electricity in
+conductors,” <em>Phys. Rev.</em> 32 (1928) 97-109; H. Nyquist, “Thermal agitation
+of electric charge in conductors,” <em>Phys. Rev.</em> 32 (1928) 110-113.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="In 1926-1928 John B. Johnson at Bell Labs measured a random voltage across every resistor, proportional to its resistance and absolute temperature and independent of its material. Harry Nyquist explained it from thermodynamics: the available noise power in a bandwidth B is kTB (~engineeringkit.communications.thermal_noise_power), -174 dBm/Hz at 290 K. This example synthesises white Gaussian noise with that power, measures it after band-limiting, and recovers the open-circuit voltage \sqrt{4kTRB}."><img alt="" src="../_images/sphx_glr_plot_01_johnson_nyquist_noise_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/communications/noise/plot_01_johnson_nyquist_noise.html"><span class="doc">Johnson-Nyquist thermal noise</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Johnson-Nyquist thermal noise</div>
+</div></div></section>
+<section id="armstrong-s-wideband-fm">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">1933-1936 – Armstrong’s Wideband FM</a><a class="headerlink" href="#armstrong-s-wideband-fm" title="Link to this heading">#</a></h2>
+<p>The prevailing view, argued by Carson in 1922, was that frequency
+modulation offered no bandwidth saving over AM and so no advantage. Edwin
+Howard Armstrong turned the argument around. He used a frequency deviation
+much <em>larger</em> than the audio bandwidth, and a limiter and discriminator in
+the receiver, to trade bandwidth for a dramatic suppression of noise and
+static. The spectrum of tone-modulated FM is a comb of sidebands with
+Bessel-function amplitudes. Carson’s own rule, <span class="math notranslate nohighlight">\(B \approx 2(\Delta f
++ W)\)</span>, gives the bandwidth that holds about 98% of the power.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/communications.html#engineeringkit.communications.fm_signal" title="engineeringkit.communications.fm_signal"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.communications.fm_signal()</span></code></a> and
+<a class="reference internal" href="../api/communications.html#engineeringkit.communications.carson_bandwidth" title="engineeringkit.communications.carson_bandwidth"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.communications.carson_bandwidth()</span></code></a>. The example matches
+measured spectral lines to <span class="math notranslate nohighlight">\(|J_n(\beta)|\)</span> and sizes broadcast FM.</p>
+<p><em>References:</em> E. H. Armstrong, “A method of reducing disturbances in radio
+signaling by a system of frequency modulation,” <em>Proc. IRE</em> 24 (1936)
+689-740; J. R. Carson, “Notes on the theory of modulation,” <em>Proc. IRE</em> 10
+(1922) 57-64.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Edwin Howard Armstrong (1933-1936) demonstrated that frequency modulation with a deviation much larger than the message bandwidth trades bandwidth for a dramatic reduction of noise and static. The phase of an FM wave is the integral of the message (~engineeringkit.communications.fm_signal); for a tone of modulation index \beta = \Delta f/f_m the spectrum is a comb of Bessel-function sidebands J_n(\beta). Carson&#x27;s rule, B \approx 2(\Delta f + f_m) (~engineeringkit.communications.carson_bandwidth), captures about 98% of the power."><img alt="" src="../_images/sphx_glr_plot_03_armstrong_frequency_modulation_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/communications/modulation/plot_03_armstrong_frequency_modulation.html"><span class="doc">Armstrong’s wideband FM and Carson’s bandwidth rule</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Armstrong's wideband FM and Carson's bandwidth rule</div>
+</div></div></section>
+<section id="friis-s-noise-figure">
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">1944 – Friis’s Noise Figure</a><a class="headerlink" href="#friis-s-noise-figure" title="Link to this heading">#</a></h2>
+<p>Harald Friis gave receiver engineers a single number to compare designs.
+The <em>noise factor</em> <span class="math notranslate nohighlight">\(F\)</span> is the ratio of the signal-to-noise ratio at a
+device’s input to that at its output, for a 290 K source. For stages in
+cascade, <span class="math notranslate nohighlight">\(F = F_1 + (F_2 - 1)/G_1 + (F_3 - 1)/(G_1 G_2) + \cdots\)</span>.
+Each later stage’s noise is divided by the gain ahead of it, so a
+high-gain, low-noise first amplifier sets the noise figure of the whole
+receiver.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/communications.html#engineeringkit.communications.cascaded_noise_factor" title="engineeringkit.communications.cascaded_noise_factor"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.communications.cascaded_noise_factor()</span></code></a>
+and <a class="reference internal" href="../api/communications.html#engineeringkit.communications.noise_figure" title="engineeringkit.communications.noise_figure"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.communications.noise_figure()</span></code></a>. The example checks
+the formula against a sample-by-sample simulation and compares orderings of
+the same three stages.</p>
+<p><em>References:</em> H. T. Friis, “Noise figures of radio receivers,” <em>Proc. IRE</em>
+32 (1944) 419-422.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Harald Friis (1944) defined a receiver&#x27;s noise factor F as the ratio of input to output signal-to-noise ratio and showed that in a chain of stages F = F_1 + (F_2-1)/G_1 + (F_3-1)/(G_1G_2) + \cdots (~engineeringkit.communications.cascaded_noise_factor). Later stages are suppressed by the gain ahead of them, so a low-noise amplifier belongs first. The example checks the formula against a sample-by-sample simulation of noisy amplifiers and compares two orderings of the same parts."><img alt="" src="../_images/sphx_glr_plot_02_friis_cascaded_noise_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/communications/noise/plot_02_friis_cascaded_noise.html"><span class="doc">Friis’s noise formula for cascaded amplifiers</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Friis's noise formula for cascaded amplifiers</div>
+</div></div></section>
+<section id="the-friis-transmission-formula">
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">1946 – The Friis Transmission Formula</a><a class="headerlink" href="#the-friis-transmission-formula" title="Link to this heading">#</a></h2>
+<p>Friis’s two-page note wrote the received power between two antennas in
+free space as <span class="math notranslate nohighlight">\(P_r = P_t G_t G_r (\lambda/4\pi d)^2\)</span>. The formula
+combines spherical spreading of the transmitted power with the effective
+aperture <span class="math notranslate nohighlight">\(G\lambda^2/4\pi\)</span> of the receiving antenna. It replaced a
+collection of ad hoc field-strength formulas, and it is the propagation term
+of every radio link budget.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/communications.html#engineeringkit.communications.friis_received_power" title="engineeringkit.communications.friis_received_power"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.communications.friis_received_power()</span></code></a>,
+<a class="reference internal" href="../api/communications.html#engineeringkit.communications.free_space_path_loss" title="engineeringkit.communications.free_space_path_loss"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.communications.free_space_path_loss()</span></code></a> and
+<a class="reference internal" href="../api/communications.html#engineeringkit.communications.free_space_path_loss_db" title="engineeringkit.communications.free_space_path_loss_db"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.communications.free_space_path_loss_db()</span></code></a>. The example
+verifies the spreading-times-aperture interpretation and the 6 dB loss per
+doubling of distance.</p>
+<p><em>References:</em> H. T. Friis, “A note on a simple transmission formula,” <em>Proc.
+IRE</em> 34 (1946) 254-256.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Harald Friis (1946) wrote the received power between two antennas in free space as P_r = P_t G_t G_r (\lambda/4\pi d)^2 (~engineeringkit.communications.friis_received_power). The 1/d^2 factor is pure geometry: power spreads over a sphere of area 4\pi d^2. The \lambda^2 factor comes from an antenna&#x27;s effective aperture, A_e = G\lambda^2/4\pi. This example checks both interpretations and the 6 dB-per-doubling slope of free_space_path_loss_db."><img alt="" src="../_images/sphx_glr_plot_02_friis_transmission_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/communications/propagation/plot_02_friis_transmission.html"><span class="doc">The Friis transmission formula</span></a></p>
+  <div class="sphx-glr-thumbnail-title">The Friis transmission formula</div>
+</div></div></section>
+<section id="kotel-nikov-s-theory-of-optimum-noise-immunity">
+<h2><a class="toc-backref" href="#id11" role="doc-backlink">1947 – Kotel’nikov’s Theory of Optimum Noise Immunity</a><a class="headerlink" href="#kotel-nikov-s-theory-of-optimum-noise-immunity" title="Link to this heading">#</a></h2>
+<p>Vladimir Kotel’nikov’s doctoral thesis asked which receiver minimises the
+probability of error when one of several known signals arrives in white
+Gaussian noise. The optimum decides for the signal closest to the received
+waveform, which amounts to correlating with each candidate (a matched
+filter). For antipodal binary signals, BPSK, the bit-error rate is
+<span class="math notranslate nohighlight">\(Q(\sqrt{2E_b/N_0})\)</span>, the benchmark against which every digital
+modulation is still measured. The thesis was published in English in 1959.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/communications.html#engineeringkit.communications.bpsk" title="engineeringkit.communications.bpsk"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.communications.bpsk()</span></code></a>,
+<a class="reference internal" href="../api/communications.html#engineeringkit.communications.ber_bpsk_awgn" title="engineeringkit.communications.ber_bpsk_awgn"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.communications.ber_bpsk_awgn()</span></code></a> and
+<a class="reference internal" href="../api/communications.html#engineeringkit.communications.q_function" title="engineeringkit.communications.q_function"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.communications.q_function()</span></code></a>, plotted with
+<a class="reference internal" href="../api/communications.html#engineeringkit.communications.visualizers.plot_ber_curve" title="engineeringkit.communications.visualizers.plot_ber_curve"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.communications.visualizers.plot_ber_curve()</span></code></a>. The
+example confirms the curve by Monte Carlo simulation.</p>
+<p><em>References:</em> V. A. Kotel’nikov, <em>The Theory of Optimum Noise Immunity</em>
+(1947; English translation, New York: McGraw-Hill, 1959).</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Vladimir Kotel&#x27;nikov&#x27;s 1947 thesis, The Theory of Optimum Noise Immunity, asked which receiver makes the fewest errors when known signals are buried in white Gaussian noise. For two antipodal signals the answer is a correlator (or matched filter) followed by a sign decision, with bit-error rate Q(\sqrt{2E_b/N_0}) (~engineeringkit.communications.ber_bpsk_awgn, q_function). A Monte Carlo simulation of bpsk through noise reproduces the curve."><img alt="" src="../_images/sphx_glr_plot_01_kotelnikov_bpsk_detection_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/communications/detection/plot_01_kotelnikov_bpsk_detection.html"><span class="doc">Kotel’nikov’s optimum receiver: BPSK in white Gaussian noise</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Kotel'nikov's optimum receiver: BPSK in white Gaussian noise</div>
+</div></div></section>
+<section id="shannon-s-entropy-and-the-binary-symmetric-channel">
+<h2><a class="toc-backref" href="#id12" role="doc-backlink">1948 – Shannon’s Entropy and the Binary Symmetric Channel</a><a class="headerlink" href="#shannon-s-entropy-and-the-binary-symmetric-channel" title="Link to this heading">#</a></h2>
+<p>“A Mathematical Theory of Communication” defined the information of a
+source as its entropy, <span class="math notranslate nohighlight">\(H = -\sum p\log_2 p\)</span> bits per symbol, the
+minimum average length of any lossless encoding. It defined the capacity of
+a channel as the largest mutual information between input and output. And
+it proved the startling <em>noisy-channel coding theorem</em>: below capacity,
+codes exist that make the error probability as small as desired. For a
+binary symmetric channel that flips each bit with probability <span class="math notranslate nohighlight">\(p\)</span>,
+the capacity is <span class="math notranslate nohighlight">\(1 - H(p)\)</span>.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/communications.html#engineeringkit.communications.entropy_binary" title="engineeringkit.communications.entropy_binary"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.communications.entropy_binary()</span></code></a> and
+<a class="reference internal" href="../api/communications.html#engineeringkit.communications.binary_symmetric_capacity" title="engineeringkit.communications.binary_symmetric_capacity"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.communications.binary_symmetric_capacity()</span></code></a>. The example
+measures the empirical entropy of biased bit streams and maximises mutual
+information over input distributions.</p>
+<p><em>References:</em> C. E. Shannon, “A mathematical theory of communication,”
+<em>Bell Syst. Tech. J.</em> 27 (1948) 379-423, 623-656.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Claude Shannon&#x27;s &quot;A mathematical theory of communication&quot; (1948) measured information by entropy, H = -\sum p\log_2 p. For a binary source entropy_binary peaks at one bit when both symbols are equally likely. The same paper defined channel capacity. A binary symmetric channel that flips each bit with probability p has capacity 1 - H(p) (~engineeringkit.communications.binary_symmetric_capacity): even a very noisy channel can carry information reliably at a reduced rate, and a channel with p = 1/2 carries nothing."><img alt="" src="../_images/sphx_glr_plot_03_shannon_entropy_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/communications/information/plot_03_shannon_entropy.html"><span class="doc">Shannon’s entropy and the binary symmetric channel</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Shannon's entropy and the binary symmetric channel</div>
+</div></div></section>
+<section id="the-shannon-hartley-capacity-theorem">
+<h2><a class="toc-backref" href="#id13" role="doc-backlink">1949 – The Shannon-Hartley Capacity Theorem</a><a class="headerlink" href="#the-shannon-hartley-capacity-theorem" title="Link to this heading">#</a></h2>
+<p>In “Communication in the presence of noise”, Shannon used a geometric
+argument about spheres in signal space to give the capacity of a
+band-limited channel with white Gaussian noise: <span class="math notranslate nohighlight">\(C = B\log_2(1 + S/N)\)</span>
+bits per second. The formula sets the exchange rate between bandwidth and
+power. As bandwidth grows without limit, the energy per bit needed for
+reliable communication falls to <span class="math notranslate nohighlight">\(\ln 2\)</span>, or -1.59 dB, the <em>Shannon
+limit</em> that turbo and LDPC codes approached half a century later.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/communications.html#engineeringkit.communications.shannon_capacity" title="engineeringkit.communications.shannon_capacity"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.communications.shannon_capacity()</span></code></a> and
+<a class="reference internal" href="../api/communications.html#engineeringkit.communications.spectral_efficiency" title="engineeringkit.communications.spectral_efficiency"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.communications.spectral_efficiency()</span></code></a>. The example plots
+the capacity curve and the minimum <span class="math notranslate nohighlight">\(E_b/N_0\)</span> for each spectral
+efficiency.</p>
+<p><em>References:</em> C. E. Shannon, “Communication in the presence of noise,”
+<em>Proc. IRE</em> 37 (1949) 10-21.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="In &quot;Communication in the presence of noise&quot; (1949) Shannon proved that a channel of bandwidth B with white Gaussian noise and signal-to-noise ratio S/N can carry C = B\log_2(1 + S/N) bits per second with arbitrarily small error (~engineeringkit.communications.shannon_capacity), and no more. Writing S/N = (E_b/N_0)(C/B) gives the minimum energy per bit for a given spectral efficiency. As bandwidth becomes unlimited the minimum tends to \ln 2, or -1.59 dB, the Shannon limit."><img alt="" src="../_images/sphx_glr_plot_04_shannon_hartley_capacity_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/communications/information/plot_04_shannon_hartley_capacity.html"><span class="doc">The Shannon-Hartley capacity of a noisy band-limited channel</span></a></p>
+  <div class="sphx-glr-thumbnail-title">The Shannon-Hartley capacity of a noisy band-limited channel</div>
+</div></div></section>
+<section id="hamming-s-error-correcting-codes">
+<h2><a class="toc-backref" href="#id14" role="doc-backlink">1950 – Hamming’s Error-Correcting Codes</a><a class="headerlink" href="#hamming-s-error-correcting-codes" title="Link to this heading">#</a></h2>
+<p>Richard Hamming’s relay computer at Bell Labs detected errors over the
+weekend but could only abort the job. Hamming designed codes that <em>correct</em>
+them. In the (7,4) code, parity bits at positions 1, 2 and 4 each check the
+positions whose binary index contains that bit. When a single bit flips,
+the pattern of failed checks, the <em>syndrome</em>, spells out its position in
+binary. Hamming also introduced the distance between codewords: a minimum
+distance of three is exactly what single-error correction requires.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/communications.html#engineeringkit.communications.hamming74_encode" title="engineeringkit.communications.hamming74_encode"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.communications.hamming74_encode()</span></code></a>,
+<a class="reference internal" href="../api/communications.html#engineeringkit.communications.hamming74_decode" title="engineeringkit.communications.hamming74_decode"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.communications.hamming74_decode()</span></code></a> (returning a
+<a class="reference internal" href="../api/communications.html#engineeringkit.communications.HammingDecodeResult" title="engineeringkit.communications.HammingDecodeResult"><code class="xref py py-class docutils literal notranslate"><span class="pre">HammingDecodeResult</span></code></a>) and
+<a class="reference internal" href="../api/communications.html#engineeringkit.communications.hamming_distance" title="engineeringkit.communications.hamming_distance"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.communications.hamming_distance()</span></code></a>. The example corrects
+every single-bit error and compares coded and uncoded block error rates.</p>
+<p><em>References:</em> R. W. Hamming, “Error detecting and error correcting codes,”
+<em>Bell Syst. Tech. J.</em> 29 (1950) 147-160.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Frustrated by weekend computer runs aborted by a single bad relay, Richard Hamming (1950) designed codes that correct errors rather than merely detect them. In the (7,4) code three parity bits sit at positions 1, 2 and 4. When one bit flips, the failing parity checks, read as a binary number, give its position (~engineeringkit.communications.hamming74_encode, hamming74_decode). Any two codewords differ in at least three places (~engineeringkit.communications.hamming_distance), which is what makes single-error correction possible."><img alt="" src="../_images/sphx_glr_plot_01_hamming_code_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/communications/coding/plot_01_hamming_code.html"><span class="doc">Hamming’s single-error-correcting code</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Hamming's single-error-correcting code</div>
+</div></div></section>
+<section id="quadrature-modulation">
+<h2><a class="toc-backref" href="#id15" role="doc-backlink">1960 – Quadrature Modulation</a><a class="headerlink" href="#quadrature-modulation" title="Link to this heading">#</a></h2>
+<p>A cosine and a sine carrier at the same frequency are orthogonal, so each
+can be modulated independently and separated again by coherent detection.
+Charles Cahn’s analysis of combined phase and amplitude modulation put
+quadrature signalling on a quantitative footing for data transmission.
+Quadrature phase-shift keying sends two bits per symbol in the bandwidth of
+one, with the same bit-error rate per unit <span class="math notranslate nohighlight">\(E_b/N_0\)</span> as BPSK. The same
+in-phase/quadrature idea underlies every QAM modem.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/communications.html#engineeringkit.communications.qpsk" title="engineeringkit.communications.qpsk"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.communications.qpsk()</span></code></a> and
+<a class="reference internal" href="../api/communications.html#engineeringkit.communications.ber_qpsk_awgn" title="engineeringkit.communications.ber_qpsk_awgn"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.communications.ber_qpsk_awgn()</span></code></a>, plotted with
+<a class="reference internal" href="../api/communications.html#engineeringkit.communications.visualizers.plot_constellation" title="engineeringkit.communications.visualizers.plot_constellation"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.communications.visualizers.plot_constellation()</span></code></a>. The
+example simulates a noisy QPSK constellation and separates the two rails of
+a passband waveform.</p>
+<p><em>References:</em> C. R. Cahn, “Combined digital phase and amplitude modulation
+communication systems,” <em>IRE Trans. Commun. Syst.</em> 8 (1960) 150-155.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Charles Cahn&#x27;s 1960 analysis of combined phase and amplitude modulation formalised what quadrature carriers make possible. Cosine and sine carriers at the same frequency are orthogonal, so each can carry an independent BPSK stream. Gray-labelled QPSK (~engineeringkit.communications.qpsk) sends two bits per symbol in the bandwidth of one. Its bit-error rate per unit E_b/N_0 equals that of BPSK (~engineeringkit.communications.ber_qpsk_awgn)."><img alt="" src="../_images/sphx_glr_plot_02_cahn_quadrature_qpsk_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/communications/detection/plot_02_cahn_quadrature_qpsk.html"><span class="doc">Quadrature modulation: QPSK doubles the rate at the same error rate</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Quadrature modulation: QPSK doubles the rate at the same error rate</div>
+</div></div></section>
+<section id="telstar-and-the-satellite-link-budget">
+<h2><a class="toc-backref" href="#id16" role="doc-backlink">1962 – Telstar and the Satellite Link Budget</a><a class="headerlink" href="#telstar-and-the-satellite-link-budget" title="Link to this heading">#</a></h2>
+<p>Telstar 1, built by Bell Labs and launched in July 1962, relayed the first
+live transatlantic television between Andover, Maine and stations in Europe.
+Its 4 GHz downlink transmitted only a few watts, and the signal was received
+by a large horn antenna with a maser preamplifier cooled to a few kelvin.
+Such systems were designed with a <em>link budget</em>: transmitter power, antenna
+gains, free-space and other losses added in decibels, then compared with
+the receiver noise floor <span class="math notranslate nohighlight">\(kTB\)</span> to give the signal-to-noise ratio.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/communications.html#engineeringkit.communications.link_budget_db" title="engineeringkit.communications.link_budget_db"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.communications.link_budget_db()</span></code></a>
+together with the propagation and noise functions. The example budgets a
+representative Telstar downlink over a pass.</p>
+<p><em>References:</em> A. C. Dickieson et al., “The Telstar experiment,” <em>Bell Syst.
+Tech. J.</em> 42 (1963) 739-1907 (special issue).</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Telstar 1 (1962) relayed the first live transatlantic television. Engineers planned such links with a link budget: transmitter power, antenna gains, path loss and miscellaneous losses added in decibels (~engineeringkit.communications.link_budget_db), then compared with the receiver noise floor. The figures below are representative of the 4 GHz Andover-Telstar downlink, not archival values."><img alt="" src="../_images/sphx_glr_plot_03_telstar_link_budget_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/communications/propagation/plot_03_telstar_link_budget.html"><span class="doc">The Telstar satellite link budget</span></a></p>
+  <div class="sphx-glr-thumbnail-title">The Telstar satellite link budget</div>
+</div></div></section>
+<section id="orthogonal-frequency-division-multiplexing">
+<h2><a class="toc-backref" href="#id17" role="doc-backlink">1966-1971 – Orthogonal Frequency-Division Multiplexing</a><a class="headerlink" href="#orthogonal-frequency-division-multiplexing" title="Link to this heading">#</a></h2>
+<p>Robert Chang showed that many data subcarriers can overlap in frequency yet
+remain separable if they are spaced by exactly the symbol rate. Stephen
+Weinstein and Paul Ebert generated all the subcarriers with a single
+inverse discrete Fourier transform and recovered them with a forward DFT.
+They also prefixed each block with a copy of its tail, a <em>cyclic prefix</em>
+that makes a multipath channel’s convolution circular. Each subcarrier then
+sees a single complex gain, removed by one division. OFDM became practical
+with fast DSP chips and now carries Wi-Fi, LTE, 5G and digital
+broadcasting.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/communications.html#engineeringkit.communications.ofdm_modulate" title="engineeringkit.communications.ofdm_modulate"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.communications.ofdm_modulate()</span></code></a> and
+<a class="reference internal" href="../api/communications.html#engineeringkit.communications.ofdm_demodulate" title="engineeringkit.communications.ofdm_demodulate"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.communications.ofdm_demodulate()</span></code></a>. The example passes
+QPSK-loaded OFDM through a multipath channel with and without a cyclic
+prefix.</p>
+<p><em>References:</em> R. W. Chang, “Synthesis of band-limited orthogonal signals for
+multichannel data transmission,” <em>Bell Syst. Tech. J.</em> 45 (1966) 1775-1796;
+S. B. Weinstein and P. M. Ebert, “Data transmission by frequency-division
+multiplexing using the discrete Fourier transform,” <em>IEEE Trans. Commun.
+Technol.</em> 19 (1971) 628-634.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Robert Chang (1966) showed that subcarriers whose spectra overlap remain orthogonal if they are spaced by the symbol rate. Stephen Weinstein and Paul Ebert (1971) generated the whole set with a single inverse DFT (~engineeringkit.communications.ofdm_modulate) and prefixed each block with a copy of its tail. This cyclic prefix turns a dispersive channel&#x27;s linear convolution into a circular one, so after the receiver&#x27;s DFT (~engineeringkit.communications.ofdm_demodulate) every subcarrier sees one complex gain, removed by a single division. The idea now carries Wi-Fi, LTE and digital television."><img alt="" src="../_images/sphx_glr_plot_01_ofdm_cyclic_prefix_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/communications/multiplexing/plot_01_ofdm_cyclic_prefix.html"><span class="doc">OFDM: many subcarriers from one inverse DFT</span></a></p>
+  <div class="sphx-glr-thumbnail-title">OFDM: many subcarriers from one inverse DFT</div>
+</div></div></section>
+<section id="see-also">
+<h2><a class="toc-backref" href="#id18" role="doc-backlink">See Also</a><a class="headerlink" href="#see-also" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../api/communications.html"><span class="doc">engineeringkit.communications</span></a></p></li>
+<li><p><a class="reference internal" href="../guides/communications.html"><span class="doc">Communications: linear ratios, modulation phase and channel scope</span></a></p></li>
+<li><p><a class="reference internal" href="signal_processing_breakthroughs.html"><span class="doc">Breakthroughs in Signal Processing</span></a></p></li>
+<li><p><a class="reference internal" href="electrical_engineering_breakthroughs.html"><span class="doc">Breakthroughs in Electrical Engineering</span></a></p></li>
+</ul>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="signal_processing_breakthroughs.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Breakthroughs in Signal Processing</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="materials_breakthroughs.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Breakthroughs in Materials</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hertz-generates-and-measures-radio-waves">1887-1888 – Hertz Generates and Measures Radio Waves</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fessenden-s-amplitude-modulation">1906 – Fessenden’s Amplitude Modulation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#carson-s-suppressed-carrier-and-single-sideband-modulation">1915 – Carson’s Suppressed-Carrier and Single-Sideband Modulation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-decibel">1924-1929 – The Decibel</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nyquist-s-signalling-rate">1928 – Nyquist’s Signalling Rate</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hartley-s-law">1928 – Hartley’s Law</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#johnson-nyquist-thermal-noise">1928 – Johnson-Nyquist Thermal Noise</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#armstrong-s-wideband-fm">1933-1936 – Armstrong’s Wideband FM</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#friis-s-noise-figure">1944 – Friis’s Noise Figure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-friis-transmission-formula">1946 – The Friis Transmission Formula</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kotel-nikov-s-theory-of-optimum-noise-immunity">1947 – Kotel’nikov’s Theory of Optimum Noise Immunity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shannon-s-entropy-and-the-binary-symmetric-channel">1948 – Shannon’s Entropy and the Binary Symmetric Channel</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-shannon-hartley-capacity-theorem">1949 – The Shannon-Hartley Capacity Theorem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hamming-s-error-correcting-codes">1950 – Hamming’s Error-Correcting Codes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quadrature-modulation">1960 – Quadrature Modulation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#telstar-and-the-satellite-link-budget">1962 – Telstar and the Satellite Link Budget</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#orthogonal-frequency-division-multiplexing">1966-1971 – Orthogonal Frequency-Division Multiplexing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#see-also">See Also</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../_sources/history/communications_breakthroughs.rst.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.23.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

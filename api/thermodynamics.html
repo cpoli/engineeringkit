@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>engineeringkit.thermodynamics &#8212; engineeringkit 0.1.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=c83e6b79" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/engineeringkit.css?v=62935cec" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=18bd87630a240e9c25be"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be" />
+
+    <script src="../_static/documentation_options.js?v=38b66d78"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/sg-tags.js?v=d80f6fa4"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'api/thermodynamics';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="engineeringkit.fluid_engineering" href="fluid_engineering.html" />
+    <link rel="prev" title="engineeringkit.mechanical_engineering" href="mechanical_engineering.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="color-scheme" content="light dark"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/engineeringkit_logo_transparent.png" class="logo__image only-light" alt="engineeringkit logo"/>
+    <img src="../_static/engineeringkit_logo_transparent.png" class="logo__image only-dark pst-js-only" alt="engineeringkit logo"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../subpackages/index.html">
+    Subpackages
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../history/index.html">
+    History
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    API
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button type="button" class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../subpackages/index.html">
+    Subpackages
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../history/index.html">
+    History
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    API
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button type="button" id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar">
+  <svg class="pst-icon" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="structural_engineering.html">engineeringkit.structural_engineering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mechanical_engineering.html">engineeringkit.mechanical_engineering</a></li>
+<li class="toctree-l1 current active"><a aria-current="page" class="current reference internal" href="#">engineeringkit.thermodynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fluid_engineering.html">engineeringkit.fluid_engineering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="heat_transfer.html">engineeringkit.heat_transfer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aerodynamics.html">engineeringkit.aerodynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="electrical_engineering.html">engineeringkit.electrical_engineering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="control_systems.html">engineeringkit.control_systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signal_processing.html">engineeringkit.signal_processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="communications.html">engineeringkit.communications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="materials.html">engineeringkit.materials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reliability.html">engineeringkit.reliability</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="integrators.html">Integrators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="visualizers.html">Visualizers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="units.html">Units</a></li>
+<li class="toctree-l1"><a class="reference internal" href="constants.html">Constants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../validation.html">Numerical validation policy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../limitations.html">Scope and remaining limitations</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">API</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">engineeringkit.thermodynamics</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="engineeringkit-thermodynamics">
+<h1>engineeringkit.thermodynamics<a class="headerlink" href="#engineeringkit-thermodynamics" title="Link to this heading">#</a></h1>
+<div class="subpkg-nav docutils container">
+<p><a class="reference internal" href="../_generated/subpackages/thermodynamics.html"><span class="doc">Domain hub</span></a> · <a class="reference internal" href="../history/thermodynamics_breakthroughs.html"><span class="doc">History</span></a> · <a class="reference internal" href="gallery/thermodynamics/index.html"><span class="doc">Examples</span></a> · <a class="reference internal" href="#"><span class="doc">API reference</span></a></p>
+</div>
+<p>Ideal gases, heat/work accounting, ideal cycles and exergy.</p>
+<p id="module-engineeringkit.thermodynamics">Classical thermodynamics and idealized power/refrigeration cycles.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="engineeringkit.thermodynamics.OttoCycle">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.</span></span><span class="sig-name descname"><span class="pre">OttoCycle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">compression_ratio</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.4</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics.html#OttoCycle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.OttoCycle" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>compression_ratio</strong> (<em>float</em>)</p></li>
+<li><p><strong>gamma</strong> (<em>float</em>)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="engineeringkit.thermodynamics.OttoCycle.compression_ratio">
+<span class="sig-name descname"><span class="pre">compression_ratio</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></span><a class="headerlink" href="#engineeringkit.thermodynamics.OttoCycle.compression_ratio" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="engineeringkit.thermodynamics.OttoCycle.efficiency">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">efficiency</span></span><a class="headerlink" href="#engineeringkit.thermodynamics.OttoCycle.efficiency" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="engineeringkit.thermodynamics.OttoCycle.gamma">
+<span class="sig-name descname"><span class="pre">gamma</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1.4</span></span><a class="headerlink" href="#engineeringkit.thermodynamics.OttoCycle.gamma" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="engineeringkit.thermodynamics.OttoCycle.summary">
+<span class="sig-name descname"><span class="pre">summary</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics.html#OttoCycle.summary"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.OttoCycle.summary" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.thermodynamics.brayton_efficiency">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.</span></span><span class="sig-name descname"><span class="pre">brayton_efficiency</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pressure_ratio</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.4</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics.html#brayton_efficiency"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.brayton_efficiency" title="Link to this definition">#</a></dt>
+<dd><p>Brayton efficiency.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pressure_ratio</strong> (<em>1</em>) – Input in the units stated above.</p></li>
+<li><p><strong>gamma</strong> (<em>1</em>) – Input in the units stated above.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ol class="arabic simple">
+<li></li>
+</ol>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>result</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Assumptions, governing equations and validity limits are discussed in
+<a class="reference internal" href="../guides/thermodynamics.html"><span class="doc">Thermodynamics: total versus specific quantities and cycle states</span></a>. SI inputs are required; raw numbers carry no
+dimensional metadata.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.thermodynamics.carnot_cop_heat_pump">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.</span></span><span class="sig-name descname"><span class="pre">carnot_cop_heat_pump</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">T_hot</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T_cold</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics.html#carnot_cop_heat_pump"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.carnot_cop_heat_pump" title="Link to this definition">#</a></dt>
+<dd><p>Carnot cop heat pump.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>T_hot</strong> (<em>K</em><em> (</em><em>absolute</em><em>)</em>) – Input in the units stated above.</p></li>
+<li><p><strong>T_cold</strong> (<em>K</em><em> (</em><em>absolute</em><em>)</em>) – Input in the units stated above.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ol class="arabic simple">
+<li></li>
+</ol>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>result</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Assumptions, governing equations and validity limits are discussed in
+<a class="reference internal" href="../guides/thermodynamics.html"><span class="doc">Thermodynamics: total versus specific quantities and cycle states</span></a>. SI inputs are required; raw numbers carry no
+dimensional metadata.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.thermodynamics.carnot_cop_refrigerator">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.</span></span><span class="sig-name descname"><span class="pre">carnot_cop_refrigerator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">T_hot</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T_cold</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics.html#carnot_cop_refrigerator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.carnot_cop_refrigerator" title="Link to this definition">#</a></dt>
+<dd><p>Carnot cop refrigerator.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>T_hot</strong> (<em>K</em><em> (</em><em>absolute</em><em>)</em>) – Input in the units stated above.</p></li>
+<li><p><strong>T_cold</strong> (<em>K</em><em> (</em><em>absolute</em><em>)</em>) – Input in the units stated above.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ol class="arabic simple">
+<li></li>
+</ol>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>result</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Assumptions, governing equations and validity limits are discussed in
+<a class="reference internal" href="../guides/thermodynamics.html"><span class="doc">Thermodynamics: total versus specific quantities and cycle states</span></a>. SI inputs are required; raw numbers carry no
+dimensional metadata.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.thermodynamics.carnot_efficiency">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.</span></span><span class="sig-name descname"><span class="pre">carnot_efficiency</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">T_hot</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T_cold</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics.html#carnot_efficiency"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.carnot_efficiency" title="Link to this definition">#</a></dt>
+<dd><p>Carnot efficiency.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>T_hot</strong> (<em>K</em><em> (</em><em>absolute</em><em>)</em>) – Input in the units stated above.</p></li>
+<li><p><strong>T_cold</strong> (<em>K</em><em> (</em><em>absolute</em><em>)</em>) – Input in the units stated above.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ol class="arabic simple">
+<li></li>
+</ol>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>result</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Assumptions, governing equations and validity limits are discussed in
+<a class="reference internal" href="../guides/thermodynamics.html"><span class="doc">Thermodynamics: total versus specific quantities and cycle states</span></a>. SI inputs are required; raw numbers carry no
+dimensional metadata.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.thermodynamics.clausius_inequality">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.</span></span><span class="sig-name descname"><span class="pre">clausius_inequality</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cyclic_heat_over_temperature</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics.html#clausius_inequality"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.clausius_inequality" title="Link to this definition">#</a></dt>
+<dd><p>Return whether a discretized cyclic Clausius integral satisfies sum(dQ/T) &lt;= 0.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>cyclic_heat_over_temperature</strong> (<em>J/K</em>) – Input in the units stated above.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>result</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Assumptions, governing equations and validity limits are discussed in
+<a class="reference internal" href="../guides/thermodynamics.html"><span class="doc">Thermodynamics: total versus specific quantities and cycle states</span></a>. SI inputs are required; raw numbers carry no
+dimensional metadata.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.thermodynamics.diesel_efficiency">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.</span></span><span class="sig-name descname"><span class="pre">diesel_efficiency</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cutoff</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.4</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics.html#diesel_efficiency"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.diesel_efficiency" title="Link to this definition">#</a></dt>
+<dd><p>Diesel efficiency.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>r</strong> (<em>1</em>) – Input in the units stated above.</p></li>
+<li><p><strong>cutoff</strong> (<em>1</em>) – Input in the units stated above.</p></li>
+<li><p><strong>gamma</strong> (<em>1</em>) – Input in the units stated above.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ol class="arabic simple">
+<li></li>
+</ol>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>result</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Assumptions, governing equations and validity limits are discussed in
+<a class="reference internal" href="../guides/thermodynamics.html"><span class="doc">Thermodynamics: total versus specific quantities and cycle states</span></a>. SI inputs are required; raw numbers carry no
+dimensional metadata.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.thermodynamics.entropy_change_isothermal_ideal_gas">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.</span></span><span class="sig-name descname"><span class="pre">entropy_change_isothermal_ideal_gas</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">V1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">V2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics.html#entropy_change_isothermal_ideal_gas"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.entropy_change_isothermal_ideal_gas" title="Link to this definition">#</a></dt>
+<dd><p>Entropy change isothermal ideal gas.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n</strong> (<em>mol</em>) – Input in the units stated above.</p></li>
+<li><p><strong>T</strong> (<em>K</em><em> (</em><em>absolute</em><em>)</em>) – Input in the units stated above.</p></li>
+<li><p><strong>V1</strong> (<em>m^3</em>) – Input in the units stated above.</p></li>
+<li><p><strong>V2</strong> (<em>m^3</em>) – Input in the units stated above.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>J/K.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>result</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Assumptions, governing equations and validity limits are discussed in
+<a class="reference internal" href="../guides/thermodynamics.html"><span class="doc">Thermodynamics: total versus specific quantities and cycle states</span></a>. SI inputs are required; raw numbers carry no
+dimensional metadata.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.thermodynamics.exergy_destruction">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.</span></span><span class="sig-name descname"><span class="pre">exergy_destruction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">T0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entropy_generation</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics.html#exergy_destruction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.exergy_destruction" title="Link to this definition">#</a></dt>
+<dd><p>Exergy destruction.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>T0</strong> (<em>K</em><em> (</em><em>absolute</em><em>)</em>) – Input in the units stated above.</p></li>
+<li><p><strong>entropy_generation</strong> (<em>J/K</em>) – Input in the units stated above.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ol class="upperalpha simple" start="10">
+<li></li>
+</ol>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>result</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Assumptions, governing equations and validity limits are discussed in
+<a class="reference internal" href="../guides/thermodynamics.html"><span class="doc">Thermodynamics: total versus specific quantities and cycle states</span></a>. SI inputs are required; raw numbers carry no
+dimensional metadata.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.thermodynamics.exergy_heat">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.</span></span><span class="sig-name descname"><span class="pre">exergy_heat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Q</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T_source</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics.html#exergy_heat"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.exergy_heat" title="Link to this definition">#</a></dt>
+<dd><p>Exergy heat.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Q</strong> (<em>J</em>) – Input in the units stated above.</p></li>
+<li><p><strong>T_source</strong> (<em>K</em><em> (</em><em>absolute</em><em>)</em>) – Input in the units stated above.</p></li>
+<li><p><strong>T0</strong> (<em>K</em><em> (</em><em>absolute</em><em>)</em>) – Input in the units stated above.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ol class="upperalpha simple" start="10">
+<li></li>
+</ol>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>result</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Assumptions, governing equations and validity limits are discussed in
+<a class="reference internal" href="../guides/thermodynamics.html"><span class="doc">Thermodynamics: total versus specific quantities and cycle states</span></a>. SI inputs are required; raw numbers carry no
+dimensional metadata.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.thermodynamics.first_law_heat">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.</span></span><span class="sig-name descname"><span class="pre">first_law_heat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">delta_u</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">work_by_system</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics.html#first_law_heat"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.first_law_heat" title="Link to this definition">#</a></dt>
+<dd><p>First law heat.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>delta_u</strong> (<em>J</em>) – Input in the units stated above.</p></li>
+<li><p><strong>work_by_system</strong> (<em>J</em>) – Input in the units stated above.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ol class="upperalpha simple" start="10">
+<li></li>
+</ol>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>result</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Assumptions, governing equations and validity limits are discussed in
+<a class="reference internal" href="../guides/thermodynamics.html"><span class="doc">Thermodynamics: total versus specific quantities and cycle states</span></a>. SI inputs are required; raw numbers carry no
+dimensional metadata.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.thermodynamics.heat_engine_work">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.</span></span><span class="sig-name descname"><span class="pre">heat_engine_work</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Qin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Qout</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics.html#heat_engine_work"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.heat_engine_work" title="Link to this definition">#</a></dt>
+<dd><p>Heat engine work.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Qin</strong> (<em>J</em>) – Input in the units stated above.</p></li>
+<li><p><strong>Qout</strong> (<em>J</em>) – Input in the units stated above.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ol class="upperalpha simple" start="10">
+<li></li>
+</ol>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>result</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Assumptions, governing equations and validity limits are discussed in
+<a class="reference internal" href="../guides/thermodynamics.html"><span class="doc">Thermodynamics: total versus specific quantities and cycle states</span></a>. SI inputs are required; raw numbers carry no
+dimensional metadata.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.thermodynamics.heat_pump_cop">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.</span></span><span class="sig-name descname"><span class="pre">heat_pump_cop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">q_hot</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">work_input</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics.html#heat_pump_cop"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.heat_pump_cop" title="Link to this definition">#</a></dt>
+<dd><p>Heat pump cop.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>q_hot</strong> (<em>J</em>) – Input in the units stated above.</p></li>
+<li><p><strong>work_input</strong> (<em>J</em>) – Input in the units stated above.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ol class="arabic simple">
+<li></li>
+</ol>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>result</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Assumptions, governing equations and validity limits are discussed in
+<a class="reference internal" href="../guides/thermodynamics.html"><span class="doc">Thermodynamics: total versus specific quantities and cycle states</span></a>. SI inputs are required; raw numbers carry no
+dimensional metadata.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.thermodynamics.ideal_gas_pressure">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.</span></span><span class="sig-name descname"><span class="pre">ideal_gas_pressure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">V</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics.html#ideal_gas_pressure"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.ideal_gas_pressure" title="Link to this definition">#</a></dt>
+<dd><p>Ideal gas pressure.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n</strong> (<em>mol</em>) – Input in the units stated above.</p></li>
+<li><p><strong>T</strong> (<em>K</em><em> (</em><em>absolute</em><em>)</em>) – Input in the units stated above.</p></li>
+<li><p><strong>V</strong> (<em>m^3</em>) – Input in the units stated above.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Pa.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>result</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Assumptions, governing equations and validity limits are discussed in
+<a class="reference internal" href="../guides/thermodynamics.html"><span class="doc">Thermodynamics: total versus specific quantities and cycle states</span></a>. SI inputs are required; raw numbers carry no
+dimensional metadata.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.thermodynamics.ideal_gas_temperature">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.</span></span><span class="sig-name descname"><span class="pre">ideal_gas_temperature</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">P</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">V</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics.html#ideal_gas_temperature"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.ideal_gas_temperature" title="Link to this definition">#</a></dt>
+<dd><p>Ideal gas temperature.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>P</strong> (<em>Pa</em>) – Input in the units stated above.</p></li>
+<li><p><strong>V</strong> (<em>m^3</em>) – Input in the units stated above.</p></li>
+<li><p><strong>n</strong> (<em>mol</em>) – Input in the units stated above.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ol class="upperalpha simple" start="11">
+<li></li>
+</ol>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>result</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Assumptions, governing equations and validity limits are discussed in
+<a class="reference internal" href="../guides/thermodynamics.html"><span class="doc">Thermodynamics: total versus specific quantities and cycle states</span></a>. SI inputs are required; raw numbers carry no
+dimensional metadata.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.thermodynamics.isentropic_pressure_volume">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.</span></span><span class="sig-name descname"><span class="pre">isentropic_pressure_volume</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">p1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.4</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics.html#isentropic_pressure_volume"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.isentropic_pressure_volume" title="Link to this definition">#</a></dt>
+<dd><p>Isentropic pressure volume.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p1</strong> (<em>Pa</em>) – Input in the units stated above.</p></li>
+<li><p><strong>v1</strong> (<em>consistent volume units</em><em> (</em><em>e.g. m^3/kg</em><em>)</em>) – Input in the units stated above.</p></li>
+<li><p><strong>v2</strong> (<em>consistent volume units</em><em> (</em><em>e.g. m^3/kg</em><em>)</em>) – Input in the units stated above.</p></li>
+<li><p><strong>gamma</strong> (<em>1</em>) – Input in the units stated above.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Pa.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>result</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Assumptions, governing equations and validity limits are discussed in
+<a class="reference internal" href="../guides/thermodynamics.html"><span class="doc">Thermodynamics: total versus specific quantities and cycle states</span></a>. SI inputs are required; raw numbers carry no
+dimensional metadata.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.thermodynamics.isentropic_temperature_ratio">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.</span></span><span class="sig-name descname"><span class="pre">isentropic_temperature_ratio</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pressure_ratio</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.4</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics.html#isentropic_temperature_ratio"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.isentropic_temperature_ratio" title="Link to this definition">#</a></dt>
+<dd><p>Isentropic temperature ratio.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pressure_ratio</strong> (<em>1</em>) – Input in the units stated above.</p></li>
+<li><p><strong>gamma</strong> (<em>1</em>) – Input in the units stated above.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ol class="arabic simple">
+<li></li>
+</ol>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>result</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Assumptions, governing equations and validity limits are discussed in
+<a class="reference internal" href="../guides/thermodynamics.html"><span class="doc">Thermodynamics: total versus specific quantities and cycle states</span></a>. SI inputs are required; raw numbers carry no
+dimensional metadata.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.thermodynamics.otto_efficiency">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.</span></span><span class="sig-name descname"><span class="pre">otto_efficiency</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">compression_ratio</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.4</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics.html#otto_efficiency"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.otto_efficiency" title="Link to this definition">#</a></dt>
+<dd><p>Otto efficiency.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>compression_ratio</strong> (<em>1</em>) – Input in the units stated above.</p></li>
+<li><p><strong>gamma</strong> (<em>1</em>) – Input in the units stated above.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ol class="arabic simple">
+<li></li>
+</ol>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>result</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Assumptions, governing equations and validity limits are discussed in
+<a class="reference internal" href="../guides/thermodynamics.html"><span class="doc">Thermodynamics: total versus specific quantities and cycle states</span></a>. SI inputs are required; raw numbers carry no
+dimensional metadata.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.thermodynamics.rankine_ideal_efficiency">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.</span></span><span class="sig-name descname"><span class="pre">rankine_ideal_efficiency</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h4</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics.html#rankine_ideal_efficiency"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.rankine_ideal_efficiency" title="Link to this definition">#</a></dt>
+<dd><p>Ideal Rankine efficiency from pump-in, boiler-out, turbine-out, condenser-out enthalpies.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>h1</strong> (<em>J/kg</em>) – Input in the units stated above.</p></li>
+<li><p><strong>h2</strong> (<em>J/kg</em>) – Input in the units stated above.</p></li>
+<li><p><strong>h3</strong> (<em>J/kg</em>) – Input in the units stated above.</p></li>
+<li><p><strong>h4</strong> (<em>J/kg</em>) – Input in the units stated above.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ol class="arabic simple">
+<li></li>
+</ol>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>result</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Assumptions, governing equations and validity limits are discussed in
+<a class="reference internal" href="../guides/thermodynamics.html"><span class="doc">Thermodynamics: total versus specific quantities and cycle states</span></a>. SI inputs are required; raw numbers carry no
+dimensional metadata.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.thermodynamics.refrigeration_cop">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.</span></span><span class="sig-name descname"><span class="pre">refrigeration_cop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">q_cold</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">work_input</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics.html#refrigeration_cop"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.refrigeration_cop" title="Link to this definition">#</a></dt>
+<dd><p>Refrigeration cop.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>q_cold</strong> (<em>J</em>) – Input in the units stated above.</p></li>
+<li><p><strong>work_input</strong> (<em>J</em>) – Input in the units stated above.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ol class="arabic simple">
+<li></li>
+</ol>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>result</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Assumptions, governing equations and validity limits are discussed in
+<a class="reference internal" href="../guides/thermodynamics.html"><span class="doc">Thermodynamics: total versus specific quantities and cycle states</span></a>. SI inputs are required; raw numbers carry no
+dimensional metadata.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.thermodynamics.reversible_isothermal_work_ideal_gas">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.</span></span><span class="sig-name descname"><span class="pre">reversible_isothermal_work_ideal_gas</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">V1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">V2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics.html#reversible_isothermal_work_ideal_gas"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.reversible_isothermal_work_ideal_gas" title="Link to this definition">#</a></dt>
+<dd><p>Reversible isothermal work ideal gas.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n</strong> (<em>mol</em>) – Input in the units stated above.</p></li>
+<li><p><strong>T</strong> (<em>K</em><em> (</em><em>absolute</em><em>)</em>) – Input in the units stated above.</p></li>
+<li><p><strong>V1</strong> (<em>m^3</em>) – Input in the units stated above.</p></li>
+<li><p><strong>V2</strong> (<em>m^3</em>) – Input in the units stated above.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ol class="upperalpha simple" start="10">
+<li></li>
+</ol>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>result</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Assumptions, governing equations and validity limits are discussed in
+<a class="reference internal" href="../guides/thermodynamics.html"><span class="doc">Thermodynamics: total versus specific quantities and cycle states</span></a>. SI inputs are required; raw numbers carry no
+dimensional metadata.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.thermodynamics.specific_enthalpy_ideal_gas">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.</span></span><span class="sig-name descname"><span class="pre">specific_enthalpy_ideal_gas</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">T</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cp</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics.html#specific_enthalpy_ideal_gas"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.specific_enthalpy_ideal_gas" title="Link to this definition">#</a></dt>
+<dd><p>Specific enthalpy ideal gas.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>T</strong> (<em>K</em><em> (</em><em>absolute</em><em>)</em>) – Input in the units stated above.</p></li>
+<li><p><strong>cp</strong> (<em>J/</em><em>(</em><em>kg K</em><em>)</em>) – Input in the units stated above.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>J/kg.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>result</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Assumptions, governing equations and validity limits are discussed in
+<a class="reference internal" href="../guides/thermodynamics.html"><span class="doc">Thermodynamics: total versus specific quantities and cycle states</span></a>. SI inputs are required; raw numbers carry no
+dimensional metadata.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.thermodynamics.specific_internal_energy_ideal_gas">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.</span></span><span class="sig-name descname"><span class="pre">specific_internal_energy_ideal_gas</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">T</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cv</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics.html#specific_internal_energy_ideal_gas"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.specific_internal_energy_ideal_gas" title="Link to this definition">#</a></dt>
+<dd><p>Specific internal energy ideal gas.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>T</strong> (<em>K</em><em> (</em><em>absolute</em><em>)</em>) – Input in the units stated above.</p></li>
+<li><p><strong>cv</strong> (<em>J/</em><em>(</em><em>kg K</em><em>)</em>) – Input in the units stated above.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>J/kg.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>result</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Assumptions, governing equations and validity limits are discussed in
+<a class="reference internal" href="../guides/thermodynamics.html"><span class="doc">Thermodynamics: total versus specific quantities and cycle states</span></a>. SI inputs are required; raw numbers carry no
+dimensional metadata.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.thermodynamics.thermal_efficiency">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.</span></span><span class="sig-name descname"><span class="pre">thermal_efficiency</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Qin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Qout</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics.html#thermal_efficiency"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.thermal_efficiency" title="Link to this definition">#</a></dt>
+<dd><p>Thermal efficiency.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Qin</strong> (<em>J</em>) – Input in the units stated above.</p></li>
+<li><p><strong>Qout</strong> (<em>J</em>) – Input in the units stated above.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ol class="arabic simple">
+<li></li>
+</ol>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>result</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Assumptions, governing equations and validity limits are discussed in
+<a class="reference internal" href="../guides/thermodynamics.html"><span class="doc">Thermodynamics: total versus specific quantities and cycle states</span></a>. SI inputs are required; raw numbers carry no
+dimensional metadata.</p>
+</dd></dl>
+
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="mechanical_engineering.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">engineeringkit.mechanical_engineering</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="fluid_engineering.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">engineeringkit.fluid_engineering</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.thermodynamics.OttoCycle"><code class="docutils literal notranslate"><span class="pre">OttoCycle</span></code></a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.thermodynamics.OttoCycle.compression_ratio"><code class="docutils literal notranslate"><span class="pre">OttoCycle.compression_ratio</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.thermodynamics.OttoCycle.efficiency"><code class="docutils literal notranslate"><span class="pre">OttoCycle.efficiency</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.thermodynamics.OttoCycle.gamma"><code class="docutils literal notranslate"><span class="pre">OttoCycle.gamma</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.thermodynamics.OttoCycle.summary"><code class="docutils literal notranslate"><span class="pre">OttoCycle.summary()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.thermodynamics.brayton_efficiency"><code class="docutils literal notranslate"><span class="pre">brayton_efficiency()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.thermodynamics.carnot_cop_heat_pump"><code class="docutils literal notranslate"><span class="pre">carnot_cop_heat_pump()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.thermodynamics.carnot_cop_refrigerator"><code class="docutils literal notranslate"><span class="pre">carnot_cop_refrigerator()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.thermodynamics.carnot_efficiency"><code class="docutils literal notranslate"><span class="pre">carnot_efficiency()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.thermodynamics.clausius_inequality"><code class="docutils literal notranslate"><span class="pre">clausius_inequality()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.thermodynamics.diesel_efficiency"><code class="docutils literal notranslate"><span class="pre">diesel_efficiency()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.thermodynamics.entropy_change_isothermal_ideal_gas"><code class="docutils literal notranslate"><span class="pre">entropy_change_isothermal_ideal_gas()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.thermodynamics.exergy_destruction"><code class="docutils literal notranslate"><span class="pre">exergy_destruction()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.thermodynamics.exergy_heat"><code class="docutils literal notranslate"><span class="pre">exergy_heat()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.thermodynamics.first_law_heat"><code class="docutils literal notranslate"><span class="pre">first_law_heat()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.thermodynamics.heat_engine_work"><code class="docutils literal notranslate"><span class="pre">heat_engine_work()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.thermodynamics.heat_pump_cop"><code class="docutils literal notranslate"><span class="pre">heat_pump_cop()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.thermodynamics.ideal_gas_pressure"><code class="docutils literal notranslate"><span class="pre">ideal_gas_pressure()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.thermodynamics.ideal_gas_temperature"><code class="docutils literal notranslate"><span class="pre">ideal_gas_temperature()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.thermodynamics.isentropic_pressure_volume"><code class="docutils literal notranslate"><span class="pre">isentropic_pressure_volume()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.thermodynamics.isentropic_temperature_ratio"><code class="docutils literal notranslate"><span class="pre">isentropic_temperature_ratio()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.thermodynamics.otto_efficiency"><code class="docutils literal notranslate"><span class="pre">otto_efficiency()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.thermodynamics.rankine_ideal_efficiency"><code class="docutils literal notranslate"><span class="pre">rankine_ideal_efficiency()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.thermodynamics.refrigeration_cop"><code class="docutils literal notranslate"><span class="pre">refrigeration_cop()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.thermodynamics.reversible_isothermal_work_ideal_gas"><code class="docutils literal notranslate"><span class="pre">reversible_isothermal_work_ideal_gas()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.thermodynamics.specific_enthalpy_ideal_gas"><code class="docutils literal notranslate"><span class="pre">specific_enthalpy_ideal_gas()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.thermodynamics.specific_internal_energy_ideal_gas"><code class="docutils literal notranslate"><span class="pre">specific_internal_energy_ideal_gas()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.thermodynamics.thermal_efficiency"><code class="docutils literal notranslate"><span class="pre">thermal_efficiency()</span></code></a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../_sources/api/thermodynamics.rst.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.23.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,1870 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>engineeringkit.control_systems &#8212; engineeringkit 0.1.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=c83e6b79" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/engineeringkit.css?v=62935cec" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=18bd87630a240e9c25be"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be" />
+
+    <script src="../_static/documentation_options.js?v=38b66d78"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/sg-tags.js?v=d80f6fa4"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'api/control_systems';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="engineeringkit.signal_processing" href="signal_processing.html" />
+    <link rel="prev" title="engineeringkit.electrical_engineering" href="electrical_engineering.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="color-scheme" content="light dark"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/engineeringkit_logo_transparent.png" class="logo__image only-light" alt="engineeringkit logo"/>
+    <img src="../_static/engineeringkit_logo_transparent.png" class="logo__image only-dark pst-js-only" alt="engineeringkit logo"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../subpackages/index.html">
+    Subpackages
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../history/index.html">
+    History
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    API
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button type="button" class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../subpackages/index.html">
+    Subpackages
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../history/index.html">
+    History
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    API
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button type="button" id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar">
+  <svg class="pst-icon" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="structural_engineering.html">engineeringkit.structural_engineering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mechanical_engineering.html">engineeringkit.mechanical_engineering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="thermodynamics.html">engineeringkit.thermodynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fluid_engineering.html">engineeringkit.fluid_engineering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="heat_transfer.html">engineeringkit.heat_transfer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aerodynamics.html">engineeringkit.aerodynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="electrical_engineering.html">engineeringkit.electrical_engineering</a></li>
+<li class="toctree-l1 current active"><a aria-current="page" class="current reference internal" href="#">engineeringkit.control_systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signal_processing.html">engineeringkit.signal_processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="communications.html">engineeringkit.communications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="materials.html">engineeringkit.materials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reliability.html">engineeringkit.reliability</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="integrators.html">Integrators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="visualizers.html">Visualizers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="units.html">Units</a></li>
+<li class="toctree-l1"><a class="reference internal" href="constants.html">Constants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../validation.html">Numerical validation policy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../limitations.html">Scope and remaining limitations</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">API</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">engineeringkit.control_systems</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="engineeringkit-control-systems">
+<h1>engineeringkit.control_systems<a class="headerlink" href="#engineeringkit-control-systems" title="Link to this heading">#</a></h1>
+<div class="subpkg-nav docutils container">
+<p><a class="reference internal" href="../_generated/subpackages/control_systems.html"><span class="doc">Domain hub</span></a> · <a class="reference internal" href="../history/control_systems_breakthroughs.html"><span class="doc">History</span></a> · <a class="reference internal" href="gallery/control_systems/index.html"><span class="doc">Examples</span></a> · <a class="reference internal" href="#"><span class="doc">API reference</span></a></p>
+</div>
+<p>Classical stability, PID responses, state feedback, LQR and estimation.</p>
+<p id="module-engineeringkit.control_systems">engineeringkit.control_systems: feedback, stability, frequency response, state space and optimal control.</p>
+<p>Black’s feedback amplifier and Minorsky’s PID controller with
+Ziegler-Nichols tuning; Maxwell’s characteristic roots, the Routh and
+Hurwitz tests and Lyapunov’s direct method; Nyquist’s encirclement
+criterion, Bode plots and stability margins; Evans’s root locus; Hazen’s
+second-order servo specifications; zero-order-hold discretisation; Kalman’s
+controllability and observability, pole placement and Luenberger observers;
+and the LQR, discrete LQR and Kalman-Bucy Riccati designs. Models are
+continuous-time and SISO unless stated; SciPy supplies the LTI objects,
+Riccati/Lyapunov solvers, pole placement and step responses.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="engineeringkit.control_systems.PID">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">engineeringkit.control_systems.</span></span><span class="sig-name descname"><span class="pre">PID</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">kp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ki</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/control_systems/systems/pid.html#PID"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.control_systems.PID" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Ideal parallel PID controller <span class="math notranslate nohighlight">\(C(s) = K_p + K_i/s + K_d s\)</span>.</p>
+<p>Derivative action is ideal (no roll-off filter), and there is no actuator
+saturation or anti-windup. With <code class="docutils literal notranslate"><span class="pre">ki</span> <span class="pre">==</span> <span class="pre">0</span></code> no integrator is included.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit.control_systems</span><span class="w"> </span><span class="kn">import</span> <span class="n">transfer_function</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">r</span> <span class="o">=</span> <span class="n">PID</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">simulate</span><span class="p">(</span><span class="n">transfer_function</span><span class="p">([</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">51</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">summary</span><span class="p">()[</span><span class="s2">"final"</span><span class="p">],</span> <span class="mi">4</span><span class="p">)</span>
+<span class="go">0.9933</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>kp</strong> (<em>float</em>)</p></li>
+<li><p><strong>ki</strong> (<em>float</em>)</p></li>
+<li><p><strong>kd</strong> (<em>float</em>)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="engineeringkit.control_systems.PID.closed_loop">
+<span class="sig-name descname"><span class="pre">closed_loop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plant</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/control_systems/systems/pid.html#PID.closed_loop"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.control_systems.PID.closed_loop" title="Link to this definition">#</a></dt>
+<dd><p>Unity-feedback closed loop <span class="math notranslate nohighlight">\(CG/(1 + CG)\)</span> from reference to output.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="engineeringkit.control_systems.PID.kd">
+<span class="sig-name descname"><span class="pre">kd</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0.0</span></span><a class="headerlink" href="#engineeringkit.control_systems.PID.kd" title="Link to this definition">#</a></dt>
+<dd><p>Derivative gain [input s/error].</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="engineeringkit.control_systems.PID.ki">
+<span class="sig-name descname"><span class="pre">ki</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0.0</span></span><a class="headerlink" href="#engineeringkit.control_systems.PID.ki" title="Link to this definition">#</a></dt>
+<dd><p>Integral gain [input/(error s)].</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="engineeringkit.control_systems.PID.kp">
+<span class="sig-name descname"><span class="pre">kp</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></span><a class="headerlink" href="#engineeringkit.control_systems.PID.kp" title="Link to this definition">#</a></dt>
+<dd><p>Proportional gain [input/error].</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="engineeringkit.control_systems.PID.simulate">
+<span class="sig-name descname"><span class="pre">simulate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plant</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/control_systems/systems/pid.html#PID.simulate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.control_systems.PID.simulate" title="Link to this definition">#</a></dt>
+<dd><p>Unit-step reference response of the closed loop, as a <a class="reference internal" href="#engineeringkit.control_systems.ResponseResult" title="engineeringkit.control_systems.ResponseResult"><code class="xref py py-class docutils literal notranslate"><span class="pre">ResponseResult</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="engineeringkit.control_systems.PID.transfer_function">
+<span class="sig-name descname"><span class="pre">transfer_function</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/control_systems/systems/pid.html#PID.transfer_function"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.control_systems.PID.transfer_function" title="Link to this definition">#</a></dt>
+<dd><p>Controller transfer function <span class="math notranslate nohighlight">\(C(s)\)</span>; all-zero gains have none.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="engineeringkit.control_systems.ResponseResult">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">engineeringkit.control_systems.</span></span><span class="sig-name descname"><span class="pre">ResponseResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/control_systems/core/base.html#ResponseResult"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.control_systems.ResponseResult" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Time response of a simulated control loop.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>t</strong> (<em>ndarray</em>)</p></li>
+<li><p><strong>y</strong> (<em>ndarray</em>)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="engineeringkit.control_systems.ResponseResult.plot">
+<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/control_systems/core/base.html#ResponseResult.plot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.control_systems.ResponseResult.plot" title="Link to this definition">#</a></dt>
+<dd><p>Plot the response against time; return <code class="docutils literal notranslate"><span class="pre">(fig,</span> <span class="pre">ax)</span></code>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="engineeringkit.control_systems.ResponseResult.summary">
+<span class="sig-name descname"><span class="pre">summary</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/control_systems/core/base.html#ResponseResult.summary"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.control_systems.ResponseResult.summary" title="Link to this definition">#</a></dt>
+<dd><p>Final value and peak of the response.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="engineeringkit.control_systems.ResponseResult.t">
+<span class="sig-name descname"><span class="pre">t</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></span><a class="headerlink" href="#engineeringkit.control_systems.ResponseResult.t" title="Link to this definition">#</a></dt>
+<dd><p>Time samples [s].</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="engineeringkit.control_systems.ResponseResult.y">
+<span class="sig-name descname"><span class="pre">y</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></span><a class="headerlink" href="#engineeringkit.control_systems.ResponseResult.y" title="Link to this definition">#</a></dt>
+<dd><p>Output at each sample, in output units per unit reference.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.control_systems.as_polynomial">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.control_systems.</span></span><span class="sig-name descname"><span class="pre">as_polynomial</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coeffs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'coeffs'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_degree</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/control_systems/utils/polynomials.html#as_polynomial"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.control_systems.as_polynomial" title="Link to this definition">#</a></dt>
+<dd><p>Validate a descending-power polynomial and strip leading zeros.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>coeffs</strong> (<em>array_like</em>) – Real coefficients, highest power first.</p></li>
+<li><p><strong>name</strong> (<em>str</em><em>, </em><em>optional</em>) – Argument name used in error messages.</p></li>
+<li><p><strong>min_degree</strong> (<em>int</em><em>, </em><em>optional</em>) – Smallest admissible degree after stripping leading zeros.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Coefficients with a nonzero leading term.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If the coefficients are not a finite real vector, are all zero, or the
+    degree is below <code class="docutils literal notranslate"><span class="pre">min_degree</span></code>.</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">as_polynomial</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<span class="go">array([1., 3., 2.])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.control_systems.bode">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.control_systems.</span></span><span class="sig-name descname"><span class="pre">bode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sys</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/control_systems/systems/frequency.html#bode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.control_systems.bode" title="Link to this definition">#</a></dt>
+<dd><p>Bode magnitude and phase of a continuous-time model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sys</strong> (<em>scipy.signal.lti</em>) – Continuous-time model.</p></li>
+<li><p><strong>w</strong> (<em>array_like</em><em>, </em><em>optional</em>) – Angular frequencies [rad/s]; chosen automatically if omitted.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">(w,</span> <span class="pre">magnitude,</span> <span class="pre">phase)</span></code>: angular frequency [rad/s], gain [dB] and
+phase [deg].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple of ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Wraps <code class="xref py py-func docutils literal notranslate"><span class="pre">scipy.signal.bode()</span></code>. See <a class="reference internal" href="../guides/control_systems.html"><span class="doc">Control systems: matrix contracts and numerical stability</span></a>.</p>
+<p class="rubric">References</p>
+<p>H. W. Bode, <em>Network Analysis and Feedback Amplifier Design</em> (Van
+Nostrand, 1945).</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit.control_systems</span><span class="w"> </span><span class="kn">import</span> <span class="n">transfer_function</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">w</span><span class="p">,</span> <span class="n">mag</span><span class="p">,</span> <span class="n">phase</span> <span class="o">=</span> <span class="n">bode</span><span class="p">(</span><span class="n">transfer_function</span><span class="p">([</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]),</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">mag</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="mi">3</span><span class="p">),</span> <span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">phase</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="mi">1</span><span class="p">)</span>
+<span class="go">(-3.01, -45.0)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.control_systems.controllability_matrix">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.control_systems.</span></span><span class="sig-name descname"><span class="pre">controllability_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">B</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/control_systems/systems/state_space.html#controllability_matrix"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.control_systems.controllability_matrix" title="Link to this definition">#</a></dt>
+<dd><p>Kalman controllability matrix <span class="math notranslate nohighlight">\([B,\ AB,\ \dots,\ A^{n-1}B]\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>A</strong> (<em>array_like</em>) – State matrix, shape <code class="docutils literal notranslate"><span class="pre">(n,</span> <span class="pre">n)</span></code>.</p></li>
+<li><p><strong>B</strong> (<em>array_like</em>) – Input matrix, shape <code class="docutils literal notranslate"><span class="pre">(n,</span> <span class="pre">m)</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Shape <code class="docutils literal notranslate"><span class="pre">(n,</span> <span class="pre">n</span> <span class="pre">m)</span></code>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>See <a class="reference internal" href="../guides/control_systems.html"><span class="doc">Control systems: matrix contracts and numerical stability</span></a>.</p>
+<p class="rubric">References</p>
+<p>R. E. Kalman, “On the general theory of control systems,” <em>Proc. 1st IFAC
+Congress</em> (Moscow, 1960) 481-492.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">controllability_matrix</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]],</span> <span class="p">[[</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">]])</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="go">[[0.0, 1.0], [1.0, 0.0]]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.control_systems.dc_gain">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.control_systems.</span></span><span class="sig-name descname"><span class="pre">dc_gain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sys</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/control_systems/systems/transfer.html#dc_gain"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.control_systems.dc_gain" title="Link to this definition">#</a></dt>
+<dd><p>Steady-state gain <span class="math notranslate nohighlight">\(G(0)\)</span> for a constant input.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>sys</strong> (<em>scipy.signal.lti</em>) – SISO continuous-time model.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Output per unit input at zero frequency.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If the model has a pole at <span class="math notranslate nohighlight">\(s = 0\)</span> (an integrator), so the gain
+    is unbounded.</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>The steady state is reached only if the system is stable. See
+<a class="reference internal" href="../guides/control_systems.html"><span class="doc">Control systems: matrix contracts and numerical stability</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dc_gain</span><span class="p">(</span><span class="n">transfer_function</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">]))</span>
+<span class="go">1.0</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.control_systems.discretize_zoh">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.control_systems.</span></span><span class="sig-name descname"><span class="pre">discretize_zoh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">B</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dt</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/control_systems/systems/sampled.html#discretize_zoh"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.control_systems.discretize_zoh" title="Link to this definition">#</a></dt>
+<dd><p>Exact zero-order-hold discretisation <span class="math notranslate nohighlight">\((A_d, B_d)\)</span> of <span class="math notranslate nohighlight">\(\dot x = Ax + Bu\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>A</strong> (<em>array_like</em>) – Continuous state matrix, shape <code class="docutils literal notranslate"><span class="pre">(n,</span> <span class="pre">n)</span></code> [1/s].</p></li>
+<li><p><strong>B</strong> (<em>array_like</em>) – Continuous input matrix, shape <code class="docutils literal notranslate"><span class="pre">(n,</span> <span class="pre">m)</span></code>.</p></li>
+<li><p><strong>dt</strong> (<em>float</em>) – Sampling period [s], positive.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">(Ad,</span> <span class="pre">Bd)</span></code> for <span class="math notranslate nohighlight">\(x_{k+1} = A_d x_k + B_d u_k\)</span>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple of ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Both matrices come from one matrix exponential of the augmented matrix
+<span class="math notranslate nohighlight">\(\begin{bmatrix}A &amp; B\\ 0 &amp; 0\end{bmatrix} T\)</span>, which is valid even
+when <span class="math notranslate nohighlight">\(A\)</span> is singular. See <a class="reference internal" href="../guides/control_systems.html"><span class="doc">Control systems: matrix contracts and numerical stability</span></a>.</p>
+<p class="rubric">References</p>
+<p>J. R. Ragazzini and L. A. Zadeh, “The analysis of sampled-data systems,”
+<em>Trans. AIEE</em> 71 (1952) 225-234.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Ad</span><span class="p">,</span> <span class="n">Bd</span> <span class="o">=</span> <span class="n">discretize_zoh</span><span class="p">([[</span><span class="mf">0.0</span><span class="p">]],</span> <span class="p">[[</span><span class="mf">1.0</span><span class="p">]],</span> <span class="mf">0.5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Ad</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span> <span class="n">Bd</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="go">([[1.0]], [[0.5]])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.control_systems.dlqr">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.control_systems.</span></span><span class="sig-name descname"><span class="pre">dlqr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">B</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Q</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">R</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/control_systems/systems/optimal.html#dlqr"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.control_systems.dlqr" title="Link to this definition">#</a></dt>
+<dd><p>Discrete-time infinite-horizon linear-quadratic regulator.</p>
+<p>Minimises <span class="math notranslate nohighlight">\(\sum_{k \ge 0} (x_k^\mathsf{T} Q x_k + u_k^\mathsf{T} R u_k)\)</span>
+over <span class="math notranslate nohighlight">\(u_k = -K x_k\)</span> for <span class="math notranslate nohighlight">\(x_{k+1} = A x_k + B u_k\)</span>; the
+steady state of Bellman’s backward dynamic-programming recursion.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>A</strong> (<em>array_like</em>) – Discrete state matrix, shape <code class="docutils literal notranslate"><span class="pre">(n,</span> <span class="pre">n)</span></code>.</p></li>
+<li><p><strong>B</strong> (<em>array_like</em>) – Discrete input matrix, shape <code class="docutils literal notranslate"><span class="pre">(n,</span> <span class="pre">m)</span></code>.</p></li>
+<li><p><strong>Q</strong> (<em>array_like</em>) – Symmetric positive semidefinite state weight, shape <code class="docutils literal notranslate"><span class="pre">(n,</span> <span class="pre">n)</span></code>.</p></li>
+<li><p><strong>R</strong> (<em>array_like</em>) – Symmetric positive definite input weight, shape <code class="docutils literal notranslate"><span class="pre">(m,</span> <span class="pre">m)</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">(K,</span> <span class="pre">P,</span> <span class="pre">poles)</span></code>: gain <span class="math notranslate nohighlight">\(K = (R + B^\mathsf{T}PB)^{-1}B^\mathsf{T}PA\)</span>,
+the discrete Riccati solution <span class="math notranslate nohighlight">\(P\)</span> and the closed-loop
+eigenvalues (inside the unit circle when stabilising).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>See <a class="reference internal" href="../guides/control_systems.html"><span class="doc">Control systems: matrix contracts and numerical stability</span></a>.</p>
+<p class="rubric">References</p>
+<ol class="upperalpha simple" start="18">
+<li><p>Bellman, <em>Dynamic Programming</em> (Princeton University Press, 1957).</p></li>
+</ol>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">K</span><span class="p">,</span> <span class="n">P</span><span class="p">,</span> <span class="n">poles</span> <span class="o">=</span> <span class="n">dlqr</span><span class="p">([[</span><span class="mf">1.0</span><span class="p">]],</span> <span class="p">[[</span><span class="mf">1.0</span><span class="p">]],</span> <span class="p">[[</span><span class="mf">1.0</span><span class="p">]],</span> <span class="p">[[</span><span class="mf">1.0</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">P</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]),</span> <span class="mi">6</span><span class="p">),</span> <span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">K</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]),</span> <span class="mi">6</span><span class="p">)</span>
+<span class="go">(1.618034, 0.618034)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.control_systems.feedback">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.control_systems.</span></span><span class="sig-name descname"><span class="pre">feedback</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">G</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sign</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/control_systems/systems/transfer.html#feedback"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.control_systems.feedback" title="Link to this definition">#</a></dt>
+<dd><p>Closed-loop transfer function of a feedback loop, <span class="math notranslate nohighlight">\(G/(1 - \sigma GH)\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>G</strong> (<em>scipy.signal.lti</em>) – Forward-path model.</p></li>
+<li><p><strong>H</strong> (<em>scipy.signal.lti</em><em> or </em><em>float</em><em>, </em><em>optional</em>) – Feedback-path model or constant gain (unity feedback by default).</p></li>
+<li><p><strong>sign</strong> (<em>{-1</em><em>, </em><em>1}</em><em>, </em><em>optional</em>) – Feedback sign <span class="math notranslate nohighlight">\(\sigma\)</span>; <code class="docutils literal notranslate"><span class="pre">-1</span></code> is negative feedback.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Closed-loop model from reference to output.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>scipy.signal.TransferFunction</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Pole-zero cancellations are not removed. See
+<a class="reference internal" href="../guides/control_systems.html"><span class="doc">Control systems: matrix contracts and numerical stability</span></a>.</p>
+<p class="rubric">References</p>
+<p>H. S. Black, “Stabilized feedback amplifiers,” <em>Bell Syst. Tech. J.</em> 13
+(1934) 1-18.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">T</span> <span class="o">=</span> <span class="n">feedback</span><span class="p">(</span><span class="n">transfer_function</span><span class="p">([</span><span class="mi">1000</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="mf">0.01</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="n">dc_gain</span><span class="p">(</span><span class="n">T</span><span class="p">),</span> <span class="mi">3</span><span class="p">)</span>
+<span class="go">90.909</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.control_systems.feedforward_gain">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.control_systems.</span></span><span class="sig-name descname"><span class="pre">feedforward_gain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">B</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">C</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">K</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/control_systems/systems/state_space.html#feedforward_gain"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.control_systems.feedforward_gain" title="Link to this definition">#</a></dt>
+<dd><p>Reference precompensator <span class="math notranslate nohighlight">\(N\)</span> giving unit DC gain under SISO state feedback.</p>
+<p>With <span class="math notranslate nohighlight">\(u = -Kx + Nr\)</span>, the closed loop
+<span class="math notranslate nohighlight">\(\dot x = (A - BK)x + BNr\)</span> tracks a constant reference when
+<span class="math notranslate nohighlight">\(N = -1/\left(C (A - BK)^{-1} B\right)\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>A</strong> (<em>array_like</em>) – State matrix, shape <code class="docutils literal notranslate"><span class="pre">(n,</span> <span class="pre">n)</span></code>.</p></li>
+<li><p><strong>B</strong> (<em>array_like</em>) – Input matrix, shape <code class="docutils literal notranslate"><span class="pre">(n,</span> <span class="pre">1)</span></code>.</p></li>
+<li><p><strong>C</strong> (<em>array_like</em>) – Output matrix, shape <code class="docutils literal notranslate"><span class="pre">(1,</span> <span class="pre">n)</span></code>.</p></li>
+<li><p><strong>K</strong> (<em>array_like</em>) – State-feedback gain, shape <code class="docutils literal notranslate"><span class="pre">(1,</span> <span class="pre">n)</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Precompensator gain [input/reference units].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If the system is not SISO, or the closed loop has a zero at the
+    origin so no finite <span class="math notranslate nohighlight">\(N\)</span> exists.</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Exact only for a perfect model; integral action is needed for robust
+tracking. See <a class="reference internal" href="../guides/control_systems.html"><span class="doc">Control systems: matrix contracts and numerical stability</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">feedforward_gain</span><span class="p">([[</span><span class="o">-</span><span class="mi">1</span><span class="p">]],</span> <span class="p">[[</span><span class="mi">1</span><span class="p">]],</span> <span class="p">[[</span><span class="mi">1</span><span class="p">]],</span> <span class="p">[[</span><span class="mi">2</span><span class="p">]])</span>
+<span class="go">3.0</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.control_systems.hurwitz_determinants">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.control_systems.</span></span><span class="sig-name descname"><span class="pre">hurwitz_determinants</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coeffs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/control_systems/systems/stability.html#hurwitz_determinants"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.control_systems.hurwitz_determinants" title="Link to this definition">#</a></dt>
+<dd><p>Leading principal minors <span class="math notranslate nohighlight">\(\Delta_1, \dots, \Delta_n\)</span> of the Hurwitz matrix.</p>
+<p>For <span class="math notranslate nohighlight">\(a_0 s^n + a_1 s^{n-1} + \dots + a_n\)</span> with <span class="math notranslate nohighlight">\(a_0 &gt; 0\)</span>, all
+roots lie in the open left half-plane if and only if every
+<span class="math notranslate nohighlight">\(\Delta_k &gt; 0\)</span>. The Hurwitz matrix has entries
+<span class="math notranslate nohighlight">\(H_{ij} = a_{2j-i}\)</span> (1-based, <span class="math notranslate nohighlight">\(a_k = 0\)</span> outside
+<span class="math notranslate nohighlight">\(0 \le k \le n\)</span>).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>coeffs</strong> (<em>array_like</em>) – Real coefficients in descending powers of <span class="math notranslate nohighlight">\(s\)</span>, degree at least
+one. They are normalised by the leading coefficient.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The <span class="math notranslate nohighlight">\(n\)</span> determinants.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>On the stability boundary <span class="math notranslate nohighlight">\(\Delta_{n-1} = 0\)</span> (a pair of imaginary
+roots) or <span class="math notranslate nohighlight">\(\Delta_n = 0\)</span> (a root at the origin). See
+<a class="reference internal" href="../guides/control_systems.html"><span class="doc">Control systems: matrix contracts and numerical stability</span></a>.</p>
+<p class="rubric">References</p>
+<p>A. Hurwitz, “Ueber die Bedingungen, unter welchen eine Gleichung nur
+Wurzeln mit negativen reellen Theilen besitzt,” <em>Math. Ann.</em> 46 (1895)
+273-284.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">hurwitz_determinants</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="go">[3.0, 8.0, 8.0]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.control_systems.impulse_response">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.control_systems.</span></span><span class="sig-name descname"><span class="pre">impulse_response</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sys</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/control_systems/systems/transfer.html#impulse_response"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.control_systems.impulse_response" title="Link to this definition">#</a></dt>
+<dd><p>Response to a unit impulse input from rest.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sys</strong> (<em>scipy.signal.lti</em>) – Continuous-time model.</p></li>
+<li><p><strong>T</strong> (<em>array_like</em><em>, </em><em>optional</em>) – Time samples [s]; chosen automatically if omitted.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">(t,</span> <span class="pre">h)</span></code>: time [s] and impulse response [output/(input s)].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple of ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Wraps <code class="xref py py-func docutils literal notranslate"><span class="pre">scipy.signal.impulse()</span></code>. See <a class="reference internal" href="../guides/control_systems.html"><span class="doc">Control systems: matrix contracts and numerical stability</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="n">impulse_response</span><span class="p">(</span><span class="n">transfer_function</span><span class="p">([</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]),</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">h</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]),</span> <span class="mi">4</span><span class="p">)</span>
+<span class="go">0.3679</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.control_systems.is_controllable">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.control_systems.</span></span><span class="sig-name descname"><span class="pre">is_controllable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">B</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/control_systems/systems/state_space.html#is_controllable"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.control_systems.is_controllable" title="Link to this definition">#</a></dt>
+<dd><p>Whether the controllability matrix has full state rank.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>A</strong> (<em>array_like</em>) – State matrix, shape <code class="docutils literal notranslate"><span class="pre">(n,</span> <span class="pre">n)</span></code>.</p></li>
+<li><p><strong>B</strong> (<em>array_like</em>) – Input matrix, shape <code class="docutils literal notranslate"><span class="pre">(n,</span> <span class="pre">m)</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if every state can be steered by the inputs.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Rank is computed numerically with SVD tolerances. See
+<a class="reference internal" href="../guides/control_systems.html"><span class="doc">Control systems: matrix contracts and numerical stability</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">is_controllable</span><span class="p">([[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]],</span> <span class="p">[[</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">]])</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.control_systems.is_observable">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.control_systems.</span></span><span class="sig-name descname"><span class="pre">is_observable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">C</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/control_systems/systems/state_space.html#is_observable"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.control_systems.is_observable" title="Link to this definition">#</a></dt>
+<dd><p>Whether the observability matrix has full state rank.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>A</strong> (<em>array_like</em>) – State matrix, shape <code class="docutils literal notranslate"><span class="pre">(n,</span> <span class="pre">n)</span></code>.</p></li>
+<li><p><strong>C</strong> (<em>array_like</em>) – Output matrix, shape <code class="docutils literal notranslate"><span class="pre">(p,</span> <span class="pre">n)</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if every state can be reconstructed from the outputs.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>See <a class="reference internal" href="../guides/control_systems.html"><span class="doc">Control systems: matrix contracts and numerical stability</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">is_observable</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]],</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.control_systems.kalman_gain">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.control_systems.</span></span><span class="sig-name descname"><span class="pre">kalman_gain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">C</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Q</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">R</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/control_systems/systems/optimal.html#kalman_gain"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.control_systems.kalman_gain" title="Link to this definition">#</a></dt>
+<dd><p>Steady-state Kalman-Bucy estimator gain for continuous-time measurements.</p>
+<p>For <span class="math notranslate nohighlight">\(\dot x = Ax + w\)</span>, <span class="math notranslate nohighlight">\(y = Cx + v\)</span> with white process and
+measurement noise of spectral densities <span class="math notranslate nohighlight">\(Q\)</span> and <span class="math notranslate nohighlight">\(R\)</span>, the
+estimator <span class="math notranslate nohighlight">\(\dot{\hat x} = A\hat x + L(y - C\hat x)\)</span> with
+<span class="math notranslate nohighlight">\(L = PC^\mathsf{T}R^{-1}\)</span> minimises the steady error covariance
+<span class="math notranslate nohighlight">\(P\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>A</strong> (<em>array_like</em>) – State matrix, shape <code class="docutils literal notranslate"><span class="pre">(n,</span> <span class="pre">n)</span></code> [1/s].</p></li>
+<li><p><strong>C</strong> (<em>array_like</em>) – Output matrix, shape <code class="docutils literal notranslate"><span class="pre">(p,</span> <span class="pre">n)</span></code>.</p></li>
+<li><p><strong>Q</strong> (<em>array_like</em>) – Process-noise spectral density, symmetric positive semidefinite,
+shape <code class="docutils literal notranslate"><span class="pre">(n,</span> <span class="pre">n)</span></code>.</p></li>
+<li><p><strong>R</strong> (<em>array_like</em>) – Measurement-noise spectral density, symmetric positive definite,
+shape <code class="docutils literal notranslate"><span class="pre">(p,</span> <span class="pre">p)</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">(L,</span> <span class="pre">P,</span> <span class="pre">poles)</span></code>: observer gain, error covariance and estimator poles
+[1/s].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p><span class="math notranslate nohighlight">\(P\)</span> solves <span class="math notranslate nohighlight">\(AP + PA^\mathsf{T} - PC^\mathsf{T}R^{-1}CP + Q = 0\)</span>.
+<span class="math notranslate nohighlight">\(Q\)</span> and <span class="math notranslate nohighlight">\(R\)</span> are spectral densities, not sampled covariances.
+See <a class="reference internal" href="../guides/control_systems.html"><span class="doc">Control systems: matrix contracts and numerical stability</span></a>.</p>
+<p class="rubric">References</p>
+<p>R. E. Kalman and R. S. Bucy, “New results in linear filtering and
+prediction theory,” <em>J. Basic Eng.</em> 83 (1961) 95-108.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">L</span><span class="p">,</span> <span class="n">P</span><span class="p">,</span> <span class="n">poles</span> <span class="o">=</span> <span class="n">kalman_gain</span><span class="p">([[</span><span class="mi">0</span><span class="p">]],</span> <span class="p">[[</span><span class="mi">1</span><span class="p">]],</span> <span class="p">[[</span><span class="mi">4</span><span class="p">]],</span> <span class="p">[[</span><span class="mi">1</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span> <span class="n">P</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="go">([[2.0]], [[2.0]])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.control_systems.lqr">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.control_systems.</span></span><span class="sig-name descname"><span class="pre">lqr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">B</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Q</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">R</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/control_systems/systems/optimal.html#lqr"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.control_systems.lqr" title="Link to this definition">#</a></dt>
+<dd><p>Continuous-time linear-quadratic regulator.</p>
+<p>Minimises <span class="math notranslate nohighlight">\(J = \int_0^\infty (x^\mathsf{T} Q x + u^\mathsf{T} R u)\,dt\)</span>
+over <span class="math notranslate nohighlight">\(u = -Kx\)</span> for <span class="math notranslate nohighlight">\(\dot x = Ax + Bu\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>A</strong> (<em>array_like</em>) – State matrix, shape <code class="docutils literal notranslate"><span class="pre">(n,</span> <span class="pre">n)</span></code> [1/s].</p></li>
+<li><p><strong>B</strong> (<em>array_like</em>) – Input matrix, shape <code class="docutils literal notranslate"><span class="pre">(n,</span> <span class="pre">m)</span></code>.</p></li>
+<li><p><strong>Q</strong> (<em>array_like</em>) – Symmetric positive semidefinite state weight, shape <code class="docutils literal notranslate"><span class="pre">(n,</span> <span class="pre">n)</span></code>.</p></li>
+<li><p><strong>R</strong> (<em>array_like</em>) – Symmetric positive definite input weight, shape <code class="docutils literal notranslate"><span class="pre">(m,</span> <span class="pre">m)</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">(K,</span> <span class="pre">P,</span> <span class="pre">poles)</span></code>: gain <span class="math notranslate nohighlight">\(K = R^{-1} B^\mathsf{T} P\)</span>, the
+Riccati solution <span class="math notranslate nohighlight">\(P\)</span> (so the optimal cost from <span class="math notranslate nohighlight">\(x_0\)</span> is
+<span class="math notranslate nohighlight">\(x_0^\mathsf{T} P x_0\)</span>) and the closed-loop poles [1/s].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p><span class="math notranslate nohighlight">\(P\)</span> solves <span class="math notranslate nohighlight">\(A^\mathsf{T}P + PA - PBR^{-1}B^\mathsf{T}P + Q = 0\)</span>.
+A stabilising solution needs <span class="math notranslate nohighlight">\((A, B)\)</span> stabilisable and
+<span class="math notranslate nohighlight">\((Q^{1/2}, A)\)</span> detectable; SciPy errors are not masked. See
+<a class="reference internal" href="../guides/control_systems.html"><span class="doc">Control systems: matrix contracts and numerical stability</span></a>.</p>
+<p class="rubric">References</p>
+<p>R. E. Kalman, “Contributions to the theory of optimal control,” <em>Bol. Soc.
+Mat. Mexicana</em> 5 (1960) 102-119.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">K</span><span class="p">,</span> <span class="n">P</span><span class="p">,</span> <span class="n">poles</span> <span class="o">=</span> <span class="n">lqr</span><span class="p">([[</span><span class="mi">0</span><span class="p">]],</span> <span class="p">[[</span><span class="mi">1</span><span class="p">]],</span> <span class="p">[[</span><span class="mi">4</span><span class="p">]],</span> <span class="p">[[</span><span class="mi">1</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">K</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span> <span class="n">poles</span><span class="o">.</span><span class="n">real</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="go">([[2.0]], [-2.0])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.control_systems.lyapunov_equation">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.control_systems.</span></span><span class="sig-name descname"><span class="pre">lyapunov_equation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Q</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/control_systems/systems/stability.html#lyapunov_equation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.control_systems.lyapunov_equation" title="Link to this definition">#</a></dt>
+<dd><p>Solve the continuous Lyapunov equation <span class="math notranslate nohighlight">\(A^\mathsf{T} P + P A = -Q\)</span>.</p>
+<p>If <span class="math notranslate nohighlight">\(A\)</span> is stable, <span class="math notranslate nohighlight">\(V(x) = x^\mathsf{T} P x\)</span> is a Lyapunov
+function: it is positive and decreases at the rate
+<span class="math notranslate nohighlight">\(\dot V = -x^\mathsf{T} Q x\)</span> along every trajectory of
+<span class="math notranslate nohighlight">\(\dot x = Ax\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>A</strong> (<em>array_like</em>) – State matrix, shape <code class="docutils literal notranslate"><span class="pre">(n,</span> <span class="pre">n)</span></code> [1/s].</p></li>
+<li><p><strong>Q</strong> (<em>array_like</em><em>, </em><em>optional</em>) – Symmetric positive semidefinite decay-rate matrix, shape <code class="docutils literal notranslate"><span class="pre">(n,</span> <span class="pre">n)</span></code>;
+the identity by default.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Symmetric solution <span class="math notranslate nohighlight">\(P\)</span>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If two eigenvalues of <span class="math notranslate nohighlight">\(A\)</span> sum to zero, so the equation has no
+    unique solution.</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>See <a class="reference internal" href="../guides/control_systems.html"><span class="doc">Control systems: matrix contracts and numerical stability</span></a>.</p>
+<p class="rubric">References</p>
+<p>A. M. Lyapunov, <em>The General Problem of the Stability of Motion</em> (Kharkov,
+1892; English translation, Taylor &amp; Francis, 1992).</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">lyapunov_equation</span><span class="p">([[</span><span class="o">-</span><span class="mf">1.0</span><span class="p">]])</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="go">[[0.5]]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.control_systems.lyapunov_stable">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.control_systems.</span></span><span class="sig-name descname"><span class="pre">lyapunov_stable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/control_systems/systems/stability.html#lyapunov_stable"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.control_systems.lyapunov_stable" title="Link to this definition">#</a></dt>
+<dd><p>Asymptotic stability of <span class="math notranslate nohighlight">\(\dot x = Ax\)</span> by Lyapunov’s direct method.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>A</strong> (<em>array_like</em>) – State matrix, shape <code class="docutils literal notranslate"><span class="pre">(n,</span> <span class="pre">n)</span></code> [1/s].</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if <span class="math notranslate nohighlight">\(A^\mathsf{T} P + PA = -I\)</span> has a positive definite
+solution <span class="math notranslate nohighlight">\(P\)</span>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>A singular equation (eigenvalues summing to zero, e.g. an undamped
+oscillator) means the origin is not asymptotically stable. See
+<a class="reference internal" href="../guides/control_systems.html"><span class="doc">Control systems: matrix contracts and numerical stability</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">lyapunov_stable</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">]]),</span> <span class="n">lyapunov_stable</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
+<span class="go">(True, False)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.control_systems.num_den">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.control_systems.</span></span><span class="sig-name descname"><span class="pre">num_den</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sys</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/control_systems/utils/polynomials.html#num_den"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.control_systems.num_den" title="Link to this definition">#</a></dt>
+<dd><p>Numerator and denominator polynomials of a SISO continuous-time model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>sys</strong> (<em>scipy.signal.lti</em>) – A <code class="xref py py-class docutils literal notranslate"><span class="pre">TransferFunction</span></code>, or any SciPy LTI model that
+converts to one (state space, zeros-poles-gain).</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">(num,</span> <span class="pre">den)</span></code> in descending powers of <span class="math notranslate nohighlight">\(s\)</span>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple of ndarray</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If the model is not single-input single-output.</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">num_den</span><span class="p">(</span><span class="n">signal</span><span class="o">.</span><span class="n">TransferFunction</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">]))</span>
+<span class="go">(array([2., 2.]), array([1., 3., 2.]))</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.control_systems.nyquist">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.control_systems.</span></span><span class="sig-name descname"><span class="pre">nyquist</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sys</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/control_systems/systems/frequency.html#nyquist"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.control_systems.nyquist" title="Link to this definition">#</a></dt>
+<dd><p>Complex frequency response <span class="math notranslate nohighlight">\(G(j\omega)\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sys</strong> (<em>scipy.signal.lti</em>) – SISO continuous-time model.</p></li>
+<li><p><strong>w</strong> (<em>float</em><em> or </em><em>array_like</em>) – Angular frequencies [rad/s]; negative values give the mirror image.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Output/input gain at each frequency.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>complex or ndarray of complex</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>See <a class="reference internal" href="../guides/control_systems.html"><span class="doc">Control systems: matrix contracts and numerical stability</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit.control_systems</span><span class="w"> </span><span class="kn">import</span> <span class="n">transfer_function</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">complex</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">nyquist</span><span class="p">(</span><span class="n">transfer_function</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">]),</span> <span class="mf">2.0</span><span class="p">),</span> <span class="mi">12</span><span class="p">))</span>
+<span class="go">(0.5-0.5j)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.control_systems.nyquist_encirclements">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.control_systems.</span></span><span class="sig-name descname"><span class="pre">nyquist_encirclements</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sys</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/control_systems/systems/frequency.html#nyquist_encirclements"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.control_systems.nyquist_encirclements" title="Link to this definition">#</a></dt>
+<dd><p>Net clockwise encirclements of <span class="math notranslate nohighlight">\(-1\)</span> by the Nyquist plot of a loop.</p>
+<p>Nyquist’s criterion: the closed loop <span class="math notranslate nohighlight">\(L/(1+L)\)</span> has
+<span class="math notranslate nohighlight">\(Z = N + P\)</span> right-half-plane poles, where <span class="math notranslate nohighlight">\(P\)</span> is the number of
+open-loop right-half-plane poles and <span class="math notranslate nohighlight">\(N\)</span> the value returned here.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sys</strong> (<em>scipy.signal.lti</em>) – Proper open-loop model <span class="math notranslate nohighlight">\(L(s)\)</span> with no poles on the imaginary axis.</p></li>
+<li><p><strong>w</strong> (<em>array_like</em><em>, </em><em>optional</em>) – Positive angular frequencies [rad/s] spanning all features of
+<span class="math notranslate nohighlight">\(L\)</span>; defaults to 40001 points from <span class="math notranslate nohighlight">\(10^{-4}\)</span> to
+<span class="math notranslate nohighlight">\(10^4\)</span>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Clockwise encirclements of <span class="math notranslate nohighlight">\(-1\)</span> (negative if counter-clockwise).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If <span class="math notranslate nohighlight">\(L\)</span> is improper, has imaginary-axis poles, or passes through
+    <span class="math notranslate nohighlight">\(-1\)</span> on the grid.</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>The plot is traced for <span class="math notranslate nohighlight">\(\omega\)</span> from <span class="math notranslate nohighlight">\(-\infty\)</span> to
+<span class="math notranslate nohighlight">\(\infty\)</span>; for a proper loop the infinite semicircle maps to a single
+point. A grid that misses a fast phase swing can miscount. See
+<a class="reference internal" href="../guides/control_systems.html"><span class="doc">Control systems: matrix contracts and numerical stability</span></a>.</p>
+<p class="rubric">References</p>
+<p>H. Nyquist, “Regeneration theory,” <em>Bell Syst. Tech. J.</em> 11 (1932)
+126-147.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit.control_systems</span><span class="w"> </span><span class="kn">import</span> <span class="n">transfer_function</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">nyquist_encirclements</span><span class="p">(</span><span class="n">transfer_function</span><span class="p">([</span><span class="mi">12</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">]))</span>
+<span class="go">2</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.control_systems.observability_matrix">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.control_systems.</span></span><span class="sig-name descname"><span class="pre">observability_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">C</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/control_systems/systems/state_space.html#observability_matrix"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.control_systems.observability_matrix" title="Link to this definition">#</a></dt>
+<dd><p>Kalman observability matrix <span class="math notranslate nohighlight">\([C;\ CA;\ \dots;\ CA^{n-1}]\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>A</strong> (<em>array_like</em>) – State matrix, shape <code class="docutils literal notranslate"><span class="pre">(n,</span> <span class="pre">n)</span></code>.</p></li>
+<li><p><strong>C</strong> (<em>array_like</em>) – Output matrix, shape <code class="docutils literal notranslate"><span class="pre">(p,</span> <span class="pre">n)</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Shape <code class="docutils literal notranslate"><span class="pre">(n</span> <span class="pre">p,</span> <span class="pre">n)</span></code>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>See <a class="reference internal" href="../guides/control_systems.html"><span class="doc">Control systems: matrix contracts and numerical stability</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">observability_matrix</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]],</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="go">[[1.0, 0.0], [0.0, 1.0]]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.control_systems.observer_gain">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.control_systems.</span></span><span class="sig-name descname"><span class="pre">observer_gain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">C</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">desired_poles</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/control_systems/systems/state_space.html#observer_gain"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.control_systems.observer_gain" title="Link to this definition">#</a></dt>
+<dd><p>Luenberger observer gain <span class="math notranslate nohighlight">\(L\)</span> placing the eigenvalues of <span class="math notranslate nohighlight">\(A - LC\)</span>.</p>
+<p>The observer <span class="math notranslate nohighlight">\(\dot{\hat x} = A\hat x + Bu + L(y - C\hat x)\)</span> makes
+the estimation error obey <span class="math notranslate nohighlight">\(\dot e = (A - LC)e\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>A</strong> (<em>array_like</em>) – State matrix, shape <code class="docutils literal notranslate"><span class="pre">(n,</span> <span class="pre">n)</span></code>.</p></li>
+<li><p><strong>C</strong> (<em>array_like</em>) – Output matrix, shape <code class="docutils literal notranslate"><span class="pre">(p,</span> <span class="pre">n)</span></code>; <code class="docutils literal notranslate"><span class="pre">(A,</span> <span class="pre">C)</span></code> must be observable.</p></li>
+<li><p><strong>desired_poles</strong> (<em>array_like</em>) – <code class="docutils literal notranslate"><span class="pre">n</span></code> error-dynamics poles [1/s], conjugate pairs for complex values.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Gain <span class="math notranslate nohighlight">\(L\)</span>, shape <code class="docutils literal notranslate"><span class="pre">(n,</span> <span class="pre">p)</span></code>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Computed by duality, placing the poles of <span class="math notranslate nohighlight">\(A^\mathsf{T} -
+C^\mathsf{T} L^\mathsf{T}\)</span>. See <a class="reference internal" href="../guides/control_systems.html"><span class="doc">Control systems: matrix contracts and numerical stability</span></a>.</p>
+<p class="rubric">References</p>
+<p>D. G. Luenberger, “Observing the state of a linear system,” <em>IEEE Trans.
+Mil. Electron.</em> 8 (1964) 74-80.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">observer_gain</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]],</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]],</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">])</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="go">[[3.0], [2.0]]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.control_systems.poles">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.control_systems.</span></span><span class="sig-name descname"><span class="pre">poles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sys</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/control_systems/systems/transfer.html#poles"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.control_systems.poles" title="Link to this definition">#</a></dt>
+<dd><p>Poles of a SISO model, the roots of its denominator.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>sys</strong> (<em>scipy.signal.lti</em>) – SISO continuous-time model.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Poles [1/s].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray of complex</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>The system is asymptotically stable when every pole has a negative real
+part. See <a class="reference internal" href="../guides/control_systems.html"><span class="doc">Control systems: matrix contracts and numerical stability</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">poles</span><span class="p">(</span><span class="n">transfer_function</span><span class="p">([</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">])))</span><span class="o">.</span><span class="n">real</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="go">[-2.0, -1.0]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.control_systems.root_locus">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.control_systems.</span></span><span class="sig-name descname"><span class="pre">root_locus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">den</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gains</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/control_systems/systems/root_locus.html#root_locus"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.control_systems.root_locus" title="Link to this definition">#</a></dt>
+<dd><p>Closed-loop characteristic roots of <span class="math notranslate nohighlight">\(D(s) + K N(s)\)</span> for each gain.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>num</strong> (<em>array_like</em>) – Open-loop numerator and denominator, descending powers of <span class="math notranslate nohighlight">\(s\)</span>.
+The open loop must be strictly proper so the number of roots is
+constant.</p></li>
+<li><p><strong>den</strong> (<em>array_like</em>) – Open-loop numerator and denominator, descending powers of <span class="math notranslate nohighlight">\(s\)</span>.
+The open loop must be strictly proper so the number of roots is
+constant.</p></li>
+<li><p><strong>gains</strong> (<em>array_like</em>) – Nonempty vector of loop gains <span class="math notranslate nohighlight">\(K\)</span> [-].</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Shape <code class="docutils literal notranslate"><span class="pre">(len(gains),</span> <span class="pre">len(den)</span> <span class="pre">-</span> <span class="pre">1)</span></code>; row <code class="docutils literal notranslate"><span class="pre">i</span></code> holds the roots for
+<code class="docutils literal notranslate"><span class="pre">gains[i]</span></code>. Roots within a row are not tracked along branches.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray of complex</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>See <a class="reference internal" href="../guides/control_systems.html"><span class="doc">Control systems: matrix contracts and numerical stability</span></a>.</p>
+<p class="rubric">References</p>
+<p>W. R. Evans, “Graphical analysis of control systems,” <em>Trans. AIEE</em> 67
+(1948) 547-551.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">root_locus</span><span class="p">([</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.25</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">real</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="go">[-1.5, -1.5]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.control_systems.routh_first_column">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.control_systems.</span></span><span class="sig-name descname"><span class="pre">routh_first_column</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coeffs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/control_systems/systems/stability.html#routh_first_column"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.control_systems.routh_first_column" title="Link to this definition">#</a></dt>
+<dd><p>First column of the Routh array of a real polynomial.</p>
+<p>The number of sign changes down the column equals the number of roots in
+the open right half-plane.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>coeffs</strong> (<em>array_like</em>) – Real coefficients in descending powers of <span class="math notranslate nohighlight">\(s\)</span>, with a nonzero
+leading coefficient and degree at least one.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>First-column entries for rows <span class="math notranslate nohighlight">\(s^n\)</span> down to <span class="math notranslate nohighlight">\(s^0\)</span>,
+normalised so the leading coefficient is one.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>A row of zeros is replaced by the derivative of the auxiliary polynomial
+formed from the row above. A zero pivot is replaced by a small positive
+<span class="math notranslate nohighlight">\(\varepsilon\)</span>, so this is a numerical teaching method rather than a
+symbolic proof for roots on or near the imaginary axis. See
+<a class="reference internal" href="../guides/control_systems.html"><span class="doc">Control systems: matrix contracts and numerical stability</span></a>.</p>
+<p class="rubric">References</p>
+<p>E. J. Routh, <em>A Treatise on the Stability of a Given State of Motion</em>
+(Macmillan, 1877).</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">routh_first_column</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="go">[1.0, 3.0, 2.6667, 1.0]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.control_systems.routh_stable">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.control_systems.</span></span><span class="sig-name descname"><span class="pre">routh_stable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coeffs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/control_systems/systems/stability.html#routh_stable"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.control_systems.routh_stable" title="Link to this definition">#</a></dt>
+<dd><p>Whether every root of a polynomial lies strictly in the left half-plane.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>coeffs</strong> (<em>array_like</em>) – Real coefficients in descending powers of <span class="math notranslate nohighlight">\(s\)</span>.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if the Routh column has no sign change and no root lies on the
+imaginary axis; marginal stability counts as unstable.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Routh signs alone cannot distinguish the auxiliary-row marginal case, so
+root locations confirm it with a relative tolerance. See
+<a class="reference internal" href="../guides/control_systems.html"><span class="doc">Control systems: matrix contracts and numerical stability</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">routh_stable</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">]),</span> <span class="n">routh_stable</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="go">(True, False)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.control_systems.second_order_metrics">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.control_systems.</span></span><span class="sig-name descname"><span class="pre">second_order_metrics</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">zeta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">omega_n</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/control_systems/systems/second_order.html#second_order_metrics"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.control_systems.second_order_metrics" title="Link to this definition">#</a></dt>
+<dd><p>Peak time, percent overshoot and 2 % settling time of an underdamped second-order step response.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>zeta</strong> (<em>float</em><em> or </em><em>array_like</em>) – Damping ratio [-], strictly between 0 and 1.</p></li>
+<li><p><strong>omega_n</strong> (<em>float</em><em> or </em><em>array_like</em>) – Undamped natural frequency [rad/s], positive.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">peak_time</span></code> <span class="math notranslate nohighlight">\(\pi/\omega_d\)</span> [s], <code class="docutils literal notranslate"><span class="pre">percent_overshoot</span></code>
+<span class="math notranslate nohighlight">\(100\,e^{-\pi\zeta/\sqrt{1-\zeta^2}}\)</span> [%] and
+<code class="docutils literal notranslate"><span class="pre">settling_time_2pct</span></code> <span class="math notranslate nohighlight">\(4/(\zeta\omega_n)\)</span> [s], with
+<span class="math notranslate nohighlight">\(\omega_d = \omega_n\sqrt{1-\zeta^2}\)</span>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Peak time and overshoot are exact; the settling time is the usual
+envelope estimate, not the exact 2 % crossing. See
+<a class="reference internal" href="../guides/control_systems.html"><span class="doc">Control systems: matrix contracts and numerical stability</span></a>.</p>
+<p class="rubric">References</p>
+<p>H. L. Hazen, “Theory of servo-mechanisms,” <em>J. Franklin Inst.</em> 218 (1934)
+279-331.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">second_order_metrics</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">m</span><span class="p">[</span><span class="s2">"percent_overshoot"</span><span class="p">]),</span> <span class="mi">2</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">m</span><span class="p">[</span><span class="s2">"settling_time_2pct"</span><span class="p">])</span>
+<span class="go">(16.3, 4.0)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.control_systems.stability_margins">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.control_systems.</span></span><span class="sig-name descname"><span class="pre">stability_margins</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sys</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/control_systems/systems/frequency.html#stability_margins"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.control_systems.stability_margins" title="Link to this definition">#</a></dt>
+<dd><p>Gain and phase margins from the first crossovers of a loop’s frequency response.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sys</strong> (<em>scipy.signal.lti</em>) – SISO open-loop model <span class="math notranslate nohighlight">\(L(s)\)</span>.</p></li>
+<li><p><strong>w</strong> (<em>array_like</em><em>, </em><em>optional</em>) – Positive angular frequencies [rad/s]; defaults to 20000 points from
+<span class="math notranslate nohighlight">\(10^{-4}\)</span> to <span class="math notranslate nohighlight">\(10^4\)</span>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">gain_margin</span></code> [-] (<code class="docutils literal notranslate"><span class="pre">inf</span></code> without a phase crossover),
+<code class="docutils literal notranslate"><span class="pre">phase_margin_deg</span></code> [deg] (<code class="docutils literal notranslate"><span class="pre">nan</span></code> without a gain crossover),
+<code class="docutils literal notranslate"><span class="pre">gain_cross_frequency</span></code> and <code class="docutils literal notranslate"><span class="pre">phase_cross_frequency</span></code> [rad/s].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Crossings are interpolated linearly in log-frequency between grid
+points. Only the first crossover of each kind is reported, so loops with
+multiple crossovers, time delays or negative gain need separate analysis.
+See <a class="reference internal" href="../guides/control_systems.html"><span class="doc">Control systems: matrix contracts and numerical stability</span></a>.</p>
+<p class="rubric">References</p>
+<p>H. W. Bode, “Relations between attenuation and phase in feedback
+amplifier design,” <em>Bell Syst. Tech. J.</em> 19 (1940) 421-454.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit.control_systems</span><span class="w"> </span><span class="kn">import</span> <span class="n">transfer_function</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">stability_margins</span><span class="p">(</span><span class="n">transfer_function</span><span class="p">([</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">]))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="n">m</span><span class="p">[</span><span class="s2">"gain_margin"</span><span class="p">],</span> <span class="mi">2</span><span class="p">),</span> <span class="nb">round</span><span class="p">(</span><span class="n">m</span><span class="p">[</span><span class="s2">"phase_cross_frequency"</span><span class="p">],</span> <span class="mi">3</span><span class="p">)</span>
+<span class="go">(3.0, 1.414)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.control_systems.state_feedback_poles">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.control_systems.</span></span><span class="sig-name descname"><span class="pre">state_feedback_poles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">B</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">desired_poles</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/control_systems/systems/state_space.html#state_feedback_poles"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.control_systems.state_feedback_poles" title="Link to this definition">#</a></dt>
+<dd><p>State-feedback gain <span class="math notranslate nohighlight">\(K\)</span> placing the eigenvalues of <span class="math notranslate nohighlight">\(A - BK\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>A</strong> (<em>array_like</em>) – State matrix, shape <code class="docutils literal notranslate"><span class="pre">(n,</span> <span class="pre">n)</span></code>.</p></li>
+<li><p><strong>B</strong> (<em>array_like</em>) – Input matrix, shape <code class="docutils literal notranslate"><span class="pre">(n,</span> <span class="pre">m)</span></code>; <code class="docutils literal notranslate"><span class="pre">(A,</span> <span class="pre">B)</span></code> must be controllable.</p></li>
+<li><p><strong>desired_poles</strong> (<em>array_like</em>) – <code class="docutils literal notranslate"><span class="pre">n</span></code> closed-loop poles [1/s]; complex poles must come in conjugate
+pairs.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Gain <span class="math notranslate nohighlight">\(K\)</span>, shape <code class="docutils literal notranslate"><span class="pre">(m,</span> <span class="pre">n)</span></code>, for the control law <span class="math notranslate nohighlight">\(u = -Kx\)</span>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Wraps <code class="xref py py-func docutils literal notranslate"><span class="pre">scipy.signal.place_poles()</span></code>. See <a class="reference internal" href="../guides/control_systems.html"><span class="doc">Control systems: matrix contracts and numerical stability</span></a>.</p>
+<p class="rubric">References</p>
+<p>W. M. Wonham, “On pole assignment in multi-input controllable linear
+systems,” <em>IEEE Trans. Autom. Control</em> 12 (1967) 660-665.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">state_feedback_poles</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]],</span> <span class="p">[[</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">]],</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">])</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="go">[[2.0, 3.0]]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.control_systems.state_matrices">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.control_systems.</span></span><span class="sig-name descname"><span class="pre">state_matrices</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">B</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">C</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/control_systems/utils/matrices.html#state_matrices"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.control_systems.state_matrices" title="Link to this definition">#</a></dt>
+<dd><p>Validate and convert state-space matrices to float arrays.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>A</strong> (<em>array_like</em>) – Square state matrix, shape <code class="docutils literal notranslate"><span class="pre">(n,</span> <span class="pre">n)</span></code> [1/s].</p></li>
+<li><p><strong>B</strong> (<em>array_like</em><em>, </em><em>optional</em>) – Input matrix, shape <code class="docutils literal notranslate"><span class="pre">(n,</span> <span class="pre">m)</span></code>.</p></li>
+<li><p><strong>C</strong> (<em>array_like</em><em>, </em><em>optional</em>) – Output matrix, shape <code class="docutils literal notranslate"><span class="pre">(p,</span> <span class="pre">n)</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">(A,</span> <span class="pre">B,</span> <span class="pre">C)</span></code>, with <code class="docutils literal notranslate"><span class="pre">None</span></code> for matrices not supplied.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple of ndarray</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If a matrix is nonfinite, empty or has an inconsistent shape.</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span> <span class="o">=</span> <span class="n">state_matrices</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">]],</span> <span class="n">B</span><span class="o">=</span><span class="p">[[</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">B</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">C</span>
+<span class="go">((2, 2), (2, 1), None)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.control_systems.state_space">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.control_systems.</span></span><span class="sig-name descname"><span class="pre">state_space</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">B</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">C</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">D</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/control_systems/systems/state_space.html#state_space"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.control_systems.state_space" title="Link to this definition">#</a></dt>
+<dd><p>Continuous-time state-space model <span class="math notranslate nohighlight">\(\dot x = Ax + Bu,\ y = Cx + Du\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>A</strong> (<em>array_like</em>) – State matrix, shape <code class="docutils literal notranslate"><span class="pre">(n,</span> <span class="pre">n)</span></code> [1/s].</p></li>
+<li><p><strong>B</strong> (<em>array_like</em>) – Input matrix, shape <code class="docutils literal notranslate"><span class="pre">(n,</span> <span class="pre">m)</span></code>.</p></li>
+<li><p><strong>C</strong> (<em>array_like</em>) – Output matrix, shape <code class="docutils literal notranslate"><span class="pre">(p,</span> <span class="pre">n)</span></code>.</p></li>
+<li><p><strong>D</strong> (<em>array_like</em>) – Feedthrough matrix, shape <code class="docutils literal notranslate"><span class="pre">(p,</span> <span class="pre">m)</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Continuous-time model.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>scipy.signal.StateSpace</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Matrix units follow the chosen state, input and output units; see
+<a class="reference internal" href="../guides/control_systems.html"><span class="doc">Control systems: matrix contracts and numerical stability</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sys</span> <span class="o">=</span> <span class="n">state_space</span><span class="p">([[</span><span class="o">-</span><span class="mi">2</span><span class="p">]],</span> <span class="p">[[</span><span class="mi">2</span><span class="p">]],</span> <span class="p">[[</span><span class="mi">1</span><span class="p">]],</span> <span class="p">[[</span><span class="mi">0</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">float</span><span class="p">((</span><span class="o">-</span><span class="n">sys</span><span class="o">.</span><span class="n">C</span> <span class="o">@</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">A</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">B</span><span class="p">)</span> <span class="o">+</span> <span class="n">sys</span><span class="o">.</span><span class="n">D</span><span class="p">)</span><span class="o">.</span><span class="n">item</span><span class="p">())</span>
+<span class="go">1.0</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.control_systems.step_response">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.control_systems.</span></span><span class="sig-name descname"><span class="pre">step_response</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sys</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/control_systems/systems/transfer.html#step_response"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.control_systems.step_response" title="Link to this definition">#</a></dt>
+<dd><p>Response to a unit step input from rest.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sys</strong> (<em>scipy.signal.lti</em>) – Continuous-time model.</p></li>
+<li><p><strong>T</strong> (<em>array_like</em><em>, </em><em>optional</em>) – Time samples [s]; chosen automatically if omitted.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">(t,</span> <span class="pre">y)</span></code>: time [s] and output per unit step.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple of ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Wraps <code class="xref py py-func docutils literal notranslate"><span class="pre">scipy.signal.step()</span></code>. See <a class="reference internal" href="../guides/control_systems.html"><span class="doc">Control systems: matrix contracts and numerical stability</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">step_response</span><span class="p">(</span><span class="n">transfer_function</span><span class="p">([</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]),</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]),</span> <span class="mi">4</span><span class="p">)</span>
+<span class="go">0.6321</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.control_systems.transfer_function">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.control_systems.</span></span><span class="sig-name descname"><span class="pre">transfer_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">den</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/control_systems/systems/transfer.html#transfer_function"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.control_systems.transfer_function" title="Link to this definition">#</a></dt>
+<dd><p>Continuous-time transfer function <span class="math notranslate nohighlight">\(N(s)/D(s)\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>num</strong> (<em>array_like</em>) – Numerator and denominator coefficients in descending powers of
+<span class="math notranslate nohighlight">\(s\)</span>. The denominator must have degree at least zero and must not
+be identically zero.</p></li>
+<li><p><strong>den</strong> (<em>array_like</em>) – Numerator and denominator coefficients in descending powers of
+<span class="math notranslate nohighlight">\(s\)</span>. The denominator must have degree at least zero and must not
+be identically zero.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Continuous-time SISO model.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>scipy.signal.TransferFunction</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Units of <span class="math notranslate nohighlight">\(G\)</span> are output units per input unit. See
+<a class="reference internal" href="../guides/control_systems.html"><span class="doc">Control systems: matrix contracts and numerical stability</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">G</span> <span class="o">=</span> <span class="n">transfer_function</span><span class="p">([</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">G</span><span class="o">.</span><span class="n">den</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="go">[1.0, 1.0]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.control_systems.weight_matrix">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.control_systems.</span></span><span class="sig-name descname"><span class="pre">weight_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">matrix</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strict</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/control_systems/utils/matrices.html#weight_matrix"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.control_systems.weight_matrix" title="Link to this definition">#</a></dt>
+<dd><p>Validate a symmetric positive (semi)definite weighting or covariance matrix.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>matrix</strong> (<em>array_like</em>) – Candidate matrix, shape <code class="docutils literal notranslate"><span class="pre">(size,</span> <span class="pre">size)</span></code>.</p></li>
+<li><p><strong>size</strong> (<em>int</em>) – Required dimension.</p></li>
+<li><p><strong>name</strong> (<em>str</em>) – Argument name used in error messages.</p></li>
+<li><p><strong>strict</strong> (<em>bool</em><em>, </em><em>optional</em>) – Require positive <em>definite</em> (<code class="docutils literal notranslate"><span class="pre">True</span></code>) rather than semidefinite.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The matrix as a float array.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If the matrix has the wrong shape, is not symmetric, or is indefinite.</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">weight_matrix</span><span class="p">([[</span><span class="mf">2.0</span><span class="p">]],</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">"R"</span><span class="p">,</span> <span class="n">strict</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="go">array([[2.]])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.control_systems.zeros">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.control_systems.</span></span><span class="sig-name descname"><span class="pre">zeros</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sys</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/control_systems/systems/transfer.html#zeros"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.control_systems.zeros" title="Link to this definition">#</a></dt>
+<dd><p>Zeros of a SISO model, the roots of its numerator.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>sys</strong> (<em>scipy.signal.lti</em>) – SISO continuous-time model.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Zeros [1/s].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray of complex</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>See <a class="reference internal" href="../guides/control_systems.html"><span class="doc">Control systems: matrix contracts and numerical stability</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">zeros</span><span class="p">(</span><span class="n">transfer_function</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">]))</span><span class="o">.</span><span class="n">real</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="go">[-1.0]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.control_systems.ziegler_nichols">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.control_systems.</span></span><span class="sig-name descname"><span class="pre">ziegler_nichols</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ku</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tu</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">controller</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'PID'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/control_systems/systems/pid.html#ziegler_nichols"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.control_systems.ziegler_nichols" title="Link to this definition">#</a></dt>
+<dd><p>Ziegler-Nichols ultimate-sensitivity tuning.</p>
+<p>Raise a proportional gain until the loop oscillates steadily: that gain
+is the ultimate gain <span class="math notranslate nohighlight">\(K_u\)</span> and the oscillation period is
+<span class="math notranslate nohighlight">\(T_u\)</span>. The classic rules then set</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>type</p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(K_p\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(T_i\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(T_d\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>P</p></td>
+<td><p><span class="math notranslate nohighlight">\(0.5K_u\)</span></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>PI</p></td>
+<td><p><span class="math notranslate nohighlight">\(0.45K_u\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(T_u/1.2\)</span></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>PID</p></td>
+<td><p><span class="math notranslate nohighlight">\(0.6K_u\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(T_u/2\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(T_u/8\)</span></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>with <span class="math notranslate nohighlight">\(K_i = K_p/T_i\)</span> and <span class="math notranslate nohighlight">\(K_d = K_p T_d\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ku</strong> (<em>float</em>) – Ultimate proportional gain [input/error], positive.</p></li>
+<li><p><strong>tu</strong> (<em>float</em>) – Ultimate oscillation period [s], positive.</p></li>
+<li><p><strong>controller</strong> (<em>{&quot;P&quot;</em><em>, </em><em>&quot;PI&quot;</em><em>, </em><em>&quot;PID&quot;}</em><em>, </em><em>optional</em>) – Controller structure.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Tuned controller.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#engineeringkit.control_systems.PID" title="engineeringkit.control_systems.PID">PID</a></p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>The rules aim for roughly quarter-amplitude decay and are only a starting
+point; they give large overshoot on many plants. See
+<a class="reference internal" href="../guides/control_systems.html"><span class="doc">Control systems: matrix contracts and numerical stability</span></a>.</p>
+<p class="rubric">References</p>
+<p>J. G. Ziegler and N. B. Nichols, “Optimum settings for automatic
+controllers,” <em>Trans. ASME</em> 64 (1942) 759-768.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ziegler_nichols</span><span class="p">(</span><span class="mf">8.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">)</span>
+<span class="go">PID(kp=4.8, ki=2.4, kd=2.4)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="electrical_engineering.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">engineeringkit.electrical_engineering</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="signal_processing.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">engineeringkit.signal_processing</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.control_systems.PID"><code class="docutils literal notranslate"><span class="pre">PID</span></code></a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.control_systems.PID.closed_loop"><code class="docutils literal notranslate"><span class="pre">PID.closed_loop()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.control_systems.PID.kd"><code class="docutils literal notranslate"><span class="pre">PID.kd</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.control_systems.PID.ki"><code class="docutils literal notranslate"><span class="pre">PID.ki</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.control_systems.PID.kp"><code class="docutils literal notranslate"><span class="pre">PID.kp</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.control_systems.PID.simulate"><code class="docutils literal notranslate"><span class="pre">PID.simulate()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.control_systems.PID.transfer_function"><code class="docutils literal notranslate"><span class="pre">PID.transfer_function()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.control_systems.ResponseResult"><code class="docutils literal notranslate"><span class="pre">ResponseResult</span></code></a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.control_systems.ResponseResult.plot"><code class="docutils literal notranslate"><span class="pre">ResponseResult.plot()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.control_systems.ResponseResult.summary"><code class="docutils literal notranslate"><span class="pre">ResponseResult.summary()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.control_systems.ResponseResult.t"><code class="docutils literal notranslate"><span class="pre">ResponseResult.t</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.control_systems.ResponseResult.y"><code class="docutils literal notranslate"><span class="pre">ResponseResult.y</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.control_systems.as_polynomial"><code class="docutils literal notranslate"><span class="pre">as_polynomial()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.control_systems.bode"><code class="docutils literal notranslate"><span class="pre">bode()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.control_systems.controllability_matrix"><code class="docutils literal notranslate"><span class="pre">controllability_matrix()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.control_systems.dc_gain"><code class="docutils literal notranslate"><span class="pre">dc_gain()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.control_systems.discretize_zoh"><code class="docutils literal notranslate"><span class="pre">discretize_zoh()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.control_systems.dlqr"><code class="docutils literal notranslate"><span class="pre">dlqr()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.control_systems.feedback"><code class="docutils literal notranslate"><span class="pre">feedback()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.control_systems.feedforward_gain"><code class="docutils literal notranslate"><span class="pre">feedforward_gain()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.control_systems.hurwitz_determinants"><code class="docutils literal notranslate"><span class="pre">hurwitz_determinants()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.control_systems.impulse_response"><code class="docutils literal notranslate"><span class="pre">impulse_response()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.control_systems.is_controllable"><code class="docutils literal notranslate"><span class="pre">is_controllable()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.control_systems.is_observable"><code class="docutils literal notranslate"><span class="pre">is_observable()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.control_systems.kalman_gain"><code class="docutils literal notranslate"><span class="pre">kalman_gain()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.control_systems.lqr"><code class="docutils literal notranslate"><span class="pre">lqr()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.control_systems.lyapunov_equation"><code class="docutils literal notranslate"><span class="pre">lyapunov_equation()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.control_systems.lyapunov_stable"><code class="docutils literal notranslate"><span class="pre">lyapunov_stable()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.control_systems.num_den"><code class="docutils literal notranslate"><span class="pre">num_den()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.control_systems.nyquist"><code class="docutils literal notranslate"><span class="pre">nyquist()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.control_systems.nyquist_encirclements"><code class="docutils literal notranslate"><span class="pre">nyquist_encirclements()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.control_systems.observability_matrix"><code class="docutils literal notranslate"><span class="pre">observability_matrix()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.control_systems.observer_gain"><code class="docutils literal notranslate"><span class="pre">observer_gain()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.control_systems.poles"><code class="docutils literal notranslate"><span class="pre">poles()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.control_systems.root_locus"><code class="docutils literal notranslate"><span class="pre">root_locus()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.control_systems.routh_first_column"><code class="docutils literal notranslate"><span class="pre">routh_first_column()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.control_systems.routh_stable"><code class="docutils literal notranslate"><span class="pre">routh_stable()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.control_systems.second_order_metrics"><code class="docutils literal notranslate"><span class="pre">second_order_metrics()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.control_systems.stability_margins"><code class="docutils literal notranslate"><span class="pre">stability_margins()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.control_systems.state_feedback_poles"><code class="docutils literal notranslate"><span class="pre">state_feedback_poles()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.control_systems.state_matrices"><code class="docutils literal notranslate"><span class="pre">state_matrices()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.control_systems.state_space"><code class="docutils literal notranslate"><span class="pre">state_space()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.control_systems.step_response"><code class="docutils literal notranslate"><span class="pre">step_response()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.control_systems.transfer_function"><code class="docutils literal notranslate"><span class="pre">transfer_function()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.control_systems.weight_matrix"><code class="docutils literal notranslate"><span class="pre">weight_matrix()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.control_systems.zeros"><code class="docutils literal notranslate"><span class="pre">zeros()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.control_systems.ziegler_nichols"><code class="docutils literal notranslate"><span class="pre">ziegler_nichols()</span></code></a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../_sources/api/control_systems.rst.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.23.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

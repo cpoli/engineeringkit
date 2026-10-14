@@ -1,0 +1,86 @@
+
+
+.. _sphx_glr_api_gallery_communications_modulation:
+
+Modulation
+----------
+
+Amplitude, suppressed-carrier and frequency modulation.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="On Christmas Eve 1906 Reginald Fessenden is said to have broadcast voice and music from Brant Rock, Massachusetts, by varying the amplitude of a continuous high-frequency wave. Conventional AM, s(t) = A_c[1+\mu m(t)]\cos 2\pi f_c t (~engineeringkit.communications.am_signal), keeps the carrier so a simple envelope detector can recover the message, provided the modulation index stays at or below one. The spectrum shows the cost: a strong carrier and two sidebands, so at most one third of the power carries the message.">
+
+.. only:: html
+
+  .. image:: /api/gallery/communications/modulation/images/thumb/sphx_glr_plot_01_fessenden_amplitude_modulation_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/communications/modulation/plot_01_fessenden_amplitude_modulation`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Fessenden's amplitude modulation</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In 1915 John Renshaw Carson of AT&amp;T showed that the carrier in AM carries no information. Multiplying the message by the carrier alone, s(t) = m(t)\cos 2\pi f_c t (~engineeringkit.communications.dsb_sc), puts all the transmitted power into the sidebands. The receiver must supply a coherent carrier: mix, low-pass filter, and the message returns, scaled by \tfrac12\cos\phi for a phase error \phi. Carson also showed that one sideband is enough, the basis of single-sideband telephony.">
+
+.. only:: html
+
+  .. image:: /api/gallery/communications/modulation/images/thumb/sphx_glr_plot_02_carson_suppressed_carrier_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/communications/modulation/plot_02_carson_suppressed_carrier`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Carson's suppressed-carrier modulation</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Edwin Howard Armstrong (1933-1936) demonstrated that frequency modulation with a deviation much larger than the message bandwidth trades bandwidth for a dramatic reduction of noise and static. The phase of an FM wave is the integral of the message (~engineeringkit.communications.fm_signal); for a tone of modulation index \beta = \Delta f/f_m the spectrum is a comb of Bessel-function sidebands J_n(\beta). Carson&#x27;s rule, B \approx 2(\Delta f + f_m) (~engineeringkit.communications.carson_bandwidth), captures about 98% of the power.">
+
+.. only:: html
+
+  .. image:: /api/gallery/communications/modulation/images/thumb/sphx_glr_plot_03_armstrong_frequency_modulation_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/communications/modulation/plot_03_armstrong_frequency_modulation`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Armstrong's wideband FM and Carson's bandwidth rule</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/communications/modulation/plot_01_fessenden_amplitude_modulation
+   /api/gallery/communications/modulation/plot_02_carson_suppressed_carrier
+   /api/gallery/communications/modulation/plot_03_armstrong_frequency_modulation
+

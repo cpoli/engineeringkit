@@ -1,0 +1,50 @@
+
+
+.. _sphx_glr_api_gallery_control_systems_root_locus:
+
+Root locus
+----------
+
+Closed-loop poles as the loop gain varies.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Walter Evans at North American Aviation (1948) showed how to sketch the paths of the closed-loop poles as a single gain K rises from zero, without solving a polynomial for each gain (~engineeringkit.control_systems.root_locus). For K/(s(s+2)(s+4)) the branches leave the poles at 0, -2 and -4. Two of them meet and break away from the real axis where \tfrac{d}{ds}[s(s+2)(s+4)] = 0, at s = -2 + 2/\sqrt3. They cross the imaginary axis at \pm j\sqrt8 when K = 48.">
+
+.. only:: html
+
+  .. image:: /api/gallery/control_systems/root_locus/images/thumb/sphx_glr_plot_01_evans_root_locus_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/control_systems/root_locus/plot_01_evans_root_locus`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Evans's root locus</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/control_systems/root_locus/plot_01_evans_root_locus
+

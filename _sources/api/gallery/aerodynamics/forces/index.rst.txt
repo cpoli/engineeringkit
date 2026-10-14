@@ -1,0 +1,104 @@
+
+
+.. _sphx_glr_api_gallery_aerodynamics_forces:
+
+Forces and coefficients
+-----------------------
+
+Dynamic pressure, the lift/drag decomposition and dimensionless force coefficients.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Daniel Bernoulli&#x27;s Hydrodynamica (1738) traded pressure for speed along a streamline: p + \tfrac12\rho V^2 is constant. A pitot tube brings the flow to rest and reads the total pressure; the static port reads p; their difference is the dynamic pressure q = \tfrac12\rho V^2 from dynamic_pressure. Inverting it gives the airspeed, but only if the right density is used: the same pitot reading means a higher true airspeed at altitude.">
+
+.. only:: html
+
+  .. image:: /api/gallery/aerodynamics/forces/images/thumb/sphx_glr_plot_01_bernoulli_dynamic_pressure_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/aerodynamics/forces/plot_01_bernoulli_dynamic_pressure`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Bernoulli's dynamic pressure and the pitot-static airspeed</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="George Cayley&#x27;s On Aerial Navigation (1809-1810) proposed the modern aeroplane by separating the problem: a fixed wing supports the weight (lift), and a separate propulsion system overcomes the resistance (drag). In steady level flight lift equals weight and thrust equals drag. Here lift and drag turn coefficients into forces for a light aircraft, and the required lift coefficient and thrust are traced across the speed range.">
+
+.. only:: html
+
+  .. image:: /api/gallery/aerodynamics/forces/images/thumb/sphx_glr_plot_02_cayley_lift_and_drag_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/aerodynamics/forces/plot_02_cayley_lift_and_drag`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Cayley's separation of lift and drag in level flight</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Otto Lilienthal&#x27;s Der Vogelflug als Grundlage der Fliegekunst (1889) tabulated the forces on cambered wings measured on a whirling arm, reduced to dimensionless coefficients and plotted against each other in a polar diagram. Dividing a measured force by qS removes the dependence on speed and size, so tests at one speed predict forces at another. This example reduces synthetic whirling-arm measurements with lift_coefficient and drag_coefficient and reads the best glide ratio off the polar with glide_ratio.">
+
+.. only:: html
+
+  .. image:: /api/gallery/aerodynamics/forces/images/thumb/sphx_glr_plot_03_lilienthal_coefficients_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/aerodynamics/forces/plot_03_lilienthal_coefficients`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Lilienthal's lift and drag coefficients and the polar diagram</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="The nineteenth-century lift equation was L = k V^2 S C_L with Smeaton&#x27;s coefficient k = 0.005 lb/(ft² mph²). After their 1901 glider lifted far less than predicted, Wilbur and Orville Wright measured k \approx 0.0033 in their own wind tunnel; the modern value, \tfrac12\rho at sea level, is 0.00256. Since the minimum flying speed V_s = \sqrt{2W/(\rho S C_{L,\max})} (~engineeringkit.aerodynamics.stall_speed) scales as 1/\sqrt{k}, Smeaton&#x27;s value under-predicts the take-off speed of the 1903 Flyer by about 30%.">
+
+.. only:: html
+
+  .. image:: /api/gallery/aerodynamics/forces/images/thumb/sphx_glr_plot_04_wright_smeaton_stall_speed_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/aerodynamics/forces/plot_04_wright_smeaton_stall_speed`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">The Wright brothers, Smeaton's coefficient and the stall speed</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/aerodynamics/forces/plot_01_bernoulli_dynamic_pressure
+   /api/gallery/aerodynamics/forces/plot_02_cayley_lift_and_drag
+   /api/gallery/aerodynamics/forces/plot_03_lilienthal_coefficients
+   /api/gallery/aerodynamics/forces/plot_04_wright_smeaton_stall_speed
+

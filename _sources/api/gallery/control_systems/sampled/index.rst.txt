@@ -1,0 +1,50 @@
+
+
+.. _sphx_glr_api_gallery_control_systems_sampled:
+
+Sampled-data control
+--------------------
+
+Computer control with a zero-order hold.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="When a digital computer closes the loop it reads the plant only at sampling instants and holds each command constant until the next. John Ragazzini and Lotfi Zadeh (1952) developed the z-transform analysis of such loops. For a zero-order hold the continuous model is replaced exactly by x_{k+1} = e^{AT}x_k + \int_0^T e^{A\tau}d\tau\,B\,u_k (~engineeringkit.control_systems.discretize_zoh). The naive Euler step x_{k+1} = (I + AT)x_k + BTu_k is only an approximation.">
+
+.. only:: html
+
+  .. image:: /api/gallery/control_systems/sampled/images/thumb/sphx_glr_plot_01_ragazzini_zadeh_zero_order_hold_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/control_systems/sampled/plot_01_ragazzini_zadeh_zero_order_hold`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Ragazzini and Zadeh's sampled-data systems</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/control_systems/sampled/plot_01_ragazzini_zadeh_zero_order_hold
+

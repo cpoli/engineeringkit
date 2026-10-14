@@ -1,0 +1,623 @@
+:orphan:
+
+Examples
+========
+
+.. include:: /_generated/nav/aerodynamics.rst
+
+This gallery walks through every public feature of ``engineeringkit.aerodynamics``,
+one breakthrough per script: dynamic pressure and force coefficients,
+circulation lift, airfoil sections, finite wings, cruise performance,
+boundary layers, compressible flow and the standard atmosphere.
+
+:doc:`Units, assumptions and numerical validation </guides/aerodynamics>`
+gives the physical validity limits. Each script is self-contained and can be
+run directly with ``python examples/aerodynamics/<section>/<script>.py``.
+
+Sections
+--------
+
+- **forces** -- Bernoulli's dynamic pressure, Cayley's lift/drag split,
+  Lilienthal's coefficients and the Wrights' correction of Smeaton's coefficient.
+- **circulation** -- the Kutta-Joukowski theorem on a spinning cylinder.
+- **airfoils** -- NACA four-digit sections and thin-airfoil theory.
+- **wings** -- Prandtl's lifting line, induced drag and the Oswald drag polar.
+- **performance** -- the Breguet range equation.
+- **boundary_layer** -- Reynolds similarity, the Blasius layer and turbulent skin friction.
+- **compressible** -- sound speed, the Mach cone, stagnation states,
+  Prandtl-Glauert, normal shocks and the de Laval nozzle.
+- **atmosphere** -- the International Standard Atmosphere.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+Airfoils
+--------
+
+NACA four-digit section geometry and thin-airfoil theory.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In NACA Report 460 (1933) Eastman Jacobs and colleagues tested 78 related sections in the variable-density tunnel. Each is defined by a single thickness polynomial wrapped around a two-parabola camber line, so four digits specify the whole shape: 2412 has 2% camber at 40% chord and is 12% thick. naca4_airfoil builds the coordinates; summary recovers the digits from the geometry.">
+
+.. only:: html
+
+  .. image:: /api/gallery/aerodynamics/airfoils/images/thumb/sphx_glr_plot_01_naca_four_digit_sections_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/aerodynamics/airfoils/plot_01_naca_four_digit_sections`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">The NACA four-digit airfoil family</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Max Munk (1922) and Hermann Glauert (1926) replaced a thin section by a vortex sheet on its camber line. Satisfying flow tangency gives a lift slope of exactly 2\pi per radian for every thin section, while camber only shifts the curve by a zero-lift angle given by an integral of the camber slope. naca4_zero_lift_angle evaluates that integral for NACA four-digit camber lines, and thin_airfoil_cl gives the lift line.">
+
+.. only:: html
+
+  .. image:: /api/gallery/aerodynamics/airfoils/images/thumb/sphx_glr_plot_02_thin_airfoil_theory_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/aerodynamics/airfoils/plot_02_thin_airfoil_theory`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Thin-airfoil theory: lift slope 2π and the camber shift</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+Standard atmosphere
+-------------------
+
+Temperature, pressure and density with altitude.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Aircraft performance depends on air density, which changes with weather. Albert Toussaint proposed a reference atmosphere in 1919, and ICAO adopted the International Standard Atmosphere in 1952: a 6.5 K/km linear lapse to the tropopause at 11 km, then an isothermal layer. Hydrostatic balance and the ideal-gas law give closed-form pressure and density (~engineeringkit.aerodynamics.isa_atmosphere). This example checks hydrostatic balance numerically and shows how thin air raises the stall speed.">
+
+.. only:: html
+
+  .. image:: /api/gallery/aerodynamics/atmosphere/images/thumb/sphx_glr_plot_01_international_standard_atmosphere_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/aerodynamics/atmosphere/plot_01_international_standard_atmosphere`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">The International Standard Atmosphere</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+Boundary layers
+---------------
+
+Reynolds-number similarity and laminar/turbulent flat-plate friction.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Osborne Reynolds&#x27; dye experiments (1883) showed that pipe flow turns turbulent when \rho V D/\mu exceeds a critical value, whatever the individual fluid, speed or diameter. The same number (~engineeringkit.aerodynamics.reynolds_number) decides whether a scale model reproduces full-scale flow: matching it at reduced size forces higher speed or denser gas, which is why NACA built a pressurised variable-density tunnel in 1923.">
+
+.. only:: html
+
+  .. image:: /api/gallery/aerodynamics/boundary_layer/images/thumb/sphx_glr_plot_01_reynolds_similarity_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/aerodynamics/boundary_layer/plot_01_reynolds_similarity`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Reynolds' dimensionless number and wind-tunnel similarity</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="At the 1904 Heidelberg congress Ludwig Prandtl proposed that viscosity matters only in a thin boundary layer next to a surface. His student Heinrich Blasius (1908) reduced the flat-plate layer to the ordinary differential equation f&#x27;&#x27;&#x27; + \tfrac12 f f&#x27;&#x27; = 0. Solving it by shooting recovers the constants behind boundary_layer_laminar (\delta_{99} \approx 5x/\sqrt{Re_x}) and skin_friction_laminar (C_f = 1.328/\sqrt{Re_L}).">
+
+.. only:: html
+
+  .. image:: /api/gallery/aerodynamics/boundary_layer/images/thumb/sphx_glr_plot_02_prandtl_blasius_boundary_layer_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/aerodynamics/boundary_layer/plot_02_prandtl_blasius_boundary_layer`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Prandtl's boundary layer and the Blasius solution</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Prandtl (1927) carried Blasius&#x27;s empirical pipe-friction law over to the turbulent flat plate, with a u \propto y^{1/7} velocity profile. The result, C_f = 0.074\,Re_L^{-1/5} (~engineeringkit.aerodynamics.skin_friction_turbulent), decays far more slowly with Reynolds number than the laminar 1.328\,Re_L^{-1/2}; a turbulent layer can carry several times the friction drag. This example compares the two and the payoff of delaying transition.">
+
+.. only:: html
+
+  .. image:: /api/gallery/aerodynamics/boundary_layer/images/thumb/sphx_glr_plot_03_turbulent_skin_friction_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/aerodynamics/boundary_layer/plot_03_turbulent_skin_friction`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Turbulent skin friction and the one-fifth-power law</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+Circulation
+-----------
+
+Lift as the product of density, speed and circulation.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Martin Kutta (1902) and Nikolai Joukowski (1906) showed that the lift per unit span on any two-dimensional body in a steady inviscid stream is L&#x27; = \rho V \Gamma, where \Gamma is the circulation around the body (~engineeringkit.aerodynamics.kutta_joukowski_lift). The cleanest check is potential flow past a cylinder with circulation (a model of the Magnus effect): integrating the Bernoulli surface pressure around the cylinder reproduces \rho V\Gamma exactly, and the drag integrates to zero (d&#x27;Alembert&#x27;s paradox).">
+
+.. only:: html
+
+  .. image:: /api/gallery/aerodynamics/circulation/images/thumb/sphx_glr_plot_01_kutta_joukowski_spinning_cylinder_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/aerodynamics/circulation/plot_01_kutta_joukowski_spinning_cylinder`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">The Kutta-Joukowski theorem on a spinning cylinder</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+Compressible flow
+-----------------
+
+Sound speed, Mach waves, isentropic stagnation states, compressibility corrections, shocks and nozzles.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Newton&#x27;s Principia (1687) predicted the speed of sound assuming the compressions are isothermal, a = \sqrt{p/\rho} = \sqrt{RT}, about 15% below measurement. Pierre-Simon Laplace (1816) argued that the compressions are too fast to exchange heat, so they are adiabatic and the stiffness rises by \gamma: a = \sqrt{\gamma R T} (~engineeringkit.aerodynamics.speed_of_sound). The Mach number (~engineeringkit.aerodynamics.mach_number) measures speed in units of this local sound speed.">
+
+.. only:: html
+
+  .. image:: /api/gallery/aerodynamics/compressible/images/thumb/sphx_glr_plot_01_laplace_speed_of_sound_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/aerodynamics/compressible/plot_01_laplace_speed_of_sound`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Newton, Laplace and the speed of sound</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In 1887 Ernst Mach and Peter Salcher photographed a supersonic bullet and saw a conical wave trailing from its nose. A source moving faster than sound outruns its own wavefronts; their envelope is a cone of half-angle \mu = \arcsin(1/M) (~engineeringkit.aerodynamics.mach_angle). This example draws the wavefronts emitted along the path and checks that the envelope matches the Mach angle.">
+
+.. only:: html
+
+  .. image:: /api/gallery/aerodynamics/compressible/images/thumb/sphx_glr_plot_02_mach_cone_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/aerodynamics/compressible/plot_02_mach_cone`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Ernst Mach's shock photographs and the Mach cone</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Adhémar Barré de Saint-Venant and Pierre Wantzel&#x27;s 1839 experiments on air escaping from a reservoir gave the first correct compressible-flow formula: along an adiabatic, frictionless streamline T_0/T = 1 + \tfrac{\gamma-1}{2}M^2 and p_0/p = (T_0/T)^{\gamma/(\gamma-1)} (~engineeringkit.aerodynamics.stagnation_temperature, stagnation_pressure). Expanding for small M recovers Bernoulli&#x27;s p_0 - p = \tfrac12\rho V^2; the difference measures how wrong an incompressible pitot formula becomes.">
+
+.. only:: html
+
+  .. image:: /api/gallery/aerodynamics/compressible/images/thumb/sphx_glr_plot_03_saint_venant_stagnation_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/aerodynamics/compressible/plot_03_saint_venant_stagnation`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Saint-Venant and Wantzel: isentropic stagnation states</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Hermann Glauert (1928), building on remarks by Prandtl, showed that the linearised subsonic potential equation is Laplace&#x27;s equation in stretched coordinates. Every pressure coefficient of a thin body is therefore amplified by 1/\sqrt{1-M_\infty^2} (~engineeringkit.aerodynamics.prandtl_glauert_cp), a factor that blows up at M = 1 and fed the myth of an impenetrable &quot;sound barrier&quot;. The Kármán-Tsien rule (1939) is plotted alongside: the two agree at low Mach and diverge as the flow becomes transonic.">
+
+.. only:: html
+
+  .. image:: /api/gallery/aerodynamics/compressible/images/thumb/sphx_glr_plot_04_prandtl_glauert_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/aerodynamics/compressible/plot_04_prandtl_glauert`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">The Prandtl-Glauert compressibility correction</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="W. J. Macquorn Rankine (1870) and Pierre-Henri Hugoniot (1887-1889) derived the jump in state across a shock from conservation of mass, momentum and energy alone. For a normal shock in a perfect gas the downstream Mach number and pressure ratio are normal_shock_mach2 and normal_shock_pressure_ratio. This example reconstructs the full downstream state and checks the three conservation laws, the entropy rise, and the loss of stagnation pressure.">
+
+.. only:: html
+
+  .. image:: /api/gallery/aerodynamics/compressible/images/thumb/sphx_glr_plot_05_rankine_hugoniot_normal_shock_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/aerodynamics/compressible/plot_05_rankine_hugoniot_normal_shock`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Rankine-Hugoniot jump conditions across a normal shock</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Gustaf de Laval&#x27;s 1888 steam-turbine nozzle first converged and then diverged, and accelerated steam beyond the speed of sound. The quasi-one- dimensional isentropic relation A/A^* (~engineeringkit.aerodynamics.area_mach_ratio) explains why: subsonic flow speeds up in a converging duct, supersonic flow in a diverging one, and the sonic point sits at the throat. Each area ratio has a subsonic and a supersonic solution; this example finds both with a root bracket and traces the Mach number through a nozzle.">
+
+.. only:: html
+
+  .. image:: /api/gallery/aerodynamics/compressible/images/thumb/sphx_glr_plot_06_de_laval_nozzle_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/aerodynamics/compressible/plot_06_de_laval_nozzle`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">De Laval's converging-diverging nozzle</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+Forces and coefficients
+-----------------------
+
+Dynamic pressure, the lift/drag decomposition and dimensionless force coefficients.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Daniel Bernoulli&#x27;s Hydrodynamica (1738) traded pressure for speed along a streamline: p + \tfrac12\rho V^2 is constant. A pitot tube brings the flow to rest and reads the total pressure; the static port reads p; their difference is the dynamic pressure q = \tfrac12\rho V^2 from dynamic_pressure. Inverting it gives the airspeed, but only if the right density is used: the same pitot reading means a higher true airspeed at altitude.">
+
+.. only:: html
+
+  .. image:: /api/gallery/aerodynamics/forces/images/thumb/sphx_glr_plot_01_bernoulli_dynamic_pressure_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/aerodynamics/forces/plot_01_bernoulli_dynamic_pressure`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Bernoulli's dynamic pressure and the pitot-static airspeed</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="George Cayley&#x27;s On Aerial Navigation (1809-1810) proposed the modern aeroplane by separating the problem: a fixed wing supports the weight (lift), and a separate propulsion system overcomes the resistance (drag). In steady level flight lift equals weight and thrust equals drag. Here lift and drag turn coefficients into forces for a light aircraft, and the required lift coefficient and thrust are traced across the speed range.">
+
+.. only:: html
+
+  .. image:: /api/gallery/aerodynamics/forces/images/thumb/sphx_glr_plot_02_cayley_lift_and_drag_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/aerodynamics/forces/plot_02_cayley_lift_and_drag`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Cayley's separation of lift and drag in level flight</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Otto Lilienthal&#x27;s Der Vogelflug als Grundlage der Fliegekunst (1889) tabulated the forces on cambered wings measured on a whirling arm, reduced to dimensionless coefficients and plotted against each other in a polar diagram. Dividing a measured force by qS removes the dependence on speed and size, so tests at one speed predict forces at another. This example reduces synthetic whirling-arm measurements with lift_coefficient and drag_coefficient and reads the best glide ratio off the polar with glide_ratio.">
+
+.. only:: html
+
+  .. image:: /api/gallery/aerodynamics/forces/images/thumb/sphx_glr_plot_03_lilienthal_coefficients_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/aerodynamics/forces/plot_03_lilienthal_coefficients`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Lilienthal's lift and drag coefficients and the polar diagram</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="The nineteenth-century lift equation was L = k V^2 S C_L with Smeaton&#x27;s coefficient k = 0.005 lb/(ft² mph²). After their 1901 glider lifted far less than predicted, Wilbur and Orville Wright measured k \approx 0.0033 in their own wind tunnel; the modern value, \tfrac12\rho at sea level, is 0.00256. Since the minimum flying speed V_s = \sqrt{2W/(\rho S C_{L,\max})} (~engineeringkit.aerodynamics.stall_speed) scales as 1/\sqrt{k}, Smeaton&#x27;s value under-predicts the take-off speed of the 1903 Flyer by about 30%.">
+
+.. only:: html
+
+  .. image:: /api/gallery/aerodynamics/forces/images/thumb/sphx_glr_plot_04_wright_smeaton_stall_speed_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/aerodynamics/forces/plot_04_wright_smeaton_stall_speed`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">The Wright brothers, Smeaton's coefficient and the stall speed</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+Performance
+-----------
+
+Cruise range from aerodynamic efficiency and engine fuel consumption.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Louis Breguet&#x27;s range formula (1923) follows from three facts: thrust equals drag, drag equals weight divided by L/D, and fuel flow is the thrust-specific fuel consumption times thrust. Integrating the weight loss gives R = \frac{V}{g c_T}\frac{L}{D}\ln\frac{W_i}{W_f} (~engineeringkit.aerodynamics.breguet_range): range is the product of engine efficiency, aerodynamic efficiency and a logarithmic fuel fraction. This example checks it against a time-stepped cruise and shows why airliners fly near the best-glide lift coefficient.">
+
+.. only:: html
+
+  .. image:: /api/gallery/aerodynamics/performance/images/thumb/sphx_glr_plot_01_breguet_range_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/aerodynamics/performance/plot_01_breguet_range`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">The Breguet range equation</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+Finite wings
+------------
+
+Lifting-line theory, induced drag and the parabolic drag polar.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Ludwig Prandtl&#x27;s Tragflügeltheorie (1918) modelled a wing as a bound vortex of varying strength shedding a sheet of trailing vortices. The downwash they induce lowers the effective angle of attack, so a finite wing&#x27;s lift slope is a = a_0/(1 + a_0/(\pi e AR)) (~engineeringkit.aerodynamics.finite_wing_lift_slope). This example solves Glauert&#x27;s Fourier form of the lifting-line equation for a rectangular wing and compares the computed slope with the closed form.">
+
+.. only:: html
+
+  .. image:: /api/gallery/aerodynamics/wings/images/thumb/sphx_glr_plot_01_prandtl_lifting_line_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/aerodynamics/wings/plot_01_prandtl_lifting_line`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Prandtl's lifting-line theory and the finite-wing lift slope</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Prandtl and Max Munk (1918-1919) showed that the trailing vortices carry away kinetic energy at a rate that appears as an induced drag, C_{D,i} = C_L^2/(\pi e AR) (~engineeringkit.aerodynamics.induced_drag_coefficient), and that the elliptic spanwise load (e = 1) minimises it for a given span and lift. This example builds spanwise loads, computes their induced drag from the Fourier coefficients, and confirms the ellipse wins.">
+
+.. only:: html
+
+  .. image:: /api/gallery/aerodynamics/wings/images/thumb/sphx_glr_plot_02_induced_drag_elliptic_loading_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/aerodynamics/wings/plot_02_induced_drag_elliptic_loading`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Induced drag and the optimality of elliptic loading</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="W. Bailey Oswald&#x27;s NACA Report 408 (1933) folded every source of lift-dependent drag of a whole aeroplane into one efficiency factor, so its drag polar becomes C_D = C_{D0} + C_L^2/(\pi e AR) (~engineeringkit.aerodynamics.drag_polar). The maximum lift-to-drag ratio lies where a line from the origin is tangent to the polar, at C_L = \sqrt{\pi e AR C_{D0}} (~engineeringkit.aerodynamics.best_glide_cl). The empirical oswald_efficiency_estimate supplies e for straight wings.">
+
+.. only:: html
+
+  .. image:: /api/gallery/aerodynamics/wings/images/thumb/sphx_glr_plot_03_oswald_drag_polar_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/aerodynamics/wings/plot_03_oswald_drag_polar`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Oswald's efficiency factor and the parabolic drag polar</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+   :includehidden:
+
+
+   /api/gallery/aerodynamics/airfoils/index.rst
+   /api/gallery/aerodynamics/atmosphere/index.rst
+   /api/gallery/aerodynamics/boundary_layer/index.rst
+   /api/gallery/aerodynamics/circulation/index.rst
+   /api/gallery/aerodynamics/compressible/index.rst
+   /api/gallery/aerodynamics/forces/index.rst
+   /api/gallery/aerodynamics/performance/index.rst
+   /api/gallery/aerodynamics/wings/index.rst
+
+
+.. only:: html
+
+  .. container:: sphx-glr-footer sphx-glr-footer-gallery
+
+    .. container:: sphx-glr-download sphx-glr-download-python
+
+      :download:`Download all examples in Python source code: aerodynamics_python.zip </api/gallery/aerodynamics/aerodynamics_python.zip>`
+
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
+
+      :download:`Download all examples in Jupyter notebooks: aerodynamics_jupyter.zip </api/gallery/aerodynamics/aerodynamics_jupyter.zip>`
+
+
+.. only:: html
+
+ .. rst-class:: sphx-glr-signature
+
+    `Gallery generated by Sphinx-Gallery <https://sphinx-gallery.github.io>`_

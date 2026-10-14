@@ -1,0 +1,28 @@
+engineeringkit.signal_processing
+================================
+
+Sampling, Fourier transforms, spectra, filtering and quantization.
+
+.. grid:: 1 2 3 3
+   :gutter: 2
+
+   .. grid-item-card:: History
+      :link: /history/signal_processing_breakthroughs
+      :link-type: doc
+
+      Foundational ideas linked to the implementation.
+
+   .. grid-item-card:: Examples
+      :link: /api/gallery/signal_processing/index
+      :link-type: doc
+
+      Executed scripts, plots, source and notebook downloads.
+
+   .. grid-item-card:: API reference
+      :link: /api/signal_processing
+      :link-type: doc
+
+      Public classes, functions and result objects.
+
+
+:doc:`Units, assumptions and numerical validation </guides/signal_processing>`.

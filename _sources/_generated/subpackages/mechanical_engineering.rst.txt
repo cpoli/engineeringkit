@@ -1,0 +1,28 @@
+engineeringkit.mechanical_engineering
+=====================================
+
+Rigid-body motion, gears, mechanisms and inspectable vibration histories.
+
+.. grid:: 1 2 3 3
+   :gutter: 2
+
+   .. grid-item-card:: History
+      :link: /history/mechanical_engineering_breakthroughs
+      :link-type: doc
+
+      Foundational ideas linked to the implementation.
+
+   .. grid-item-card:: Examples
+      :link: /api/gallery/mechanical_engineering/index
+      :link-type: doc
+
+      Executed scripts, plots, source and notebook downloads.
+
+   .. grid-item-card:: API reference
+      :link: /api/mechanical_engineering
+      :link-type: doc
+
+      Public classes, functions and result objects.
+
+
+:doc:`Units, assumptions and numerical validation </guides/mechanical_engineering>`.

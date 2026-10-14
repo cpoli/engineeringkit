@@ -1,0 +1,50 @@
+
+
+.. _sphx_glr_api_gallery_aerodynamics_atmosphere:
+
+Standard atmosphere
+-------------------
+
+Temperature, pressure and density with altitude.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Aircraft performance depends on air density, which changes with weather. Albert Toussaint proposed a reference atmosphere in 1919, and ICAO adopted the International Standard Atmosphere in 1952: a 6.5 K/km linear lapse to the tropopause at 11 km, then an isothermal layer. Hydrostatic balance and the ideal-gas law give closed-form pressure and density (~engineeringkit.aerodynamics.isa_atmosphere). This example checks hydrostatic balance numerically and shows how thin air raises the stall speed.">
+
+.. only:: html
+
+  .. image:: /api/gallery/aerodynamics/atmosphere/images/thumb/sphx_glr_plot_01_international_standard_atmosphere_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/aerodynamics/atmosphere/plot_01_international_standard_atmosphere`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">The International Standard Atmosphere</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/aerodynamics/atmosphere/plot_01_international_standard_atmosphere
+

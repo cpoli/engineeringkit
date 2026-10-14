@@ -1,0 +1,50 @@
+
+
+.. _sphx_glr_api_gallery_aerodynamics_circulation:
+
+Circulation
+-----------
+
+Lift as the product of density, speed and circulation.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Martin Kutta (1902) and Nikolai Joukowski (1906) showed that the lift per unit span on any two-dimensional body in a steady inviscid stream is L&#x27; = \rho V \Gamma, where \Gamma is the circulation around the body (~engineeringkit.aerodynamics.kutta_joukowski_lift). The cleanest check is potential flow past a cylinder with circulation (a model of the Magnus effect): integrating the Bernoulli surface pressure around the cylinder reproduces \rho V\Gamma exactly, and the drag integrates to zero (d&#x27;Alembert&#x27;s paradox).">
+
+.. only:: html
+
+  .. image:: /api/gallery/aerodynamics/circulation/images/thumb/sphx_glr_plot_01_kutta_joukowski_spinning_cylinder_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/aerodynamics/circulation/plot_01_kutta_joukowski_spinning_cylinder`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">The Kutta-Joukowski theorem on a spinning cylinder</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/aerodynamics/circulation/plot_01_kutta_joukowski_spinning_cylinder
+

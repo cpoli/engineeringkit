@@ -1,0 +1,553 @@
+:orphan:
+
+Examples
+========
+
+.. include:: /_generated/nav/communications.rst
+
+This gallery walks through every public feature of
+``engineeringkit.communications``, one breakthrough per script: decibels,
+radio propagation and link budgets, thermal noise, analog modulation,
+information and capacity, optimum detection, error-correcting codes and OFDM.
+
+:doc:`Units, assumptions and numerical validation </guides/communications>`
+gives the physical validity limits. Each script is self-contained and can be
+run directly with ``python examples/communications/<section>/<script>.py``.
+
+Sections
+--------
+
+- **decibels** -- the Bell System transmission unit.
+- **propagation** -- Hertz's waves, the Friis transmission formula and the Telstar link budget.
+- **noise** -- Johnson-Nyquist noise and Friis's cascaded noise factor.
+- **modulation** -- Fessenden's AM, Carson's suppressed carrier and Armstrong's FM.
+- **information** -- Nyquist's signalling rate, Hartley's law, Shannon's entropy and capacity.
+- **detection** -- Kotel'nikov's optimum BPSK receiver and quadrature (QPSK) modulation.
+- **coding** -- the Hamming(7,4) code.
+- **multiplexing** -- DFT-based OFDM with a cyclic prefix.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+Coding
+------
+
+Single-error-correcting block codes.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Frustrated by weekend computer runs aborted by a single bad relay, Richard Hamming (1950) designed codes that correct errors rather than merely detect them. In the (7,4) code three parity bits sit at positions 1, 2 and 4. When one bit flips, the failing parity checks, read as a binary number, give its position (~engineeringkit.communications.hamming74_encode, hamming74_decode). Any two codewords differ in at least three places (~engineeringkit.communications.hamming_distance), which is what makes single-error correction possible.">
+
+.. only:: html
+
+  .. image:: /api/gallery/communications/coding/images/thumb/sphx_glr_plot_01_hamming_code_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/communications/coding/plot_01_hamming_code`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Hamming's single-error-correcting code</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+Decibels
+--------
+
+Logarithmic power ratios.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Early telephone engineers measured loss in &quot;miles of standard cable&quot;, a unit that depended on frequency. In 1924 the Bell System replaced it with the transmission unit, ten times the base-ten logarithm of a power ratio, and in 1929 W. H. Martin named it the decibel. Logarithms turn the products of gains and losses along a line into sums, so a long chain of amplifiers and cables can be budgeted by addition. db, dbm and their inverses convert both ways.">
+
+.. only:: html
+
+  .. image:: /api/gallery/communications/decibels/images/thumb/sphx_glr_plot_01_bell_decibel_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/communications/decibels/plot_01_bell_decibel`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">The decibel: the Bell System's transmission unit</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+Detection
+---------
+
+Bit-error rates of coherent BPSK and QPSK in Gaussian noise.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Vladimir Kotel&#x27;nikov&#x27;s 1947 thesis, The Theory of Optimum Noise Immunity, asked which receiver makes the fewest errors when known signals are buried in white Gaussian noise. For two antipodal signals the answer is a correlator (or matched filter) followed by a sign decision, with bit-error rate Q(\sqrt{2E_b/N_0}) (~engineeringkit.communications.ber_bpsk_awgn, q_function). A Monte Carlo simulation of bpsk through noise reproduces the curve.">
+
+.. only:: html
+
+  .. image:: /api/gallery/communications/detection/images/thumb/sphx_glr_plot_01_kotelnikov_bpsk_detection_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/communications/detection/plot_01_kotelnikov_bpsk_detection`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Kotel'nikov's optimum receiver: BPSK in white Gaussian noise</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Charles Cahn&#x27;s 1960 analysis of combined phase and amplitude modulation formalised what quadrature carriers make possible. Cosine and sine carriers at the same frequency are orthogonal, so each can carry an independent BPSK stream. Gray-labelled QPSK (~engineeringkit.communications.qpsk) sends two bits per symbol in the bandwidth of one. Its bit-error rate per unit E_b/N_0 equals that of BPSK (~engineeringkit.communications.ber_qpsk_awgn).">
+
+.. only:: html
+
+  .. image:: /api/gallery/communications/detection/images/thumb/sphx_glr_plot_02_cahn_quadrature_qpsk_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/communications/detection/plot_02_cahn_quadrature_qpsk`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Quadrature modulation: QPSK doubles the rate at the same error rate</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+Information and capacity
+------------------------
+
+Signalling rate, entropy and channel capacity.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Harry Nyquist&#x27;s &quot;Certain topics in telegraph transmission theory&quot; (1928) showed that a channel of bandwidth B can carry at most 2B independent pulses per second without intersymbol interference (~engineeringkit.communications.nyquist_symbol_rate). Sinc-shaped pulses spaced 1/2B apart are each zero at all the other sampling instants, so every pulse can be read without seeing its neighbours. Sending faster makes the pulses blur together.">
+
+.. only:: html
+
+  .. image:: /api/gallery/communications/information/images/thumb/sphx_glr_plot_01_nyquist_signalling_rate_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/communications/information/plot_01_nyquist_signalling_rate`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Nyquist's signalling rate: 2B pulses per second</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Ralph Hartley (1928) argued that a message selected from M distinguishable symbols carries \log M units of information, so a channel of bandwidth B carrying 2B symbols per second has a line rate of 2B\log_2 M bits per second (~engineeringkit.communications.hartley_capacity). More levels raise the rate only logarithmically, and noise limits how many levels can be told apart. This example sends multilevel symbols through a noisy channel to show that limit.">
+
+.. only:: html
+
+  .. image:: /api/gallery/communications/information/images/thumb/sphx_glr_plot_02_hartley_law_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/communications/information/plot_02_hartley_law`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Hartley's law: information grows with the logarithm of the levels</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Claude Shannon&#x27;s &quot;A mathematical theory of communication&quot; (1948) measured information by entropy, H = -\sum p\log_2 p. For a binary source entropy_binary peaks at one bit when both symbols are equally likely. The same paper defined channel capacity. A binary symmetric channel that flips each bit with probability p has capacity 1 - H(p) (~engineeringkit.communications.binary_symmetric_capacity): even a very noisy channel can carry information reliably at a reduced rate, and a channel with p = 1/2 carries nothing.">
+
+.. only:: html
+
+  .. image:: /api/gallery/communications/information/images/thumb/sphx_glr_plot_03_shannon_entropy_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/communications/information/plot_03_shannon_entropy`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Shannon's entropy and the binary symmetric channel</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In &quot;Communication in the presence of noise&quot; (1949) Shannon proved that a channel of bandwidth B with white Gaussian noise and signal-to-noise ratio S/N can carry C = B\log_2(1 + S/N) bits per second with arbitrarily small error (~engineeringkit.communications.shannon_capacity), and no more. Writing S/N = (E_b/N_0)(C/B) gives the minimum energy per bit for a given spectral efficiency. As bandwidth becomes unlimited the minimum tends to \ln 2, or -1.59 dB, the Shannon limit.">
+
+.. only:: html
+
+  .. image:: /api/gallery/communications/information/images/thumb/sphx_glr_plot_04_shannon_hartley_capacity_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/communications/information/plot_04_shannon_hartley_capacity`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">The Shannon-Hartley capacity of a noisy band-limited channel</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+Modulation
+----------
+
+Amplitude, suppressed-carrier and frequency modulation.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="On Christmas Eve 1906 Reginald Fessenden is said to have broadcast voice and music from Brant Rock, Massachusetts, by varying the amplitude of a continuous high-frequency wave. Conventional AM, s(t) = A_c[1+\mu m(t)]\cos 2\pi f_c t (~engineeringkit.communications.am_signal), keeps the carrier so a simple envelope detector can recover the message, provided the modulation index stays at or below one. The spectrum shows the cost: a strong carrier and two sidebands, so at most one third of the power carries the message.">
+
+.. only:: html
+
+  .. image:: /api/gallery/communications/modulation/images/thumb/sphx_glr_plot_01_fessenden_amplitude_modulation_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/communications/modulation/plot_01_fessenden_amplitude_modulation`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Fessenden's amplitude modulation</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In 1915 John Renshaw Carson of AT&amp;T showed that the carrier in AM carries no information. Multiplying the message by the carrier alone, s(t) = m(t)\cos 2\pi f_c t (~engineeringkit.communications.dsb_sc), puts all the transmitted power into the sidebands. The receiver must supply a coherent carrier: mix, low-pass filter, and the message returns, scaled by \tfrac12\cos\phi for a phase error \phi. Carson also showed that one sideband is enough, the basis of single-sideband telephony.">
+
+.. only:: html
+
+  .. image:: /api/gallery/communications/modulation/images/thumb/sphx_glr_plot_02_carson_suppressed_carrier_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/communications/modulation/plot_02_carson_suppressed_carrier`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Carson's suppressed-carrier modulation</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Edwin Howard Armstrong (1933-1936) demonstrated that frequency modulation with a deviation much larger than the message bandwidth trades bandwidth for a dramatic reduction of noise and static. The phase of an FM wave is the integral of the message (~engineeringkit.communications.fm_signal); for a tone of modulation index \beta = \Delta f/f_m the spectrum is a comb of Bessel-function sidebands J_n(\beta). Carson&#x27;s rule, B \approx 2(\Delta f + f_m) (~engineeringkit.communications.carson_bandwidth), captures about 98% of the power.">
+
+.. only:: html
+
+  .. image:: /api/gallery/communications/modulation/images/thumb/sphx_glr_plot_03_armstrong_frequency_modulation_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/communications/modulation/plot_03_armstrong_frequency_modulation`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Armstrong's wideband FM and Carson's bandwidth rule</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+Multiplexing
+------------
+
+Orthogonal frequency-division multiplexing.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Robert Chang (1966) showed that subcarriers whose spectra overlap remain orthogonal if they are spaced by the symbol rate. Stephen Weinstein and Paul Ebert (1971) generated the whole set with a single inverse DFT (~engineeringkit.communications.ofdm_modulate) and prefixed each block with a copy of its tail. This cyclic prefix turns a dispersive channel&#x27;s linear convolution into a circular one, so after the receiver&#x27;s DFT (~engineeringkit.communications.ofdm_demodulate) every subcarrier sees one complex gain, removed by a single division. The idea now carries Wi-Fi, LTE and digital television.">
+
+.. only:: html
+
+  .. image:: /api/gallery/communications/multiplexing/images/thumb/sphx_glr_plot_01_ofdm_cyclic_prefix_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/communications/multiplexing/plot_01_ofdm_cyclic_prefix`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">OFDM: many subcarriers from one inverse DFT</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+Noise
+-----
+
+Thermal noise and the noise factor of receiver chains.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In 1926-1928 John B. Johnson at Bell Labs measured a random voltage across every resistor, proportional to its resistance and absolute temperature and independent of its material. Harry Nyquist explained it from thermodynamics: the available noise power in a bandwidth B is kTB (~engineeringkit.communications.thermal_noise_power), -174 dBm/Hz at 290 K. This example synthesises white Gaussian noise with that power, measures it after band-limiting, and recovers the open-circuit voltage \sqrt{4kTRB}.">
+
+.. only:: html
+
+  .. image:: /api/gallery/communications/noise/images/thumb/sphx_glr_plot_01_johnson_nyquist_noise_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/communications/noise/plot_01_johnson_nyquist_noise`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Johnson-Nyquist thermal noise</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Harald Friis (1944) defined a receiver&#x27;s noise factor F as the ratio of input to output signal-to-noise ratio and showed that in a chain of stages F = F_1 + (F_2-1)/G_1 + (F_3-1)/(G_1G_2) + \cdots (~engineeringkit.communications.cascaded_noise_factor). Later stages are suppressed by the gain ahead of them, so a low-noise amplifier belongs first. The example checks the formula against a sample-by-sample simulation of noisy amplifiers and compares two orderings of the same parts.">
+
+.. only:: html
+
+  .. image:: /api/gallery/communications/noise/images/thumb/sphx_glr_plot_02_friis_cascaded_noise_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/communications/noise/plot_02_friis_cascaded_noise`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Friis's noise formula for cascaded amplifiers</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+Propagation
+-----------
+
+Wavelength, free-space path loss and link budgets.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Maxwell&#x27;s equations (1865) predicted electromagnetic waves travelling at the speed of light. Heinrich Hertz confirmed them in 1887-1888: a spark gap drove waves at a few hundred megahertz, a metal sheet reflected them into a standing wave, and the spacing of the nodes, half a wavelength, multiplied by the frequency gave the speed. wavelength computes \lambda = c/f; the example reconstructs Hertz&#x27;s standing-wave measurement and maps the radio spectrum.">
+
+.. only:: html
+
+  .. image:: /api/gallery/communications/propagation/images/thumb/sphx_glr_plot_01_hertz_wavelength_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/communications/propagation/plot_01_hertz_wavelength`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Hertz's electromagnetic waves and their wavelength</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Harald Friis (1946) wrote the received power between two antennas in free space as P_r = P_t G_t G_r (\lambda/4\pi d)^2 (~engineeringkit.communications.friis_received_power). The 1/d^2 factor is pure geometry: power spreads over a sphere of area 4\pi d^2. The \lambda^2 factor comes from an antenna&#x27;s effective aperture, A_e = G\lambda^2/4\pi. This example checks both interpretations and the 6 dB-per-doubling slope of free_space_path_loss_db.">
+
+.. only:: html
+
+  .. image:: /api/gallery/communications/propagation/images/thumb/sphx_glr_plot_02_friis_transmission_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/communications/propagation/plot_02_friis_transmission`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">The Friis transmission formula</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Telstar 1 (1962) relayed the first live transatlantic television. Engineers planned such links with a link budget: transmitter power, antenna gains, path loss and miscellaneous losses added in decibels (~engineeringkit.communications.link_budget_db), then compared with the receiver noise floor. The figures below are representative of the 4 GHz Andover-Telstar downlink, not archival values.">
+
+.. only:: html
+
+  .. image:: /api/gallery/communications/propagation/images/thumb/sphx_glr_plot_03_telstar_link_budget_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/communications/propagation/plot_03_telstar_link_budget`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">The Telstar satellite link budget</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+   :includehidden:
+
+
+   /api/gallery/communications/coding/index.rst
+   /api/gallery/communications/decibels/index.rst
+   /api/gallery/communications/detection/index.rst
+   /api/gallery/communications/information/index.rst
+   /api/gallery/communications/modulation/index.rst
+   /api/gallery/communications/multiplexing/index.rst
+   /api/gallery/communications/noise/index.rst
+   /api/gallery/communications/propagation/index.rst
+
+
+.. only:: html
+
+  .. container:: sphx-glr-footer sphx-glr-footer-gallery
+
+    .. container:: sphx-glr-download sphx-glr-download-python
+
+      :download:`Download all examples in Python source code: communications_python.zip </api/gallery/communications/communications_python.zip>`
+
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
+
+      :download:`Download all examples in Jupyter notebooks: communications_jupyter.zip </api/gallery/communications/communications_jupyter.zip>`
+
+
+.. only:: html
+
+ .. rst-class:: sphx-glr-signature
+
+    `Gallery generated by Sphinx-Gallery <https://sphinx-gallery.github.io>`_

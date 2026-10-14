@@ -1,0 +1,68 @@
+
+
+.. _sphx_glr_api_gallery_control_systems_frequency:
+
+Frequency response
+------------------
+
+The Nyquist criterion, Bode plots and stability margins.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Long-distance telephone repeaters with feedback sometimes &quot;sang&quot;. Harry Nyquist (1932) showed how to predict this from the measured open-loop frequency response alone. Trace L(j\omega) for all frequencies (~engineeringkit.control_systems.nyquist): the closed loop has Z = N + P unstable poles, where N counts clockwise encirclements of -1 (~engineeringkit.control_systems.nyquist_encirclements) and P the unstable open-loop poles.">
+
+.. only:: html
+
+  .. image:: /api/gallery/control_systems/frequency/images/thumb/sphx_glr_plot_01_nyquist_stability_criterion_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/control_systems/frequency/plot_01_nyquist_stability_criterion`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Nyquist's stability criterion</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Hendrik Bode (1940, 1945) turned Nyquist&#x27;s criterion into design numbers read off a logarithmic plot of gain and phase (~engineeringkit.control_systems.bode). The gain margin is how much the loop gain can grow before the phase-crossover point reaches -1; the phase margin is how much extra lag the loop tolerates at the gain crossover (~engineeringkit.control_systems.stability_margins). For L = 2/(s(s+1)(s+2)) the phase crosses -180^\circ at \omega = \sqrt2, where |L| = 1/3, so the gain margin is 3.">
+
+.. only:: html
+
+  .. image:: /api/gallery/control_systems/frequency/images/thumb/sphx_glr_plot_02_bode_stability_margins_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/control_systems/frequency/plot_02_bode_stability_margins`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Bode's gain and phase margins</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/control_systems/frequency/plot_01_nyquist_stability_criterion
+   /api/gallery/control_systems/frequency/plot_02_bode_stability_margins
+

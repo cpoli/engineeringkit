@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Computation times &#8212; engineeringkit 0.1.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/sg_gallery.css?v=c83e6b79" />
+    <link rel="stylesheet" type="text/css" href="_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="_static/engineeringkit.css?v=62935cec" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="_static/scripts/fontawesome.js?digest=18bd87630a240e9c25be"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be" />
+
+    <script src="_static/documentation_options.js?v=38b66d78"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/sg-tags.js?v=d80f6fa4"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'sg_execution_times';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="color-scheme" content="light dark"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="_static/searchtools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/engineeringkit_logo_transparent.png" class="logo__image only-light" alt="engineeringkit logo"/>
+    <img src="_static/engineeringkit_logo_transparent.png" class="logo__image only-dark pst-js-only" alt="engineeringkit logo"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="subpackages/index.html">
+    Subpackages
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="history/index.html">
+    History
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="api/index.html">
+    API
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button type="button" class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="subpackages/index.html">
+    Subpackages
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="history/index.html">
+    History
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="api/index.html">
+    API
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Computation times</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="computation-times">
+<span id="sphx-glr-sg-execution-times"></span><h1>Computation times<a class="headerlink" href="#computation-times" title="Link to this heading">#</a></h1>
+<p><strong>00:13.264</strong> total execution time for 69 files <strong>from all galleries</strong>:</p>
+<div class="docutils container">
+<style scoped>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
+</style>
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+<script type="text/javascript" class="init">
+$(document).ready( function () {
+    $('table.sg-datatable').DataTable({order: [[1, 'desc']]});
+} );
+</script><div class="pst-scrollable-table-container"><table class="table table-striped sg-datatable">
+<thead>
+<tr class="row-odd"><th class="head"><p>Example</p></th>
+<th class="head"><p>Time</p></th>
+<th class="head"><p>Mem (MB)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="api/gallery/control_systems/time_response/plot_01_hazen_servomechanism.html#sphx-glr-api-gallery-control-systems-time-response-plot-01-hazen-servomechanism-py"><span class="std std-ref">Hazen’s theory of servomechanisms</span></a> (<code class="docutils literal notranslate"><span class="pre">../../examples/control_systems/time_response/plot_01_hazen_servomechanism.py</span></code>)</p></td>
+<td><p>00:00.640</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/gallery/communications/information/plot_02_hartley_law.html#sphx-glr-api-gallery-communications-information-plot-02-hartley-law-py"><span class="std std-ref">Hartley’s law: information grows with the logarithm of the levels</span></a> (<code class="docutils literal notranslate"><span class="pre">../../examples/communications/information/plot_02_hartley_law.py</span></code>)</p></td>
+<td><p>00:00.437</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/gallery/communications/propagation/plot_02_friis_transmission.html#sphx-glr-api-gallery-communications-propagation-plot-02-friis-transmission-py"><span class="std std-ref">The Friis transmission formula</span></a> (<code class="docutils literal notranslate"><span class="pre">../../examples/communications/propagation/plot_02_friis_transmission.py</span></code>)</p></td>
+<td><p>00:00.424</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/gallery/aerodynamics/compressible/plot_06_de_laval_nozzle.html#sphx-glr-api-gallery-aerodynamics-compressible-plot-06-de-laval-nozzle-py"><span class="std std-ref">De Laval’s converging-diverging nozzle</span></a> (<code class="docutils literal notranslate"><span class="pre">../../examples/aerodynamics/compressible/plot_06_de_laval_nozzle.py</span></code>)</p></td>
+<td><p>00:00.358</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/gallery/communications/coding/plot_01_hamming_code.html#sphx-glr-api-gallery-communications-coding-plot-01-hamming-code-py"><span class="std std-ref">Hamming’s single-error-correcting code</span></a> (<code class="docutils literal notranslate"><span class="pre">../../examples/communications/coding/plot_01_hamming_code.py</span></code>)</p></td>
+<td><p>00:00.350</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/gallery/communications/modulation/plot_01_fessenden_amplitude_modulation.html#sphx-glr-api-gallery-communications-modulation-plot-01-fessenden-amplitude-modulation-py"><span class="std std-ref">Fessenden’s amplitude modulation</span></a> (<code class="docutils literal notranslate"><span class="pre">../../examples/communications/modulation/plot_01_fessenden_amplitude_modulation.py</span></code>)</p></td>
+<td><p>00:00.318</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/gallery/aerodynamics/boundary_layer/plot_02_prandtl_blasius_boundary_layer.html#sphx-glr-api-gallery-aerodynamics-boundary-layer-plot-02-prandtl-blasius-boundary-layer-py"><span class="std std-ref">Prandtl’s boundary layer and the Blasius solution</span></a> (<code class="docutils literal notranslate"><span class="pre">../../examples/aerodynamics/boundary_layer/plot_02_prandtl_blasius_boundary_layer.py</span></code>)</p></td>
+<td><p>00:00.304</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/gallery/communications/noise/plot_01_johnson_nyquist_noise.html#sphx-glr-api-gallery-communications-noise-plot-01-johnson-nyquist-noise-py"><span class="std std-ref">Johnson-Nyquist thermal noise</span></a> (<code class="docutils literal notranslate"><span class="pre">../../examples/communications/noise/plot_01_johnson_nyquist_noise.py</span></code>)</p></td>
+<td><p>00:00.294</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/gallery/aerodynamics/airfoils/plot_01_naca_four_digit_sections.html#sphx-glr-api-gallery-aerodynamics-airfoils-plot-01-naca-four-digit-sections-py"><span class="std std-ref">The NACA four-digit airfoil family</span></a> (<code class="docutils literal notranslate"><span class="pre">../../examples/aerodynamics/airfoils/plot_01_naca_four_digit_sections.py</span></code>)</p></td>
+<td><p>00:00.289</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/gallery/control_systems/stability/plot_01_maxwell_on_governors.html#sphx-glr-api-gallery-control-systems-stability-plot-01-maxwell-on-governors-py"><span class="std std-ref">Maxwell’s “On Governors”: stability from characteristic roots</span></a> (<code class="docutils literal notranslate"><span class="pre">../../examples/control_systems/stability/plot_01_maxwell_on_governors.py</span></code>)</p></td>
+<td><p>00:00.278</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/gallery/aerodynamics/atmosphere/plot_01_international_standard_atmosphere.html#sphx-glr-api-gallery-aerodynamics-atmosphere-plot-01-international-standard-atmosphere-py"><span class="std std-ref">The International Standard Atmosphere</span></a> (<code class="docutils literal notranslate"><span class="pre">../../examples/aerodynamics/atmosphere/plot_01_international_standard_atmosphere.py</span></code>)</p></td>
+<td><p>00:00.276</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/gallery/aerodynamics/boundary_layer/plot_01_reynolds_similarity.html#sphx-glr-api-gallery-aerodynamics-boundary-layer-plot-01-reynolds-similarity-py"><span class="std std-ref">Reynolds’ dimensionless number and wind-tunnel similarity</span></a> (<code class="docutils literal notranslate"><span class="pre">../../examples/aerodynamics/boundary_layer/plot_01_reynolds_similarity.py</span></code>)</p></td>
+<td><p>00:00.273</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/gallery/aerodynamics/boundary_layer/plot_03_turbulent_skin_friction.html#sphx-glr-api-gallery-aerodynamics-boundary-layer-plot-03-turbulent-skin-friction-py"><span class="std std-ref">Turbulent skin friction and the one-fifth-power law</span></a> (<code class="docutils literal notranslate"><span class="pre">../../examples/aerodynamics/boundary_layer/plot_03_turbulent_skin_friction.py</span></code>)</p></td>
+<td><p>00:00.273</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/gallery/control_systems/stability/plot_03_lyapunov_direct_method.html#sphx-glr-api-gallery-control-systems-stability-plot-03-lyapunov-direct-method-py"><span class="std std-ref">Lyapunov’s direct method</span></a> (<code class="docutils literal notranslate"><span class="pre">../../examples/control_systems/stability/plot_03_lyapunov_direct_method.py</span></code>)</p></td>
+<td><p>00:00.259</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/gallery/communications/propagation/plot_01_hertz_wavelength.html#sphx-glr-api-gallery-communications-propagation-plot-01-hertz-wavelength-py"><span class="std std-ref">Hertz’s electromagnetic waves and their wavelength</span></a> (<code class="docutils literal notranslate"><span class="pre">../../examples/communications/propagation/plot_01_hertz_wavelength.py</span></code>)</p></td>
+<td><p>00:00.258</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/gallery/fluid_engineering/plot_fluid_engineering_models.html#sphx-glr-api-gallery-fluid-engineering-plot-fluid-engineering-models-py"><span class="std std-ref">Darcy friction across two flow regimes</span></a> (<code class="docutils literal notranslate"><span class="pre">../../examples/fluid_engineering/plot_fluid_engineering_models.py</span></code>)</p></td>
+<td><p>00:00.257</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/gallery/control_systems/stability/plot_04_hurwitz_determinants.html#sphx-glr-api-gallery-control-systems-stability-plot-04-hurwitz-determinants-py"><span class="std std-ref">Hurwitz’s determinant test</span></a> (<code class="docutils literal notranslate"><span class="pre">../../examples/control_systems/stability/plot_04_hurwitz_determinants.py</span></code>)</p></td>
+<td><p>00:00.255</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/gallery/communications/information/plot_04_shannon_hartley_capacity.html#sphx-glr-api-gallery-communications-information-plot-04-shannon-hartley-capacity-py"><span class="std std-ref">The Shannon-Hartley capacity of a noisy band-limited channel</span></a> (<code class="docutils literal notranslate"><span class="pre">../../examples/communications/information/plot_04_shannon_hartley_capacity.py</span></code>)</p></td>
+<td><p>00:00.255</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/gallery/aerodynamics/compressible/plot_05_rankine_hugoniot_normal_shock.html#sphx-glr-api-gallery-aerodynamics-compressible-plot-05-rankine-hugoniot-normal-shock-py"><span class="std std-ref">Rankine-Hugoniot jump conditions across a normal shock</span></a> (<code class="docutils literal notranslate"><span class="pre">../../examples/aerodynamics/compressible/plot_05_rankine_hugoniot_normal_shock.py</span></code>)</p></td>
+<td><p>00:00.247</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/gallery/communications/information/plot_03_shannon_entropy.html#sphx-glr-api-gallery-communications-information-plot-03-shannon-entropy-py"><span class="std std-ref">Shannon’s entropy and the binary symmetric channel</span></a> (<code class="docutils literal notranslate"><span class="pre">../../examples/communications/information/plot_03_shannon_entropy.py</span></code>)</p></td>
+<td><p>00:00.234</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/gallery/communications/detection/plot_01_kotelnikov_bpsk_detection.html#sphx-glr-api-gallery-communications-detection-plot-01-kotelnikov-bpsk-detection-py"><span class="std std-ref">Kotel’nikov’s optimum receiver: BPSK in white Gaussian noise</span></a> (<code class="docutils literal notranslate"><span class="pre">../../examples/communications/detection/plot_01_kotelnikov_bpsk_detection.py</span></code>)</p></td>
+<td><p>00:00.228</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/gallery/control_systems/frequency/plot_01_nyquist_stability_criterion.html#sphx-glr-api-gallery-control-systems-frequency-plot-01-nyquist-stability-criterion-py"><span class="std std-ref">Nyquist’s stability criterion</span></a> (<code class="docutils literal notranslate"><span class="pre">../../examples/control_systems/frequency/plot_01_nyquist_stability_criterion.py</span></code>)</p></td>
+<td><p>00:00.219</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/gallery/aerodynamics/airfoils/plot_02_thin_airfoil_theory.html#sphx-glr-api-gallery-aerodynamics-airfoils-plot-02-thin-airfoil-theory-py"><span class="std std-ref">Thin-airfoil theory: lift slope 2π and the camber shift</span></a> (<code class="docutils literal notranslate"><span class="pre">../../examples/aerodynamics/airfoils/plot_02_thin_airfoil_theory.py</span></code>)</p></td>
+<td><p>00:00.212</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/gallery/communications/modulation/plot_03_armstrong_frequency_modulation.html#sphx-glr-api-gallery-communications-modulation-plot-03-armstrong-frequency-modulation-py"><span class="std std-ref">Armstrong’s wideband FM and Carson’s bandwidth rule</span></a> (<code class="docutils literal notranslate"><span class="pre">../../examples/communications/modulation/plot_03_armstrong_frequency_modulation.py</span></code>)</p></td>
+<td><p>00:00.208</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/gallery/aerodynamics/wings/plot_01_prandtl_lifting_line.html#sphx-glr-api-gallery-aerodynamics-wings-plot-01-prandtl-lifting-line-py"><span class="std std-ref">Prandtl’s lifting-line theory and the finite-wing lift slope</span></a> (<code class="docutils literal notranslate"><span class="pre">../../examples/aerodynamics/wings/plot_01_prandtl_lifting_line.py</span></code>)</p></td>
+<td><p>00:00.208</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/gallery/control_systems/feedback/plot_03_black_negative_feedback_amplifier.html#sphx-glr-api-gallery-control-systems-feedback-plot-03-black-negative-feedback-amplifier-py"><span class="std std-ref">Black’s negative-feedback amplifier</span></a> (<code class="docutils literal notranslate"><span class="pre">../../examples/control_systems/feedback/plot_03_black_negative_feedback_amplifier.py</span></code>)</p></td>
+<td><p>00:00.203</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/gallery/aerodynamics/circulation/plot_01_kutta_joukowski_spinning_cylinder.html#sphx-glr-api-gallery-aerodynamics-circulation-plot-01-kutta-joukowski-spinning-cylinder-py"><span class="std std-ref">The Kutta-Joukowski theorem on a spinning cylinder</span></a> (<code class="docutils literal notranslate"><span class="pre">../../examples/aerodynamics/circulation/plot_01_kutta_joukowski_spinning_cylinder.py</span></code>)</p></td>
+<td><p>00:00.203</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/gallery/control_systems/frequency/plot_02_bode_stability_margins.html#sphx-glr-api-gallery-control-systems-frequency-plot-02-bode-stability-margins-py"><span class="std std-ref">Bode’s gain and phase margins</span></a> (<code class="docutils literal notranslate"><span class="pre">../../examples/control_systems/frequency/plot_02_bode_stability_margins.py</span></code>)</p></td>
+<td><p>00:00.201</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/gallery/aerodynamics/performance/plot_01_breguet_range.html#sphx-glr-api-gallery-aerodynamics-performance-plot-01-breguet-range-py"><span class="std std-ref">The Breguet range equation</span></a> (<code class="docutils literal notranslate"><span class="pre">../../examples/aerodynamics/performance/plot_01_breguet_range.py</span></code>)</p></td>
+<td><p>00:00.195</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/gallery/aerodynamics/compressible/plot_01_laplace_speed_of_sound.html#sphx-glr-api-gallery-aerodynamics-compressible-plot-01-laplace-speed-of-sound-py"><span class="std std-ref">Newton, Laplace and the speed of sound</span></a> (<code class="docutils literal notranslate"><span class="pre">../../examples/aerodynamics/compressible/plot_01_laplace_speed_of_sound.py</span></code>)</p></td>
+<td><p>00:00.193</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/gallery/communications/multiplexing/plot_01_ofdm_cyclic_prefix.html#sphx-glr-api-gallery-communications-multiplexing-plot-01-ofdm-cyclic-prefix-py"><span class="std std-ref">OFDM: many subcarriers from one inverse DFT</span></a> (<code class="docutils literal notranslate"><span class="pre">../../examples/communications/multiplexing/plot_01_ofdm_cyclic_prefix.py</span></code>)</p></td>
+<td><p>00:00.193</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/gallery/aerodynamics/forces/plot_02_cayley_lift_and_drag.html#sphx-glr-api-gallery-aerodynamics-forces-plot-02-cayley-lift-and-drag-py"><span class="std std-ref">Cayley’s separation of lift and drag in level flight</span></a> (<code class="docutils literal notranslate"><span class="pre">../../examples/aerodynamics/forces/plot_02_cayley_lift_and_drag.py</span></code>)</p></td>
+<td><p>00:00.191</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/gallery/communications/detection/plot_02_cahn_quadrature_qpsk.html#sphx-glr-api-gallery-communications-detection-plot-02-cahn-quadrature-qpsk-py"><span class="std std-ref">Quadrature modulation: QPSK doubles the rate at the same error rate</span></a> (<code class="docutils literal notranslate"><span class="pre">../../examples/communications/detection/plot_02_cahn_quadrature_qpsk.py</span></code>)</p></td>
+<td><p>00:00.187</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/gallery/communications/propagation/plot_03_telstar_link_budget.html#sphx-glr-api-gallery-communications-propagation-plot-03-telstar-link-budget-py"><span class="std std-ref">The Telstar satellite link budget</span></a> (<code class="docutils literal notranslate"><span class="pre">../../examples/communications/propagation/plot_03_telstar_link_budget.py</span></code>)</p></td>
+<td><p>00:00.186</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/gallery/aerodynamics/forces/plot_01_bernoulli_dynamic_pressure.html#sphx-glr-api-gallery-aerodynamics-forces-plot-01-bernoulli-dynamic-pressure-py"><span class="std std-ref">Bernoulli’s dynamic pressure and the pitot-static airspeed</span></a> (<code class="docutils literal notranslate"><span class="pre">../../examples/aerodynamics/forces/plot_01_bernoulli_dynamic_pressure.py</span></code>)</p></td>
+<td><p>00:00.184</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/gallery/aerodynamics/compressible/plot_03_saint_venant_stagnation.html#sphx-glr-api-gallery-aerodynamics-compressible-plot-03-saint-venant-stagnation-py"><span class="std std-ref">Saint-Venant and Wantzel: isentropic stagnation states</span></a> (<code class="docutils literal notranslate"><span class="pre">../../examples/aerodynamics/compressible/plot_03_saint_venant_stagnation.py</span></code>)</p></td>
+<td><p>00:00.184</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/gallery/control_systems/feedback/plot_04_ziegler_nichols_tuning.html#sphx-glr-api-gallery-control-systems-feedback-plot-04-ziegler-nichols-tuning-py"><span class="std std-ref">Ziegler and Nichols tune a PID from the edge of instability</span></a> (<code class="docutils literal notranslate"><span class="pre">../../examples/control_systems/feedback/plot_04_ziegler_nichols_tuning.py</span></code>)</p></td>
+<td><p>00:00.181</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/gallery/aerodynamics/wings/plot_02_induced_drag_elliptic_loading.html#sphx-glr-api-gallery-aerodynamics-wings-plot-02-induced-drag-elliptic-loading-py"><span class="std std-ref">Induced drag and the optimality of elliptic loading</span></a> (<code class="docutils literal notranslate"><span class="pre">../../examples/aerodynamics/wings/plot_02_induced_drag_elliptic_loading.py</span></code>)</p></td>
+<td><p>00:00.174</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/gallery/control_systems/sampled/plot_01_ragazzini_zadeh_zero_order_hold.html#sphx-glr-api-gallery-control-systems-sampled-plot-01-ragazzini-zadeh-zero-order-hold-py"><span class="std std-ref">Ragazzini and Zadeh’s sampled-data systems</span></a> (<code class="docutils literal notranslate"><span class="pre">../../examples/control_systems/sampled/plot_01_ragazzini_zadeh_zero_order_hold.py</span></code>)</p></td>
+<td><p>00:00.171</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/gallery/thermodynamics/plot_thermodynamics_benchmark.html#sphx-glr-api-gallery-thermodynamics-plot-thermodynamics-benchmark-py"><span class="std std-ref">Carnot engine and heat-pump limits</span></a> (<code class="docutils literal notranslate"><span class="pre">../../examples/thermodynamics/plot_thermodynamics_benchmark.py</span></code>)</p></td>
+<td><p>00:00.170</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/gallery/communications/modulation/plot_02_carson_suppressed_carrier.html#sphx-glr-api-gallery-communications-modulation-plot-02-carson-suppressed-carrier-py"><span class="std std-ref">Carson’s suppressed-carrier modulation</span></a> (<code class="docutils literal notranslate"><span class="pre">../../examples/communications/modulation/plot_02_carson_suppressed_carrier.py</span></code>)</p></td>
+<td><p>00:00.161</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/gallery/communications/information/plot_01_nyquist_signalling_rate.html#sphx-glr-api-gallery-communications-information-plot-01-nyquist-signalling-rate-py"><span class="std std-ref">Nyquist’s signalling rate: 2B pulses per second</span></a> (<code class="docutils literal notranslate"><span class="pre">../../examples/communications/information/plot_01_nyquist_signalling_rate.py</span></code>)</p></td>
+<td><p>00:00.155</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/gallery/control_systems/feedback/plot_02_minorsky_pid_ship_steering.html#sphx-glr-api-gallery-control-systems-feedback-plot-02-minorsky-pid-ship-steering-py"><span class="std std-ref">Minorsky’s PID controller for ship steering</span></a> (<code class="docutils literal notranslate"><span class="pre">../../examples/control_systems/feedback/plot_02_minorsky_pid_ship_steering.py</span></code>)</p></td>
+<td><p>00:00.154</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/gallery/aerodynamics/compressible/plot_04_prandtl_glauert.html#sphx-glr-api-gallery-aerodynamics-compressible-plot-04-prandtl-glauert-py"><span class="std std-ref">The Prandtl-Glauert compressibility correction</span></a> (<code class="docutils literal notranslate"><span class="pre">../../examples/aerodynamics/compressible/plot_04_prandtl_glauert.py</span></code>)</p></td>
+<td><p>00:00.151</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/gallery/aerodynamics/wings/plot_03_oswald_drag_polar.html#sphx-glr-api-gallery-aerodynamics-wings-plot-03-oswald-drag-polar-py"><span class="std std-ref">Oswald’s efficiency factor and the parabolic drag polar</span></a> (<code class="docutils literal notranslate"><span class="pre">../../examples/aerodynamics/wings/plot_03_oswald_drag_polar.py</span></code>)</p></td>
+<td><p>00:00.150</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/gallery/mechanical_engineering/plot_mechanical_engineering_models.html#sphx-glr-api-gallery-mechanical-engineering-plot-mechanical-engineering-models-py"><span class="std std-ref">Damping and vibration histories</span></a> (<code class="docutils literal notranslate"><span class="pre">../../examples/mechanical_engineering/plot_mechanical_engineering_models.py</span></code>)</p></td>
+<td><p>00:00.147</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/gallery/control_systems/root_locus/plot_01_evans_root_locus.html#sphx-glr-api-gallery-control-systems-root-locus-plot-01-evans-root-locus-py"><span class="std std-ref">Evans’s root locus</span></a> (<code class="docutils literal notranslate"><span class="pre">../../examples/control_systems/root_locus/plot_01_evans_root_locus.py</span></code>)</p></td>
+<td><p>00:00.146</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/gallery/control_systems/feedback/plot_01_watt_centrifugal_governor.html#sphx-glr-api-gallery-control-systems-feedback-plot-01-watt-centrifugal-governor-py"><span class="std std-ref">Watt’s centrifugal governor and proportional droop</span></a> (<code class="docutils literal notranslate"><span class="pre">../../examples/control_systems/feedback/plot_01_watt_centrifugal_governor.py</span></code>)</p></td>
+<td><p>00:00.139</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/gallery/structural_engineering/plot_structural_engineering_models.html#sphx-glr-api-gallery-structural-engineering-plot-structural-engineering-models-py"><span class="std std-ref">Beam deflection under a uniform load</span></a> (<code class="docutils literal notranslate"><span class="pre">../../examples/structural_engineering/plot_structural_engineering_models.py</span></code>)</p></td>
+<td><p>00:00.137</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/gallery/aerodynamics/forces/plot_04_wright_smeaton_stall_speed.html#sphx-glr-api-gallery-aerodynamics-forces-plot-04-wright-smeaton-stall-speed-py"><span class="std std-ref">The Wright brothers, Smeaton’s coefficient and the stall speed</span></a> (<code class="docutils literal notranslate"><span class="pre">../../examples/aerodynamics/forces/plot_04_wright_smeaton_stall_speed.py</span></code>)</p></td>
+<td><p>00:00.129</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/gallery/mechanical_engineering/plot_mechanical_engineering_benchmark.html#sphx-glr-api-gallery-mechanical-engineering-plot-mechanical-engineering-benchmark-py"><span class="std std-ref">Oscillator energy balance</span></a> (<code class="docutils literal notranslate"><span class="pre">../../examples/mechanical_engineering/plot_mechanical_engineering_benchmark.py</span></code>)</p></td>
+<td><p>00:00.127</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/gallery/aerodynamics/forces/plot_03_lilienthal_coefficients.html#sphx-glr-api-gallery-aerodynamics-forces-plot-03-lilienthal-coefficients-py"><span class="std std-ref">Lilienthal’s lift and drag coefficients and the polar diagram</span></a> (<code class="docutils literal notranslate"><span class="pre">../../examples/aerodynamics/forces/plot_03_lilienthal_coefficients.py</span></code>)</p></td>
+<td><p>00:00.122</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/gallery/control_systems/stability/plot_02_routh_stability_criterion.html#sphx-glr-api-gallery-control-systems-stability-plot-02-routh-stability-criterion-py"><span class="std std-ref">Routh’s stability criterion</span></a> (<code class="docutils literal notranslate"><span class="pre">../../examples/control_systems/stability/plot_02_routh_stability_criterion.py</span></code>)</p></td>
+<td><p>00:00.114</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/gallery/structural_engineering/plot_structural_engineering_benchmark.html#sphx-glr-api-gallery-structural-engineering-plot-structural-engineering-benchmark-py"><span class="std std-ref">Buckling and effective length</span></a> (<code class="docutils literal notranslate"><span class="pre">../../examples/structural_engineering/plot_structural_engineering_benchmark.py</span></code>)</p></td>
+<td><p>00:00.102</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/gallery/aerodynamics/compressible/plot_02_mach_cone.html#sphx-glr-api-gallery-aerodynamics-compressible-plot-02-mach-cone-py"><span class="std std-ref">Ernst Mach’s shock photographs and the Mach cone</span></a> (<code class="docutils literal notranslate"><span class="pre">../../examples/aerodynamics/compressible/plot_02_mach_cone.py</span></code>)</p></td>
+<td><p>00:00.099</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/gallery/signal_processing/plot_signal_processing_benchmark.html#sphx-glr-api-gallery-signal-processing-plot-signal-processing-benchmark-py"><span class="std std-ref">Aliasing before reconstruction</span></a> (<code class="docutils literal notranslate"><span class="pre">../../examples/signal_processing/plot_signal_processing_benchmark.py</span></code>)</p></td>
+<td><p>00:00.094</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/gallery/communications/noise/plot_02_friis_cascaded_noise.html#sphx-glr-api-gallery-communications-noise-plot-02-friis-cascaded-noise-py"><span class="std std-ref">Friis’s noise formula for cascaded amplifiers</span></a> (<code class="docutils literal notranslate"><span class="pre">../../examples/communications/noise/plot_02_friis_cascaded_noise.py</span></code>)</p></td>
+<td><p>00:00.092</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/gallery/communications/decibels/plot_01_bell_decibel.html#sphx-glr-api-gallery-communications-decibels-plot-01-bell-decibel-py"><span class="std std-ref">The decibel: the Bell System’s transmission unit</span></a> (<code class="docutils literal notranslate"><span class="pre">../../examples/communications/decibels/plot_01_bell_decibel.py</span></code>)</p></td>
+<td><p>00:00.088</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/gallery/heat_transfer/plot_heat_transfer_models.html#sphx-glr-api-gallery-heat-transfer-plot-heat-transfer-models-py"><span class="std std-ref">Parallel and counterflow heat exchangers</span></a> (<code class="docutils literal notranslate"><span class="pre">../../examples/heat_transfer/plot_heat_transfer_models.py</span></code>)</p></td>
+<td><p>00:00.086</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/gallery/materials/plot_materials_models.html#sphx-glr-api-gallery-materials-plot-materials-models-py"><span class="std std-ref">Voigt and Reuss composite bounds</span></a> (<code class="docutils literal notranslate"><span class="pre">../../examples/materials/plot_materials_models.py</span></code>)</p></td>
+<td><p>00:00.083</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/gallery/electrical_engineering/plot_electrical_engineering_models.html#sphx-glr-api-gallery-electrical-engineering-plot-electrical-engineering-models-py"><span class="std std-ref">RLC current after a voltage step</span></a> (<code class="docutils literal notranslate"><span class="pre">../../examples/electrical_engineering/plot_electrical_engineering_models.py</span></code>)</p></td>
+<td><p>00:00.083</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/gallery/reliability/plot_reliability_benchmark.html#sphx-glr-api-gallery-reliability-plot-reliability-benchmark-py"><span class="std std-ref">Redundancy under independent failures</span></a> (<code class="docutils literal notranslate"><span class="pre">../../examples/reliability/plot_reliability_benchmark.py</span></code>)</p></td>
+<td><p>00:00.076</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/gallery/thermodynamics/plot_thermodynamics_models.html#sphx-glr-api-gallery-thermodynamics-plot-thermodynamics-models-py"><span class="std std-ref">Ideal power-cycle efficiency</span></a> (<code class="docutils literal notranslate"><span class="pre">../../examples/thermodynamics/plot_thermodynamics_models.py</span></code>)</p></td>
+<td><p>00:00.076</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/gallery/materials/plot_materials_benchmark.html#sphx-glr-api-gallery-materials-plot-materials-benchmark-py"><span class="std std-ref">Crack size and fracture threshold</span></a> (<code class="docutils literal notranslate"><span class="pre">../../examples/materials/plot_materials_benchmark.py</span></code>)</p></td>
+<td><p>00:00.076</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/gallery/reliability/plot_reliability_models.html#sphx-glr-api-gallery-reliability-plot-reliability-models-py"><span class="std std-ref">Weibull survival and shape</span></a> (<code class="docutils literal notranslate"><span class="pre">../../examples/reliability/plot_reliability_models.py</span></code>)</p></td>
+<td><p>00:00.073</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/gallery/electrical_engineering/plot_electrical_engineering_benchmark.html#sphx-glr-api-gallery-electrical-engineering-plot-electrical-engineering-benchmark-py"><span class="std std-ref">RC charge and energy accounting</span></a> (<code class="docutils literal notranslate"><span class="pre">../../examples/electrical_engineering/plot_electrical_engineering_benchmark.py</span></code>)</p></td>
+<td><p>00:00.061</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/gallery/signal_processing/plot_signal_processing_models.html#sphx-glr-api-gallery-signal-processing-plot-signal-processing-models-py"><span class="std std-ref">Sampling and a signal spectrum</span></a> (<code class="docutils literal notranslate"><span class="pre">../../examples/signal_processing/plot_signal_processing_models.py</span></code>)</p></td>
+<td><p>00:00.060</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/gallery/fluid_engineering/plot_fluid_engineering_benchmark.html#sphx-glr-api-gallery-fluid-engineering-plot-fluid-engineering-benchmark-py"><span class="std std-ref">Poiseuille profile and volume flow</span></a> (<code class="docutils literal notranslate"><span class="pre">../../examples/fluid_engineering/plot_fluid_engineering_benchmark.py</span></code>)</p></td>
+<td><p>00:00.058</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/gallery/heat_transfer/plot_heat_transfer_benchmark.html#sphx-glr-api-gallery-heat-transfer-plot-heat-transfer-benchmark-py"><span class="std std-ref">Cooling and the lumped time constant</span></a> (<code class="docutils literal notranslate"><span class="pre">../../examples/heat_transfer/plot_heat_transfer_benchmark.py</span></code>)</p></td>
+<td><p>00:00.056</p></td>
+<td><p>0.0</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="_sources/sg_execution_times.rst.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.23.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,104 @@
+
+
+.. _sphx_glr_api_gallery_control_systems_stability:
+
+Stability
+---------
+
+Characteristic roots, the Routh and Hurwitz tests and Lyapunov functions.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Governors fitted with integral action to remove droop sometimes &quot;hunted&quot;, oscillating with growing amplitude. James Clerk Maxwell (1868) linearised the engine-governor equations and showed that motion is stable exactly when every root of the characteristic polynomial has a negative real part (~engineeringkit.control_systems.poles). For the cubic s^3 + a_1 s^2 + a_2 s + a_3 he found the condition a_1 a_2 &gt; a_3: too much integral gain destabilises the governor.">
+
+.. only:: html
+
+  .. image:: /api/gallery/control_systems/stability/images/thumb/sphx_glr_plot_01_maxwell_on_governors_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/control_systems/stability/plot_01_maxwell_on_governors`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Maxwell's "On Governors": stability from characteristic roots</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Maxwell could not state a test for polynomials above fourth order. Edward Routh&#x27;s Adams Prize essay (1877) solved the problem with a table built from the coefficients alone: the number of sign changes down its first column (~engineeringkit.control_systems.routh_first_column) equals the number of roots in the right half-plane. For the closed loop of K/(s(s+1)(s+2)), s^3 + 3s^2 + 2s + K, the table shows the loop is stable only for 0 &lt; K &lt; 6.">
+
+.. only:: html
+
+  .. image:: /api/gallery/control_systems/stability/images/thumb/sphx_glr_plot_02_routh_stability_criterion_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/control_systems/stability/plot_02_routh_stability_criterion`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Routh's stability criterion</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Aleksandr Lyapunov&#x27;s doctoral thesis (1892) proved stability without solving the equations of motion. Find an energy-like function V(x) &gt; 0 that decreases along every trajectory, and the equilibrium is stable. For linear dynamics \dot x = Ax, the quadratic V = x^\mathsf{T} P x works exactly when the Lyapunov equation A^\mathsf{T}P + PA = -Q has a positive definite solution (~engineeringkit.control_systems.lyapunov_equation, lyapunov_stable).">
+
+.. only:: html
+
+  .. image:: /api/gallery/control_systems/stability/images/thumb/sphx_glr_plot_03_lyapunov_direct_method_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/control_systems/stability/plot_03_lyapunov_direct_method`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Lyapunov's direct method</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Aurel Stodola, designing turbine regulators in Zürich, asked Adolf Hurwitz for a practical stability condition. Hurwitz (1895), unaware of Routh&#x27;s work, gave it as determinants: build the matrix H_{ij} = a_{2j-i} from the coefficients, and every root lies in the left half-plane exactly when all leading minors are positive (~engineeringkit.control_systems.hurwitz_determinants). At the boundary \Delta_{n-1} passes through zero as a pair of roots crosses the imaginary axis.">
+
+.. only:: html
+
+  .. image:: /api/gallery/control_systems/stability/images/thumb/sphx_glr_plot_04_hurwitz_determinants_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/control_systems/stability/plot_04_hurwitz_determinants`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Hurwitz's determinant test</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/control_systems/stability/plot_01_maxwell_on_governors
+   /api/gallery/control_systems/stability/plot_02_routh_stability_criterion
+   /api/gallery/control_systems/stability/plot_03_lyapunov_direct_method
+   /api/gallery/control_systems/stability/plot_04_hurwitz_determinants
+

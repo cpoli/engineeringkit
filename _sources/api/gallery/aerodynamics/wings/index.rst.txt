@@ -1,0 +1,86 @@
+
+
+.. _sphx_glr_api_gallery_aerodynamics_wings:
+
+Finite wings
+------------
+
+Lifting-line theory, induced drag and the parabolic drag polar.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Ludwig Prandtl&#x27;s Tragflügeltheorie (1918) modelled a wing as a bound vortex of varying strength shedding a sheet of trailing vortices. The downwash they induce lowers the effective angle of attack, so a finite wing&#x27;s lift slope is a = a_0/(1 + a_0/(\pi e AR)) (~engineeringkit.aerodynamics.finite_wing_lift_slope). This example solves Glauert&#x27;s Fourier form of the lifting-line equation for a rectangular wing and compares the computed slope with the closed form.">
+
+.. only:: html
+
+  .. image:: /api/gallery/aerodynamics/wings/images/thumb/sphx_glr_plot_01_prandtl_lifting_line_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/aerodynamics/wings/plot_01_prandtl_lifting_line`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Prandtl's lifting-line theory and the finite-wing lift slope</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Prandtl and Max Munk (1918-1919) showed that the trailing vortices carry away kinetic energy at a rate that appears as an induced drag, C_{D,i} = C_L^2/(\pi e AR) (~engineeringkit.aerodynamics.induced_drag_coefficient), and that the elliptic spanwise load (e = 1) minimises it for a given span and lift. This example builds spanwise loads, computes their induced drag from the Fourier coefficients, and confirms the ellipse wins.">
+
+.. only:: html
+
+  .. image:: /api/gallery/aerodynamics/wings/images/thumb/sphx_glr_plot_02_induced_drag_elliptic_loading_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/aerodynamics/wings/plot_02_induced_drag_elliptic_loading`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Induced drag and the optimality of elliptic loading</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="W. Bailey Oswald&#x27;s NACA Report 408 (1933) folded every source of lift-dependent drag of a whole aeroplane into one efficiency factor, so its drag polar becomes C_D = C_{D0} + C_L^2/(\pi e AR) (~engineeringkit.aerodynamics.drag_polar). The maximum lift-to-drag ratio lies where a line from the origin is tangent to the polar, at C_L = \sqrt{\pi e AR C_{D0}} (~engineeringkit.aerodynamics.best_glide_cl). The empirical oswald_efficiency_estimate supplies e for straight wings.">
+
+.. only:: html
+
+  .. image:: /api/gallery/aerodynamics/wings/images/thumb/sphx_glr_plot_03_oswald_drag_polar_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/aerodynamics/wings/plot_03_oswald_drag_polar`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Oswald's efficiency factor and the parabolic drag polar</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/aerodynamics/wings/plot_01_prandtl_lifting_line
+   /api/gallery/aerodynamics/wings/plot_02_induced_drag_elliptic_loading
+   /api/gallery/aerodynamics/wings/plot_03_oswald_drag_polar
+

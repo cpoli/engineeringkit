@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>engineeringkit.signal_processing &#8212; engineeringkit 0.1.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css?v=c83e6b79" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/engineeringkit.css?v=62935cec" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../_static/scripts/fontawesome.js?digest=18bd87630a240e9c25be"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be" />
+
+    <script src="../../_static/documentation_options.js?v=38b66d78"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/sg-tags.js?v=d80f6fa4"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/engineeringkit/signal_processing';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="color-scheme" content="light dark"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/engineeringkit_logo_transparent.png" class="logo__image only-light" alt="engineeringkit logo"/>
+    <img src="../../_static/engineeringkit_logo_transparent.png" class="logo__image only-dark pst-js-only" alt="engineeringkit logo"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../subpackages/index.html">
+    Subpackages
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../history/index.html">
+    History
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../api/index.html">
+    API
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../subpackages/index.html">
+    Subpackages
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../history/index.html">
+    History
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../api/index.html">
+    API
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">engineeringkit.signal_processing</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for engineeringkit.signal_processing</h1><div class="highlight"><pre>
+<span></span><span class="sd">"""Signals and systems from Fourier analysis to digital filtering and sampling."""</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">signal</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit._validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">finite</span> <span class="k">as</span> <span class="n">_finite</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit._validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">integer</span> <span class="k">as</span> <span class="n">_integer</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit._validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">positive</span> <span class="k">as</span> <span class="n">_positive</span>
+
+
+<div class="viewcode-block" id="sampling_period">
+<a class="viewcode-back" href="../../api/signal_processing.html#engineeringkit.signal_processing.sampling_period">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">sampling_period</span><span class="p">(</span><span class="n">fs</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Sampling period.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    fs : Hz</span>
+<span class="sd">        Input in the units stated above.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    result</span>
+<span class="sd">        s.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Assumptions, governing equations and validity limits are discussed in</span>
+<span class="sd">    :doc:`/guides/signal_processing`. SI inputs are required; raw numbers carry no</span>
+<span class="sd">    dimensional metadata.</span>
+<span class="sd">    """</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">fs</span><span class="o">=</span><span class="n">fs</span><span class="p">)</span>
+    <span class="k">return</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">fs</span></div>
+
+
+
+<div class="viewcode-block" id="nyquist_frequency">
+<a class="viewcode-back" href="../../api/signal_processing.html#engineeringkit.signal_processing.nyquist_frequency">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">nyquist_frequency</span><span class="p">(</span><span class="n">fs</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Nyquist frequency.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    fs : Hz</span>
+<span class="sd">        Input in the units stated above.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    result</span>
+<span class="sd">        Hz.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Assumptions, governing equations and validity limits are discussed in</span>
+<span class="sd">    :doc:`/guides/signal_processing`. SI inputs are required; raw numbers carry no</span>
+<span class="sd">    dimensional metadata.</span>
+<span class="sd">    """</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">fs</span><span class="o">=</span><span class="n">fs</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">fs</span> <span class="o">/</span> <span class="mi">2</span></div>
+
+
+
+<div class="viewcode-block" id="alias_frequency">
+<a class="viewcode-back" href="../../api/signal_processing.html#engineeringkit.signal_processing.alias_frequency">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">alias_frequency</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">fs</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Alias frequency.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    f : Hz</span>
+<span class="sd">        Input in the units stated above.</span>
+<span class="sd">    fs : Hz</span>
+<span class="sd">        Input in the units stated above.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    result</span>
+<span class="sd">        Hz.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Assumptions, governing equations and validity limits are discussed in</span>
+<span class="sd">    :doc:`/guides/signal_processing`. SI inputs are required; raw numbers carry no</span>
+<span class="sd">    dimensional metadata.</span>
+<span class="sd">    """</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">fs</span><span class="o">=</span><span class="n">fs</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">abs</span><span class="p">(((</span><span class="n">f</span> <span class="o">+</span> <span class="n">fs</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">%</span> <span class="n">fs</span><span class="p">)</span> <span class="o">-</span> <span class="n">fs</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="db20">
+<a class="viewcode-back" href="../../api/signal_processing.html#engineeringkit.signal_processing.db20">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">db20</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Db20.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    x : signal amplitude units</span>
+<span class="sd">        Input in the units stated above.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    result</span>
+<span class="sd">        dB.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Assumptions, governing equations and validity limits are discussed in</span>
+<span class="sd">    :doc:`/guides/signal_processing`. SI inputs are required; raw numbers carry no</span>
+<span class="sd">    dimensional metadata.</span>
+<span class="sd">    """</span>
+    <span class="k">return</span> <span class="mi">20</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">x</span><span class="p">))</span></div>
+
+
+
+<div class="viewcode-block" id="rms">
+<a class="viewcode-back" href="../../api/signal_processing.html#engineeringkit.signal_processing.rms">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">rms</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Rms.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    x : signal amplitude units</span>
+<span class="sd">        Input in the units stated above.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    result</span>
+<span class="sd">        signal amplitude units.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Assumptions, governing equations and validity limits are discussed in</span>
+<span class="sd">    :doc:`/guides/signal_processing`. SI inputs are required; raw numbers carry no</span>
+<span class="sd">    dimensional metadata.</span>
+<span class="sd">    """</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">))</span></div>
+
+
+
+<div class="viewcode-block" id="energy">
+<a class="viewcode-back" href="../../api/signal_processing.html#engineeringkit.signal_processing.energy">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">energy</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Energy.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    x : signal amplitude units</span>
+<span class="sd">        Input in the units stated above.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    result</span>
+<span class="sd">        squared amplitude units (no dt weighting).</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Assumptions, governing equations and validity limits are discussed in</span>
+<span class="sd">    :doc:`/guides/signal_processing`. SI inputs are required; raw numbers carry no</span>
+<span class="sd">    dimensional metadata.</span>
+<span class="sd">    """</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">))</span></div>
+
+
+
+<div class="viewcode-block" id="power">
+<a class="viewcode-back" href="../../api/signal_processing.html#engineeringkit.signal_processing.power">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">power</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Power.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    x : signal amplitude units</span>
+<span class="sd">        Input in the units stated above.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    result</span>
+<span class="sd">        squared amplitude units (no dt weighting).</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Assumptions, governing equations and validity limits are discussed in</span>
+<span class="sd">    :doc:`/guides/signal_processing`. SI inputs are required; raw numbers carry no</span>
+<span class="sd">    dimensional metadata.</span>
+<span class="sd">    """</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">))</span></div>
+
+
+
+<div class="viewcode-block" id="convolution">
+<a class="viewcode-back" href="../../api/signal_processing.html#engineeringkit.signal_processing.convolution">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">convolution</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"full"</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Convolution.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    x : signal amplitude units</span>
+<span class="sd">        Input in the units stated above.</span>
+<span class="sd">    h : filter coefficient sequences (dimensionless)</span>
+<span class="sd">        Input in the units stated above.</span>
+<span class="sd">    mode : NumPy/SciPy option string</span>
+<span class="sd">        Input in the units stated above.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    result</span>
+<span class="sd">        signal amplitude units.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Assumptions, governing equations and validity limits are discussed in</span>
+<span class="sd">    :doc:`/guides/signal_processing`. SI inputs are required; raw numbers carry no</span>
+<span class="sd">    dimensional metadata.</span>
+<span class="sd">    """</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">convolve</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">mode</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="correlation">
+<a class="viewcode-back" href="../../api/signal_processing.html#engineeringkit.signal_processing.correlation">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">correlation</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"full"</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Correlation.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    x : signal amplitude units</span>
+<span class="sd">        Input in the units stated above.</span>
+<span class="sd">    y : signal amplitude units</span>
+<span class="sd">        Input in the units stated above.</span>
+<span class="sd">    mode : NumPy/SciPy option string</span>
+<span class="sd">        Input in the units stated above.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    result</span>
+<span class="sd">        signal amplitude units.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Assumptions, governing equations and validity limits are discussed in</span>
+<span class="sd">    :doc:`/guides/signal_processing`. SI inputs are required; raw numbers carry no</span>
+<span class="sd">    dimensional metadata.</span>
+<span class="sd">    """</span>
+    <span class="k">return</span> <span class="n">signal</span><span class="o">.</span><span class="n">correlate</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="moving_average">
+<a class="viewcode-back" href="../../api/signal_processing.html#engineeringkit.signal_processing.moving_average">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">moving_average</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Moving average.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    x : signal amplitude units</span>
+<span class="sd">        Input in the units stated above.</span>
+<span class="sd">    n : integer count</span>
+<span class="sd">        Input in the units stated above.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    result</span>
+<span class="sd">        signal amplitude units.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Assumptions, governing equations and validity limits are discussed in</span>
+<span class="sd">    :doc:`/guides/signal_processing`. SI inputs are required; raw numbers carry no</span>
+<span class="sd">    dimensional metadata.</span>
+<span class="sd">    """</span>
+    <span class="n">_integer</span><span class="p">(</span><span class="s2">"n"</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">_finite</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">ndim</span> <span class="o">!=</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"window n must not exceed the 1D signal length"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">convolve</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">/</span> <span class="n">n</span><span class="p">,</span> <span class="s2">"valid"</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="dft">
+<a class="viewcode-back" href="../../api/signal_processing.html#engineeringkit.signal_processing.dft">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">dft</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Dft.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    x : signal amplitude units</span>
+<span class="sd">        Input in the units stated above.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    result</span>
+<span class="sd">        signal amplitude units.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Assumptions, governing equations and validity limits are discussed in</span>
+<span class="sd">    :doc:`/guides/signal_processing`. SI inputs are required; raw numbers carry no</span>
+<span class="sd">    dimensional metadata.</span>
+<span class="sd">    """</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">x</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="idft">
+<a class="viewcode-back" href="../../api/signal_processing.html#engineeringkit.signal_processing.idft">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">idft</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Idft.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    X : complex DFT coefficients, same amplitude units</span>
+<span class="sd">        Input in the units stated above.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    result</span>
+<span class="sd">        signal amplitude units.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Assumptions, governing equations and validity limits are discussed in</span>
+<span class="sd">    :doc:`/guides/signal_processing`. SI inputs are required; raw numbers carry no</span>
+<span class="sd">    dimensional metadata.</span>
+<span class="sd">    """</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">ifft</span><span class="p">(</span><span class="n">X</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="fft_frequencies">
+<a class="viewcode-back" href="../../api/signal_processing.html#engineeringkit.signal_processing.fft_frequencies">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">fft_frequencies</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">fs</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Fft frequencies.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    n : integer count</span>
+<span class="sd">        Input in the units stated above.</span>
+<span class="sd">    fs : Hz</span>
+<span class="sd">        Input in the units stated above.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    result</span>
+<span class="sd">        Hz.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Assumptions, governing equations and validity limits are discussed in</span>
+<span class="sd">    :doc:`/guides/signal_processing`. SI inputs are required; raw numbers carry no</span>
+<span class="sd">    dimensional metadata.</span>
+<span class="sd">    """</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">fs</span><span class="o">=</span><span class="n">fs</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fftfreq</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">fs</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="power_spectral_density">
+<a class="viewcode-back" href="../../api/signal_processing.html#engineeringkit.signal_processing.power_spectral_density">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">power_spectral_density</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">fs</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Power spectral density.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    x : signal amplitude units</span>
+<span class="sd">        Input in the units stated above.</span>
+<span class="sd">    fs : Hz</span>
+<span class="sd">        Input in the units stated above.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    result</span>
+<span class="sd">        (frequency [Hz], PSD [amplitude^2/Hz]).</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Assumptions, governing equations and validity limits are discussed in</span>
+<span class="sd">    :doc:`/guides/signal_processing`. SI inputs are required; raw numbers carry no</span>
+<span class="sd">    dimensional metadata.</span>
+<span class="sd">    """</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">fs</span><span class="o">=</span><span class="n">fs</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">signal</span><span class="o">.</span><span class="n">periodogram</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">fs</span><span class="o">=</span><span class="n">fs</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="windowed_spectrum">
+<a class="viewcode-back" href="../../api/signal_processing.html#engineeringkit.signal_processing.windowed_spectrum">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">windowed_spectrum</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="s2">"hann"</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Windowed spectrum.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    x : signal amplitude units</span>
+<span class="sd">        Input in the units stated above.</span>
+<span class="sd">    fs : Hz</span>
+<span class="sd">        Input in the units stated above.</span>
+<span class="sd">    window : NumPy/SciPy option string</span>
+<span class="sd">        Input in the units stated above.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    result</span>
+<span class="sd">        (frequency [Hz], unnormalized FFT magnitude).</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Assumptions, governing equations and validity limits are discussed in</span>
+<span class="sd">    :doc:`/guides/signal_processing`. SI inputs are required; raw numbers carry no</span>
+<span class="sd">    dimensional metadata.</span>
+<span class="sd">    """</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">fs</span><span class="o">=</span><span class="n">fs</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">w</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">get_window</span><span class="p">(</span><span class="n">window</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">rfftfreq</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">fs</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">rfft</span><span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="n">w</span><span class="p">))</span></div>
+
+
+
+<div class="viewcode-block" id="butterworth_lowpass">
+<a class="viewcode-back" href="../../api/signal_processing.html#engineeringkit.signal_processing.butterworth_lowpass">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">butterworth_lowpass</span><span class="p">(</span><span class="n">order</span><span class="p">,</span> <span class="n">cutoff</span><span class="p">,</span> <span class="n">fs</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Butterworth lowpass.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    order : integer count</span>
+<span class="sd">        Input in the units stated above.</span>
+<span class="sd">    cutoff : Hz</span>
+<span class="sd">        Input in the units stated above.</span>
+<span class="sd">    fs : Hz</span>
+<span class="sd">        Input in the units stated above.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    result</span>
+<span class="sd">        (numerator b, denominator a), dimensionless.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Assumptions, governing equations and validity limits are discussed in</span>
+<span class="sd">    :doc:`/guides/signal_processing`. SI inputs are required; raw numbers carry no</span>
+<span class="sd">    dimensional metadata.</span>
+<span class="sd">    """</span>
+    <span class="k">return</span> <span class="n">signal</span><span class="o">.</span><span class="n">butter</span><span class="p">(</span><span class="n">order</span><span class="p">,</span> <span class="n">cutoff</span><span class="p">,</span> <span class="n">fs</span><span class="o">=</span><span class="n">fs</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="s2">"ba"</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="butterworth_highpass">
+<a class="viewcode-back" href="../../api/signal_processing.html#engineeringkit.signal_processing.butterworth_highpass">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">butterworth_highpass</span><span class="p">(</span><span class="n">order</span><span class="p">,</span> <span class="n">cutoff</span><span class="p">,</span> <span class="n">fs</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Butterworth highpass.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    order : integer count</span>
+<span class="sd">        Input in the units stated above.</span>
+<span class="sd">    cutoff : Hz</span>
+<span class="sd">        Input in the units stated above.</span>
+<span class="sd">    fs : Hz</span>
+<span class="sd">        Input in the units stated above.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    result</span>
+<span class="sd">        (numerator b, denominator a), dimensionless.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Assumptions, governing equations and validity limits are discussed in</span>
+<span class="sd">    :doc:`/guides/signal_processing`. SI inputs are required; raw numbers carry no</span>
+<span class="sd">    dimensional metadata.</span>
+<span class="sd">    """</span>
+    <span class="k">return</span> <span class="n">signal</span><span class="o">.</span><span class="n">butter</span><span class="p">(</span><span class="n">order</span><span class="p">,</span> <span class="n">cutoff</span><span class="p">,</span> <span class="n">btype</span><span class="o">=</span><span class="s2">"highpass"</span><span class="p">,</span> <span class="n">fs</span><span class="o">=</span><span class="n">fs</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="s2">"ba"</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="fir_lowpass">
+<a class="viewcode-back" href="../../api/signal_processing.html#engineeringkit.signal_processing.fir_lowpass">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">fir_lowpass</span><span class="p">(</span><span class="n">numtaps</span><span class="p">,</span> <span class="n">cutoff</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="s2">"hamming"</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Fir lowpass.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    numtaps : integer count</span>
+<span class="sd">        Input in the units stated above.</span>
+<span class="sd">    cutoff : Hz</span>
+<span class="sd">        Input in the units stated above.</span>
+<span class="sd">    fs : Hz</span>
+<span class="sd">        Input in the units stated above.</span>
+<span class="sd">    window : NumPy/SciPy option string</span>
+<span class="sd">        Input in the units stated above.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    result</span>
+<span class="sd">        dimensionless FIR coefficients.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Assumptions, governing equations and validity limits are discussed in</span>
+<span class="sd">    :doc:`/guides/signal_processing`. SI inputs are required; raw numbers carry no</span>
+<span class="sd">    dimensional metadata.</span>
+<span class="sd">    """</span>
+    <span class="k">return</span> <span class="n">signal</span><span class="o">.</span><span class="n">firwin</span><span class="p">(</span><span class="n">numtaps</span><span class="p">,</span> <span class="n">cutoff</span><span class="p">,</span> <span class="n">fs</span><span class="o">=</span><span class="n">fs</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="n">window</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="filter_signal">
+<a class="viewcode-back" href="../../api/signal_processing.html#engineeringkit.signal_processing.filter_signal">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">filter_signal</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Filter signal.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    b : filter coefficient sequences (dimensionless)</span>
+<span class="sd">        Input in the units stated above.</span>
+<span class="sd">    a : filter coefficient sequences (dimensionless)</span>
+<span class="sd">        Input in the units stated above.</span>
+<span class="sd">    x : signal amplitude units</span>
+<span class="sd">        Input in the units stated above.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    result</span>
+<span class="sd">        signal amplitude units.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Assumptions, governing equations and validity limits are discussed in</span>
+<span class="sd">    :doc:`/guides/signal_processing`. SI inputs are required; raw numbers carry no</span>
+<span class="sd">    dimensional metadata.</span>
+<span class="sd">    """</span>
+    <span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">b</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">a</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">dtype</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">result_type</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">signal</span><span class="o">.</span><span class="n">lfilter</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">dtype</span><span class="p">),</span> <span class="n">a</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">dtype</span><span class="p">),</span> <span class="n">x</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">dtype</span><span class="p">))</span></div>
+
+
+
+<div class="viewcode-block" id="frequency_response">
+<a class="viewcode-back" href="../../api/signal_processing.html#engineeringkit.signal_processing.frequency_response">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">frequency_response</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">worN</span><span class="o">=</span><span class="mi">512</span><span class="p">,</span> <span class="n">fs</span><span class="o">=</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Frequency response.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    b : filter coefficient sequences (dimensionless)</span>
+<span class="sd">        Input in the units stated above.</span>
+<span class="sd">    a : filter coefficient sequences (dimensionless)</span>
+<span class="sd">        Input in the units stated above.</span>
+<span class="sd">    worN : integer count or frequency array in fs units</span>
+<span class="sd">        Input in the units stated above.</span>
+<span class="sd">    fs : Hz</span>
+<span class="sd">        Input in the units stated above.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    result</span>
+<span class="sd">        (frequencies in fs units, complex gain).</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Assumptions, governing equations and validity limits are discussed in</span>
+<span class="sd">    :doc:`/guides/signal_processing`. SI inputs are required; raw numbers carry no</span>
+<span class="sd">    dimensional metadata.</span>
+<span class="sd">    """</span>
+    <span class="k">return</span> <span class="n">signal</span><span class="o">.</span><span class="n">freqz</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">worN</span><span class="o">=</span><span class="n">worN</span><span class="p">,</span> <span class="n">fs</span><span class="o">=</span><span class="n">fs</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="snr_db">
+<a class="viewcode-back" href="../../api/signal_processing.html#engineeringkit.signal_processing.snr_db">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">snr_db</span><span class="p">(</span><span class="n">signal_values</span><span class="p">,</span> <span class="n">noise</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Snr db.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    signal_values : signal amplitude units</span>
+<span class="sd">        Input in the units stated above.</span>
+<span class="sd">    noise : signal amplitude units</span>
+<span class="sd">        Input in the units stated above.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    result</span>
+<span class="sd">        dB.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Assumptions, governing equations and validity limits are discussed in</span>
+<span class="sd">    :doc:`/guides/signal_processing`. SI inputs are required; raw numbers carry no</span>
+<span class="sd">    dimensional metadata.</span>
+<span class="sd">    """</span>
+    <span class="n">values</span><span class="p">,</span> <span class="n">noise</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">signal_values</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">noise</span><span class="p">)</span>
+    <span class="n">_finite</span><span class="p">(</span><span class="n">signal_values</span><span class="o">=</span><span class="n">values</span><span class="p">,</span> <span class="n">noise</span><span class="o">=</span><span class="n">noise</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">values</span><span class="o">.</span><span class="n">shape</span> <span class="o">!=</span> <span class="n">noise</span><span class="o">.</span><span class="n">shape</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"signal and noise must have matching shapes"</span><span class="p">)</span>
+    <span class="n">sp</span><span class="p">,</span> <span class="n">npower</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">values</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">noise</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">sp</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">npower</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"SNR is undefined for zero signal and zero noise"</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">npower</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="s2">"inf"</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">sp</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="s2">"-inf"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="mi">10</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">sp</span> <span class="o">/</span> <span class="n">npower</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="quantization_step">
+<a class="viewcode-back" href="../../api/signal_processing.html#engineeringkit.signal_processing.quantization_step">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">quantization_step</span><span class="p">(</span><span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span><span class="p">,</span> <span class="n">bits</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Step of a uniform mid-rise ADC with 2**bits bins over [vmin, vmax].</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    vmin : V (or consistent amplitude unit)</span>
+<span class="sd">        Input in the units stated above.</span>
+<span class="sd">    vmax : V (or consistent amplitude unit)</span>
+<span class="sd">        Input in the units stated above.</span>
+<span class="sd">    bits : integer count</span>
+<span class="sd">        Input in the units stated above.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    result</span>
+<span class="sd">        signal amplitude units.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Assumptions, governing equations and validity limits are discussed in</span>
+<span class="sd">    :doc:`/guides/signal_processing`. SI inputs are required; raw numbers carry no</span>
+<span class="sd">    dimensional metadata.</span>
+<span class="sd">    """</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">bits</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">integer</span><span class="p">))</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">bits</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">bits</span> <span class="o">&lt;=</span> <span class="mi">52</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"bits must be an integer between 1 and 52"</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isfinite</span><span class="p">([</span><span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span><span class="p">]))</span> <span class="ow">or</span> <span class="n">vmax</span> <span class="o">&lt;=</span> <span class="n">vmin</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"finite vmax must exceed vmin"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">vmax</span> <span class="o">-</span> <span class="n">vmin</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="n">bits</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="quantize">
+<a class="viewcode-back" href="../../api/signal_processing.html#engineeringkit.signal_processing.quantize">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">quantize</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span><span class="p">,</span> <span class="n">bits</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Return mid-rise reconstruction levels, saturating outside ADC range.</span>
+
+<span class="sd">        There are exactly 2**bits levels located at bin centers. Inputs and output</span>
+<span class="sd">        share units (typically volts). This models ideal uniform quantization.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    x : signal amplitude units</span>
+<span class="sd">        Input in the units stated above.</span>
+<span class="sd">    vmin : V (or consistent amplitude unit)</span>
+<span class="sd">        Input in the units stated above.</span>
+<span class="sd">    vmax : V (or consistent amplitude unit)</span>
+<span class="sd">        Input in the units stated above.</span>
+<span class="sd">    bits : integer count</span>
+<span class="sd">        Input in the units stated above.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    result</span>
+<span class="sd">        signal amplitude units.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Assumptions, governing equations and validity limits are discussed in</span>
+<span class="sd">    :doc:`/guides/signal_processing`. SI inputs are required; raw numbers carry no</span>
+<span class="sd">    dimensional metadata.</span>
+<span class="sd">    """</span>
+    <span class="n">q</span> <span class="o">=</span> <span class="n">quantization_step</span><span class="p">(</span><span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span><span class="p">,</span> <span class="n">bits</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="n">x</span><span class="p">)):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"samples must be finite"</span><span class="p">)</span>
+    <span class="n">codes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">((</span><span class="n">x</span> <span class="o">-</span> <span class="n">vmin</span><span class="p">)</span> <span class="o">/</span> <span class="n">q</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">**</span><span class="n">bits</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">vmin</span> <span class="o">+</span> <span class="p">(</span><span class="n">codes</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">*</span> <span class="n">q</span></div>
+
+
+
+<div class="viewcode-block" id="sinc_reconstruct">
+<a class="viewcode-back" href="../../api/signal_processing.html#engineeringkit.signal_processing.sinc_reconstruct">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">sinc_reconstruct</span><span class="p">(</span><span class="n">samples</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Sinc reconstruct.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    samples : signal amplitude units</span>
+<span class="sd">        Input in the units stated above.</span>
+<span class="sd">    fs : Hz</span>
+<span class="sd">        Input in the units stated above.</span>
+<span class="sd">    t : s</span>
+<span class="sd">        Input in the units stated above.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    result</span>
+<span class="sd">        signal amplitude units.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Assumptions, governing equations and validity limits are discussed in</span>
+<span class="sd">    :doc:`/guides/signal_processing`. SI inputs are required; raw numbers carry no</span>
+<span class="sd">    dimensional metadata.</span>
+<span class="sd">    """</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">fs</span><span class="o">=</span><span class="n">fs</span><span class="p">)</span>
+    <span class="n">samples</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">samples</span><span class="p">)</span>
+    <span class="n">tn</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">samples</span><span class="p">))</span> <span class="o">/</span> <span class="n">fs</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sinc</span><span class="p">(</span><span class="n">fs</span> <span class="o">*</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">t</span><span class="p">)[:,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">-</span> <span class="n">tn</span><span class="p">))</span> <span class="o">@</span> <span class="n">samples</span></div>
+
+
+
+<div class="viewcode-block" id="Spectrum">
+<a class="viewcode-back" href="../../api/signal_processing.html#engineeringkit.signal_processing.Spectrum">[docs]</a>
+<span class="nd">@dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Spectrum</span><span class="p">:</span>
+    <span class="n">frequency</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>
+    <span class="n">magnitude</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>
+
+<div class="viewcode-block" id="Spectrum.from_signal">
+<a class="viewcode-back" href="../../api/signal_processing.html#engineeringkit.signal_processing.Spectrum.from_signal">[docs]</a>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">from_signal</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">fs</span><span class="p">):</span>
+        <span class="n">_positive</span><span class="p">(</span><span class="n">fs</span><span class="o">=</span><span class="n">fs</span><span class="p">)</span>
+        <span class="n">_finite</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">rfftfreq</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">fs</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">rfft</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span></div>
+
+
+<div class="viewcode-block" id="Spectrum.plot">
+<a class="viewcode-back" href="../../api/signal_processing.html#engineeringkit.signal_processing.Spectrum.plot">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">plot</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">frequency</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">magnitude</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s2">"frequency [Hz]"</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s2">"magnitude"</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span></div>
+</div>
+
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.23.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

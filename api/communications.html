@@ -1,0 +1,1636 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>engineeringkit.communications &#8212; engineeringkit 0.1.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=c83e6b79" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/engineeringkit.css?v=62935cec" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=18bd87630a240e9c25be"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be" />
+
+    <script src="../_static/documentation_options.js?v=38b66d78"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/sg-tags.js?v=d80f6fa4"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'api/communications';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="engineeringkit.materials" href="materials.html" />
+    <link rel="prev" title="engineeringkit.signal_processing" href="signal_processing.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="color-scheme" content="light dark"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/engineeringkit_logo_transparent.png" class="logo__image only-light" alt="engineeringkit logo"/>
+    <img src="../_static/engineeringkit_logo_transparent.png" class="logo__image only-dark pst-js-only" alt="engineeringkit logo"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../subpackages/index.html">
+    Subpackages
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../history/index.html">
+    History
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    API
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button type="button" class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../subpackages/index.html">
+    Subpackages
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../history/index.html">
+    History
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    API
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button type="button" id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar">
+  <svg class="pst-icon" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="structural_engineering.html">engineeringkit.structural_engineering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mechanical_engineering.html">engineeringkit.mechanical_engineering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="thermodynamics.html">engineeringkit.thermodynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fluid_engineering.html">engineeringkit.fluid_engineering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="heat_transfer.html">engineeringkit.heat_transfer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aerodynamics.html">engineeringkit.aerodynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="electrical_engineering.html">engineeringkit.electrical_engineering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="control_systems.html">engineeringkit.control_systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signal_processing.html">engineeringkit.signal_processing</a></li>
+<li class="toctree-l1 current active"><a aria-current="page" class="current reference internal" href="#">engineeringkit.communications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="materials.html">engineeringkit.materials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reliability.html">engineeringkit.reliability</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="integrators.html">Integrators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="visualizers.html">Visualizers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="units.html">Units</a></li>
+<li class="toctree-l1"><a class="reference internal" href="constants.html">Constants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../validation.html">Numerical validation policy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../limitations.html">Scope and remaining limitations</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">API</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">engineeringkit.communications</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="engineeringkit-communications">
+<h1>engineeringkit.communications<a class="headerlink" href="#engineeringkit-communications" title="Link to this heading">#</a></h1>
+<div class="subpkg-nav docutils container">
+<p><a class="reference internal" href="../_generated/subpackages/communications.html"><span class="doc">Domain hub</span></a> · <a class="reference internal" href="../history/communications_breakthroughs.html"><span class="doc">History</span></a> · <a class="reference internal" href="gallery/communications/index.html"><span class="doc">Examples</span></a> · <a class="reference internal" href="#"><span class="doc">API reference</span></a></p>
+</div>
+<p>Decibel conversions; wavelength, Friis free-space propagation and decibel
+link budgets; Johnson-Nyquist thermal noise and the cascaded noise factor;
+Nyquist signalling, Hartley’s law, binary entropy and Shannon capacity; AM,
+DSB-SC and FM modulation with Carson’s bandwidth rule; BPSK/QPSK and their
+AWGN bit-error rates (<code class="docutils literal notranslate"><span class="pre">scipy.special.erfc</span></code>); the Hamming(7,4) code; and
+OFDM via <code class="docutils literal notranslate"><span class="pre">numpy.fft</span></code>.</p>
+<p id="module-engineeringkit.communications">engineeringkit.communications: modulation, noise, capacity, detection, coding and link budgets.</p>
+<p>Hertz wavelengths and Friis free-space propagation with decibel link
+budgets; Johnson-Nyquist thermal noise and Friis’s cascaded noise factor;
+Nyquist signalling, Hartley’s line rate, Shannon entropy and capacity; AM,
+suppressed-carrier and FM modulation with Carson’s bandwidth rule; BPSK/QPSK
+and their AWGN error rates; Hamming(7,4) error correction; and DFT-based
+OFDM. Models are hand-written closed forms; NumPy’s FFT and SciPy’s erfc and
+trapezoidal integration are used where they are the standard tool.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="engineeringkit.communications.HammingDecodeResult">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">engineeringkit.communications.</span></span><span class="sig-name descname"><span class="pre">HammingDecodeResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">syndromes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">corrected</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/communications/core/base.html#HammingDecodeResult"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.communications.HammingDecodeResult" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Output of <a class="reference internal" href="#engineeringkit.communications.hamming74_decode" title="engineeringkit.communications.hamming74_decode"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.communications.hamming74_decode()</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>ndarray</em>)</p></li>
+<li><p><strong>syndromes</strong> (<em>ndarray</em>)</p></li>
+<li><p><strong>corrected</strong> (<em>ndarray</em>)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="engineeringkit.communications.HammingDecodeResult.corrected">
+<span class="sig-name descname"><span class="pre">corrected</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></span><a class="headerlink" href="#engineeringkit.communications.HammingDecodeResult.corrected" title="Link to this definition">#</a></dt>
+<dd><p>Codewords after correction.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray of int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="engineeringkit.communications.HammingDecodeResult.data">
+<span class="sig-name descname"><span class="pre">data</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></span><a class="headerlink" href="#engineeringkit.communications.HammingDecodeResult.data" title="Link to this definition">#</a></dt>
+<dd><p>Decoded data bits, four per codeword.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray of int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="engineeringkit.communications.HammingDecodeResult.summary">
+<span class="sig-name descname"><span class="pre">summary</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/communications/core/base.html#HammingDecodeResult.summary"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.communications.HammingDecodeResult.summary" title="Link to this definition">#</a></dt>
+<dd><p>Number of words decoded and number in which a bit was corrected.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="engineeringkit.communications.HammingDecodeResult.syndromes">
+<span class="sig-name descname"><span class="pre">syndromes</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></span><a class="headerlink" href="#engineeringkit.communications.HammingDecodeResult.syndromes" title="Link to this definition">#</a></dt>
+<dd><p>Per-word syndrome, the 1-based position of the corrected bit (0 if none).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray of int</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.communications.am_signal">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.communications.</span></span><span class="sig-name descname"><span class="pre">am_signal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mu</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">carrier_amplitude</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/communications/systems/modulation.html#am_signal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.communications.am_signal" title="Link to this definition">#</a></dt>
+<dd><p>Conventional (full-carrier) AM, <span class="math notranslate nohighlight">\(s(t) = A_c[1 + \mu m(t)]\cos 2\pi f_c t\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>message</strong> (<em>array_like</em>) – Normalised message <span class="math notranslate nohighlight">\(m(t)\)</span> with <span class="math notranslate nohighlight">\(|m| \le 1\)</span> [-].</p></li>
+<li><p><strong>t</strong> (<em>array_like</em>) – Sample times [s], same shape as <code class="docutils literal notranslate"><span class="pre">message</span></code>.</p></li>
+<li><p><strong>fc</strong> (<em>float</em>) – Carrier frequency [Hz], nonnegative.</p></li>
+<li><p><strong>mu</strong> (<em>float</em><em>, </em><em>optional</em>) – Modulation index [-], nonnegative; <code class="docutils literal notranslate"><span class="pre">mu</span> <span class="pre">&gt;</span> <span class="pre">1</span></code> overmodulates and
+distorts an envelope detector’s output.</p></li>
+<li><p><strong>carrier_amplitude</strong> (<em>float</em><em>, </em><em>optional</em>) – Carrier amplitude <span class="math notranslate nohighlight">\(A_c\)</span> [V].</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Modulated waveform [V].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/communications.html"><span class="doc">Communications: linear ratios, modulation phase and channel scope</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">am_signal</span><span class="p">([</span><span class="mf">0.5</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">],</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">mu</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="go">[1.25]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.communications.ber_bpsk_awgn">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.communications.</span></span><span class="sig-name descname"><span class="pre">ber_bpsk_awgn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ebn0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/communications/systems/detection.html#ber_bpsk_awgn"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.communications.ber_bpsk_awgn" title="Link to this definition">#</a></dt>
+<dd><p>Bit-error rate of coherent BPSK in AWGN, <span class="math notranslate nohighlight">\(Q(\sqrt{2E_b/N_0}) = \tfrac12\operatorname{erfc}\sqrt{E_b/N_0}\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ebn0</strong> (<em>float</em><em> or </em><em>array_like</em>) – Energy per bit over noise spectral density, <span class="math notranslate nohighlight">\(E_b/N_0\)</span> [-]
+(linear, not dB), nonnegative.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Bit-error probability [-].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/communications.html"><span class="doc">Communications: linear ratios, modulation phase and channel scope</span></a>.</p>
+<p class="rubric">References</p>
+<p>V. A. Kotel’nikov, <em>The Theory of Optimum Noise Immunity</em> (1947; English
+translation, McGraw-Hill, 1959).</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="nb">float</span><span class="p">(</span><span class="n">ber_bpsk_awgn</span><span class="p">(</span><span class="mi">10</span><span class="w"> </span><span class="o">**</span><span class="w"> </span><span class="p">(</span><span class="mf">9.6</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">10</span><span class="p">)))</span><span class="si">:</span><span class="s2">.1e</span><span class="si">}</span><span class="s2">"</span>
+<span class="go">'9.7e-06'</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.communications.ber_qpsk_awgn">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.communications.</span></span><span class="sig-name descname"><span class="pre">ber_qpsk_awgn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ebn0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/communications/systems/detection.html#ber_qpsk_awgn"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.communications.ber_qpsk_awgn" title="Link to this definition">#</a></dt>
+<dd><p>Bit-error rate of coherent Gray-labelled QPSK in AWGN; equal to BPSK per bit.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ebn0</strong> (<em>float</em><em> or </em><em>array_like</em>) – <span class="math notranslate nohighlight">\(E_b/N_0\)</span> [-] (linear), nonnegative.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Bit-error probability [-].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>The in-phase and quadrature rails are independent BPSK channels. See
+<a class="reference internal" href="../guides/communications.html"><span class="doc">Communications: linear ratios, modulation phase and channel scope</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">bool</span><span class="p">(</span><span class="n">ber_qpsk_awgn</span><span class="p">(</span><span class="mf">4.0</span><span class="p">)</span> <span class="o">==</span> <span class="n">ber_bpsk_awgn</span><span class="p">(</span><span class="mf">4.0</span><span class="p">))</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.communications.binary_symmetric_capacity">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.communications.</span></span><span class="sig-name descname"><span class="pre">binary_symmetric_capacity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">p</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/communications/systems/capacity.html#binary_symmetric_capacity"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.communications.binary_symmetric_capacity" title="Link to this definition">#</a></dt>
+<dd><p>Capacity of the binary symmetric channel, <span class="math notranslate nohighlight">\(C = 1 - H(p)\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>p</strong> (<em>float</em><em> or </em><em>array_like</em>) – Crossover (bit-flip) probability [-] in <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">1]</span></code>.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Capacity [bit per channel use].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/communications.html"><span class="doc">Communications: linear ratios, modulation phase and channel scope</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="n">binary_symmetric_capacity</span><span class="p">(</span><span class="mf">0.11</span><span class="p">),</span> <span class="mi">3</span><span class="p">)</span>
+<span class="go">0.5</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.communications.bpsk">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.communications.</span></span><span class="sig-name descname"><span class="pre">bpsk</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bits</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/communications/systems/modulation.html#bpsk"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.communications.bpsk" title="Link to this definition">#</a></dt>
+<dd><p>Binary phase-shift keying: map bits <code class="docutils literal notranslate"><span class="pre">0,</span> <span class="pre">1</span></code> to antipodal symbols <code class="docutils literal notranslate"><span class="pre">-1,</span> <span class="pre">+1</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>bits</strong> (<em>array_like</em>) – Binary data (any integer or float dtype holding only 0 and 1).</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Real unit-energy symbols.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are converted to float before arithmetic, so unsigned zeros do
+not wrap; see <a class="reference internal" href="../guides/communications.html"><span class="doc">Communications: linear ratios, modulation phase and channel scope</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">bpsk</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="go">[-1.0, 1.0, 1.0]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.communications.carson_bandwidth">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.communications.</span></span><span class="sig-name descname"><span class="pre">carson_bandwidth</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">peak_deviation</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">message_bandwidth</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/communications/systems/modulation.html#carson_bandwidth"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.communications.carson_bandwidth" title="Link to this definition">#</a></dt>
+<dd><p>Carson’s rule for the 98%-power bandwidth of FM, <span class="math notranslate nohighlight">\(B \approx 2(\Delta f + W)\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>peak_deviation</strong> (<em>float</em><em> or </em><em>array_like</em>) – Peak frequency deviation <span class="math notranslate nohighlight">\(\Delta f\)</span> [Hz], nonnegative.</p></li>
+<li><p><strong>message_bandwidth</strong> (<em>float</em><em> or </em><em>array_like</em>) – Highest message frequency <span class="math notranslate nohighlight">\(W\)</span> [Hz], nonnegative.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Transmission bandwidth [Hz].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/communications.html"><span class="doc">Communications: linear ratios, modulation phase and channel scope</span></a>.</p>
+<p class="rubric">References</p>
+<p>J. R. Carson, “Notes on the theory of modulation,” <em>Proc. IRE</em> 10 (1922)
+57-64.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">float</span><span class="p">(</span><span class="n">carson_bandwidth</span><span class="p">(</span><span class="mf">75e3</span><span class="p">,</span> <span class="mf">15e3</span><span class="p">))</span>
+<span class="go">180000.0</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.communications.cascaded_noise_factor">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.communications.</span></span><span class="sig-name descname"><span class="pre">cascaded_noise_factor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gains</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">noise_factors</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/communications/systems/noise.html#cascaded_noise_factor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.communications.cascaded_noise_factor" title="Link to this definition">#</a></dt>
+<dd><p>Friis’s formula for the noise factor of amplifiers in cascade.</p>
+<div class="math notranslate nohighlight">
+\[F = F_1 + \frac{F_2 - 1}{G_1} + \frac{F_3 - 1}{G_1 G_2} + \cdots\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>gains</strong> (<em>array_like</em>) – Linear available power gain of each stage [-], positive. The last
+stage’s gain does not affect the result.</p></li>
+<li><p><strong>noise_factors</strong> (<em>array_like</em>) – Linear noise factor of each stage [-], at least one.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Overall noise factor [-].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/communications.html"><span class="doc">Communications: linear ratios, modulation phase and channel scope</span></a>.</p>
+<p class="rubric">References</p>
+<p>H. T. Friis, “Noise figures of radio receivers,” <em>Proc. IRE</em> 32 (1944)
+419-422.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="n">cascaded_noise_factor</span><span class="p">([</span><span class="mf">10.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">],</span> <span class="p">[</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">]),</span> <span class="mi">6</span><span class="p">)</span>
+<span class="go">2.2</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.communications.db">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.communications.</span></span><span class="sig-name descname"><span class="pre">db</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/communications/utils/decibels.html#db"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.communications.db" title="Link to this definition">#</a></dt>
+<dd><p>Power ratio in decibels, <span class="math notranslate nohighlight">\(10\log_{10} x\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> (<em>float</em><em> or </em><em>array_like</em>) – Linear power ratio [-], positive.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Ratio [dB].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/communications.html"><span class="doc">Communications: linear ratios, modulation phase and channel scope</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">float</span><span class="p">(</span><span class="n">db</span><span class="p">(</span><span class="mf">100.0</span><span class="p">))</span>
+<span class="go">20.0</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.communications.dbm">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.communications.</span></span><span class="sig-name descname"><span class="pre">dbm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">power_w</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/communications/utils/decibels.html#dbm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.communications.dbm" title="Link to this definition">#</a></dt>
+<dd><p>Power in decibels relative to one milliwatt.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>power_w</strong> (<em>float</em><em> or </em><em>array_like</em>) – Power [W], positive.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Power [dBm].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/communications.html"><span class="doc">Communications: linear ratios, modulation phase and channel scope</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">float</span><span class="p">(</span><span class="n">dbm</span><span class="p">(</span><span class="mf">1.0</span><span class="p">))</span>
+<span class="go">30.0</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.communications.dsb_sc">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.communications.</span></span><span class="sig-name descname"><span class="pre">dsb_sc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fc</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/communications/systems/modulation.html#dsb_sc"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.communications.dsb_sc" title="Link to this definition">#</a></dt>
+<dd><p>Double-sideband suppressed-carrier modulation, <span class="math notranslate nohighlight">\(s(t) = m(t)\cos 2\pi f_c t\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>message</strong> (<em>array_like</em>) – Message samples [V].</p></li>
+<li><p><strong>t</strong> (<em>array_like</em>) – Sample times [s].</p></li>
+<li><p><strong>fc</strong> (<em>float</em>) – Carrier frequency [Hz], nonnegative.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Modulated waveform [V]; demodulate by multiplying with a coherent
+carrier and low-pass filtering.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/communications.html"><span class="doc">Communications: linear ratios, modulation phase and channel scope</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dsb_sc</span><span class="p">([</span><span class="mf">2.0</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">],</span> <span class="mf">5.0</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="go">[2.0]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.communications.entropy_binary">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.communications.</span></span><span class="sig-name descname"><span class="pre">entropy_binary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">p</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/communications/systems/capacity.html#entropy_binary"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.communications.entropy_binary" title="Link to this definition">#</a></dt>
+<dd><p>Binary entropy <span class="math notranslate nohighlight">\(H(p) = -p\log_2 p - (1-p)\log_2(1-p)\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>p</strong> (<em>float</em><em> or </em><em>array_like</em>) – Probability [-] in <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">1]</span></code>.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Entropy [bit]; zero at <code class="docutils literal notranslate"><span class="pre">p</span> <span class="pre">=</span> <span class="pre">0</span></code> and <code class="docutils literal notranslate"><span class="pre">p</span> <span class="pre">=</span> <span class="pre">1</span></code>, one at <code class="docutils literal notranslate"><span class="pre">p</span> <span class="pre">=</span> <span class="pre">0.5</span></code>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/communications.html"><span class="doc">Communications: linear ratios, modulation phase and channel scope</span></a>.</p>
+<p class="rubric">References</p>
+<p>C. E. Shannon, “A mathematical theory of communication,” <em>Bell Syst.
+Tech. J.</em> 27 (1948) 379-423, 623-656.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">float</span><span class="p">(</span><span class="n">entropy_binary</span><span class="p">(</span><span class="mf">0.5</span><span class="p">))</span>
+<span class="go">1.0</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.communications.fm_signal">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.communications.</span></span><span class="sig-name descname"><span class="pre">fm_signal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kf</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/communications/systems/modulation.html#fm_signal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.communications.fm_signal" title="Link to this definition">#</a></dt>
+<dd><p>Frequency modulation, <span class="math notranslate nohighlight">\(\cos(2\pi f_c t + 2\pi k_f\int_0^t m\,d\tau)\)</span>.</p>
+<p>The phase integral uses the trapezoidal rule, so nonuniform time grids
+are allowed; the modulation phase is zero at the first sample.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>message</strong> (<em>array_like</em>) – Message samples <span class="math notranslate nohighlight">\(m(t)\)</span>.</p></li>
+<li><p><strong>t</strong> (<em>array_like</em>) – Strictly increasing sample times [s], same shape as <code class="docutils literal notranslate"><span class="pre">message</span></code>.</p></li>
+<li><p><strong>fc</strong> (<em>float</em>) – Carrier frequency [Hz], nonnegative.</p></li>
+<li><p><strong>kf</strong> (<em>float</em>) – Frequency sensitivity [Hz per message unit].</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Unit-amplitude FM waveform.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/communications.html"><span class="doc">Communications: linear ratios, modulation phase and channel scope</span></a>.</p>
+<p class="rubric">References</p>
+<p>E. H. Armstrong, “A method of reducing disturbances in radio signaling by
+a system of frequency modulation,” <em>Proc. IRE</em> 24 (1936) 689-740.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fm_signal</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">],</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="go">[1.0, 0.0]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.communications.free_space_path_loss">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.communications.</span></span><span class="sig-name descname"><span class="pre">free_space_path_loss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">distance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">299792458.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/communications/systems/propagation.html#free_space_path_loss"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.communications.free_space_path_loss" title="Link to this definition">#</a></dt>
+<dd><p>Free-space path loss between isotropic antennas, <span class="math notranslate nohighlight">\((4\pi d f / c)^2\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>distance</strong> (<em>float</em><em> or </em><em>array_like</em>) – Separation [m], positive; far field is assumed.</p></li>
+<li><p><strong>f</strong> (<em>float</em><em> or </em><em>array_like</em>) – Frequency [Hz], positive.</p></li>
+<li><p><strong>c</strong> (<em>float</em><em>, </em><em>optional</em>) – Propagation speed [m/s].</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Linear loss ratio [-], at least one in the far field.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/communications.html"><span class="doc">Communications: linear ratios, modulation phase and channel scope</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">free_space_path_loss_db</span><span class="p">(</span><span class="mf">1000.0</span><span class="p">,</span> <span class="mf">2.4e9</span><span class="p">)),</span> <span class="mi">2</span><span class="p">)</span>
+<span class="go">100.05</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.communications.free_space_path_loss_db">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.communications.</span></span><span class="sig-name descname"><span class="pre">free_space_path_loss_db</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">distance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">299792458.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/communications/systems/propagation.html#free_space_path_loss_db"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.communications.free_space_path_loss_db" title="Link to this definition">#</a></dt>
+<dd><p>Free-space path loss in decibels; see <a class="reference internal" href="#engineeringkit.communications.free_space_path_loss" title="engineeringkit.communications.free_space_path_loss"><code class="xref py py-func docutils literal notranslate"><span class="pre">free_space_path_loss()</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>distance</strong> (<em>float</em><em> or </em><em>array_like</em>) – Separation [m], positive.</p></li>
+<li><p><strong>f</strong> (<em>float</em><em> or </em><em>array_like</em>) – Frequency [Hz], positive.</p></li>
+<li><p><strong>c</strong> (<em>float</em><em>, </em><em>optional</em>) – Propagation speed [m/s].</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Path loss [dB].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/communications.html"><span class="doc">Communications: linear ratios, modulation phase and channel scope</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">free_space_path_loss_db</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">299792458.0</span> <span class="o">/</span> <span class="p">(</span><span class="mi">4</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">))),</span> <span class="mi">6</span><span class="p">)</span>
+<span class="go">0.0</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.communications.friis_received_power">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.communications.</span></span><span class="sig-name descname"><span class="pre">friis_received_power</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Pt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Gt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Gr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/communications/systems/propagation.html#friis_received_power"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.communications.friis_received_power" title="Link to this definition">#</a></dt>
+<dd><p>Friis transmission equation, <span class="math notranslate nohighlight">\(P_r = P_t G_t G_r (\lambda/4\pi d)^2\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Pt</strong> (<em>float</em><em> or </em><em>array_like</em>) – Transmitted power [W], nonnegative.</p></li>
+<li><p><strong>Gt</strong> (<em>float</em><em> or </em><em>array_like</em>) – Transmit and receive antenna gains [-] (linear), positive.</p></li>
+<li><p><strong>Gr</strong> (<em>float</em><em> or </em><em>array_like</em>) – Transmit and receive antenna gains [-] (linear), positive.</p></li>
+<li><p><strong>distance</strong> (<em>float</em><em> or </em><em>array_like</em>) – Separation [m], positive.</p></li>
+<li><p><strong>f</strong> (<em>float</em><em> or </em><em>array_like</em>) – Frequency [Hz], positive.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Received power [W].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Free space, far-field antennas and matched polarization and impedance
+are assumed. Inputs are raw SI numbers; see <a class="reference internal" href="../guides/communications.html"><span class="doc">Communications: linear ratios, modulation phase and channel scope</span></a>.</p>
+<p class="rubric">References</p>
+<p>H. T. Friis, “A note on a simple transmission formula,” <em>Proc. IRE</em> 34
+(1946) 254-256.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">friis_received_power</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1000.0</span><span class="p">,</span> <span class="mf">2.4e9</span><span class="p">))</span> <span class="o">*</span> <span class="mf">1e10</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="go">0.9881</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.communications.from_db">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.communications.</span></span><span class="sig-name descname"><span class="pre">from_db</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x_db</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/communications/utils/decibels.html#from_db"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.communications.from_db" title="Link to this definition">#</a></dt>
+<dd><p>Linear power ratio from decibels, <span class="math notranslate nohighlight">\(10^{x/10}\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x_db</strong> (<em>float</em><em> or </em><em>array_like</em>) – Ratio [dB].</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Linear power ratio [-].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/communications.html"><span class="doc">Communications: linear ratios, modulation phase and channel scope</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">float</span><span class="p">(</span><span class="n">from_db</span><span class="p">(</span><span class="mf">30.0</span><span class="p">))</span>
+<span class="go">1000.0</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.communications.from_dbm">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.communications.</span></span><span class="sig-name descname"><span class="pre">from_dbm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/communications/utils/decibels.html#from_dbm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.communications.from_dbm" title="Link to this definition">#</a></dt>
+<dd><p>Power in watts from dBm, <span class="math notranslate nohighlight">\(10^{-3}\cdot 10^{x/10}\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> (<em>float</em><em> or </em><em>array_like</em>) – Power [dBm].</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Power [W].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/communications.html"><span class="doc">Communications: linear ratios, modulation phase and channel scope</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">float</span><span class="p">(</span><span class="n">from_dbm</span><span class="p">(</span><span class="mf">30.0</span><span class="p">))</span>
+<span class="go">1.0</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.communications.hamming74_decode">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.communications.</span></span><span class="sig-name descname"><span class="pre">hamming74_decode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">codewords</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/communications/systems/coding.html#hamming74_decode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.communications.hamming74_decode" title="Link to this definition">#</a></dt>
+<dd><p>Decode Hamming(7,4) codewords, correcting up to one flipped bit per word.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>codewords</strong> (<em>array_like</em>) – Received binary words; length must be a multiple of seven.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Decoded data bits, the syndrome of each word (the 1-based position
+of the corrected bit, or 0), and the corrected codewords.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#engineeringkit.communications.HammingDecodeResult" title="engineeringkit.communications.core.base.HammingDecodeResult"><code class="xref py py-class docutils literal notranslate"><span class="pre">HammingDecodeResult</span></code></a></span></p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Two or more errors in one word are silently mis-corrected; the code’s
+minimum distance of three guarantees only single-error correction. See
+<a class="reference internal" href="../guides/communications.html"><span class="doc">Communications: linear ratios, modulation phase and channel scope</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">received</span> <span class="o">=</span> <span class="n">hamming74_encode</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">received</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">^=</span> <span class="mi">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">hamming74_decode</span><span class="p">(</span><span class="n">received</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span> <span class="n">result</span><span class="o">.</span><span class="n">syndromes</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="go">([1, 0, 1, 1], [5])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.communications.hamming74_encode">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.communications.</span></span><span class="sig-name descname"><span class="pre">hamming74_encode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/communications/systems/coding.html#hamming74_encode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.communications.hamming74_encode" title="Link to this definition">#</a></dt>
+<dd><p>Encode data bits with the Hamming(7,4) single-error-correcting code.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>data</strong> (<em>array_like</em>) – Binary data; its length must be a multiple of four.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Codewords <code class="docutils literal notranslate"><span class="pre">[p1,</span> <span class="pre">p2,</span> <span class="pre">d1,</span> <span class="pre">p3,</span> <span class="pre">d2,</span> <span class="pre">d3,</span> <span class="pre">d4]</span></code> concatenated, 7/4 as long
+as the input. Any two codewords differ in at least three positions.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray of int</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>See <a class="reference internal" href="../guides/communications.html"><span class="doc">Communications: linear ratios, modulation phase and channel scope</span></a>.</p>
+<p class="rubric">References</p>
+<p>R. W. Hamming, “Error detecting and error correcting codes,” <em>Bell Syst.
+Tech. J.</em> 29 (1950) 147-160.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">hamming74_encode</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="go">[0, 1, 1, 0, 0, 1, 1]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.communications.hamming_distance">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.communications.</span></span><span class="sig-name descname"><span class="pre">hamming_distance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/communications/systems/coding.html#hamming_distance"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.communications.hamming_distance" title="Link to this definition">#</a></dt>
+<dd><p>Number of positions at which two equal-length binary words differ.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>a</strong> (<em>array_like</em>) – Binary words of the same shape.</p></li>
+<li><p><strong>b</strong> (<em>array_like</em>) – Binary words of the same shape.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Hamming distance.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>See <a class="reference internal" href="../guides/communications.html"><span class="doc">Communications: linear ratios, modulation phase and channel scope</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">hamming_distance</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+<span class="go">2</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.communications.hartley_capacity">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.communications.</span></span><span class="sig-name descname"><span class="pre">hartley_capacity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">B</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">M</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/communications/systems/capacity.html#hartley_capacity"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.communications.hartley_capacity" title="Link to this definition">#</a></dt>
+<dd><p>Hartley’s line rate, <span class="math notranslate nohighlight">\(2B\log_2 M\)</span>, for <code class="docutils literal notranslate"><span class="pre">M</span></code> distinguishable levels.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>B</strong> (<em>float</em><em> or </em><em>array_like</em>) – Bandwidth [Hz], nonnegative.</p></li>
+<li><p><strong>M</strong> (<em>int</em>) – Number of distinguishable signal levels, at least 2.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Bit rate [bit/s].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/communications.html"><span class="doc">Communications: linear ratios, modulation phase and channel scope</span></a>.</p>
+<p class="rubric">References</p>
+<p>R. V. L. Hartley, “Transmission of information,” <em>Bell Syst. Tech. J.</em> 7
+(1928) 535-563.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">float</span><span class="p">(</span><span class="n">hartley_capacity</span><span class="p">(</span><span class="mf">3000.0</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="go">12000.0</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.communications.link_budget_db">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.communications.</span></span><span class="sig-name descname"><span class="pre">link_budget_db</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pt_dbm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gt_db</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gr_db</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path_loss_db</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">losses_db</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/communications/systems/propagation.html#link_budget_db"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.communications.link_budget_db" title="Link to this definition">#</a></dt>
+<dd><p>Received power from a decibel link budget, <span class="math notranslate nohighlight">\(P_r = P_t + G_t + G_r - L_p - L\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pt_dbm</strong> (<em>float</em><em> or </em><em>array_like</em>) – Transmitted power [dBm].</p></li>
+<li><p><strong>gt_db</strong> (<em>float</em><em> or </em><em>array_like</em>) – Antenna gains [dBi].</p></li>
+<li><p><strong>gr_db</strong> (<em>float</em><em> or </em><em>array_like</em>) – Antenna gains [dBi].</p></li>
+<li><p><strong>path_loss_db</strong> (<em>float</em><em> or </em><em>array_like</em>) – Propagation loss [dB].</p></li>
+<li><p><strong>losses_db</strong> (<em>float</em><em> or </em><em>array_like</em><em>, </em><em>optional</em>) – Other losses (cables, pointing, atmosphere) [dB].</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Received power [dBm].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/communications.html"><span class="doc">Communications: linear ratios, modulation phase and channel scope</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">float</span><span class="p">(</span><span class="n">link_budget_db</span><span class="p">(</span><span class="mf">30.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mf">100.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">))</span>
+<span class="go">-52.0</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.communications.noise_figure">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.communications.</span></span><span class="sig-name descname"><span class="pre">noise_figure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">F</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/communications/systems/noise.html#noise_figure"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.communications.noise_figure" title="Link to this definition">#</a></dt>
+<dd><p>Noise figure <span class="math notranslate nohighlight">\(NF = 10\log_{10} F\)</span> from a linear noise factor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>F</strong> (<em>float</em><em> or </em><em>array_like</em>) – Noise factor [-], at least one (one for a noiseless device).</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Noise figure [dB].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/communications.html"><span class="doc">Communications: linear ratios, modulation phase and channel scope</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">float</span><span class="p">(</span><span class="n">noise_figure</span><span class="p">(</span><span class="mf">2.0</span><span class="p">))</span> <span class="o">&gt;</span> <span class="mf">3.0</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.communications.nyquist_symbol_rate">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.communications.</span></span><span class="sig-name descname"><span class="pre">nyquist_symbol_rate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">B</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/communications/systems/capacity.html#nyquist_symbol_rate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.communications.nyquist_symbol_rate" title="Link to this definition">#</a></dt>
+<dd><p>Maximum intersymbol-interference-free pulse rate through an ideal low-pass channel, <span class="math notranslate nohighlight">\(2B\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>B</strong> (<em>float</em><em> or </em><em>array_like</em>) – Channel bandwidth [Hz], nonnegative.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Symbol rate [baud].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/communications.html"><span class="doc">Communications: linear ratios, modulation phase and channel scope</span></a>.</p>
+<p class="rubric">References</p>
+<p>H. Nyquist, “Certain topics in telegraph transmission theory,” <em>Trans.
+AIEE</em> 47 (1928) 617-644.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">float</span><span class="p">(</span><span class="n">nyquist_symbol_rate</span><span class="p">(</span><span class="mf">3000.0</span><span class="p">))</span>
+<span class="go">6000.0</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.communications.ofdm_demodulate">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.communications.</span></span><span class="sig-name descname"><span class="pre">ofdm_demodulate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">samples</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_subcarriers</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cyclic_prefix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/communications/systems/ofdm.html#ofdm_demodulate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.communications.ofdm_demodulate" title="Link to this definition">#</a></dt>
+<dd><p>Recover subcarrier symbols from OFDM samples (inverse of <a class="reference internal" href="#engineeringkit.communications.ofdm_modulate" title="engineeringkit.communications.ofdm_modulate"><code class="xref py py-func docutils literal notranslate"><span class="pre">ofdm_modulate()</span></code></a>).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>samples</strong> (<em>array_like</em>) – Received baseband samples; the length must be a multiple of
+<code class="docutils literal notranslate"><span class="pre">n_subcarriers</span> <span class="pre">+</span> <span class="pre">cyclic_prefix</span></code>.</p></li>
+<li><p><strong>n_subcarriers</strong> (<em>int</em>) – Number of subcarriers, at least 2.</p></li>
+<li><p><strong>cyclic_prefix</strong> (<em>int</em><em>, </em><em>optional</em>) – Cyclic-prefix length used by the transmitter.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>One complex value per subcarrier per block. After a channel shorter
+than the cyclic prefix, each equals the transmitted symbol times the
+channel’s frequency response at that subcarrier.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray of complex</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>See <a class="reference internal" href="../guides/communications.html"><span class="doc">Communications: linear ratios, modulation phase and channel scope</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">rx</span> <span class="o">=</span> <span class="n">ofdm_demodulate</span><span class="p">(</span><span class="n">ofdm_modulate</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="n">j</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="n">j</span><span class="p">],</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">rx</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="n">j</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="n">j</span><span class="p">])</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.communications.ofdm_modulate">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.communications.</span></span><span class="sig-name descname"><span class="pre">ofdm_modulate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">symbols</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_subcarriers</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cyclic_prefix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/communications/systems/ofdm.html#ofdm_modulate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.communications.ofdm_modulate" title="Link to this definition">#</a></dt>
+<dd><p>Map complex symbols onto OFDM time-domain blocks with an inverse DFT.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>symbols</strong> (<em>array_like</em>) – Complex constellation symbols; the length must be a multiple of
+<code class="docutils literal notranslate"><span class="pre">n_subcarriers</span></code>.</p></li>
+<li><p><strong>n_subcarriers</strong> (<em>int</em>) – Number of subcarriers (IDFT size), at least 2.</p></li>
+<li><p><strong>cyclic_prefix</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of samples copied from the end of each block to its front,
+nonnegative and less than <code class="docutils literal notranslate"><span class="pre">n_subcarriers</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Baseband samples, <code class="docutils literal notranslate"><span class="pre">n_subcarriers</span> <span class="pre">+</span> <span class="pre">cyclic_prefix</span></code> per block,
+normalised so average power equals average symbol energy.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray of complex</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>See <a class="reference internal" href="../guides/communications.html"><span class="doc">Communications: linear ratios, modulation phase and channel scope</span></a>.</p>
+<p class="rubric">References</p>
+<p>S. B. Weinstein and P. M. Ebert, “Data transmission by frequency-division
+multiplexing using the discrete Fourier transform,” <em>IEEE Trans. Commun.
+Technol.</em> 19 (1971) 628-634.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">ofdm_modulate</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="mi">4</span><span class="p">,</span> <span class="n">cyclic_prefix</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">real</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="go">[0.0, 2.0, 0.0, 0.0, 0.0]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.communications.q_function">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.communications.</span></span><span class="sig-name descname"><span class="pre">q_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/communications/systems/detection.html#q_function"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.communications.q_function" title="Link to this definition">#</a></dt>
+<dd><p>Gaussian tail probability <span class="math notranslate nohighlight">\(Q(x) = \tfrac12\operatorname{erfc}(x/\sqrt2)\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> (<em>float</em><em> or </em><em>array_like</em>) – Threshold in standard deviations [-].</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="math notranslate nohighlight">\(P(Z &gt; x)\)</span> for a standard normal <span class="math notranslate nohighlight">\(Z\)</span>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/communications.html"><span class="doc">Communications: linear ratios, modulation phase and channel scope</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">float</span><span class="p">(</span><span class="n">q_function</span><span class="p">(</span><span class="mf">0.0</span><span class="p">))</span>
+<span class="go">0.5</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.communications.qpsk">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.communications.</span></span><span class="sig-name descname"><span class="pre">qpsk</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bit_pairs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/communications/systems/modulation.html#qpsk"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.communications.qpsk" title="Link to this definition">#</a></dt>
+<dd><p>Quadrature phase-shift keying: two bits per unit-energy complex symbol.</p>
+<p>The first bit of each pair sets the sign of the in-phase component and
+the second the quadrature component (Gray labelling), so each symbol is
+<span class="math notranslate nohighlight">\((\pm 1 \pm j)/\sqrt2\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>bit_pairs</strong> (<em>array_like</em>) – An even number of binary values.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Complex symbols, half as many as bits.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>See <a class="reference internal" href="../guides/communications.html"><span class="doc">Communications: linear ratios, modulation phase and channel scope</span></a>.</p>
+<p class="rubric">References</p>
+<p>C. R. Cahn, “Combined digital phase and amplitude modulation communication
+systems,” <em>IRE Trans. Commun. Syst.</em> 8 (1960) 150-155.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">qpsk</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="mi">12</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="go">[(1+1j)]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.communications.shannon_capacity">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.communications.</span></span><span class="sig-name descname"><span class="pre">shannon_capacity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">B</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">snr_linear</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/communications/systems/capacity.html#shannon_capacity"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.communications.shannon_capacity" title="Link to this definition">#</a></dt>
+<dd><p>Shannon-Hartley capacity of a band-limited AWGN channel, <span class="math notranslate nohighlight">\(C = B\log_2(1 + S/N)\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>B</strong> (<em>float</em><em> or </em><em>array_like</em>) – Bandwidth [Hz], nonnegative.</p></li>
+<li><p><strong>snr_linear</strong> (<em>float</em><em> or </em><em>array_like</em>) – Signal-to-noise power ratio [-] (linear), nonnegative.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Capacity [bit/s]: the highest rate at which arbitrarily reliable
+communication is possible with ideal coding.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/communications.html"><span class="doc">Communications: linear ratios, modulation phase and channel scope</span></a>.</p>
+<p class="rubric">References</p>
+<p>C. E. Shannon, “Communication in the presence of noise,” <em>Proc. IRE</em> 37
+(1949) 10-21.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">shannon_capacity</span><span class="p">(</span><span class="mf">3000.0</span><span class="p">,</span> <span class="mf">1000.0</span><span class="p">)))</span>
+<span class="go">29902</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.communications.spectral_efficiency">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.communications.</span></span><span class="sig-name descname"><span class="pre">spectral_efficiency</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bit_rate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">B</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/communications/systems/capacity.html#spectral_efficiency"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.communications.spectral_efficiency" title="Link to this definition">#</a></dt>
+<dd><p>Spectral efficiency <span class="math notranslate nohighlight">\(R_b/B\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>bit_rate</strong> (<em>float</em><em> or </em><em>array_like</em>) – Bit rate [bit/s], nonnegative.</p></li>
+<li><p><strong>B</strong> (<em>float</em><em> or </em><em>array_like</em>) – Occupied bandwidth [Hz], positive.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Efficiency [bit/s/Hz].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/communications.html"><span class="doc">Communications: linear ratios, modulation phase and channel scope</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">float</span><span class="p">(</span><span class="n">spectral_efficiency</span><span class="p">(</span><span class="mf">1e6</span><span class="p">,</span> <span class="mf">2.5e5</span><span class="p">))</span>
+<span class="go">4.0</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.communications.symbol_rate">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.communications.</span></span><span class="sig-name descname"><span class="pre">symbol_rate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bit_rate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">M</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/communications/systems/capacity.html#symbol_rate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.communications.symbol_rate" title="Link to this definition">#</a></dt>
+<dd><p>Symbol (baud) rate for an <code class="docutils literal notranslate"><span class="pre">M</span></code>-ary alphabet, <span class="math notranslate nohighlight">\(R_b / \log_2 M\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>bit_rate</strong> (<em>float</em><em> or </em><em>array_like</em>) – Bit rate [bit/s], nonnegative.</p></li>
+<li><p><strong>M</strong> (<em>int</em>) – Alphabet size, at least 2.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Symbol rate [baud].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/communications.html"><span class="doc">Communications: linear ratios, modulation phase and channel scope</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">float</span><span class="p">(</span><span class="n">symbol_rate</span><span class="p">(</span><span class="mf">9600.0</span><span class="p">,</span> <span class="mi">16</span><span class="p">))</span>
+<span class="go">2400.0</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.communications.thermal_noise_power">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.communications.</span></span><span class="sig-name descname"><span class="pre">thermal_noise_power</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">B</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">290.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.380649e-23</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/communications/systems/noise.html#thermal_noise_power"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.communications.thermal_noise_power" title="Link to this definition">#</a></dt>
+<dd><p>Available thermal (Johnson-Nyquist) noise power <span class="math notranslate nohighlight">\(N = kTB\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>B</strong> (<em>float</em><em> or </em><em>array_like</em>) – Noise bandwidth [Hz], nonnegative.</p></li>
+<li><p><strong>T</strong> (<em>float</em><em> or </em><em>array_like</em><em>, </em><em>optional</em>) – Absolute noise temperature [K], nonnegative; 290 K is the standard
+reference.</p></li>
+<li><p><strong>k</strong> (<em>float</em><em>, </em><em>optional</em>) – Boltzmann constant [J/K].</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Noise power [W] (-174 dBm in 1 Hz at 290 K).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/communications.html"><span class="doc">Communications: linear ratios, modulation phase and channel scope</span></a>.</p>
+<p class="rubric">References</p>
+<p>J. B. Johnson, “Thermal agitation of electricity in conductors,” <em>Phys.
+Rev.</em> 32 (1928) 97-109; H. Nyquist, <em>Phys. Rev.</em> 32 (1928) 110-113.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="mi">10</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">thermal_noise_power</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span> <span class="o">/</span> <span class="mf">1e-3</span><span class="p">)),</span> <span class="mi">2</span><span class="p">)</span>
+<span class="go">-173.98</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.communications.wavelength">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.communications.</span></span><span class="sig-name descname"><span class="pre">wavelength</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">299792458.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/communications/systems/propagation.html#wavelength"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.communications.wavelength" title="Link to this definition">#</a></dt>
+<dd><p>Free-space wavelength <span class="math notranslate nohighlight">\(\lambda = c/f\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>f</strong> (<em>float</em><em> or </em><em>array_like</em>) – Frequency [Hz], positive.</p></li>
+<li><p><strong>c</strong> (<em>float</em><em>, </em><em>optional</em>) – Propagation speed [m/s], positive.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Wavelength [m].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/communications.html"><span class="doc">Communications: linear ratios, modulation phase and channel scope</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">wavelength</span><span class="p">(</span><span class="mf">100e6</span><span class="p">)),</span> <span class="mi">4</span><span class="p">)</span>
+<span class="go">2.9979</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<section id="module-engineeringkit.communications.visualizers">
+<span id="visualizers"></span><h2>Visualizers<a class="headerlink" href="#module-engineeringkit.communications.visualizers" title="Link to this heading">#</a></h2>
+<p>Matplotlib visualizers for engineeringkit.communications.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.communications.visualizers.plot_ber_curve">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.communications.visualizers.</span></span><span class="sig-name descname"><span class="pre">plot_ber_curve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ebn0_db</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ber</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/communications/visualizers/plots.html#plot_ber_curve"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.communications.visualizers.plot_ber_curve" title="Link to this definition">#</a></dt>
+<dd><p>Semilog plot of bit-error rate against <span class="math notranslate nohighlight">\(E_b/N_0\)</span> in decibels.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ebn0_db</strong> (<em>array_like</em>) – <span class="math notranslate nohighlight">\(E_b/N_0\)</span> values [dB].</p></li>
+<li><p><strong>ber</strong> (<em>array_like</em>) – Matching bit-error rates [-]; zeros are omitted from the log axis.</p></li>
+<li><p><strong>ax</strong> (<em>matplotlib.axes.Axes</em><em>, </em><em>optional</em>) – Axes to draw on; a new figure is created if omitted.</p></li>
+<li><p><strong>label</strong> (<em>str</em><em>, </em><em>optional</em>) – Legend label.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>matplotlib.axes.Axes</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.communications.visualizers.plot_constellation">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.communications.visualizers.</span></span><span class="sig-name descname"><span class="pre">plot_constellation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">symbols</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/communications/visualizers/plots.html#plot_constellation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.communications.visualizers.plot_constellation" title="Link to this definition">#</a></dt>
+<dd><p>Scatter complex symbols in the in-phase/quadrature plane.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>symbols</strong> (<em>array_like</em>) – Complex (or real) symbols.</p></li>
+<li><p><strong>ax</strong> (<em>matplotlib.axes.Axes</em><em>, </em><em>optional</em>) – Axes to draw on; a new figure is created if omitted.</p></li>
+<li><p><strong>label</strong> (<em>str</em><em>, </em><em>optional</em>) – Legend label.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>matplotlib.axes.Axes</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="signal_processing.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">engineeringkit.signal_processing</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="materials.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">engineeringkit.materials</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.communications.HammingDecodeResult"><code class="docutils literal notranslate"><span class="pre">HammingDecodeResult</span></code></a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.communications.HammingDecodeResult.corrected"><code class="docutils literal notranslate"><span class="pre">HammingDecodeResult.corrected</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.communications.HammingDecodeResult.data"><code class="docutils literal notranslate"><span class="pre">HammingDecodeResult.data</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.communications.HammingDecodeResult.summary"><code class="docutils literal notranslate"><span class="pre">HammingDecodeResult.summary()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.communications.HammingDecodeResult.syndromes"><code class="docutils literal notranslate"><span class="pre">HammingDecodeResult.syndromes</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.communications.am_signal"><code class="docutils literal notranslate"><span class="pre">am_signal()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.communications.ber_bpsk_awgn"><code class="docutils literal notranslate"><span class="pre">ber_bpsk_awgn()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.communications.ber_qpsk_awgn"><code class="docutils literal notranslate"><span class="pre">ber_qpsk_awgn()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.communications.binary_symmetric_capacity"><code class="docutils literal notranslate"><span class="pre">binary_symmetric_capacity()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.communications.bpsk"><code class="docutils literal notranslate"><span class="pre">bpsk()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.communications.carson_bandwidth"><code class="docutils literal notranslate"><span class="pre">carson_bandwidth()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.communications.cascaded_noise_factor"><code class="docutils literal notranslate"><span class="pre">cascaded_noise_factor()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.communications.db"><code class="docutils literal notranslate"><span class="pre">db()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.communications.dbm"><code class="docutils literal notranslate"><span class="pre">dbm()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.communications.dsb_sc"><code class="docutils literal notranslate"><span class="pre">dsb_sc()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.communications.entropy_binary"><code class="docutils literal notranslate"><span class="pre">entropy_binary()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.communications.fm_signal"><code class="docutils literal notranslate"><span class="pre">fm_signal()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.communications.free_space_path_loss"><code class="docutils literal notranslate"><span class="pre">free_space_path_loss()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.communications.free_space_path_loss_db"><code class="docutils literal notranslate"><span class="pre">free_space_path_loss_db()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.communications.friis_received_power"><code class="docutils literal notranslate"><span class="pre">friis_received_power()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.communications.from_db"><code class="docutils literal notranslate"><span class="pre">from_db()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.communications.from_dbm"><code class="docutils literal notranslate"><span class="pre">from_dbm()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.communications.hamming74_decode"><code class="docutils literal notranslate"><span class="pre">hamming74_decode()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.communications.hamming74_encode"><code class="docutils literal notranslate"><span class="pre">hamming74_encode()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.communications.hamming_distance"><code class="docutils literal notranslate"><span class="pre">hamming_distance()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.communications.hartley_capacity"><code class="docutils literal notranslate"><span class="pre">hartley_capacity()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.communications.link_budget_db"><code class="docutils literal notranslate"><span class="pre">link_budget_db()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.communications.noise_figure"><code class="docutils literal notranslate"><span class="pre">noise_figure()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.communications.nyquist_symbol_rate"><code class="docutils literal notranslate"><span class="pre">nyquist_symbol_rate()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.communications.ofdm_demodulate"><code class="docutils literal notranslate"><span class="pre">ofdm_demodulate()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.communications.ofdm_modulate"><code class="docutils literal notranslate"><span class="pre">ofdm_modulate()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.communications.q_function"><code class="docutils literal notranslate"><span class="pre">q_function()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.communications.qpsk"><code class="docutils literal notranslate"><span class="pre">qpsk()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.communications.shannon_capacity"><code class="docutils literal notranslate"><span class="pre">shannon_capacity()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.communications.spectral_efficiency"><code class="docutils literal notranslate"><span class="pre">spectral_efficiency()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.communications.symbol_rate"><code class="docutils literal notranslate"><span class="pre">symbol_rate()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.communications.thermal_noise_power"><code class="docutils literal notranslate"><span class="pre">thermal_noise_power()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.communications.wavelength"><code class="docutils literal notranslate"><span class="pre">wavelength()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-engineeringkit.communications.visualizers">Visualizers</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.communications.visualizers.plot_ber_curve"><code class="docutils literal notranslate"><span class="pre">plot_ber_curve()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.communications.visualizers.plot_constellation"><code class="docutils literal notranslate"><span class="pre">plot_constellation()</span></code></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../_sources/api/communications.rst.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.23.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

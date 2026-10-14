@@ -1,0 +1,28 @@
+engineeringkit.structural_engineering
+=====================================
+
+Elasticity, beams, columns, stress transformations and planar trusses.
+
+.. grid:: 1 2 3 3
+   :gutter: 2
+
+   .. grid-item-card:: History
+      :link: /history/structural_engineering_breakthroughs
+      :link-type: doc
+
+      Foundational ideas linked to the implementation.
+
+   .. grid-item-card:: Examples
+      :link: /api/gallery/structural_engineering/index
+      :link-type: doc
+
+      Executed scripts, plots, source and notebook downloads.
+
+   .. grid-item-card:: API reference
+      :link: /api/structural_engineering
+      :link-type: doc
+
+      Public classes, functions and result objects.
+
+
+:doc:`Units, assumptions and numerical validation </guides/structural_engineering>`.

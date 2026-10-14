@@ -1,0 +1,104 @@
+
+
+.. _sphx_glr_api_gallery_communications_information:
+
+Information and capacity
+------------------------
+
+Signalling rate, entropy and channel capacity.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Harry Nyquist&#x27;s &quot;Certain topics in telegraph transmission theory&quot; (1928) showed that a channel of bandwidth B can carry at most 2B independent pulses per second without intersymbol interference (~engineeringkit.communications.nyquist_symbol_rate). Sinc-shaped pulses spaced 1/2B apart are each zero at all the other sampling instants, so every pulse can be read without seeing its neighbours. Sending faster makes the pulses blur together.">
+
+.. only:: html
+
+  .. image:: /api/gallery/communications/information/images/thumb/sphx_glr_plot_01_nyquist_signalling_rate_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/communications/information/plot_01_nyquist_signalling_rate`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Nyquist's signalling rate: 2B pulses per second</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Ralph Hartley (1928) argued that a message selected from M distinguishable symbols carries \log M units of information, so a channel of bandwidth B carrying 2B symbols per second has a line rate of 2B\log_2 M bits per second (~engineeringkit.communications.hartley_capacity). More levels raise the rate only logarithmically, and noise limits how many levels can be told apart. This example sends multilevel symbols through a noisy channel to show that limit.">
+
+.. only:: html
+
+  .. image:: /api/gallery/communications/information/images/thumb/sphx_glr_plot_02_hartley_law_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/communications/information/plot_02_hartley_law`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Hartley's law: information grows with the logarithm of the levels</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Claude Shannon&#x27;s &quot;A mathematical theory of communication&quot; (1948) measured information by entropy, H = -\sum p\log_2 p. For a binary source entropy_binary peaks at one bit when both symbols are equally likely. The same paper defined channel capacity. A binary symmetric channel that flips each bit with probability p has capacity 1 - H(p) (~engineeringkit.communications.binary_symmetric_capacity): even a very noisy channel can carry information reliably at a reduced rate, and a channel with p = 1/2 carries nothing.">
+
+.. only:: html
+
+  .. image:: /api/gallery/communications/information/images/thumb/sphx_glr_plot_03_shannon_entropy_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/communications/information/plot_03_shannon_entropy`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Shannon's entropy and the binary symmetric channel</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In &quot;Communication in the presence of noise&quot; (1949) Shannon proved that a channel of bandwidth B with white Gaussian noise and signal-to-noise ratio S/N can carry C = B\log_2(1 + S/N) bits per second with arbitrarily small error (~engineeringkit.communications.shannon_capacity), and no more. Writing S/N = (E_b/N_0)(C/B) gives the minimum energy per bit for a given spectral efficiency. As bandwidth becomes unlimited the minimum tends to \ln 2, or -1.59 dB, the Shannon limit.">
+
+.. only:: html
+
+  .. image:: /api/gallery/communications/information/images/thumb/sphx_glr_plot_04_shannon_hartley_capacity_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/communications/information/plot_04_shannon_hartley_capacity`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">The Shannon-Hartley capacity of a noisy band-limited channel</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/communications/information/plot_01_nyquist_signalling_rate
+   /api/gallery/communications/information/plot_02_hartley_law
+   /api/gallery/communications/information/plot_03_shannon_entropy
+   /api/gallery/communications/information/plot_04_shannon_hartley_capacity
+

@@ -1,0 +1,68 @@
+
+
+.. _sphx_glr_api_gallery_communications_noise:
+
+Noise
+-----
+
+Thermal noise and the noise factor of receiver chains.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In 1926-1928 John B. Johnson at Bell Labs measured a random voltage across every resistor, proportional to its resistance and absolute temperature and independent of its material. Harry Nyquist explained it from thermodynamics: the available noise power in a bandwidth B is kTB (~engineeringkit.communications.thermal_noise_power), -174 dBm/Hz at 290 K. This example synthesises white Gaussian noise with that power, measures it after band-limiting, and recovers the open-circuit voltage \sqrt{4kTRB}.">
+
+.. only:: html
+
+  .. image:: /api/gallery/communications/noise/images/thumb/sphx_glr_plot_01_johnson_nyquist_noise_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/communications/noise/plot_01_johnson_nyquist_noise`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Johnson-Nyquist thermal noise</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Harald Friis (1944) defined a receiver&#x27;s noise factor F as the ratio of input to output signal-to-noise ratio and showed that in a chain of stages F = F_1 + (F_2-1)/G_1 + (F_3-1)/(G_1G_2) + \cdots (~engineeringkit.communications.cascaded_noise_factor). Later stages are suppressed by the gain ahead of them, so a low-noise amplifier belongs first. The example checks the formula against a sample-by-sample simulation of noisy amplifiers and compares two orderings of the same parts.">
+
+.. only:: html
+
+  .. image:: /api/gallery/communications/noise/images/thumb/sphx_glr_plot_02_friis_cascaded_noise_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/communications/noise/plot_02_friis_cascaded_noise`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Friis's noise formula for cascaded amplifiers</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/communications/noise/plot_01_johnson_nyquist_noise
+   /api/gallery/communications/noise/plot_02_friis_cascaded_noise
+

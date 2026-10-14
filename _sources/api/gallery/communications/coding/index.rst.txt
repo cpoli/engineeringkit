@@ -1,0 +1,50 @@
+
+
+.. _sphx_glr_api_gallery_communications_coding:
+
+Coding
+------
+
+Single-error-correcting block codes.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Frustrated by weekend computer runs aborted by a single bad relay, Richard Hamming (1950) designed codes that correct errors rather than merely detect them. In the (7,4) code three parity bits sit at positions 1, 2 and 4. When one bit flips, the failing parity checks, read as a binary number, give its position (~engineeringkit.communications.hamming74_encode, hamming74_decode). Any two codewords differ in at least three places (~engineeringkit.communications.hamming_distance), which is what makes single-error correction possible.">
+
+.. only:: html
+
+  .. image:: /api/gallery/communications/coding/images/thumb/sphx_glr_plot_01_hamming_code_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/communications/coding/plot_01_hamming_code`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Hamming's single-error-correcting code</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/communications/coding/plot_01_hamming_code
+

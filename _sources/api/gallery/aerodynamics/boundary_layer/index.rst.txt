@@ -1,0 +1,86 @@
+
+
+.. _sphx_glr_api_gallery_aerodynamics_boundary_layer:
+
+Boundary layers
+---------------
+
+Reynolds-number similarity and laminar/turbulent flat-plate friction.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Osborne Reynolds&#x27; dye experiments (1883) showed that pipe flow turns turbulent when \rho V D/\mu exceeds a critical value, whatever the individual fluid, speed or diameter. The same number (~engineeringkit.aerodynamics.reynolds_number) decides whether a scale model reproduces full-scale flow: matching it at reduced size forces higher speed or denser gas, which is why NACA built a pressurised variable-density tunnel in 1923.">
+
+.. only:: html
+
+  .. image:: /api/gallery/aerodynamics/boundary_layer/images/thumb/sphx_glr_plot_01_reynolds_similarity_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/aerodynamics/boundary_layer/plot_01_reynolds_similarity`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Reynolds' dimensionless number and wind-tunnel similarity</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="At the 1904 Heidelberg congress Ludwig Prandtl proposed that viscosity matters only in a thin boundary layer next to a surface. His student Heinrich Blasius (1908) reduced the flat-plate layer to the ordinary differential equation f&#x27;&#x27;&#x27; + \tfrac12 f f&#x27;&#x27; = 0. Solving it by shooting recovers the constants behind boundary_layer_laminar (\delta_{99} \approx 5x/\sqrt{Re_x}) and skin_friction_laminar (C_f = 1.328/\sqrt{Re_L}).">
+
+.. only:: html
+
+  .. image:: /api/gallery/aerodynamics/boundary_layer/images/thumb/sphx_glr_plot_02_prandtl_blasius_boundary_layer_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/aerodynamics/boundary_layer/plot_02_prandtl_blasius_boundary_layer`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Prandtl's boundary layer and the Blasius solution</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Prandtl (1927) carried Blasius&#x27;s empirical pipe-friction law over to the turbulent flat plate, with a u \propto y^{1/7} velocity profile. The result, C_f = 0.074\,Re_L^{-1/5} (~engineeringkit.aerodynamics.skin_friction_turbulent), decays far more slowly with Reynolds number than the laminar 1.328\,Re_L^{-1/2}; a turbulent layer can carry several times the friction drag. This example compares the two and the payoff of delaying transition.">
+
+.. only:: html
+
+  .. image:: /api/gallery/aerodynamics/boundary_layer/images/thumb/sphx_glr_plot_03_turbulent_skin_friction_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/aerodynamics/boundary_layer/plot_03_turbulent_skin_friction`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Turbulent skin friction and the one-fifth-power law</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/aerodynamics/boundary_layer/plot_01_reynolds_similarity
+   /api/gallery/aerodynamics/boundary_layer/plot_02_prandtl_blasius_boundary_layer
+   /api/gallery/aerodynamics/boundary_layer/plot_03_turbulent_skin_friction
+
