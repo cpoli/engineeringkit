@@ -17,6 +17,10 @@ section, so keep that heading format.
 - Fix the SDOF animation interval argument and integer-input digital filtering.
 - Remove unreachable duplicate validation guards without changing input contracts.
 - Retain all twelve domains, validated models and detailed documentation.
+- Add course material: four cross-domain tutorials, an exercise set with
+  worked solutions for each of the twelve domains, and a quickstart
+  notebook (Colab badge, served in JupyterLite). The docs build runs every
+  tutorial and solution, and the test suite checks the numbers they print.
 
 ## Unpublished development milestones
 

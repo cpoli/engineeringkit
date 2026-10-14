@@ -34,8 +34,8 @@ Issues="https://github.com/cpoli/engineeringkit/issues"
 Changelog="https://github.com/cpoli/engineeringkit/blob/main/CHANGELOG.md"
 [project.optional-dependencies]
 test=["pytest>=7","pytest-cov"]
-docs=["sphinx-design>=0.6","sphinx-gallery>=0.19","sphinx-autodoc-typehints>=2", "sphinx>=7","pydata-sphinx-theme>=0.15","myst-parser>=2"]
-dev=["sphinx-design>=0.6","sphinx-gallery>=0.19","sphinx-autodoc-typehints>=2", "pytest>=7","pytest-cov","sphinx>=7","pydata-sphinx-theme>=0.15","ruff>=0.6","mypy>=1.10","build>=1.2"]
+docs=["sphinx-design>=0.6","sphinx-gallery>=0.19","sphinx-autodoc-typehints>=2", "sphinx>=7","pydata-sphinx-theme>=0.15","myst-parser>=2","jupyterlite-sphinx>=0.17","jupyterlite-pyodide-kernel>=0.4"]
+dev=["sphinx-design>=0.6","sphinx-gallery>=0.19","sphinx-autodoc-typehints>=2", "pytest>=7","pytest-cov","sphinx>=7","pydata-sphinx-theme>=0.15","jupyterlite-sphinx>=0.17","jupyterlite-pyodide-kernel>=0.4","ruff>=0.6","mypy>=1.10","build>=1.2"]
 [tool.setuptools.packages.find]
 include=["engineeringkit*"]
 [tool.pytest.ini_options]

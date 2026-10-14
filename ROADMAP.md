@@ -31,6 +31,8 @@ the `core/ systems/ utils/ visualizers/ tests/` layout (as in
 `aerodynamics`), the public API kept backward compatible through the
 domain's `__init__.py`, a history page in the dated format of
 `communications_breakthroughs.rst`, and the gallery examples named below.
+It also points each "Builds on" link in `docs/source/exercises/<domain>.rst`
+at the new example it uses (until then they link the domain's gallery).
 Tick the box when ruff, mypy, pytest, coverage and the `-W` docs build are green.
 
 - [x] 1. Twelve domains, validation, benchmarks, guides, 100% coverage (0.1.0)
@@ -58,27 +60,27 @@ Tick the box when ruff, mypy, pytest, coverage and the `-W` docs build are green
         and AGENTS.md (they still describe single-module domains and
         `plot_<domain>_models.py`)
   - [ ] Rewrite `docs/source/limitations.rst` around what is still open
-- [ ] 4. Course material (item 4)
+- [x] 4. Course material (item 4): four tutorials, twelve exercise sets,
+      the quickstart notebook and JupyterLite
 
 ## 1. Release infrastructure
 
 **Why.** engineeringkit cannot be cited or installed from PyPI, and the
 hosted docs do not exist. The sibling kits all have this already.
 
-**Now.** The directory is not a git repository. There is only `ci.yml`: no
-`CITATION.cff`, no release or docs workflow. The CHANGELOG says no external
-publication has been made.
+**Now.** The repository is https://github.com/cpoli/engineeringkit, with
+`CITATION.cff`, `release.yml`, `docs.yml` and a 3.10-3.14 Linux/macOS CI
+matrix. Pages serves `gh-pages` at https://cpoli.github.io/engineeringkit/,
+and the `pypi` environment exists. Nothing has been released yet.
 
-**Approach.** Port from physicskit, renaming as needed:
-- `git init` with author cpoli374 <cpoli374@gmail.com>, then create the
-  GitHub repository `cpoli/engineeringkit`.
-- `CITATION.cff`, plus `release.yml`: on a `vX.Y.Z` tag, check the tag
-  against `engineeringkit.__version__` and `CITATION.cff`, build, publish
-  to PyPI with trusted publishing, create the GitHub Release from the
-  CHANGELOG section and rebuild `gh-pages`.
-- `docs.yml`, which deploys `gh-pages` on every push to `main`. Then
-  enable Pages from `gh-pages`.
-- CI matrix to 3.10-3.14, as in physicskit.
+**Still to do.**
+- Add the repository as a trusted publisher on PyPI (pending publisher
+  `engineeringkit`, workflow `release.yml`, environment `pypi`).
+- CI is red until the domain rebuilds pass `test_history_conventions.py`
+  and `test_package.py` (14 tests). Decide whether the first release
+  waits for those or the tests skip unrebuilt domains.
+- Release: date the `## [0.1.0]` CHANGELOG section, add `date-released`
+  to `CITATION.cff`, and push the tag `v0.1.0`.
 - After the first release, enable Zenodo and put that release's own
   **version DOI** (never the concept DOI) in `CITATION.cff` and the README
   badge (`https://zenodo.org/badge/DOI/<version-doi>.svg`).
@@ -126,6 +128,17 @@ should be done there unless it is needed sooner.
   should integrate `M dM/dP / EI` along a beam itself.
 
 ## 4. Course material
+
+**Done** (2026-10-13), ahead of the rebuilds, on the backward-compatible
+domain APIs. Four tutorials in `docs/source/tutorials/` (the four
+candidates below), an exercise set of three problems per domain in
+`docs/source/exercises/`, and `notebooks/quickstart.ipynb` with a Colab
+badge, served in JupyterLite (also wired to the gallery's JupyterLite
+buttons). Tutorials and solutions are `.. plot::` blocks, so the `-W`
+docs build runs them; `engineeringkit/tests/test_course_material.py` runs
+them again and checks each printed number against the `# ` comment written
+under it, and runs the notebook. Colab and JupyterLite install
+engineeringkit from PyPI, so they work once item 1's first release is out.
 
 **Why.** The galleries show one idea at a time. A course also needs
 worked problems that span several functions, and the other kits have
@@ -415,6 +428,13 @@ CHANGELOG.md.
 
 ### Unreleased
 
+**Release infrastructure (item 1, partly).** Git repository and public
+GitHub repository, `CITATION.cff`, tag-driven `release.yml` (version
+check against `__version__`, `pyproject.toml` and `CITATION.cff`, PyPI
+trusted publishing, GitHub Release from the CHANGELOG, `gh-pages`
+rebuild), `docs.yml` deploying `gh-pages` from `main`, Pages enabled, and
+CI over Python 3.10-3.14 on Linux and macOS.
+
 **`aerodynamics` rebuilt.** The domain moved to the `core/systems/utils/
 visualizers` layout. Its history page has 21 dated breakthroughs, from
 Newton and Laplace's speed of sound to Oswald's drag polar, each with its
@@ -422,6 +442,13 @@ own gallery example in eight topic sections.
 
 **`communications` rebuilt.** Same layout. 17 breakthroughs, from Hertz's
 radio waves to OFDM, each with its own example in eight topic sections.
+
+**Course material.** Four tutorials that each follow one problem across
+two or three domains (a beam from load to fatigue life, a feedback loop in
+time and frequency, a power plant from cycle to cooling tower, a radio link
+from antenna to bit errors), twelve exercise sets with worked solutions in
+drop-downs, and a quickstart notebook for Colab and JupyterLite. Every
+printed number is checked by the test suite.
 
 **`control_systems` partly rebuilt.** It has the new layout (`systems/`
 split into transfer, frequency, stability, root locus, PID, state space,

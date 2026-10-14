@@ -8,7 +8,9 @@ The structure follows MathematicsKit at commit
 | `source/index.rst` | Engineering overview, hero plots and grouped domain cards |
 | `source/subpackages/index.rst` | Twelve domain hubs with History / Examples / API doors |
 | `source/history/index.rst` | Grouped cards and `<domain>_breakthroughs.rst` pages |
-| `source/examples/index.rst` | Executed galleries plus tutorials and model guides |
+| `source/examples/index.rst` | Executed galleries plus tutorials, exercises and model guides |
+| `source/tutorials/` | Cross-domain tutorials, one problem each |
+| `source/exercises/` | One exercise set per domain, solutions in drop-downs |
 | `source/api/index.rst` | Domain API cards, shared utilities and validation pages |
 
 `SUBPACKAGES` in `source/conf.py` is the single source of truth for domain names,
@@ -25,9 +27,18 @@ models; they do not yet walk through every public API feature.
 
 The PyData theme, grouped Sphinx-Design cards, NumPy docstrings, viewcode,
 autodoc type descriptions and domain-first navigation follow MathematicsKit.
-EngineeringKit also retains its explicit SI/validity guides. JupyterLite is not
-configured: the package has not been published, so browser notebooks cannot yet
-install a public release as MathematicsKit's notebooks do.
+EngineeringKit also retains its explicit SI/validity guides.
+
+Tutorials and exercise solutions are matplotlib `.. plot::` blocks sharing one
+namespace per page (`:context: reset` on the first block, `:context: close-figs`
+after it). The build runs them, so an exception fails the `-W` build. Under
+each `print`, write the output as `# ` comment lines with no blank line between;
+`engineeringkit/tests/test_course_material.py` runs every block and checks
+those lines. A comment after a blank line is ordinary prose.
+
+`notebooks/quickstart.ipynb` (committed without outputs) and every gallery
+notebook are served in JupyterLite under `lite/`. Their first cell installs
+engineeringkit from PyPI, so they need a published release.
 
 ## Build from source
 

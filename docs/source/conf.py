@@ -18,6 +18,8 @@ extensions = [
     "sphinx_autodoc_typehints",
     "sphinx_gallery.gen_gallery",
     "sphinx_design",
+    "matplotlib.sphinxext.plot_directive",
+    "jupyterlite_sphinx",
 ]
 napoleon_google_docstring = False
 napoleon_numpy_docstring = True
@@ -90,6 +92,21 @@ SUBPACKAGES = [
     },
 ]
 
+
+def _jupyterlite_install_cell(notebook_content, notebook_filename):
+    """Prepend a ``%pip install`` cell so the Pyodide kernel fetches engineeringkit from PyPI."""
+    notebook_content["cells"].insert(
+        0,
+        {
+            "cell_type": "code",
+            "execution_count": None,
+            "metadata": {},
+            "outputs": [],
+            "source": ["%pip install engineeringkit"],
+        },
+    )
+
+
 sphinx_gallery_conf = {
     "examples_dirs": [f"../../examples/{s['name']}" for s in SUBPACKAGES],
     "gallery_dirs": [f"api/gallery/{s['name']}" for s in SUBPACKAGES],
@@ -100,7 +117,33 @@ sphinx_gallery_conf = {
     "doc_module": ("engineeringkit",),
     "abort_on_example_error": True,
     "matplotlib_animations": (True, "jshtml"),
+    # "Launch JupyterLite" button: runs the notebook in the browser on
+    # Pyodide, with no server.
+    "jupyterlite": {
+        "use_jupyter_lab": True,
+        "notebook_modification_function": _jupyterlite_install_cell,
+    },
 }
+
+# The quickstart notebook also ships in the JupyterLite site, so the "Try it
+# online" links open on it; sphinx-gallery appends its own notebooks to this
+# list. Its first cell installs engineeringkit with %pip, which works on Pyodide.
+jupyterlite_contents = ["../../notebooks/quickstart.ipynb"]
+
+# The tutorials and the exercise solutions are `.. plot::` blocks: the build
+# runs them (an exception is a warning, so -W fails), shows their source and
+# embeds their figures. Each page shares one namespace through `:context:`.
+# engineeringkit/tests/test_course_material.py runs the same blocks and
+# checks the output written under each print.
+plot_include_source = True
+plot_html_show_source_link = False
+plot_html_show_formats = False
+plot_formats = [("png", 110)]
+plot_pre_code = ""
+
+# The JupyterLite hook above makes sphinx_gallery_conf unpicklable, which only
+# disables Sphinx's config cache.
+suppress_warnings = ["config.cache"]
 
 
 def _cards(entries):

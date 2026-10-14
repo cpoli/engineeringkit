@@ -84,6 +84,9 @@ names/categories/descriptions and drives generated hub pages, cross-links, and A
 When adding or renaming a domain, update that registry rather than hand-writing new hub/nav pages. Executed
 example galleries live in `examples/<domain>/plot_<domain>_models.py` (+ `plot_<domain>_benchmark.py`) with a
 `README.rst` header; Sphinx-Gallery executes them during the doc build, so example code must actually run.
+Tutorials (`docs/source/tutorials/`) and per-domain exercises (`docs/source/exercises/`) are `.. plot::` blocks
+whose printed output is written as `# ` comments under each print; `engineeringkit/tests/test_course_material.py`
+re-runs them and checks those numbers, so update the comments when a model's output changes.
 
 # Output Guidelines
 - **Be Concise:** Provide direct code and answers first. Omit setup text, fluff, and conversational responses.
