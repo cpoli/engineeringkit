@@ -1,6 +1,6 @@
 r"""
-Brayton's constant-pressure cycle
-=================================
+Brayton's constant-pressure cycle (1872)
+========================================
 
 George Brayton's "Ready Motor" (patented 1872) compressed air in one
 cylinder, burned fuel in it at constant pressure, and expanded the gases in

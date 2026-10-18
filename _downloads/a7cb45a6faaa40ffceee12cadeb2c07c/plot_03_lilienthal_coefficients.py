@@ -1,6 +1,6 @@
 r"""
-Lilienthal's lift and drag coefficients and the polar diagram
-=============================================================
+Lilienthal's lift and drag coefficients and the polar diagram (1889)
+====================================================================
 
 Otto Lilienthal's *Der Vogelflug als Grundlage der Fliegekunst* (1889)
 tabulated the forces on cambered wings measured on a whirling arm, reduced to
@@ -31,6 +31,7 @@ alpha = np.radians(np.arange(-3, 16, 1.5))
 true_cl = 0.3 + 4.6 * alpha - 6.0 * np.clip(alpha - np.radians(10), 0, None)
 true_cd = 0.045 + 0.07 * true_cl**2
 rho, S = 1.225, 0.3
+true_best = float(np.max(glide_ratio(true_cl, true_cd)))
 fig, axes = plt.subplots(1, 2, figsize=(9, 3.8))
 for V, marker in [(8.0, "o"), (12.0, "s")]:
     q = float(dynamic_pressure(rho, V))
@@ -42,6 +43,8 @@ for V, marker in [(8.0, "o"), (12.0, "s")]:
     axes[1].plot(cd, cl, marker, label=f"{V:.0f} m/s")
     best = int(np.argmax(glide_ratio(cl, cd)))
     print(f"{V:4.0f} m/s: best L/D = {glide_ratio(cl[best], cd[best]):.1f} at alpha = {np.degrees(alpha[best]):.1f} deg")
+    assert np.allclose(cl, true_cl, rtol=0.1, atol=0.01) and np.allclose(cd, true_cd, rtol=0.1)
+    assert np.isclose(glide_ratio(cl[best], cd[best]), true_best, rtol=0.1)
 
 # %%
 # Coefficients collapse both runs onto one polar

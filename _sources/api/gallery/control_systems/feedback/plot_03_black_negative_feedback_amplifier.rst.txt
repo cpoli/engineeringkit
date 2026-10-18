@@ -18,8 +18,8 @@
 .. _sphx_glr_api_gallery_control_systems_feedback_plot_03_black_negative_feedback_amplifier.py:
 
 
-Black's negative-feedback amplifier
-===================================
+Black's negative-feedback amplifier (1927)
+==========================================
 
 Harold Black (1927), commuting on the Lackawanna ferry, sketched an
 amplifier that fed a fraction :math:`\beta` of its output back *out of
@@ -117,7 +117,7 @@ Gain traded for bandwidth
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.108 seconds)
+   **Total running time of the script:** (0 minutes 0.054 seconds)
 
 
 .. _sphx_glr_download_api_gallery_control_systems_feedback_plot_03_black_negative_feedback_amplifier.py:

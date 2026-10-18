@@ -18,8 +18,8 @@
 .. _sphx_glr_api_gallery_electrical_engineering_dc_circuits_plot_03_kirchhoff_nodal_analysis.py:
 
 
-Kirchhoff's circuit laws and nodal analysis
-===========================================
+Kirchhoff's circuit laws and nodal analysis (1845)
+==================================================
 
 In 1845, as a student in Königsberg, Gustav Kirchhoff stated the two laws
 that make any network of conductors solvable: the currents meeting at a
@@ -132,7 +132,7 @@ the loop 0-1-2-0: the source rise equals the two resistor drops.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.043 seconds)
+   **Total running time of the script:** (0 minutes 0.027 seconds)
 
 
 .. _sphx_glr_download_api_gallery_electrical_engineering_dc_circuits_plot_03_kirchhoff_nodal_analysis.py:

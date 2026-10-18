@@ -18,8 +18,8 @@
 .. _sphx_glr_api_gallery_aerodynamics_circulation_plot_01_kutta_joukowski_spinning_cylinder.py:
 
 
-The Kutta-Joukowski theorem on a spinning cylinder
-==================================================
+The Kutta-Joukowski theorem on a spinning cylinder (1902-1906)
+==============================================================
 
 Martin Kutta (1902) and Nikolai Joukowski (1906) showed that the lift per unit
 span on any two-dimensional body in a steady inviscid stream is
@@ -92,15 +92,15 @@ On the surface the tangential speed is
 
  .. code-block:: none
 
-    Gamma =    0.0 m^2/s: integrated L' =     0.00, rho V Gamma =     0.00, D' = +1.0e-14 N/m
-    Gamma =   15.7 m^2/s: integrated L' =   384.85, rho V Gamma =   384.85, D' = +3.3e-14 N/m
-    Gamma =   31.4 m^2/s: integrated L' =   769.69, rho V Gamma =   769.69, D' = +3.2e-14 N/m
-    Gamma =   47.1 m^2/s: integrated L' =  1154.54, rho V Gamma =  1154.54, D' = +3.6e-14 N/m
-    Gamma =   62.8 m^2/s: integrated L' =  1539.38, rho V Gamma =  1539.38, D' = -1.3e-14 N/m
-    Gamma =   78.5 m^2/s: integrated L' =  1924.23, rho V Gamma =  1924.23, D' = +2.0e-14 N/m
-    Gamma =   94.2 m^2/s: integrated L' =  2309.07, rho V Gamma =  2309.07, D' = -5.4e-14 N/m
+    Gamma =    0.0 m^2/s: integrated L' =     0.00, rho V Gamma =     0.00, D' = +5.7e-15 N/m
+    Gamma =   15.7 m^2/s: integrated L' =   384.85, rho V Gamma =   384.85, D' = +2.0e-14 N/m
+    Gamma =   31.4 m^2/s: integrated L' =   769.69, rho V Gamma =   769.69, D' = +2.1e-14 N/m
+    Gamma =   47.1 m^2/s: integrated L' =  1154.54, rho V Gamma =  1154.54, D' = +1.2e-14 N/m
+    Gamma =   62.8 m^2/s: integrated L' =  1539.38, rho V Gamma =  1539.38, D' = -1.6e-14 N/m
+    Gamma =   78.5 m^2/s: integrated L' =  1924.23, rho V Gamma =  1924.23, D' = +1.8e-14 N/m
+    Gamma =   94.2 m^2/s: integrated L' =  2309.07, rho V Gamma =  2309.07, D' = -5.7e-14 N/m
     Gamma =  110.0 m^2/s: integrated L' =  2693.92, rho V Gamma =  2693.92, D' = -5.6e-14 N/m
-    Gamma =  125.7 m^2/s: integrated L' =  3078.76, rho V Gamma =  3078.76, D' = -6.0e-14 N/m
+    Gamma =  125.7 m^2/s: integrated L' =  3078.76, rho V Gamma =  3078.76, D' = -6.2e-14 N/m
 
 
 
@@ -149,7 +149,7 @@ Circulation moves the stagnation points down; once
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.116 seconds)
+   **Total running time of the script:** (0 minutes 0.079 seconds)
 
 
 .. _sphx_glr_download_api_gallery_aerodynamics_circulation_plot_01_kutta_joukowski_spinning_cylinder.py:

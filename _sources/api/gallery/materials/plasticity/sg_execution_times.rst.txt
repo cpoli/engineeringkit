@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.322** total execution time for 3 files **from api/gallery/materials/plasticity**:
+**00:00.162** total execution time for 3 files **from api/gallery/materials/plasticity**:
 
 .. container::
 
@@ -33,11 +33,11 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_materials_plasticity_plot_03_hall_petch.py` (``plot_03_hall_petch.py``)
-     - 00:00.132
+     - 00:00.066
      - 0.0
    * - :ref:`sphx_glr_api_gallery_materials_plasticity_plot_01_dislocations.py` (``plot_01_dislocations.py``)
-     - 00:00.115
+     - 00:00.058
      - 0.0
    * - :ref:`sphx_glr_api_gallery_materials_plasticity_plot_02_ramberg_osgood.py` (``plot_02_ramberg_osgood.py``)
-     - 00:00.076
+     - 00:00.038
      - 0.0

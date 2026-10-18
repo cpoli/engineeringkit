@@ -18,8 +18,8 @@
 .. _sphx_glr_api_gallery_materials_yield_plot_01_tresca_criterion.py:
 
 
-Tresca's maximum-shear yield criterion
-======================================
+Tresca's maximum-shear yield criterion (1864)
+=============================================
 
 Henri Tresca (1864) punched and extruded lead, copper and iron through dies
 at the Conservatoire des Arts et Métiers and found that metals flow like a
@@ -135,7 +135,7 @@ Equal biaxial tension yields at :math:`\sigma_y`, not at infinity.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.055 seconds)
+   **Total running time of the script:** (0 minutes 0.027 seconds)
 
 
 .. _sphx_glr_download_api_gallery_materials_yield_plot_01_tresca_criterion.py:

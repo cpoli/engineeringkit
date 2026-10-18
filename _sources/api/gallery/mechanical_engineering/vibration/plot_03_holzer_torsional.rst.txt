@@ -18,8 +18,8 @@
 .. _sphx_glr_api_gallery_mechanical_engineering_vibration_plot_03_holzer_torsional.py:
 
 
-Holzer's method for torsional vibration
-=======================================
+Holzer's method for torsional vibration (1921)
+==============================================
 
 Diesel engines, ship propellers and generators share long shafts that
 can twist resonantly, and a crankshaft that does so breaks. Heinrich Holzer
@@ -141,7 +141,7 @@ stiffness matrix; dropping the zero rigid-body root leaves Holzer's list.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.115 seconds)
+   **Total running time of the script:** (0 minutes 0.060 seconds)
 
 
 .. _sphx_glr_download_api_gallery_mechanical_engineering_vibration_plot_03_holzer_torsional.py:

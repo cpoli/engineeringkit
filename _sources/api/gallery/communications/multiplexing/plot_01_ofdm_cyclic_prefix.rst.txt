@@ -18,8 +18,8 @@
 .. _sphx_glr_api_gallery_communications_multiplexing_plot_01_ofdm_cyclic_prefix.py:
 
 
-OFDM: many subcarriers from one inverse DFT
-===========================================
+OFDM: many subcarriers from one inverse DFT (1966-1971)
+=======================================================
 
 Robert Chang (1966) showed that subcarriers whose spectra overlap remain
 orthogonal if they are spaced by the symbol rate. Stephen Weinstein and Paul
@@ -88,7 +88,7 @@ A multipath channel with and without the cyclic prefix
  .. code-block:: none
 
     cyclic prefix 0: RMS error after one-tap equalisation = 3.26e-01
-    cyclic prefix 8: RMS error after one-tap equalisation = 3.76e-16
+    cyclic prefix 8: RMS error after one-tap equalisation = 3.73e-16
 
 
 
@@ -125,7 +125,7 @@ exactly the channel's frequency response at that subcarrier.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.103 seconds)
+   **Total running time of the script:** (0 minutes 0.052 seconds)
 
 
 .. _sphx_glr_download_api_gallery_communications_multiplexing_plot_01_ofdm_cyclic_prefix.py:

@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.285** total execution time for 3 files **from api/gallery/aerodynamics/wings**:
+**00:00.145** total execution time for 3 files **from api/gallery/aerodynamics/wings**:
 
 .. container::
 
@@ -33,11 +33,11 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_aerodynamics_wings_plot_01_prandtl_lifting_line.py` (``plot_01_prandtl_lifting_line.py``)
-     - 00:00.108
+     - 00:00.057
      - 0.0
    * - :ref:`sphx_glr_api_gallery_aerodynamics_wings_plot_02_induced_drag_elliptic_loading.py` (``plot_02_induced_drag_elliptic_loading.py``)
-     - 00:00.098
+     - 00:00.046
      - 0.0
    * - :ref:`sphx_glr_api_gallery_aerodynamics_wings_plot_03_oswald_drag_polar.py` (``plot_03_oswald_drag_polar.py``)
-     - 00:00.078
+     - 00:00.042
      - 0.0

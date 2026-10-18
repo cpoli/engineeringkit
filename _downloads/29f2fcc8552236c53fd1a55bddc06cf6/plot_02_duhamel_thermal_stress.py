@@ -1,6 +1,6 @@
 r"""
-Duhamel's thermal stress
-========================
+Duhamel's thermal stress (1838)
+===============================
 
 Jean-Marie Duhamel (1838) added temperature to Navier's equations of
 elasticity: a change :math:`\Delta T` produces a free strain

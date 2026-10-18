@@ -18,8 +18,8 @@
 .. _sphx_glr_api_gallery_mechanical_engineering_rotordynamics_plot_01_jeffcott_rotor.py:
 
 
-Jeffcott's rotor and the critical speed
-=======================================
+Jeffcott's rotor and the critical speed (1919)
+==============================================
 
 Rankine (1869) had argued that a shaft could not run stably above its
 whirling speed, yet de Laval's steam turbines of the 1880s and 1890s did
@@ -156,7 +156,7 @@ The bearing force :math:`|k + ic\omega|\,|z|` equals
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 4.577 seconds)
+   **Total running time of the script:** (0 minutes 2.508 seconds)
 
 
 .. _sphx_glr_download_api_gallery_mechanical_engineering_rotordynamics_plot_01_jeffcott_rotor.py:

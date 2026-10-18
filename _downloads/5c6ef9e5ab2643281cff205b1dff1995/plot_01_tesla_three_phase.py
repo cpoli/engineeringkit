@@ -1,6 +1,6 @@
 r"""
-Tesla's polyphase system
-========================
+Tesla's polyphase system (1888)
+===============================
 
 In May 1888 Nikola Tesla presented "A new system of alternate current
 motors and transformers" to the American Institute of Electrical

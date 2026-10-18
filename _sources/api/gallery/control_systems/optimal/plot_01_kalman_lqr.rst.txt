@@ -18,8 +18,8 @@
 .. _sphx_glr_api_gallery_control_systems_optimal_plot_01_kalman_lqr.py:
 
 
-Kalman's linear-quadratic regulator
-===================================
+Kalman's linear-quadratic regulator (1960)
+==========================================
 
 Rudolf Kalman (1960) asked for the state feedback :math:`u = -Kx` that
 minimises :math:`J = \int_0^\infty (x^\mathsf{T}Qx + u^\mathsf{T}Ru)\,dt`.
@@ -137,7 +137,7 @@ period shrinks.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.127 seconds)
+   **Total running time of the script:** (0 minutes 0.069 seconds)
 
 
 .. _sphx_glr_download_api_gallery_control_systems_optimal_plot_01_kalman_lqr.py:

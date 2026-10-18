@@ -18,8 +18,8 @@
 .. _sphx_glr_api_gallery_reliability_lifetimes_plot_04_epstein_sobel_life_testing.py:
 
 
-Epstein and Sobel's exponential life testing
-============================================
+Epstein and Sobel's exponential life testing (1953)
+===================================================
 
 How long must a test run, and with how many units, to demonstrate an MTBF?
 Epstein and Sobel (1953) showed that for exponential lives the *total time
@@ -142,7 +142,7 @@ Repeat the test 300 times
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.140 seconds)
+   **Total running time of the script:** (0 minutes 0.071 seconds)
 
 
 .. _sphx_glr_download_api_gallery_reliability_lifetimes_plot_04_epstein_sobel_life_testing.py:

@@ -18,8 +18,8 @@
 .. _sphx_glr_api_gallery_heat_transfer_conduction_plot_01_fourier_law.py:
 
 
-Fourier's *Théorie analytique de la chaleur*
-============================================
+Fourier's *Théorie analytique de la chaleur* (1822)
+===================================================
 
 Joseph Fourier's 1822 treatise made the heat flux proportional to the
 temperature gradient, :math:`q = -k\,\mathrm{d}T/\mathrm{d}x`, derived the
@@ -170,7 +170,7 @@ largest, at :math:`r_{cr} = k/h`.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.080 seconds)
+   **Total running time of the script:** (0 minutes 0.039 seconds)
 
 
 .. _sphx_glr_download_api_gallery_heat_transfer_conduction_plot_01_fourier_law.py:

@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.109** total execution time for 2 files **from api/gallery/fluid_engineering/hydrostatics**:
+**00:00.058** total execution time for 2 files **from api/gallery/fluid_engineering/hydrostatics**:
 
 .. container::
 
@@ -33,8 +33,8 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_fluid_engineering_hydrostatics_plot_02_stevin_hydrostatic_paradox.py` (``plot_02_stevin_hydrostatic_paradox.py``)
-     - 00:00.055
+     - 00:00.030
      - 0.0
    * - :ref:`sphx_glr_api_gallery_fluid_engineering_hydrostatics_plot_01_archimedes_buoyancy.py` (``plot_01_archimedes_buoyancy.py``)
-     - 00:00.054
+     - 00:00.027
      - 0.0

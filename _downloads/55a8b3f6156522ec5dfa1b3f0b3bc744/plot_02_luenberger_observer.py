@@ -1,6 +1,6 @@
 r"""
-Luenberger's observer
-=====================
+Luenberger's observer (1964)
+============================
 
 State feedback needs every state, but sensors measure only some of them.
 David Luenberger (1964) built the missing states from a copy of the model

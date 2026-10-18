@@ -1,6 +1,6 @@
 r"""
-Barlow and Proschan's age replacement
-=====================================
+Barlow and Proschan's age replacement (1965)
+============================================
 
 Should a part be replaced on a schedule, before it fails? Richard Barlow
 and Frank Proschan answered with renewal theory. Replace at age :math:`T`

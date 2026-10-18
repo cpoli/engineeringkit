@@ -18,8 +18,8 @@
 .. _sphx_glr_api_gallery_control_systems_feedback_plot_02_minorsky_pid_ship_steering.py:
 
 
-Minorsky's PID controller for ship steering
-===========================================
+Minorsky's PID controller for ship steering (1922)
+==================================================
 
 Nicolas Minorsky (1922) watched helmsmen on the battleship *New Mexico* and
 noticed they reacted to the heading error, to how fast it was changing, and
@@ -98,7 +98,7 @@ Heading error caused by a steady wind
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.083 seconds)
+   **Total running time of the script:** (0 minutes 0.037 seconds)
 
 
 .. _sphx_glr_download_api_gallery_control_systems_feedback_plot_02_minorsky_pid_ship_steering.py:

@@ -1,6 +1,6 @@
 r"""
-The Prandtl-Glauert compressibility correction
-==============================================
+The Prandtl-Glauert compressibility correction (1928)
+=====================================================
 
 Hermann Glauert (1928), building on remarks by Prandtl, showed that the
 linearised subsonic potential equation is Laplace's equation in stretched

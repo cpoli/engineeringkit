@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.330** total execution time for 4 files **from api/gallery/aerodynamics/forces**:
+**00:00.170** total execution time for 4 files **from api/gallery/aerodynamics/forces**:
 
 .. container::
 
@@ -33,14 +33,14 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_aerodynamics_forces_plot_02_cayley_lift_and_drag.py` (``plot_02_cayley_lift_and_drag.py``)
-     - 00:00.098
+     - 00:00.052
      - 0.0
    * - :ref:`sphx_glr_api_gallery_aerodynamics_forces_plot_01_bernoulli_dynamic_pressure.py` (``plot_01_bernoulli_dynamic_pressure.py``)
-     - 00:00.096
+     - 00:00.047
      - 0.0
    * - :ref:`sphx_glr_api_gallery_aerodynamics_forces_plot_04_wright_smeaton_stall_speed.py` (``plot_04_wright_smeaton_stall_speed.py``)
-     - 00:00.068
+     - 00:00.036
      - 0.0
    * - :ref:`sphx_glr_api_gallery_aerodynamics_forces_plot_03_lilienthal_coefficients.py` (``plot_03_lilienthal_coefficients.py``)
-     - 00:00.068
+     - 00:00.035
      - 0.0

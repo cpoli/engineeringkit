@@ -18,8 +18,8 @@
 .. _sphx_glr_api_gallery_materials_composites_plot_01_voigt_reuss_bounds.py:
 
 
-Voigt and Reuss: bounds on a composite's stiffness
-==================================================
+Voigt and Reuss: bounds on a composite's stiffness (1889-1929)
+==============================================================
 
 How stiff is a mixture of two phases? Woldemar Voigt (1889) averaged the
 elastic constants of the crystals in a polycrystal on the assumption that
@@ -135,7 +135,7 @@ the shaded band. The band is wide when the phases differ a lot: at
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.063 seconds)
+   **Total running time of the script:** (0 minutes 0.031 seconds)
 
 
 .. _sphx_glr_download_api_gallery_materials_composites_plot_01_voigt_reuss_bounds.py:

@@ -18,8 +18,8 @@
 .. _sphx_glr_api_gallery_heat_transfer_exchangers_plot_01_kays_london_ntu.py:
 
 
-Kays and London: the effectiveness-NTU method
-=============================================
+Kays and London: the effectiveness-NTU method (1955)
+====================================================
 
 The log-mean temperature difference sizes an exchanger when all four end
 temperatures are known (:func:`~engineeringkit.heat_transfer.log_mean_temperature_difference`,
@@ -176,7 +176,7 @@ the water back to its inlet temperature.
 
     water temperature at the far end 300.0000 K (inlet 300.0 K)
 
-    <matplotlib.legend.Legend object at 0x7f53c6031d90>
+    <matplotlib.legend.Legend object at 0x11142fd90>
 
 
 
@@ -216,7 +216,7 @@ Counterflow always beats parallel flow; parallel flow can never exceed
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.093 seconds)
+   **Total running time of the script:** (0 minutes 0.046 seconds)
 
 
 .. _sphx_glr_download_api_gallery_heat_transfer_exchangers_plot_01_kays_london_ntu.py:

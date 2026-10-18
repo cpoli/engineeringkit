@@ -18,8 +18,8 @@
 .. _sphx_glr_api_gallery_structural_engineering_frames_plot_02_planar_frame.py:
 
 
-Livesley's plane frames by direct stiffness
-===========================================
+Livesley's plane frames by direct stiffness (1956)
+==================================================
 
 Moment distribution assumes the joints do not move sideways. A portal
 frame under wind does sway, and hand methods needed an extra correction
@@ -168,7 +168,7 @@ Wind and gravity together
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.204 seconds)
+   **Total running time of the script:** (0 minutes 0.100 seconds)
 
 
 .. _sphx_glr_download_api_gallery_structural_engineering_frames_plot_02_planar_frame.py:

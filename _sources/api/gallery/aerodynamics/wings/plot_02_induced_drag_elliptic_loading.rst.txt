@@ -18,8 +18,8 @@
 .. _sphx_glr_api_gallery_aerodynamics_wings_plot_02_induced_drag_elliptic_loading.py:
 
 
-Induced drag and the optimality of elliptic loading
-===================================================
+Induced drag and the optimality of elliptic loading (1918-1921)
+===============================================================
 
 Prandtl and Max Munk (1918-1919) showed that the trailing vortices carry away
 kinetic energy at a rate that appears as an *induced* drag,
@@ -54,7 +54,7 @@ For :math:`\Gamma \propto \sum A_n \sin n\theta` with lift fixed by
 :math:`A_1`, :math:`e = 1/(1 + \sum_{n>1} n A_n^2/A_1^2)`: any harmonic
 content beyond the ellipse adds drag.
 
-.. GENERATED FROM PYTHON SOURCE LINES 27-41
+.. GENERATED FROM PYTHON SOURCE LINES 27-45
 
 .. code-block:: Python
 
@@ -64,13 +64,17 @@ content beyond the ellipse adds drag.
     loads = {"elliptic": [1.0, 0.0, 0.0], "fuller tips (A3 = -0.1)": [1.0, -0.1, 0.0], "peaky centre (A3 = +0.15)": [1.0, 0.15, 0.02]}
     AR, CL = 8.0, 0.5
     fig, axes = plt.subplots(1, 2, figsize=(9, 3.6))
+    efficiency = {}
     for label, (a1, a3, a5) in loads.items():
         gamma = a1 * np.sin(theta) + a3 * np.sin(3 * theta) + a5 * np.sin(5 * theta)
         e = 1 / (1 + (3 * a3**2 + 5 * a5**2) / a1**2)
+        efficiency[label] = e
         axes[0].plot(y, gamma, label=f"{label}: e = {e:.3f}")
         print(f"{label:28s} e = {e:.4f}, C_Di = {float(induced_drag_coefficient(CL, AR, e)):.5f}")
     axes[0].set(xlabel="spanwise station 2y/b", ylabel="circulation (normalised)", title="Same lift, different loads")
     axes[0].legend(fontsize=8)
+    assert efficiency["elliptic"] == 1.0 and max(efficiency, key=efficiency.get) == "elliptic"
+    assert np.isclose(induced_drag_coefficient(CL, AR, 1.0), CL**2 / (np.pi * AR))
 
 
 
@@ -89,16 +93,15 @@ content beyond the ellipse adds drag.
     fuller tips (A3 = -0.1)      e = 0.9709, C_Di = 0.01025
     peaky centre (A3 = +0.15)    e = 0.9350, C_Di = 0.01064
 
-    <matplotlib.legend.Legend object at 0x7f53c60b9790>
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 42-44
+.. GENERATED FROM PYTHON SOURCE LINES 46-48
 
 Induced drag grows with the square of lift
 ------------------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 44-53
+.. GENERATED FROM PYTHON SOURCE LINES 48-57
 
 .. code-block:: Python
 
@@ -121,7 +124,7 @@ Induced drag grows with the square of lift
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.098 seconds)
+   **Total running time of the script:** (0 minutes 0.046 seconds)
 
 
 .. _sphx_glr_download_api_gallery_aerodynamics_wings_plot_02_induced_drag_elliptic_loading.py:

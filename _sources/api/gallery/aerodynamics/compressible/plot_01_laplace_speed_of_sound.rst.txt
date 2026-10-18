@@ -18,8 +18,8 @@
 .. _sphx_glr_api_gallery_aerodynamics_compressible_plot_01_laplace_speed_of_sound.py:
 
 
-Newton, Laplace and the speed of sound
-======================================
+Newton, Laplace and the speed of sound (1687-1816)
+==================================================
 
 Newton's *Principia* (1687) predicted the speed of sound assuming the
 compressions are isothermal, :math:`a = \sqrt{p/\rho} = \sqrt{RT}`, about 15%
@@ -115,7 +115,7 @@ The same airspeed is a higher Mach number at altitude
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.100 seconds)
+   **Total running time of the script:** (0 minutes 0.052 seconds)
 
 
 .. _sphx_glr_download_api_gallery_aerodynamics_compressible_plot_01_laplace_speed_of_sound.py:

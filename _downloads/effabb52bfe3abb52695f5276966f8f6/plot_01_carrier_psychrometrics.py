@@ -1,6 +1,6 @@
 r"""
-Carrier's psychrometric chart
-=============================
+Carrier's psychrometric chart (1911)
+====================================
 
 In 1902 Willis Carrier designed a system to control the humidity in a
 Brooklyn printing plant, where paper swelling in the summer air spoiled the

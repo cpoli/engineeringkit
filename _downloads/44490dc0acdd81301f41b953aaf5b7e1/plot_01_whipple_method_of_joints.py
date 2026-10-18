@@ -1,6 +1,6 @@
 r"""
-Whipple's method of joints
-==========================
+Whipple's method of joints (1847)
+=================================
 
 American railway bridges of the 1840s were built from rules of thumb, and
 some fell down. Squire Whipple, in *A Work on Bridge Building* (1847),

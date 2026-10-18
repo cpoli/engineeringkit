@@ -1,6 +1,6 @@
 r"""
-Widrow and Hoff's LMS adaptive filter
-=====================================
+Widrow and Hoff's LMS adaptive filter (1960)
+============================================
 
 At Stanford in 1959, Bernard Widrow and his student Ted Hoff looked for a
 way to train an adaptive linear neuron, ADALINE, without knowing the

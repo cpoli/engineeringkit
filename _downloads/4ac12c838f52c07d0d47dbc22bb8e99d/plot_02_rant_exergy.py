@@ -1,6 +1,6 @@
 r"""
-Rant names exergy
-=================
+Rant names exergy (1956)
+========================
 
 Gibbs's available energy, Gouy's *énergie utilisable* and Keenan's
 availability all described the same quantity: the work a stream of energy

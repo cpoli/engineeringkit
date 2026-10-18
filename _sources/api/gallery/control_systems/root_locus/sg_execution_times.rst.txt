@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.070** total execution time for 1 file **from api/gallery/control_systems/root_locus**:
+**00:00.037** total execution time for 1 file **from api/gallery/control_systems/root_locus**:
 
 .. container::
 
@@ -33,5 +33,5 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_control_systems_root_locus_plot_01_evans_root_locus.py` (``plot_01_evans_root_locus.py``)
-     - 00:00.070
+     - 00:00.037
      - 0.0

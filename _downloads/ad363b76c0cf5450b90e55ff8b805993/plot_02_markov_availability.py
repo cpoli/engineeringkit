@@ -1,6 +1,6 @@
 r"""
-Markov models of repairable systems
-===================================
+Markov models of repairable systems (1965)
+==========================================
 
 A repairable unit fails and is mended over and over, so the question is not
 whether it survives but what fraction of time it is up. If failures and

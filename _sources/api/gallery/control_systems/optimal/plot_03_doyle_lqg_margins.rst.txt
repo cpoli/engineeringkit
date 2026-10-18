@@ -18,8 +18,8 @@
 .. _sphx_glr_api_gallery_control_systems_optimal_plot_03_doyle_lqg_margins.py:
 
 
-Doyle's guaranteed margins for LQG: there are none
-==================================================
+Doyle's guaranteed margins for LQG: there are none (1978)
+=========================================================
 
 A full-state LQR loop is famously robust: its Nyquist plot never enters the
 unit disc around :math:`-1`, so it tolerates a gain anywhere in
@@ -153,7 +153,7 @@ Nyquist plots near -1
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.087 seconds)
+   **Total running time of the script:** (0 minutes 0.054 seconds)
 
 
 .. _sphx_glr_download_api_gallery_control_systems_optimal_plot_03_doyle_lqg_margins.py:

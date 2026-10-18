@@ -18,8 +18,8 @@
 .. _sphx_glr_api_gallery_control_systems_stability_plot_03_lyapunov_direct_method.py:
 
 
-Lyapunov's direct method
-========================
+Lyapunov's direct method (1892)
+===============================
 
 Aleksandr Lyapunov's doctoral thesis (1892) proved stability without
 solving the equations of motion. Find an energy-like function
@@ -105,7 +105,7 @@ V decreases at the rate -x'x
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.136 seconds)
+   **Total running time of the script:** (0 minutes 0.071 seconds)
 
 
 .. _sphx_glr_download_api_gallery_control_systems_stability_plot_03_lyapunov_direct_method.py:

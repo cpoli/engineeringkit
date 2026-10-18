@@ -1,6 +1,6 @@
 r"""
-Wien's displacement law
-=======================
+Wien's displacement law (1893)
+==============================
 
 In 1893 Wilhelm Wien imagined blackbody radiation compressed adiabatically
 in a cavity with a moving mirror. Doppler shifts and the second law then

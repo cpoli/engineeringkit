@@ -18,8 +18,8 @@
 .. _sphx_glr_api_gallery_structural_engineering_stability_plot_02_engesser_tangent_modulus.py:
 
 
-Engesser's tangent-modulus load
-===============================
+Engesser's tangent-modulus load (1889)
+======================================
 
 Tests on real columns of intermediate length failed well below Euler's
 load. Friedrich Engesser (1889) argued that once the stress passes the
@@ -147,7 +147,7 @@ A 50 mm square tube with 3 mm walls, pinned at both ends.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.114 seconds)
+   **Total running time of the script:** (0 minutes 0.059 seconds)
 
 
 .. _sphx_glr_download_api_gallery_structural_engineering_stability_plot_02_engesser_tangent_modulus.py:

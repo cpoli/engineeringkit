@@ -18,8 +18,8 @@
 .. _sphx_glr_api_gallery_heat_transfer_radiation_plot_01_kirchhoff_emissivity.py:
 
 
-Kirchhoff's law of thermal radiation
-====================================
+Kirchhoff's law of thermal radiation (1859)
+===========================================
 
 In 1859 Gustav Kirchhoff, explaining the dark lines that Fraunhofer had
 seen in the solar spectrum, proved from the second law that at every
@@ -103,7 +103,7 @@ with :math:`\alpha = 0.9`, :math:`\varepsilon = 0.3`.
     α = ε = 0.3      : final temperature 500.0 K
     α = 0.9, ε = 0.3 : final temperature 658.0 K
 
-    <matplotlib.legend.Legend object at 0x7f53cc059e20>
+    <matplotlib.legend.Legend object at 0x111257390>
 
 
 
@@ -173,7 +173,7 @@ at furnace temperatures it dwarfs natural convection.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.103 seconds)
+   **Total running time of the script:** (0 minutes 0.051 seconds)
 
 
 .. _sphx_glr_download_api_gallery_heat_transfer_radiation_plot_01_kirchhoff_emissivity.py:

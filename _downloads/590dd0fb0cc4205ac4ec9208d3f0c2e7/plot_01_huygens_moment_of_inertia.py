@@ -1,6 +1,6 @@
 r"""
-Huygens's compound pendulum and the parallel-axis theorem
-=========================================================
+Huygens's compound pendulum and the parallel-axis theorem (1673)
+================================================================
 
 Christiaan Huygens (1673) asked how long a simple pendulum must be to swing
 in step with a rigid body pivoted at a point. His answer, the length

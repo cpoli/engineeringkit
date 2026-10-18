@@ -18,8 +18,8 @@
 .. _sphx_glr_api_gallery_communications_information_plot_03_shannon_entropy.py:
 
 
-Shannon's entropy and the binary symmetric channel
-==================================================
+Shannon's entropy and the binary symmetric channel (1948)
+=========================================================
 
 Claude Shannon's "A mathematical theory of communication" (1948) measured
 information by entropy, :math:`H = -\sum p\log_2 p`. For a binary source
@@ -126,7 +126,7 @@ peaks at the uniform input, where it equals :math:`1 - H(p)`.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.120 seconds)
+   **Total running time of the script:** (0 minutes 0.062 seconds)
 
 
 .. _sphx_glr_download_api_gallery_communications_information_plot_03_shannon_entropy.py:

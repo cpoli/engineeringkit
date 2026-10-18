@@ -18,8 +18,8 @@
 .. _sphx_glr_api_gallery_heat_transfer_radiation_plot_04_nusselt_view_factor.py:
 
 
-Nusselt's unit-sphere view factor
-=================================
+Nusselt's unit-sphere view factor (1928)
+========================================
 
 How much of the radiation leaving one diffuse surface lands on another? The
 view factor is a fourfold integral of :math:`\cos\theta_1\cos\theta_2/\pi r^2`.
@@ -180,7 +180,7 @@ better than the reverse.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.199 seconds)
+   **Total running time of the script:** (0 minutes 0.125 seconds)
 
 
 .. _sphx_glr_download_api_gallery_heat_transfer_radiation_plot_04_nusselt_view_factor.py:

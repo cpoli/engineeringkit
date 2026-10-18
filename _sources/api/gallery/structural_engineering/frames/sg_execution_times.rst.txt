@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.350** total execution time for 2 files **from api/gallery/structural_engineering/frames**:
+**00:00.241** total execution time for 2 files **from api/gallery/structural_engineering/frames**:
 
 .. container::
 
@@ -32,9 +32,9 @@ Computation times
    * - Example
      - Time
      - Mem (MB)
-   * - :ref:`sphx_glr_api_gallery_structural_engineering_frames_plot_02_planar_frame.py` (``plot_02_planar_frame.py``)
-     - 00:00.204
-     - 0.0
    * - :ref:`sphx_glr_api_gallery_structural_engineering_frames_plot_01_hardy_cross_moment_distribution.py` (``plot_01_hardy_cross_moment_distribution.py``)
-     - 00:00.146
+     - 00:00.141
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_structural_engineering_frames_plot_02_planar_frame.py` (``plot_02_planar_frame.py``)
+     - 00:00.100
      - 0.0

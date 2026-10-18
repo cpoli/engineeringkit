@@ -10,10 +10,10 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://cpoli.github.io/engineeringkit/api/gallery/reliability/risk/index.html" />
 <meta property="og:site_name" content="engineeringkit" />
-<meta property="og:description" content="Fault trees, event trees and the safety integrity of protection systems. Watson’s fault tree WASH-1400: event trees IEC 61508 and safety integrity levels" />
+<meta property="og:description" content="Fault trees, event trees and the safety integrity of protection systems. Watson’s fault tree (1961) WASH-1400: event trees (1975) IEC 61508 and safety integrity levels (1998)" />
 <meta property="og:image" content="https://cpoli.github.io/engineeringkit/_static/images/readme_hero.png" />
 <meta property="og:image:alt" content="engineeringkit" />
-<meta name="description" content="Fault trees, event trees and the safety integrity of protection systems. Watson’s fault tree WASH-1400: event trees IEC 61508 and safety integrity levels" />
+<meta name="description" content="Fault trees, event trees and the safety integrity of protection systems. Watson’s fault tree (1961) WASH-1400: event trees (1975) IEC 61508 and safety integrity levels (1998)" />
 
     <title>Risk &#8212; engineeringkit</title>
   
@@ -34,12 +34,11 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../../_static/styles/theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
-<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
+  <link href="../../../../_static/styles/theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=8f2a1f02" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx_autodoc_typehints.css?v=057ac668" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/plot_directive.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/plot_directive.css?v=7f9a90b1" />
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Vibur" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/jupyterlite_sphinx.css?v=f676e775" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery.css?v=c83e6b79" />
@@ -50,10 +49,10 @@
     <link rel="stylesheet" type="text/css" href="../../../../_static/engineeringkit.css?v=62935cec" />
   
   <!-- So that users can add custom icons -->
-  <script defer src="../../../../_static/scripts/fontawesome.js?digest=18bd87630a240e9c25be"></script>
+  <script defer src="../../../../_static/scripts/fontawesome.js?digest=64cc4de3f052d77215f0"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be" />
-<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be" />
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0" />
 
     <script src="../../../../_static/documentation_options.js?v=38b66d78"></script>
     <script src="../../../../_static/doctools.js?v=fd6eb6e6"></script>
@@ -66,10 +65,9 @@
     <link rel="canonical" href="https://cpoli.github.io/engineeringkit/api/gallery/reliability/risk/index.html" />
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
-    <link rel="next" title="Watson’s fault tree" href="plot_01_watson_fault_tree.html" />
-    <link rel="prev" title="Markov models of repairable systems" href="../maintenance/plot_02_markov_availability.html" />
+    <link rel="next" title="Watson’s fault tree (1961)" href="plot_01_watson_fault_tree.html" />
+    <link rel="prev" title="Markov models of repairable systems (1965)" href="../maintenance/plot_02_markov_availability.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="color-scheme" content="light dark"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
   
@@ -559,14 +557,14 @@
 <span id="sphx-glr-api-gallery-reliability-risk"></span><h1>Risk<a class="headerlink" href="#risk" title="Link to this heading">#</a></h1>
 <p>Fault trees, event trees and the safety integrity of protection systems.</p>
 <div id='sg-tag-list' class='sphx-glr-tag-list'></div><div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="In 1961 the US Air Force asked Bell Telephone Laboratories whether the Minuteman launch-control system could fire a missile without a valid order. H. A. Watson&#x27;s answer was a new diagram, the fault tree. It starts from the undesired top event and works downward through AND gates (every input must happen) and OR gates (any input will do) until it reaches basic failures whose probabilities are known (~engineeringkit.reliability.fault_tree_probability). Boeing took the method into the rest of the Minuteman programme, and it spread to aviation and nuclear safety. One trap is an event that feeds more than one branch: the gate inputs are then dependent, and combining gates one by one gives the wrong answer."><img alt="" src="../../../../_images/sphx_glr_plot_01_watson_fault_tree_thumb.png" />
-<p><a class="reference internal" href="plot_01_watson_fault_tree.html"><span class="doc">Watson’s fault tree</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Watson's fault tree</div>
+<p><a class="reference internal" href="plot_01_watson_fault_tree.html"><span class="doc">Watson’s fault tree (1961)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Watson's fault tree (1961)</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="The Reactor Safety Study (WASH-1400, 1975), led by Norman Rasmussen, was the first attempt to put a number on the risk of a nuclear power plant. Its method worked forward from each initiating event, such as a pipe break, and asked in turn whether each safety system worked. Every path through the resulting event tree is an accident sequence. Its frequency is the initiator&#x27;s frequency times the branch probabilities (~engineeringkit.reliability.event_tree_probability). Fault trees supplied those branch probabilities. The study was criticised for its uncertainty bounds, but the Three Mile Island accident of 1979 followed a small-break sequence of the kind it had ranked among the most likely, and probabilistic risk assessment became standard practice."><img alt="" src="../../../../_images/sphx_glr_plot_02_wash1400_event_tree_thumb.png" />
-<p><a class="reference internal" href="plot_02_wash1400_event_tree.html"><span class="doc">WASH-1400: event trees</span></a></p>
-  <div class="sphx-glr-thumbnail-title">WASH-1400: event trees</div>
+<p><a class="reference internal" href="plot_02_wash1400_event_tree.html"><span class="doc">WASH-1400: event trees (1975)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">WASH-1400: event trees (1975)</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="Programmable electronics took over process trips, railway signalling and machine guards in the 1980s, and nobody could say how safe a software-based protection system was. The International Electrotechnical Commission&#x27;s answer, IEC 61508 (first parts published 1998), grades each safety function by the risk reduction it must achieve. For a function that acts only on rare demands, the measure is its average probability of failure on demand. A dangerous fault that no self-test detects stays hidden until the next proof test, so the channel&#x27;s unavailability rises from zero after each test, and over an interval T it averages \lambda_{DU} T/2 (~engineeringkit.reliability.safety_integrity_pfd). Each decade of PFDavg is one safety integrity level (~engineeringkit.reliability.safety_integrity_level)."><img alt="" src="../../../../_images/sphx_glr_plot_03_iec61508_sil_thumb.png" />
-<p><a class="reference internal" href="plot_03_iec61508_sil.html"><span class="doc">IEC 61508 and safety integrity levels</span></a></p>
-  <div class="sphx-glr-thumbnail-title">IEC 61508 and safety integrity levels</div>
+<p><a class="reference internal" href="plot_03_iec61508_sil.html"><span class="doc">IEC 61508 and safety integrity levels (1998)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">IEC 61508 and safety integrity levels (1998)</div>
 </div></div><div class="toctree-wrapper compound">
 </div>
 </section>
@@ -587,7 +585,7 @@
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Markov models of repairable systems</p>
+        <p class="prev-next-title">Markov models of repairable systems (1965)</p>
       </div>
     </a>
     <a class="right-next"
@@ -595,7 +593,7 @@
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Watson’s fault tree</p>
+        <p class="prev-next-title">Watson’s fault tree (1961)</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -632,8 +630,8 @@
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../../../_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be"></script>
-<script defer src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be"></script>
+  <script defer src="../../../../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0"></script>
+<script defer src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -656,7 +654,7 @@
         <div class="footer-item">
 <p class="theme-version">
   <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.23.0.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.22.0.
 </p></div>
       
     </div>

@@ -37,7 +37,7 @@ oscillates at the limit. Check with the closed-loop poles.
       # K = 61: first column [ 1.     6.    -0.167 67.   ], stable False
 
       poles = np.roots(den + [0, 0, 0, 60.0])
-      print("poles at K = 60:", np.round(np.sort_complex(poles), 4))
+      print("poles at K = 60:", np.round(np.sort_complex(poles), 4) + 0.0)  # + 0.0 turns -0. into 0.
       # poles at K = 60: [-6.+0.j      0.-3.3166j  0.+3.3166j]
       assert np.isclose(np.abs(poles.imag).max(), np.sqrt(11))
 

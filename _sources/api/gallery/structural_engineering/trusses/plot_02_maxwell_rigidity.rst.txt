@@ -18,8 +18,8 @@
 .. _sphx_glr_api_gallery_structural_engineering_trusses_plot_02_maxwell_rigidity.py:
 
 
-Maxwell's rigidity count and reciprocal theorem
-===============================================
+Maxwell's rigidity count and reciprocal theorem (1864)
+======================================================
 
 James Clerk Maxwell's short 1864 paper "On the calculation of the
 equilibrium and stiffness of frames" made two contributions. First, a
@@ -148,7 +148,7 @@ symmetric.
  .. code-block:: none
 
     delta_ij = 3.9645e-08 m/N, delta_ji = 3.9645e-08 m/N
-    largest asymmetry of the flexibility matrix: 1.3e-23 m/N
+    largest asymmetry of the flexibility matrix: 2.6e-23 m/N
 
 
 
@@ -156,7 +156,7 @@ symmetric.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.079 seconds)
+   **Total running time of the script:** (0 minutes 0.044 seconds)
 
 
 .. _sphx_glr_download_api_gallery_structural_engineering_trusses_plot_02_maxwell_rigidity.py:

@@ -1,6 +1,6 @@
 r"""
-Kelvin's age of the Earth
-=========================
+Kelvin's age of the Earth (1862)
+================================
 
 In 1862 William Thomson, later Lord Kelvin, treated the Earth as a
 semi-infinite solid that began at a uniform molten temperature and has

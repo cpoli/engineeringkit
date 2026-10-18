@@ -18,8 +18,8 @@
 .. _sphx_glr_api_gallery_reliability_maintenance_plot_01_barlow_proschan_replacement.py:
 
 
-Barlow and Proschan's age replacement
-=====================================
+Barlow and Proschan's age replacement (1965)
+============================================
 
 Should a part be replaced on a schedule, before it fails? Richard Barlow
 and Frank Proschan answered with renewal theory. Replace at age :math:`T`
@@ -168,7 +168,7 @@ run-to-failure value; the constant-hazard baseline
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.088 seconds)
+   **Total running time of the script:** (0 minutes 0.044 seconds)
 
 
 .. _sphx_glr_download_api_gallery_reliability_maintenance_plot_01_barlow_proschan_replacement.py:

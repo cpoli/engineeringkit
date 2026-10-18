@@ -1,6 +1,6 @@
 r"""
-The Kalman-Bucy filter
-======================
+The Kalman-Bucy filter (1961)
+=============================
 
 A state estimator must trade trust in the model against trust in the
 measurement. Rudolf Kalman and Richard Bucy (1961) found the gain that

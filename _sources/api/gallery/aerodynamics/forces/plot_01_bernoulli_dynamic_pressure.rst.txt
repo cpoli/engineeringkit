@@ -18,8 +18,8 @@
 .. _sphx_glr_api_gallery_aerodynamics_forces_plot_01_bernoulli_dynamic_pressure.py:
 
 
-Bernoulli's dynamic pressure and the pitot-static airspeed
-==========================================================
+Bernoulli's dynamic pressure and the pitot-static airspeed (1738)
+=================================================================
 
 Daniel Bernoulli's *Hydrodynamica* (1738) traded pressure for speed along a
 streamline: :math:`p + \tfrac12\rho V^2` is constant. A pitot tube brings the
@@ -131,7 +131,7 @@ the true airspeed is larger by :math:`\sqrt{\rho_0/\rho}`.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.096 seconds)
+   **Total running time of the script:** (0 minutes 0.047 seconds)
 
 
 .. _sphx_glr_download_api_gallery_aerodynamics_forces_plot_01_bernoulli_dynamic_pressure.py:

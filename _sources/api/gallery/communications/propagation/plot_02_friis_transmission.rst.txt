@@ -18,8 +18,8 @@
 .. _sphx_glr_api_gallery_communications_propagation_plot_02_friis_transmission.py:
 
 
-The Friis transmission formula
-==============================
+The Friis transmission formula (1946)
+=====================================
 
 Harald Friis (1946) wrote the received power between two antennas in free
 space as :math:`P_r = P_t G_t G_r (\lambda/4\pi d)^2`
@@ -115,7 +115,7 @@ Higher frequency, same antennas: more loss
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.216 seconds)
+   **Total running time of the script:** (0 minutes 0.110 seconds)
 
 
 .. _sphx_glr_download_api_gallery_communications_propagation_plot_02_friis_transmission.py:

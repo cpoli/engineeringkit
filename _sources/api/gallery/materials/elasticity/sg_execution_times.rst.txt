@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.263** total execution time for 3 files **from api/gallery/materials/elasticity**:
+**00:00.131** total execution time for 3 files **from api/gallery/materials/elasticity**:
 
 .. container::
 
@@ -33,11 +33,11 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_materials_elasticity_plot_03_lame_constants.py` (``plot_03_lame_constants.py``)
-     - 00:00.104
+     - 00:00.052
      - 0.0
    * - :ref:`sphx_glr_api_gallery_materials_elasticity_plot_01_young_modulus.py` (``plot_01_young_modulus.py``)
-     - 00:00.093
+     - 00:00.045
      - 0.0
    * - :ref:`sphx_glr_api_gallery_materials_elasticity_plot_02_duhamel_thermal_stress.py` (``plot_02_duhamel_thermal_stress.py``)
-     - 00:00.066
+     - 00:00.034
      - 0.0

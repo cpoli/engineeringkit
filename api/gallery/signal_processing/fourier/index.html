@@ -10,10 +10,10 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://cpoli.github.io/engineeringkit/api/gallery/signal_processing/fourier/index.html" />
 <meta property="og:site_name" content="engineeringkit" />
-<meta property="og:description" content="Fourier series and the fast Fourier transform. Gibbs’s phenomenon Cooley and Tukey’s fast Fourier transform" />
+<meta property="og:description" content="Fourier series and the fast Fourier transform. Gibbs’s phenomenon (1899) Cooley and Tukey’s fast Fourier transform (1965)" />
 <meta property="og:image" content="https://cpoli.github.io/engineeringkit/_static/images/readme_hero.png" />
 <meta property="og:image:alt" content="engineeringkit" />
-<meta name="description" content="Fourier series and the fast Fourier transform. Gibbs’s phenomenon Cooley and Tukey’s fast Fourier transform" />
+<meta name="description" content="Fourier series and the fast Fourier transform. Gibbs’s phenomenon (1899) Cooley and Tukey’s fast Fourier transform (1965)" />
 
     <title>Fourier analysis &#8212; engineeringkit</title>
   
@@ -34,12 +34,11 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../../_static/styles/theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
-<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
+  <link href="../../../../_static/styles/theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=8f2a1f02" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx_autodoc_typehints.css?v=057ac668" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/plot_directive.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/plot_directive.css?v=7f9a90b1" />
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Vibur" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/jupyterlite_sphinx.css?v=f676e775" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery.css?v=c83e6b79" />
@@ -50,10 +49,10 @@
     <link rel="stylesheet" type="text/css" href="../../../../_static/engineeringkit.css?v=62935cec" />
   
   <!-- So that users can add custom icons -->
-  <script defer src="../../../../_static/scripts/fontawesome.js?digest=18bd87630a240e9c25be"></script>
+  <script defer src="../../../../_static/scripts/fontawesome.js?digest=64cc4de3f052d77215f0"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be" />
-<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be" />
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0" />
 
     <script src="../../../../_static/documentation_options.js?v=38b66d78"></script>
     <script src="../../../../_static/doctools.js?v=fd6eb6e6"></script>
@@ -66,10 +65,9 @@
     <link rel="canonical" href="https://cpoli.github.io/engineeringkit/api/gallery/signal_processing/fourier/index.html" />
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
-    <link rel="next" title="Gibbs’s phenomenon" href="plot_01_gibbs_phenomenon.html" />
-    <link rel="prev" title="Jackson’s cascaded second-order sections" href="../filters/plot_06_second_order_sections.html" />
+    <link rel="next" title="Gibbs’s phenomenon (1899)" href="plot_01_gibbs_phenomenon.html" />
+    <link rel="prev" title="Jackson’s cascaded second-order sections (1970)" href="../filters/plot_06_second_order_sections.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="color-scheme" content="light dark"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
   
@@ -559,11 +557,11 @@
 <span id="sphx-glr-api-gallery-signal-processing-fourier"></span><h1>Fourier analysis<a class="headerlink" href="#fourier-analysis" title="Link to this heading">#</a></h1>
 <p>Fourier series and the fast Fourier transform.</p>
 <div id='sg-tag-list' class='sphx-glr-tag-list'></div><div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Albert Michelson&#x27;s harmonic analyser (1898) summed 80 Fourier terms mechanically, and its curves for a square wave overshot at every jump. Michelson suspected the machine. Josiah Willard Gibbs (1899) showed in Nature that the mathematics itself overshoots: near a discontinuity the partial sums (~engineeringkit.signal_processing.fourier_partial_sum) rise about 9% of the jump above it, however many terms are kept. The overshoot only narrows toward the jump. Henry Wilbraham had found the same effect in 1848, unnoticed."><img alt="" src="../../../../_images/sphx_glr_plot_01_gibbs_phenomenon_thumb.png" />
-<p><a class="reference internal" href="plot_01_gibbs_phenomenon.html"><span class="doc">Gibbs’s phenomenon</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Gibbs's phenomenon</div>
+<p><a class="reference internal" href="plot_01_gibbs_phenomenon.html"><span class="doc">Gibbs’s phenomenon (1899)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Gibbs's phenomenon (1899)</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="A direct DFT of N samples needs N^2 complex multiplications. James Cooley and John Tukey (1965) split it into the DFTs of the even- and odd-numbered samples, combined by &quot;butterflies&quot; E_k \pm W^k O_k, and repeated the split down to single samples (~engineeringkit.signal_processing.radix2_fft). The cost falls to (N/2)\log_2 N. Gauss had used the same idea in 1805 to interpolate asteroid orbits. In 1965 it made spectral analysis on a computer routine, and it is what dft (NumPy&#x27;s FFT) does."><img alt="" src="../../../../_images/sphx_glr_plot_02_cooley_tukey_fft_thumb.png" />
-<p><a class="reference internal" href="plot_02_cooley_tukey_fft.html"><span class="doc">Cooley and Tukey’s fast Fourier transform</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Cooley and Tukey's fast Fourier transform</div>
+<p><a class="reference internal" href="plot_02_cooley_tukey_fft.html"><span class="doc">Cooley and Tukey’s fast Fourier transform (1965)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Cooley and Tukey's fast Fourier transform (1965)</div>
 </div></div><div class="toctree-wrapper compound">
 </div>
 </section>
@@ -584,7 +582,7 @@
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Jackson’s cascaded second-order sections</p>
+        <p class="prev-next-title">Jackson’s cascaded second-order sections (1970)</p>
       </div>
     </a>
     <a class="right-next"
@@ -592,7 +590,7 @@
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Gibbs’s phenomenon</p>
+        <p class="prev-next-title">Gibbs’s phenomenon (1899)</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -629,8 +627,8 @@
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../../../_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be"></script>
-<script defer src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be"></script>
+  <script defer src="../../../../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0"></script>
+<script defer src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -653,7 +651,7 @@
         <div class="footer-item">
 <p class="theme-version">
   <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.23.0.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.22.0.
 </p></div>
       
     </div>

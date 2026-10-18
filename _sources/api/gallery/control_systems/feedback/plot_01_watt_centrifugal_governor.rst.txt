@@ -18,8 +18,8 @@
 .. _sphx_glr_api_gallery_control_systems_feedback_plot_01_watt_centrifugal_governor.py:
 
 
-Watt's centrifugal governor and proportional droop
-==================================================
+Watt's centrifugal governor and proportional droop (1788)
+=========================================================
 
 James Watt's flyball governor (1788) closed the steam valve as the engine
 sped up: the throttle moved *in proportion* to the speed error. Model the
@@ -101,7 +101,7 @@ The load torque enters at the plant input, so the speed disturbance is
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.077 seconds)
+   **Total running time of the script:** (0 minutes 0.039 seconds)
 
 
 .. _sphx_glr_download_api_gallery_control_systems_feedback_plot_01_watt_centrifugal_governor.py:

@@ -1,6 +1,6 @@
 r"""
-Hardy Cross's method for pipe networks
-======================================
+Hardy Cross's method for pipe networks (1936)
+=============================================
 
 A city's water mains form loops, and the flow in each pipe is fixed by two
 sets of conditions: continuity at every junction, and zero net head loss

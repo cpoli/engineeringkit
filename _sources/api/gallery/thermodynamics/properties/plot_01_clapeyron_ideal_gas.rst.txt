@@ -18,8 +18,8 @@
 .. _sphx_glr_api_gallery_thermodynamics_properties_plot_01_clapeyron_ideal_gas.py:
 
 
-Clapeyron's ideal gas law
-=========================
+Clapeyron's ideal gas law (1834)
+================================
 
 Boyle (1662) and Mariotte found that at fixed temperature a gas's pressure
 times its volume stays constant. Gay-Lussac (1802) found that at fixed
@@ -85,7 +85,7 @@ hotter isotherm lies above a colder one.
  .. code-block:: none
 
 
-    <matplotlib.legend.Legend object at 0x7f53c626b500>
+    <matplotlib.legend.Legend object at 0x111108550>
 
 
 
@@ -172,7 +172,7 @@ At 0 °C and one standard atmosphere one mole of any ideal gas fills
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.083 seconds)
+   **Total running time of the script:** (0 minutes 0.041 seconds)
 
 
 .. _sphx_glr_download_api_gallery_thermodynamics_properties_plot_01_clapeyron_ideal_gas.py:

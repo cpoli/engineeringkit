@@ -1,6 +1,6 @@
 r"""
-Joule and the first law
-=======================
+Joule and the first law (1843-1850)
+===================================
 
 James Prescott Joule spent the 1840s showing that a given amount of work,
 however it is done, always produces the same amount of heat. In his best

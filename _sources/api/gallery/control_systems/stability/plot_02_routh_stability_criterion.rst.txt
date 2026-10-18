@@ -18,8 +18,8 @@
 .. _sphx_glr_api_gallery_control_systems_stability_plot_02_routh_stability_criterion.py:
 
 
-Routh's stability criterion
-===========================
+Routh's stability criterion (1877)
+==================================
 
 Maxwell could not state a test for polynomials above fourth order. Edward
 Routh's Adams Prize essay (1877) solved the problem with a table built from
@@ -125,7 +125,7 @@ A fifth-order example
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.059 seconds)
+   **Total running time of the script:** (0 minutes 0.033 seconds)
 
 
 .. _sphx_glr_download_api_gallery_control_systems_stability_plot_02_routh_stability_criterion.py:

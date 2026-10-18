@@ -1,6 +1,6 @@
 r"""
-Perkins's vapour-compression refrigerator
-=========================================
+Perkins's vapour-compression refrigerator (1834)
+================================================
 
 In 1834 Jacob Perkins, an American engineer in London, patented a machine
 that evaporated ether at low pressure to absorb heat, compressed the vapour

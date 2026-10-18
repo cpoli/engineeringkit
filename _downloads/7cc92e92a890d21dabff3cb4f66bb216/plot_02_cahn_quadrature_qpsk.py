@@ -1,6 +1,6 @@
 r"""
-Quadrature modulation: QPSK doubles the rate at the same error rate
-===================================================================
+Quadrature modulation: QPSK doubles the rate at the same error rate (1960)
+==========================================================================
 
 Charles Cahn's 1960 analysis of combined phase and amplitude modulation
 formalised what quadrature carriers make possible. Cosine and sine carriers

@@ -18,8 +18,8 @@
 .. _sphx_glr_api_gallery_control_systems_frequency_plot_02_bode_stability_margins.py:
 
 
-Bode's gain and phase margins
-=============================
+Bode's gain and phase margins (1940)
+====================================
 
 Hendrik Bode (1940, 1945) turned Nyquist's criterion into design numbers
 read off a logarithmic plot of gain and phase
@@ -101,7 +101,7 @@ Independent checks
  .. code-block:: none
 
 
-    <matplotlib.legend.Legend object at 0x7f53cc089d30>
+    <matplotlib.legend.Legend object at 0x1111c56d0>
 
 
 
@@ -169,7 +169,7 @@ logarithmic scale, here the upper one.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.197 seconds)
+   **Total running time of the script:** (0 minutes 0.101 seconds)
 
 
 .. _sphx_glr_download_api_gallery_control_systems_frequency_plot_02_bode_stability_margins.py:

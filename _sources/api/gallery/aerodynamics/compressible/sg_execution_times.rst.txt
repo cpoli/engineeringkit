@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.647** total execution time for 6 files **from api/gallery/aerodynamics/compressible**:
+**00:00.335** total execution time for 6 files **from api/gallery/aerodynamics/compressible**:
 
 .. container::
 
@@ -33,20 +33,20 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_aerodynamics_compressible_plot_06_de_laval_nozzle.py` (``plot_06_de_laval_nozzle.py``)
-     - 00:00.188
+     - 00:00.094
      - 0.0
    * - :ref:`sphx_glr_api_gallery_aerodynamics_compressible_plot_05_rankine_hugoniot_normal_shock.py` (``plot_05_rankine_hugoniot_normal_shock.py``)
-     - 00:00.129
+     - 00:00.072
      - 0.0
    * - :ref:`sphx_glr_api_gallery_aerodynamics_compressible_plot_01_laplace_speed_of_sound.py` (``plot_01_laplace_speed_of_sound.py``)
-     - 00:00.100
+     - 00:00.052
      - 0.0
    * - :ref:`sphx_glr_api_gallery_aerodynamics_compressible_plot_03_saint_venant_stagnation.py` (``plot_03_saint_venant_stagnation.py``)
-     - 00:00.097
+     - 00:00.051
      - 0.0
    * - :ref:`sphx_glr_api_gallery_aerodynamics_compressible_plot_04_prandtl_glauert.py` (``plot_04_prandtl_glauert.py``)
-     - 00:00.081
+     - 00:00.040
      - 0.0
    * - :ref:`sphx_glr_api_gallery_aerodynamics_compressible_plot_02_mach_cone.py` (``plot_02_mach_cone.py``)
-     - 00:00.052
+     - 00:00.027
      - 0.0

@@ -18,8 +18,8 @@
 .. _sphx_glr_api_gallery_signal_processing_filters_plot_03_wiener_filter.py:
 
 
-Wiener's optimal filter
-=======================
+Wiener's optimal filter (1949)
+==============================
 
 Asked during the war to predict the path of an aircraft from noisy radar
 data, Norbert Wiener posed filtering as an optimization: find the linear
@@ -196,7 +196,7 @@ error than the Wiener filter.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.140 seconds)
+   **Total running time of the script:** (0 minutes 0.058 seconds)
 
 
 .. _sphx_glr_download_api_gallery_signal_processing_filters_plot_03_wiener_filter.py:

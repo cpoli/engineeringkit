@@ -18,8 +18,8 @@
 .. _sphx_glr_api_gallery_control_systems_sampled_plot_01_ragazzini_zadeh_zero_order_hold.py:
 
 
-Ragazzini and Zadeh's sampled-data systems
-==========================================
+Ragazzini and Zadeh's sampled-data systems (1952)
+=================================================
 
 When a digital computer closes the loop it reads the plant only at sampling
 instants and holds each command constant until the next. John Ragazzini and
@@ -103,7 +103,7 @@ Exact recursion against a fine continuous simulation
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.088 seconds)
+   **Total running time of the script:** (0 minutes 0.047 seconds)
 
 
 .. _sphx_glr_download_api_gallery_control_systems_sampled_plot_01_ragazzini_zadeh_zero_order_hold.py:

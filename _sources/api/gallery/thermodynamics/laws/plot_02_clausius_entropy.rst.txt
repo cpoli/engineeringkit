@@ -18,8 +18,8 @@
 .. _sphx_glr_api_gallery_thermodynamics_laws_plot_02_clausius_entropy.py:
 
 
-Clausius's inequality and entropy
-=================================
+Clausius's inequality and entropy (1854-1865)
+=============================================
 
 Rudolf Clausius (1854) showed that around any cycle the heat received,
 each part divided by the temperature at which it crosses the boundary,
@@ -172,7 +172,7 @@ The Clausius sum, taken at the boundary temperature, becomes negative.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.047 seconds)
+   **Total running time of the script:** (0 minutes 0.024 seconds)
 
 
 .. _sphx_glr_download_api_gallery_thermodynamics_laws_plot_02_clausius_entropy.py:
