@@ -6,8 +6,16 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Breakthroughs in Structural Engineering" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://cpoli.github.io/engineeringkit/history/structural_engineering_breakthroughs.html" />
+<meta property="og:site_name" content="engineeringkit" />
+<meta property="og:description" content="Domain hub · History · Examples · API reference “Strength is essential but otherwise unimportant.” – attributed to Hardy Cross Builders raised cathedrals and bridges for centuries by rule and prece..." />
+<meta property="og:image" content="https://cpoli.github.io/engineeringkit/_static/images/readme_hero.png" />
+<meta property="og:image:alt" content="engineeringkit" />
+<meta name="description" content="Domain hub · History · Examples · API reference “Strength is essential but otherwise unimportant.” – attributed to Hardy Cross Builders raised cathedrals and bridges for centuries by rule and prece..." />
 
-    <title>Breakthroughs in Structural Engineering &#8212; engineeringkit 0.1.0 documentation</title>
+    <title>Breakthroughs in Structural Engineering &#8212; engineeringkit</title>
   
   
   
@@ -30,6 +38,7 @@
 <link href="../_static/styles/pydata-sphinx-theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx_autodoc_typehints.css?v=057ac668" />
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Vibur" />
     <link rel="stylesheet" type="text/css" href="../_static/jupyterlite_sphinx.css?v=f676e775" />
@@ -55,6 +64,7 @@
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'history/structural_engineering_breakthroughs';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="canonical" href="https://cpoli.github.io/engineeringkit/history/structural_engineering_breakthroughs.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Breakthroughs in Mechanical Engineering" href="mechanical_engineering_breakthroughs.html" />
@@ -404,50 +414,408 @@
 <div class="subpkg-nav docutils container">
 <p><a class="reference internal" href="../_generated/subpackages/structural_engineering.html"><span class="doc">Domain hub</span></a> · <a class="reference internal" href="#"><span class="doc">History</span></a> · <a class="reference internal" href="../api/gallery/structural_engineering/index.html"><span class="doc">Examples</span></a> · <a class="reference internal" href="../api/structural_engineering.html"><span class="doc">API reference</span></a></p>
 </div>
-<p>These landmarks trace a conceptual development from a physical law to a useful
-engineering model. The order is a learning path, not a dated chronology or a
-claim that any idea had a single inventor. SI units apply unless documented
-otherwise.</p>
-<section id="hooke-material-response-becomes-measurable">
-<h2>Hooke: material response becomes measurable<a class="headerlink" href="#hooke-material-response-becomes-measurable" title="Link to this heading">#</a></h2>
-<p>The proportional relation between stress and strain connects a material test to a structural displacement. It supplies the constitutive law that equilibrium alone cannot provide.</p>
-<div class="math notranslate nohighlight">
-\[\sigma=E\varepsilon,\qquad \delta=FL/(EA)\]</div>
-<p>Use <a class="reference internal" href="../api/structural_engineering.html#engineeringkit.structural_engineering.axial_deformation" title="engineeringkit.structural_engineering.axial_deformation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">engineeringkit.structural_engineering.axial_deformation</span></code></a> to explore the model.
-Uniform sections, small strains and linear elasticity are assumed. Yielding requires a different constitutive model.</p>
-</section>
-<section id="euler-stability-differs-from-strength">
-<h2>Euler: stability differs from strength<a class="headerlink" href="#euler-stability-differs-from-strength" title="Link to this heading">#</a></h2>
-<p>A slender column can lose stability before its material reaches a strength limit. Effective length captures the ideal support conditions and reveals the strong length dependence.</p>
-<div class="math notranslate nohighlight">
-\[P_{cr}=\pi^2 EI/(KL)^2\]</div>
-<p>Use <a class="reference internal" href="../api/structural_engineering.html#engineeringkit.structural_engineering.euler_buckling_load" title="engineeringkit.structural_engineering.euler_buckling_load"><code class="xref py py-obj docutils literal notranslate"><span class="pre">engineeringkit.structural_engineering.euler_buckling_load</span></code></a> to explore the model.
-The formula describes ideal elastic buckling; imperfections and inelastic behavior require additional analysis.</p>
-</section>
-<section id="energy-methods-loads-and-displacements-connect">
-<h2>Energy methods: loads and displacements connect<a class="headerlink" href="#energy-methods-loads-and-displacements-connect" title="Link to this heading">#</a></h2>
-<p>Castigliano and reciprocal-work ideas organize displacement calculations around stored energy. They also motivate stiffness methods, where compatibility and equilibrium are assembled across members.</p>
-<div class="math notranslate nohighlight">
-\[U=F^2 L/(2EA),\qquad \delta=\partial U/\partial F\]</div>
-<p>Use <a class="reference internal" href="../api/structural_engineering.html#engineeringkit.structural_engineering.strain_energy_axial" title="engineeringkit.structural_engineering.strain_energy_axial"><code class="xref py py-obj docutils literal notranslate"><span class="pre">engineeringkit.structural_engineering.strain_energy_axial</span></code></a> to explore the model.
-Linear elastic reciprocal behavior is assumed. The derivative must actually be evaluated before using castigliano_deflection.</p>
-</section>
-<section id="explore-and-verify">
-<h2>Explore and verify<a class="headerlink" href="#explore-and-verify" title="Link to this heading">#</a></h2>
-<p><a class="reference internal" href="../guides/structural_engineering.html"><span class="doc">Structural engineering: loads, signs and linear elasticity</span></a> records units, conventions and independent checks.
-Compare the gallery output against the equations before extending a model.</p>
-<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="For an ideal elastic column the critical load scales as inverse length squared. The pinned and cantilever curves differ through the effective length factor."><img alt="" src="../_images/sphx_glr_plot_structural_engineering_benchmark_thumb.png" />
-<p><a class="reference internal" href="../api/gallery/structural_engineering/plot_structural_engineering_benchmark.html"><span class="doc">Buckling and effective length</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Buckling and effective length</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Compute an inspectable engineering model using SI inputs. See the linked domain guide for assumptions and benchmark checks."><img alt="" src="../_images/sphx_glr_plot_structural_engineering_models_thumb.png" />
-<p><a class="reference internal" href="../api/gallery/structural_engineering/plot_structural_engineering_models.html"><span class="doc">Beam deflection under a uniform load</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Beam deflection under a uniform load</div>
+<blockquote class="epigraph">
+<div><p>“Strength is essential but otherwise unimportant.”
+– attributed to Hardy Cross</p>
+</div></blockquote>
+<p>Builders raised cathedrals and bridges for centuries by rule and
+precedent. Structural engineering became a science in three steps.
+Seventeenth- and eighteenth-century natural philosophers asked how strong
+a beam is and when a column buckles. Engineers of the nineteenth century,
+faced with iron railway bridges, worked out the theory of beams, trusses
+and statically indeterminate structures, and the energy theorems that tie
+loads to displacements. The twentieth century added plastic collapse,
+relaxation methods for frames and, finally, matrix methods run on a
+computer. The entries trace the ideas behind
+<a class="reference internal" href="../api/structural_engineering.html#module-engineeringkit.structural_engineering" title="engineeringkit.structural_engineering"><code class="xref py py-mod docutils literal notranslate"><span class="pre">engineeringkit.structural_engineering</span></code></a>. Each links to the
+implementing function and to a gallery example devoted to it.</p>
+<nav class="contents local" id="timeline">
+<p class="topic-title">Timeline</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#galileo-s-cantilever" id="id1">1638 – Galileo’s Cantilever</a></p></li>
+<li><p><a class="reference internal" href="#hooke-s-ut-tensio-sic-vis" id="id2">1678 – Hooke’s <em>Ut tensio, sic vis</em></a></p></li>
+<li><p><a class="reference internal" href="#euler-s-column-buckling" id="id3">1744 – Euler’s Column Buckling</a></p></li>
+<li><p><a class="reference internal" href="#coulomb-s-torsion" id="id4">1784 – Coulomb’s Torsion</a></p></li>
+<li><p><a class="reference internal" href="#navier-s-beam-theory" id="id5">1826 – Navier’s Beam Theory</a></p></li>
+<li><p><a class="reference internal" href="#poisson-s-ratio" id="id6">1829 – Poisson’s Ratio</a></p></li>
+<li><p><a class="reference internal" href="#whipple-s-method-of-joints" id="id7">1847 – Whipple’s Method of Joints</a></p></li>
+<li><p><a class="reference internal" href="#clapeyron-s-three-moment-equation" id="id8">1857 – Clapeyron’s Three-Moment Equation</a></p></li>
+<li><p><a class="reference internal" href="#maxwell-s-rigidity-count-and-reciprocal-theorem" id="id9">1864 – Maxwell’s Rigidity Count and Reciprocal Theorem</a></p></li>
+<li><p><a class="reference internal" href="#winkler-s-influence-lines" id="id10">1867 – Winkler’s Influence Lines</a></p></li>
+<li><p><a class="reference internal" href="#castigliano-s-theorem" id="id11">1879 – Castigliano’s Theorem</a></p></li>
+<li><p><a class="reference internal" href="#mohr-s-circle" id="id12">1882 – Mohr’s Circle</a></p></li>
+<li><p><a class="reference internal" href="#engesser-s-tangent-modulus-load" id="id13">1889 – Engesser’s Tangent-Modulus Load</a></p></li>
+<li><p><a class="reference internal" href="#kazinczy-s-plastic-hinge" id="id14">1914 – Kazinczy’s Plastic Hinge</a></p></li>
+<li><p><a class="reference internal" href="#hardy-cross-s-moment-distribution" id="id15">1930 – Hardy Cross’s Moment Distribution</a></p></li>
+<li><p><a class="reference internal" href="#turner-clough-martin-and-topp-the-direct-stiffness-method" id="id16">1956 – Turner, Clough, Martin and Topp: the Direct Stiffness Method</a></p></li>
+<li><p><a class="reference internal" href="#livesley-s-plane-frames-by-computer" id="id17">1956 – Livesley’s Plane Frames by Computer</a></p></li>
+<li><p><a class="reference internal" href="#see-also" id="id18">See Also</a></p></li>
+</ul>
+</nav>
+<section id="galileo-s-cantilever">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">1638 – Galileo’s Cantilever</a><a class="headerlink" href="#galileo-s-cantilever" title="Link to this heading">#</a></h2>
+<p>In the second day of the <em>Two New Sciences</em>, Galileo Galilei asked what
+load breaks a beam built into a wall. He treated the beam as a lever
+turning about the bottom edge of the wall section, with the whole section
+pulling with the same stress. The breaking moment then grows with the
+width and the <em>square</em> of the depth, so a plank set on edge is stronger
+than the same plank laid flat, and large animals and buildings need
+proportionally thicker members. The scaling was right. The constant was
+not: it took Navier’s neutral axis at the centroid to divide it by three.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/structural_engineering.html#engineeringkit.structural_engineering.rectangular_section_modulus" title="engineeringkit.structural_engineering.rectangular_section_modulus"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.structural_engineering.rectangular_section_modulus()</span></code></a>
+and <a class="reference internal" href="../api/structural_engineering.html#engineeringkit.structural_engineering.rectangular_second_moment" title="engineeringkit.structural_engineering.rectangular_second_moment"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.structural_engineering.rectangular_second_moment()</span></code></a>.
+The example compares Galileo’s breaking moment with the elastic one and
+checks the <span class="math notranslate nohighlight">\(bh^2\)</span> scaling.</p>
+<p><em>References:</em> G. Galilei, <em>Discorsi e dimostrazioni matematiche intorno a
+due nuove scienze</em> (Elsevier, Leiden, 1638), second day.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="In the Two New Sciences (1638) Galileo asked how strong a cantilever is, and answered that its breaking moment grows with the width b and the square of the depth h, so a plank on edge is stronger than one laid flat by the ratio h/b. He assumed the whole section pulls with the same stress and pivots about its bottom edge, which gives M = \sigma bh^2/2. Linear elasticity (Navier, 1826) puts the pivot at the centroid with a linear stress profile, M = \sigma bh^2/6 (~engineeringkit.structural_engineering.rectangular_section_modulus): Galileo&#x27;s scaling law was right, his constant three times too large."><img alt="" src="../_images/sphx_glr_plot_01_galileo_cantilever_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/structural_engineering/beams/plot_01_galileo_cantilever.html"><span class="doc">Galileo’s cantilever</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Galileo's cantilever</div>
 </div></div></section>
-<section id="further-reading">
-<h2>Further reading<a class="headerlink" href="#further-reading" title="Link to this heading">#</a></h2>
-<p><a class="reference external" href="https://ocw.mit.edu/courses/16-21-techniques-for-structural-analysis-and-design-spring-2005/pages/lecture-notes/">University or agency teaching reference</a>
-provides background beyond the implemented subset. The equations and examples
-here are concise original explanations, not reproductions of that reference.</p>
+<section id="hooke-s-ut-tensio-sic-vis">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">1678 – Hooke’s <em>Ut tensio, sic vis</em></a><a class="headerlink" href="#hooke-s-ut-tensio-sic-vis" title="Link to this heading">#</a></h2>
+<p>Robert Hooke published his law as an anagram in 1676 and its solution two
+years later: “as the extension, so the force”. Springs, wires and wooden
+rods all stretched in proportion to the load. Written for a bar of length
+<span class="math notranslate nohighlight">\(L\)</span>, area <span class="math notranslate nohighlight">\(A\)</span> and modulus <span class="math notranslate nohighlight">\(E\)</span> (Young’s, 1807), the
+extension is <span class="math notranslate nohighlight">\(\delta = PL/(AE)\)</span>, and the energy stored is the area
+under the load-extension line, <span class="math notranslate nohighlight">\(U = P\delta/2\)</span>. The linear law is
+the constitutive relation that turns every later structural theory from
+statics into a calculation of displacements.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/structural_engineering.html#engineeringkit.structural_engineering.axial_deformation" title="engineeringkit.structural_engineering.axial_deformation"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.structural_engineering.axial_deformation()</span></code></a>
+and <a class="reference internal" href="../api/structural_engineering.html#engineeringkit.structural_engineering.strain_energy_axial" title="engineeringkit.structural_engineering.strain_energy_axial"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.structural_engineering.strain_energy_axial()</span></code></a>. The
+example repeats Hooke’s experiment on a steel wire and checks the
+extension and the stored energy.</p>
+<p><em>References:</em> R. Hooke, <em>Lectures de Potentia Restitutiva, or of Spring</em>
+(John Martyn, London, 1678).</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="In 1676 Robert Hooke published an anagram, ceiiinosssttuu, and in 1678 its solution, ut tensio, sic vis: &quot;as the extension, so the force&quot;. Springs, wires and wooden rods all stretched in proportion to the weight hung on them. Written for a bar of length L, area A and modulus E (Young&#x27;s, 1807), the extension is \delta = PL/(AE) (~engineeringkit.structural_engineering.axial_deformation) and the stored energy is the triangle under the load-extension line, U = P\delta/2 = P^2L/(2AE) (~engineeringkit.structural_engineering.strain_energy_axial). The example repeats Hooke&#x27;s experiment on a steel wire and checks both."><img alt="" src="../_images/sphx_glr_plot_01_hooke_axial_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/structural_engineering/members/plot_01_hooke_axial.html"><span class="doc">Hooke’s law: ut tensio, sic vis</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Hooke's law: ut tensio, sic vis</div>
+</div></div></section>
+<section id="euler-s-column-buckling">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">1744 – Euler’s Column Buckling</a><a class="headerlink" href="#euler-s-column-buckling" title="Link to this heading">#</a></h2>
+<p>In an appendix on elastic curves to his book on the calculus of
+variations, Leonhard Euler found the load at which a straight elastic
+column can stay in equilibrium bent as well as straight. For a pin-ended
+column it is <span class="math notranslate nohighlight">\(P_{cr} = \pi^2EI/L^2\)</span>. Other end conditions change the
+length of the buckled half-wave, written today as an effective length
+<span class="math notranslate nohighlight">\(KL\)</span>. Euler’s load does not depend on the strength of the material
+at all, which is why slender columns fail by stability and stocky ones by
+crushing. Engineers distrusted the formula for a century, because the
+columns they tested were not slender enough for it to apply.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/structural_engineering.html#engineeringkit.structural_engineering.euler_buckling_load" title="engineeringkit.structural_engineering.euler_buckling_load"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.structural_engineering.euler_buckling_load()</span></code></a>,
+<a class="reference internal" href="../api/structural_engineering.html#engineeringkit.structural_engineering.radius_of_gyration" title="engineeringkit.structural_engineering.radius_of_gyration"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.structural_engineering.radius_of_gyration()</span></code></a> and
+<a class="reference internal" href="../api/structural_engineering.html#engineeringkit.structural_engineering.slenderness_ratio" title="engineeringkit.structural_engineering.slenderness_ratio"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.structural_engineering.slenderness_ratio()</span></code></a>. The example
+finds Euler’s load as the lowest eigenvalue of the finite-difference column
+equation and plots the Euler hyperbola against yield.</p>
+<p><em>References:</em> L. Euler, <em>Methodus inveniendi lineas curvas maximi minimive
+proprietate gaudentes</em> (Bousquet, Lausanne, 1744), Additamentum I, “De
+curvis elasticis”.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="In an appendix on elastic curves to his Methodus inveniendi (1744), Leonhard Euler found the load at which a straight, pin-ended column can stay in equilibrium bent as well as straight: P_{cr} = \pi^2EI/L^2. Other end conditions change the length of the half sine wave, which is what the effective-length factor K expresses (~engineeringkit.structural_engineering.euler_buckling_load). Dividing by the area gives the Euler stress \pi^2E/(KL/r)^2, a function of the slenderness alone (~engineeringkit.structural_engineering.slenderness_ratio, radius_of_gyration). The example recovers Euler&#x27;s load as the smallest eigenvalue of the finite-difference column equation EIy&#x27;&#x27; + Py = 0, then plots the Euler hyperbola against the yield stress."><img alt="" src="../_images/sphx_glr_plot_01_euler_buckling_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/structural_engineering/stability/plot_01_euler_buckling.html"><span class="doc">Euler’s column buckling</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Euler's column buckling</div>
+</div></div></section>
+<section id="coulomb-s-torsion">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">1784 – Coulomb’s Torsion</a><a class="headerlink" href="#coulomb-s-torsion" title="Link to this heading">#</a></h2>
+<p>Charles-Augustin Coulomb hung a weight from a thin wire, twisted it and
+timed the oscillations. The restoring torque was proportional to the
+angle of twist, to the fourth power of the diameter and inversely to the
+length, the law <span class="math notranslate nohighlight">\(\phi = TL/(GJ)\)</span> with <span class="math notranslate nohighlight">\(J = \pi d^4/32\)</span>. The
+torsion balance built on it measured the electric force the next year and,
+in Cavendish’s hands, the density of the Earth. For engineers it gave the
+shear stress <span class="math notranslate nohighlight">\(\tau = Tr/J\)</span> and stiffness of shafts.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/structural_engineering.html#engineeringkit.structural_engineering.torsion_angle" title="engineeringkit.structural_engineering.torsion_angle"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.structural_engineering.torsion_angle()</span></code></a>
+and <a class="reference internal" href="../api/structural_engineering.html#engineeringkit.structural_engineering.torsion_shear_stress" title="engineeringkit.structural_engineering.torsion_shear_stress"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.structural_engineering.torsion_shear_stress()</span></code></a>.
+The example simulates Coulomb’s torsion pendulum, recovers the shear
+modulus from its period and checks the fourth-power law.</p>
+<p><em>References:</em> C.-A. Coulomb, “Recherches théoriques et expérimentales sur
+la force de torsion et sur l’élasticité des fils de métal,” <em>Hist. Acad.
+Roy. Sci.</em> (1784, published 1787) 229-269.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Charles-Augustin Coulomb (1784) hung a weight on a thin wire, twisted it and timed the oscillations. The restoring torque was proportional to the angle of twist, to the fourth power of the wire&#x27;s diameter and inversely to its length, which in modern form is \phi = TL/(GJ) with J = \pi d^4/32 (~engineeringkit.structural_engineering.torsion_angle). The same torsion balance later weighed the electric force and, in Cavendish&#x27;s hands, the Earth. The example simulates Coulomb&#x27;s pendulum and recovers the shear modulus from the period, then shows the shear stress across the wire (~engineeringkit.structural_engineering.torsion_shear_stress)."><img alt="" src="../_images/sphx_glr_plot_02_coulomb_torsion_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/structural_engineering/members/plot_02_coulomb_torsion.html"><span class="doc">Coulomb’s torsion</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Coulomb's torsion</div>
+</div></div></section>
+<section id="navier-s-beam-theory">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">1826 – Navier’s Beam Theory</a><a class="headerlink" href="#navier-s-beam-theory" title="Link to this heading">#</a></h2>
+<p>Claude-Louis Navier’s lectures at the École des ponts et chaussées put
+beam theory in the form still taught. Plane sections remain plane, the
+neutral axis passes through the centroid, the stress varies linearly as
+<span class="math notranslate nohighlight">\(\sigma = My/I\)</span>, and the curvature of the beam is <span class="math notranslate nohighlight">\(M/(EI)\)</span>.
+With these, the deflection of any statically determinate beam follows
+from two integrations of the moment diagram. The <em>Résumé des leçons</em> also
+treated arches and suspension bridges, and made elastic theory a working
+tool of French engineers.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/structural_engineering.html#engineeringkit.structural_engineering.bending_stress" title="engineeringkit.structural_engineering.bending_stress"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.structural_engineering.bending_stress()</span></code></a>
+and <a class="reference internal" href="../api/structural_engineering.html#engineeringkit.structural_engineering.SimplySupportedBeam" title="engineeringkit.structural_engineering.SimplySupportedBeam"><code class="xref py py-class docutils literal notranslate"><span class="pre">engineeringkit.structural_engineering.SimplySupportedBeam</span></code></a>. The
+example checks the midspan deflection <span class="math notranslate nohighlight">\(5wL^4/(384EI)\)</span> and that the
+stress profile carries the applied moment with no net force.</p>
+<p><em>References:</em> C.-L. Navier, <em>Résumé des leçons données à l’École des ponts
+et chaussées sur l’application de la mécanique à l’établissement des
+constructions et des machines</em> (Paris, 1826).</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Navier&#x27;s 1826 lectures at the École des ponts et chaussées put beam theory in its modern form: plane sections stay plane, the neutral axis passes through the centroid, the stress is \sigma = My/I (~engineeringkit.structural_engineering.bending_stress) and the curvature is y&#x27;&#x27; = M/(EI). The example loads a steel beam (~engineeringkit.structural_engineering.SimplySupportedBeam), checks the midspan deflection 5wL^4/(384EI), and checks that the stress profile carries no net force and exactly the applied moment."><img alt="" src="../_images/sphx_glr_plot_02_navier_beam_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/structural_engineering/beams/plot_02_navier_beam.html"><span class="doc">Navier’s beam theory</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Navier's beam theory</div>
+</div></div></section>
+<section id="poisson-s-ratio">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">1829 – Poisson’s Ratio</a><a class="headerlink" href="#poisson-s-ratio" title="Link to this heading">#</a></h2>
+<p>A bar stretched along its axis gets thinner. Siméon Denis Poisson’s
+molecular theory of elasticity predicted that the lateral strain is
+always one quarter of the axial strain. Experiments by Wertheim and others
+soon showed that the ratio <span class="math notranslate nohighlight">\(\nu\)</span> depends on the material, and the
+argument over it led to the modern two-constant theory of isotropic
+elasticity. <span class="math notranslate nohighlight">\(\nu\)</span> lies between -1 and 1/2 for a stable material,
+and <span class="math notranslate nohighlight">\(\nu = 1/2\)</span> means no change of volume.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/structural_engineering.html#engineeringkit.structural_engineering.poisson_lateral_strain" title="engineeringkit.structural_engineering.poisson_lateral_strain"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.structural_engineering.poisson_lateral_strain()</span></code></a>.
+The example compares the contraction of steel, rubber and cork and checks
+the first-order volume change <span class="math notranslate nohighlight">\((1 - 2\nu)\varepsilon\)</span>.</p>
+<p><em>References:</em> S.-D. Poisson, “Mémoire sur l’équilibre et le mouvement des
+corps élastiques,” <em>Mém. Acad. Roy. Sci. Inst. France</em> 8 (1829) 357-570.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="A bar stretched along its axis gets thinner. Siméon Denis Poisson&#x27;s 1829 molecular theory of elasticity predicted that the lateral strain is always one quarter of the axial strain. Measurements soon showed that the ratio \nu depends on the material: about 0.3 for steel, nearly 0.5 for rubber and nearly zero for cork, which is why cork seals a wine bottle without jamming in the neck. The lateral strain is -\nu\varepsilon (~engineeringkit.structural_engineering.poisson_lateral_strain), so the volume changes by (1 - 2\nu)\varepsilon to first order: an incompressible material has \nu = 1/2."><img alt="" src="../_images/sphx_glr_plot_03_poisson_ratio_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/structural_engineering/members/plot_03_poisson_ratio.html"><span class="doc">Poisson’s ratio</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Poisson's ratio</div>
+</div></div></section>
+<section id="whipple-s-method-of-joints">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">1847 – Whipple’s Method of Joints</a><a class="headerlink" href="#whipple-s-method-of-joints" title="Link to this heading">#</a></h2>
+<p>American railway bridges of the 1840s were built from rules of thumb, and
+some of them fell down. Squire Whipple, a canal engineer from Utica, showed
+that the force in every member of a pin-jointed truss follows from statics
+alone. Each joint is in equilibrium, so its two equations give the forces
+in two members. Work from a support across the truss, two unknowns at a
+time, and every force is found. His book was the first to analyse trusses
+rather than test them, and Herman Haupt reached the same results
+independently in 1851.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/structural_engineering.html#engineeringkit.structural_engineering.method_of_joints" title="engineeringkit.structural_engineering.method_of_joints"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.structural_engineering.method_of_joints()</span></code></a>.
+The example solves a six-panel Pratt truss and checks every chord force
+against the method of sections, <span class="math notranslate nohighlight">\(M/h\)</span>.</p>
+<p><em>References:</em> S. Whipple, <em>A Work on Bridge Building</em> (H. H. Curtiss,
+Utica, 1847).</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="American railway bridges of the 1840s were built from rules of thumb, and some fell down. Squire Whipple, in A Work on Bridge Building (1847), showed that the force in every member of a pin-jointed truss follows from statics alone. Each joint is in equilibrium, so its two equations, \sum F_x = 0 and \sum F_y = 0, give the forces in two members. Start at a support and work across the truss, two unknowns at a time (~engineeringkit.structural_engineering.method_of_joints). The example solves a six-panel Pratt truss under a train of panel loads and checks the chord forces against the method of sections: at any vertical cut, the chord force is the bending moment divided by the truss depth."><img alt="" src="../_images/sphx_glr_plot_01_whipple_method_of_joints_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/structural_engineering/trusses/plot_01_whipple_method_of_joints.html"><span class="doc">Whipple’s method of joints</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Whipple's method of joints</div>
+</div></div></section>
+<section id="clapeyron-s-three-moment-equation">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">1857 – Clapeyron’s Three-Moment Equation</a><a class="headerlink" href="#clapeyron-s-three-moment-equation" title="Link to this heading">#</a></h2>
+<p>A beam continuous over several supports is statically indeterminate: the
+support moments cannot be found from equilibrium alone. Émile Clapeyron
+met the problem while rebuilding the Asnières railway bridge over the
+Seine. He required the slope of the beam to be continuous over each
+interior support, which gives one linear equation per support linking its
+moment to those of its two neighbours. The system is tridiagonal and
+small, and it made continuous girders, lighter than a row of simple spans,
+practical to design.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/structural_engineering.html#engineeringkit.structural_engineering.three_moment_equation" title="engineeringkit.structural_engineering.three_moment_equation"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.structural_engineering.three_moment_equation()</span></code></a>.
+The example checks the textbook coefficients for equal spans, then
+integrates the curvature of an unequal three-span beam to show it does not
+move at the interior supports.</p>
+<p><em>References:</em> É. Clapeyron, “Calcul d’une poutre élastique reposant
+librement sur des appuis inégalement espacés,” <em>C. R. Acad. Sci. Paris</em> 45
+(1857) 1076-1080.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="A beam continuous over several supports is statically indeterminate: the support moments cannot be found from equilibrium alone. Émile Clapeyron met the problem rebuilding the Asnières railway bridge over the Seine and in 1857 published one equation per interior support, linking each support moment to its two neighbours (~engineeringkit.structural_engineering.three_moment_equation). The example checks the textbook coefficients for equal spans, then builds the moment diagram of an unequal three-span beam and checks by double integration that the beam really does not move at the interior supports."><img alt="" src="../_images/sphx_glr_plot_03_clapeyron_three_moment_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/structural_engineering/beams/plot_03_clapeyron_three_moment.html"><span class="doc">Clapeyron’s three-moment equation</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Clapeyron's three-moment equation</div>
+</div></div></section>
+<section id="maxwell-s-rigidity-count-and-reciprocal-theorem">
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">1864 – Maxwell’s Rigidity Count and Reciprocal Theorem</a><a class="headerlink" href="#maxwell-s-rigidity-count-and-reciprocal-theorem" title="Link to this heading">#</a></h2>
+<p>James Clerk Maxwell’s short paper on frames made two contributions. A
+plane frame of <span class="math notranslate nohighlight">\(j\)</span> joints needs <span class="math notranslate nohighlight">\(2j - 3\)</span> bars to be stiff, or,
+counting the <span class="math notranslate nohighlight">\(r\)</span> support reactions, <span class="math notranslate nohighlight">\(m + r = 2j\)</span> for a
+statically determinate truss. The count is necessary but not sufficient,
+since bars can be put where they are not needed. The paper also stated the
+reciprocal theorem: in a linear elastic structure, the deflection at
+<span class="math notranslate nohighlight">\(i\)</span> caused by a unit load at <span class="math notranslate nohighlight">\(j\)</span> equals the deflection at
+<span class="math notranslate nohighlight">\(j\)</span> caused by a unit load at <span class="math notranslate nohighlight">\(i\)</span>. Betti generalised it in 1872,
+and Mohr built the force method for indeterminate trusses on it.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/structural_engineering.html#engineeringkit.structural_engineering.truss_determinacy" title="engineeringkit.structural_engineering.truss_determinacy"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.structural_engineering.truss_determinacy()</span></code></a>
+and <a class="reference internal" href="../api/structural_engineering.html#engineeringkit.structural_engineering.maxwell_betti_reciprocity" title="engineeringkit.structural_engineering.maxwell_betti_reciprocity"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.structural_engineering.maxwell_betti_reciprocity()</span></code></a>.
+The example counts four trusses, one of which passes the count and is
+still a mechanism, and checks that the flexibility matrix of a redundant
+truss is symmetric.</p>
+<p><em>References:</em> J. C. Maxwell, “On the calculation of the equilibrium and
+stiffness of frames,” <em>Phil. Mag.</em> 27 (1864) 294-299; E. Betti, “Teoria
+dell’elasticità,” <em>Il Nuovo Cimento</em> 7-8 (1872) 5-21.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="James Clerk Maxwell&#x27;s short 1864 paper &quot;On the calculation of the equilibrium and stiffness of frames&quot; made two contributions. First, a counting rule: a plane frame of j joints needs 2j - 3 bars to be stiff, or, counting the r support reactions, m + r = 2j for a statically determinate truss (~engineeringkit.structural_engineering.truss_determinacy). The count is necessary but not sufficient, since bars can be placed where they are not needed. Second, the reciprocal theorem: the deflection at joint i caused by a unit load at joint j equals the deflection at j caused by a unit load at i (~engineeringkit.structural_engineering.maxwell_betti_reciprocity). Betti generalised it in 1872. The example counts four trusses, shows one that passes the count and is still a mechanism, and checks reciprocity on a statically indeterminate truss."><img alt="" src="../_images/sphx_glr_plot_02_maxwell_rigidity_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/structural_engineering/trusses/plot_02_maxwell_rigidity.html"><span class="doc">Maxwell’s rigidity count and reciprocal theorem</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Maxwell's rigidity count and reciprocal theorem</div>
+</div></div></section>
+<section id="winkler-s-influence-lines">
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">1867 – Winkler’s Influence Lines</a><a class="headerlink" href="#winkler-s-influence-lines" title="Link to this heading">#</a></h2>
+<p>A railway bridge must be checked for a train standing in every position.
+Emil Winkler, and Otto Mohr independently the next year, plotted the
+value of one response, such as the moment at a chosen section, against
+the position of a single unit load. With this <em>influence line</em> the
+response to any train is the sum of the axle loads times the ordinates
+under them, and the worst position of the train can be read off the plot.
+Influence lines remain the standard tool for moving loads on bridges and
+crane girders.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/structural_engineering.html#engineeringkit.structural_engineering.influence_line" title="engineeringkit.structural_engineering.influence_line"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.structural_engineering.influence_line()</span></code></a>.
+The example finds the worst position of a four-axle locomotive on a 20 m
+span and checks it against superposed point-load solutions.</p>
+<p><em>References:</em> E. Winkler, <em>Die Lehre von der Elasticität und Festigkeit</em>
+(Dominicus, Prague, 1867); O. Mohr, “Beitrag zur Theorie der Holz- und
+Eisen-Constructionen,” <em>Z. Architekten- und Ingenieur-Vereins zu
+Hannover</em> 14 (1868) 19-51.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="A railway bridge must be checked for a train in every position. Emil Winkler (1867-1868), and Otto Mohr independently (1868), plotted the value of a response, such as the moment at one section, against the position of a unit load: the influence line (~engineeringkit.structural_engineering.influence_line). The response to any train is then the sum of the axle loads times the ordinates under them, and the worst position can be read off the plot. The example finds the worst position of a four-axle locomotive on a 20 m span and checks it against a brute-force superposition of point-load solutions."><img alt="" src="../_images/sphx_glr_plot_04_winkler_influence_lines_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/structural_engineering/beams/plot_04_winkler_influence_lines.html"><span class="doc">Winkler’s influence lines</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Winkler's influence lines</div>
+</div></div></section>
+<section id="castigliano-s-theorem">
+<h2><a class="toc-backref" href="#id11" role="doc-backlink">1879 – Castigliano’s Theorem</a><a class="headerlink" href="#castigliano-s-theorem" title="Link to this heading">#</a></h2>
+<p>In his 1873 engineering thesis at Turin, extended into a book in 1879,
+Alberto Castigliano showed that the partial derivative of the strain
+energy with respect to a load is the displacement at that load, in its
+direction. For a beam this is the integral of
+<span class="math notranslate nohighlight">\((M/EI)\,\partial M/\partial P\)</span> along the span. A <em>dummy</em> load,
+set to zero after differentiating, gives the displacement where no load
+acts. The companion theorem of least work found the redundant forces of an
+indeterminate structure by minimising the energy.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/structural_engineering.html#engineeringkit.structural_engineering.castigliano_deflection" title="engineeringkit.structural_engineering.castigliano_deflection"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.structural_engineering.castigliano_deflection()</span></code></a>
+(integrating <span class="math notranslate nohighlight">\(M\,\partial M/\partial P/(EI)\)</span> with Simpson’s rule) and
+<a class="reference internal" href="../api/structural_engineering.html#engineeringkit.structural_engineering.strain_energy_bending_constant_moment" title="engineeringkit.structural_engineering.strain_energy_bending_constant_moment"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.structural_engineering.strain_energy_bending_constant_moment()</span></code></a>.
+The example finds the tip deflection of a tapered cantilever, checks it by
+double integration and by the energy balance, and uses a dummy load at
+midspan.</p>
+<p><em>References:</em> A. Castigliano, <em>Théorie de l’équilibre des systèmes
+élastiques et ses applications</em> (A. F. Negro, Turin, 1879).</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="In his 1873 engineering thesis at Turin, extended into a book in 1879, Alberto Castigliano showed that the partial derivative of the strain energy with respect to a load is the displacement at that load, in its direction: \delta = \partial U/\partial P. For a beam in bending,"><img alt="" src="../_images/sphx_glr_plot_01_castigliano_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/structural_engineering/energy/plot_01_castigliano.html"><span class="doc">Castigliano’s theorem</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Castigliano's theorem</div>
+</div></div></section>
+<section id="mohr-s-circle">
+<h2><a class="toc-backref" href="#id12" role="doc-backlink">1882 – Mohr’s Circle</a><a class="headerlink" href="#mohr-s-circle" title="Link to this heading">#</a></h2>
+<p>Otto Mohr showed that the normal and shear stresses on every plane
+through a point, plotted against each other, fall on one circle. Its
+centre is the mean normal stress, its radius the largest in-plane shear
+stress, and its intersections with the axis are the principal stresses.
+Turning the element by <span class="math notranslate nohighlight">\(\theta\)</span> moves the point by <span class="math notranslate nohighlight">\(2\theta\)</span>
+around the circle. Culmann had drawn the stresses in a beam graphically in
+1866; Mohr’s construction made the transformation one picture, and he
+used it to state his theory of failure.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/structural_engineering.html#engineeringkit.structural_engineering.mohr_circle" title="engineeringkit.structural_engineering.mohr_circle"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.structural_engineering.mohr_circle()</span></code></a>
+and <a class="reference internal" href="../api/structural_engineering.html#engineeringkit.structural_engineering.stress_transformation" title="engineeringkit.structural_engineering.stress_transformation"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.structural_engineering.stress_transformation()</span></code></a>.
+The example traces the circle by rotating an element, checks the principal
+stresses against the eigenvalues of the stress tensor, and finds the
+plane of maximum shear.</p>
+<p><em>References:</em> O. Mohr, “Über die Darstellung des Spannungszustandes und
+des Deformationszustandes eines Körperelementes,” <em>Zivilingenieur</em> 28
+(1882) 113-156.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Otto Mohr (1882) showed that the normal and shear stresses on every plane through a point, plotted against each other, fall on a single circle. Its centre is the mean normal stress, its radius the largest in-plane shear stress, and its ends on the axis are the principal stresses (~engineeringkit.structural_engineering.mohr_circle). Turning the element by \theta moves the point by 2\theta around the circle (~engineeringkit.structural_engineering.stress_transformation). The example traces the circle by rotating an element, checks that the principal stresses are the eigenvalues of the stress tensor, and finds the plane of maximum shear."><img alt="" src="../_images/sphx_glr_plot_01_mohr_circle_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/structural_engineering/stress/plot_01_mohr_circle.html"><span class="doc">Mohr’s circle</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Mohr's circle</div>
+</div></div></section>
+<section id="engesser-s-tangent-modulus-load">
+<h2><a class="toc-backref" href="#id13" role="doc-backlink">1889 – Engesser’s Tangent-Modulus Load</a><a class="headerlink" href="#engesser-s-tangent-modulus-load" title="Link to this heading">#</a></h2>
+<p>Columns of intermediate length failed well below Euler’s load. Friedrich
+Engesser argued that once the stress passes the proportional limit, a
+column bends against the material’s tangent modulus
+<span class="math notranslate nohighlight">\(E_t = d\sigma/d\varepsilon\)</span>, so the critical stress solves
+<span class="math notranslate nohighlight">\(\sigma = \pi^2E_t(\sigma)/(KL/r)^2\)</span>. Engesser later replaced it by
+a “double-modulus” load, which was thought correct for half a century,
+until F. R. Shanley showed in 1947 that real columns start to bend at the
+tangent-modulus load. Column curves in design codes descend from it.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/structural_engineering.html#engineeringkit.structural_engineering.tangent_modulus_load" title="engineeringkit.structural_engineering.tangent_modulus_load"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.structural_engineering.tangent_modulus_load()</span></code></a>
+(solving for the buckling stress with Brent’s method). The example builds
+the column curve of a Ramberg-Osgood aluminium alloy and checks each
+stress against Engesser’s equation.</p>
+<p><em>References:</em> F. Engesser, “Ueber die Knickfestigkeit gerader Stäbe,”
+<em>Z. Architekten- und Ingenieur-Vereins zu Hannover</em> 35 (1889) 455-462;
+F. R. Shanley, “Inelastic column theory,” <em>J. Aeronaut. Sci.</em> 14 (1947)
+261-268.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Tests on real columns of intermediate length failed well below Euler&#x27;s load. Friedrich Engesser (1889) argued that once the stress passes the proportional limit, a column bends against the material&#x27;s tangent modulus E_t = d\sigma/d\varepsilon and not against E, so P_t = \pi^2E_tI/(KL)^2. Since E_t depends on the stress it creates, the buckling stress solves \sigma = \pi^2E_t(\sigma)/(KL/r)^2 (~engineeringkit.structural_engineering.tangent_modulus_load). Engesser later proposed a &quot;double-modulus&quot; load, and Shanley (1947) showed that the tangent-modulus load is the one at which a real column starts to bend. The example builds the column curve of an aluminium alloy with a Ramberg-Osgood stress-strain law and checks the computed stresses against the defining equation."><img alt="" src="../_images/sphx_glr_plot_02_engesser_tangent_modulus_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/structural_engineering/stability/plot_02_engesser_tangent_modulus.html"><span class="doc">Engesser’s tangent-modulus load</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Engesser's tangent-modulus load</div>
+</div></div></section>
+<section id="kazinczy-s-plastic-hinge">
+<h2><a class="toc-backref" href="#id14" role="doc-backlink">1914 – Kazinczy’s Plastic Hinge</a><a class="headerlink" href="#kazinczy-s-plastic-hinge" title="Link to this heading">#</a></h2>
+<p>Gábor Kazinczy loaded steel beams built into concrete walls in Budapest
+and found that they carried far more than elastic theory allowed. When
+the most stressed section yielded through its whole depth, it went on
+turning at a constant plastic moment <span class="math notranslate nohighlight">\(M_p\)</span>, a <em>plastic hinge</em>, and
+the load moved to other sections until enough hinges had formed to make a
+mechanism. Plastic design of steel frames grew from his tests, through
+Maier-Leibnitz in Germany and Baker’s group at Cambridge, into the
+limit-state codes.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/structural_engineering.html#engineeringkit.structural_engineering.plastic_section_modulus" title="engineeringkit.structural_engineering.plastic_section_modulus"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.structural_engineering.plastic_section_modulus()</span></code></a>
+and <a class="reference internal" href="../api/structural_engineering.html#engineeringkit.structural_engineering.plastic_collapse_load" title="engineeringkit.structural_engineering.plastic_collapse_load"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.structural_engineering.plastic_collapse_load()</span></code></a>.
+The example follows a built-in beam under a uniform load from first yield
+through hinges at the walls to collapse at <span class="math notranslate nohighlight">\(16M_p/L^2\)</span>.</p>
+<p><em>References:</em> G. Kazinczy, “Kísérletek befalazott tartókkal” (Experiments
+with clamped girders), <em>Betonszemle</em> 2 (1914); J. F. Baker, M. R. Horne
+and J. Heyman, <em>The Steel Skeleton</em>, vol. 2 (Cambridge University Press,
+1956).</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="In 1914 Gábor Kazinczy loaded steel beams built into concrete walls in Budapest. They carried far more than the elastic theory allowed: when the most stressed section yielded through its whole depth it went on turning at a constant plastic moment M_p = \sigma_yZ_p (a plastic hinge), and the load moved to other sections until enough hinges had formed to make a mechanism. For a rectangle Z_p = bh^2/4, 1.5 times the elastic modulus (~engineeringkit.structural_engineering.plastic_section_modulus). The collapse load follows from the work equation of the mechanism (~engineeringkit.structural_engineering.plastic_collapse_load). The example follows a built-in beam under a uniform load from first yield, through hinges at the walls, to collapse with a third hinge at midspan."><img alt="" src="../_images/sphx_glr_plot_01_kazinczy_plastic_hinge_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/structural_engineering/plasticity/plot_01_kazinczy_plastic_hinge.html"><span class="doc">Kazinczy’s plastic hinge</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Kazinczy's plastic hinge</div>
+</div></div></section>
+<section id="hardy-cross-s-moment-distribution">
+<h2><a class="toc-backref" href="#id15" role="doc-backlink">1930 – Hardy Cross’s Moment Distribution</a><a class="headerlink" href="#hardy-cross-s-moment-distribution" title="Link to this heading">#</a></h2>
+<p>Continuous beams and building frames led to large sets of simultaneous
+equations that no engineer wanted to solve by hand. Hardy Cross proposed
+relaxation instead. Lock every joint and apply the fixed-end moments, then
+release one joint at a time: its unbalanced moment is shared among the
+members in proportion to their stiffness, and half of each share is
+carried over to the far end. Repeat until the joints balance. The method
+fitted on a sheet of paper, converged in a few cycles and was the main
+tool of frame analysis until computers replaced it.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/structural_engineering.html#engineeringkit.structural_engineering.moment_distribution" title="engineeringkit.structural_engineering.moment_distribution"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.structural_engineering.moment_distribution()</span></code></a>.
+The example balances a three-span beam built in at one end, checks the
+end moments against the stiffness method and plots the decay of the
+unbalance.</p>
+<p><em>References:</em> H. Cross, “Analysis of continuous frames by distributing
+fixed-end moments,” <em>Proc. ASCE</em> 56 (1930) 919-928.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Continuous beams and building frames of the 1920s led to large systems of simultaneous equations that no engineer wanted to solve by hand. In 1930 Hardy Cross proposed relaxation instead. Lock every joint against rotation and apply the fixed-end moments. Then release one joint at a time: its unbalanced moment is shared among the members meeting there in proportion to their stiffness 4EI/L, and half of each share is carried over to the far end of the member. Repeat until the joints balance (~engineeringkit.structural_engineering.moment_distribution). The method fitted on a sheet of paper and was used for forty years. The example balances a three-span beam built in at its left end, checks the result against the plane-frame stiffness solution and plots how fast the unbalance dies away."><img alt="" src="../_images/sphx_glr_plot_01_hardy_cross_moment_distribution_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/structural_engineering/frames/plot_01_hardy_cross_moment_distribution.html"><span class="doc">Hardy Cross’s moment distribution</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Hardy Cross's moment distribution</div>
+</div></div></section>
+<section id="turner-clough-martin-and-topp-the-direct-stiffness-method">
+<h2><a class="toc-backref" href="#id16" role="doc-backlink">1956 – Turner, Clough, Martin and Topp: the Direct Stiffness Method</a><a class="headerlink" href="#turner-clough-martin-and-topp-the-direct-stiffness-method" title="Link to this heading">#</a></h2>
+<p>At Boeing, M. J. Turner, R. W. Clough, H. C. Martin and L. J. Topp needed
+the stiffness of swept jet wings, which hand methods could not give. They
+wrote a stiffness matrix for each element, added the matrices into one
+global matrix according to the joints each element connects, and solved
+<span class="math notranslate nohighlight">\(K_{ff}u_f = F_f\)</span> on a computer. Indeterminate structures cost no
+more than determinate ones. The paper is the origin of the finite element
+method; Clough gave it that name in 1960. A near-mechanism gives a matrix
+that is invertible in floating point but meaningless, so the condition
+number of <span class="math notranslate nohighlight">\(K_{ff}\)</span> is part of the answer.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/structural_engineering.html#engineeringkit.structural_engineering.PlanarTruss" title="engineeringkit.structural_engineering.PlanarTruss"><code class="xref py py-class docutils literal notranslate"><span class="pre">engineeringkit.structural_engineering.PlanarTruss</span></code></a>
+(with <span class="math notranslate nohighlight">\(\operatorname{cond}(K_{ff})\)</span> and a warning near a mechanism).
+The example checks a redundant truss against Clapeyron’s energy theorem,
+then flattens a joint until the warning fires.</p>
+<p><em>References:</em> M. J. Turner, R. W. Clough, H. C. Martin and L. J. Topp,
+“Stiffness and deflection analysis of complex structures,” <em>J. Aeronaut.
+Sci.</em> 23 (1956) 805-823.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="At Boeing in the early 1950s, M. J. Turner, R. W. Clough, H. C. Martin and L. J. Topp needed the stiffness of swept jet wings, which hand methods could not give. Their 1956 paper wrote down a stiffness matrix for each element, added the matrices into one global matrix K according to which joints each element connects, and solved K_{ff}u_f = F_f on a computer. This is the direct stiffness method, the seed of the finite element method (~engineeringkit.structural_engineering.PlanarTruss). It handles statically indeterminate trusses as easily as determinate ones, but it fails without warning near a mechanism. The solver therefore reports \operatorname{cond}(K_{ff}) and warns when it is large. The example checks a redundant bridge truss against Clapeyron&#x27;s energy theorem, then flattens a joint until the warning fires."><img alt="" src="../_images/sphx_glr_plot_03_direct_stiffness_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/structural_engineering/trusses/plot_03_direct_stiffness.html"><span class="doc">Turner, Clough, Martin and Topp: the direct stiffness method</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Turner, Clough, Martin and Topp: the direct stiffness method</div>
+</div></div></section>
+<section id="livesley-s-plane-frames-by-computer">
+<h2><a class="toc-backref" href="#id17" role="doc-backlink">1956 – Livesley’s Plane Frames by Computer</a><a class="headerlink" href="#livesley-s-plane-frames-by-computer" title="Link to this heading">#</a></h2>
+<p>Moment distribution assumes that the joints do not move sideways. A
+building frame under wind does sway, and hand methods needed an extra
+correction for every storey. R. K. Livesley programmed the stiffness
+method for rigid-jointed frames on the Manchester computer. Each member
+got a matrix with axial and bending terms, three degrees of freedom per
+joint, and the sway came out of the same solve as the rotations. Matrix
+frame analysis became the everyday tool of structural design offices.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/structural_engineering.html#engineeringkit.structural_engineering.PlanarFrame" title="engineeringkit.structural_engineering.PlanarFrame"><code class="xref py py-class docutils literal notranslate"><span class="pre">engineeringkit.structural_engineering.PlanarFrame</span></code></a>.
+The example sways a fixed-base portal frame, checks the result against
+the rigid-beam and pinned-beam limits and checks the equilibrium of the
+reactions under wind and gravity.</p>
+<p><em>References:</em> R. K. Livesley, “The application of an electronic digital
+computer to some problems of structural analysis,” <em>Struct. Eng.</em> 34
+(1956) 1-12.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Moment distribution assumes the joints do not move sideways. A portal frame under wind does sway, and hand methods needed an extra correction for every storey. In 1956 R. K. Livesley programmed the stiffness method for rigid-jointed frames on the Manchester Mark I. Each member gets a 6x6 matrix with axial and bending terms, and the sway comes out with the rotations (~engineeringkit.structural_engineering.PlanarFrame). The example sways a fixed-base portal frame and checks the stiffness result against its two limits, an infinitely stiff beam and an infinitely flexible one, then draws the deflected shape under wind and gravity."><img alt="" src="../_images/sphx_glr_plot_02_planar_frame_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/structural_engineering/frames/plot_02_planar_frame.html"><span class="doc">Livesley’s plane frames by direct stiffness</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Livesley's plane frames by direct stiffness</div>
+</div></div></section>
+<section id="see-also">
+<h2><a class="toc-backref" href="#id18" role="doc-backlink">See Also</a><a class="headerlink" href="#see-also" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../api/structural_engineering.html"><span class="doc">engineeringkit.structural_engineering</span></a></p></li>
+<li><p><a class="reference internal" href="../guides/structural_engineering.html"><span class="doc">Structural engineering: loads, signs and linear elasticity</span></a></p></li>
+<li><p><a class="reference internal" href="materials_breakthroughs.html"><span class="doc">Breakthroughs in Materials</span></a></p></li>
+<li><p><a class="reference internal" href="mechanical_engineering_breakthroughs.html"><span class="doc">Breakthroughs in Mechanical Engineering</span></a></p></li>
+</ul>
 </section>
 </section>
 
@@ -498,11 +866,24 @@ here are concise original explanations, not reproductions of that reference.</p>
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="pst-show_toc_level nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hooke-material-response-becomes-measurable">Hooke: material response becomes measurable</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#euler-stability-differs-from-strength">Euler: stability differs from strength</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#energy-methods-loads-and-displacements-connect">Energy methods: loads and displacements connect</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explore-and-verify">Explore and verify</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">Further reading</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#galileo-s-cantilever">1638 – Galileo’s Cantilever</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hooke-s-ut-tensio-sic-vis">1678 – Hooke’s <em>Ut tensio, sic vis</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#euler-s-column-buckling">1744 – Euler’s Column Buckling</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coulomb-s-torsion">1784 – Coulomb’s Torsion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#navier-s-beam-theory">1826 – Navier’s Beam Theory</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#poisson-s-ratio">1829 – Poisson’s Ratio</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#whipple-s-method-of-joints">1847 – Whipple’s Method of Joints</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clapeyron-s-three-moment-equation">1857 – Clapeyron’s Three-Moment Equation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#maxwell-s-rigidity-count-and-reciprocal-theorem">1864 – Maxwell’s Rigidity Count and Reciprocal Theorem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#winkler-s-influence-lines">1867 – Winkler’s Influence Lines</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#castigliano-s-theorem">1879 – Castigliano’s Theorem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mohr-s-circle">1882 – Mohr’s Circle</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engesser-s-tangent-modulus-load">1889 – Engesser’s Tangent-Modulus Load</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kazinczy-s-plastic-hinge">1914 – Kazinczy’s Plastic Hinge</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hardy-cross-s-moment-distribution">1930 – Hardy Cross’s Moment Distribution</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#turner-clough-martin-and-topp-the-direct-stiffness-method">1956 – Turner, Clough, Martin and Topp: the Direct Stiffness Method</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#livesley-s-plane-frames-by-computer">1956 – Livesley’s Plane Frames by Computer</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#see-also">See Also</a></li>
 </ul>
   </nav></div>
 

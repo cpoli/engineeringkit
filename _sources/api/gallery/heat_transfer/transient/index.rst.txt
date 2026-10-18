@@ -1,0 +1,86 @@
+
+
+.. _sphx_glr_api_gallery_heat_transfer_transient:
+
+Transient conduction
+--------------------
+
+Lumped bodies, the semi-infinite solid and the plane wall.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In 1804 Jean-Baptiste Biot heated one end of iron bars and read thermometers set along them. He saw that the temperature profile is set by a contest between conduction along the bar and loss from its surface. He could not write a consistent differential equation for it; Fourier did in 1807. The ratio of the two effects, now the Biot number Bi = hL/k (~engineeringkit.heat_transfer.biot_number), decides whether a body can be treated as a single temperature. This example cools a plane wall at three Biot numbers and compares the lumped model e^{-Bi\,Fo} with the exact series solution.">
+
+.. only:: html
+
+  .. image:: /api/gallery/heat_transfer/transient/images/thumb/sphx_glr_plot_01_biot_number_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/heat_transfer/transient/plot_01_biot_number`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Biot's heated bar and the Biot number</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In 1862 William Thomson, later Lord Kelvin, treated the Earth as a semi-infinite solid that began at a uniform molten temperature and has cooled from its surface ever since. The temperature below the surface is then T_s + (T_i - T_s)\operatorname{erf}(x/2\sqrt{\alpha t}) (~engineeringkit.heat_transfer.semi_infinite_temperature), and the surface gradient (T_i - T_s)/\sqrt{\pi\alpha t} falls with time. From the gradient measured in mines, about 1 °F per 50 ft, he found an age of about 98 million years. This example redoes his arithmetic in SI units and checks the gradient against the profile itself.">
+
+.. only:: html
+
+  .. image:: /api/gallery/heat_transfer/transient/images/thumb/sphx_glr_plot_02_kelvin_age_of_earth_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/heat_transfer/transient/plot_02_kelvin_age_of_earth`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Kelvin's age of the Earth</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Separation of variables gives the cooling of a plane wall as a Fourier series whose eigenvalues solve \zeta\tan\zeta = Bi. Before computers, nobody summed it by hand. In 1947 M. P. Heisler, working on induction heating, noticed that after a short time only the first term matters, and plotted that term as charts of centre temperature against the Fourier number for each Biot number. Generations of students read them with a ruler. plane_wall_transient sums the series (or its first term, terms=1); this example redraws the centre chart, measures the one-term error, and times the quench of a steel plate.">
+
+.. only:: html
+
+  .. image:: /api/gallery/heat_transfer/transient/images/thumb/sphx_glr_plot_03_heisler_charts_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/heat_transfer/transient/plot_03_heisler_charts`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Heisler's transient conduction charts</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/heat_transfer/transient/plot_01_biot_number
+   /api/gallery/heat_transfer/transient/plot_02_kelvin_age_of_earth
+   /api/gallery/heat_transfer/transient/plot_03_heisler_charts
+

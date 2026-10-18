@@ -32,8 +32,53 @@ and check source energy equals capacitor storage plus resistor dissipation
 for RC charging. Capacitor impedance excludes zero frequency, where the
 ideal capacitor is an open circuit.
 
-Transmission-line impedance and velocity are lossless models using H/m and
-F/m. Thévenin/Norton helpers transform supplied equivalent parameters; they
-do not solve an arbitrary network. Power factor is bounded by [-1,1], allowing
-signed real power. Balanced sinusoidal operation is assumed for three-phase
-power; the result does not cover unbalanced phases or harmonic distortion.
+Thévenin/Norton helpers transform supplied equivalent parameters; to reduce
+a network, find its open-circuit voltage and short-circuit current with
+``nodal_analysis``. Power factor is bounded by [-1,1], allowing signed real
+power. Balanced sinusoidal operation is assumed for three-phase power; the
+result does not cover unbalanced phases or harmonic distortion (use
+symmetrical components for the former).
+
+Nodal analysis
+--------------
+
+``nodal_analysis`` solves a DC network of resistors, ideal current sources
+and ideal voltage sources by modified nodal analysis. Node 0 is ground and
+non-ground nodes are numbered 1..n. A current source ``(a, b, I)`` drives
+``I`` from node ``a`` through itself into node ``b``; a voltage source
+``(p, m, V)`` holds ``v_p - v_m = V``, and its reported current is the one
+leaving its + terminal into the circuit. A floating node or a loop of
+voltage sources makes the system singular; the function rejects it when the
+condition number exceeds 1e12 rather than returning a meaningless answer.
+The result's ``kcl_residual`` is the largest net current leaving any node,
+an independent check of the solve.
+
+Transmission lines
+------------------
+
+``transmission_line_z0`` and ``transmission_line_velocity`` are lossless
+models using H/m and F/m. ``propagation_constant`` keeps R [ohm/m] and
+G [S/m] and returns gamma = alpha + j beta [1/m]; ``distortionless_condition``
+tests Heaviside's R/L = G/C. ``reflection_coefficient``,
+``standing_wave_ratio`` and ``input_impedance`` assume a lossless line of
+real characteristic impedance and a passive, finite load (an open circuit
+is the limit Gamma = 1 and cannot be passed as an impedance). The
+electrical length is beta*l in radians, so a quarter wavelength is pi/2.
+Where a line transforms the load into an open circuit the input impedance
+is numerically very large.
+
+Power systems
+-------------
+
+``symmetrical_components`` and ``phase_components`` use the Fortescue
+operator a = exp(j 2 pi/3) with the phase-a members of each sequence set;
+they accept volts, amps or per-unit values alike. ``admittance_matrix``
+builds the bus admittance matrix from pi-model lines (series impedance and
+total line charging, per unit). ``gauss_seidel_load_flow`` treats bus 0 as
+the slack bus and every other bus as a PQ bus with the given consumed power
+(generation is negative load); PV buses, tap-changing transformers and
+reactive limits are not modelled. It does not raise on non-convergence:
+check ``converged`` and ``history``. An acceleration factor of 1.4-1.6
+usually cuts the number of sweeps, but too large a value slows or prevents
+convergence. Tests check the two-bus case against its closed form and the
+example checks a five-bus network against ``scipy.optimize.root``.

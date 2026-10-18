@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>engineeringkit.control_systems.systems.sampled &#8212; engineeringkit 0.1.0 documentation</title>
+    <title>engineeringkit.control_systems.systems.sampled &#8212; engineeringkit</title>
   
   
   
@@ -29,6 +29,7 @@
 <link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx_autodoc_typehints.css?v=057ac668" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Vibur" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/jupyterlite_sphinx.css?v=f676e775" />
@@ -53,6 +54,7 @@
     <script src="../../../../_static/design-tabs.js?v=f930bc37"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '_modules/engineeringkit/control_systems/systems/sampled';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="canonical" href="https://cpoli.github.io/engineeringkit/_modules/engineeringkit/control_systems/systems/sampled.html" />
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -363,14 +365,16 @@
                 <article class="bd-article">
                   
   <h1>Source code for engineeringkit.control_systems.systems.sampled</h1><div class="highlight"><pre>
-<span></span><span class="sa">r</span><span class="sd">"""Sampled-data control: exact zero-order-hold discretisation.</span>
+<span></span><span class="sa">r</span><span class="sd">"""Sampled-data control: exact zero-order-hold discretisation and Jury's test.</span>
 
 <span class="sd">Ragazzini and Zadeh (1952) analysed loops in which a computer samples the</span>
 <span class="sd">plant output and holds its command constant between samples. For a</span>
 <span class="sd">zero-order hold of period :math:`T`, the continuous model</span>
 <span class="sd">:math:`\dot x = Ax + Bu` becomes exactly</span>
 <span class="sd">:math:`x_{k+1} = A_d x_k + B_d u_k` with :math:`A_d = e^{AT}` and</span>
-<span class="sd">:math:`B_d = \int_0^T e^{A\tau}\,d\tau\,B`.</span>
+<span class="sd">:math:`B_d = \int_0^T e^{A\tau}\,d\tau\,B`. The sampled loop is stable</span>
+<span class="sd">when every root of its characteristic polynomial in :math:`z` lies inside</span>
+<span class="sd">the unit circle, which Jury (1961) tested from the coefficients alone.</span>
 <span class="sd">"""</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
@@ -380,8 +384,9 @@
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit._validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">positive</span> <span class="k">as</span> <span class="n">_positive</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit.control_systems.utils.matrices</span><span class="w"> </span><span class="kn">import</span> <span class="n">state_matrices</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit.control_systems.utils.polynomials</span><span class="w"> </span><span class="kn">import</span> <span class="n">as_polynomial</span>
 
-<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"discretize_zoh"</span><span class="p">]</span>
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"discretize_zoh"</span><span class="p">,</span> <span class="s2">"jury_stable"</span><span class="p">]</span>
 
 
 <div class="viewcode-block" id="discretize_zoh">
@@ -427,6 +432,58 @@
     <span class="n">M</span><span class="p">[:</span><span class="n">n</span><span class="p">,</span> <span class="p">:</span><span class="n">n</span><span class="p">],</span> <span class="n">M</span><span class="p">[:</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">:]</span> <span class="o">=</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span>
     <span class="n">E</span> <span class="o">=</span> <span class="n">linalg</span><span class="o">.</span><span class="n">expm</span><span class="p">(</span><span class="n">M</span> <span class="o">*</span> <span class="n">dt</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">E</span><span class="p">[:</span><span class="n">n</span><span class="p">,</span> <span class="p">:</span><span class="n">n</span><span class="p">],</span> <span class="n">E</span><span class="p">[:</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">:]</span></div>
+
+
+
+<div class="viewcode-block" id="jury_stable">
+<a class="viewcode-back" href="../../../../api/control_systems.html#engineeringkit.control_systems.jury_stable">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">jury_stable</span><span class="p">(</span><span class="n">coeffs</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Whether every root of a polynomial in :math:`z` lies strictly inside the unit circle.</span>
+
+<span class="sd">    Jury's table reduces :math:`P(z) = a_0 z^n + a_1 z^{n-1} + \dots + a_n`</span>
+<span class="sd">    one degree at a time. Each row is</span>
+<span class="sd">    :math:`a_0 P(z) - a_n z^n P(1/z)`, divided by :math:`z`, and the</span>
+<span class="sd">    polynomial is stable if and only if :math:`|a_n| &lt; |a_0|` holds at every</span>
+<span class="sd">    step down to degree zero.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    coeffs : array_like</span>
+<span class="sd">        Real coefficients in descending powers of :math:`z`, degree at least</span>
+<span class="sd">        one.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    bool</span>
+<span class="sd">        ``True`` if all roots satisfy :math:`|z| &lt; 1`; roots on the unit</span>
+<span class="sd">        circle count as unstable.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    This is the discrete counterpart of Routh's test: no roots are</span>
+<span class="sd">    computed. The quick necessary conditions :math:`P(1) &gt; 0` and</span>
+<span class="sd">    :math:`(-1)^n P(-1) &gt; 0` (for :math:`a_0 &gt; 0`) follow from it. Each row</span>
+<span class="sd">    is normalised to unit leading coefficient, and a relative tolerance of</span>
+<span class="sd">    :math:`10^{-12}` decides the boundary cases. See</span>
+<span class="sd">    :doc:`/guides/control_systems`.</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    E. I. Jury and J. Blanchard, "A stability test for linear discrete</span>
+<span class="sd">    systems in table form," *Proc. IRE* 49 (1961) 1947-1948.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; jury_stable([1, -1.0, 0.5]), jury_stable([1, -2.5, 1.0])</span>
+<span class="sd">    (True, False)</span>
+<span class="sd">    """</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">as_polynomial</span><span class="p">(</span><span class="n">coeffs</span><span class="p">,</span> <span class="s2">"coeffs"</span><span class="p">,</span> <span class="n">min_degree</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="o">/</span> <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">&gt;=</span> <span class="mi">1</span> <span class="o">-</span> <span class="mf">1e-12</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">-</span> <span class="n">a</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">a</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">return</span> <span class="kc">True</span></div>
 
 </pre></div>
 

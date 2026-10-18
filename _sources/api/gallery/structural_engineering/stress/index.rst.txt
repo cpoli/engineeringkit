@@ -1,0 +1,50 @@
+
+
+.. _sphx_glr_api_gallery_structural_engineering_stress:
+
+Stress
+------
+
+Plane stress transformation.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Otto Mohr (1882) showed that the normal and shear stresses on every plane through a point, plotted against each other, fall on a single circle. Its centre is the mean normal stress, its radius the largest in-plane shear stress, and its ends on the axis are the principal stresses (~engineeringkit.structural_engineering.mohr_circle). Turning the element by \theta moves the point by 2\theta around the circle (~engineeringkit.structural_engineering.stress_transformation). The example traces the circle by rotating an element, checks that the principal stresses are the eigenvalues of the stress tensor, and finds the plane of maximum shear.">
+
+.. only:: html
+
+  .. image:: /api/gallery/structural_engineering/stress/images/thumb/sphx_glr_plot_01_mohr_circle_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/structural_engineering/stress/plot_01_mohr_circle`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Mohr's circle</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/structural_engineering/stress/plot_01_mohr_circle
+

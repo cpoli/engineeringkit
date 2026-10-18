@@ -1,0 +1,77 @@
+r"""
+Coriolis's work and kinetic energy
+==================================
+
+In *Du calcul de l'effet des machines* (1829) Gaspard-Gustave Coriolis
+named the product of force and distance *travail*, work, and defined the
+kinetic energy as :math:`\tfrac12 m v^2` so that the work done on a body
+equals its gain in kinetic energy, with no stray factor of two
+(:func:`~engineeringkit.mechanical_engineering.work_constant_force`,
+:func:`~engineeringkit.mechanical_engineering.kinetic_energy`). The same
+accounting runs a punch press: a flywheel stores
+:math:`\tfrac12 I\omega^2` (:func:`~engineeringkit.mechanical_engineering.rotational_energy`)
+and gives up :func:`~engineeringkit.mechanical_engineering.flywheel_energy`
+as it slows. The example checks the work-energy theorem against integrated
+equations of motion.
+"""
+
+# %%
+import matplotlib.pyplot as plt
+import numpy as np
+
+from engineeringkit.integrators import integrate_ode
+from engineeringkit.mechanical_engineering import (
+    angular_momentum,
+    flywheel_energy,
+    kinetic_energy,
+    power_torque,
+    rotational_energy,
+    work_constant_force,
+)
+
+# %%
+# A cart pulled at an angle
+# -------------------------
+#
+# A 20 kg cart starts at rest and is pulled 5 m by a 60 N rope inclined at
+# 30 degrees. Only the horizontal part of the pull does work.
+
+m, F, theta, distance = 20.0, 60.0, np.radians(30), 5.0
+W = work_constant_force(F, distance, theta)
+v_energy = np.sqrt(2 * W / m)
+t = np.linspace(0, 5, 5001)
+motion = integrate_ode(lambda tt, s: [s[1], F * np.cos(theta) / m], [0.0, 0.0], t)
+v_motion = np.interp(distance, motion.history[:, 0], motion.history[:, 1])
+print(f"work {W:.2f} J -> v = {v_energy:.4f} m/s; integrated motion gives {v_motion:.4f} m/s")
+assert np.isclose(kinetic_energy(m, v_motion), W, rtol=1e-6)
+
+# %%
+# A punch-press flywheel
+# ----------------------
+#
+# A 3 kg m^2 flywheel at 300 rpm punches a hole that takes a 900 N m torque
+# for 0.1 s. Energy released, angle turned times torque, and the drop in
+# angular momentum, torque times time, must all agree.
+
+I, w1, T_load, duration = 3.0, 300 * 2 * np.pi / 60, 900.0, 0.1
+t = np.linspace(0, duration, 1001)
+spin = integrate_ode(lambda tt, s: [s[1], -T_load / I], [0.0, w1], t)
+angle, w = spin.history[:, 0], spin.history[:, 1]
+released = flywheel_energy(I, w1, w[-1])
+print(f"speed {w1 * 60 / (2 * np.pi):.0f} -> {w[-1] * 60 / (2 * np.pi):.1f} rpm")
+print(f"energy released {released:.1f} J, torque x angle {T_load * angle[-1]:.1f} J")
+print(f"angular impulse {T_load * duration:.1f} N m s, momentum lost {angular_momentum(I, w1) - angular_momentum(I, w[-1]):.1f}")
+assert np.isclose(released, T_load * angle[-1], rtol=1e-8)
+assert np.isclose(released, rotational_energy(I, w1) - rotational_energy(I, w[-1]))
+assert np.isclose(angular_momentum(I, w1) - angular_momentum(I, w[-1]), T_load * duration)
+
+fig, axes = plt.subplots(1, 2, figsize=(10, 3.8))
+axes[0].plot(motion.history[:, 0], kinetic_energy(m, motion.history[:, 1]), label="kinetic energy")
+axes[0].plot(motion.history[:, 0], work_constant_force(F, motion.history[:, 0], theta), "--", label="work done")
+axes[0].set(xlabel="distance [m]", ylabel="energy [J]", xlim=(0, distance), ylim=(0, 1.1 * W), title="Cart")
+axes[0].legend()
+axes[1].plot(1e3 * t, power_torque(T_load, w) / 1e3)
+axes[1].set(xlabel="time [ms]", ylabel="power drawn from flywheel [kW]", title="Punch stroke")
+fig.tight_layout()
+
+plt.show()

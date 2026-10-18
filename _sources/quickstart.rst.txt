@@ -41,6 +41,4 @@ Examples
 
 Run from the repository after installation::
 
-    MPLBACKEND=Agg python examples/phase1_gallery.py
-    MPLBACKEND=Agg python examples/all_domains.py
     MPLBACKEND=Agg python examples/numerical_methods.py

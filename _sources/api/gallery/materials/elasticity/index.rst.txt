@@ -1,0 +1,86 @@
+
+
+.. _sphx_glr_api_gallery_materials_elasticity:
+
+Elasticity
+----------
+
+Young's modulus, thermal stress and the isotropic elastic constants.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Thomas Young&#x27;s Lectures on Natural Philosophy (1807) gave a single number for the stiffness of a material, its &quot;modulus of elasticity&quot;. Young expressed it as the height of a column of the material whose weight would compress it to nothing if the law stayed linear; Navier (1826) restated it as the ratio of stress to strain, E = \sigma/\varepsilon, the form used today (~engineeringkit.materials.hooke_stress). The example reduces a simulated tensile test from load and extension to stress and strain (~engineeringkit.materials.normal_stress, normal_strain), fits the modulus with StressStrainCurve and measures the energy the bar absorbs.">
+
+.. only:: html
+
+  .. image:: /api/gallery/materials/elasticity/images/thumb/sphx_glr_plot_01_young_modulus_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/materials/elasticity/plot_01_young_modulus`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Young's modulus</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Jean-Marie Duhamel (1838) added temperature to Navier&#x27;s equations of elasticity: a change \Delta T produces a free strain \alpha\,\Delta T (~engineeringkit.materials.thermal_strain) that causes no stress if the body can expand, and a stress -E\alpha\,\Delta T (~engineeringkit.materials.constrained_thermal_stress) if it is held. The stress does not depend on the length of the bar, which is why continuously welded rail must be laid at a chosen neutral temperature.">
+
+.. only:: html
+
+  .. image:: /api/gallery/materials/elasticity/images/thumb/sphx_glr_plot_02_duhamel_thermal_stress_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/materials/elasticity/plot_02_duhamel_thermal_stress`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Duhamel's thermal stress</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Early elasticity theories built from molecular forces predicted a single elastic constant for an isotropic solid, with Poisson&#x27;s ratio fixed at 1/4. Measurements disagreed. Gabriel Lamé&#x27;s Leçons sur la théorie mathématique de l&#x27;élasticité (1852) wrote the isotropic law with two constants,">
+
+.. only:: html
+
+  .. image:: /api/gallery/materials/elasticity/images/thumb/sphx_glr_plot_03_lame_constants_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/materials/elasticity/plot_03_lame_constants`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Lamé's elastic constants</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/materials/elasticity/plot_01_young_modulus
+   /api/gallery/materials/elasticity/plot_02_duhamel_thermal_stress
+   /api/gallery/materials/elasticity/plot_03_lame_constants
+

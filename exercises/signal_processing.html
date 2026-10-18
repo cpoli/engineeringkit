@@ -6,8 +6,16 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Signal processing exercises" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://cpoli.github.io/engineeringkit/exercises/signal_processing.html" />
+<meta property="og:site_name" content="engineeringkit" />
+<meta property="og:description" content="Domain hub · History · Examples · API reference Three problems built on the signal processing gallery. Try each one before opening its solution. The solutions run when the documentation is built, a..." />
+<meta property="og:image" content="https://cpoli.github.io/engineeringkit/_static/images/readme_hero.png" />
+<meta property="og:image:alt" content="engineeringkit" />
+<meta name="description" content="Domain hub · History · Examples · API reference Three problems built on the signal processing gallery. Try each one before opening its solution. The solutions run when the documentation is built, a..." />
 
-    <title>Signal processing exercises &#8212; engineeringkit 0.1.0 documentation</title>
+    <title>Signal processing exercises &#8212; engineeringkit</title>
   
   
   
@@ -30,6 +38,7 @@
 <link href="../_static/styles/pydata-sphinx-theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx_autodoc_typehints.css?v=057ac668" />
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Vibur" />
     <link rel="stylesheet" type="text/css" href="../_static/jupyterlite_sphinx.css?v=f676e775" />
@@ -55,6 +64,7 @@
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'exercises/signal_processing';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="canonical" href="https://cpoli.github.io/engineeringkit/exercises/signal_processing.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Communications exercises" href="communications.html" />
@@ -328,28 +338,52 @@
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
   <div class="bd-toc-item navbar-nav"><ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../api/gallery/structural_engineering/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../api/gallery/structural_engineering/plot_structural_engineering_benchmark.html">Buckling and effective length</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/gallery/structural_engineering/plot_structural_engineering_models.html">Beam deflection under a uniform load</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/structural_engineering/beams/index.html">Beams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/structural_engineering/energy/index.html">Energy methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/structural_engineering/frames/index.html">Frames</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/structural_engineering/members/index.html">Members</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/structural_engineering/plasticity/index.html">Plasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/structural_engineering/stability/index.html">Stability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/structural_engineering/stress/index.html">Stress</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/structural_engineering/trusses/index.html">Trusses</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../api/gallery/mechanical_engineering/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../api/gallery/mechanical_engineering/plot_mechanical_engineering_benchmark.html">Oscillator energy balance</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/gallery/mechanical_engineering/plot_mechanical_engineering_models.html">Damping and vibration histories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/mechanical_engineering/dynamics/index.html">Dynamics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/mechanical_engineering/machine_elements/index.html">Machine elements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/mechanical_engineering/mechanisms/index.html">Mechanisms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/mechanical_engineering/rotordynamics/index.html">Rotordynamics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/mechanical_engineering/transmission/index.html">Transmission</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/mechanical_engineering/vibration/index.html">Vibration</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../api/gallery/thermodynamics/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../api/gallery/thermodynamics/plot_thermodynamics_benchmark.html">Carnot engine and heat-pump limits</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/gallery/thermodynamics/plot_thermodynamics_models.html">Ideal power-cycle efficiency</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/thermodynamics/cycles/index.html">Cycles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/thermodynamics/exergy/index.html">Exergy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/thermodynamics/laws/index.html">Laws</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/thermodynamics/properties/index.html">Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/thermodynamics/psychrometrics/index.html">Psychrometrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/thermodynamics/refrigeration/index.html">Refrigeration</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../api/gallery/fluid_engineering/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../api/gallery/fluid_engineering/plot_fluid_engineering_benchmark.html">Poiseuille profile and volume flow</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/gallery/fluid_engineering/plot_fluid_engineering_models.html">Darcy friction across two flow regimes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/fluid_engineering/hydrostatics/index.html">Hydrostatics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/fluid_engineering/measurement/index.html">Measurement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/fluid_engineering/networks/index.html">Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/fluid_engineering/open_channel/index.html">Open channels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/fluid_engineering/pipe_flow/index.html">Pipe flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/fluid_engineering/pumps/index.html">Pumps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/fluid_engineering/similarity/index.html">Similarity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/fluid_engineering/transients/index.html">Transients</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../api/gallery/heat_transfer/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../api/gallery/heat_transfer/plot_heat_transfer_benchmark.html">Cooling and the lumped time constant</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/gallery/heat_transfer/plot_heat_transfer_models.html">Parallel and counterflow heat exchangers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/heat_transfer/conduction/index.html">Conduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/heat_transfer/convection/index.html">Convection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/heat_transfer/exchangers/index.html">Heat exchangers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/heat_transfer/phase_change/index.html">Phase change</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/heat_transfer/radiation/index.html">Radiation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/heat_transfer/transient/index.html">Transient conduction</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../api/gallery/aerodynamics/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -364,8 +398,12 @@
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../api/gallery/electrical_engineering/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../api/gallery/electrical_engineering/plot_electrical_engineering_benchmark.html">RC charge and energy accounting</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/gallery/electrical_engineering/plot_electrical_engineering_models.html">RLC current after a voltage step</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/electrical_engineering/ac_circuits/index.html">AC circuits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/electrical_engineering/dc_circuits/index.html">DC circuits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/electrical_engineering/networks/index.html">Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/electrical_engineering/power/index.html">Power</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/electrical_engineering/transients/index.html">Transients</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/electrical_engineering/transmission_lines/index.html">Transmission lines</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../api/gallery/control_systems/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -380,8 +418,11 @@
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../api/gallery/signal_processing/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../api/gallery/signal_processing/plot_signal_processing_benchmark.html">Aliasing before reconstruction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/gallery/signal_processing/plot_signal_processing_models.html">Sampling and a signal spectrum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/signal_processing/filters/index.html">Filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/signal_processing/fourier/index.html">Fourier analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/signal_processing/sampling/index.html">Sampling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/signal_processing/spectral/index.html">Spectral analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/signal_processing/wavelets/index.html">Wavelets</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../api/gallery/communications/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -396,13 +437,22 @@
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../api/gallery/materials/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../api/gallery/materials/plot_materials_benchmark.html">Crack size and fracture threshold</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/gallery/materials/plot_materials_models.html">Voigt and Reuss composite bounds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/materials/composites/index.html">Composites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/materials/creep/index.html">Creep</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/materials/elasticity/index.html">Elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/materials/fatigue/index.html">Fatigue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/materials/fracture/index.html">Fracture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/materials/plasticity/index.html">Plasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/materials/yield/index.html">Yield</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../api/gallery/reliability/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../api/gallery/reliability/plot_reliability_benchmark.html">Redundancy under independent failures</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/gallery/reliability/plot_reliability_models.html">Weibull survival and shape</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/reliability/growth/index.html">Growth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/reliability/lifetimes/index.html">Lifetimes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/reliability/maintenance/index.html">Maintenance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/reliability/risk/index.html">Risk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/reliability/structural/index.html">Structural reliability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/reliability/systems/index.html">Systems</a></li>
 </ul>
 </details></li>
 </ul>
@@ -441,7 +491,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../guides/control_systems.html">Control systems: matrix contracts and numerical stability</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/signal_processing.html">Signal processing: sampled energy, spectra and quantization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/communications.html">Communications: linear ratios, modulation phase and channel scope</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../guides/materials.html">Materials: elasticity, fracture and fatigue conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/materials.html">Materials: elasticity, yield, fatigue, fracture and creep conventions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/reliability.html">Reliability: distributions, independence and rate units</a></li>
 </ul>
 </div>
@@ -519,7 +569,8 @@ documentation is built, and the test suite checks every number they print.</p>
 <p>Tones at 300 Hz, 700 Hz and 1300 Hz are each sampled at 1 kHz for one
 second. Predict the frequency at which each appears in the sampled data,
 then confirm it from the peak of a windowed spectrum.</p>
-<p><em>Builds on:</em> <a class="reference internal" href="../api/gallery/signal_processing/index.html"><span class="doc">Examples</span></a>.</p>
+<p><em>Builds on:</em> <a class="reference internal" href="../api/gallery/signal_processing/sampling/plot_02_shannon_sampling.html"><span class="doc">Shannon’s sampling theorem and aliasing</span></a> and
+<a class="reference internal" href="../api/gallery/signal_processing/spectral/plot_04_blackman_tukey_windows.html"><span class="doc">Blackman and Tukey’s spectral windows</span></a>.</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 <span class="sd-summary-text">Solution</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
@@ -549,7 +600,7 @@ anti-aliasing filter must come <em>before</em> it.</p>
 <p>An ADC spans -1 V to 1 V. Quantize a full-scale sine wave with 8, 12 and
 16 bits, and measure the signal-to-quantization-noise ratio. Compare with
 the rule <span class="math notranslate nohighlight">\(6.02N + 1.76\)</span> dB.</p>
-<p><em>Builds on:</em> <a class="reference internal" href="../api/gallery/signal_processing/index.html"><span class="doc">Examples</span></a>.</p>
+<p><em>Builds on:</em> <a class="reference internal" href="../api/gallery/signal_processing/sampling/plot_01_bennett_quantization.html"><span class="doc">Bennett’s quantization noise</span></a>.</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 <span class="sd-summary-text">Solution</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
@@ -582,7 +633,8 @@ filter with a fourth-order Butterworth, both with a 100 Hz cutoff. Find the
 attenuation of each at 200 Hz, and the group delay of each at 10 Hz and
 90 Hz. Which one would you use to filter a heartbeat recording, where the
 shape of the waveform matters?</p>
-<p><em>Builds on:</em> <a class="reference internal" href="../api/gallery/signal_processing/index.html"><span class="doc">Examples</span></a>.</p>
+<p><em>Builds on:</em> <a class="reference internal" href="../api/gallery/signal_processing/filters/plot_05_kaiser_fir.html"><span class="doc">Kaiser’s window method for FIR design</span></a> and
+<a class="reference internal" href="../api/gallery/signal_processing/filters/plot_01_butterworth.html"><span class="doc">Butterworth’s maximally flat filter</span></a>.</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 <span class="sd-summary-text">Solution</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">

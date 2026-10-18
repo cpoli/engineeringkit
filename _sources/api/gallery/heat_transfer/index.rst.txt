@@ -5,13 +5,48 @@ Examples
 
 .. include:: /_generated/nav/heat_transfer.rst
 
-Parallel and counterflow heat exchangers.
+This gallery walks through every public feature of
+``engineeringkit.heat_transfer``, one breakthrough per script: Newton's
+cooling and the convection correlations, transient conduction from Biot to
+Heisler, Fourier's law, fins and finite differences, blackbody radiation and
+view factors, phase change, and heat exchangers.
 
 :doc:`Units, assumptions and numerical validation </guides/heat_transfer>`
-provides the interpretation and physical validity limits.
+gives the physical validity limits. Each script is self-contained and can be
+run directly with ``python examples/heat_transfer/<section>/<script>.py``.
 
-Each script is self-contained; run it with
-``python examples/heat_transfer/plot_heat_transfer_models.py``.
+Sections
+--------
+
+- **convection** -- Newton's law of cooling, the Dittus-Boelter and Churchill-Chu correlations.
+- **transient** -- Biot's number, Kelvin's age of the Earth and Heisler's charts.
+- **conduction** -- Fourier's law, Harper and Brown's fins and the Crank-Nicolson scheme.
+- **radiation** -- Kirchhoff's law, Stefan-Boltzmann, Wien's displacement and Nusselt's view factors.
+- **phase_change** -- Stefan's ice problem, Nusselt's film condensation and the boiling curve.
+- **exchangers** -- Kays and London's effectiveness-NTU method.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+Conduction
+----------
+
+Fourier's law, thermal resistances, fins and finite-difference conduction.
 
 
 .. raw:: html
@@ -27,35 +62,405 @@ Each script is self-contained; run it with
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="A small copper sphere has a small Biot number in the chosen convection field. Its excess temperature should decrease to 1/e of its initial value at one lumped time constant. All temperatures are absolute.">
+    <div class="sphx-glr-thumbcontainer" tooltip="Joseph Fourier&#x27;s 1822 treatise made the heat flux proportional to the temperature gradient, q = -k\,\mathrm{d}T/\mathrm{d}x, derived the heat equation from it, and invented the series that bear his name to solve it. For steady flow through a slab the law gives \dot Q = kA\Delta T/L (~engineeringkit.heat_transfer.fourier_heat_rate), so a slab behaves like an electrical resistor L/(kA) (~engineeringkit.heat_transfer.plane_wall_resistance) and layered walls add like resistors in series (~engineeringkit.heat_transfer.composite_wall). Curved walls give logarithmic resistances, and with them the surprising critical radius of insulation.">
 
 .. only:: html
 
-  .. image:: /api/gallery/heat_transfer/images/thumb/sphx_glr_plot_heat_transfer_benchmark_thumb.png
+  .. image:: /api/gallery/heat_transfer/conduction/images/thumb/sphx_glr_plot_01_fourier_law_thumb.png
     :alt:
 
-  :doc:`/api/gallery/heat_transfer/plot_heat_transfer_benchmark`
+  :doc:`/api/gallery/heat_transfer/conduction/plot_01_fourier_law`
 
 .. raw:: html
 
-      <div class="sphx-glr-thumbnail-title">Cooling and the lumped time constant</div>
+      <div class="sphx-glr-thumbnail-title">Fourier's Théorie analytique de la chaleur</div>
     </div>
 
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Compute an inspectable engineering model using SI inputs. See the linked domain guide for assumptions and benchmark checks.">
+    <div class="sphx-glr-thumbcontainer" tooltip="Air-cooled aero engines of the First World War shed their heat through cylinder fins, and in 1922 D. R. Harper and W. B. Brown of the Bureau of Standards gave NACA the mathematics. A thin fin obeys \theta&#x27;&#x27; = m^2\theta with m = \sqrt{hP/(kA_c)} (~engineeringkit.heat_transfer.fin_parameter); with an insulated tip it carries \sqrt{hPkA_c}\,\theta_b\tanh mL (~engineeringkit.heat_transfer.fin_heat_rate_adiabatic), a fraction \tanh(mL)/mL of what an isothermal fin would (~engineeringkit.heat_transfer.fin_efficiency_adiabatic). Their practical trick: a convecting tip is accounted for by lengthening the fin by half its thickness. This example solves the fin equation numerically and checks both.">
 
 .. only:: html
 
-  .. image:: /api/gallery/heat_transfer/images/thumb/sphx_glr_plot_heat_transfer_models_thumb.png
+  .. image:: /api/gallery/heat_transfer/conduction/images/thumb/sphx_glr_plot_02_fin_efficiency_thumb.png
     :alt:
 
-  :doc:`/api/gallery/heat_transfer/plot_heat_transfer_models`
+  :doc:`/api/gallery/heat_transfer/conduction/plot_02_fin_efficiency`
 
 .. raw:: html
 
-      <div class="sphx-glr-thumbnail-title">Parallel and counterflow heat exchangers</div>
+      <div class="sphx-glr-thumbnail-title">Harper and Brown's fin efficiency</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In 1947 John Crank and Phyllis Nicolson, solving heat-conduction problems with heat generation on desk calculators, needed a finite-difference scheme for the heat equation that was both stable and accurate. The explicit scheme is stable only for a mesh Fourier number r = \alpha\Delta t/\Delta x^2 \le 1/2; the fully implicit one is always stable but only first order in time. Averaging the two, they got an unconditionally stable, second-order method (~engineeringkit.heat_transfer.conduction_1d). This example measures the order of each scheme and watches the explicit one blow up.">
+
+.. only:: html
+
+  .. image:: /api/gallery/heat_transfer/conduction/images/thumb/sphx_glr_plot_03_crank_nicolson_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/heat_transfer/conduction/plot_03_crank_nicolson`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Crank and Nicolson: numerical conduction</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+Convection
+----------
+
+Newton cooling and Nusselt-number correlations for forced and natural convection.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In 1701 Newton published, anonymously, a temperature scale reaching far beyond the melting point of tin. He heated a block of iron red hot, set it in a steady wind, and timed how long it took to cool. Assuming that the heat lost is proportional to the excess temperature, \dot Q = hA(T - T_\infty) (~engineeringkit.heat_transfer.convection_heat_rate), equal intervals of time should multiply the excess temperature by equal factors (~engineeringkit.heat_transfer.lumped_temperature). Newton then read temperatures off the clock. This example repeats the measurement on a model block, recovers the time constant from the readings, and checks the energy balance.">
+
+.. only:: html
+
+  .. image:: /api/gallery/heat_transfer/convection/images/thumb/sphx_glr_plot_01_newton_cooling_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/heat_transfer/convection/plot_01_newton_cooling`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Newton's law of cooling</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="At Berkeley in 1930 Frank Dittus and Llewellyn Boelter correlated tests on automobile radiator tubes with a power law in the Reynolds and Prandtl numbers. In McAdams&#x27;s rounded form, Nu = 0.023\,Re^{0.8}Pr^{n} with n = 0.4 for heating and 0.3 for cooling (~engineeringkit.heat_transfer.dittus_boelter_nusselt), it became the most quoted equation in convection. This example sizes the coefficient for water in a tube, shows that the Colburn analogy between friction and heat transfer reproduces the 0.023, and measures the scatter against Gnielinski&#x27;s modern correlation.">
+
+.. only:: html
+
+  .. image:: /api/gallery/heat_transfer/convection/images/thumb/sphx_glr_plot_02_dittus_boelter_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/heat_transfer/convection/plot_02_dittus_boelter`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Dittus and Boelter: turbulent pipe convection</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Free convection on a vertical plate was long described piecewise: a laminar Ra^{1/4} law, a turbulent Ra^{1/3} law, and a gap between them. In 1975 Stuart Churchill and Humbert Chu fitted one smooth expression to the data from conduction-dominated creeping flow to fully turbulent plumes, Nu = \{0.825 + 0.387 Ra^{1/6}/[1 + (0.492/Pr)^{9/16}]^{8/27}\}^2 (~engineeringkit.heat_transfer.churchill_chu_nusselt, with rayleigh_number). The example checks both asymptotes and the laminar boundary-layer theory it replaces.">
+
+.. only:: html
+
+  .. image:: /api/gallery/heat_transfer/convection/images/thumb/sphx_glr_plot_03_churchill_chu_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/heat_transfer/convection/plot_03_churchill_chu`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Churchill and Chu: natural convection over all Rayleigh numbers</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+Heat exchangers
+---------------
+
+The LMTD and effectiveness-NTU methods.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="The log-mean temperature difference sizes an exchanger when all four end temperatures are known (~engineeringkit.heat_transfer.log_mean_temperature_difference, heat_exchanger_rate). To rate a given exchanger, when only the inlets are known, it needs iteration. William Kays and Alexander London, testing compact exchangers for the US Navy at Stanford, organised everything around the effectiveness \varepsilon = \dot Q/\dot Q_{max} as a function of NTU = UA/C_{min} and C_r = C_{min}/C_{max} (~engineeringkit.heat_transfer.exchanger_effectiveness_counterflow, exchanger_effectiveness_parallel), and published the charts in Compact Heat Exchangers (1955). This example rates an oil cooler both ways and marches the energy equations along it.">
+
+.. only:: html
+
+  .. image:: /api/gallery/heat_transfer/exchangers/images/thumb/sphx_glr_plot_01_kays_london_ntu_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/heat_transfer/exchangers/plot_01_kays_london_ntu`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Kays and London: the effectiveness-NTU method</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+Phase change
+------------
+
+Melting and freezing fronts, condensation and boiling.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In 1891 Josef Stefan asked how fast sea ice thickens in the polar winter. The ice conducts heat from the freezing water below to the cold air above, and every millimetre of new ice releases latent heat at the moving interface, so the boundary is part of the unknown. Franz Neumann had found the exact similarity solution in his lectures of the 1860s: the front advances as s = 2\lambda\sqrt{\alpha t} with \lambda e^{\lambda^2}\operatorname{erf}\lambda = Ste/\sqrt\pi (~engineeringkit.heat_transfer.neumann_stefan_front, stefan_number). This example grows a winter of sea ice, checks the energy balance at the front, and compares with Stefan&#x27;s own quasi-steady estimate.">
+
+.. only:: html
+
+  .. image:: /api/gallery/heat_transfer/phase_change/images/thumb/sphx_glr_plot_01_stefan_problem_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/heat_transfer/phase_change/plot_01_stefan_problem`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Stefan's problem: a moving freezing front</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Steam condensing on the cold tubes of a power-station condenser forms a liquid film that drains under gravity, and the film itself is the main resistance to heat flow. In 1916 Wilhelm Nusselt balanced gravity against viscous shear in the film and conduction across it. The film thickens as x^{1/4} down the wall, and the average coefficient over a height L is 0.943\,[g\rho_l(\rho_l - \rho_v)k_l^3h_{fg}/(\mu_l L\Delta T)]^{1/4} (~engineeringkit.heat_transfer.nusselt_film_condensation). This example rebuilds the film profile, checks the average against the local coefficient, and checks the energy balance.">
+
+.. only:: html
+
+  .. image:: /api/gallery/heat_transfer/phase_change/images/thumb/sphx_glr_plot_02_nusselt_condensation_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/heat_transfer/phase_change/plot_02_nusselt_condensation`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Nusselt's film condensation</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In 1934 Shiro Nukiyama boiled water at atmospheric pressure on electrically heated wires. Raising the power, he found that the heat flux reached a maximum a few tens of kelvin above saturation. One step more and the wire was suddenly covered by vapour: a nichrome wire melted, a platinum wire glowed red. Controlling the temperature instead of the power later traced the whole curve, through a falling transition region to a minimum and on into film boiling. In 1958 Novak Zuber explained the maximum as a hydrodynamic (Taylor and Helmholtz) instability of the vapour columns, q&#x27;&#x27;_{max} = C h_{fg}\rho_v[\sigma g(\rho_l - \rho_v)/\rho_v^2]^{1/4} (~engineeringkit.heat_transfer.zuber_critical_heat_flux). This example sketches the curve with standard correlations and finds Nukiyama&#x27;s jump.">
+
+.. only:: html
+
+  .. image:: /api/gallery/heat_transfer/phase_change/images/thumb/sphx_glr_plot_03_nukiyama_boiling_curve_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/heat_transfer/phase_change/plot_03_nukiyama_boiling_curve`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Nukiyama's boiling curve and Zuber's critical heat flux</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+Radiation
+---------
+
+Blackbody laws, gray-surface exchange and view factors.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In 1859 Gustav Kirchhoff, explaining the dark lines that Fraunhofer had seen in the solar spectrum, proved from the second law that at every wavelength a body&#x27;s emissivity equals its absorptivity. A good absorber is a good emitter, and the perfect absorber, the blackbody, is the universal reference whose emission depends on temperature alone. For a gray surface in large surroundings the net exchange is \varepsilon\sigma A(T_s^4 - T_{sur}^4) (~engineeringkit.heat_transfer.radiation_heat_rate), often linearised as a coefficient h_r (~engineeringkit.heat_transfer.radiation_coefficient). This example shows why \alpha = \varepsilon is forced: anything else would let heat flow from cold to hot.">
+
+.. only:: html
+
+  .. image:: /api/gallery/heat_transfer/radiation/images/thumb/sphx_glr_plot_01_kirchhoff_emissivity_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/heat_transfer/radiation/plot_01_kirchhoff_emissivity`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Kirchhoff's law of thermal radiation</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In 1879 Josef Stefan reread John Tyndall&#x27;s measurements of a glowing platinum wire: at 1200 °C it radiated 11.7 times as much as at 525 °C. The ratio of the absolute temperatures to the fourth power is 11.6, and Stefan proposed E \propto T^4. In 1884 his former student Ludwig Boltzmann derived the law from thermodynamics and Maxwell&#x27;s radiation pressure, E_b = \sigma T^4 (~engineeringkit.heat_transfer.stefan_boltzmann_emissive_power). The constant \sigma was explained only by Planck&#x27;s spectrum (~engineeringkit.heat_transfer.planck_spectral_emissive_power), whose integral this example checks against the law.">
+
+.. only:: html
+
+  .. image:: /api/gallery/heat_transfer/radiation/images/thumb/sphx_glr_plot_02_stefan_boltzmann_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/heat_transfer/radiation/plot_02_stefan_boltzmann`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Stefan and Boltzmann: emission grows as T⁴</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In 1893 Wilhelm Wien imagined blackbody radiation compressed adiabatically in a cavity with a moving mirror. Doppler shifts and the second law then forced the spectrum to keep its shape as the temperature changes: the spectral emissive power divided by T^5 depends only on \lambda T. Its peak therefore sits at \lambda_{max}T = b (~engineeringkit.heat_transfer.blackbody_peak_wavelength), with b = 2898 um K. The law says why the Sun peaks in the visible, a lamp filament in the near infrared and a person at about 10 um. This example finds the peak of Planck&#x27;s spectrum numerically and checks the similarity that Wien proved.">
+
+.. only:: html
+
+  .. image:: /api/gallery/heat_transfer/radiation/images/thumb/sphx_glr_plot_03_wien_displacement_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/heat_transfer/radiation/plot_03_wien_displacement`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Wien's displacement law</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="How much of the radiation leaving one diffuse surface lands on another? The view factor is a fourfold integral of \cos\theta_1\cos\theta_2/\pi r^2. In 1928 Wilhelm Nusselt found a construction that a draughtsman could do: project the second surface onto a unit hemisphere centred on a point of the first, then project that image straight down onto the base circle. The fraction of the circle covered is the view factor from the point. Picking points uniformly in the circle is the same as picking cosine-weighted directions, which makes the construction a Monte Carlo method. This example uses it to check the closed forms for opposed rectangles (~engineeringkit.heat_transfer.view_factor_parallel_plates) and coaxial disks (~engineeringkit.heat_transfer.view_factor_coaxial_disks).">
+
+.. only:: html
+
+  .. image:: /api/gallery/heat_transfer/radiation/images/thumb/sphx_glr_plot_04_nusselt_view_factor_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/heat_transfer/radiation/plot_04_nusselt_view_factor`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Nusselt's unit-sphere view factor</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+Transient conduction
+--------------------
+
+Lumped bodies, the semi-infinite solid and the plane wall.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In 1804 Jean-Baptiste Biot heated one end of iron bars and read thermometers set along them. He saw that the temperature profile is set by a contest between conduction along the bar and loss from its surface. He could not write a consistent differential equation for it; Fourier did in 1807. The ratio of the two effects, now the Biot number Bi = hL/k (~engineeringkit.heat_transfer.biot_number), decides whether a body can be treated as a single temperature. This example cools a plane wall at three Biot numbers and compares the lumped model e^{-Bi\,Fo} with the exact series solution.">
+
+.. only:: html
+
+  .. image:: /api/gallery/heat_transfer/transient/images/thumb/sphx_glr_plot_01_biot_number_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/heat_transfer/transient/plot_01_biot_number`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Biot's heated bar and the Biot number</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In 1862 William Thomson, later Lord Kelvin, treated the Earth as a semi-infinite solid that began at a uniform molten temperature and has cooled from its surface ever since. The temperature below the surface is then T_s + (T_i - T_s)\operatorname{erf}(x/2\sqrt{\alpha t}) (~engineeringkit.heat_transfer.semi_infinite_temperature), and the surface gradient (T_i - T_s)/\sqrt{\pi\alpha t} falls with time. From the gradient measured in mines, about 1 °F per 50 ft, he found an age of about 98 million years. This example redoes his arithmetic in SI units and checks the gradient against the profile itself.">
+
+.. only:: html
+
+  .. image:: /api/gallery/heat_transfer/transient/images/thumb/sphx_glr_plot_02_kelvin_age_of_earth_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/heat_transfer/transient/plot_02_kelvin_age_of_earth`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Kelvin's age of the Earth</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Separation of variables gives the cooling of a plane wall as a Fourier series whose eigenvalues solve \zeta\tan\zeta = Bi. Before computers, nobody summed it by hand. In 1947 M. P. Heisler, working on induction heating, noticed that after a short time only the first term matters, and plotted that term as charts of centre temperature against the Fourier number for each Biot number. Generations of students read them with a ruler. plane_wall_transient sums the series (or its first term, terms=1); this example redraws the centre chart, measures the one-term error, and times the quench of a steel plate.">
+
+.. only:: html
+
+  .. image:: /api/gallery/heat_transfer/transient/images/thumb/sphx_glr_plot_03_heisler_charts_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/heat_transfer/transient/plot_03_heisler_charts`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Heisler's transient conduction charts</div>
     </div>
 
 
@@ -68,9 +473,15 @@ Each script is self-contained; run it with
 
 .. toctree::
    :hidden:
+   :includehidden:
 
-   /api/gallery/heat_transfer/plot_heat_transfer_benchmark
-   /api/gallery/heat_transfer/plot_heat_transfer_models
+
+   /api/gallery/heat_transfer/conduction/index.rst
+   /api/gallery/heat_transfer/convection/index.rst
+   /api/gallery/heat_transfer/exchangers/index.rst
+   /api/gallery/heat_transfer/phase_change/index.rst
+   /api/gallery/heat_transfer/radiation/index.rst
+   /api/gallery/heat_transfer/transient/index.rst
 
 
 .. only:: html

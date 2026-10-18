@@ -1,0 +1,43 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-10-18T12:25:15.931282Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-18T12:25:13.338209Z",
+      "mimetype": null,
+      "name": "plot_02_venturi_meter.ipynb",
+      "path": "jupyterlite_contents/api/gallery/fluid_engineering/measurement/plot_02_venturi_meter.ipynb",
+      "size": 3473,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-18T12:25:15.931082Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-18T12:25:13.338094Z",
+      "mimetype": null,
+      "name": "plot_01_pitot_tube.ipynb",
+      "path": "jupyterlite_contents/api/gallery/fluid_engineering/measurement/plot_01_pitot_tube.ipynb",
+      "size": 3949,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2026-10-18T12:25:15.931282Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-10-18T12:25:15.931282Z",
+  "mimetype": null,
+  "name": "measurement",
+  "path": "jupyterlite_contents/api/gallery/fluid_engineering/measurement",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

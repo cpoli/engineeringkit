@@ -18,7 +18,7 @@ ratio of 2. Yet diesel engines are the more efficient in practice. Explain
 why by comparing a diesel at 18 with a petrol engine limited by knock to a
 compression ratio of 10.
 
-*Builds on:* :doc:`/api/gallery/thermodynamics/index` (the Otto and Diesel comparison).
+*Builds on:* :doc:`/api/gallery/thermodynamics/cycles/plot_05_diesel_cycle`.
 
 .. dropdown:: Solution
 
@@ -50,7 +50,7 @@ but the net work per kilogram of air has a maximum. Find the pressure ratio
 of maximum work, and check it against
 :math:`r_p = (T_3/T_1)^{\gamma/(2(\gamma-1))}`.
 
-*Builds on:* :doc:`/api/gallery/thermodynamics/index`.
+*Builds on:* :doc:`/api/gallery/thermodynamics/cycles/plot_03_brayton_cycle`.
 
 .. dropdown:: Solution
 
@@ -96,7 +96,7 @@ achieves 45% of the Carnot COP. Find its COP, its electrical input, and
 the minimum work the second law allows, from the exergy of the delivered
 heat. Compare with an electric heater.
 
-*Builds on:* :doc:`/api/gallery/thermodynamics/index`.
+*Builds on:* :doc:`/api/gallery/thermodynamics/refrigeration/plot_02_kelvin_heat_pump`.
 
 .. dropdown:: Solution
 

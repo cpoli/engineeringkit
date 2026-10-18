@@ -1,0 +1,50 @@
+
+
+.. _sphx_glr_api_gallery_heat_transfer_exchangers:
+
+Heat exchangers
+---------------
+
+The LMTD and effectiveness-NTU methods.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="The log-mean temperature difference sizes an exchanger when all four end temperatures are known (~engineeringkit.heat_transfer.log_mean_temperature_difference, heat_exchanger_rate). To rate a given exchanger, when only the inlets are known, it needs iteration. William Kays and Alexander London, testing compact exchangers for the US Navy at Stanford, organised everything around the effectiveness \varepsilon = \dot Q/\dot Q_{max} as a function of NTU = UA/C_{min} and C_r = C_{min}/C_{max} (~engineeringkit.heat_transfer.exchanger_effectiveness_counterflow, exchanger_effectiveness_parallel), and published the charts in Compact Heat Exchangers (1955). This example rates an oil cooler both ways and marches the energy equations along it.">
+
+.. only:: html
+
+  .. image:: /api/gallery/heat_transfer/exchangers/images/thumb/sphx_glr_plot_01_kays_london_ntu_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/heat_transfer/exchangers/plot_01_kays_london_ntu`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Kays and London: the effectiveness-NTU method</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/heat_transfer/exchangers/plot_01_kays_london_ntu
+

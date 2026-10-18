@@ -1,0 +1,86 @@
+
+
+.. _sphx_glr_api_gallery_materials_fracture:
+
+Fracture
+--------
+
+Brittle fracture, the stress intensity factor and fatigue crack growth.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Glass should be as strong as its atomic bonds, about E/10, yet it breaks at a few hundredths of that. Alan Arnold Griffith (paper read in 1920, published 1921) blamed small cracks. A crack of half-length a in a plate under stress \sigma releases elastic energy \pi\sigma^2a^2/E per unit thickness and costs surface energy 4a\gamma_s. It grows when the release outpaces the cost, at \sigma_f = \sqrt{2E\gamma_s/\pi a} (~engineeringkit.materials.griffith_fracture_stress). Griffith confirmed it on glass bulbs and tubes with scratches of known size, and drawing fresh glass fibres showed strengths approaching the theoretical value.">
+
+.. only:: html
+
+  .. image:: /api/gallery/materials/fracture/images/thumb/sphx_glr_plot_01_griffith_fracture_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/materials/fracture/plot_01_griffith_fracture`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Griffith's theory of brittle fracture</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Griffith&#x27;s balance worked for glass but predicted absurdly low strengths for steel, whose cracks blunt by plastic flow. George Irwin, at the US Naval Research Laboratory after the brittle failures of welded Liberty ships, showed that the stresses near every crack tip have the same shape, \sigma_{ij} = K f_{ij}(\theta)/\sqrt{2\pi r}, scaled by one number, the stress intensity factor K_I = Y\sigma\sqrt{\pi a} (1957) (~engineeringkit.materials.stress_intensity). Fracture happens when K_I reaches the material&#x27;s toughness K_{Ic}, and the critical crack length follows (~engineeringkit.materials.critical_crack_length). The energy release rate links the two views, \mathcal{G} = K^2/E.">
+
+.. only:: html
+
+  .. image:: /api/gallery/materials/fracture/images/thumb/sphx_glr_plot_02_irwin_stress_intensity_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/materials/fracture/plot_02_irwin_stress_intensity`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Irwin's stress intensity factor</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Fracture mechanics tells how long a crack can be; fatigue makes it grow there. Paul Paris, after measuring cracks in aluminium aircraft panels, proposed with Gomez and Anderson (1961) and argued with Erdogan (1963) that the growth per cycle depends on the range of the stress intensity factor alone, da/dN = C\,\Delta K^m (~engineeringkit.materials.paris_crack_growth). Integrating it from the largest crack an inspection can miss to the critical size gives the inspection interval of damage-tolerant design (~engineeringkit.materials.crack_growth_life).">
+
+.. only:: html
+
+  .. image:: /api/gallery/materials/fracture/images/thumb/sphx_glr_plot_03_paris_law_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/materials/fracture/plot_03_paris_law`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Paris's crack-growth law</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/materials/fracture/plot_01_griffith_fracture
+   /api/gallery/materials/fracture/plot_02_irwin_stress_intensity
+   /api/gallery/materials/fracture/plot_03_paris_law
+

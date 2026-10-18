@@ -1,0 +1,104 @@
+
+
+.. _sphx_glr_api_gallery_reliability_systems:
+
+Systems
+-------
+
+How the reliability of a system follows from its parts and their arrangement.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="John von Neumann&#x27;s 1956 lectures asked how a computer, or a brain, can work when every component is unreliable. Two answers came out. Active parallel redundancy, 1 - (1 - r)^n (~engineeringkit.reliability.parallel_reliability), survives if any copy survives. For logic, where a wrong output is as bad as none, he used majority voting: three copies and a voter give 3r^2 - 2r^3, and voting on voters drives reliability toward one, but only if each part is better than a coin toss, r &gt; 1/2.">
+
+.. only:: html
+
+  .. image:: /api/gallery/reliability/systems/images/thumb/sphx_glr_plot_01_von_neumann_redundancy_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/reliability/systems/plot_01_von_neumann_redundancy`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Von Neumann's reliable machines from unreliable parts</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In the early 1950s, most of the US Navy&#x27;s electronics was out of action at any given time, largely because of vacuum-tube failures. The Advisory Group on Reliability of Electronic Equipment (AGREE) reported in 1957 that reliability must be specified as a number, predicted and demonstrated by test. Its working model was a series system of parts with constant failure rates: the system&#x27;s hazard (~engineeringkit.reliability.exponential_hazard) is the sum of the parts&#x27; rates and its MTBF the reciprocal. More parts means less reliability, R_s = \prod R_i (~engineeringkit.reliability.series_reliability).">
+
+.. only:: html
+
+  .. image:: /api/gallery/reliability/systems/images/thumb/sphx_glr_plot_02_agree_series_systems_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/reliability/systems/plot_02_agree_series_systems`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">The AGREE report: series systems and MTBF</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Birnbaum, Esary and Saunders (1961) put system reliability on a general footing: a structure function says which combinations of working components keep the system working. The k-out-of-n system, which works if at least k of n identical components do, spans the range from parallel (k = 1) to series (k = n), and its reliability is a binomial tail (~engineeringkit.reliability.k_of_n_reliability). The example checks it by enumerating component states and recovers the mean life of each architecture.">
+
+.. only:: html
+
+  .. image:: /api/gallery/reliability/systems/images/thumb/sphx_glr_plot_03_k_out_of_n_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/reliability/systems/plot_03_k_out_of_n`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Birnbaum, Esary and Saunders's k-out-of-n systems</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Which component should be improved first? Birnbaum (1969) defined a component&#x27;s importance as the rate at which system reliability changes with its reliability, I_i = \partial R_s/\partial R_i. In a series system that is the product of all the other reliabilities (~engineeringkit.reliability.birnbaum_importance_series), so the weakest link is the most important. The example checks the derivative numerically and shows that improving the most important component buys the most.">
+
+.. only:: html
+
+  .. image:: /api/gallery/reliability/systems/images/thumb/sphx_glr_plot_04_birnbaum_importance_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/reliability/systems/plot_04_birnbaum_importance`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Birnbaum's component importance</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/reliability/systems/plot_01_von_neumann_redundancy
+   /api/gallery/reliability/systems/plot_02_agree_series_systems
+   /api/gallery/reliability/systems/plot_03_k_out_of_n
+   /api/gallery/reliability/systems/plot_04_birnbaum_importance
+

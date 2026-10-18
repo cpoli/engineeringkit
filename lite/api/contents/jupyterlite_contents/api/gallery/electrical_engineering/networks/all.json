@@ -1,0 +1,57 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-10-18T12:25:15.928622Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-18T12:25:13.336587Z",
+      "mimetype": null,
+      "name": "plot_02_thevenin_equivalent.ipynb",
+      "path": "jupyterlite_contents/api/gallery/electrical_engineering/networks/plot_02_thevenin_equivalent.ipynb",
+      "size": 3688,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-18T12:25:15.928402Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-18T12:25:13.336462Z",
+      "mimetype": null,
+      "name": "plot_01_jacobi_maximum_power.ipynb",
+      "path": "jupyterlite_contents/api/gallery/electrical_engineering/networks/plot_01_jacobi_maximum_power.ipynb",
+      "size": 2975,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-18T12:25:15.928802Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-18T12:25:13.336795Z",
+      "mimetype": null,
+      "name": "plot_03_norton_equivalent.ipynb",
+      "path": "jupyterlite_contents/api/gallery/electrical_engineering/networks/plot_03_norton_equivalent.ipynb",
+      "size": 3909,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2026-10-18T12:25:15.928622Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-10-18T12:25:15.928622Z",
+  "mimetype": null,
+  "name": "networks",
+  "path": "jupyterlite_contents/api/gallery/electrical_engineering/networks",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

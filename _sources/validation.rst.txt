@@ -18,29 +18,29 @@ Independent benchmark matrix
    * - Domain
      - Independent evidence
    * - Structural
-     - Beam equilibrium/curvature, support values, bar reaction balance, energy derivative
+     - Beam equilibrium/curvature, support values, bar reaction balance, energy derivative, three-moment equation, moment distribution and frame stiffness against one another, method of joints against direct stiffness, mechanism work minimum, Engesser residual
    * - Electrical
      - Closed-form transient current, charge integral, RC energy accounting, resonance
    * - Controls
      - Analytic scalar LQR/Kalman, matrix Riccati residuals and shape/weight failures
    * - Thermodynamics
-     - Integrated P dV, T delta_S, four-state cycle balances and COP identities
+     - Integrated P dV, T delta_S, four-state cycle balances and COP identities, IF97 verification tables and Gibbs relations, van der Waals critical inflection and isenthalpic throttle, Curzon-Ahlborn power maximum
    * - Fluids
-     - Integrated parabolic profile, laminar Darcy equivalence, implicit Colebrook residual
+     - Integrated parabolic profile and wall pressure, laminar Darcy equivalence, Colebrook residual and limits, Hardy Cross against Newton, Pi-group null space
    * - Heat transfer
-     - Interface Q*R drops, thin-wall limit, equal-temperature and exchanger limits
+     - Interface Q*R drops, thin-wall limit, exchanger limits, Planck integral, plane-wall series and finite-difference energy
    * - Materials
-     - Isotropic modulus identity, elastic strain-energy triangle, fracture inverse, composite bounds
+     - Isotropic modulus identities, elastic strain-energy triangle, offset yield, Griffith-Irwin agreement, Paris life against closed form and quadrature, composite bounds, strain-life transition
    * - Mechanical
      - Undamped energy, damping dissipation, critical solution, gear power, forced equilibrium
    * - Aerodynamics
      - Shock mass/momentum/energy balances, sonic and infinite-wing limits
    * - Signals
-     - Parseval, periodogram integral, cutoff gain, sinc nodes, ADC error bounds
+     - Parseval, periodogram integral, cutoff gain, sinc nodes, ADC error bounds, FFT and Welch against NumPy and SciPy, Gibbs limit, Haar energy, Wiener and LMS system identification
    * - Communications
      - Analytic FM phase, unsigned bit handling, linear/log link budgets and noise limits
    * - Reliability
-     - Survival integral, SciPy distributions, exhaustive independent system states, sensitivities
+     - Survival integral, SciPy distributions, exhaustive independent system states, sensitivities, Monte Carlo fault trees, interference and Kaplan-Meier, Markov matrix exponential
 
 Tests use analytical values, invariants, independent quadrature and established
 SciPy distributions. Where a governing-equation residual is checked, it verifies

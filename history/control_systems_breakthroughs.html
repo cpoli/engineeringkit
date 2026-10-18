@@ -6,8 +6,16 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Breakthroughs in Control Systems" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://cpoli.github.io/engineeringkit/history/control_systems_breakthroughs.html" />
+<meta property="og:site_name" content="engineeringkit" />
+<meta property="og:description" content="Domain hub · History · Examples · API reference “A governor is a part of a machine by means of which the velocity of the machine is kept nearly uniform, notwithstanding variations in the driving-po..." />
+<meta property="og:image" content="https://cpoli.github.io/engineeringkit/_static/images/readme_hero.png" />
+<meta property="og:image:alt" content="engineeringkit" />
+<meta name="description" content="Domain hub · History · Examples · API reference “A governor is a part of a machine by means of which the velocity of the machine is kept nearly uniform, notwithstanding variations in the driving-po..." />
 
-    <title>Breakthroughs in Control Systems &#8212; engineeringkit 0.1.0 documentation</title>
+    <title>Breakthroughs in Control Systems &#8212; engineeringkit</title>
   
   
   
@@ -30,6 +38,7 @@
 <link href="../_static/styles/pydata-sphinx-theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx_autodoc_typehints.css?v=057ac668" />
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Vibur" />
     <link rel="stylesheet" type="text/css" href="../_static/jupyterlite_sphinx.css?v=f676e775" />
@@ -55,6 +64,7 @@
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'history/control_systems_breakthroughs';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="canonical" href="https://cpoli.github.io/engineeringkit/history/control_systems_breakthroughs.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Breakthroughs in Signal Processing" href="signal_processing_breakthroughs.html" />
@@ -404,44 +414,480 @@
 <div class="subpkg-nav docutils container">
 <p><a class="reference internal" href="../_generated/subpackages/control_systems.html"><span class="doc">Domain hub</span></a> · <a class="reference internal" href="#"><span class="doc">History</span></a> · <a class="reference internal" href="../api/gallery/control_systems/index.html"><span class="doc">Examples</span></a> · <a class="reference internal" href="../api/control_systems.html"><span class="doc">API reference</span></a></p>
 </div>
-<p>These landmarks trace a conceptual development from a physical law to a useful
-engineering model. The order is a learning path, not a dated chronology or a
-claim that any idea had a single inventor. SI units apply unless documented
-otherwise.</p>
-<section id="feedback-error-drives-correction">
-<h2>Feedback: error drives correction<a class="headerlink" href="#feedback-error-drives-correction" title="Link to this heading">#</a></h2>
-<p>Negative feedback uses the measured output to adjust the input. Integral action can remove steady error, while saturation can accumulate controller state unless anti-windup is used.</p>
-<div class="math notranslate nohighlight">
-\[u=K_p e+K_i\int e\,dt+K_d\dot e\]</div>
-<p>Use <a class="reference internal" href="../api/control_systems.html#engineeringkit.control_systems.PID" title="engineeringkit.control_systems.PID"><code class="xref py py-obj docutils literal notranslate"><span class="pre">engineeringkit.control_systems.PID</span></code></a> to explore the model.
-Controller gains alone do not guarantee stability; plant dynamics and actuator limits matter.</p>
-</section>
-<section id="classical-analysis-stability-is-visible-in-poles-and-frequency">
-<h2>Classical analysis: stability is visible in poles and frequency<a class="headerlink" href="#classical-analysis-stability-is-visible-in-poles-and-frequency" title="Link to this heading">#</a></h2>
-<p>Routh tests, root loci and Bode plots expose different aspects of a linear system. Frequency-domain margins describe proximity to a feedback instability under their stated crossover conventions.</p>
-<div class="math notranslate nohighlight">
-\[1+K G(s)=0\]</div>
-<p>Use <a class="reference internal" href="../api/control_systems.html#engineeringkit.control_systems.root_locus" title="engineeringkit.control_systems.root_locus"><code class="xref py py-obj docutils literal notranslate"><span class="pre">engineeringkit.control_systems.root_locus</span></code></a> to explore the model.
-Sampled margin estimates depend on frequency range and resolution; inspect the guide before interpreting missing crossovers.</p>
-</section>
-<section id="state-space-internal-dynamics-enter-the-design">
-<h2>State space: internal dynamics enter the design<a class="headerlink" href="#state-space-internal-dynamics-enter-the-design" title="Link to this heading">#</a></h2>
-<p>Controllability determines whether inputs can influence all states. LQR balances state error against control effort through a Riccati equation.</p>
-<div class="math notranslate nohighlight">
-\[\dot x=Ax+Bu,\qquad J=\int_0^\infty(x^TQx+u^TRu)\,dt\]</div>
-<p>Use <a class="reference internal" href="../api/control_systems.html#engineeringkit.control_systems.lqr" title="engineeringkit.control_systems.lqr"><code class="xref py py-obj docutils literal notranslate"><span class="pre">engineeringkit.control_systems.lqr</span></code></a> to explore the model.
-Continuous-time linear dynamics and suitable stabilizability and weighting assumptions are required.</p>
-</section>
-<section id="explore-and-verify">
-<h2>Explore and verify<a class="headerlink" href="#explore-and-verify" title="Link to this heading">#</a></h2>
-<p><a class="reference internal" href="../guides/control_systems.html"><span class="doc">Control systems: matrix contracts and numerical stability</span></a> records units, conventions and independent checks.
-Compare the gallery output against the equations before extending a model.</p>
-</section>
-<section id="further-reading">
-<h2>Further reading<a class="headerlink" href="#further-reading" title="Link to this heading">#</a></h2>
-<p><a class="reference external" href="https://ocw.mit.edu/courses/16-30-feedback-control-systems-fall-2010/pages/lecture-notes/">University or agency teaching reference</a>
-provides background beyond the implemented subset. The equations and examples
-here are concise original explanations, not reproductions of that reference.</p>
+<blockquote class="epigraph">
+<div><p>“A governor is a part of a machine by means of which the velocity of the
+machine is kept nearly uniform, notwithstanding variations in the
+driving-power or the resistance.”
+– James Clerk Maxwell, 1868</p>
+</div></blockquote>
+<p>Feedback control began as brass mechanisms on steam engines and became a
+mathematical discipline when engines, amplifiers and gun directors pushed it
+to instability. Maxwell, Routh and Hurwitz found when a loop is stable;
+Bell Labs engineers read stability from frequency responses; Kalman and
+his contemporaries recast design in state space and as optimisation. The
+entries trace the ideas behind <a class="reference internal" href="../api/control_systems.html#module-engineeringkit.control_systems" title="engineeringkit.control_systems"><code class="xref py py-mod docutils literal notranslate"><span class="pre">engineeringkit.control_systems</span></code></a>. Each
+links to the implementing function and to a gallery example devoted to it.</p>
+<nav class="contents local" id="timeline">
+<p class="topic-title">Timeline</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#watt-s-centrifugal-governor" id="id1">1788 – Watt’s Centrifugal Governor</a></p></li>
+<li><p><a class="reference internal" href="#maxwell-s-on-governors" id="id2">1868 – Maxwell’s <em>On Governors</em></a></p></li>
+<li><p><a class="reference internal" href="#routh-s-stability-criterion" id="id3">1877 – Routh’s Stability Criterion</a></p></li>
+<li><p><a class="reference internal" href="#lyapunov-s-direct-method" id="id4">1892 – Lyapunov’s Direct Method</a></p></li>
+<li><p><a class="reference internal" href="#hurwitz-s-determinants" id="id5">1895 – Hurwitz’s Determinants</a></p></li>
+<li><p><a class="reference internal" href="#minorsky-s-pid-ship-steering" id="id6">1922 – Minorsky’s PID Ship Steering</a></p></li>
+<li><p><a class="reference internal" href="#black-s-negative-feedback-amplifier" id="id7">1927 – Black’s Negative-Feedback Amplifier</a></p></li>
+<li><p><a class="reference internal" href="#nyquist-s-stability-criterion" id="id8">1932 – Nyquist’s Stability Criterion</a></p></li>
+<li><p><a class="reference internal" href="#hazen-s-theory-of-servomechanisms" id="id9">1934 – Hazen’s Theory of Servomechanisms</a></p></li>
+<li><p><a class="reference internal" href="#bode-s-gain-and-phase-margins" id="id10">1940 – Bode’s Gain and Phase Margins</a></p></li>
+<li><p><a class="reference internal" href="#ziegler-nichols-tuning" id="id11">1942 – Ziegler-Nichols Tuning</a></p></li>
+<li><p><a class="reference internal" href="#evans-s-root-locus" id="id12">1948 – Evans’s Root Locus</a></p></li>
+<li><p><a class="reference internal" href="#ragazzini-and-zadeh-sampled-data-systems" id="id13">1952 – Ragazzini and Zadeh: Sampled-Data Systems</a></p></li>
+<li><p><a class="reference internal" href="#smith-s-predictor-for-dead-time" id="id14">1957 – Smith’s Predictor for Dead Time</a></p></li>
+<li><p><a class="reference internal" href="#kalman-s-controllability-and-observability" id="id15">1960 – Kalman’s Controllability and Observability</a></p></li>
+<li><p><a class="reference internal" href="#kalman-s-linear-quadratic-regulator" id="id16">1960 – Kalman’s Linear-Quadratic Regulator</a></p></li>
+<li><p><a class="reference internal" href="#jury-s-stability-test-for-sampled-systems" id="id17">1961 – Jury’s Stability Test for Sampled Systems</a></p></li>
+<li><p><a class="reference internal" href="#the-kalman-bucy-filter" id="id18">1961 – The Kalman-Bucy Filter</a></p></li>
+<li><p><a class="reference internal" href="#luenberger-s-observer" id="id19">1964 – Luenberger’s Observer</a></p></li>
+<li><p><a class="reference internal" href="#wonham-s-pole-assignment" id="id20">1967 – Wonham’s Pole Assignment</a></p></li>
+<li><p><a class="reference internal" href="#doyle-guaranteed-margins-for-lqg-there-are-none" id="id21">1978 – Doyle: Guaranteed Margins for LQG? There Are None</a></p></li>
+<li><p><a class="reference internal" href="#see-also" id="id22">See Also</a></p></li>
+</ul>
+</nav>
+<section id="watt-s-centrifugal-governor">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">1788 – Watt’s Centrifugal Governor</a><a class="headerlink" href="#watt-s-centrifugal-governor" title="Link to this heading">#</a></h2>
+<p>Matthew Boulton saw centrifugal pendulums regulating the gap between
+millstones, and James Watt fitted one to the rotative steam engine. Two
+flyballs on a spindle driven by the engine swing outward as it speeds up
+and, through a linkage, close the steam valve. The throttle moves in
+proportion to the speed error: proportional feedback, built in brass. A
+proportional governor holds speed far better than a fixed throttle, but under
+load it settles at a lower speed. That steady <em>droop</em>,
+<span class="math notranslate nohighlight">\(\Delta\omega = \tau_{load}/(b + K_p)\)</span>, shrinks with gain and
+never vanishes.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/control_systems.html#engineeringkit.control_systems.feedback" title="engineeringkit.control_systems.feedback"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.control_systems.feedback()</span></code></a>,
+<a class="reference internal" href="../api/control_systems.html#engineeringkit.control_systems.step_response" title="engineeringkit.control_systems.step_response"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.control_systems.step_response()</span></code></a>, and
+<a class="reference internal" href="../api/control_systems.html#engineeringkit.control_systems.PID" title="engineeringkit.control_systems.PID"><code class="xref py py-class docutils literal notranslate"><span class="pre">engineeringkit.control_systems.PID</span></code></a>. The example applies a load torque
+step to an engine at four governor gains, zero among them, and checks the
+droop formula.</p>
+<p><em>References:</em> O. Mayr, <em>The Origins of Feedback Control</em> (MIT Press, 1970).</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="James Watt&#x27;s flyball governor (1788) closed the steam valve as the engine sped up: the throttle moved in proportion to the speed error. Model the engine as J\dot\omega = \tau - b\omega - \tau_{load} and the governor as \tau = K_p(\omega_{ref} - \omega), a proportional PID. A proportional governor holds speed far better than an open throttle, but it always leaves a steady droop, \Delta\omega = \tau_{load}/(b + K_p), which shrinks with gain but never vanishes."><img alt="" src="../_images/sphx_glr_plot_01_watt_centrifugal_governor_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/control_systems/feedback/plot_01_watt_centrifugal_governor.html"><span class="doc">Watt’s centrifugal governor and proportional droop</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Watt's centrifugal governor and proportional droop</div>
+</div></div></section>
+<section id="maxwell-s-on-governors">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">1868 – Maxwell’s <em>On Governors</em></a><a class="headerlink" href="#maxwell-s-on-governors" title="Link to this heading">#</a></h2>
+<p>Engineers added integral action to governors to remove the droop, and some
+of them began to “hunt”, oscillating with growing amplitude. James Clerk
+Maxwell linearised the equations of the engine and governor and showed that
+the motion is stable exactly when every root of the characteristic
+polynomial has a negative real part. For a cubic
+<span class="math notranslate nohighlight">\(s^3 + a_1 s^2 + a_2 s + a_3\)</span> he found the condition
+<span class="math notranslate nohighlight">\(a_1 a_2 &gt; a_3\)</span>, and he asked mathematicians for a general test on the
+coefficients. It was the first mathematical analysis of a feedback system.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/control_systems.html#engineeringkit.control_systems.poles" title="engineeringkit.control_systems.poles"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.control_systems.poles()</span></code></a>. The example
+sweeps the integral gain of a governor model, finds the hunting limit from
+the roots, and compares it with Maxwell’s condition.</p>
+<p><em>References:</em> J. C. Maxwell, “On governors,” <em>Proc. R. Soc. Lond.</em> 16 (1868)
+270-283.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Governors fitted with integral action to remove droop sometimes &quot;hunted&quot;, oscillating with growing amplitude. James Clerk Maxwell (1868) linearised the engine-governor equations and showed that motion is stable exactly when every root of the characteristic polynomial has a negative real part (~engineeringkit.control_systems.poles). For the cubic s^3 + a_1 s^2 + a_2 s + a_3 he found the condition a_1 a_2 &gt; a_3: too much integral gain destabilises the governor."><img alt="" src="../_images/sphx_glr_plot_01_maxwell_on_governors_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/control_systems/stability/plot_01_maxwell_on_governors.html"><span class="doc">Maxwell’s “On Governors”: stability from characteristic roots</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Maxwell's "On Governors": stability from characteristic roots</div>
+</div></div></section>
+<section id="routh-s-stability-criterion">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">1877 – Routh’s Stability Criterion</a><a class="headerlink" href="#routh-s-stability-criterion" title="Link to this heading">#</a></h2>
+<p>Edward Routh answered Maxwell’s question in the essay that won the 1877
+Adams Prize. A table built from the polynomial coefficients by repeated
+cross-multiplication has a first column whose sign changes count the roots
+in the right half-plane. No root needs to be found, so the stability of a
+loop can be written as inequalities on its gains. For
+<span class="math notranslate nohighlight">\(s^3 + 3s^2 + 2s + K\)</span>, the closed loop of <span class="math notranslate nohighlight">\(K/(s(s+1)(s+2))\)</span>, the
+table gives <span class="math notranslate nohighlight">\(0 &lt; K &lt; 6\)</span>.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/control_systems.html#engineeringkit.control_systems.routh_first_column" title="engineeringkit.control_systems.routh_first_column"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.control_systems.routh_first_column()</span></code></a>
+and <a class="reference internal" href="../api/control_systems.html#engineeringkit.control_systems.routh_stable" title="engineeringkit.control_systems.routh_stable"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.control_systems.routh_stable()</span></code></a>. The example checks
+the sign-change count against computed roots over a range of gains and on a
+fifth-order polynomial.</p>
+<p><em>References:</em> E. J. Routh, <em>A Treatise on the Stability of a Given State of
+Motion</em> (Macmillan, 1877).</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Maxwell could not state a test for polynomials above fourth order. Edward Routh&#x27;s Adams Prize essay (1877) solved the problem with a table built from the coefficients alone: the number of sign changes down its first column (~engineeringkit.control_systems.routh_first_column) equals the number of roots in the right half-plane. For the closed loop of K/(s(s+1)(s+2)), s^3 + 3s^2 + 2s + K, the table shows the loop is stable only for 0 &lt; K &lt; 6."><img alt="" src="../_images/sphx_glr_plot_02_routh_stability_criterion_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/control_systems/stability/plot_02_routh_stability_criterion.html"><span class="doc">Routh’s stability criterion</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Routh's stability criterion</div>
+</div></div></section>
+<section id="lyapunov-s-direct-method">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">1892 – Lyapunov’s Direct Method</a><a class="headerlink" href="#lyapunov-s-direct-method" title="Link to this heading">#</a></h2>
+<p>Aleksandr Lyapunov’s doctoral thesis at Kharkov defined stability for
+nonlinear motion and gave a way to prove it without solving the equations.
+If a function <span class="math notranslate nohighlight">\(V(x)\)</span>, positive away from the equilibrium, decreases
+along every trajectory, the equilibrium is stable. For linear dynamics
+<span class="math notranslate nohighlight">\(\dot x = Ax\)</span> the quadratic <span class="math notranslate nohighlight">\(V = x^\mathsf{T}Px\)</span> works exactly
+when <span class="math notranslate nohighlight">\(A^\mathsf{T}P + PA = -Q\)</span> has a positive definite solution. The
+method was little known in the West until the late 1950s, when it became
+the basis of nonlinear and adaptive control.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/control_systems.html#engineeringkit.control_systems.lyapunov_equation" title="engineeringkit.control_systems.lyapunov_equation"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.control_systems.lyapunov_equation()</span></code></a>
+and <a class="reference internal" href="../api/control_systems.html#engineeringkit.control_systems.lyapunov_stable" title="engineeringkit.control_systems.lyapunov_stable"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.control_systems.lyapunov_stable()</span></code></a>. The example
+solves the Lyapunov equation for a damped oscillator and checks that
+<span class="math notranslate nohighlight">\(V\)</span> decreases along a simulated trajectory at the rate
+<span class="math notranslate nohighlight">\(-x^\mathsf{T}x\)</span>.</p>
+<p><em>References:</em> A. M. Lyapunov, <em>The General Problem of the Stability of
+Motion</em> (Kharkov, 1892; English translation, <em>Int. J. Control</em> 55 (1992)
+531-773).</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Aleksandr Lyapunov&#x27;s doctoral thesis (1892) proved stability without solving the equations of motion. Find an energy-like function V(x) &gt; 0 that decreases along every trajectory, and the equilibrium is stable. For linear dynamics \dot x = Ax, the quadratic V = x^\mathsf{T} P x works exactly when the Lyapunov equation A^\mathsf{T}P + PA = -Q has a positive definite solution (~engineeringkit.control_systems.lyapunov_equation, lyapunov_stable)."><img alt="" src="../_images/sphx_glr_plot_03_lyapunov_direct_method_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/control_systems/stability/plot_03_lyapunov_direct_method.html"><span class="doc">Lyapunov’s direct method</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Lyapunov's direct method</div>
+</div></div></section>
+<section id="hurwitz-s-determinants">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">1895 – Hurwitz’s Determinants</a><a class="headerlink" href="#hurwitz-s-determinants" title="Link to this heading">#</a></h2>
+<p>Aurel Stodola, designing water-turbine regulators in Zürich, needed a
+stability condition he could apply to high-order models and asked his
+colleague Adolf Hurwitz. Hurwitz, unaware of Routh’s work, stated it as
+determinants. Build the matrix <span class="math notranslate nohighlight">\(H_{ij} = a_{2j-i}\)</span> from the
+coefficients; every root lies in the open left half-plane exactly when all
+its leading principal minors are positive. The two tests are equivalent,
+and the combined result is now called the Routh-Hurwitz criterion.</p>
+<p><em>Implementation:</em>
+<a class="reference internal" href="../api/control_systems.html#engineeringkit.control_systems.hurwitz_determinants" title="engineeringkit.control_systems.hurwitz_determinants"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.control_systems.hurwitz_determinants()</span></code></a>. The example
+tests the quartic family <span class="math notranslate nohighlight">\((s+1)^4 + K\)</span> and finds <span class="math notranslate nohighlight">\(\Delta_3\)</span>
+passing through zero at the boundary <span class="math notranslate nohighlight">\(K = 4\)</span>.</p>
+<p><em>References:</em> A. Hurwitz, “Ueber die Bedingungen, unter welchen eine
+Gleichung nur Wurzeln mit negativen reellen Theilen besitzt,” <em>Math. Ann.</em>
+46 (1895) 273-284.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Aurel Stodola, designing turbine regulators in Zürich, asked Adolf Hurwitz for a practical stability condition. Hurwitz (1895), unaware of Routh&#x27;s work, gave it as determinants: build the matrix H_{ij} = a_{2j-i} from the coefficients, and every root lies in the left half-plane exactly when all leading minors are positive (~engineeringkit.control_systems.hurwitz_determinants). At the boundary \Delta_{n-1} passes through zero as a pair of roots crosses the imaginary axis."><img alt="" src="../_images/sphx_glr_plot_04_hurwitz_determinants_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/control_systems/stability/plot_04_hurwitz_determinants.html"><span class="doc">Hurwitz’s determinant test</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Hurwitz's determinant test</div>
+</div></div></section>
+<section id="minorsky-s-pid-ship-steering">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">1922 – Minorsky’s PID Ship Steering</a><a class="headerlink" href="#minorsky-s-pid-ship-steering" title="Link to this heading">#</a></h2>
+<p>Nicolas Minorsky studied how helmsmen steer and found that they act on the
+heading error, on its rate of change and on any error that persists. His
+paper on automatic steering for the U.S. Navy gave the three-term law
+<span class="math notranslate nohighlight">\(\delta = K_p e + K_i\int e\,dt + K_d\dot e\)</span> and analysed its
+stability. Proportional and derivative action leave a constant heading
+offset under a steady wind; the integral term removes it. Trials on the
+battleship <em>New Mexico</em> in 1923 confirmed the design, though the crew
+preferred to steer by hand.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/control_systems.html#engineeringkit.control_systems.PID" title="engineeringkit.control_systems.PID"><code class="xref py py-class docutils literal notranslate"><span class="pre">engineeringkit.control_systems.PID</span></code></a>. The example
+steers Nomoto’s ship model against a constant wind moment with PD and PID
+control and checks the offset <span class="math notranslate nohighlight">\(d/K_p\)</span>.</p>
+<p><em>References:</em> N. Minorsky, “Directional stability of automatically steered
+bodies,” <em>J. Am. Soc. Naval Eng.</em> 34 (1922) 280-309.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Nicolas Minorsky (1922) watched helmsmen on the battleship New Mexico and noticed they reacted to the heading error, to how fast it was changing, and to any error that persisted. His three-term controller, \delta = K_p e + K_i \int e\,dt + K_d \dot e, is the PID. Using Nomoto&#x27;s ship model \psi/\delta = K/(s(Ts + 1)) and a steady wind moment, proportional plus derivative action leaves a constant heading offset d/K_p; adding integral action removes it."><img alt="" src="../_images/sphx_glr_plot_02_minorsky_pid_ship_steering_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/control_systems/feedback/plot_02_minorsky_pid_ship_steering.html"><span class="doc">Minorsky’s PID controller for ship steering</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Minorsky's PID controller for ship steering</div>
+</div></div></section>
+<section id="black-s-negative-feedback-amplifier">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">1927 – Black’s Negative-Feedback Amplifier</a><a class="headerlink" href="#black-s-negative-feedback-amplifier" title="Link to this heading">#</a></h2>
+<p>Telephone repeaters built from vacuum tubes drifted and distorted, and the
+errors compounded along a transcontinental line. On the Lackawanna ferry in
+August 1927, Harold Black sketched an amplifier that fed a fraction
+<span class="math notranslate nohighlight">\(\beta\)</span> of its output back with inverted sign. With a large open-loop
+gain <span class="math notranslate nohighlight">\(A\)</span> the closed-loop gain <span class="math notranslate nohighlight">\(A/(1 + A\beta)\)</span> is nearly
+<span class="math notranslate nohighlight">\(1/\beta\)</span>, fixed by a passive divider. Gain variations and
+distortion fall by the factor <span class="math notranslate nohighlight">\(1 + A\beta\)</span>, and the bandwidth grows
+by the same factor. The patent office took nine years to grant it.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/control_systems.html#engineeringkit.control_systems.feedback" title="engineeringkit.control_systems.feedback"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.control_systems.feedback()</span></code></a> and
+<a class="reference internal" href="../api/control_systems.html#engineeringkit.control_systems.dc_gain" title="engineeringkit.control_systems.dc_gain"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.control_systems.dc_gain()</span></code></a>. The example varies the tube gain
+by a factor of three, shows the closed-loop gain barely moving, and checks
+the gain-bandwidth trade.</p>
+<p><em>References:</em> H. S. Black, “Stabilized feedback amplifiers,” <em>Bell Syst.
+Tech. J.</em> 13 (1934) 1-18.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Harold Black (1927), commuting on the Lackawanna ferry, sketched an amplifier that fed a fraction \beta of its output back out of phase. With a huge open-loop gain A, the closed-loop gain A/(1 + A\beta) (~engineeringkit.control_systems.feedback) is almost exactly 1/\beta, set by a passive divider rather than by drifting vacuum tubes. Distortion and gain variations shrink by the factor 1 + A\beta, and the bandwidth grows by the same factor."><img alt="" src="../_images/sphx_glr_plot_03_black_negative_feedback_amplifier_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/control_systems/feedback/plot_03_black_negative_feedback_amplifier.html"><span class="doc">Black’s negative-feedback amplifier</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Black's negative-feedback amplifier</div>
+</div></div></section>
+<section id="nyquist-s-stability-criterion">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">1932 – Nyquist’s Stability Criterion</a><a class="headerlink" href="#nyquist-s-stability-criterion" title="Link to this heading">#</a></h2>
+<p>Black’s amplifiers sometimes “sang”, oscillating on their own. Harry Nyquist
+showed how to predict this from the open-loop frequency response, which can
+be measured, rather than from a model. Trace <span class="math notranslate nohighlight">\(L(j\omega)\)</span> over all
+frequencies. The closed loop has <span class="math notranslate nohighlight">\(Z = N + P\)</span> right-half-plane poles,
+where <span class="math notranslate nohighlight">\(N\)</span> counts the clockwise encirclements of <span class="math notranslate nohighlight">\(-1\)</span> and
+<span class="math notranslate nohighlight">\(P\)</span> the unstable open-loop poles. The criterion covers loops that are
+unstable in open loop and loops with delays, where Routh’s test cannot be
+used.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/control_systems.html#engineeringkit.control_systems.nyquist" title="engineeringkit.control_systems.nyquist"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.control_systems.nyquist()</span></code></a> and
+<a class="reference internal" href="../api/control_systems.html#engineeringkit.control_systems.nyquist_encirclements" title="engineeringkit.control_systems.nyquist_encirclements"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.control_systems.nyquist_encirclements()</span></code></a>. The example
+counts encirclements for a stable plant at two gains and for an unstable
+plant stabilised by feedback, and checks each count against the closed-loop
+poles.</p>
+<p><em>References:</em> H. Nyquist, “Regeneration theory,” <em>Bell Syst. Tech. J.</em> 11
+(1932) 126-147.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Long-distance telephone repeaters with feedback sometimes &quot;sang&quot;. Harry Nyquist (1932) showed how to predict this from the measured open-loop frequency response alone. Trace L(j\omega) for all frequencies (~engineeringkit.control_systems.nyquist): the closed loop has Z = N + P unstable poles, where N counts clockwise encirclements of -1 (~engineeringkit.control_systems.nyquist_encirclements) and P the unstable open-loop poles."><img alt="" src="../_images/sphx_glr_plot_01_nyquist_stability_criterion_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/control_systems/frequency/plot_01_nyquist_stability_criterion.html"><span class="doc">Nyquist’s stability criterion</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Nyquist's stability criterion</div>
+</div></div></section>
+<section id="hazen-s-theory-of-servomechanisms">
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">1934 – Hazen’s Theory of Servomechanisms</a><a class="headerlink" href="#hazen-s-theory-of-servomechanisms" title="Link to this heading">#</a></h2>
+<p>Harold Hazen at MIT studied position-following systems, in which a motor
+drives a load to follow a command shaft, and named them <em>servomechanisms</em>.
+His analysis treated them as second-order dynamics,
+<span class="math notranslate nohighlight">\(\omega_n^2/(s^2 + 2\zeta\omega_n s + \omega_n^2)\)</span>, and related
+the transient to two numbers. The damping ratio <span class="math notranslate nohighlight">\(\zeta\)</span> alone fixes
+the overshoot, <span class="math notranslate nohighlight">\(e^{-\pi\zeta/\sqrt{1-\zeta^2}}\)</span>, and with the
+natural frequency it sets the peak and settling times. These remain the
+specifications in which servo performance is written.</p>
+<p><em>Implementation:</em>
+<a class="reference internal" href="../api/control_systems.html#engineeringkit.control_systems.second_order_metrics" title="engineeringkit.control_systems.second_order_metrics"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.control_systems.second_order_metrics()</span></code></a>. The example reads the overshoot and
+peak time from simulated step and impulse responses and checks them against
+the formulas.</p>
+<p><em>References:</em> H. L. Hazen, “Theory of servo-mechanisms,” <em>J. Franklin Inst.</em>
+218 (1934) 279-331.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Harold Hazen at MIT (1934) coined servomechanism and analysed position-following systems as second-order dynamics, \omega_n^2/(s^2 + 2\zeta\omega_n s + \omega_n^2). The damping ratio \zeta alone fixes the overshoot, and \zeta with the natural frequency \omega_n sets peak and settling times (~engineeringkit.control_systems.second_order_metrics). The simulated step and impulse responses (~engineeringkit.control_systems.step_response, impulse_response) confirm the formulas."><img alt="" src="../_images/sphx_glr_plot_01_hazen_servomechanism_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/control_systems/time_response/plot_01_hazen_servomechanism.html"><span class="doc">Hazen’s theory of servomechanisms</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Hazen's theory of servomechanisms</div>
+</div></div></section>
+<section id="bode-s-gain-and-phase-margins">
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">1940 – Bode’s Gain and Phase Margins</a><a class="headerlink" href="#bode-s-gain-and-phase-margins" title="Link to this heading">#</a></h2>
+<p>Hendrik Bode showed that for a minimum-phase loop the gain and phase are
+not independent: the slope of the gain curve fixes the phase. Plotted
+against log-frequency, both curves become nearly straight lines, and the
+distance from instability becomes two numbers. The <em>gain margin</em> is the
+factor by which the gain can change at a phase crossover, the <em>phase
+margin</em> the extra lag the loop tolerates at a gain crossover. A loop whose
+phase crosses <span class="math notranslate nohighlight">\(-180^\circ\)</span> more than once is stable only between two
+gains, and its margin is the crossover nearest instability.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/control_systems.html#engineeringkit.control_systems.bode" title="engineeringkit.control_systems.bode"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.control_systems.bode()</span></code></a> and
+<a class="reference internal" href="../api/control_systems.html#engineeringkit.control_systems.stability_margins" title="engineeringkit.control_systems.stability_margins"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.control_systems.stability_margins()</span></code></a>. The example checks
+both margins of <span class="math notranslate nohighlight">\(2/(s(s+1)(s+2))\)</span> analytically, then finds the two
+gain margins of a conditionally stable loop and confirms that each puts
+closed-loop poles on the imaginary axis.</p>
+<p><em>References:</em> H. W. Bode, “Relations between attenuation and phase in
+feedback amplifier design,” <em>Bell Syst. Tech. J.</em> 19 (1940) 421-454; H. W.
+Bode, <em>Network Analysis and Feedback Amplifier Design</em> (Van Nostrand, 1945).</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Hendrik Bode (1940, 1945) turned Nyquist&#x27;s criterion into design numbers read off a logarithmic plot of gain and phase (~engineeringkit.control_systems.bode). The gain margin is how much the loop gain can grow before the phase-crossover point reaches -1; the phase margin is how much extra lag the loop tolerates at the gain crossover (~engineeringkit.control_systems.stability_margins). For L = 2/(s(s+1)(s+2)) the phase crosses -180^\circ at \omega = \sqrt2, where |L| = 1/3, so the gain margin is 3. A loop can also cross -180^\circ more than once. Then the margin that matters is the crossover nearest instability, which need not be the first."><img alt="" src="../_images/sphx_glr_plot_02_bode_stability_margins_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/control_systems/frequency/plot_02_bode_stability_margins.html"><span class="doc">Bode’s gain and phase margins</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Bode's gain and phase margins</div>
+</div></div></section>
+<section id="ziegler-nichols-tuning">
+<h2><a class="toc-backref" href="#id11" role="doc-backlink">1942 – Ziegler-Nichols Tuning</a><a class="headerlink" href="#ziegler-nichols-tuning" title="Link to this heading">#</a></h2>
+<p>Process plants had thousands of pneumatic controllers and no models of what
+they controlled. John Ziegler and Nathaniel Nichols of Taylor Instruments
+gave a recipe from one experiment. Raise a proportional gain until the loop
+oscillates steadily, note this ultimate gain <span class="math notranslate nohighlight">\(K_u\)</span> and period
+<span class="math notranslate nohighlight">\(T_u\)</span>, and read P, PI or PID settings from a table. The ultimate point
+is the gain margin and phase-crossover frequency of the loop. The rules aim
+for a quarter-amplitude decay, which is aggressive by later standards, but
+they are still the starting point of most tuning.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/control_systems.html#engineeringkit.control_systems.ziegler_nichols" title="engineeringkit.control_systems.ziegler_nichols"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.control_systems.ziegler_nichols()</span></code></a>.
+The example finds <span class="math notranslate nohighlight">\(K_u = 8\)</span> and <span class="math notranslate nohighlight">\(\omega_u = \sqrt3\)</span> for
+<span class="math notranslate nohighlight">\(1/(s+1)^3\)</span> and compares the P, PI and PID step responses.</p>
+<p><em>References:</em> J. G. Ziegler and N. B. Nichols, “Optimum settings for
+automatic controllers,” <em>Trans. ASME</em> 64 (1942) 759-768.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="John Ziegler and Nathaniel Nichols of Taylor Instruments (1942) gave plant engineers a recipe: turn up a proportional gain until the loop oscillates steadily, note that ultimate gain K_u and period T_u, and read P, PI or PID settings from a table (~engineeringkit.control_systems.ziegler_nichols). The ultimate point is exactly the gain margin and phase-crossover frequency of the loop (~engineeringkit.control_systems.stability_margins). For 1/(s+1)^3, K_u = 8 and \omega_u = \sqrt3 rad/s."><img alt="" src="../_images/sphx_glr_plot_04_ziegler_nichols_tuning_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/control_systems/feedback/plot_04_ziegler_nichols_tuning.html"><span class="doc">Ziegler and Nichols tune a PID from the edge of instability</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Ziegler and Nichols tune a PID from the edge of instability</div>
+</div></div></section>
+<section id="evans-s-root-locus">
+<h2><a class="toc-backref" href="#id12" role="doc-backlink">1948 – Evans’s Root Locus</a><a class="headerlink" href="#evans-s-root-locus" title="Link to this heading">#</a></h2>
+<p>Walter Evans at North American Aviation wanted to see how the closed-loop
+poles move as one gain changes, without factoring a polynomial for every
+gain. The poles are the roots of <span class="math notranslate nohighlight">\(D(s) + KN(s) = 0\)</span>, and Evans gave
+rules for sketching their paths from the open-loop poles at <span class="math notranslate nohighlight">\(K = 0\)</span> to
+the zeros or to infinity along asymptotes. Break-away points, angles of
+departure and imaginary-axis crossings come from the rules. He sold a
+plastic “Spirule” for drawing them.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/control_systems.html#engineeringkit.control_systems.root_locus" title="engineeringkit.control_systems.root_locus"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.control_systems.root_locus()</span></code></a>. The
+example traces the locus of <span class="math notranslate nohighlight">\(K/(s(s+2)(s+4))\)</span> and checks the
+break-away point <span class="math notranslate nohighlight">\(-2 + 2/\sqrt3\)</span> and the axis crossing at <span class="math notranslate nohighlight">\(\pm
+j\sqrt8\)</span>, <span class="math notranslate nohighlight">\(K = 48\)</span>.</p>
+<p><em>References:</em> W. R. Evans, “Graphical analysis of control systems,” <em>Trans.
+AIEE</em> 67 (1948) 547-551; W. R. Evans, “Control system synthesis by root
+locus method,” <em>Trans. AIEE</em> 69 (1950) 66-69.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Walter Evans at North American Aviation (1948) showed how to sketch the paths of the closed-loop poles as a single gain K rises from zero, without solving a polynomial for each gain (~engineeringkit.control_systems.root_locus). For K/(s(s+2)(s+4)) the branches leave the poles at 0, -2 and -4. Two of them meet and break away from the real axis where \tfrac{d}{ds}[s(s+2)(s+4)] = 0, at s = -2 + 2/\sqrt3. They cross the imaginary axis at \pm j\sqrt8 when K = 48."><img alt="" src="../_images/sphx_glr_plot_01_evans_root_locus_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/control_systems/root_locus/plot_01_evans_root_locus.html"><span class="doc">Evans’s root locus</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Evans's root locus</div>
+</div></div></section>
+<section id="ragazzini-and-zadeh-sampled-data-systems">
+<h2><a class="toc-backref" href="#id13" role="doc-backlink">1952 – Ragazzini and Zadeh: Sampled-Data Systems</a><a class="headerlink" href="#ragazzini-and-zadeh-sampled-data-systems" title="Link to this heading">#</a></h2>
+<p>Radar tracking and the first digital computers in the loop read the plant
+only at sampling instants and hold each command until the next. John
+Ragazzini and Lotfi Zadeh at Columbia gave the z-transform analysis of
+such loops. For a zero-order hold the continuous model is replaced
+<em>exactly</em>, at the sampling instants, by
+<span class="math notranslate nohighlight">\(x_{k+1} = e^{AT}x_k + \int_0^T e^{A\tau}d\tau\,B\,u_k\)</span>. The
+Euler step <span class="math notranslate nohighlight">\(x_{k+1} = (I + AT)x_k + BTu_k\)</span> is only a first-order
+approximation of it.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/control_systems.html#engineeringkit.control_systems.discretize_zoh" title="engineeringkit.control_systems.discretize_zoh"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.control_systems.discretize_zoh()</span></code></a>. The
+example compares the exact recursion and Euler’s step with a fine continuous
+simulation of a mass-spring-damper.</p>
+<p><em>References:</em> J. R. Ragazzini and L. A. Zadeh, “The analysis of sampled-data
+systems,” <em>Trans. AIEE</em> 71 (1952) 225-234.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="When a digital computer closes the loop it reads the plant only at sampling instants and holds each command constant until the next. John Ragazzini and Lotfi Zadeh (1952) developed the z-transform analysis of such loops. For a zero-order hold the continuous model is replaced exactly by x_{k+1} = e^{AT}x_k + \int_0^T e^{A\tau}d\tau\,B\,u_k (~engineeringkit.control_systems.discretize_zoh). The naive Euler step x_{k+1} = (I + AT)x_k + BTu_k is only an approximation."><img alt="" src="../_images/sphx_glr_plot_01_ragazzini_zadeh_zero_order_hold_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/control_systems/sampled/plot_01_ragazzini_zadeh_zero_order_hold.html"><span class="doc">Ragazzini and Zadeh’s sampled-data systems</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Ragazzini and Zadeh's sampled-data systems</div>
+</div></div></section>
+<section id="smith-s-predictor-for-dead-time">
+<h2><a class="toc-backref" href="#id14" role="doc-backlink">1957 – Smith’s Predictor for Dead Time</a><a class="headerlink" href="#smith-s-predictor-for-dead-time" title="Link to this heading">#</a></h2>
+<p>In chemical plants the output is often measured only after a transport
+delay <span class="math notranslate nohighlight">\(\theta\)</span>. The delay adds phase lag <span class="math notranslate nohighlight">\(\omega\theta\)</span>
+without changing the gain, so a controller tuned for the delay-free plant
+oscillates once the delay is added. Otto Smith at Berkeley put a model of
+the plant inside the controller. It feeds back the undelayed model output
+and corrects it by the mismatch between the measurement and the delayed
+model output. With a perfect model the closed loop is
+<span class="math notranslate nohighlight">\(CGe^{-s\theta}/(1 + CG)\)</span>: the delay-free design, delayed.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/control_systems.html#engineeringkit.control_systems.pade_delay" title="engineeringkit.control_systems.pade_delay"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.control_systems.pade_delay()</span></code></a> and
+<a class="reference internal" href="../api/control_systems.html#engineeringkit.control_systems.smith_predictor" title="engineeringkit.control_systems.smith_predictor"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.control_systems.smith_predictor()</span></code></a>. The example
+simulates a PI loop around <span class="math notranslate nohighlight">\(e^{-2s}/(s+1)\)</span> with a true delay buffer,
+shows it diverging without the predictor, and checks that with it the output
+matches the delayed delay-free response.</p>
+<p><em>References:</em> O. J. M. Smith, “Closer control of loops with dead time,”
+<em>Chem. Eng. Prog.</em> 53 (1957) 217-219.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="A chemical plant often measures its output only after a transport delay \theta: the time for a fluid to reach the sensor. The delay adds phase lag \omega\theta at every frequency, so a controller tuned for the delay-free plant oscillates or goes unstable once the delay is added. Otto Smith (1957) put a model of the plant inside the controller. It feeds back the undelayed model output and corrects it by the mismatch between the measurement and the delayed model output. With a perfect model the loop behaves like the delay-free design, delayed by \theta (~engineeringkit.control_systems.smith_predictor)."><img alt="" src="../_images/sphx_glr_plot_02_smith_predictor_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/control_systems/time_response/plot_02_smith_predictor.html"><span class="doc">Smith’s predictor for dead time</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Smith's predictor for dead time</div>
+</div></div></section>
+<section id="kalman-s-controllability-and-observability">
+<h2><a class="toc-backref" href="#id15" role="doc-backlink">1960 – Kalman’s Controllability and Observability</a><a class="headerlink" href="#kalman-s-controllability-and-observability" title="Link to this heading">#</a></h2>
+<p>A transfer function describes only the part of a system that the input
+reaches and the output sees. Rudolf Kalman split the state of
+<span class="math notranslate nohighlight">\(\dot x = Ax + Bu,\ y = Cx\)</span> into the parts that are controllable and
+observable. The state can be steered anywhere only if
+<span class="math notranslate nohighlight">\([B, AB, \dots, A^{n-1}B]\)</span> has full rank, and reconstructed from the
+output only if <span class="math notranslate nohighlight">\([C; CA; \dots; CA^{n-1}]\)</span> does. A mode that fails
+either test vanishes from the transfer function in a pole-zero
+cancellation. It still exists, and if it is unstable no output feedback can
+fix it.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/control_systems.html#engineeringkit.control_systems.is_controllable" title="engineeringkit.control_systems.is_controllable"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.control_systems.is_controllable()</span></code></a> and
+<a class="reference internal" href="../api/control_systems.html#engineeringkit.control_systems.is_observable" title="engineeringkit.control_systems.is_observable"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.control_systems.is_observable()</span></code></a>. The example shows two
+tanks on one pump whose level difference ignores the input, and a mode
+hidden by a cancellation along which the state moves while the output stays
+exactly zero.</p>
+<p><em>References:</em> R. E. Kalman, “On the general theory of control systems,”
+<em>Proc. 1st IFAC Congress</em> (Moscow, 1960) 481-492.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="A transfer function describes only the part of a system that the input reaches and the output sees. Rudolf Kalman (1960) split the state into these parts. The state of \dot x = Ax + Bu can be steered anywhere only if the controllability matrix [B, AB, \dots, A^{n-1}B] has full rank, and reconstructed from y = Cx only if the observability matrix [C; CA; \dots; CA^{n-1}] does (~engineeringkit.control_systems.is_controllable, is_observable). A mode that fails either test disappears from the transfer function in a pole-zero cancellation, but it is still there."><img alt="" src="../_images/sphx_glr_plot_01_kalman_controllability_observability_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/control_systems/state_space/plot_01_kalman_controllability_observability.html"><span class="doc">Kalman’s controllability and observability</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Kalman's controllability and observability</div>
+</div></div></section>
+<section id="kalman-s-linear-quadratic-regulator">
+<h2><a class="toc-backref" href="#id16" role="doc-backlink">1960 – Kalman’s Linear-Quadratic Regulator</a><a class="headerlink" href="#kalman-s-linear-quadratic-regulator" title="Link to this heading">#</a></h2>
+<p>Kalman also asked for the state feedback <span class="math notranslate nohighlight">\(u = -Kx\)</span> that minimises
+<span class="math notranslate nohighlight">\(\int_0^\infty (x^\mathsf{T}Qx + u^\mathsf{T}Ru)\,dt\)</span>. The
+answer is <span class="math notranslate nohighlight">\(K = R^{-1}B^\mathsf{T}P\)</span>, where <span class="math notranslate nohighlight">\(P\)</span> solves an
+algebraic Riccati equation, and the minimum cost from <span class="math notranslate nohighlight">\(x_0\)</span> is
+<span class="math notranslate nohighlight">\(x_0^\mathsf{T}Px_0\)</span>. The weights replace pole locations as the
+designer’s knobs, and the same design works for any number of inputs. In
+discrete time it is the steady state of Bellman’s dynamic-programming
+recursion.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/control_systems.html#engineeringkit.control_systems.lqr" title="engineeringkit.control_systems.lqr"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.control_systems.lqr()</span></code></a> and
+<a class="reference internal" href="../api/control_systems.html#engineeringkit.control_systems.dlqr" title="engineeringkit.control_systems.dlqr"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.control_systems.dlqr()</span></code></a>. The example checks the
+closed-form gain of the double integrator, compares the simulated cost with
+<span class="math notranslate nohighlight">\(x_0^\mathsf{T}Px_0\)</span>, and shows the discrete gain converging to the
+continuous one as the sampling period shrinks.</p>
+<p><em>References:</em> R. E. Kalman, “Contributions to the theory of optimal
+control,” <em>Bol. Soc. Mat. Mexicana</em> 5 (1960) 102-119; R. Bellman, <em>Dynamic
+Programming</em> (Princeton University Press, 1957).</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Rudolf Kalman (1960) asked for the state feedback u = -Kx that minimises J = \int_0^\infty (x^\mathsf{T}Qx + u^\mathsf{T}Ru)\,dt. The answer is K = R^{-1}B^\mathsf{T}P, where P solves an algebraic Riccati equation, and the minimum cost from x_0 is x_0^\mathsf{T}Px_0 (~engineeringkit.control_systems.lqr). The weights replace pole locations as the designer&#x27;s knobs: a cheaper input (smaller R) buys a faster response."><img alt="" src="../_images/sphx_glr_plot_01_kalman_lqr_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/control_systems/optimal/plot_01_kalman_lqr.html"><span class="doc">Kalman’s linear-quadratic regulator</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Kalman's linear-quadratic regulator</div>
+</div></div></section>
+<section id="jury-s-stability-test-for-sampled-systems">
+<h2><a class="toc-backref" href="#id17" role="doc-backlink">1961 – Jury’s Stability Test for Sampled Systems</a><a class="headerlink" href="#jury-s-stability-test-for-sampled-systems" title="Link to this heading">#</a></h2>
+<p>A sampled loop is stable when every root of its characteristic polynomial
+in <span class="math notranslate nohighlight">\(z\)</span> lies inside the unit circle, so Routh’s test does not apply.
+Eliahu Jury at Berkeley, with Blanchard, gave the discrete counterpart as a
+table. Each row reduces the polynomial by one degree, and the polynomial is
+stable exactly when <span class="math notranslate nohighlight">\(|a_n| &lt; |a_0|\)</span> at every step. A loop that is
+stable for every gain in continuous time has a finite gain limit once it is
+sampled, and the limit falls as the sampling period grows.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/control_systems.html#engineeringkit.control_systems.jury_stable" title="engineeringkit.control_systems.jury_stable"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.control_systems.jury_stable()</span></code></a>. The
+example checks Jury’s verdict against the roots for the sampled loop of
+<span class="math notranslate nohighlight">\(K/(s(s+1))\)</span>, finds the critical gain by bisection and compares it
+with <span class="math notranslate nohighlight">\((1 - a)/b_2\)</span> over a range of periods.</p>
+<p><em>References:</em> E. I. Jury and J. Blanchard, “A stability test for linear
+discrete systems in table form,” <em>Proc. IRE</em> 49 (1961) 1947-1948.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="A sampled loop is stable when every root of its characteristic polynomial in z lies inside the unit circle, not in the left half-plane, so Routh&#x27;s test does not apply directly. Eliahu Jury (1961) gave the discrete counterpart: a table that reduces the polynomial one degree at a time and checks |a_n| &lt; |a_0| at each step, with no roots computed (~engineeringkit.control_systems.jury_stable)."><img alt="" src="../_images/sphx_glr_plot_02_jury_stability_test_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/control_systems/sampled/plot_02_jury_stability_test.html"><span class="doc">Jury’s stability test for sampled systems</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Jury's stability test for sampled systems</div>
+</div></div></section>
+<section id="the-kalman-bucy-filter">
+<h2><a class="toc-backref" href="#id18" role="doc-backlink">1961 – The Kalman-Bucy Filter</a><a class="headerlink" href="#the-kalman-bucy-filter" title="Link to this heading">#</a></h2>
+<p>A state estimator has to trade trust in the model against trust in the
+measurement. Kalman’s discrete filter (1960) and its continuous-time form
+with Richard Bucy give the gain that minimises the estimation error for a
+linear system driven by white process noise of spectral density <span class="math notranslate nohighlight">\(Q\)</span>
+and measured through white noise of density <span class="math notranslate nohighlight">\(R\)</span>. The error covariance
+solves the LQR Riccati equation transposed, a duality Kalman pointed out.
+The filter navigated the Apollo spacecraft.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/control_systems.html#engineeringkit.control_systems.kalman_gain" title="engineeringkit.control_systems.kalman_gain"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.control_systems.kalman_gain()</span></code></a>. The
+example estimates a random walk from noisy measurements and checks the error
+variance, <span class="math notranslate nohighlight">\(\sqrt{QR}\)</span> at the optimal gain and <span class="math notranslate nohighlight">\((Q +
+\ell^2R)/2\ell\)</span> at others, by simulation.</p>
+<p><em>References:</em> R. E. Kalman and R. S. Bucy, “New results in linear filtering
+and prediction theory,” <em>J. Basic Eng.</em> 83 (1961) 95-108.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="A state estimator must trade trust in the model against trust in the measurement. Rudolf Kalman and Richard Bucy (1961) found the gain that minimises the steady estimation error for a linear system driven by white process noise of spectral density Q and measured through white noise of density R. The error covariance solves the Riccati equation of the LQR transposed (~engineeringkit.control_systems.kalman_gain)."><img alt="" src="../_images/sphx_glr_plot_02_kalman_bucy_filter_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/control_systems/optimal/plot_02_kalman_bucy_filter.html"><span class="doc">The Kalman-Bucy filter</span></a></p>
+  <div class="sphx-glr-thumbnail-title">The Kalman-Bucy filter</div>
+</div></div></section>
+<section id="luenberger-s-observer">
+<h2><a class="toc-backref" href="#id19" role="doc-backlink">1964 – Luenberger’s Observer</a><a class="headerlink" href="#luenberger-s-observer" title="Link to this heading">#</a></h2>
+<p>State feedback needs every state, but sensors measure only some. David
+Luenberger, in his Stanford thesis, built the missing states from a copy of
+the model driven by the same input and corrected by the output error,
+<span class="math notranslate nohighlight">\(\dot{\hat x} = A\hat x + Bu + L(y - C\hat x)\)</span>. The error then
+obeys <span class="math notranslate nohighlight">\(\dot e = (A - LC)e\)</span> whatever the input, and for an observable
+pair the gain <span class="math notranslate nohighlight">\(L\)</span> places those poles anywhere. Without noise in the
+problem it is a design choice, not an optimum. The Kalman-Bucy filter is
+the observer whose gain is chosen for the noise.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/control_systems.html#engineeringkit.control_systems.observer_gain" title="engineeringkit.control_systems.observer_gain"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.control_systems.observer_gain()</span></code></a>. The
+example estimates the velocity of a lightly damped mass from its position
+and checks that the error follows <span class="math notranslate nohighlight">\(e^{(A-LC)t}e_0\)</span> exactly.</p>
+<p><em>References:</em> D. G. Luenberger, “Observing the state of a linear system,”
+<em>IEEE Trans. Mil. Electron.</em> 8 (1964) 74-80.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="State feedback needs every state, but sensors measure only some of them. David Luenberger (1964) built the missing states from a copy of the model driven by the same input and corrected by the output error, \dot{\hat x} = A\hat x + Bu + L(y - C\hat x). The estimation error e = x - \hat x then obeys \dot e = (A - LC)e whatever the input, and if (A, C) is observable the gain L places those error poles anywhere (~engineeringkit.control_systems.observer_gain)."><img alt="" src="../_images/sphx_glr_plot_02_luenberger_observer_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/control_systems/state_space/plot_02_luenberger_observer.html"><span class="doc">Luenberger’s observer</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Luenberger's observer</div>
+</div></div></section>
+<section id="wonham-s-pole-assignment">
+<h2><a class="toc-backref" href="#id20" role="doc-backlink">1967 – Wonham’s Pole Assignment</a><a class="headerlink" href="#wonham-s-pole-assignment" title="Link to this heading">#</a></h2>
+<p>For a single input, controllability lets state feedback place the poles of
+<span class="math notranslate nohighlight">\(A - BK\)</span> anywhere, with a unique gain. Murray Wonham proved the
+multi-input case: the closed-loop poles can be assigned arbitrarily if and
+only if <span class="math notranslate nohighlight">\((A, B)\)</span> is controllable, even when no single input reaches
+every mode. The extra freedom in <span class="math notranslate nohighlight">\(K\)</span> was later used to shape
+eigenvectors and robustness. A precompensator then scales the reference so
+the output settles on it.</p>
+<p><em>Implementation:</em>
+<a class="reference internal" href="../api/control_systems.html#engineeringkit.control_systems.state_feedback_poles" title="engineeringkit.control_systems.state_feedback_poles"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.control_systems.state_feedback_poles()</span></code></a> and
+<a class="reference internal" href="../api/control_systems.html#engineeringkit.control_systems.feedforward_gain" title="engineeringkit.control_systems.feedforward_gain"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.control_systems.feedforward_gain()</span></code></a>. The example
+stabilises an inverted pendulum on a cart, checks the placed poles and the
+unit steady state of the cart position, and places a complex pair with two
+inputs that are each insufficient alone.</p>
+<p><em>References:</em> W. M. Wonham, “On pole assignment in multi-input controllable
+linear systems,” <em>IEEE Trans. Autom. Control</em> 12 (1967) 660-665.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="For a single input, controllability lets state feedback u = -Kx place the poles of A - BK anywhere, and K is unique (Ackermann&#x27;s formula). Murray Wonham (1967) proved that the same holds with several inputs: the closed-loop poles can be assigned arbitrarily if and only if (A, B) is controllable, even when no single input could do it (~engineeringkit.control_systems.state_feedback_poles). A precompensator N then scales the reference so the output settles on it (~engineeringkit.control_systems.feedforward_gain)."><img alt="" src="../_images/sphx_glr_plot_03_wonham_pole_assignment_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/control_systems/state_space/plot_03_wonham_pole_assignment.html"><span class="doc">Wonham’s pole assignment</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Wonham's pole assignment</div>
+</div></div></section>
+<section id="doyle-guaranteed-margins-for-lqg-there-are-none">
+<h2><a class="toc-backref" href="#id21" role="doc-backlink">1978 – Doyle: Guaranteed Margins for LQG? There Are None</a><a class="headerlink" href="#doyle-guaranteed-margins-for-lqg-there-are-none" title="Link to this heading">#</a></h2>
+<p>The LQR loop is robust. Its Nyquist plot stays outside the unit disc about
+<span class="math notranslate nohighlight">\(-1\)</span>, so it tolerates any gain in <span class="math notranslate nohighlight">\([1/2, \infty)\)</span> and at least
+60° of phase change. It seemed natural that an LQR gain fed by a
+Kalman-Bucy filter would keep these margins. John Doyle’s two-page note,
+whose abstract reads “There are none.”, gave a plant for which the margins
+of the LQG loop shrink towards zero as the weights grow. The result started
+the robust-control work of the 1980s, from loop-transfer recovery to
+<span class="math notranslate nohighlight">\(H_\infty\)</span> design.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/control_systems.html#engineeringkit.control_systems.lqr" title="engineeringkit.control_systems.lqr"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.control_systems.lqr()</span></code></a>,
+<a class="reference internal" href="../api/control_systems.html#engineeringkit.control_systems.kalman_gain" title="engineeringkit.control_systems.kalman_gain"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.control_systems.kalman_gain()</span></code></a>, and
+<a class="reference internal" href="../api/control_systems.html#engineeringkit.control_systems.stability_margins" title="engineeringkit.control_systems.stability_margins"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.control_systems.stability_margins()</span></code></a>. The example
+computes the plant-input margins of Doyle’s example over all crossovers for
+growing weights and checks the LQR guarantees against the LQG gain range
+closing on 1.</p>
+<p><em>References:</em> J. C. Doyle, “Guaranteed margins for LQG regulators,” <em>IEEE
+Trans. Autom. Control</em> 23 (1978) 756-757.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="A full-state LQR loop is famously robust: its Nyquist plot never enters the unit disc around -1, so it tolerates a gain anywhere in [1/2, \infty) and a phase change of at least 60°. It seemed natural that an LQR gain fed by a Kalman filter (the LQG controller) would inherit these margins. John Doyle&#x27;s 1978 note, whose abstract reads in full &quot;There are none.&quot;, gave a counterexample. As the design weights grow the LQG loop&#x27;s margins shrink towards zero, even though each half is optimal."><img alt="" src="../_images/sphx_glr_plot_03_doyle_lqg_margins_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/control_systems/optimal/plot_03_doyle_lqg_margins.html"><span class="doc">Doyle’s guaranteed margins for LQG: there are none</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Doyle's guaranteed margins for LQG: there are none</div>
+</div></div></section>
+<section id="see-also">
+<h2><a class="toc-backref" href="#id22" role="doc-backlink">See Also</a><a class="headerlink" href="#see-also" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../api/control_systems.html"><span class="doc">engineeringkit.control_systems</span></a></p></li>
+<li><p><a class="reference internal" href="../guides/control_systems.html"><span class="doc">Control systems: matrix contracts and numerical stability</span></a></p></li>
+<li><p><a class="reference internal" href="signal_processing_breakthroughs.html"><span class="doc">Breakthroughs in Signal Processing</span></a></p></li>
+<li><p><a class="reference internal" href="communications_breakthroughs.html"><span class="doc">Breakthroughs in Communications</span></a></p></li>
+</ul>
 </section>
 </section>
 
@@ -492,11 +938,28 @@ here are concise original explanations, not reproductions of that reference.</p>
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="pst-show_toc_level nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#feedback-error-drives-correction">Feedback: error drives correction</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classical-analysis-stability-is-visible-in-poles-and-frequency">Classical analysis: stability is visible in poles and frequency</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#state-space-internal-dynamics-enter-the-design">State space: internal dynamics enter the design</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explore-and-verify">Explore and verify</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">Further reading</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#watt-s-centrifugal-governor">1788 – Watt’s Centrifugal Governor</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#maxwell-s-on-governors">1868 – Maxwell’s <em>On Governors</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#routh-s-stability-criterion">1877 – Routh’s Stability Criterion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lyapunov-s-direct-method">1892 – Lyapunov’s Direct Method</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hurwitz-s-determinants">1895 – Hurwitz’s Determinants</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#minorsky-s-pid-ship-steering">1922 – Minorsky’s PID Ship Steering</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#black-s-negative-feedback-amplifier">1927 – Black’s Negative-Feedback Amplifier</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nyquist-s-stability-criterion">1932 – Nyquist’s Stability Criterion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hazen-s-theory-of-servomechanisms">1934 – Hazen’s Theory of Servomechanisms</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bode-s-gain-and-phase-margins">1940 – Bode’s Gain and Phase Margins</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ziegler-nichols-tuning">1942 – Ziegler-Nichols Tuning</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evans-s-root-locus">1948 – Evans’s Root Locus</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ragazzini-and-zadeh-sampled-data-systems">1952 – Ragazzini and Zadeh: Sampled-Data Systems</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#smith-s-predictor-for-dead-time">1957 – Smith’s Predictor for Dead Time</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kalman-s-controllability-and-observability">1960 – Kalman’s Controllability and Observability</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kalman-s-linear-quadratic-regulator">1960 – Kalman’s Linear-Quadratic Regulator</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jury-s-stability-test-for-sampled-systems">1961 – Jury’s Stability Test for Sampled Systems</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-kalman-bucy-filter">1961 – The Kalman-Bucy Filter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#luenberger-s-observer">1964 – Luenberger’s Observer</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wonham-s-pole-assignment">1967 – Wonham’s Pole Assignment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#doyle-guaranteed-margins-for-lqg-there-are-none">1978 – Doyle: Guaranteed Margins for LQG? There Are None</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#see-also">See Also</a></li>
 </ul>
   </nav></div>
 

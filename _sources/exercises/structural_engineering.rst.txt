@@ -17,7 +17,7 @@ is 75 mm wide and carries 3 kN/m. Find the smallest depth, to the next
 10 mm, that keeps the midspan deflection within span/360. Check the
 deflection against :math:`5wL^4/(384EI)` and report the bending stress.
 
-*Builds on:* :doc:`/api/gallery/structural_engineering/index`.
+*Builds on:* :doc:`/api/gallery/structural_engineering/beams/plot_02_navier_beam`.
 
 .. dropdown:: Solution
 
@@ -56,7 +56,7 @@ length factors :math:`K` = 0.5 (fixed-fixed), 0.7 (fixed-pinned), 1
 :math:`A\sigma_y`. Below what slenderness does Euler's formula no longer
 apply?
 
-*Builds on:* :doc:`/api/gallery/structural_engineering/index`.
+*Builds on:* :doc:`/api/gallery/structural_engineering/stability/plot_01_euler_buckling`.
 
 .. dropdown:: Solution
 
@@ -100,7 +100,7 @@ steel members of 500 mm² area. Check the apex deflection by virtual work,
 :math:`\delta = \sum F f L/(EA)`, where :math:`f` are the member forces
 from a unit load.
 
-*Builds on:* :doc:`/api/gallery/structural_engineering/index`.
+*Builds on:* :doc:`/api/gallery/structural_engineering/trusses/plot_01_whipple_method_of_joints`.
 
 .. dropdown:: Solution
 

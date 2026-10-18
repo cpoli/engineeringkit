@@ -6,8 +6,16 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Numerical validation policy" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://cpoli.github.io/engineeringkit/validation.html" />
+<meta property="og:site_name" content="engineeringkit" />
+<meta property="og:description" content="Validation is layered. Many public scalar helpers reject nonfinite inputs and impossible physical ranges before division, logarithms or square roots. Geometric/distribution/matrix routines validate..." />
+<meta property="og:image" content="https://cpoli.github.io/engineeringkit/_static/images/readme_hero.png" />
+<meta property="og:image:alt" content="engineeringkit" />
+<meta name="description" content="Validation is layered. Many public scalar helpers reject nonfinite inputs and impossible physical ranges before division, logarithms or square roots. Geometric/distribution/matrix routines validate..." />
 
-    <title>Numerical validation policy &#8212; engineeringkit 0.1.0 documentation</title>
+    <title>Numerical validation policy &#8212; engineeringkit</title>
   
   
   
@@ -30,6 +38,7 @@
 <link href="_static/styles/pydata-sphinx-theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx_autodoc_typehints.css?v=057ac668" />
     <link rel="stylesheet" type="text/css" href="_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Vibur" />
     <link rel="stylesheet" type="text/css" href="_static/jupyterlite_sphinx.css?v=f676e775" />
@@ -54,6 +63,7 @@
     <script src="_static/design-tabs.js?v=f930bc37"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'validation';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="canonical" href="https://cpoli.github.io/engineeringkit/validation.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Scope and remaining limitations" href="limitations.html" />
@@ -428,7 +438,7 @@ that a physical model applies to a particular apparatus.</p>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>Structural</p></td>
-<td><p>Beam equilibrium/curvature, support values, bar reaction balance, energy derivative</p></td>
+<td><p>Beam equilibrium/curvature, support values, bar reaction balance, energy derivative, three-moment equation, moment distribution and frame stiffness against one another, method of joints against direct stiffness, mechanism work minimum, Engesser residual</p></td>
 </tr>
 <tr class="row-odd"><td><p>Electrical</p></td>
 <td><p>Closed-form transient current, charge integral, RC energy accounting, resonance</p></td>
@@ -437,16 +447,16 @@ that a physical model applies to a particular apparatus.</p>
 <td><p>Analytic scalar LQR/Kalman, matrix Riccati residuals and shape/weight failures</p></td>
 </tr>
 <tr class="row-odd"><td><p>Thermodynamics</p></td>
-<td><p>Integrated P dV, T delta_S, four-state cycle balances and COP identities</p></td>
+<td><p>Integrated P dV, T delta_S, four-state cycle balances and COP identities, IF97 verification tables and Gibbs relations, van der Waals critical inflection and isenthalpic throttle, Curzon-Ahlborn power maximum</p></td>
 </tr>
 <tr class="row-even"><td><p>Fluids</p></td>
-<td><p>Integrated parabolic profile, laminar Darcy equivalence, implicit Colebrook residual</p></td>
+<td><p>Integrated parabolic profile and wall pressure, laminar Darcy equivalence, Colebrook residual and limits, Hardy Cross against Newton, Pi-group null space</p></td>
 </tr>
 <tr class="row-odd"><td><p>Heat transfer</p></td>
-<td><p>Interface Q*R drops, thin-wall limit, equal-temperature and exchanger limits</p></td>
+<td><p>Interface Q*R drops, thin-wall limit, exchanger limits, Planck integral, plane-wall series and finite-difference energy</p></td>
 </tr>
 <tr class="row-even"><td><p>Materials</p></td>
-<td><p>Isotropic modulus identity, elastic strain-energy triangle, fracture inverse, composite bounds</p></td>
+<td><p>Isotropic modulus identities, elastic strain-energy triangle, offset yield, Griffith-Irwin agreement, Paris life against closed form and quadrature, composite bounds, strain-life transition</p></td>
 </tr>
 <tr class="row-odd"><td><p>Mechanical</p></td>
 <td><p>Undamped energy, damping dissipation, critical solution, gear power, forced equilibrium</p></td>
@@ -455,13 +465,13 @@ that a physical model applies to a particular apparatus.</p>
 <td><p>Shock mass/momentum/energy balances, sonic and infinite-wing limits</p></td>
 </tr>
 <tr class="row-odd"><td><p>Signals</p></td>
-<td><p>Parseval, periodogram integral, cutoff gain, sinc nodes, ADC error bounds</p></td>
+<td><p>Parseval, periodogram integral, cutoff gain, sinc nodes, ADC error bounds, FFT and Welch against NumPy and SciPy, Gibbs limit, Haar energy, Wiener and LMS system identification</p></td>
 </tr>
 <tr class="row-even"><td><p>Communications</p></td>
 <td><p>Analytic FM phase, unsigned bit handling, linear/log link budgets and noise limits</p></td>
 </tr>
 <tr class="row-odd"><td><p>Reliability</p></td>
-<td><p>Survival integral, SciPy distributions, exhaustive independent system states, sensitivities</p></td>
+<td><p>Survival integral, SciPy distributions, exhaustive independent system states, sensitivities, Monte Carlo fault trees, interference and Kaplan-Meier, Markov matrix exponential</p></td>
 </tr>
 </tbody>
 </table>

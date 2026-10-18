@@ -1,0 +1,50 @@
+
+
+.. _sphx_glr_api_gallery_electrical_engineering_transients:
+
+Transients
+----------
+
+First-order charging and the RC time constant.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Before the first transatlantic cable was laid, William Thomson (later Lord Kelvin) analysed how a signal spreads along a submarine cable. In 1855 he showed that, with negligible inductance, the line obeys a diffusion equation: a pulse arrives smeared over a time proportional to rc\,\ell^2, the resistance and capacitance per unit length times the length squared, the law of squares. The building block is the single RC section, whose voltage rises as 1 - e^{-t/RC} (~engineeringkit.electrical_engineering.rc_charging_voltage). This example checks the time constant of one section, then chains sections into a cable and confirms the law of squares.">
+
+.. only:: html
+
+  .. image:: /api/gallery/electrical_engineering/transients/images/thumb/sphx_glr_plot_01_kelvin_rc_cable_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/electrical_engineering/transients/plot_01_kelvin_rc_cable`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Kelvin's telegraph cable and the RC time constant</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/electrical_engineering/transients/plot_01_kelvin_rc_cable
+

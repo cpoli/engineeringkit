@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>engineeringkit.integrators &#8212; engineeringkit 0.1.0 documentation</title>
+    <title>engineeringkit.integrators &#8212; engineeringkit</title>
   
   
   
@@ -29,6 +29,7 @@
 <link href="../../_static/styles/pydata-sphinx-theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx_autodoc_typehints.css?v=057ac668" />
     <link rel="stylesheet" type="text/css" href="../../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Vibur" />
     <link rel="stylesheet" type="text/css" href="../../_static/jupyterlite_sphinx.css?v=f676e775" />
@@ -53,6 +54,7 @@
     <script src="../../_static/design-tabs.js?v=f930bc37"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '_modules/engineeringkit/integrators';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="canonical" href="https://cpoli.github.io/engineeringkit/_modules/engineeringkit/integrators.html" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -376,23 +378,44 @@
 <a class="viewcode-back" href="../../api/integrators.html#engineeringkit.integrators.IntegrationResult">[docs]</a>
 <span class="nd">@dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">IntegrationResult</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">"""Time [s] and state history with shape (samples, states)."""</span>
+<span class="w">    </span><span class="sd">"""Output of :func:`engineeringkit.integrators.integrate_ode`."""</span>
 
     <span class="n">t</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>
+<span class="w">    </span><span class="sd">"""ndarray: Sample times [s], strictly increasing."""</span>
+
     <span class="n">history</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>
+<span class="w">    </span><span class="sd">"""ndarray: State at each sample, shape ``(samples, states)``, in the model's units."""</span>
+
     <span class="n">method</span><span class="p">:</span> <span class="nb">str</span>
+<span class="w">    </span><span class="sd">"""str: Integration method used (``"euler"``, ``"rk4"`` or a SciPy method name)."""</span>
+
     <span class="n">evaluations</span><span class="p">:</span> <span class="nb">int</span>
+<span class="w">    </span><span class="sd">"""int: Number of calls to the right-hand side."""</span>
 
 <div class="viewcode-block" id="IntegrationResult.summary">
 <a class="viewcode-back" href="../../api/integrators.html#engineeringkit.integrators.IntegrationResult.summary">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Method, sample count, right-hand-side evaluations and final state."""</span>
         <span class="k">return</span> <span class="p">{</span><span class="s2">"method"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">method</span><span class="p">,</span> <span class="s2">"samples"</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">t</span><span class="p">),</span> <span class="s2">"evaluations"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">evaluations</span><span class="p">,</span> <span class="s2">"final_state"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()}</span></div>
 
 
 <div class="viewcode-block" id="IntegrationResult.plot">
 <a class="viewcode-back" href="../../api/integrators.html#engineeringkit.integrators.IntegrationResult.plot">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">plot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">"""Plot state histories; labels should include their physical units."""</span>
+<span class="w">        </span><span class="sd">"""Plot each state against time; return ``(fig, ax)``.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        labels : sequence of str, optional</span>
+<span class="sd">            One label per state, including its unit (e.g. ``"x [m]"``).</span>
+<span class="sd">        ax : matplotlib.axes.Axes, optional</span>
+<span class="sd">            Axes to draw on; a new figure is created if omitted.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        tuple</span>
+<span class="sd">            ``(fig, ax)``.</span>
+<span class="sd">        """</span>
         <span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit.visualizers</span><span class="w"> </span><span class="kn">import</span> <span class="n">plot_history</span>
 
         <span class="k">return</span> <span class="n">plot_history</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">history</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span></div>
@@ -403,12 +426,43 @@
 <div class="viewcode-block" id="integrate_ode">
 <a class="viewcode-back" href="../../api/integrators.html#engineeringkit.integrators.integrate_ode">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">integrate_ode</span><span class="p">(</span><span class="n">rhs</span><span class="p">:</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">method</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"RK45"</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">rtol</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1e-8</span><span class="p">,</span> <span class="n">atol</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1e-10</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">IntegrationResult</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">"""Solve dy/dt = rhs(t, y) on a strictly increasing finite time grid.</span>
+<span class="w">    </span><span class="sd">"""Solve :math:`dy/dt = f(t, y)` on a strictly increasing finite time grid.</span>
 
-<span class="sd">    ``euler`` and ``rk4`` expose explicit fixed-step methods using the supplied</span>
-<span class="sd">    grid. Other names select SciPy adaptive methods. Explicit methods are for</span>
-<span class="sd">    non-stiff teaching problems; step size controls stability and accuracy.</span>
-<span class="sd">    State units follow the caller's model; time is in seconds.</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    rhs : callable</span>
+<span class="sd">        ``rhs(t, y)`` returning the derivative, a finite array shaped like ``y0``,</span>
+<span class="sd">        in state units per second.</span>
+<span class="sd">    y0 : float or array_like</span>
+<span class="sd">        Initial state, in the model's units.</span>
+<span class="sd">    t : array_like</span>
+<span class="sd">        At least two finite, strictly increasing sample times [s].</span>
+<span class="sd">    method : str, optional</span>
+<span class="sd">        ``"euler"`` or ``"rk4"`` for explicit fixed steps on the grid ``t``;</span>
+<span class="sd">        any other name is passed to :func:`scipy.integrate.solve_ivp` (e.g.</span>
+<span class="sd">        ``"RK45"``, ``"Radau"``).</span>
+<span class="sd">    rtol, atol : float, optional</span>
+<span class="sd">        Positive relative and absolute tolerances of the adaptive methods.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    IntegrationResult</span>
+<span class="sd">        Times [s], the state history at each time and the number of</span>
+<span class="sd">        right-hand-side evaluations.</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    ValueError</span>
+<span class="sd">        If the grid, initial state or tolerances are invalid, or ``rhs``</span>
+<span class="sd">        returns a nonfinite or wrongly shaped derivative.</span>
+<span class="sd">    RuntimeError</span>
+<span class="sd">        If a fixed-step state becomes nonfinite or the adaptive solver fails.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Explicit methods are for non-stiff teaching problems; the step size</span>
+<span class="sd">    controls their stability and accuracy. Inputs are raw SI numbers with no</span>
+<span class="sd">    dimensional metadata; see :doc:`/numerical_methods`.</span>
 <span class="sd">    """</span>
     <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
     <span class="n">y0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">atleast_1d</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">y0</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">))</span>

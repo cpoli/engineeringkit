@@ -1,0 +1,68 @@
+
+
+.. _sphx_glr_api_gallery_structural_engineering_frames:
+
+Frames
+------
+
+Rigid-jointed continuous beams and frames.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Continuous beams and building frames of the 1920s led to large systems of simultaneous equations that no engineer wanted to solve by hand. In 1930 Hardy Cross proposed relaxation instead. Lock every joint against rotation and apply the fixed-end moments. Then release one joint at a time: its unbalanced moment is shared among the members meeting there in proportion to their stiffness 4EI/L, and half of each share is carried over to the far end of the member. Repeat until the joints balance (~engineeringkit.structural_engineering.moment_distribution). The method fitted on a sheet of paper and was used for forty years. The example balances a three-span beam built in at its left end, checks the result against the plane-frame stiffness solution and plots how fast the unbalance dies away.">
+
+.. only:: html
+
+  .. image:: /api/gallery/structural_engineering/frames/images/thumb/sphx_glr_plot_01_hardy_cross_moment_distribution_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/structural_engineering/frames/plot_01_hardy_cross_moment_distribution`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Hardy Cross's moment distribution</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Moment distribution assumes the joints do not move sideways. A portal frame under wind does sway, and hand methods needed an extra correction for every storey. In 1956 R. K. Livesley programmed the stiffness method for rigid-jointed frames on the Manchester Mark I. Each member gets a 6x6 matrix with axial and bending terms, and the sway comes out with the rotations (~engineeringkit.structural_engineering.PlanarFrame). The example sways a fixed-base portal frame and checks the stiffness result against its two limits, an infinitely stiff beam and an infinitely flexible one, then draws the deflected shape under wind and gravity.">
+
+.. only:: html
+
+  .. image:: /api/gallery/structural_engineering/frames/images/thumb/sphx_glr_plot_02_planar_frame_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/structural_engineering/frames/plot_02_planar_frame`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Livesley's plane frames by direct stiffness</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/structural_engineering/frames/plot_01_hardy_cross_moment_distribution
+   /api/gallery/structural_engineering/frames/plot_02_planar_frame
+

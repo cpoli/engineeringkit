@@ -1,0 +1,104 @@
+
+
+.. _sphx_glr_api_gallery_materials_fatigue:
+
+Fatigue
+-------
+
+Stress-life, mean stress, cumulative damage and strain-life.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Wöhler&#x27;s endurance tests reversed the stress fully, but most machine parts carry a steady stress with an alternating one on top. John Goodman&#x27;s Mechanics Applied to Engineering (1899) drew the line that design still uses: the alternating stress a part can carry falls linearly from the endurance limit S_e at zero mean to nothing at the ultimate strength S_{ut},">
+
+.. only:: html
+
+  .. image:: /api/gallery/materials/fatigue/images/thumb/sphx_glr_plot_01_goodman_diagram_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/materials/fatigue/plot_01_goodman_diagram`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Goodman's mean-stress diagram</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="August Wöhler&#x27;s railway-axle tests of the 1860s showed that steel breaks under repeated stresses far below its static strength, and that below an endurance limit it may never break. Olin Basquin (1910) noticed that on log-log axes the finite-life part of Wöhler&#x27;s curves is a straight line, \sigma_a = \sigma_f&#x27;(2N)^b (~engineeringkit.materials.basquin_cycles). The example fits the line to scattered test results with power_law_fit and recovers the constants that produced them.">
+
+.. only:: html
+
+  .. image:: /api/gallery/materials/fatigue/images/thumb/sphx_glr_plot_02_basquin_sn_curve_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/materials/fatigue/plot_02_basquin_sn_curve`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Basquin's S-N law</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Real loads vary in amplitude. Arvid Palmgren (1924), estimating the lives of ball bearings, assumed that each cycle at amplitude \sigma_i uses up a fraction 1/N_i of the life, and Milton Miner (1945) confirmed the rule on riveted aluminium joints for aircraft: failure comes when D = \sum n_i/N_i reaches 1 (~engineeringkit.materials.miner_damage). The example applies it to a block load spectrum and reduces the spectrum to one equivalent amplitude.">
+
+.. only:: html
+
+  .. image:: /api/gallery/materials/fatigue/images/thumb/sphx_glr_plot_03_palmgren_miner_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/materials/fatigue/plot_03_palmgren_miner`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Palmgren and Miner's cumulative damage</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Nuclear plant and jet-engine parts heated and cooled a few thousand times fail by cycles of plastic strain, where Basquin&#x27;s stress-life law is useless because the stress hardly changes. Louis Coffin (1954) and Samson Manson (1953-1954) independently found that the plastic strain amplitude follows its own power law, \Delta\varepsilon_p/2 = \varepsilon_f&#x27;(2N)^c (~engineeringkit.materials.coffin_manson_cycles). Added to Basquin&#x27;s elastic line it gives the strain-life curve (~engineeringkit.materials.strain_life_amplitude) used for notched parts today.">
+
+.. only:: html
+
+  .. image:: /api/gallery/materials/fatigue/images/thumb/sphx_glr_plot_04_coffin_manson_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/materials/fatigue/plot_04_coffin_manson`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Coffin and Manson: low-cycle fatigue</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/materials/fatigue/plot_01_goodman_diagram
+   /api/gallery/materials/fatigue/plot_02_basquin_sn_curve
+   /api/gallery/materials/fatigue/plot_03_palmgren_miner
+   /api/gallery/materials/fatigue/plot_04_coffin_manson
+

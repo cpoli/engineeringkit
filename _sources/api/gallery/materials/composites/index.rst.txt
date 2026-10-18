@@ -1,0 +1,50 @@
+
+
+.. _sphx_glr_api_gallery_materials_composites:
+
+Composites
+----------
+
+Rules of mixtures and the bounds on a composite's stiffness.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="How stiff is a mixture of two phases? Woldemar Voigt (1889) averaged the elastic constants of the crystals in a polycrystal on the assumption that all of them strain alike; Adolf Reuss (1929) averaged the compliances on the assumption that all carry the same stress. For a fibre composite the two assumptions are exact along and across the fibres (~engineeringkit.materials.rule_of_mixtures_E_longitudinal, rule_of_mixtures_E_transverse), and Hill (1952) proved that every other arrangement lies between them. The example builds both from springs and checks a glass-epoxy laminate.">
+
+.. only:: html
+
+  .. image:: /api/gallery/materials/composites/images/thumb/sphx_glr_plot_01_voigt_reuss_bounds_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/materials/composites/plot_01_voigt_reuss_bounds`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Voigt and Reuss: bounds on a composite's stiffness</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/materials/composites/plot_01_voigt_reuss_bounds
+

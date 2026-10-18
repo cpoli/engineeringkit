@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>engineeringkit.control_systems.systems.frequency &#8212; engineeringkit 0.1.0 documentation</title>
+    <title>engineeringkit.control_systems.systems.frequency &#8212; engineeringkit</title>
   
   
   
@@ -29,6 +29,7 @@
 <link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx_autodoc_typehints.css?v=057ac668" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Vibur" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/jupyterlite_sphinx.css?v=f676e775" />
@@ -53,6 +54,7 @@
     <script src="../../../../_static/design-tabs.js?v=f930bc37"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '_modules/engineeringkit/control_systems/systems/frequency';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="canonical" href="https://cpoli.github.io/engineeringkit/_modules/engineeringkit/control_systems/systems/frequency.html" />
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -522,20 +524,23 @@
 
 
 
-<span class="k">def</span><span class="w"> </span><span class="nf">_crossing</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""Log-frequency of the first crossing of ``value`` through ``target``, by linear interpolation."""</span>
-    <span class="n">i</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">flatnonzero</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">value</span> <span class="o">-</span> <span class="n">target</span><span class="p">))</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">i</span><span class="o">.</span><span class="n">size</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="kc">None</span>
-    <span class="n">i</span> <span class="o">=</span> <span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_crossings</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">period</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Log-frequencies where ``value`` crosses zero, or any multiple of ``period``.</span>
+
+<span class="sd">    Returns the interpolated frequencies (linear in log-frequency between</span>
+<span class="sd">    grid points) and the index of the grid segment holding each crossing.</span>
+<span class="sd">    """</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">value</span> <span class="o">/</span> <span class="n">period</span><span class="p">)</span> <span class="k">if</span> <span class="n">period</span> <span class="k">else</span> <span class="p">(</span><span class="n">value</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">flatnonzero</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">target</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="n">k</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">k</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span> <span class="o">*</span> <span class="n">period</span> <span class="k">if</span> <span class="n">period</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">i</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
     <span class="n">frac</span> <span class="o">=</span> <span class="p">(</span><span class="n">target</span> <span class="o">-</span> <span class="n">value</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">/</span> <span class="p">(</span><span class="n">value</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">value</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
-    <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">w</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">+</span> <span class="n">frac</span> <span class="o">*</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">w</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">w</span><span class="p">[</span><span class="n">i</span><span class="p">])))),</span> <span class="n">i</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">w</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">+</span> <span class="n">frac</span> <span class="o">*</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">w</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">w</span><span class="p">[</span><span class="n">i</span><span class="p">]))),</span> <span class="n">i</span><span class="p">,</span> <span class="n">frac</span>
 
 
 <div class="viewcode-block" id="stability_margins">
 <a class="viewcode-back" href="../../../../api/control_systems.html#engineeringkit.control_systems.stability_margins">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">stability_margins</span><span class="p">(</span><span class="n">sys</span><span class="p">,</span> <span class="n">w</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""Gain and phase margins from the first crossovers of a loop's frequency response.</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Worst gain and phase margins over all crossovers of a loop's frequency response.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -548,16 +553,35 @@
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    dict</span>
-<span class="sd">        ``gain_margin`` [-] (``inf`` without a phase crossover),</span>
-<span class="sd">        ``phase_margin_deg`` [deg] (``nan`` without a gain crossover),</span>
-<span class="sd">        ``gain_cross_frequency`` and ``phase_cross_frequency`` [rad/s].</span>
+<span class="sd">        ``gain_margin`` [-], the margin at the phase crossover nearest</span>
+<span class="sd">        instability (``inf`` without a phase crossover);</span>
+<span class="sd">        ``phase_margin_deg`` [deg], the margin of smallest magnitude over</span>
+<span class="sd">        the gain crossovers (``nan`` without one); ``gain_cross_frequency`` and</span>
+<span class="sd">        ``phase_cross_frequency`` [rad/s], the crossovers at which those worst</span>
+<span class="sd">        margins are read (``nan`` if absent); and the arrays</span>
+<span class="sd">        ``phase_cross_frequencies`` [rad/s] with their ``gain_margins`` [-],</span>
+<span class="sd">        and ``gain_cross_frequencies`` [rad/s] with their</span>
+<span class="sd">        ``phase_margins_deg`` [deg], over every crossover in increasing</span>
+<span class="sd">        frequency.</span>
 
 <span class="sd">    Notes</span>
 <span class="sd">    -----</span>
-<span class="sd">    Crossings are interpolated linearly in log-frequency between grid</span>
-<span class="sd">    points. Only the first crossover of each kind is reported, so loops with</span>
-<span class="sd">    multiple crossovers, time delays or negative gain need separate analysis.</span>
-<span class="sd">    See :doc:`/guides/control_systems`.</span>
+<span class="sd">    A phase crossover is any frequency where the phase passes</span>
+<span class="sd">    :math:`-180^\circ + 360^\circ k`. Its gain margin</span>
+<span class="sd">    :math:`1/|L(j\omega)|` is below one when *reducing* the gain by that</span>
+<span class="sd">    factor reaches instability, as in a conditionally stable loop; the worst</span>
+<span class="sd">    gain margin is the one with the smallest :math:`|\log \mathrm{GM}|`.</span>
+<span class="sd">    Phase margins are wrapped into :math:`[-180^\circ, 180^\circ)`; a</span>
+<span class="sd">    negative one means the plot crosses the unit circle on the far side of</span>
+<span class="sd">    :math:`-1`, and a phase *lead* of that size reaches instability. With one</span>
+<span class="sd">    crossover and a stable open loop that signals an unstable closed loop,</span>
+<span class="sd">    but an open-loop unstable loop that needs counter-clockwise encirclements</span>
+<span class="sd">    can cross on both sides, so the worst phase margin is the one of</span>
+<span class="sd">    smallest magnitude.</span>
+<span class="sd">    Crossings are interpolated linearly in log-frequency between grid points,</span>
+<span class="sd">    so a grid that misses a crossover misses its margin. Time delays need a</span>
+<span class="sd">    rational approximation such as :func:`pade_delay`. See</span>
+<span class="sd">    :doc:`/guides/control_systems`.</span>
 
 <span class="sd">    References</span>
 <span class="sd">    ----------</span>
@@ -571,16 +595,27 @@
 <span class="sd">    &gt;&gt;&gt; round(m["gain_margin"], 2), round(m["phase_cross_frequency"], 3)</span>
 <span class="sd">    (3.0, 1.414)</span>
 <span class="sd">    """</span>
-    <span class="n">w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">20000</span><span class="p">)</span> <span class="k">if</span> <span class="n">w</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span>
+    <span class="n">w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">20000</span><span class="p">)</span> <span class="k">if</span> <span class="n">w</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="nb">float</span><span class="p">))</span>
     <span class="n">_positive</span><span class="p">(</span><span class="n">w</span><span class="o">=</span><span class="n">w</span><span class="p">)</span>
     <span class="n">h</span> <span class="o">=</span> <span class="n">nyquist</span><span class="p">(</span><span class="n">sys</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>
-    <span class="n">mag</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
+    <span class="n">log_mag</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">h</span><span class="p">))</span>
     <span class="n">phase</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unwrap</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">angle</span><span class="p">(</span><span class="n">h</span><span class="p">))</span> <span class="o">*</span> <span class="mi">180</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span>
-    <span class="n">wg</span><span class="p">,</span> <span class="n">ig</span> <span class="o">=</span> <span class="n">_crossing</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">mag</span><span class="p">),</span> <span class="mf">0.0</span><span class="p">)</span>
-    <span class="n">wp</span><span class="p">,</span> <span class="n">ip</span> <span class="o">=</span> <span class="n">_crossing</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">phase</span><span class="p">,</span> <span class="o">-</span><span class="mf">180.0</span><span class="p">)</span>
-    <span class="n">pm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span> <span class="k">if</span> <span class="n">ig</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="mi">180</span> <span class="o">+</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">wg</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">w</span><span class="p">[</span><span class="n">ig</span> <span class="p">:</span> <span class="n">ig</span> <span class="o">+</span> <span class="mi">2</span><span class="p">]),</span> <span class="n">phase</span><span class="p">[</span><span class="n">ig</span> <span class="p">:</span> <span class="n">ig</span> <span class="o">+</span> <span class="mi">2</span><span class="p">]))</span>
-    <span class="n">gm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span> <span class="k">if</span> <span class="n">ip</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="mi">1</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">w</span><span class="p">[</span><span class="n">ip</span> <span class="p">:</span> <span class="n">ip</span> <span class="o">+</span> <span class="mi">2</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">mag</span><span class="p">[</span><span class="n">ip</span> <span class="p">:</span> <span class="n">ip</span> <span class="o">+</span> <span class="mi">2</span><span class="p">]))))</span>
-    <span class="k">return</span> <span class="p">{</span><span class="s2">"gain_margin"</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">gm</span><span class="p">),</span> <span class="s2">"phase_margin_deg"</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">pm</span><span class="p">),</span> <span class="s2">"gain_cross_frequency"</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">wg</span><span class="p">),</span> <span class="s2">"phase_cross_frequency"</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">wp</span><span class="p">)}</span></div>
+    <span class="n">wg</span><span class="p">,</span> <span class="n">ig</span><span class="p">,</span> <span class="n">fg</span> <span class="o">=</span> <span class="n">_crossings</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">log_mag</span><span class="p">)</span>
+    <span class="n">wp</span><span class="p">,</span> <span class="n">ip</span><span class="p">,</span> <span class="n">fp</span> <span class="o">=</span> <span class="n">_crossings</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">phase</span> <span class="o">+</span> <span class="mi">180</span><span class="p">,</span> <span class="mf">360.0</span><span class="p">)</span>
+    <span class="n">pm</span> <span class="o">=</span> <span class="p">(</span><span class="n">phase</span><span class="p">[</span><span class="n">ig</span><span class="p">]</span> <span class="o">+</span> <span class="n">fg</span> <span class="o">*</span> <span class="p">(</span><span class="n">phase</span><span class="p">[</span><span class="n">ig</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">phase</span><span class="p">[</span><span class="n">ig</span><span class="p">])</span> <span class="o">+</span> <span class="mi">360</span><span class="p">)</span> <span class="o">%</span> <span class="mi">360</span> <span class="o">-</span> <span class="mi">180</span>
+    <span class="n">gm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">log_mag</span><span class="p">[</span><span class="n">ip</span><span class="p">]</span> <span class="o">+</span> <span class="n">fp</span> <span class="o">*</span> <span class="p">(</span><span class="n">log_mag</span><span class="p">[</span><span class="n">ip</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">log_mag</span><span class="p">[</span><span class="n">ip</span><span class="p">])))</span>
+    <span class="n">jg</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">pm</span><span class="p">)))</span> <span class="k">if</span> <span class="n">pm</span><span class="o">.</span><span class="n">size</span> <span class="k">else</span> <span class="kc">None</span>
+    <span class="n">jp</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">gm</span><span class="p">))))</span> <span class="k">if</span> <span class="n">gm</span><span class="o">.</span><span class="n">size</span> <span class="k">else</span> <span class="kc">None</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s2">"gain_margin"</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span> <span class="k">if</span> <span class="n">jp</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="nb">float</span><span class="p">(</span><span class="n">gm</span><span class="p">[</span><span class="n">jp</span><span class="p">]),</span>
+        <span class="s2">"phase_margin_deg"</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span> <span class="k">if</span> <span class="n">jg</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="nb">float</span><span class="p">(</span><span class="n">pm</span><span class="p">[</span><span class="n">jg</span><span class="p">]),</span>
+        <span class="s2">"gain_cross_frequency"</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span> <span class="k">if</span> <span class="n">jg</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="nb">float</span><span class="p">(</span><span class="n">wg</span><span class="p">[</span><span class="n">jg</span><span class="p">]),</span>
+        <span class="s2">"phase_cross_frequency"</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span> <span class="k">if</span> <span class="n">jp</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="nb">float</span><span class="p">(</span><span class="n">wp</span><span class="p">[</span><span class="n">jp</span><span class="p">]),</span>
+        <span class="s2">"gain_margins"</span><span class="p">:</span> <span class="n">gm</span><span class="p">,</span>
+        <span class="s2">"phase_cross_frequencies"</span><span class="p">:</span> <span class="n">wp</span><span class="p">,</span>
+        <span class="s2">"phase_margins_deg"</span><span class="p">:</span> <span class="n">pm</span><span class="p">,</span>
+        <span class="s2">"gain_cross_frequencies"</span><span class="p">:</span> <span class="n">wg</span><span class="p">,</span>
+    <span class="p">}</span></div>
 
 </pre></div>
 

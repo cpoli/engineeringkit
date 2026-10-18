@@ -1,0 +1,50 @@
+
+
+.. _sphx_glr_api_gallery_reliability_growth:
+
+Growth
+------
+
+How reliability improves while a design is tested and fixed.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="James Duane, at General Electric&#x27;s Motor and Generator Department, plotted the failure records of five development programmes, from hydraulic devices to aircraft generators. On log-log paper the cumulative MTBF, total test time over total failures, rose along a straight line, each programme with a slope near 0.5. A straight line is a power law, \theta_c = K t^\alpha (~engineeringkit.reliability.reliability_growth_duane), so a few months of data predict how much more testing a reliability target needs. Because the failure count is N(t) = t^{1-\alpha}/K, the current failure rate is dN/dt, and the instantaneous MTBF is the cumulative one divided by 1 - \alpha.">
+
+.. only:: html
+
+  .. image:: /api/gallery/reliability/growth/images/thumb/sphx_glr_plot_01_duane_growth_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/reliability/growth/plot_01_duane_growth`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Duane's reliability growth</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/reliability/growth/plot_01_duane_growth
+

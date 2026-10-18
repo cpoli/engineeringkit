@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>engineeringkit.control_systems.systems.pid &#8212; engineeringkit 0.1.0 documentation</title>
+    <title>engineeringkit.control_systems.systems.pid &#8212; engineeringkit</title>
   
   
   
@@ -29,6 +29,7 @@
 <link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx_autodoc_typehints.css?v=057ac668" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Vibur" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/jupyterlite_sphinx.css?v=f676e775" />
@@ -53,6 +54,7 @@
     <script src="../../../../_static/design-tabs.js?v=f930bc37"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '_modules/engineeringkit/control_systems/systems/pid';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="canonical" href="https://cpoli.github.io/engineeringkit/_modules/engineeringkit/control_systems/systems/pid.html" />
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -435,7 +437,19 @@
 <div class="viewcode-block" id="PID.closed_loop">
 <a class="viewcode-back" href="../../../../api/control_systems.html#engineeringkit.control_systems.PID.closed_loop">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">closed_loop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">plant</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">"""Unity-feedback closed loop :math:`CG/(1 + CG)` from reference to output."""</span>
+<span class="w">        </span><span class="sd">"""Unity-feedback closed loop :math:`CG/(1 + CG)` from reference to output.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        plant : scipy.signal.TransferFunction or tuple</span>
+<span class="sd">            Plant :math:`G(s)`, as a transfer function or ``(num, den)``</span>
+<span class="sd">            polynomial coefficients in descending powers of :math:`s`.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        scipy.signal.TransferFunction</span>
+<span class="sd">            Closed-loop transfer function.</span>
+<span class="sd">        """</span>
         <span class="n">cnum</span><span class="p">,</span> <span class="n">cden</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_polynomials</span><span class="p">()</span>
         <span class="n">pnum</span><span class="p">,</span> <span class="n">pden</span> <span class="o">=</span> <span class="n">num_den</span><span class="p">(</span><span class="n">plant</span><span class="p">)</span>
         <span class="n">ol_num</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polymul</span><span class="p">(</span><span class="n">cnum</span><span class="p">,</span> <span class="n">pnum</span><span class="p">)</span>
@@ -446,7 +460,20 @@
 <div class="viewcode-block" id="PID.simulate">
 <a class="viewcode-back" href="../../../../api/control_systems.html#engineeringkit.control_systems.PID.simulate">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">simulate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">plant</span><span class="p">,</span> <span class="n">T</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">"""Unit-step reference response of the closed loop, as a :class:`ResponseResult`."""</span>
+<span class="w">        </span><span class="sd">"""Unit-step reference response of the closed loop.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        plant : scipy.signal.TransferFunction or tuple</span>
+<span class="sd">            Plant :math:`G(s)`, as in :meth:`closed_loop`.</span>
+<span class="sd">        T : array_like, optional</span>
+<span class="sd">            Sample times [s]; chosen by :func:`scipy.signal.step` if omitted.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        ResponseResult</span>
+<span class="sd">            Time [s] and output for a unit step in the reference.</span>
+<span class="sd">        """</span>
         <span class="n">t</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">closed_loop</span><span class="p">(</span><span class="n">plant</span><span class="p">),</span> <span class="n">T</span><span class="o">=</span><span class="n">T</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">ResponseResult</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span></div>
 </div>

@@ -1,0 +1,104 @@
+
+
+.. _sphx_glr_api_gallery_mechanical_engineering_mechanisms:
+
+Mechanisms
+----------
+
+Slider-cranks, four-bar linkages and serial robot arms.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Franz Reuleaux&#x27;s Theoretische Kinematik (1875) treated every machine as a kinematic chain of rigid links joined by pairs (turning, sliding, screw), with one link held fixed. Fixing different links of the same chain gives different machines, which he called inversions. Grounding the cylinder of the slider-crank chain gives the piston engine, grounding the crank gives the Whitworth quick-return, and grounding the rod gives the oscillating cylinder. For the engine, the piston position x = r\cos\theta + \sqrt{l^2 - r^2\sin^2\theta} (~engineeringkit.mechanical_engineering.slider_crank_displacement) is not harmonic. Its acceleration at top dead centre is r\omega^2(1 + r/l) but only r\omega^2(1 - r/l) at bottom dead centre, which is the source of an engine&#x27;s second-order shaking force.">
+
+.. only:: html
+
+  .. image:: /api/gallery/mechanical_engineering/mechanisms/images/thumb/sphx_glr_plot_01_reuleaux_slider_crank_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/mechanical_engineering/mechanisms/plot_01_reuleaux_slider_crank`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Reuleaux's kinematics of machinery: the slider-crank</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Franz Grashof (1883) gave the rule that decides whether any link of a four-bar chain can turn a full circle. With s and l the shortest and longest links and p, q the others, the shortest link rotates fully relative to its neighbours if and only if s + l \le p + q (~engineeringkit.mechanical_engineering.fourbar_grashof). Which link is grounded then decides the machine. Grounding a neighbour of the shortest link gives a crank-rocker, grounding the shortest gives a double crank, and grounding the link opposite it gives a double rocker. The example checks all four inversions of a Grashof chain, and of a non-Grashof chain, by trying to assemble each one at every input angle (~engineeringkit.mechanical_engineering.fourbar_output_angle).">
+
+.. only:: html
+
+  .. image:: /api/gallery/mechanical_engineering/mechanisms/images/thumb/sphx_glr_plot_02_grashof_condition_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/mechanical_engineering/mechanisms/plot_02_grashof_condition`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Grashof's condition for four-bar linkages</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Before computers, linkages that generate a prescribed function were designed by graphical construction. Ferdinand Freudenstein (1954) wrote the four-bar&#x27;s loop closure as">
+
+.. only:: html
+
+  .. image:: /api/gallery/mechanical_engineering/mechanisms/images/thumb/sphx_glr_plot_03_freudenstein_equation_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/mechanical_engineering/mechanisms/plot_03_freudenstein_equation`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Freudenstein's equation for four-bar synthesis</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Jacques Denavit and Richard Hartenberg (1955) proposed a notation for any chain of links joined by lower pairs. Each link frame is placed so that going to the next takes only four numbers: a rotation \theta and a shift d along the joint axis z, then a shift a and a twist \alpha along the common normal x. The step is a single 4 by 4 homogeneous matrix (~engineeringkit.mechanical_engineering.dh_transform), and the pose of a robot&#x27;s hand is the product of one such matrix per joint (~engineeringkit.mechanical_engineering.forward_kinematics). The example checks the product against hand-derived trigonometry for a planar arm and a spatial articulated arm.">
+
+.. only:: html
+
+  .. image:: /api/gallery/mechanical_engineering/mechanisms/images/thumb/sphx_glr_plot_04_denavit_hartenberg_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/mechanical_engineering/mechanisms/plot_04_denavit_hartenberg`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Denavit and Hartenberg's link parameters</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/mechanical_engineering/mechanisms/plot_01_reuleaux_slider_crank
+   /api/gallery/mechanical_engineering/mechanisms/plot_02_grashof_condition
+   /api/gallery/mechanical_engineering/mechanisms/plot_03_freudenstein_equation
+   /api/gallery/mechanical_engineering/mechanisms/plot_04_denavit_hartenberg
+

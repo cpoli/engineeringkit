@@ -6,8 +6,16 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Thermodynamics: total versus specific quantities and cycle states" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://cpoli.github.io/engineeringkit/guides/thermodynamics.html" />
+<meta property="og:site_name" content="engineeringkit" />
+<meta property="og:description" content="Absolute temperatures are K, pressure Pa, total volume m^3 and gas amount mol. The universal constant is 8.31446261815324 J/(mol K). Heat/work helpers use J unless noted; ideal-gas internal energy ..." />
+<meta property="og:image" content="https://cpoli.github.io/engineeringkit/_static/images/readme_hero.png" />
+<meta property="og:image:alt" content="engineeringkit" />
+<meta name="description" content="Absolute temperatures are K, pressure Pa, total volume m^3 and gas amount mol. The universal constant is 8.31446261815324 J/(mol K). Heat/work helpers use J unless noted; ideal-gas internal energy ..." />
 
-    <title>Thermodynamics: total versus specific quantities and cycle states &#8212; engineeringkit 0.1.0 documentation</title>
+    <title>Thermodynamics: total versus specific quantities and cycle states &#8212; engineeringkit</title>
   
   
   
@@ -30,6 +38,7 @@
 <link href="../_static/styles/pydata-sphinx-theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx_autodoc_typehints.css?v=057ac668" />
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Vibur" />
     <link rel="stylesheet" type="text/css" href="../_static/jupyterlite_sphinx.css?v=f676e775" />
@@ -54,6 +63,7 @@
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'guides/thermodynamics';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="canonical" href="https://cpoli.github.io/engineeringkit/guides/thermodynamics.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Fluid engineering: flow regimes and signed quantities" href="fluid_engineering.html" />
@@ -327,28 +337,52 @@
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
   <div class="bd-toc-item navbar-nav"><ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../api/gallery/structural_engineering/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../api/gallery/structural_engineering/plot_structural_engineering_benchmark.html">Buckling and effective length</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/gallery/structural_engineering/plot_structural_engineering_models.html">Beam deflection under a uniform load</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/structural_engineering/beams/index.html">Beams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/structural_engineering/energy/index.html">Energy methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/structural_engineering/frames/index.html">Frames</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/structural_engineering/members/index.html">Members</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/structural_engineering/plasticity/index.html">Plasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/structural_engineering/stability/index.html">Stability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/structural_engineering/stress/index.html">Stress</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/structural_engineering/trusses/index.html">Trusses</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../api/gallery/mechanical_engineering/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../api/gallery/mechanical_engineering/plot_mechanical_engineering_benchmark.html">Oscillator energy balance</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/gallery/mechanical_engineering/plot_mechanical_engineering_models.html">Damping and vibration histories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/mechanical_engineering/dynamics/index.html">Dynamics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/mechanical_engineering/machine_elements/index.html">Machine elements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/mechanical_engineering/mechanisms/index.html">Mechanisms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/mechanical_engineering/rotordynamics/index.html">Rotordynamics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/mechanical_engineering/transmission/index.html">Transmission</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/mechanical_engineering/vibration/index.html">Vibration</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../api/gallery/thermodynamics/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../api/gallery/thermodynamics/plot_thermodynamics_benchmark.html">Carnot engine and heat-pump limits</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/gallery/thermodynamics/plot_thermodynamics_models.html">Ideal power-cycle efficiency</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/thermodynamics/cycles/index.html">Cycles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/thermodynamics/exergy/index.html">Exergy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/thermodynamics/laws/index.html">Laws</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/thermodynamics/properties/index.html">Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/thermodynamics/psychrometrics/index.html">Psychrometrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/thermodynamics/refrigeration/index.html">Refrigeration</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../api/gallery/fluid_engineering/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../api/gallery/fluid_engineering/plot_fluid_engineering_benchmark.html">Poiseuille profile and volume flow</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/gallery/fluid_engineering/plot_fluid_engineering_models.html">Darcy friction across two flow regimes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/fluid_engineering/hydrostatics/index.html">Hydrostatics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/fluid_engineering/measurement/index.html">Measurement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/fluid_engineering/networks/index.html">Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/fluid_engineering/open_channel/index.html">Open channels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/fluid_engineering/pipe_flow/index.html">Pipe flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/fluid_engineering/pumps/index.html">Pumps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/fluid_engineering/similarity/index.html">Similarity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/fluid_engineering/transients/index.html">Transients</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../api/gallery/heat_transfer/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../api/gallery/heat_transfer/plot_heat_transfer_benchmark.html">Cooling and the lumped time constant</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/gallery/heat_transfer/plot_heat_transfer_models.html">Parallel and counterflow heat exchangers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/heat_transfer/conduction/index.html">Conduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/heat_transfer/convection/index.html">Convection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/heat_transfer/exchangers/index.html">Heat exchangers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/heat_transfer/phase_change/index.html">Phase change</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/heat_transfer/radiation/index.html">Radiation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/heat_transfer/transient/index.html">Transient conduction</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../api/gallery/aerodynamics/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -363,8 +397,12 @@
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../api/gallery/electrical_engineering/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../api/gallery/electrical_engineering/plot_electrical_engineering_benchmark.html">RC charge and energy accounting</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/gallery/electrical_engineering/plot_electrical_engineering_models.html">RLC current after a voltage step</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/electrical_engineering/ac_circuits/index.html">AC circuits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/electrical_engineering/dc_circuits/index.html">DC circuits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/electrical_engineering/networks/index.html">Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/electrical_engineering/power/index.html">Power</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/electrical_engineering/transients/index.html">Transients</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/electrical_engineering/transmission_lines/index.html">Transmission lines</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../api/gallery/control_systems/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -379,8 +417,11 @@
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../api/gallery/signal_processing/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../api/gallery/signal_processing/plot_signal_processing_benchmark.html">Aliasing before reconstruction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/gallery/signal_processing/plot_signal_processing_models.html">Sampling and a signal spectrum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/signal_processing/filters/index.html">Filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/signal_processing/fourier/index.html">Fourier analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/signal_processing/sampling/index.html">Sampling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/signal_processing/spectral/index.html">Spectral analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/signal_processing/wavelets/index.html">Wavelets</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../api/gallery/communications/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -395,13 +436,22 @@
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../api/gallery/materials/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../api/gallery/materials/plot_materials_benchmark.html">Crack size and fracture threshold</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/gallery/materials/plot_materials_models.html">Voigt and Reuss composite bounds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/materials/composites/index.html">Composites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/materials/creep/index.html">Creep</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/materials/elasticity/index.html">Elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/materials/fatigue/index.html">Fatigue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/materials/fracture/index.html">Fracture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/materials/plasticity/index.html">Plasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/materials/yield/index.html">Yield</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../api/gallery/reliability/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../api/gallery/reliability/plot_reliability_benchmark.html">Redundancy under independent failures</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/gallery/reliability/plot_reliability_models.html">Weibull survival and shape</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/reliability/growth/index.html">Growth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/reliability/lifetimes/index.html">Lifetimes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/reliability/maintenance/index.html">Maintenance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/reliability/risk/index.html">Risk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/reliability/structural/index.html">Structural reliability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/reliability/systems/index.html">Systems</a></li>
 </ul>
 </details></li>
 </ul>
@@ -440,7 +490,7 @@
 <li class="toctree-l1"><a class="reference internal" href="control_systems.html">Control systems: matrix contracts and numerical stability</a></li>
 <li class="toctree-l1"><a class="reference internal" href="signal_processing.html">Signal processing: sampled energy, spectra and quantization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="communications.html">Communications: linear ratios, modulation phase and channel scope</a></li>
-<li class="toctree-l1"><a class="reference internal" href="materials.html">Materials: elasticity, fracture and fatigue conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="materials.html">Materials: elasticity, yield, fatigue, fracture and creep conventions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reliability.html">Reliability: distributions, independence and rate units</a></li>
 </ul>
 </div>
@@ -521,7 +571,8 @@ pumping loss or component efficiencies.</p>
 <p>Rankine numbering is explicit: h4 is condenser outlet/pump inlet, h1 pump
 outlet, h2 boiler outlet/turbine inlet, and h3 turbine outlet. All h are J/kg.
 Net work=(h2-h3)-(h1-h4), Qin=h2-h1, Qout=h3-h4. Ordering checks exclude
-non-power-producing inputs, but no saturation/property table validation occurs.</p>
+non-power-producing inputs; the enthalpies themselves are not checked, so take
+them from steam_properties (below) or a steam table.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit.thermodynamics</span><span class="w"> </span><span class="kn">import</span> <span class="n">rankine_ideal_efficiency</span>
 <span class="n">eta</span> <span class="o">=</span> <span class="n">rankine_ideal_efficiency</span><span class="p">(</span><span class="mf">210e3</span><span class="p">,</span> <span class="mf">3200e3</span><span class="p">,</span> <span class="mf">2100e3</span><span class="p">,</span> <span class="mf">200e3</span><span class="p">)</span>
 <span class="c1"># Approximately 0.364548; requires externally supplied consistent enthalpies.</span>
@@ -531,10 +582,88 @@ non-power-producing inputs, but no saturation/property table validation occurs.<
 Sgen must be nonnegative. Heat exergy Q*(1-T0/Tsource) can be negative for a
 source below the environment; it is not arbitrarily clipped. Clausius compares
 a supplied discretized integral and does not construct a reversible path.</p>
+<p>curzon_ahlborn_efficiency, 1-sqrt(Tc/Th), is the efficiency of an
+endoreversible Carnot engine at maximum power when heat crosses finite
+conductances linearly (Q = K*delta_T). Other heat-transfer laws give other
+values; it is a benchmark for real plants, not a bound.</p>
+</section>
+<section id="real-gases-and-vapour-pressure">
+<h2>Real gases and vapour pressure<a class="headerlink" href="#real-gases-and-vapour-pressure" title="Link to this heading">#</a></h2>
+<p>van_der_waals_pressure takes molar constants a [Pa m^6/mol^2] and b
+[m^3/mol] with the total volume V [m^3] and amount n [mol]; V must exceed
+n*b. With a=b=0 it is the ideal-gas law. Below the critical temperature the
+isotherm has an unstable loop; the function returns it as is, and the vapour
+pressure needs Maxwell’s equal-area construction (see the gallery).
+van_der_waals_critical_point returns (Tc, pc, vc) with vc molar. The
+critical compressibility is always 3/8, against about 0.27-0.29 for real
+gases, so the model is qualitative near the critical point.</p>
+<p>joule_thomson_coefficient_vdw is the zero-pressure limit
+(2a/(R*T) - b)/cp_molar [K/Pa], with cp_molar molar [J/(mol K)]. Its
+inversion temperature 2a/(R*b) is higher than measured (about 850 K against
+620 K for nitrogen); at high pressure the real inversion temperature falls.</p>
+<p>clausius_clapeyron_pressure assumes an ideal vapour, negligible liquid
+volume and constant h_fg [J/kg] with the specific gas constant R_gas
+[J/(kg K)], so it is accurate within about 10 K of the reference state.
+antoine_vapor_pressure takes A for p in Pa and B, C in K. Tabulated constants
+for mmHg and degC convert by adding log10(133.322)=2.12490 to A and
+subtracting 273.15 from C. Each constant set is valid only over the range it
+was fitted to.</p>
+</section>
+<section id="water-and-steam-iapws-if97">
+<h2>Water and steam (IAPWS-IF97)<a class="headerlink" href="#water-and-steam-iapws-if97" title="Link to this heading">#</a></h2>
+<p>steam_properties implements IF97 regions 1 (compressed liquid), 2 (vapour),
+3 (near the critical point, above 623.15 K and above the B23 boundary
+pressure) and 4 (saturation), for 273.15 K &lt;= T &lt;= 1073.15 K and
+p &lt;= 100 MPa. Region 5 (above 1073.15 K) is not implemented and raises
+ValueError. Region 3 is a Helmholtz function of density, so the density at
+a given pressure is found by Brent’s method on the isotherm; below the
+critical temperature the liquid or vapour root is taken, by the side of the
+saturation pressure the state lies on. Give the pressure and exactly one of T, x, s or h. Specific
+enthalpy and entropy are zero for saturated liquid at the triple point, as
+in steam tables. A state given by T is liquid at or above the saturation
+pressure and vapour below it; a state on the saturation line needs x. Wet
+states (x) need 611.213 Pa &lt;= p &lt;= 22.064 MPa (the critical pressure);
+above 16.53 MPa the saturated phases are region 3 densities. States given by s or h are found by Brent’s
+method on temperature, to within 1e-10 K. cp is NaN inside the dome and x is
+NaN outside it. The results match the release’s verification tables to nine
+significant digits.</p>
+<p>saturation_pressure and saturation_temperature are the region 4 equations
+from 273.15 K (611.213 Pa) to the critical point (647.096 K, 22.064 MPa).
+They accept arrays; steam_properties takes scalars.</p>
+</section>
+<section id="moist-air">
+<h2>Moist air<a class="headerlink" href="#moist-air" title="Link to this heading">#</a></h2>
+<p>humidity_ratio, relative_humidity and dew_point treat moist air as an ideal
+mixture at total pressure p [Pa] (sea level by default), with the saturation
+pressure over liquid water from IF97. The humidity ratio is in kg of water
+per kg of dry air, relative humidity is a fraction in [0, 1] (not percent),
+and the molar mass ratio is 0.621945. Below 0 degC the saturation pressure
+over ice is lower; frost points are not covered and dew_point raises
+ValueError for them. The ideal-mixture model gives the saturated humidity
+ratio at 20 degC within 0.5% of the ASHRAE tables.</p>
+</section>
+<section id="visualizers">
+<h2>Visualizers<a class="headerlink" href="#visualizers" title="Link to this heading">#</a></h2>
+<p>plot_pv_diagram and plot_ts_diagram draw a path given as matching 1-D
+arrays, in kPa and in kJ/(kg K) and degC; plot_ts_diagram adds the water
+saturation dome (plot_saturation_dome) unless dome=False. The dome is drawn
+up to the critical point, 647.096 K.</p>
+</section>
+<section id="validation">
+<h2>Validation<a class="headerlink" href="#validation" title="Link to this heading">#</a></h2>
 <p>Tests integrate P dV independently, compare W to T delta_S, reconstruct the
 Otto four-state first-law efficiency, check COP_HP=COP_R+1, and verify Rankine
-work/heat accounting plus the Diesel-to-Otto limit. These tests validate the
-ideal equations, not the accuracy of a real engine prediction.</p>
+work/heat accounting plus the Diesel-to-Otto limit. IF97 is checked against
+the release’s verification tables for regions 1, 2, 4 and the B23 boundary,
+against the Gibbs relations (dh/dT)_p = cp, (dh/ds)_p = T and
+(dh/dp)_s = v, and against the Clapeyron equation and equal Gibbs energies on
+the saturation line. The ideal Rankine cycle at 10 MPa, 500 degC and 10 kPa
+reproduces the textbook 40.2%. The van der Waals critical point is checked
+for a horizontal inflection, the Joule-Thomson coefficient against an
+isenthalpic van der Waals throttle, Curzon-Ahlborn against a numerical
+maximization of power, and the psychrometric functions by round trips and
+against ASHRAE saturated humidity ratios. These tests validate the equations,
+not the accuracy of a real engine prediction.</p>
 </section>
 </section>
 
@@ -586,6 +715,11 @@ ideal equations, not the accuracy of a real engine prediction.</p>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ideal-cycles-and-limits">Ideal cycles and limits</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#real-gases-and-vapour-pressure">Real gases and vapour pressure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#water-and-steam-iapws-if97">Water and steam (IAPWS-IF97)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#moist-air">Moist air</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizers">Visualizers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#validation">Validation</a></li>
 </ul>
   </nav></div>
 

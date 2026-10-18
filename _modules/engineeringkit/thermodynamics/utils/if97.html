@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>engineeringkit.thermodynamics.utils.if97 &#8212; engineeringkit</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx_autodoc_typehints.css?v=057ac668" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/plot_directive.css" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Vibur" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/jupyterlite_sphinx.css?v=f676e775" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery.css?v=c83e6b79" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/engineeringkit.css?v=62935cec" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../../../_static/scripts/fontawesome.js?digest=18bd87630a240e9c25be"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be" />
+
+    <script src="../../../../_static/documentation_options.js?v=38b66d78"></script>
+    <script src="../../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../../_static/sg-tags.js?v=d80f6fa4"></script>
+    <script src="../../../../_static/jupyterlite_sphinx.js?v=96e329c5"></script>
+    <script src="../../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/engineeringkit/thermodynamics/utils/if97';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="canonical" href="https://cpoli.github.io/engineeringkit/_modules/engineeringkit/thermodynamics/utils/if97.html" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="color-scheme" content="light dark"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../../../_static/searchtools.js"></script>
+    <script src="../../../../_static/language_data.js"></script>
+    <script src="../../../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../_static/engineeringkit_logo_transparent.png" class="logo__image only-light" alt="engineeringkit logo"/>
+    <img src="../../../../_static/engineeringkit_logo_transparent.png" class="logo__image only-dark pst-js-only" alt="engineeringkit logo"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../subpackages/index.html">
+    Subpackages
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../history/index.html">
+    History
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../api/index.html">
+    API
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../subpackages/index.html">
+    Subpackages
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../history/index.html">
+    History
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../api/index.html">
+    API
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">engineeringkit.thermodynamics.utils.if97</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for engineeringkit.thermodynamics.utils.if97</h1><div class="highlight"><pre>
+<span></span><span class="sa">r</span><span class="sd">"""IAPWS-IF97 basic equations for regions 1 to 4, in reduced variables.</span>
+
+<span class="sd">The coefficients are those of the IAPWS release (Lucerne 2007 revision of</span>
+<span class="sd">the 1997 formulation): region 1 is compressed liquid, region 2 superheated</span>
+<span class="sd">vapour, region 3 the near-critical fluid and region 4 the saturation line.</span>
+<span class="sd">Regions 1 and 2 are dimensionless Gibbs free energies</span>
+<span class="sd">:math:`\gamma(\pi, \tau)` and region 3 a dimensionless Helmholtz free</span>
+<span class="sd">energy :math:`\phi(\delta, \tau)`; every property follows from the</span>
+<span class="sd">function and its derivatives. Pressures are in MPa and temperatures in</span>
+<span class="sd">K inside this module, as in the release; the public wrappers in</span>
+<span class="sd">:mod:`engineeringkit.thermodynamics.systems.steam` convert to Pa and J.</span>
+<span class="sd">"""</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.optimize</span><span class="w"> </span><span class="kn">import</span> <span class="n">brentq</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">"R_WATER"</span><span class="p">,</span>
+    <span class="s2">"T_CRIT"</span><span class="p">,</span>
+    <span class="s2">"P_CRIT"</span><span class="p">,</span>
+    <span class="s2">"region1"</span><span class="p">,</span>
+    <span class="s2">"region2"</span><span class="p">,</span>
+    <span class="s2">"region3"</span><span class="p">,</span>
+    <span class="s2">"region3_density"</span><span class="p">,</span>
+    <span class="s2">"saturation_pressure_mpa"</span><span class="p">,</span>
+    <span class="s2">"saturation_temperature_k"</span><span class="p">,</span>
+    <span class="s2">"b23_pressure_mpa"</span><span class="p">,</span>
+    <span class="s2">"b23_temperature_k"</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="n">R_WATER</span> <span class="o">=</span> <span class="mf">461.526</span>
+<span class="sd">"""Specific gas constant of water used by IF97 [J/(kg K)]."""</span>
+
+<span class="n">T_CRIT</span> <span class="o">=</span> <span class="mf">647.096</span>
+<span class="sd">"""Critical temperature of water [K]."""</span>
+
+<span class="n">P_CRIT</span> <span class="o">=</span> <span class="mf">22.064e6</span>
+<span class="sd">"""Critical pressure of water [Pa]."""</span>
+
+<span class="n">RHO_CRIT</span> <span class="o">=</span> <span class="mf">322.0</span>
+<span class="sd">"""Critical density of water [kg/m^3]."""</span>
+
+<span class="c1"># Region 1 (Table 2 of the release): I, J, n.</span>
+<span class="n">_R1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mf">0.14632971213167</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.84548187169114</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.37563603672040e1</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.33855169168385e1</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.95791963387872</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mf">0.15772038513228</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.16616417199501e-1</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mf">0.81214629983568e-3</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">9</span><span class="p">,</span> <span class="mf">0.28319080123804e-3</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">7</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.60706301565874e-3</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.18990068218419e-1</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.32529748770505e-1</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.21841717175414e-1</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.52838357969930e-4</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.47184321073267e-3</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.30001780793026e-3</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.47661393906987e-4</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.44141845330846e-5</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.72694996297594e-15</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.31679644845054e-4</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.28270797985312e-5</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.85205128120103e-9</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.22425281908000e-5</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.65171222895601e-6</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.14341729937924e-12</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">8</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.40516996860117e-6</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="o">-</span><span class="mi">11</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.12734301741641e-8</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="o">-</span><span class="mi">6</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.17424871230634e-9</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">21</span><span class="p">,</span> <span class="o">-</span><span class="mi">29</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.68762131295531e-18</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">23</span><span class="p">,</span> <span class="o">-</span><span class="mi">31</span><span class="p">,</span> <span class="mf">0.14478307828521e-19</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">29</span><span class="p">,</span> <span class="o">-</span><span class="mi">38</span><span class="p">,</span> <span class="mf">0.26335781662795e-22</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="o">-</span><span class="mi">39</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.11947622640071e-22</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">31</span><span class="p">,</span> <span class="o">-</span><span class="mi">40</span><span class="p">,</span> <span class="mf">0.18228094581404e-23</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="o">-</span><span class="mi">41</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.93537087292458e-25</span><span class="p">),</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+
+<span class="c1"># Region 2 ideal-gas part (Table 10): J0, n0.</span>
+<span class="n">_R2_IDEAL</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.96927686500217e1</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.10086655968018e2</span><span class="p">),</span>
+        <span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.56087911283020e-2</span><span class="p">),</span>
+        <span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mf">0.71452738081455e-1</span><span class="p">),</span>
+        <span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.40710498223928</span><span class="p">),</span>
+        <span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mf">0.14240819171444e1</span><span class="p">),</span>
+        <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.43839511319450e1</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.28408632460772</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mf">0.21268463753307e-1</span><span class="p">),</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+
+<span class="c1"># Region 2 residual part (Table 11): I, J, n.</span>
+<span class="n">_R2_RES</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.17731742473213e-2</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.17834862292358e-1</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.45996013696365e-1</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.57581259083432e-1</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.50325278727930e-1</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.33032641670203e-4</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.18948987516315e-3</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.39392777243355e-2</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.43797295650573e-1</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.26674547914087e-4</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.20481737692309e-7</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.43870667284435e-6</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.32277677238570e-4</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.15033924542148e-2</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.40668253562649e-1</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.78847309559367e-9</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">0.12790717852285e-7</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mf">0.48225372718507e-6</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mf">0.22922076337661e-5</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.16714766451061e-10</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.21171472321355e-2</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.23895741934104e2</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.59059564324270e-17</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.12621808899101e-5</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.38946842435739e-1</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mf">0.11256211360459e-10</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.82311340897998e1</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mf">0.19809712802088e-7</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mf">0.10406965210174e-18</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.10234747095929e-12</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.10018179379511e-8</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">29</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.80882908646985e-10</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mf">0.10693031879409</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">57</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.33662250574171</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mf">0.89185845355421e-24</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mf">0.30629316876232e-12</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">48</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.42002467698208e-5</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">21</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.59056029685639e-25</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">22</span><span class="p">,</span> <span class="mi">53</span><span class="p">,</span> <span class="mf">0.37826947613457e-5</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">23</span><span class="p">,</span> <span class="mi">39</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.12768608934681e-14</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">24</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mf">0.73087610595061e-28</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">24</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mf">0.55414715350778e-16</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">24</span><span class="p">,</span> <span class="mi">58</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.94369707241210e-6</span><span class="p">),</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+
+<span class="c1"># Region 3 (Table 30): n1 multiplies ln(delta); then I, J, n.</span>
+<span class="n">_R3_N1</span> <span class="o">=</span> <span class="mf">0.10658070028513e1</span>
+<span class="n">_R3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.15732845290239e2</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.20944396974307e2</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.76867707878716e1</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mf">0.26185947787954e1</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.28080781148620e1</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mf">0.12053369696517e1</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.84566812812502e-2</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.12654315477714e1</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.11524407806681e1</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mf">0.88521043984318</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.64207765181607</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.38493460186671</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.85214708824206</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mf">0.48972281541877e1</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.30502617256965e1</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mf">0.39420536879154e-1</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mf">0.12558408424308</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.27999329698710</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">0.13899799569460e1</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.20189915023570e1</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.82147637173963e-2</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.47596035734923</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.43984074473500e-1</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.44476435428739</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mf">0.90572070719733</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mf">0.70522450087967</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.10770512626332</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.32913623258954</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.50871062041158</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.22175400873096e-1</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">0.94260751665092e-1</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mf">0.16436278447961</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.13503372241348e-1</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.14834345352472e-1</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">0.57922953628084e-3</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mf">0.32308904703711e-2</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.80964802996215e-4</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.16557679795037e-3</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.44923899061815e-4</span><span class="p">),</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+
+<span class="c1"># Region 4 saturation line (Table 34): n1 ... n10.</span>
+<span class="n">_R4</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="mf">0.11670521452767e4</span><span class="p">,</span>
+        <span class="o">-</span><span class="mf">0.72421316703206e6</span><span class="p">,</span>
+        <span class="o">-</span><span class="mf">0.17073846940092e2</span><span class="p">,</span>
+        <span class="mf">0.12020824702470e5</span><span class="p">,</span>
+        <span class="o">-</span><span class="mf">0.32325550322333e7</span><span class="p">,</span>
+        <span class="mf">0.14915108613530e2</span><span class="p">,</span>
+        <span class="o">-</span><span class="mf">0.48232657361591e4</span><span class="p">,</span>
+        <span class="mf">0.40511340542057e6</span><span class="p">,</span>
+        <span class="o">-</span><span class="mf">0.23855557567849</span><span class="p">,</span>
+        <span class="mf">0.65017534844798e3</span><span class="p">,</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+
+<span class="c1"># Boundary between regions 2 and 3 (Table 1): n1 ... n5.</span>
+<span class="n">_B23</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.34805185628969e3</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.11671859879975e1</span><span class="p">,</span> <span class="mf">0.10192970039326e-2</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_props</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">p_mpa</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">g_p</span><span class="p">,</span> <span class="n">g_t</span><span class="p">,</span> <span class="n">g_tt</span><span class="p">,</span> <span class="n">pi</span><span class="p">,</span> <span class="n">tau</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Specific properties from a reduced Gibbs function and its derivatives (SI: m^3/kg, J/kg, J/(kg K))."""</span>
+    <span class="n">RT</span> <span class="o">=</span> <span class="n">R_WATER</span> <span class="o">*</span> <span class="n">T</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s2">"v"</span><span class="p">:</span> <span class="n">pi</span> <span class="o">*</span> <span class="n">g_p</span> <span class="o">*</span> <span class="n">RT</span> <span class="o">/</span> <span class="p">(</span><span class="n">p_mpa</span> <span class="o">*</span> <span class="mf">1e6</span><span class="p">),</span>
+        <span class="s2">"h"</span><span class="p">:</span> <span class="n">RT</span> <span class="o">*</span> <span class="n">tau</span> <span class="o">*</span> <span class="n">g_t</span><span class="p">,</span>
+        <span class="s2">"u"</span><span class="p">:</span> <span class="n">RT</span> <span class="o">*</span> <span class="p">(</span><span class="n">tau</span> <span class="o">*</span> <span class="n">g_t</span> <span class="o">-</span> <span class="n">pi</span> <span class="o">*</span> <span class="n">g_p</span><span class="p">),</span>
+        <span class="s2">"s"</span><span class="p">:</span> <span class="n">R_WATER</span> <span class="o">*</span> <span class="p">(</span><span class="n">tau</span> <span class="o">*</span> <span class="n">g_t</span> <span class="o">-</span> <span class="n">g</span><span class="p">),</span>
+        <span class="s2">"cp"</span><span class="p">:</span> <span class="o">-</span><span class="n">R_WATER</span> <span class="o">*</span> <span class="n">tau</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">g_tt</span><span class="p">,</span>
+    <span class="p">}</span>
+
+
+<div class="viewcode-block" id="region1">
+<a class="viewcode-back" href="../../../../api/thermodynamics.html#engineeringkit.thermodynamics.utils.if97.region1">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">region1</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">p_mpa</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Region 1 (compressed liquid) properties from the IF97 Gibbs function.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    T : float or array_like</span>
+<span class="sd">        Temperature [K], 273.15 K to 623.15 K.</span>
+<span class="sd">    p_mpa : float or array_like</span>
+<span class="sd">        Pressure [MPa], above saturation and at most 100 MPa.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    dict of ndarray</span>
+<span class="sd">        Specific volume ``v`` [m^3/kg], enthalpy ``h`` [J/kg], internal</span>
+<span class="sd">        energy ``u`` [J/kg], entropy ``s`` [J/(kg K)] and isobaric heat</span>
+<span class="sd">        capacity ``cp`` [J/(kg K)], broadcast over ``T`` and ``p_mpa``.</span>
+<span class="sd">    """</span>
+    <span class="n">T</span><span class="p">,</span> <span class="n">p_mpa</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">broadcast_arrays</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">p_mpa</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">))</span>
+    <span class="n">pi</span><span class="p">,</span> <span class="n">tau</span> <span class="o">=</span> <span class="n">p_mpa</span> <span class="o">/</span> <span class="mf">16.53</span><span class="p">,</span> <span class="mf">1386.0</span> <span class="o">/</span> <span class="n">T</span>
+    <span class="n">I</span><span class="p">,</span> <span class="n">J</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="n">_R1</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">_R1</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">_R1</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span>
+    <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="mf">7.1</span> <span class="o">-</span> <span class="n">pi</span><span class="p">)[</span><span class="o">...</span><span class="p">,</span> <span class="kc">None</span><span class="p">],</span> <span class="p">(</span><span class="n">tau</span> <span class="o">-</span> <span class="mf">1.222</span><span class="p">)[</span><span class="o">...</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span>
+    <span class="n">g</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="n">a</span><span class="o">**</span><span class="n">I</span> <span class="o">*</span> <span class="n">b</span><span class="o">**</span><span class="n">J</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">g_p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="o">-</span><span class="n">n</span> <span class="o">*</span> <span class="n">I</span> <span class="o">*</span> <span class="n">a</span> <span class="o">**</span> <span class="p">(</span><span class="n">I</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">b</span><span class="o">**</span><span class="n">J</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">g_t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="n">a</span><span class="o">**</span><span class="n">I</span> <span class="o">*</span> <span class="n">J</span> <span class="o">*</span> <span class="n">b</span> <span class="o">**</span> <span class="p">(</span><span class="n">J</span> <span class="o">-</span> <span class="mi">1</span><span class="p">),</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">g_tt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="n">a</span><span class="o">**</span><span class="n">I</span> <span class="o">*</span> <span class="n">J</span> <span class="o">*</span> <span class="p">(</span><span class="n">J</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">b</span> <span class="o">**</span> <span class="p">(</span><span class="n">J</span> <span class="o">-</span> <span class="mi">2</span><span class="p">),</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">_props</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">p_mpa</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">g_p</span><span class="p">,</span> <span class="n">g_t</span><span class="p">,</span> <span class="n">g_tt</span><span class="p">,</span> <span class="n">pi</span><span class="p">,</span> <span class="n">tau</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="region2">
+<a class="viewcode-back" href="../../../../api/thermodynamics.html#engineeringkit.thermodynamics.utils.if97.region2">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">region2</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">p_mpa</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Region 2 (vapour) properties from the IF97 Gibbs function.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    T : float or array_like</span>
+<span class="sd">        Temperature [K], 273.15 K to 1073.15 K.</span>
+<span class="sd">    p_mpa : float or array_like</span>
+<span class="sd">        Pressure [MPa], positive and below saturation (and below the</span>
+<span class="sd">        region 2-3 boundary above 623.15 K).</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    dict of ndarray</span>
+<span class="sd">        Specific volume ``v`` [m^3/kg], enthalpy ``h`` [J/kg], internal</span>
+<span class="sd">        energy ``u`` [J/kg], entropy ``s`` [J/(kg K)] and isobaric heat</span>
+<span class="sd">        capacity ``cp`` [J/(kg K)], broadcast over ``T`` and ``p_mpa``.</span>
+<span class="sd">    """</span>
+    <span class="n">T</span><span class="p">,</span> <span class="n">p_mpa</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">broadcast_arrays</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">p_mpa</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">))</span>
+    <span class="n">pi</span><span class="p">,</span> <span class="n">tau</span> <span class="o">=</span> <span class="n">p_mpa</span> <span class="o">/</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">540.0</span> <span class="o">/</span> <span class="n">T</span>
+    <span class="n">J0</span><span class="p">,</span> <span class="n">n0</span> <span class="o">=</span> <span class="n">_R2_IDEAL</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">_R2_IDEAL</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>
+    <span class="n">I</span><span class="p">,</span> <span class="n">J</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="n">_R2_RES</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">_R2_RES</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">_R2_RES</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span>
+    <span class="n">t0</span><span class="p">,</span> <span class="n">P</span><span class="p">,</span> <span class="n">t</span> <span class="o">=</span> <span class="n">tau</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="kc">None</span><span class="p">],</span> <span class="n">pi</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="kc">None</span><span class="p">],</span> <span class="p">(</span><span class="n">tau</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">)[</span><span class="o">...</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span>
+    <span class="n">g</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">pi</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">n0</span> <span class="o">*</span> <span class="n">t0</span><span class="o">**</span><span class="n">J0</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="n">P</span><span class="o">**</span><span class="n">I</span> <span class="o">*</span> <span class="n">t</span><span class="o">**</span><span class="n">J</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">g_p</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">pi</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="n">I</span> <span class="o">*</span> <span class="n">P</span> <span class="o">**</span> <span class="p">(</span><span class="n">I</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">t</span><span class="o">**</span><span class="n">J</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">g_t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">n0</span> <span class="o">*</span> <span class="n">J0</span> <span class="o">*</span> <span class="n">t0</span> <span class="o">**</span> <span class="p">(</span><span class="n">J0</span> <span class="o">-</span> <span class="mi">1</span><span class="p">),</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="n">P</span><span class="o">**</span><span class="n">I</span> <span class="o">*</span> <span class="n">J</span> <span class="o">*</span> <span class="n">t</span> <span class="o">**</span> <span class="p">(</span><span class="n">J</span> <span class="o">-</span> <span class="mi">1</span><span class="p">),</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">g_tt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">n0</span> <span class="o">*</span> <span class="n">J0</span> <span class="o">*</span> <span class="p">(</span><span class="n">J0</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">t0</span> <span class="o">**</span> <span class="p">(</span><span class="n">J0</span> <span class="o">-</span> <span class="mi">2</span><span class="p">),</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="n">P</span><span class="o">**</span><span class="n">I</span> <span class="o">*</span> <span class="n">J</span> <span class="o">*</span> <span class="p">(</span><span class="n">J</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">t</span> <span class="o">**</span> <span class="p">(</span><span class="n">J</span> <span class="o">-</span> <span class="mi">2</span><span class="p">),</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">_props</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">p_mpa</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">g_p</span><span class="p">,</span> <span class="n">g_t</span><span class="p">,</span> <span class="n">g_tt</span><span class="p">,</span> <span class="n">pi</span><span class="p">,</span> <span class="n">tau</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="region3">
+<a class="viewcode-back" href="../../../../api/thermodynamics.html#engineeringkit.thermodynamics.utils.if97.region3">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">region3</span><span class="p">(</span><span class="n">rho</span><span class="p">,</span> <span class="n">T</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Region 3 (near-critical) properties from the IF97 Helmholtz function.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    rho : float or array_like</span>
+<span class="sd">        Density [kg/m^3], positive.</span>
+<span class="sd">    T : float or array_like</span>
+<span class="sd">        Temperature [K], 623.15 K to 863.15 K.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    dict of ndarray</span>
+<span class="sd">        Pressure ``p`` [Pa] and, as for :func:`region1`, ``v``, ``h``,</span>
+<span class="sd">        ``u``, ``s`` and ``cp``, broadcast over ``rho`` and ``T``.</span>
+<span class="sd">    """</span>
+    <span class="n">rho</span><span class="p">,</span> <span class="n">T</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">broadcast_arrays</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">rho</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">))</span>
+    <span class="n">delta</span><span class="p">,</span> <span class="n">tau</span> <span class="o">=</span> <span class="n">rho</span> <span class="o">/</span> <span class="n">RHO_CRIT</span><span class="p">,</span> <span class="n">T_CRIT</span> <span class="o">/</span> <span class="n">T</span>
+    <span class="n">I</span><span class="p">,</span> <span class="n">J</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="n">_R3</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">_R3</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">_R3</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span>
+    <span class="n">d</span><span class="p">,</span> <span class="n">t</span> <span class="o">=</span> <span class="n">delta</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="kc">None</span><span class="p">],</span> <span class="n">tau</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="n">_R3_N1</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">delta</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="n">d</span><span class="o">**</span><span class="n">I</span> <span class="o">*</span> <span class="n">t</span><span class="o">**</span><span class="n">J</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">f_d</span> <span class="o">=</span> <span class="n">_R3_N1</span> <span class="o">/</span> <span class="n">delta</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="n">I</span> <span class="o">*</span> <span class="n">d</span> <span class="o">**</span> <span class="p">(</span><span class="n">I</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">t</span><span class="o">**</span><span class="n">J</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">f_dd</span> <span class="o">=</span> <span class="o">-</span><span class="n">_R3_N1</span> <span class="o">/</span> <span class="n">delta</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="n">I</span> <span class="o">*</span> <span class="p">(</span><span class="n">I</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">d</span> <span class="o">**</span> <span class="p">(</span><span class="n">I</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">t</span><span class="o">**</span><span class="n">J</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">f_t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="n">d</span><span class="o">**</span><span class="n">I</span> <span class="o">*</span> <span class="n">J</span> <span class="o">*</span> <span class="n">t</span> <span class="o">**</span> <span class="p">(</span><span class="n">J</span> <span class="o">-</span> <span class="mi">1</span><span class="p">),</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">f_tt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="n">d</span><span class="o">**</span><span class="n">I</span> <span class="o">*</span> <span class="n">J</span> <span class="o">*</span> <span class="p">(</span><span class="n">J</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">t</span> <span class="o">**</span> <span class="p">(</span><span class="n">J</span> <span class="o">-</span> <span class="mi">2</span><span class="p">),</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">f_dt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="n">I</span> <span class="o">*</span> <span class="n">d</span> <span class="o">**</span> <span class="p">(</span><span class="n">I</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">J</span> <span class="o">*</span> <span class="n">t</span> <span class="o">**</span> <span class="p">(</span><span class="n">J</span> <span class="o">-</span> <span class="mi">1</span><span class="p">),</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">RT</span> <span class="o">=</span> <span class="n">R_WATER</span> <span class="o">*</span> <span class="n">T</span>
+    <span class="n">coupling</span> <span class="o">=</span> <span class="n">delta</span> <span class="o">*</span> <span class="n">f_d</span> <span class="o">-</span> <span class="n">delta</span> <span class="o">*</span> <span class="n">tau</span> <span class="o">*</span> <span class="n">f_dt</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s2">"p"</span><span class="p">:</span> <span class="n">rho</span> <span class="o">*</span> <span class="n">RT</span> <span class="o">*</span> <span class="n">delta</span> <span class="o">*</span> <span class="n">f_d</span><span class="p">,</span>
+        <span class="s2">"v"</span><span class="p">:</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">rho</span><span class="p">,</span>
+        <span class="s2">"h"</span><span class="p">:</span> <span class="n">RT</span> <span class="o">*</span> <span class="p">(</span><span class="n">tau</span> <span class="o">*</span> <span class="n">f_t</span> <span class="o">+</span> <span class="n">delta</span> <span class="o">*</span> <span class="n">f_d</span><span class="p">),</span>
+        <span class="s2">"u"</span><span class="p">:</span> <span class="n">RT</span> <span class="o">*</span> <span class="n">tau</span> <span class="o">*</span> <span class="n">f_t</span><span class="p">,</span>
+        <span class="s2">"s"</span><span class="p">:</span> <span class="n">R_WATER</span> <span class="o">*</span> <span class="p">(</span><span class="n">tau</span> <span class="o">*</span> <span class="n">f_t</span> <span class="o">-</span> <span class="n">f</span><span class="p">),</span>
+        <span class="s2">"cp"</span><span class="p">:</span> <span class="n">R_WATER</span> <span class="o">*</span> <span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">tau</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">f_tt</span> <span class="o">+</span> <span class="n">coupling</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">delta</span> <span class="o">*</span> <span class="n">f_d</span> <span class="o">+</span> <span class="n">delta</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">f_dd</span><span class="p">)),</span>
+    <span class="p">}</span></div>
+
+
+
+<div class="viewcode-block" id="region3_density">
+<a class="viewcode-back" href="../../../../api/thermodynamics.html#engineeringkit.thermodynamics.utils.if97.region3_density">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">region3_density</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">p_mpa</span><span class="p">,</span> <span class="n">phase</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Density at which the region 3 pressure equals ``p_mpa`` on the isotherm ``T``.</span>
+
+<span class="sd">    Below the critical temperature an isotherm of the Helmholtz function has</span>
+<span class="sd">    a van der Waals loop, so up to three densities share a pressure; the</span>
+<span class="sd">    largest is the liquid and the smallest the vapour.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    T : float</span>
+<span class="sd">        Temperature [K], 623.15 K to 863.15 K.</span>
+<span class="sd">    p_mpa : float</span>
+<span class="sd">        Pressure [MPa].</span>
+<span class="sd">    phase : {"liquid", "vapour"}</span>
+<span class="sd">        Which root to return when there are several.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float</span>
+<span class="sd">        Density [kg/m^3].</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    ValueError</span>
+<span class="sd">        If no density between 100 and 800 kg/m^3 gives that pressure.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Region 3 spans about 113 to 765 kg/m^3. The search stops at 800 kg/m^3</span>
+<span class="sd">    because the fit, extrapolated to denser states, turns back down and</span>
+<span class="sd">    would give a spurious liquid root.</span>
+<span class="sd">    """</span>
+    <span class="n">grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">100.0</span><span class="p">,</span> <span class="mf">800.0</span><span class="p">,</span> <span class="mi">2801</span><span class="p">)</span>
+    <span class="n">gap</span> <span class="o">=</span> <span class="n">region3</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">T</span><span class="p">)[</span><span class="s2">"p"</span><span class="p">]</span> <span class="o">/</span> <span class="mf">1e6</span> <span class="o">-</span> <span class="n">p_mpa</span>
+    <span class="n">roots</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">flatnonzero</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">gap</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">!=</span> <span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">gap</span><span class="p">[</span><span class="mi">1</span><span class="p">:]))</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">roots</span><span class="o">.</span><span class="n">size</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"no region 3 density gives this pressure and temperature"</span><span class="p">)</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="n">roots</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="n">phase</span> <span class="o">==</span> <span class="s2">"liquid"</span> <span class="k">else</span> <span class="n">roots</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">brentq</span><span class="p">(</span><span class="k">lambda</span> <span class="n">r</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">region3</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">T</span><span class="p">)[</span><span class="s2">"p"</span><span class="p">])</span> <span class="o">/</span> <span class="mf">1e6</span> <span class="o">-</span> <span class="n">p_mpa</span><span class="p">,</span> <span class="n">grid</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">grid</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">],</span> <span class="n">xtol</span><span class="o">=</span><span class="mf">1e-12</span><span class="p">))</span></div>
+
+
+
+<div class="viewcode-block" id="saturation_pressure_mpa">
+<a class="viewcode-back" href="../../../../api/thermodynamics.html#engineeringkit.thermodynamics.utils.if97.saturation_pressure_mpa">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">saturation_pressure_mpa</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Region 4 saturation pressure.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    T : float or array_like</span>
+<span class="sd">        Temperature [K], 273.15 K to 647.096 K.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float or ndarray</span>
+<span class="sd">        Saturation pressure [MPa].</span>
+<span class="sd">    """</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">_R4</span>
+    <span class="n">T</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+    <span class="n">theta</span> <span class="o">=</span> <span class="n">T</span> <span class="o">+</span> <span class="n">n</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span> <span class="o">/</span> <span class="p">(</span><span class="n">T</span> <span class="o">-</span> <span class="n">n</span><span class="p">[</span><span class="mi">9</span><span class="p">])</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="n">theta</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">n</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">theta</span> <span class="o">+</span> <span class="n">n</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">B</span> <span class="o">=</span> <span class="n">n</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">*</span> <span class="n">theta</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">n</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">*</span> <span class="n">theta</span> <span class="o">+</span> <span class="n">n</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
+    <span class="n">C</span> <span class="o">=</span> <span class="n">n</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">*</span> <span class="n">theta</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">n</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">*</span> <span class="n">theta</span> <span class="o">+</span> <span class="n">n</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span>
+    <span class="k">return</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">C</span> <span class="o">/</span> <span class="p">(</span><span class="o">-</span><span class="n">B</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">B</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">A</span> <span class="o">*</span> <span class="n">C</span><span class="p">)))</span> <span class="o">**</span> <span class="mi">4</span></div>
+
+
+
+<div class="viewcode-block" id="saturation_temperature_k">
+<a class="viewcode-back" href="../../../../api/thermodynamics.html#engineeringkit.thermodynamics.utils.if97.saturation_temperature_k">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">saturation_temperature_k</span><span class="p">(</span><span class="n">p_mpa</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Region 4 saturation temperature, the inverse of :func:`saturation_pressure_mpa`.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    p_mpa : float or array_like</span>
+<span class="sd">        Pressure [MPa], 611.213 Pa to 22.064 MPa.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float or ndarray</span>
+<span class="sd">        Saturation temperature [K].</span>
+<span class="sd">    """</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">_R4</span>
+    <span class="n">beta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">p_mpa</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span> <span class="o">**</span> <span class="mf">0.25</span>
+    <span class="n">E</span> <span class="o">=</span> <span class="n">beta</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">n</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">*</span> <span class="n">beta</span> <span class="o">+</span> <span class="n">n</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
+    <span class="n">F</span> <span class="o">=</span> <span class="n">n</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">beta</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">n</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">*</span> <span class="n">beta</span> <span class="o">+</span> <span class="n">n</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span>
+    <span class="n">G</span> <span class="o">=</span> <span class="n">n</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">beta</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">n</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">*</span> <span class="n">beta</span> <span class="o">+</span> <span class="n">n</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span>
+    <span class="n">D</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">G</span> <span class="o">/</span> <span class="p">(</span><span class="o">-</span><span class="n">F</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">F</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">E</span> <span class="o">*</span> <span class="n">G</span><span class="p">))</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">n</span><span class="p">[</span><span class="mi">9</span><span class="p">]</span> <span class="o">+</span> <span class="n">D</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">n</span><span class="p">[</span><span class="mi">9</span><span class="p">]</span> <span class="o">+</span> <span class="n">D</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">-</span> <span class="mi">4</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span> <span class="o">+</span> <span class="n">n</span><span class="p">[</span><span class="mi">9</span><span class="p">]</span> <span class="o">*</span> <span class="n">D</span><span class="p">)))</span> <span class="o">/</span> <span class="mi">2</span></div>
+
+
+
+<div class="viewcode-block" id="b23_pressure_mpa">
+<a class="viewcode-back" href="../../../../api/thermodynamics.html#engineeringkit.thermodynamics.utils.if97.b23_pressure_mpa">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">b23_pressure_mpa</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Pressure on the boundary between regions 2 and 3.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    T : float or array_like</span>
+<span class="sd">        Temperature [K], 623.15 K to 863.15 K.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float or ndarray</span>
+<span class="sd">        Boundary pressure [MPa].</span>
+<span class="sd">    """</span>
+    <span class="n">n1</span><span class="p">,</span> <span class="n">n2</span><span class="p">,</span> <span class="n">n3</span> <span class="o">=</span> <span class="n">_B23</span>
+    <span class="n">T</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">n1</span> <span class="o">+</span> <span class="n">n2</span> <span class="o">*</span> <span class="n">T</span> <span class="o">+</span> <span class="n">n3</span> <span class="o">*</span> <span class="n">T</span><span class="o">**</span><span class="mi">2</span></div>
+
+
+
+<div class="viewcode-block" id="b23_temperature_k">
+<a class="viewcode-back" href="../../../../api/thermodynamics.html#engineeringkit.thermodynamics.utils.if97.b23_temperature_k">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">b23_temperature_k</span><span class="p">(</span><span class="n">p_mpa</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Temperature on the boundary between regions 2 and 3, the inverse of :func:`b23_pressure_mpa`.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    p_mpa : float or array_like</span>
+<span class="sd">        Pressure [MPa], 16.529 MPa to 100 MPa.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float or ndarray</span>
+<span class="sd">        Boundary temperature [K].</span>
+<span class="sd">    """</span>
+    <span class="n">n4</span><span class="p">,</span> <span class="n">n5</span> <span class="o">=</span> <span class="mf">0.57254459862746e3</span><span class="p">,</span> <span class="mf">0.13918839778870e2</span>
+    <span class="k">return</span> <span class="n">n4</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">p_mpa</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span> <span class="o">-</span> <span class="n">n5</span><span class="p">)</span> <span class="o">/</span> <span class="n">_B23</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span></div>
+
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../../_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be"></script>
+<script defer src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.23.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

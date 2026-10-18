@@ -1,0 +1,140 @@
+
+
+.. _sphx_glr_api_gallery_signal_processing_filters:
+
+Filters
+-------
+
+Designing, analysing and implementing digital filters, from fixed designs to adaptive ones.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Stephen Butterworth, a British physicist designing filters for valve amplifiers, asked in 1930 for a response &quot;ideal&quot; in the passband. His answer, |H|^2 = 1/(1 + (\omega/\omega_c)^{2n}), has every derivative up to order 2n-1 zero at DC, so it is as flat there as an order- n filter can be. Each added order steepens the roll-off by 20 dB per decade, and the gain at the cutoff is always 1/\sqrt2 (-3 dB). Digital versions come from the bilinear transform, which maps the analogue frequency axis onto the unit circle through \omega = \tan(\pi f/f_s) (~engineeringkit.signal_processing.butterworth_lowpass, butterworth_highpass).">
+
+.. only:: html
+
+  .. image:: /api/gallery/signal_processing/filters/images/thumb/sphx_glr_plot_01_butterworth_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/signal_processing/filters/plot_01_butterworth`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Butterworth's maximally flat filter</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Radar fire-control systems of the Second World War sampled their targets, and the MIT Radiation Laboratory needed a theory of feedback loops that saw data only at instants nT. In the Laboratory&#x27;s 1947 volume Theory of Servomechanisms, the topologist Witold Hurewicz described a sampled sequence by the generating function X(z) = \sum_n x_n z^{-n}, which Ragazzini and Zadeh named the z-transform in 1952. A difference equation becomes the rational function H(z) = B(z)/A(z). Its poles must lie inside the unit circle for stability, and on the circle z = e^{j2\pi f/f_s} it gives the frequency response (~engineeringkit.signal_processing.frequency_response, filter_signal).">
+
+.. only:: html
+
+  .. image:: /api/gallery/signal_processing/filters/images/thumb/sphx_glr_plot_02_hurewicz_z_transform_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/signal_processing/filters/plot_02_hurewicz_z_transform`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Hurewicz's z-transform</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Asked during the war to predict the path of an aircraft from noisy radar data, Norbert Wiener posed filtering as an optimization: find the linear filter that makes the mean squared error between its output and the wanted signal as small as possible. His 1942 report, bound in yellow and known to engineers as the &quot;yellow peril&quot; for its mathematics, was published in 1949. Norman Levinson (1947) recast it for discrete FIR filters, where the answer is the solution of the normal equations Rw = p (~engineeringkit.signal_processing.wiener_filter). The example recovers a slowly varying signal from additive white noise.">
+
+.. only:: html
+
+  .. image:: /api/gallery/signal_processing/filters/images/thumb/sphx_glr_plot_03_wiener_filter_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/signal_processing/filters/plot_03_wiener_filter`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Wiener's optimal filter</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="At Stanford in 1959, Bernard Widrow and his student Ted Hoff looked for a way to train an adaptive linear neuron, ADALINE, without knowing the statistics that the Wiener solution needs. Their least-mean-squares rule nudges the weights after every sample against the gradient of the instantaneous squared error: w \leftarrow w + \mu e_n u_n (~engineeringkit.signal_processing.lms_filter). It needs only 2L multiplications per sample, converges on average to the Wiener filter, and follows it if the system changes. Echo cancellers, channel equalizers and noise-cancelling headphones run on it.">
+
+.. only:: html
+
+  .. image:: /api/gallery/signal_processing/filters/images/thumb/sphx_glr_plot_04_widrow_hoff_lms_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/signal_processing/filters/plot_04_widrow_hoff_lms`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Widrow and Hoff's LMS adaptive filter</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="An ideal low-pass filter has an infinitely long sinc impulse response. Truncating it gives a finite (FIR) filter whose response ripples near the band edge. Tapering the truncated response with a window trades ripple for a wider transition band. James Kaiser of Bell Labs (1966) used the prolate-spheroidal-like I_0-Bessel window, whose single parameter \beta sets that trade continuously. He later (1974) gave empirical formulas for the length and \beta that meet a required stopband attenuation and transition width (~engineeringkit.signal_processing.kaiser_order, fir_lowpass).">
+
+.. only:: html
+
+  .. image:: /api/gallery/signal_processing/filters/images/thumb/sphx_glr_plot_05_kaiser_fir_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/signal_processing/filters/plot_05_kaiser_fir`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Kaiser's window method for FIR design</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A digital filter can be computed from its transfer function B(z)/A(z) in one &quot;direct form&quot;, but the roots of a high-degree polynomial are extremely sensitive to rounding in its coefficients. When the poles crowd near z = 1, as they do for a narrow low-pass filter, double precision is not enough. Kaiser warned of this in 1965, and Leland Jackson (1970) analysed how roundoff noise and overflow depend on how a filter is split into a cascade of second-order sections, each holding one pair of poles. Cascades of &quot;biquads&quot; have been the standard realization ever since (~engineeringkit.signal_processing.butterworth_lowpass with output=&quot;sos&quot;, filter_signal).">
+
+.. only:: html
+
+  .. image:: /api/gallery/signal_processing/filters/images/thumb/sphx_glr_plot_06_second_order_sections_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/signal_processing/filters/plot_06_second_order_sections`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Jackson's cascaded second-order sections</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/signal_processing/filters/plot_01_butterworth
+   /api/gallery/signal_processing/filters/plot_02_hurewicz_z_transform
+   /api/gallery/signal_processing/filters/plot_03_wiener_filter
+   /api/gallery/signal_processing/filters/plot_04_widrow_hoff_lms
+   /api/gallery/signal_processing/filters/plot_05_kaiser_fir
+   /api/gallery/signal_processing/filters/plot_06_second_order_sections
+

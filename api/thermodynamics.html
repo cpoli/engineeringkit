@@ -6,8 +6,16 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="engineeringkit.thermodynamics" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://cpoli.github.io/engineeringkit/api/thermodynamics.html" />
+<meta property="og:site_name" content="engineeringkit" />
+<meta property="og:description" content="Domain hub · History · Examples · API reference Ideal and van der Waals gases, the van der Waals critical point and the Joule-Thomson coefficient; Joule’s first law and Clausius’s entropy; the Carn..." />
+<meta property="og:image" content="https://cpoli.github.io/engineeringkit/_static/images/readme_hero.png" />
+<meta property="og:image:alt" content="engineeringkit" />
+<meta name="description" content="Domain hub · History · Examples · API reference Ideal and van der Waals gases, the van der Waals critical point and the Joule-Thomson coefficient; Joule’s first law and Clausius’s entropy; the Carn..." />
 
-    <title>engineeringkit.thermodynamics &#8212; engineeringkit 0.1.0 documentation</title>
+    <title>engineeringkit.thermodynamics &#8212; engineeringkit</title>
   
   
   
@@ -30,6 +38,7 @@
 <link href="../_static/styles/pydata-sphinx-theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx_autodoc_typehints.css?v=057ac668" />
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Vibur" />
     <link rel="stylesheet" type="text/css" href="../_static/jupyterlite_sphinx.css?v=f676e775" />
@@ -52,8 +61,10 @@
     <script src="../_static/sg-tags.js?v=d80f6fa4"></script>
     <script src="../_static/jupyterlite_sphinx.js?v=96e329c5"></script>
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'api/thermodynamics';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="canonical" href="https://cpoli.github.io/engineeringkit/api/thermodynamics.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="engineeringkit.fluid_engineering" href="fluid_engineering.html" />
@@ -411,17 +422,33 @@
 <div class="subpkg-nav docutils container">
 <p><a class="reference internal" href="../_generated/subpackages/thermodynamics.html"><span class="doc">Domain hub</span></a> · <a class="reference internal" href="../history/thermodynamics_breakthroughs.html"><span class="doc">History</span></a> · <a class="reference internal" href="gallery/thermodynamics/index.html"><span class="doc">Examples</span></a> · <a class="reference internal" href="#"><span class="doc">API reference</span></a></p>
 </div>
-<p>Ideal gases, heat/work accounting, ideal cycles and exergy.</p>
-<p id="module-engineeringkit.thermodynamics">Classical thermodynamics and idealized power/refrigeration cycles.</p>
+<p>Ideal and van der Waals gases, the van der Waals critical point and the
+Joule-Thomson coefficient; Joule’s first law and Clausius’s entropy; the
+Carnot bound, the Otto, Diesel, Brayton and Rankine cycles and the
+Curzon-Ahlborn efficiency at maximum power; refrigerator and heat-pump
+COPs; Gouy-Stodola lost work and the exergy of heat; vapour pressure by
+Clausius-Clapeyron and Antoine; water and steam properties from IAPWS-IF97
+regions 1, 2 and 4 (inverted for entropy and enthalpy with
+<code class="docutils literal notranslate"><span class="pre">scipy.optimize.brentq</span></code>); and Carrier’s psychrometrics.</p>
+<p id="module-engineeringkit.thermodynamics">engineeringkit.thermodynamics: gases, the two laws, cycles, refrigeration, exergy, steam and moist air.</p>
+<p>Ideal and van der Waals gases with the Joule-Thomson coefficient; Joule’s
+first law and Clausius’s entropy; Carnot, Otto, Diesel, Brayton and Rankine
+cycles and the Curzon-Ahlborn efficiency at maximum power; refrigerator and
+heat-pump COPs; Gouy-Stodola lost work and the exergy of heat; vapour
+pressure by Clausius-Clapeyron and Antoine; water and steam properties from
+IAPWS-IF97 (regions 1 to 4); and Carrier’s psychrometrics. Models are
+hand-written closed forms; SciPy’s <code class="docutils literal notranslate"><span class="pre">brentq</span></code> inverts IF97 for entropy and
+enthalpy.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="engineeringkit.thermodynamics.OttoCycle">
-<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.</span></span><span class="sig-name descname"><span class="pre">OttoCycle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">compression_ratio</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.4</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics.html#OttoCycle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.OttoCycle" title="Link to this definition">#</a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.</span></span><span class="sig-name descname"><span class="pre">OttoCycle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">compression_ratio</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.4</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics/systems/cycles.html#OttoCycle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.OttoCycle" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Air-standard Otto cycle with a given compression ratio.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>compression_ratio</strong> (<em>float</em>)</p></li>
-<li><p><strong>gamma</strong> (<em>float</em>)</p></li>
+<li><p><strong>compression_ratio</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></span>) – Volumetric compression ratio [-], at least one.</p></li>
+<li><p><strong>gamma</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></span>) – Ratio of specific heats [-], greater than one.</p></li>
 </ul>
 </dd>
 </dl>
@@ -433,7 +460,13 @@
 <dl class="py property">
 <dt class="sig sig-object py" id="engineeringkit.thermodynamics.OttoCycle.efficiency">
 <span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">efficiency</span></span><a class="headerlink" href="#engineeringkit.thermodynamics.OttoCycle.efficiency" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
+<dd><p>Air-standard thermal efficiency [-].</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="engineeringkit.thermodynamics.OttoCycle.gamma">
@@ -442,623 +475,1423 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="engineeringkit.thermodynamics.OttoCycle.summary">
-<span class="sig-name descname"><span class="pre">summary</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics.html#OttoCycle.summary"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.OttoCycle.summary" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">summary</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics/systems/cycles.html#OttoCycle.summary"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.OttoCycle.summary" title="Link to this definition">#</a></dt>
+<dd><p>Compression ratio, gamma and efficiency.</p>
+</dd></dl>
 
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="engineeringkit.thermodynamics.SteamState">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.</span></span><span class="sig-name descname"><span class="pre">SteamState</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">p</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">u</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">region</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics/core/base.html#SteamState"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.SteamState" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Output of <a class="reference internal" href="#engineeringkit.thermodynamics.steam_properties" title="engineeringkit.thermodynamics.steam_properties"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.thermodynamics.steam_properties()</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p</strong> (<em>float</em>)</p></li>
+<li><p><strong>T</strong> (<em>float</em>)</p></li>
+<li><p><strong>v</strong> (<em>float</em>)</p></li>
+<li><p><strong>h</strong> (<em>float</em>)</p></li>
+<li><p><strong>s</strong> (<em>float</em>)</p></li>
+<li><p><strong>u</strong> (<em>float</em>)</p></li>
+<li><p><strong>cp</strong> (<em>float</em>)</p></li>
+<li><p><strong>x</strong> (<em>float</em>)</p></li>
+<li><p><strong>region</strong> (<em>int</em>)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="engineeringkit.thermodynamics.SteamState.T">
+<span class="sig-name descname"><span class="pre">T</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></span><a class="headerlink" href="#engineeringkit.thermodynamics.SteamState.T" title="Link to this definition">#</a></dt>
+<dd><p>Temperature [K].</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="engineeringkit.thermodynamics.SteamState.cp">
+<span class="sig-name descname"><span class="pre">cp</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></span><a class="headerlink" href="#engineeringkit.thermodynamics.SteamState.cp" title="Link to this definition">#</a></dt>
+<dd><p>Isobaric specific heat [J/(kg K)]; NaN inside the two-phase dome.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="engineeringkit.thermodynamics.SteamState.h">
+<span class="sig-name descname"><span class="pre">h</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></span><a class="headerlink" href="#engineeringkit.thermodynamics.SteamState.h" title="Link to this definition">#</a></dt>
+<dd><p>Specific enthalpy [J/kg], zero for liquid at the triple point.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="engineeringkit.thermodynamics.SteamState.p">
+<span class="sig-name descname"><span class="pre">p</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></span><a class="headerlink" href="#engineeringkit.thermodynamics.SteamState.p" title="Link to this definition">#</a></dt>
+<dd><p>Pressure [Pa].</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="engineeringkit.thermodynamics.SteamState.region">
+<span class="sig-name descname"><span class="pre">region</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></span><a class="headerlink" href="#engineeringkit.thermodynamics.SteamState.region" title="Link to this definition">#</a></dt>
+<dd><p>IF97 region, 1 (compressed liquid), 2 (vapour), 3 (near-critical) or 4 (wet mixture).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="engineeringkit.thermodynamics.SteamState.s">
+<span class="sig-name descname"><span class="pre">s</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></span><a class="headerlink" href="#engineeringkit.thermodynamics.SteamState.s" title="Link to this definition">#</a></dt>
+<dd><p>Specific entropy [J/(kg K)], zero for liquid at the triple point.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="engineeringkit.thermodynamics.SteamState.summary">
+<span class="sig-name descname"><span class="pre">summary</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics/core/base.html#SteamState.summary"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.SteamState.summary" title="Link to this definition">#</a></dt>
+<dd><p>All properties as a dict of floats, plus the region.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="engineeringkit.thermodynamics.SteamState.u">
+<span class="sig-name descname"><span class="pre">u</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></span><a class="headerlink" href="#engineeringkit.thermodynamics.SteamState.u" title="Link to this definition">#</a></dt>
+<dd><p>Specific internal energy [J/kg].</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="engineeringkit.thermodynamics.SteamState.v">
+<span class="sig-name descname"><span class="pre">v</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></span><a class="headerlink" href="#engineeringkit.thermodynamics.SteamState.v" title="Link to this definition">#</a></dt>
+<dd><p>Specific volume [m^3/kg].</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="engineeringkit.thermodynamics.SteamState.x">
+<span class="sig-name descname"><span class="pre">x</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></span><a class="headerlink" href="#engineeringkit.thermodynamics.SteamState.x" title="Link to this definition">#</a></dt>
+<dd><p>Vapour quality [-] inside the dome; NaN for a single-phase state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.thermodynamics.antoine_vapor_pressure">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.</span></span><span class="sig-name descname"><span class="pre">antoine_vapor_pressure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">T</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">B</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">C</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics/systems/saturation.html#antoine_vapor_pressure"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.antoine_vapor_pressure" title="Link to this definition">#</a></dt>
+<dd><p>Antoine’s vapour-pressure equation, <span class="math notranslate nohighlight">\(\log_{10} p = A - B/(C + T)\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>T</strong> (<em>float</em><em> or </em><em>array_like</em>) – Absolute temperature [K], with <span class="math notranslate nohighlight">\(C + T &gt; 0\)</span>.</p></li>
+<li><p><strong>A</strong> (<em>float</em>) – Constant [-] for <code class="docutils literal notranslate"><span class="pre">p</span></code> in Pa.</p></li>
+<li><p><strong>B</strong> (<em>float</em>) – Constant [K].</p></li>
+<li><p><strong>C</strong> (<em>float</em>) – Constant [K] for <code class="docutils literal notranslate"><span class="pre">T</span></code> in kelvin.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Vapour pressure [Pa].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Tabulated constants are often for mmHg and °C. To convert, add
+<span class="math notranslate nohighlight">\(\log_{10} 133.322 = 2.12490\)</span> to <span class="math notranslate nohighlight">\(A\)</span> and subtract 273.15
+from <span class="math notranslate nohighlight">\(C\)</span>; <span class="math notranslate nohighlight">\(B\)</span> is unchanged. Inputs are raw SI numbers with no
+dimensional metadata; see <a class="reference internal" href="../guides/thermodynamics.html"><span class="doc">Thermodynamics: total versus specific quantities and cycle states</span></a>.</p>
+<p class="rubric">References</p>
+<p>C. Antoine, “Tensions des vapeurs; nouvelle relation entre les tensions
+et les températures,” <em>C. R. Acad. Sci.</em> 107 (1888) 681-684, 778-780,
+836-837.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">antoine_vapor_pressure</span><span class="p">(</span><span class="mf">373.15</span><span class="p">,</span> <span class="mf">8.07131</span> <span class="o">+</span> <span class="mf">2.12490</span><span class="p">,</span> <span class="mf">1730.63</span><span class="p">,</span> <span class="mf">233.426</span> <span class="o">-</span> <span class="mf">273.15</span><span class="p">)),</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">101340.0</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.thermodynamics.brayton_efficiency">
-<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.</span></span><span class="sig-name descname"><span class="pre">brayton_efficiency</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pressure_ratio</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.4</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics.html#brayton_efficiency"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.brayton_efficiency" title="Link to this definition">#</a></dt>
-<dd><p>Brayton efficiency.</p>
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.</span></span><span class="sig-name descname"><span class="pre">brayton_efficiency</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pressure_ratio</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.4</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics/systems/cycles.html#brayton_efficiency"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.brayton_efficiency" title="Link to this definition">#</a></dt>
+<dd><p>Ideal Brayton (Joule) cycle efficiency, <span class="math notranslate nohighlight">\(1 - r_p^{(1-\gamma)/\gamma}\)</span>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>pressure_ratio</strong> (<em>1</em>) – Input in the units stated above.</p></li>
-<li><p><strong>gamma</strong> (<em>1</em>) – Input in the units stated above.</p></li>
+<li><p><strong>pressure_ratio</strong> (<em>float</em><em> or </em><em>array_like</em>) – Compressor pressure ratio <span class="math notranslate nohighlight">\(r_p\)</span> [-], at least one.</p></li>
+<li><p><strong>gamma</strong> (<em>float</em><em> or </em><em>array_like</em><em>, </em><em>optional</em>) – Ratio of specific heats [-], greater than one.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><ol class="arabic simple">
-<li></li>
-</ol>
-</p>
+<dd class="field-even"><p>Thermal efficiency [-].</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>result</p>
+<dd class="field-odd"><p>float or ndarray</p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
-<p>Assumptions, governing equations and validity limits are discussed in
-<a class="reference internal" href="../guides/thermodynamics.html"><span class="doc">Thermodynamics: total versus specific quantities and cycle states</span></a>. SI inputs are required; raw numbers carry no
-dimensional metadata.</p>
+<p>Heat is added and rejected at constant pressure; compression and
+expansion are isentropic. Inputs are raw SI numbers with no dimensional
+metadata; see <a class="reference internal" href="../guides/thermodynamics.html"><span class="doc">Thermodynamics: total versus specific quantities and cycle states</span></a>.</p>
+<p class="rubric">References</p>
+<ol class="upperalpha simple" start="7">
+<li><ol class="upperalpha simple" start="2">
+<li><p>Brayton, “Improvement in gas-engines,” U.S. Patent 125,166 (1872).</p></li>
+</ol>
+</li>
+</ol>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.thermodynamics.carnot_cop_heat_pump">
-<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.</span></span><span class="sig-name descname"><span class="pre">carnot_cop_heat_pump</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">T_hot</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T_cold</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics.html#carnot_cop_heat_pump"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.carnot_cop_heat_pump" title="Link to this definition">#</a></dt>
-<dd><p>Carnot cop heat pump.</p>
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.</span></span><span class="sig-name descname"><span class="pre">carnot_cop_heat_pump</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">T_hot</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T_cold</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics/systems/refrigeration.html#carnot_cop_heat_pump"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.carnot_cop_heat_pump" title="Link to this definition">#</a></dt>
+<dd><p>Coefficient of performance of a reversible heat pump, <span class="math notranslate nohighlight">\(T_h/(T_h - T_c)\)</span>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>T_hot</strong> (<em>K</em><em> (</em><em>absolute</em><em>)</em>) – Input in the units stated above.</p></li>
-<li><p><strong>T_cold</strong> (<em>K</em><em> (</em><em>absolute</em><em>)</em>) – Input in the units stated above.</p></li>
+<li><p><strong>T_hot</strong> (<em>float</em>) – Absolute temperatures of the heated space and the heat source [K],
+with <span class="math notranslate nohighlight">\(T_h &gt; T_c &gt; 0\)</span>.</p></li>
+<li><p><strong>T_cold</strong> (<em>float</em>) – Absolute temperatures of the heated space and the heat source [K],
+with <span class="math notranslate nohighlight">\(T_h &gt; T_c &gt; 0\)</span>.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><ol class="arabic simple">
-<li></li>
-</ol>
-</p>
+<dd class="field-even"><p>Maximum heat delivered per unit work [-], one more than the
+refrigerator COP between the same temperatures.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>result</p>
+<dd class="field-odd"><p>float</p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
-<p>Assumptions, governing equations and validity limits are discussed in
-<a class="reference internal" href="../guides/thermodynamics.html"><span class="doc">Thermodynamics: total versus specific quantities and cycle states</span></a>. SI inputs are required; raw numbers carry no
-dimensional metadata.</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/thermodynamics.html"><span class="doc">Thermodynamics: total versus specific quantities and cycle states</span></a>.</p>
+<p class="rubric">References</p>
+<p>W. Thomson, “On the economy of the heating or cooling of buildings by
+means of currents of air,” <em>Proc. Phil. Soc. Glasgow</em> 3 (1852) 269-272.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.thermodynamics.carnot_cop_refrigerator">
-<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.</span></span><span class="sig-name descname"><span class="pre">carnot_cop_refrigerator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">T_hot</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T_cold</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics.html#carnot_cop_refrigerator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.carnot_cop_refrigerator" title="Link to this definition">#</a></dt>
-<dd><p>Carnot cop refrigerator.</p>
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.</span></span><span class="sig-name descname"><span class="pre">carnot_cop_refrigerator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">T_hot</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T_cold</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics/systems/refrigeration.html#carnot_cop_refrigerator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.carnot_cop_refrigerator" title="Link to this definition">#</a></dt>
+<dd><p>Coefficient of performance of a reversible refrigerator, <span class="math notranslate nohighlight">\(T_c/(T_h - T_c)\)</span>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>T_hot</strong> (<em>K</em><em> (</em><em>absolute</em><em>)</em>) – Input in the units stated above.</p></li>
-<li><p><strong>T_cold</strong> (<em>K</em><em> (</em><em>absolute</em><em>)</em>) – Input in the units stated above.</p></li>
+<li><p><strong>T_hot</strong> (<em>float</em>) – Absolute temperatures of the heat sink and the cooled space [K], with
+<span class="math notranslate nohighlight">\(T_h &gt; T_c &gt; 0\)</span>.</p></li>
+<li><p><strong>T_cold</strong> (<em>float</em>) – Absolute temperatures of the heat sink and the cooled space [K], with
+<span class="math notranslate nohighlight">\(T_h &gt; T_c &gt; 0\)</span>.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><ol class="arabic simple">
-<li></li>
-</ol>
-</p>
+<dd class="field-even"><p>Maximum heat removed per unit work [-].</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>result</p>
+<dd class="field-odd"><p>float</p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
-<p>Assumptions, governing equations and validity limits are discussed in
-<a class="reference internal" href="../guides/thermodynamics.html"><span class="doc">Thermodynamics: total versus specific quantities and cycle states</span></a>. SI inputs are required; raw numbers carry no
-dimensional metadata.</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/thermodynamics.html"><span class="doc">Thermodynamics: total versus specific quantities and cycle states</span></a>.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.thermodynamics.carnot_efficiency">
-<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.</span></span><span class="sig-name descname"><span class="pre">carnot_efficiency</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">T_hot</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T_cold</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics.html#carnot_efficiency"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.carnot_efficiency" title="Link to this definition">#</a></dt>
-<dd><p>Carnot efficiency.</p>
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.</span></span><span class="sig-name descname"><span class="pre">carnot_efficiency</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">T_hot</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T_cold</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics/systems/cycles.html#carnot_efficiency"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.carnot_efficiency" title="Link to this definition">#</a></dt>
+<dd><p>Efficiency of a reversible engine between two reservoirs, <span class="math notranslate nohighlight">\(1 - T_c/T_h\)</span>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>T_hot</strong> (<em>K</em><em> (</em><em>absolute</em><em>)</em>) – Input in the units stated above.</p></li>
-<li><p><strong>T_cold</strong> (<em>K</em><em> (</em><em>absolute</em><em>)</em>) – Input in the units stated above.</p></li>
+<li><p><strong>T_hot</strong> (<em>float</em>) – Absolute reservoir temperatures [K], with <span class="math notranslate nohighlight">\(T_h &gt; T_c &gt; 0\)</span>.</p></li>
+<li><p><strong>T_cold</strong> (<em>float</em>) – Absolute reservoir temperatures [K], with <span class="math notranslate nohighlight">\(T_h &gt; T_c &gt; 0\)</span>.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><ol class="arabic simple">
-<li></li>
-</ol>
-</p>
+<dd class="field-even"><p>Thermal efficiency [-].</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>result</p>
+<dd class="field-odd"><p>float</p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
-<p>Assumptions, governing equations and validity limits are discussed in
-<a class="reference internal" href="../guides/thermodynamics.html"><span class="doc">Thermodynamics: total versus specific quantities and cycle states</span></a>. SI inputs are required; raw numbers carry no
-dimensional metadata.</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/thermodynamics.html"><span class="doc">Thermodynamics: total versus specific quantities and cycle states</span></a>.</p>
+<p class="rubric">References</p>
+<p>S. Carnot, <em>Réflexions sur la puissance motrice du feu</em>, Paris:
+Bachelier (1824).</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">carnot_efficiency</span><span class="p">(</span><span class="mf">600.0</span><span class="p">,</span> <span class="mf">300.0</span><span class="p">)</span>
+<span class="go">0.5</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.thermodynamics.clausius_clapeyron_pressure">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.</span></span><span class="sig-name descname"><span class="pre">clausius_clapeyron_pressure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">T</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T_ref</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_ref</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h_fg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">R_gas</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics/systems/saturation.html#clausius_clapeyron_pressure"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.clausius_clapeyron_pressure" title="Link to this definition">#</a></dt>
+<dd><p>Vapour pressure from the integrated Clausius-Clapeyron relation.</p>
+<div class="math notranslate nohighlight">
+\[p = p_{ref}\exp\left[-\frac{h_{fg}}{R}\left(\frac{1}{T} - \frac{1}{T_{ref}}\right)\right]\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>T</strong> (<em>float</em><em> or </em><em>array_like</em>) – Absolute temperature [K], positive.</p></li>
+<li><p><strong>T_ref</strong> (<em>float</em>) – Absolute temperature of a known saturation state [K], positive.</p></li>
+<li><p><strong>p_ref</strong> (<em>float</em>) – Saturation pressure at <code class="docutils literal notranslate"><span class="pre">T_ref</span></code> [Pa], positive.</p></li>
+<li><p><strong>h_fg</strong> (<em>float</em>) – Latent heat of vaporization [J/kg], positive, taken as constant.</p></li>
+<li><p><strong>R_gas</strong> (<em>float</em>) – Specific gas constant of the vapour [J/(kg K)], positive (461.5 for
+water).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Saturation pressure [Pa].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Assumes the vapour is an ideal gas, the liquid volume is negligible and
+<span class="math notranslate nohighlight">\(h_{fg}\)</span> does not vary with temperature. Inputs are raw SI numbers
+with no dimensional metadata; see <a class="reference internal" href="../guides/thermodynamics.html"><span class="doc">Thermodynamics: total versus specific quantities and cycle states</span></a>.</p>
+<p class="rubric">References</p>
+<p>É. Clapeyron, “Mémoire sur la puissance motrice de la chaleur,” <em>J. École
+Polytechnique</em> 14 (1834) 153-190; R. Clausius, “Über die bewegende Kraft
+der Wärme,” <em>Ann. Phys.</em> 79 (1850) 368-397, 500-524.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">clausius_clapeyron_pressure</span><span class="p">(</span><span class="mf">363.15</span><span class="p">,</span> <span class="mf">373.15</span><span class="p">,</span> <span class="mf">101325.0</span><span class="p">,</span> <span class="mf">2.257e6</span><span class="p">,</span> <span class="mf">461.5</span><span class="p">)),</span> <span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+<span class="go">70600.0</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.thermodynamics.clausius_inequality">
-<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.</span></span><span class="sig-name descname"><span class="pre">clausius_inequality</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cyclic_heat_over_temperature</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics.html#clausius_inequality"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.clausius_inequality" title="Link to this definition">#</a></dt>
-<dd><p>Return whether a discretized cyclic Clausius integral satisfies sum(dQ/T) &lt;= 0.</p>
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.</span></span><span class="sig-name descname"><span class="pre">clausius_inequality</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cyclic_heat_over_temperature</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics/systems/laws.html#clausius_inequality"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.clausius_inequality" title="Link to this definition">#</a></dt>
+<dd><p>Whether a discretized cycle satisfies Clausius’s inequality <span class="math notranslate nohighlight">\(\sum \delta Q/T \le 0\)</span>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>cyclic_heat_over_temperature</strong> (<em>J/K</em>) – Input in the units stated above.</p>
+<dd class="field-odd"><p><strong>cyclic_heat_over_temperature</strong> (<em>array_like</em>) – The terms <span class="math notranslate nohighlight">\(\delta Q_i/T_i\)</span> [J/K] around one cycle, heat into the
+system positive and <span class="math notranslate nohighlight">\(T_i\)</span> the temperature at the boundary where
+it crosses.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>bool.</p>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if the sum is at most <span class="math notranslate nohighlight">\(10^{-12}\)</span> J/K (zero within
+rounding for a reversible cycle, negative for an irreversible one).</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>result</p>
+<dd class="field-odd"><p>bool</p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
-<p>Assumptions, governing equations and validity limits are discussed in
-<a class="reference internal" href="../guides/thermodynamics.html"><span class="doc">Thermodynamics: total versus specific quantities and cycle states</span></a>. SI inputs are required; raw numbers carry no
-dimensional metadata.</p>
+<p>The function checks a supplied sum and does not construct a path.
+Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/thermodynamics.html"><span class="doc">Thermodynamics: total versus specific quantities and cycle states</span></a>.</p>
+<p class="rubric">References</p>
+<p>R. Clausius, “Über eine veränderte Form des zweiten Hauptsatzes der
+mechanischen Wärmetheorie,” <em>Ann. Phys.</em> 93 (1854) 481-506.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.thermodynamics.curzon_ahlborn_efficiency">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.</span></span><span class="sig-name descname"><span class="pre">curzon_ahlborn_efficiency</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">T_hot</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T_cold</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics/systems/cycles.html#curzon_ahlborn_efficiency"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.curzon_ahlborn_efficiency" title="Link to this definition">#</a></dt>
+<dd><p>Efficiency of an endoreversible engine at maximum power, <span class="math notranslate nohighlight">\(1 - \sqrt{T_c/T_h}\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>T_hot</strong> (<em>float</em><em> or </em><em>array_like</em>) – Absolute reservoir temperatures [K], with <span class="math notranslate nohighlight">\(T_h &gt; T_c &gt; 0\)</span>.</p></li>
+<li><p><strong>T_cold</strong> (<em>float</em><em> or </em><em>array_like</em>) – Absolute reservoir temperatures [K], with <span class="math notranslate nohighlight">\(T_h &gt; T_c &gt; 0\)</span>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Thermal efficiency at maximum power output [-], independent of the
+two heat-transfer conductances.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>The engine is a Carnot cycle that exchanges heat with its reservoirs
+through finite conductances, <span class="math notranslate nohighlight">\(\dot Q = K\,\Delta T\)</span>. Run reversibly
+it gives Carnot efficiency at zero power; run fast it gives no work at
+all. Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/thermodynamics.html"><span class="doc">Thermodynamics: total versus specific quantities and cycle states</span></a>.</p>
+<p class="rubric">References</p>
+<p>F. L. Curzon and B. Ahlborn, “Efficiency of a Carnot engine at maximum
+power output,” <em>Am. J. Phys.</em> 43 (1975) 22-24.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">curzon_ahlborn_efficiency</span><span class="p">(</span><span class="mf">838.15</span><span class="p">,</span> <span class="mf">298.15</span><span class="p">)),</span> <span class="mi">3</span><span class="p">)</span>
+<span class="go">0.404</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.thermodynamics.dew_point">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.</span></span><span class="sig-name descname"><span class="pre">dew_point</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">w</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">101325.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics/systems/psychrometrics.html#dew_point"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.dew_point" title="Link to this definition">#</a></dt>
+<dd><p>Dew-point temperature: where air of humidity ratio <code class="docutils literal notranslate"><span class="pre">w</span></code> saturates on cooling.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>w</strong> (<em>float</em><em> or </em><em>array_like</em>) – Humidity ratio [kg/kg], positive.</p></li>
+<li><p><strong>p</strong> (<em>float</em><em>, </em><em>optional</em>) – Total pressure [Pa], positive.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dew point [K], the saturation temperature of the vapour’s partial
+pressure. Dew points below 0 °C (frost points) are not covered.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/thermodynamics.html"><span class="doc">Thermodynamics: total versus specific quantities and cycle states</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">dew_point</span><span class="p">(</span><span class="n">humidity_ratio</span><span class="p">(</span><span class="mf">298.15</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)))</span> <span class="o">-</span> <span class="mf">273.15</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="go">13.86</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.thermodynamics.diesel_efficiency">
-<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.</span></span><span class="sig-name descname"><span class="pre">diesel_efficiency</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cutoff</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.4</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics.html#diesel_efficiency"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.diesel_efficiency" title="Link to this definition">#</a></dt>
-<dd><p>Diesel efficiency.</p>
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.</span></span><span class="sig-name descname"><span class="pre">diesel_efficiency</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cutoff</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.4</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics/systems/cycles.html#diesel_efficiency"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.diesel_efficiency" title="Link to this definition">#</a></dt>
+<dd><p>Air-standard Diesel cycle efficiency.</p>
+<div class="math notranslate nohighlight">
+\[\eta = 1 - \frac{r_c^\gamma - 1}{\gamma\, r^{\gamma-1}(r_c - 1)}\]</div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>r</strong> (<em>1</em>) – Input in the units stated above.</p></li>
-<li><p><strong>cutoff</strong> (<em>1</em>) – Input in the units stated above.</p></li>
-<li><p><strong>gamma</strong> (<em>1</em>) – Input in the units stated above.</p></li>
+<li><p><strong>r</strong> (<em>float</em><em> or </em><em>array_like</em>) – Compression ratio [-].</p></li>
+<li><p><strong>cutoff</strong> (<em>float</em><em> or </em><em>array_like</em>) – Cutoff ratio <span class="math notranslate nohighlight">\(r_c = V_3/V_2\)</span> [-], with <span class="math notranslate nohighlight">\(1 \le r_c \le r\)</span>.</p></li>
+<li><p><strong>gamma</strong> (<em>float</em><em> or </em><em>array_like</em><em>, </em><em>optional</em>) – Ratio of specific heats [-], greater than one.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><ol class="arabic simple">
-<li></li>
-</ol>
-</p>
+<dd class="field-even"><p>Thermal efficiency [-]; the Otto value at <span class="math notranslate nohighlight">\(r_c = 1\)</span>.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>result</p>
+<dd class="field-odd"><p>float or ndarray</p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
-<p>Assumptions, governing equations and validity limits are discussed in
-<a class="reference internal" href="../guides/thermodynamics.html"><span class="doc">Thermodynamics: total versus specific quantities and cycle states</span></a>. SI inputs are required; raw numbers carry no
-dimensional metadata.</p>
+<p>Heat is added at constant pressure. <code class="docutils literal notranslate"><span class="pre">expm1</span></code> keeps cutoffs near one
+accurate. Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/thermodynamics.html"><span class="doc">Thermodynamics: total versus specific quantities and cycle states</span></a>.</p>
+<p class="rubric">References</p>
+<p>R. Diesel, <em>Theorie und Konstruktion eines rationellen Wärmemotors</em>,
+Berlin: Springer (1893).</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.thermodynamics.entropy_change_isothermal_ideal_gas">
-<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.</span></span><span class="sig-name descname"><span class="pre">entropy_change_isothermal_ideal_gas</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">V1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">V2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics.html#entropy_change_isothermal_ideal_gas"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.entropy_change_isothermal_ideal_gas" title="Link to this definition">#</a></dt>
-<dd><p>Entropy change isothermal ideal gas.</p>
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.</span></span><span class="sig-name descname"><span class="pre">entropy_change_isothermal_ideal_gas</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">V1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">V2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics/systems/laws.html#entropy_change_isothermal_ideal_gas"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.entropy_change_isothermal_ideal_gas" title="Link to this definition">#</a></dt>
+<dd><p>Entropy change of an ideal gas at constant temperature, <span class="math notranslate nohighlight">\(nR\ln(V_2/V_1)\)</span>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>n</strong> (<em>mol</em>) – Input in the units stated above.</p></li>
-<li><p><strong>T</strong> (<em>K</em><em> (</em><em>absolute</em><em>)</em>) – Input in the units stated above.</p></li>
-<li><p><strong>V1</strong> (<em>m^3</em>) – Input in the units stated above.</p></li>
-<li><p><strong>V2</strong> (<em>m^3</em>) – Input in the units stated above.</p></li>
+<li><p><strong>n</strong> (<em>float</em><em> or </em><em>array_like</em>) – Amount of gas [mol], positive.</p></li>
+<li><p><strong>T</strong> (<em>float</em><em> or </em><em>array_like</em>) – Absolute temperature [K], positive (it does not enter the result).</p></li>
+<li><p><strong>V1</strong> (<em>float</em><em> or </em><em>array_like</em>) – Initial and final volumes [m^3], positive.</p></li>
+<li><p><strong>V2</strong> (<em>float</em><em> or </em><em>array_like</em>) – Initial and final volumes [m^3], positive.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>J/K.</p>
+<dd class="field-even"><p>Entropy change [J/K].</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>result</p>
+<dd class="field-odd"><p>float or ndarray</p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
-<p>Assumptions, governing equations and validity limits are discussed in
-<a class="reference internal" href="../guides/thermodynamics.html"><span class="doc">Thermodynamics: total versus specific quantities and cycle states</span></a>. SI inputs are required; raw numbers carry no
-dimensional metadata.</p>
+<p>Entropy is a state function, so the result holds for any process between
+the two states, reversible or not. Inputs are raw SI numbers with no
+dimensional metadata; see <a class="reference internal" href="../guides/thermodynamics.html"><span class="doc">Thermodynamics: total versus specific quantities and cycle states</span></a>.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.thermodynamics.exergy_destruction">
-<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.</span></span><span class="sig-name descname"><span class="pre">exergy_destruction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">T0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entropy_generation</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics.html#exergy_destruction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.exergy_destruction" title="Link to this definition">#</a></dt>
-<dd><p>Exergy destruction.</p>
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.</span></span><span class="sig-name descname"><span class="pre">exergy_destruction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">T0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entropy_generation</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics/systems/exergy.html#exergy_destruction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.exergy_destruction" title="Link to this definition">#</a></dt>
+<dd><p>Lost work by the Gouy-Stodola theorem, <span class="math notranslate nohighlight">\(T_0 S_{gen}\)</span>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>T0</strong> (<em>K</em><em> (</em><em>absolute</em><em>)</em>) – Input in the units stated above.</p></li>
-<li><p><strong>entropy_generation</strong> (<em>J/K</em>) – Input in the units stated above.</p></li>
+<li><p><strong>T0</strong> (<em>float</em><em> or </em><em>array_like</em>) – Absolute environment temperature [K], positive.</p></li>
+<li><p><strong>entropy_generation</strong> (<em>float</em><em> or </em><em>array_like</em>) – Entropy generated by the irreversibility [J/K or W/K], nonnegative.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><ol class="upperalpha simple" start="10">
-<li></li>
-</ol>
-</p>
+<dd class="field-even"><p>Exergy destroyed [J or W].</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>result</p>
+<dd class="field-odd"><p>float or ndarray</p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
-<p>Assumptions, governing equations and validity limits are discussed in
-<a class="reference internal" href="../guides/thermodynamics.html"><span class="doc">Thermodynamics: total versus specific quantities and cycle states</span></a>. SI inputs are required; raw numbers carry no
-dimensional metadata.</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/thermodynamics.html"><span class="doc">Thermodynamics: total versus specific quantities and cycle states</span></a>.</p>
+<p class="rubric">References</p>
+<p>G. Gouy, “Sur l’énergie utilisable,” <em>J. Phys. Théor. Appl.</em> 8 (1889)
+501-518; A. Stodola, <em>Die Dampfturbinen</em>, 3rd ed., Berlin: Springer
+(1905).</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.thermodynamics.exergy_heat">
-<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.</span></span><span class="sig-name descname"><span class="pre">exergy_heat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Q</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T_source</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics.html#exergy_heat"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.exergy_heat" title="Link to this definition">#</a></dt>
-<dd><p>Exergy heat.</p>
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.</span></span><span class="sig-name descname"><span class="pre">exergy_heat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Q</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T_source</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics/systems/exergy.html#exergy_heat"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.exergy_heat" title="Link to this definition">#</a></dt>
+<dd><p>Exergy of heat <span class="math notranslate nohighlight">\(Q\)</span> available at <span class="math notranslate nohighlight">\(T_s\)</span>, <span class="math notranslate nohighlight">\(Q(1 - T_0/T_s)\)</span>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>Q</strong> (<em>J</em>) – Input in the units stated above.</p></li>
-<li><p><strong>T_source</strong> (<em>K</em><em> (</em><em>absolute</em><em>)</em>) – Input in the units stated above.</p></li>
-<li><p><strong>T0</strong> (<em>K</em><em> (</em><em>absolute</em><em>)</em>) – Input in the units stated above.</p></li>
+<li><p><strong>Q</strong> (<em>float</em><em> or </em><em>array_like</em>) – Heat [J or W].</p></li>
+<li><p><strong>T_source</strong> (<em>float</em><em> or </em><em>array_like</em>) – Absolute temperature at which the heat is available [K], positive.</p></li>
+<li><p><strong>T0</strong> (<em>float</em><em> or </em><em>array_like</em>) – Absolute environment (dead-state) temperature [K], positive.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><ol class="upperalpha simple" start="10">
-<li></li>
-</ol>
-</p>
+<dd class="field-even"><p>Maximum work obtainable from the heat [J or W, as <code class="docutils literal notranslate"><span class="pre">Q</span></code>]; negative for
+a source colder than the environment.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>result</p>
+<dd class="field-odd"><p>float or ndarray</p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
-<p>Assumptions, governing equations and validity limits are discussed in
-<a class="reference internal" href="../guides/thermodynamics.html"><span class="doc">Thermodynamics: total versus specific quantities and cycle states</span></a>. SI inputs are required; raw numbers carry no
-dimensional metadata.</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/thermodynamics.html"><span class="doc">Thermodynamics: total versus specific quantities and cycle states</span></a>.</p>
+<p class="rubric">References</p>
+<p>Z. Rant, “Exergie, ein neues Wort für ‘technische Arbeitsfähigkeit’,”
+<em>Forsch. Ingenieurwes.</em> 22 (1956) 36-37.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.thermodynamics.first_law_heat">
-<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.</span></span><span class="sig-name descname"><span class="pre">first_law_heat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">delta_u</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">work_by_system</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics.html#first_law_heat"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.first_law_heat" title="Link to this definition">#</a></dt>
-<dd><p>First law heat.</p>
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.</span></span><span class="sig-name descname"><span class="pre">first_law_heat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">delta_u</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">work_by_system</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics/systems/laws.html#first_law_heat"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.first_law_heat" title="Link to this definition">#</a></dt>
+<dd><p>Heat supplied to a closed system, <span class="math notranslate nohighlight">\(Q = \Delta U + W\)</span>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>delta_u</strong> (<em>J</em>) – Input in the units stated above.</p></li>
-<li><p><strong>work_by_system</strong> (<em>J</em>) – Input in the units stated above.</p></li>
+<li><p><strong>delta_u</strong> (<em>float</em><em> or </em><em>array_like</em>) – Change of internal energy [J].</p></li>
+<li><p><strong>work_by_system</strong> (<em>float</em><em> or </em><em>array_like</em>) – Work done <em>by</em> the system [J]; negative when work is done on it.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><ol class="upperalpha simple" start="10">
-<li></li>
-</ol>
-</p>
+<dd class="field-even"><p>Heat added to the system [J]; negative when heat leaves it.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>result</p>
+<dd class="field-odd"><p>float or ndarray</p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
-<p>Assumptions, governing equations and validity limits are discussed in
-<a class="reference internal" href="../guides/thermodynamics.html"><span class="doc">Thermodynamics: total versus specific quantities and cycle states</span></a>. SI inputs are required; raw numbers carry no
-dimensional metadata.</p>
+<p>Kinetic and potential energy changes need their own terms. Inputs are raw
+SI numbers with no dimensional metadata; see <a class="reference internal" href="../guides/thermodynamics.html"><span class="doc">Thermodynamics: total versus specific quantities and cycle states</span></a>.</p>
+<p class="rubric">References</p>
+<p>J. P. Joule, “On the mechanical equivalent of heat,” <em>Phil. Trans. R.
+Soc.</em> 140 (1850) 61-82.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.thermodynamics.heat_engine_work">
-<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.</span></span><span class="sig-name descname"><span class="pre">heat_engine_work</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Qin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Qout</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics.html#heat_engine_work"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.heat_engine_work" title="Link to this definition">#</a></dt>
-<dd><p>Heat engine work.</p>
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.</span></span><span class="sig-name descname"><span class="pre">heat_engine_work</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Qin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Qout</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics/systems/cycles.html#heat_engine_work"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.heat_engine_work" title="Link to this definition">#</a></dt>
+<dd><p>Net work of a heat engine, <span class="math notranslate nohighlight">\(W = Q_{in} - Q_{out}\)</span>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>Qin</strong> (<em>J</em>) – Input in the units stated above.</p></li>
-<li><p><strong>Qout</strong> (<em>J</em>) – Input in the units stated above.</p></li>
+<li><p><strong>Qin</strong> (<em>float</em>) – Heat absorbed and heat rejected per cycle [J], nonnegative, with
+<span class="math notranslate nohighlight">\(Q_{in} \ge Q_{out}\)</span>.</p></li>
+<li><p><strong>Qout</strong> (<em>float</em>) – Heat absorbed and heat rejected per cycle [J], nonnegative, with
+<span class="math notranslate nohighlight">\(Q_{in} \ge Q_{out}\)</span>.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><ol class="upperalpha simple" start="10">
-<li></li>
-</ol>
-</p>
+<dd class="field-even"><p>Net work [J].</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>result</p>
+<dd class="field-odd"><p>float</p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
-<p>Assumptions, governing equations and validity limits are discussed in
-<a class="reference internal" href="../guides/thermodynamics.html"><span class="doc">Thermodynamics: total versus specific quantities and cycle states</span></a>. SI inputs are required; raw numbers carry no
-dimensional metadata.</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/thermodynamics.html"><span class="doc">Thermodynamics: total versus specific quantities and cycle states</span></a>.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.thermodynamics.heat_pump_cop">
-<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.</span></span><span class="sig-name descname"><span class="pre">heat_pump_cop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">q_hot</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">work_input</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics.html#heat_pump_cop"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.heat_pump_cop" title="Link to this definition">#</a></dt>
-<dd><p>Heat pump cop.</p>
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.</span></span><span class="sig-name descname"><span class="pre">heat_pump_cop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">q_hot</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">work_input</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics/systems/refrigeration.html#heat_pump_cop"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.heat_pump_cop" title="Link to this definition">#</a></dt>
+<dd><p>Heat-pump coefficient of performance, <span class="math notranslate nohighlight">\(Q_h/W\)</span>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>q_hot</strong> (<em>J</em>) – Input in the units stated above.</p></li>
-<li><p><strong>work_input</strong> (<em>J</em>) – Input in the units stated above.</p></li>
+<li><p><strong>q_hot</strong> (<em>float</em>) – Heat delivered to the warm space [J or W], at least <code class="docutils literal notranslate"><span class="pre">work_input</span></code>.</p></li>
+<li><p><strong>work_input</strong> (<em>float</em>) – Work (or power) supplied [J or W, as <code class="docutils literal notranslate"><span class="pre">q_hot</span></code>], positive.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><ol class="arabic simple">
-<li></li>
-</ol>
-</p>
+<dd class="field-even"><p>COP [-], at least one.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>result</p>
+<dd class="field-odd"><p>float</p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
-<p>Assumptions, governing equations and validity limits are discussed in
-<a class="reference internal" href="../guides/thermodynamics.html"><span class="doc">Thermodynamics: total versus specific quantities and cycle states</span></a>. SI inputs are required; raw numbers carry no
-dimensional metadata.</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/thermodynamics.html"><span class="doc">Thermodynamics: total versus specific quantities and cycle states</span></a>.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.thermodynamics.humidity_ratio">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.</span></span><span class="sig-name descname"><span class="pre">humidity_ratio</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">T</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">101325.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics/systems/psychrometrics.html#humidity_ratio"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.humidity_ratio" title="Link to this definition">#</a></dt>
+<dd><p>Humidity ratio of moist air, <span class="math notranslate nohighlight">\(w = 0.622\,\phi p_s/(p - \phi p_s)\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>T</strong> (<em>float</em><em> or </em><em>array_like</em>) – Dry-bulb temperature [K], 273.15 K to 647 K.</p></li>
+<li><p><strong>phi</strong> (<em>float</em><em> or </em><em>array_like</em>) – Relative humidity [-] in [0, 1].</p></li>
+<li><p><strong>p</strong> (<em>float</em><em>, </em><em>optional</em>) – Total pressure [Pa], positive; sea level by default.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Mass of water vapour per mass of dry air [kg/kg].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>The saturation pressure <span class="math notranslate nohighlight">\(p_s(T)\)</span> over liquid water comes from
+<a class="reference internal" href="#engineeringkit.thermodynamics.saturation_pressure" title="engineeringkit.thermodynamics.saturation_pressure"><code class="xref py py-func docutils literal notranslate"><span class="pre">saturation_pressure()</span></code></a> (IF97). Inputs are raw SI numbers with no
+dimensional metadata; see <a class="reference internal" href="../guides/thermodynamics.html"><span class="doc">Thermodynamics: total versus specific quantities and cycle states</span></a>.</p>
+<p class="rubric">References</p>
+<p>W. H. Carrier, “Rational psychrometric formulae,” <em>Trans. ASME</em> 33
+(1911) 1005-1053.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">humidity_ratio</span><span class="p">(</span><span class="mf">298.15</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)),</span> <span class="mi">5</span><span class="p">)</span>
+<span class="go">0.00988</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.thermodynamics.ideal_gas_pressure">
-<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.</span></span><span class="sig-name descname"><span class="pre">ideal_gas_pressure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">V</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics.html#ideal_gas_pressure"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.ideal_gas_pressure" title="Link to this definition">#</a></dt>
-<dd><p>Ideal gas pressure.</p>
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.</span></span><span class="sig-name descname"><span class="pre">ideal_gas_pressure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">V</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics/systems/gases.html#ideal_gas_pressure"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.ideal_gas_pressure" title="Link to this definition">#</a></dt>
+<dd><p>Ideal-gas pressure <span class="math notranslate nohighlight">\(p = nRT/V\)</span>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>n</strong> (<em>mol</em>) – Input in the units stated above.</p></li>
-<li><p><strong>T</strong> (<em>K</em><em> (</em><em>absolute</em><em>)</em>) – Input in the units stated above.</p></li>
-<li><p><strong>V</strong> (<em>m^3</em>) – Input in the units stated above.</p></li>
+<li><p><strong>n</strong> (<em>float</em><em> or </em><em>array_like</em>) – Amount of gas [mol], positive.</p></li>
+<li><p><strong>T</strong> (<em>float</em><em> or </em><em>array_like</em>) – Absolute temperature [K], positive.</p></li>
+<li><p><strong>V</strong> (<em>float</em><em> or </em><em>array_like</em>) – Volume [m^3], positive.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Pa.</p>
+<dd class="field-even"><p>Pressure [Pa].</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>result</p>
+<dd class="field-odd"><p>float or ndarray</p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
-<p>Assumptions, governing equations and validity limits are discussed in
-<a class="reference internal" href="../guides/thermodynamics.html"><span class="doc">Thermodynamics: total versus specific quantities and cycle states</span></a>. SI inputs are required; raw numbers carry no
-dimensional metadata.</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/thermodynamics.html"><span class="doc">Thermodynamics: total versus specific quantities and cycle states</span></a>.</p>
+<p class="rubric">References</p>
+<p>É. Clapeyron, “Mémoire sur la puissance motrice de la chaleur,” <em>J. École
+Polytechnique</em> 14 (1834) 153-190.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">ideal_gas_pressure</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">273.15</span><span class="p">,</span> <span class="mf">0.022414</span><span class="p">)),</span> <span class="mi">0</span><span class="p">)</span>
+<span class="go">101325.0</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.thermodynamics.ideal_gas_temperature">
-<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.</span></span><span class="sig-name descname"><span class="pre">ideal_gas_temperature</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">P</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">V</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics.html#ideal_gas_temperature"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.ideal_gas_temperature" title="Link to this definition">#</a></dt>
-<dd><p>Ideal gas temperature.</p>
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.</span></span><span class="sig-name descname"><span class="pre">ideal_gas_temperature</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">P</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">V</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics/systems/gases.html#ideal_gas_temperature"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.ideal_gas_temperature" title="Link to this definition">#</a></dt>
+<dd><p>Ideal-gas temperature <span class="math notranslate nohighlight">\(T = pV/(nR)\)</span>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>P</strong> (<em>Pa</em>) – Input in the units stated above.</p></li>
-<li><p><strong>V</strong> (<em>m^3</em>) – Input in the units stated above.</p></li>
-<li><p><strong>n</strong> (<em>mol</em>) – Input in the units stated above.</p></li>
+<li><p><strong>P</strong> (<em>float</em><em> or </em><em>array_like</em>) – Pressure [Pa], positive.</p></li>
+<li><p><strong>V</strong> (<em>float</em><em> or </em><em>array_like</em>) – Volume [m^3], positive.</p></li>
+<li><p><strong>n</strong> (<em>float</em><em> or </em><em>array_like</em>) – Amount of gas [mol], positive.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><ol class="upperalpha simple" start="11">
-<li></li>
-</ol>
-</p>
+<dd class="field-even"><p>Absolute temperature [K].</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>result</p>
+<dd class="field-odd"><p>float or ndarray</p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
-<p>Assumptions, governing equations and validity limits are discussed in
-<a class="reference internal" href="../guides/thermodynamics.html"><span class="doc">Thermodynamics: total versus specific quantities and cycle states</span></a>. SI inputs are required; raw numbers carry no
-dimensional metadata.</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/thermodynamics.html"><span class="doc">Thermodynamics: total versus specific quantities and cycle states</span></a>.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.thermodynamics.isentropic_pressure_volume">
-<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.</span></span><span class="sig-name descname"><span class="pre">isentropic_pressure_volume</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">p1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.4</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics.html#isentropic_pressure_volume"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.isentropic_pressure_volume" title="Link to this definition">#</a></dt>
-<dd><p>Isentropic pressure volume.</p>
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.</span></span><span class="sig-name descname"><span class="pre">isentropic_pressure_volume</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">p1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.4</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics/systems/laws.html#isentropic_pressure_volume"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.isentropic_pressure_volume" title="Link to this definition">#</a></dt>
+<dd><p>Pressure after a reversible adiabatic change of volume, <span class="math notranslate nohighlight">\(p_1(v_1/v_2)^\gamma\)</span>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>p1</strong> (<em>Pa</em>) – Input in the units stated above.</p></li>
-<li><p><strong>v1</strong> (<em>consistent volume units</em><em> (</em><em>e.g. m^3/kg</em><em>)</em>) – Input in the units stated above.</p></li>
-<li><p><strong>v2</strong> (<em>consistent volume units</em><em> (</em><em>e.g. m^3/kg</em><em>)</em>) – Input in the units stated above.</p></li>
-<li><p><strong>gamma</strong> (<em>1</em>) – Input in the units stated above.</p></li>
+<li><p><strong>p1</strong> (<em>float</em><em> or </em><em>array_like</em>) – Initial pressure [Pa], positive.</p></li>
+<li><p><strong>v1</strong> (<em>float</em><em> or </em><em>array_like</em>) – Initial and final volumes in consistent units (e.g. m^3/kg), positive.</p></li>
+<li><p><strong>v2</strong> (<em>float</em><em> or </em><em>array_like</em>) – Initial and final volumes in consistent units (e.g. m^3/kg), positive.</p></li>
+<li><p><strong>gamma</strong> (<em>float</em><em> or </em><em>array_like</em><em>, </em><em>optional</em>) – Ratio of specific heats [-], greater than one.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Pa.</p>
+<dd class="field-even"><p>Final pressure [Pa].</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>result</p>
+<dd class="field-odd"><p>float or ndarray</p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
-<p>Assumptions, governing equations and validity limits are discussed in
-<a class="reference internal" href="../guides/thermodynamics.html"><span class="doc">Thermodynamics: total versus specific quantities and cycle states</span></a>. SI inputs are required; raw numbers carry no
-dimensional metadata.</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/thermodynamics.html"><span class="doc">Thermodynamics: total versus specific quantities and cycle states</span></a>.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.thermodynamics.isentropic_temperature_ratio">
-<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.</span></span><span class="sig-name descname"><span class="pre">isentropic_temperature_ratio</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pressure_ratio</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.4</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics.html#isentropic_temperature_ratio"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.isentropic_temperature_ratio" title="Link to this definition">#</a></dt>
-<dd><p>Isentropic temperature ratio.</p>
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.</span></span><span class="sig-name descname"><span class="pre">isentropic_temperature_ratio</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pressure_ratio</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.4</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics/systems/laws.html#isentropic_temperature_ratio"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.isentropic_temperature_ratio" title="Link to this definition">#</a></dt>
+<dd><p>Temperature ratio across an isentropic pressure change, <span class="math notranslate nohighlight">\(T_2/T_1 = (p_2/p_1)^{(\gamma-1)/\gamma}\)</span>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>pressure_ratio</strong> (<em>1</em>) – Input in the units stated above.</p></li>
-<li><p><strong>gamma</strong> (<em>1</em>) – Input in the units stated above.</p></li>
+<li><p><strong>pressure_ratio</strong> (<em>float</em><em> or </em><em>array_like</em>) – <span class="math notranslate nohighlight">\(p_2/p_1\)</span> [-], positive.</p></li>
+<li><p><strong>gamma</strong> (<em>float</em><em> or </em><em>array_like</em><em>, </em><em>optional</em>) – Ratio of specific heats [-], greater than one.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><ol class="arabic simple">
-<li></li>
-</ol>
-</p>
+<dd class="field-even"><p><span class="math notranslate nohighlight">\(T_2/T_1\)</span> [-].</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>result</p>
+<dd class="field-odd"><p>float or ndarray</p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
-<p>Assumptions, governing equations and validity limits are discussed in
-<a class="reference internal" href="../guides/thermodynamics.html"><span class="doc">Thermodynamics: total versus specific quantities and cycle states</span></a>. SI inputs are required; raw numbers carry no
-dimensional metadata.</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/thermodynamics.html"><span class="doc">Thermodynamics: total versus specific quantities and cycle states</span></a>.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.thermodynamics.joule_thomson_coefficient_vdw">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.</span></span><span class="sig-name descname"><span class="pre">joule_thomson_coefficient_vdw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">T</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cp_molar</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics/systems/gases.html#joule_thomson_coefficient_vdw"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.joule_thomson_coefficient_vdw" title="Link to this definition">#</a></dt>
+<dd><p>Low-pressure Joule-Thomson coefficient of a van der Waals gas, <span class="math notranslate nohighlight">\((2a/RT - b)/c_{p,m}\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>T</strong> (<em>float</em><em> or </em><em>array_like</em>) – Absolute temperature [K], positive.</p></li>
+<li><p><strong>a</strong> (<em>float</em>) – Attraction constant [Pa m^6/mol^2], nonnegative.</p></li>
+<li><p><strong>b</strong> (<em>float</em>) – Excluded volume [m^3/mol], nonnegative.</p></li>
+<li><p><strong>cp_molar</strong> (<em>float</em>) – Molar isobaric heat capacity [J/(mol K)], positive.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="math notranslate nohighlight">\(\mu_{JT} = (\partial T/\partial p)_h\)</span> [K/Pa]. Positive values
+mean the gas cools when throttled; the sign changes at the inversion
+temperature <span class="math notranslate nohighlight">\(2a/(Rb)\)</span>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>This is the zero-pressure limit of
+<span class="math notranslate nohighlight">\(\mu_{JT} = [T(\partial v/\partial T)_p - v]/c_p\)</span> for the van der
+Waals equation; at higher pressures the inversion temperature falls.
+Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/thermodynamics.html"><span class="doc">Thermodynamics: total versus specific quantities and cycle states</span></a>.</p>
+<p class="rubric">References</p>
+<p>J. P. Joule and W. Thomson, “On the thermal effects experienced by air in
+rushing through small apertures,” <em>Phil. Mag.</em> 4 (1852) 481-492.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">joule_thomson_coefficient_vdw</span><span class="p">(</span><span class="mf">300.0</span><span class="p">,</span> <span class="mf">0.137</span><span class="p">,</span> <span class="mf">3.87e-5</span><span class="p">,</span> <span class="mf">29.1</span><span class="p">))</span> <span class="o">*</span> <span class="mf">1e5</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="go">0.244</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.thermodynamics.otto_efficiency">
-<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.</span></span><span class="sig-name descname"><span class="pre">otto_efficiency</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">compression_ratio</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.4</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics.html#otto_efficiency"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.otto_efficiency" title="Link to this definition">#</a></dt>
-<dd><p>Otto efficiency.</p>
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.</span></span><span class="sig-name descname"><span class="pre">otto_efficiency</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">compression_ratio</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.4</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics/systems/cycles.html#otto_efficiency"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.otto_efficiency" title="Link to this definition">#</a></dt>
+<dd><p>Air-standard Otto cycle efficiency, <span class="math notranslate nohighlight">\(1 - r^{1-\gamma}\)</span>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>compression_ratio</strong> (<em>1</em>) – Input in the units stated above.</p></li>
-<li><p><strong>gamma</strong> (<em>1</em>) – Input in the units stated above.</p></li>
+<li><p><strong>compression_ratio</strong> (<em>float</em><em> or </em><em>array_like</em>) – Volumetric compression ratio <span class="math notranslate nohighlight">\(r = V_1/V_2\)</span> [-], at least one.</p></li>
+<li><p><strong>gamma</strong> (<em>float</em><em> or </em><em>array_like</em><em>, </em><em>optional</em>) – Ratio of specific heats [-], greater than one.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><ol class="arabic simple">
-<li></li>
-</ol>
-</p>
+<dd class="field-even"><p>Thermal efficiency [-].</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>result</p>
+<dd class="field-odd"><p>float or ndarray</p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
-<p>Assumptions, governing equations and validity limits are discussed in
-<a class="reference internal" href="../guides/thermodynamics.html"><span class="doc">Thermodynamics: total versus specific quantities and cycle states</span></a>. SI inputs are required; raw numbers carry no
-dimensional metadata.</p>
+<p>Heat is added and rejected at constant volume. Inputs are raw SI numbers
+with no dimensional metadata; see <a class="reference internal" href="../guides/thermodynamics.html"><span class="doc">Thermodynamics: total versus specific quantities and cycle states</span></a>.</p>
+<p class="rubric">References</p>
+<ol class="upperalpha simple" start="14">
+<li><ol class="upperalpha simple">
+<li><p>Otto, “Gas motor engine,” U.S. Patent 194,047 (1877).</p></li>
+</ol>
+</li>
+</ol>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.thermodynamics.rankine_ideal_efficiency">
-<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.</span></span><span class="sig-name descname"><span class="pre">rankine_ideal_efficiency</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h4</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics.html#rankine_ideal_efficiency"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.rankine_ideal_efficiency" title="Link to this definition">#</a></dt>
-<dd><p>Ideal Rankine efficiency from pump-in, boiler-out, turbine-out, condenser-out enthalpies.</p>
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.</span></span><span class="sig-name descname"><span class="pre">rankine_ideal_efficiency</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h4</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics/systems/cycles.html#rankine_ideal_efficiency"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.rankine_ideal_efficiency" title="Link to this definition">#</a></dt>
+<dd><p>Ideal Rankine cycle efficiency from the four state enthalpies.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>h1</strong> (<em>J/kg</em>) – Input in the units stated above.</p></li>
-<li><p><strong>h2</strong> (<em>J/kg</em>) – Input in the units stated above.</p></li>
-<li><p><strong>h3</strong> (<em>J/kg</em>) – Input in the units stated above.</p></li>
-<li><p><strong>h4</strong> (<em>J/kg</em>) – Input in the units stated above.</p></li>
+<li><p><strong>h1</strong> (<em>float</em>) – Pump outlet (boiler inlet) enthalpy [J/kg].</p></li>
+<li><p><strong>h2</strong> (<em>float</em>) – Boiler outlet (turbine inlet) enthalpy [J/kg].</p></li>
+<li><p><strong>h3</strong> (<em>float</em>) – Turbine outlet (condenser inlet) enthalpy [J/kg].</p></li>
+<li><p><strong>h4</strong> (<em>float</em>) – Condenser outlet (pump inlet) enthalpy [J/kg].</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><ol class="arabic simple">
-<li></li>
-</ol>
-</p>
+<dd class="field-even"><p><span class="math notranslate nohighlight">\([(h_2 - h_3) - (h_1 - h_4)]/(h_2 - h_1)\)</span> [-].</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>result</p>
+<dd class="field-odd"><p>float</p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
-<p>Assumptions, governing equations and validity limits are discussed in
-<a class="reference internal" href="../guides/thermodynamics.html"><span class="doc">Thermodynamics: total versus specific quantities and cycle states</span></a>. SI inputs are required; raw numbers carry no
-dimensional metadata.</p>
+<p>The enthalpies can come from <a class="reference internal" href="#engineeringkit.thermodynamics.steam_properties" title="engineeringkit.thermodynamics.steam_properties"><code class="xref py py-func docutils literal notranslate"><span class="pre">steam_properties()</span></code></a>. Inputs are raw SI
+numbers with no dimensional metadata; see <a class="reference internal" href="../guides/thermodynamics.html"><span class="doc">Thermodynamics: total versus specific quantities and cycle states</span></a>.</p>
+<p class="rubric">References</p>
+<p>W. J. M. Rankine, <em>A Manual of the Steam Engine and Other Prime Movers</em>,
+London: Griffin (1859).</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.thermodynamics.refrigeration_cop">
-<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.</span></span><span class="sig-name descname"><span class="pre">refrigeration_cop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">q_cold</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">work_input</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics.html#refrigeration_cop"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.refrigeration_cop" title="Link to this definition">#</a></dt>
-<dd><p>Refrigeration cop.</p>
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.</span></span><span class="sig-name descname"><span class="pre">refrigeration_cop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">q_cold</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">work_input</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics/systems/refrigeration.html#refrigeration_cop"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.refrigeration_cop" title="Link to this definition">#</a></dt>
+<dd><p>Refrigerator coefficient of performance, <span class="math notranslate nohighlight">\(Q_c/W\)</span>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>q_cold</strong> (<em>J</em>) – Input in the units stated above.</p></li>
-<li><p><strong>work_input</strong> (<em>J</em>) – Input in the units stated above.</p></li>
+<li><p><strong>q_cold</strong> (<em>float</em>) – Heat removed from the cold space [J or W], nonnegative.</p></li>
+<li><p><strong>work_input</strong> (<em>float</em>) – Work (or power) supplied [J or W, as <code class="docutils literal notranslate"><span class="pre">q_cold</span></code>], positive.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><ol class="arabic simple">
-<li></li>
-</ol>
-</p>
+<dd class="field-even"><p>COP [-].</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>result</p>
+<dd class="field-odd"><p>float</p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
-<p>Assumptions, governing equations and validity limits are discussed in
-<a class="reference internal" href="../guides/thermodynamics.html"><span class="doc">Thermodynamics: total versus specific quantities and cycle states</span></a>. SI inputs are required; raw numbers carry no
-dimensional metadata.</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/thermodynamics.html"><span class="doc">Thermodynamics: total versus specific quantities and cycle states</span></a>.</p>
+<p class="rubric">References</p>
+<p>J. Perkins, “Apparatus and means for producing ice, and in cooling
+fluids,” British Patent 6662 (1834).</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.thermodynamics.relative_humidity">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.</span></span><span class="sig-name descname"><span class="pre">relative_humidity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">T</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">101325.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics/systems/psychrometrics.html#relative_humidity"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.relative_humidity" title="Link to this definition">#</a></dt>
+<dd><p>Relative humidity <span class="math notranslate nohighlight">\(\phi = p_v/p_s(T)\)</span> from the humidity ratio.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>T</strong> (<em>float</em><em> or </em><em>array_like</em>) – Dry-bulb temperature [K], 273.15 K to 647 K.</p></li>
+<li><p><strong>w</strong> (<em>float</em><em> or </em><em>array_like</em>) – Humidity ratio [kg/kg], nonnegative.</p></li>
+<li><p><strong>p</strong> (<em>float</em><em>, </em><em>optional</em>) – Total pressure [Pa], positive.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Relative humidity [-]; above one the air is supersaturated and
+condensate (fog) forms.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/thermodynamics.html"><span class="doc">Thermodynamics: total versus specific quantities and cycle states</span></a>.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.thermodynamics.reversible_isothermal_work_ideal_gas">
-<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.</span></span><span class="sig-name descname"><span class="pre">reversible_isothermal_work_ideal_gas</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">V1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">V2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics.html#reversible_isothermal_work_ideal_gas"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.reversible_isothermal_work_ideal_gas" title="Link to this definition">#</a></dt>
-<dd><p>Reversible isothermal work ideal gas.</p>
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.</span></span><span class="sig-name descname"><span class="pre">reversible_isothermal_work_ideal_gas</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">V1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">V2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics/systems/laws.html#reversible_isothermal_work_ideal_gas"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.reversible_isothermal_work_ideal_gas" title="Link to this definition">#</a></dt>
+<dd><p>Work done by an ideal gas in a reversible isothermal process, <span class="math notranslate nohighlight">\(nRT\ln(V_2/V_1)\)</span>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>n</strong> (<em>mol</em>) – Input in the units stated above.</p></li>
-<li><p><strong>T</strong> (<em>K</em><em> (</em><em>absolute</em><em>)</em>) – Input in the units stated above.</p></li>
-<li><p><strong>V1</strong> (<em>m^3</em>) – Input in the units stated above.</p></li>
-<li><p><strong>V2</strong> (<em>m^3</em>) – Input in the units stated above.</p></li>
+<li><p><strong>n</strong> (<em>float</em><em> or </em><em>array_like</em>) – Amount of gas [mol], positive.</p></li>
+<li><p><strong>T</strong> (<em>float</em><em> or </em><em>array_like</em>) – Absolute temperature [K], positive.</p></li>
+<li><p><strong>V1</strong> (<em>float</em><em> or </em><em>array_like</em>) – Initial and final volumes [m^3], positive.</p></li>
+<li><p><strong>V2</strong> (<em>float</em><em> or </em><em>array_like</em>) – Initial and final volumes [m^3], positive.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><ol class="upperalpha simple" start="10">
-<li></li>
-</ol>
-</p>
+<dd class="field-even"><p>Work done by the gas [J], equal to the heat absorbed, <span class="math notranslate nohighlight">\(T\Delta S\)</span>.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>result</p>
+<dd class="field-odd"><p>float or ndarray</p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
-<p>Assumptions, governing equations and validity limits are discussed in
-<a class="reference internal" href="../guides/thermodynamics.html"><span class="doc">Thermodynamics: total versus specific quantities and cycle states</span></a>. SI inputs are required; raw numbers carry no
-dimensional metadata.</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/thermodynamics.html"><span class="doc">Thermodynamics: total versus specific quantities and cycle states</span></a>.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.thermodynamics.saturation_pressure">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.</span></span><span class="sig-name descname"><span class="pre">saturation_pressure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">T</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics/systems/steam.html#saturation_pressure"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.saturation_pressure" title="Link to this definition">#</a></dt>
+<dd><p>Saturation (vapour) pressure of water, IF97 region 4.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>T</strong> (<em>float</em><em> or </em><em>array_like</em>) – Absolute temperature [K], from 273.15 K to the critical 647.096 K.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Saturation pressure [Pa].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/thermodynamics.html"><span class="doc">Thermodynamics: total versus specific quantities and cycle states</span></a>.</p>
+<p class="rubric">References</p>
+<p>W. Wagner et al., “The IAPWS Industrial Formulation 1997 for the
+thermodynamic properties of water and steam,” <em>J. Eng. Gas Turbines
+Power</em> 122 (2000) 150-182.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">saturation_pressure</span><span class="p">(</span><span class="mf">373.15</span><span class="p">)),</span> <span class="mi">1</span><span class="p">)</span>
+<span class="go">101418.0</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.thermodynamics.saturation_temperature">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.</span></span><span class="sig-name descname"><span class="pre">saturation_temperature</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">p</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics/systems/steam.html#saturation_temperature"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.saturation_temperature" title="Link to this definition">#</a></dt>
+<dd><p>Saturation temperature of water, IF97 region 4.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>p</strong> (<em>float</em><em> or </em><em>array_like</em>) – Pressure [Pa], from 611.213 Pa (0 °C) to the critical 22.064 MPa.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Saturation (boiling) temperature [K].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/thermodynamics.html"><span class="doc">Thermodynamics: total versus specific quantities and cycle states</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">saturation_temperature</span><span class="p">(</span><span class="mf">101325.0</span><span class="p">))</span> <span class="o">-</span> <span class="mf">273.15</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="go">99.974</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.thermodynamics.specific_enthalpy_ideal_gas">
-<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.</span></span><span class="sig-name descname"><span class="pre">specific_enthalpy_ideal_gas</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">T</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cp</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics.html#specific_enthalpy_ideal_gas"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.specific_enthalpy_ideal_gas" title="Link to this definition">#</a></dt>
-<dd><p>Specific enthalpy ideal gas.</p>
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.</span></span><span class="sig-name descname"><span class="pre">specific_enthalpy_ideal_gas</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">T</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cp</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics/systems/laws.html#specific_enthalpy_ideal_gas"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.specific_enthalpy_ideal_gas" title="Link to this definition">#</a></dt>
+<dd><p>Specific enthalpy <span class="math notranslate nohighlight">\(h = c_p T\)</span> of a calorically perfect gas.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>T</strong> (<em>K</em><em> (</em><em>absolute</em><em>)</em>) – Input in the units stated above.</p></li>
-<li><p><strong>cp</strong> (<em>J/</em><em>(</em><em>kg K</em><em>)</em>) – Input in the units stated above.</p></li>
+<li><p><strong>T</strong> (<em>float</em><em> or </em><em>array_like</em>) – Absolute temperature [K], nonnegative.</p></li>
+<li><p><strong>cp</strong> (<em>float</em><em> or </em><em>array_like</em>) – Isobaric specific heat [J/(kg K)], positive.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>J/kg.</p>
+<dd class="field-even"><p>Specific enthalpy [J/kg], referred to zero at 0 K. With the same
+reference, <span class="math notranslate nohighlight">\(h - u = (c_p - c_v)T = RT\)</span>.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>result</p>
+<dd class="field-odd"><p>float or ndarray</p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
-<p>Assumptions, governing equations and validity limits are discussed in
-<a class="reference internal" href="../guides/thermodynamics.html"><span class="doc">Thermodynamics: total versus specific quantities and cycle states</span></a>. SI inputs are required; raw numbers carry no
-dimensional metadata.</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/thermodynamics.html"><span class="doc">Thermodynamics: total versus specific quantities and cycle states</span></a>.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.thermodynamics.specific_internal_energy_ideal_gas">
-<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.</span></span><span class="sig-name descname"><span class="pre">specific_internal_energy_ideal_gas</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">T</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cv</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics.html#specific_internal_energy_ideal_gas"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.specific_internal_energy_ideal_gas" title="Link to this definition">#</a></dt>
-<dd><p>Specific internal energy ideal gas.</p>
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.</span></span><span class="sig-name descname"><span class="pre">specific_internal_energy_ideal_gas</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">T</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cv</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics/systems/laws.html#specific_internal_energy_ideal_gas"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.specific_internal_energy_ideal_gas" title="Link to this definition">#</a></dt>
+<dd><p>Specific internal energy <span class="math notranslate nohighlight">\(u = c_v T\)</span> of a calorically perfect gas.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>T</strong> (<em>K</em><em> (</em><em>absolute</em><em>)</em>) – Input in the units stated above.</p></li>
-<li><p><strong>cv</strong> (<em>J/</em><em>(</em><em>kg K</em><em>)</em>) – Input in the units stated above.</p></li>
+<li><p><strong>T</strong> (<em>float</em><em> or </em><em>array_like</em>) – Absolute temperature [K], nonnegative.</p></li>
+<li><p><strong>cv</strong> (<em>float</em><em> or </em><em>array_like</em>) – Isochoric specific heat [J/(kg K)], positive.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>J/kg.</p>
+<dd class="field-even"><p>Specific internal energy [J/kg], referred to zero at 0 K.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>result</p>
+<dd class="field-odd"><p>float or ndarray</p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
-<p>Assumptions, governing equations and validity limits are discussed in
-<a class="reference internal" href="../guides/thermodynamics.html"><span class="doc">Thermodynamics: total versus specific quantities and cycle states</span></a>. SI inputs are required; raw numbers carry no
-dimensional metadata.</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/thermodynamics.html"><span class="doc">Thermodynamics: total versus specific quantities and cycle states</span></a>.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.thermodynamics.steam_properties">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.</span></span><span class="sig-name descname"><span class="pre">steam_properties</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">p</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics/systems/steam.html#steam_properties"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.steam_properties" title="Link to this definition">#</a></dt>
+<dd><p>State of water or steam from pressure and one other property (IAPWS-IF97).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p</strong> (<em>float</em>) – Pressure [Pa], positive and at most 100 MPa.</p></li>
+<li><p><strong>T</strong> (<em>Exactly one of</em>) – Temperature [K], 273.15 K to 1073.15 K, for a single-phase state.</p></li>
+<li><p><strong>x</strong> (<em>float</em><em>, </em><em>optional</em>) – Vapour quality [-] in [0, 1] for a saturated mixture; needs
+611.213 Pa &lt;= <code class="docutils literal notranslate"><span class="pre">p</span></code> &lt;= 22.064 MPa (the critical pressure).</p></li>
+<li><p><strong>s</strong> (<em>float</em><em>, </em><em>optional</em>) – Specific entropy [J/(kg K)], e.g. after an isentropic turbine.</p></li>
+<li><p><strong>h</strong> (<em>float</em><em>, </em><em>optional</em>) – Specific enthalpy [J/kg], e.g. after a throttling valve.</p></li>
+<li><p><strong>T</strong></p></li>
+<li><p><strong>x</strong></p></li>
+<li><p><strong>given.</strong> (<em>s and h is</em>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Pressure, temperature, specific volume, enthalpy, entropy, internal
+energy, isobaric heat capacity (NaN in the dome), quality (NaN outside
+it) and the IF97 region.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#engineeringkit.thermodynamics.SteamState" title="engineeringkit.thermodynamics.SteamState">SteamState</a></p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Given <code class="docutils literal notranslate"><span class="pre">T</span></code>, the phase is liquid if <code class="docutils literal notranslate"><span class="pre">p</span></code> is at or above the saturation
+pressure and vapour below it; a state exactly on the saturation line
+needs <code class="docutils literal notranslate"><span class="pre">x</span></code>. Region 3 (above 350 °C and above the B23 boundary
+pressure) is a Helmholtz function of density and temperature, so its
+density is found by Brent’s method on the isotherm, taking the liquid or
+vapour root of its van der Waals loop below the critical temperature.
+Given <code class="docutils literal notranslate"><span class="pre">s</span></code> or <code class="docutils literal notranslate"><span class="pre">h</span></code>, the temperature is found by Brent’s method, since
+both rise monotonically with temperature at fixed pressure. Inputs are
+raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/thermodynamics.html"><span class="doc">Thermodynamics: total versus specific quantities and cycle states</span></a>.</p>
+<p class="rubric">References</p>
+<p>W. Wagner et al., “The IAPWS Industrial Formulation 1997 for the
+thermodynamic properties of water and steam,” <em>J. Eng. Gas Turbines
+Power</em> 122 (2000) 150-182.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">st</span> <span class="o">=</span> <span class="n">steam_properties</span><span class="p">(</span><span class="mf">10e6</span><span class="p">,</span> <span class="mf">773.15</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="n">st</span><span class="o">.</span><span class="n">h</span> <span class="o">/</span> <span class="mf">1e3</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="nb">round</span><span class="p">(</span><span class="n">st</span><span class="o">.</span><span class="n">s</span> <span class="o">/</span> <span class="mf">1e3</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">st</span><span class="o">.</span><span class="n">region</span>
+<span class="go">(3375.1, 6.5993, 2)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.thermodynamics.thermal_efficiency">
-<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.</span></span><span class="sig-name descname"><span class="pre">thermal_efficiency</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Qin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Qout</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics.html#thermal_efficiency"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.thermal_efficiency" title="Link to this definition">#</a></dt>
-<dd><p>Thermal efficiency.</p>
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.</span></span><span class="sig-name descname"><span class="pre">thermal_efficiency</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Qin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Qout</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics/systems/cycles.html#thermal_efficiency"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.thermal_efficiency" title="Link to this definition">#</a></dt>
+<dd><p>Thermal efficiency from the heat flows, <span class="math notranslate nohighlight">\(1 - Q_{out}/Q_{in}\)</span>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>Qin</strong> (<em>J</em>) – Input in the units stated above.</p></li>
-<li><p><strong>Qout</strong> (<em>J</em>) – Input in the units stated above.</p></li>
+<li><p><strong>Qin</strong> (<em>float</em>) – Heat absorbed [J], positive.</p></li>
+<li><p><strong>Qout</strong> (<em>float</em>) – Heat rejected [J], nonnegative and at most <code class="docutils literal notranslate"><span class="pre">Qin</span></code>.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><ol class="arabic simple">
-<li></li>
-</ol>
-</p>
+<dd class="field-even"><p>Thermal efficiency [-].</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>result</p>
+<dd class="field-odd"><p>float</p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
-<p>Assumptions, governing equations and validity limits are discussed in
-<a class="reference internal" href="../guides/thermodynamics.html"><span class="doc">Thermodynamics: total versus specific quantities and cycle states</span></a>. SI inputs are required; raw numbers carry no
-dimensional metadata.</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/thermodynamics.html"><span class="doc">Thermodynamics: total versus specific quantities and cycle states</span></a>.</p>
 </dd></dl>
 
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.thermodynamics.van_der_waals_critical_point">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.</span></span><span class="sig-name descname"><span class="pre">van_der_waals_critical_point</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics/systems/gases.html#van_der_waals_critical_point"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.van_der_waals_critical_point" title="Link to this definition">#</a></dt>
+<dd><p>Critical temperature, pressure and molar volume of a van der Waals gas.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>a</strong> (<em>float</em>) – Attraction constant [Pa m^6/mol^2], positive.</p></li>
+<li><p><strong>b</strong> (<em>float</em>) – Excluded volume [m^3/mol], positive.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="math notranslate nohighlight">\(T_c = 8a/(27Rb)\)</span> [K], <span class="math notranslate nohighlight">\(p_c = a/(27b^2)\)</span> [Pa] and
+<span class="math notranslate nohighlight">\(v_c = 3b\)</span> [m^3/mol], the point where the critical isotherm has
+a horizontal inflection.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple of float</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>The critical compressibility <span class="math notranslate nohighlight">\(p_c v_c/(RT_c) = 3/8\)</span> is the same for
+every van der Waals gas; real gases are nearer 0.27-0.29. Inputs are raw
+SI numbers with no dimensional metadata; see <a class="reference internal" href="../guides/thermodynamics.html"><span class="doc">Thermodynamics: total versus specific quantities and cycle states</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Tc</span><span class="p">,</span> <span class="n">pc</span><span class="p">,</span> <span class="n">vc</span> <span class="o">=</span> <span class="n">van_der_waals_critical_point</span><span class="p">(</span><span class="mf">0.3640</span><span class="p">,</span> <span class="mf">4.267e-5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="n">Tc</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="nb">round</span><span class="p">(</span><span class="n">pc</span> <span class="o">/</span> <span class="mf">1e6</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="go">(304.0, 7.4)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.thermodynamics.van_der_waals_pressure">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.</span></span><span class="sig-name descname"><span class="pre">van_der_waals_pressure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">V</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics/systems/gases.html#van_der_waals_pressure"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.van_der_waals_pressure" title="Link to this definition">#</a></dt>
+<dd><p>Van der Waals pressure <span class="math notranslate nohighlight">\(p = nRT/(V - nb) - an^2/V^2\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n</strong> (<em>float</em><em> or </em><em>array_like</em>) – Amount of gas [mol], positive.</p></li>
+<li><p><strong>T</strong> (<em>float</em><em> or </em><em>array_like</em>) – Absolute temperature [K], positive.</p></li>
+<li><p><strong>V</strong> (<em>float</em><em> or </em><em>array_like</em>) – Volume [m^3], larger than the excluded volume <span class="math notranslate nohighlight">\(nb\)</span>.</p></li>
+<li><p><strong>a</strong> (<em>float</em>) – Attraction constant [Pa m^6/mol^2], nonnegative.</p></li>
+<li><p><strong>b</strong> (<em>float</em>) – Excluded (co-)volume [m^3/mol], nonnegative.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Pressure [Pa]. With <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">b</span> <span class="pre">=</span> <span class="pre">0</span></code> this is the ideal-gas pressure.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Below the critical temperature an isotherm has a loop in which
+<span class="math notranslate nohighlight">\(\partial p/\partial V &gt; 0\)</span>; those states are unstable, and the
+real fluid splits into liquid and vapour at the pressure given by
+Maxwell’s equal-area rule. Inputs are raw SI numbers with no dimensional
+metadata; see <a class="reference internal" href="../guides/thermodynamics.html"><span class="doc">Thermodynamics: total versus specific quantities and cycle states</span></a>.</p>
+<p class="rubric">References</p>
+<p>J. D. van der Waals, <em>Over de continuïteit van den gas- en
+vloeistoftoestand</em>, thesis, Leiden (1873).</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">van_der_waals_pressure</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">300.0</span><span class="p">,</span> <span class="mf">1e-3</span><span class="p">,</span> <span class="mf">0.3640</span><span class="p">,</span> <span class="mf">4.267e-5</span><span class="p">)),</span> <span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+<span class="go">2241500.0</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<section id="module-engineeringkit.thermodynamics.utils.if97">
+<span id="utilities"></span><h2>Utilities<a class="headerlink" href="#module-engineeringkit.thermodynamics.utils.if97" title="Link to this heading">#</a></h2>
+<p>IAPWS-IF97 basic equations for regions 1 to 4, in reduced variables.</p>
+<p>The coefficients are those of the IAPWS release (Lucerne 2007 revision of
+the 1997 formulation): region 1 is compressed liquid, region 2 superheated
+vapour, region 3 the near-critical fluid and region 4 the saturation line.
+Regions 1 and 2 are dimensionless Gibbs free energies
+<span class="math notranslate nohighlight">\(\gamma(\pi, \tau)\)</span> and region 3 a dimensionless Helmholtz free
+energy <span class="math notranslate nohighlight">\(\phi(\delta, \tau)\)</span>; every property follows from the
+function and its derivatives. Pressures are in MPa and temperatures in
+K inside this module, as in the release; the public wrappers in
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">engineeringkit.thermodynamics.systems.steam</span></code> convert to Pa and J.</p>
+<dl class="py data">
+<dt class="sig sig-object py" id="engineeringkit.thermodynamics.utils.if97.P_CRIT">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.utils.if97.</span></span><span class="sig-name descname"><span class="pre">P_CRIT</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">22064000.0</span></span><a class="headerlink" href="#engineeringkit.thermodynamics.utils.if97.P_CRIT" title="Link to this definition">#</a></dt>
+<dd><p>Critical pressure of water [Pa].</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="engineeringkit.thermodynamics.utils.if97.R_WATER">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.utils.if97.</span></span><span class="sig-name descname"><span class="pre">R_WATER</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">461.526</span></span><a class="headerlink" href="#engineeringkit.thermodynamics.utils.if97.R_WATER" title="Link to this definition">#</a></dt>
+<dd><p>Specific gas constant of water used by IF97 [J/(kg K)].</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="engineeringkit.thermodynamics.utils.if97.T_CRIT">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.utils.if97.</span></span><span class="sig-name descname"><span class="pre">T_CRIT</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">647.096</span></span><a class="headerlink" href="#engineeringkit.thermodynamics.utils.if97.T_CRIT" title="Link to this definition">#</a></dt>
+<dd><p>Critical temperature of water [K].</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.thermodynamics.utils.if97.b23_pressure_mpa">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.utils.if97.</span></span><span class="sig-name descname"><span class="pre">b23_pressure_mpa</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">T</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics/utils/if97.html#b23_pressure_mpa"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.utils.if97.b23_pressure_mpa" title="Link to this definition">#</a></dt>
+<dd><p>Pressure on the boundary between regions 2 and 3.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>T</strong> (<em>float</em><em> or </em><em>array_like</em>) – Temperature [K], 623.15 K to 863.15 K.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Boundary pressure [MPa].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.thermodynamics.utils.if97.b23_temperature_k">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.utils.if97.</span></span><span class="sig-name descname"><span class="pre">b23_temperature_k</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">p_mpa</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics/utils/if97.html#b23_temperature_k"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.utils.if97.b23_temperature_k" title="Link to this definition">#</a></dt>
+<dd><p>Temperature on the boundary between regions 2 and 3, the inverse of <a class="reference internal" href="#engineeringkit.thermodynamics.utils.if97.b23_pressure_mpa" title="engineeringkit.thermodynamics.utils.if97.b23_pressure_mpa"><code class="xref py py-func docutils literal notranslate"><span class="pre">b23_pressure_mpa()</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>p_mpa</strong> (<em>float</em><em> or </em><em>array_like</em>) – Pressure [MPa], 16.529 MPa to 100 MPa.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Boundary temperature [K].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.thermodynamics.utils.if97.region1">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.utils.if97.</span></span><span class="sig-name descname"><span class="pre">region1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">T</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_mpa</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics/utils/if97.html#region1"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.utils.if97.region1" title="Link to this definition">#</a></dt>
+<dd><p>Region 1 (compressed liquid) properties from the IF97 Gibbs function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>T</strong> (<em>float</em><em> or </em><em>array_like</em>) – Temperature [K], 273.15 K to 623.15 K.</p></li>
+<li><p><strong>p_mpa</strong> (<em>float</em><em> or </em><em>array_like</em>) – Pressure [MPa], above saturation and at most 100 MPa.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Specific volume <code class="docutils literal notranslate"><span class="pre">v</span></code> [m^3/kg], enthalpy <code class="docutils literal notranslate"><span class="pre">h</span></code> [J/kg], internal
+energy <code class="docutils literal notranslate"><span class="pre">u</span></code> [J/kg], entropy <code class="docutils literal notranslate"><span class="pre">s</span></code> [J/(kg K)] and isobaric heat
+capacity <code class="docutils literal notranslate"><span class="pre">cp</span></code> [J/(kg K)], broadcast over <code class="docutils literal notranslate"><span class="pre">T</span></code> and <code class="docutils literal notranslate"><span class="pre">p_mpa</span></code>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict of ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.thermodynamics.utils.if97.region2">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.utils.if97.</span></span><span class="sig-name descname"><span class="pre">region2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">T</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_mpa</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics/utils/if97.html#region2"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.utils.if97.region2" title="Link to this definition">#</a></dt>
+<dd><p>Region 2 (vapour) properties from the IF97 Gibbs function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>T</strong> (<em>float</em><em> or </em><em>array_like</em>) – Temperature [K], 273.15 K to 1073.15 K.</p></li>
+<li><p><strong>p_mpa</strong> (<em>float</em><em> or </em><em>array_like</em>) – Pressure [MPa], positive and below saturation (and below the
+region 2-3 boundary above 623.15 K).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Specific volume <code class="docutils literal notranslate"><span class="pre">v</span></code> [m^3/kg], enthalpy <code class="docutils literal notranslate"><span class="pre">h</span></code> [J/kg], internal
+energy <code class="docutils literal notranslate"><span class="pre">u</span></code> [J/kg], entropy <code class="docutils literal notranslate"><span class="pre">s</span></code> [J/(kg K)] and isobaric heat
+capacity <code class="docutils literal notranslate"><span class="pre">cp</span></code> [J/(kg K)], broadcast over <code class="docutils literal notranslate"><span class="pre">T</span></code> and <code class="docutils literal notranslate"><span class="pre">p_mpa</span></code>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict of ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.thermodynamics.utils.if97.region3">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.utils.if97.</span></span><span class="sig-name descname"><span class="pre">region3</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rho</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics/utils/if97.html#region3"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.utils.if97.region3" title="Link to this definition">#</a></dt>
+<dd><p>Region 3 (near-critical) properties from the IF97 Helmholtz function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>rho</strong> (<em>float</em><em> or </em><em>array_like</em>) – Density [kg/m^3], positive.</p></li>
+<li><p><strong>T</strong> (<em>float</em><em> or </em><em>array_like</em>) – Temperature [K], 623.15 K to 863.15 K.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Pressure <code class="docutils literal notranslate"><span class="pre">p</span></code> [Pa] and, as for <a class="reference internal" href="#engineeringkit.thermodynamics.utils.if97.region1" title="engineeringkit.thermodynamics.utils.if97.region1"><code class="xref py py-func docutils literal notranslate"><span class="pre">region1()</span></code></a>, <code class="docutils literal notranslate"><span class="pre">v</span></code>, <code class="docutils literal notranslate"><span class="pre">h</span></code>,
+<code class="docutils literal notranslate"><span class="pre">u</span></code>, <code class="docutils literal notranslate"><span class="pre">s</span></code> and <code class="docutils literal notranslate"><span class="pre">cp</span></code>, broadcast over <code class="docutils literal notranslate"><span class="pre">rho</span></code> and <code class="docutils literal notranslate"><span class="pre">T</span></code>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict of ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.thermodynamics.utils.if97.region3_density">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.utils.if97.</span></span><span class="sig-name descname"><span class="pre">region3_density</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">T</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_mpa</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phase</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics/utils/if97.html#region3_density"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.utils.if97.region3_density" title="Link to this definition">#</a></dt>
+<dd><p>Density at which the region 3 pressure equals <code class="docutils literal notranslate"><span class="pre">p_mpa</span></code> on the isotherm <code class="docutils literal notranslate"><span class="pre">T</span></code>.</p>
+<p>Below the critical temperature an isotherm of the Helmholtz function has
+a van der Waals loop, so up to three densities share a pressure; the
+largest is the liquid and the smallest the vapour.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>T</strong> (<em>float</em>) – Temperature [K], 623.15 K to 863.15 K.</p></li>
+<li><p><strong>p_mpa</strong> (<em>float</em>) – Pressure [MPa].</p></li>
+<li><p><strong>phase</strong> (<em>{&quot;liquid&quot;</em><em>, </em><em>&quot;vapour&quot;}</em>) – Which root to return when there are several.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Density [kg/m^3].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If no density between 100 and 800 kg/m^3 gives that pressure.</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Region 3 spans about 113 to 765 kg/m^3. The search stops at 800 kg/m^3
+because the fit, extrapolated to denser states, turns back down and
+would give a spurious liquid root.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.thermodynamics.utils.if97.saturation_pressure_mpa">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.utils.if97.</span></span><span class="sig-name descname"><span class="pre">saturation_pressure_mpa</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">T</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics/utils/if97.html#saturation_pressure_mpa"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.utils.if97.saturation_pressure_mpa" title="Link to this definition">#</a></dt>
+<dd><p>Region 4 saturation pressure.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>T</strong> (<em>float</em><em> or </em><em>array_like</em>) – Temperature [K], 273.15 K to 647.096 K.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Saturation pressure [MPa].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.thermodynamics.utils.if97.saturation_temperature_k">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.utils.if97.</span></span><span class="sig-name descname"><span class="pre">saturation_temperature_k</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">p_mpa</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics/utils/if97.html#saturation_temperature_k"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.utils.if97.saturation_temperature_k" title="Link to this definition">#</a></dt>
+<dd><p>Region 4 saturation temperature, the inverse of <a class="reference internal" href="#engineeringkit.thermodynamics.utils.if97.saturation_pressure_mpa" title="engineeringkit.thermodynamics.utils.if97.saturation_pressure_mpa"><code class="xref py py-func docutils literal notranslate"><span class="pre">saturation_pressure_mpa()</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>p_mpa</strong> (<em>float</em><em> or </em><em>array_like</em>) – Pressure [MPa], 611.213 Pa to 22.064 MPa.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Saturation temperature [K].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-engineeringkit.thermodynamics.visualizers">
+<span id="visualizers"></span><h2>Visualizers<a class="headerlink" href="#module-engineeringkit.thermodynamics.visualizers" title="Link to this heading">#</a></h2>
+<p>Matplotlib visualizers for engineeringkit.thermodynamics.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.thermodynamics.visualizers.plot_pv_diagram">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.visualizers.</span></span><span class="sig-name descname"><span class="pre">plot_pv_diagram</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics/visualizers/plots.html#plot_pv_diagram"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.visualizers.plot_pv_diagram" title="Link to this definition">#</a></dt>
+<dd><p>Plot a process path on pressure-volume axes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>v</strong> (<em>array_like</em>) – Specific (or total) volumes along the path [m^3/kg or m^3].</p></li>
+<li><p><strong>p</strong> (<em>array_like</em>) – Matching pressures [Pa], drawn in kPa.</p></li>
+<li><p><strong>ax</strong> (<em>matplotlib.axes.Axes</em><em>, </em><em>optional</em>) – Axes to draw on; a new figure is created if omitted.</p></li>
+<li><p><strong>label</strong> (<em>str</em><em>, </em><em>optional</em>) – Legend label.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>matplotlib.axes.Axes</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.thermodynamics.visualizers.plot_saturation_dome">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.visualizers.</span></span><span class="sig-name descname"><span class="pre">plot_saturation_dome</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T_min</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">273.16</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T_max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">647.096</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">120</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics/visualizers/plots.html#plot_saturation_dome"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.visualizers.plot_saturation_dome" title="Link to this definition">#</a></dt>
+<dd><p>Draw the saturated-liquid and saturated-vapour lines of water on T-s axes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ax</strong> (<em>matplotlib.axes.Axes</em><em>, </em><em>optional</em>) – Axes to draw on; a new figure is created if omitted.</p></li>
+<li><p><strong>T_min</strong> (<em>float</em><em>, </em><em>optional</em>) – Temperature range [K] of the dome, within 273.16 K and the critical
+647.096 K.</p></li>
+<li><p><strong>T_max</strong> (<em>float</em><em>, </em><em>optional</em>) – Temperature range [K] of the dome, within 273.16 K and the critical
+647.096 K.</p></li>
+<li><p><strong>n</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of points on each line.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>matplotlib.axes.Axes</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.thermodynamics.visualizers.plot_ts_diagram">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.thermodynamics.visualizers.</span></span><span class="sig-name descname"><span class="pre">plot_ts_diagram</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dome</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/thermodynamics/visualizers/plots.html#plot_ts_diagram"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.thermodynamics.visualizers.plot_ts_diagram" title="Link to this definition">#</a></dt>
+<dd><p>Plot a process path on temperature-entropy axes, optionally over the water dome.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>s</strong> (<em>array_like</em>) – Specific entropies along the path [J/(kg K)], drawn in kJ/(kg K).</p></li>
+<li><p><strong>T</strong> (<em>array_like</em>) – Matching temperatures [K], drawn in °C.</p></li>
+<li><p><strong>ax</strong> (<em>matplotlib.axes.Axes</em><em>, </em><em>optional</em>) – Axes to draw on; a new figure is created if omitted.</p></li>
+<li><p><strong>label</strong> (<em>str</em><em>, </em><em>optional</em>) – Legend label.</p></li>
+<li><p><strong>dome</strong> (<em>bool</em><em>, </em><em>optional</em>) – Draw the saturation dome of water first.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>matplotlib.axes.Axes</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
 </section>
 
 
@@ -1115,11 +1948,28 @@ dimensional metadata.</p>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.thermodynamics.OttoCycle.summary"><code class="docutils literal notranslate"><span class="pre">OttoCycle.summary()</span></code></a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.thermodynamics.SteamState"><code class="docutils literal notranslate"><span class="pre">SteamState</span></code></a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.thermodynamics.SteamState.T"><code class="docutils literal notranslate"><span class="pre">SteamState.T</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.thermodynamics.SteamState.cp"><code class="docutils literal notranslate"><span class="pre">SteamState.cp</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.thermodynamics.SteamState.h"><code class="docutils literal notranslate"><span class="pre">SteamState.h</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.thermodynamics.SteamState.p"><code class="docutils literal notranslate"><span class="pre">SteamState.p</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.thermodynamics.SteamState.region"><code class="docutils literal notranslate"><span class="pre">SteamState.region</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.thermodynamics.SteamState.s"><code class="docutils literal notranslate"><span class="pre">SteamState.s</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.thermodynamics.SteamState.summary"><code class="docutils literal notranslate"><span class="pre">SteamState.summary()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.thermodynamics.SteamState.u"><code class="docutils literal notranslate"><span class="pre">SteamState.u</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.thermodynamics.SteamState.v"><code class="docutils literal notranslate"><span class="pre">SteamState.v</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.thermodynamics.SteamState.x"><code class="docutils literal notranslate"><span class="pre">SteamState.x</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.thermodynamics.antoine_vapor_pressure"><code class="docutils literal notranslate"><span class="pre">antoine_vapor_pressure()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.thermodynamics.brayton_efficiency"><code class="docutils literal notranslate"><span class="pre">brayton_efficiency()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.thermodynamics.carnot_cop_heat_pump"><code class="docutils literal notranslate"><span class="pre">carnot_cop_heat_pump()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.thermodynamics.carnot_cop_refrigerator"><code class="docutils literal notranslate"><span class="pre">carnot_cop_refrigerator()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.thermodynamics.carnot_efficiency"><code class="docutils literal notranslate"><span class="pre">carnot_efficiency()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.thermodynamics.clausius_clapeyron_pressure"><code class="docutils literal notranslate"><span class="pre">clausius_clapeyron_pressure()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.thermodynamics.clausius_inequality"><code class="docutils literal notranslate"><span class="pre">clausius_inequality()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.thermodynamics.curzon_ahlborn_efficiency"><code class="docutils literal notranslate"><span class="pre">curzon_ahlborn_efficiency()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.thermodynamics.dew_point"><code class="docutils literal notranslate"><span class="pre">dew_point()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.thermodynamics.diesel_efficiency"><code class="docutils literal notranslate"><span class="pre">diesel_efficiency()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.thermodynamics.entropy_change_isothermal_ideal_gas"><code class="docutils literal notranslate"><span class="pre">entropy_change_isothermal_ideal_gas()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.thermodynamics.exergy_destruction"><code class="docutils literal notranslate"><span class="pre">exergy_destruction()</span></code></a></li>
@@ -1127,17 +1977,45 @@ dimensional metadata.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.thermodynamics.first_law_heat"><code class="docutils literal notranslate"><span class="pre">first_law_heat()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.thermodynamics.heat_engine_work"><code class="docutils literal notranslate"><span class="pre">heat_engine_work()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.thermodynamics.heat_pump_cop"><code class="docutils literal notranslate"><span class="pre">heat_pump_cop()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.thermodynamics.humidity_ratio"><code class="docutils literal notranslate"><span class="pre">humidity_ratio()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.thermodynamics.ideal_gas_pressure"><code class="docutils literal notranslate"><span class="pre">ideal_gas_pressure()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.thermodynamics.ideal_gas_temperature"><code class="docutils literal notranslate"><span class="pre">ideal_gas_temperature()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.thermodynamics.isentropic_pressure_volume"><code class="docutils literal notranslate"><span class="pre">isentropic_pressure_volume()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.thermodynamics.isentropic_temperature_ratio"><code class="docutils literal notranslate"><span class="pre">isentropic_temperature_ratio()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.thermodynamics.joule_thomson_coefficient_vdw"><code class="docutils literal notranslate"><span class="pre">joule_thomson_coefficient_vdw()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.thermodynamics.otto_efficiency"><code class="docutils literal notranslate"><span class="pre">otto_efficiency()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.thermodynamics.rankine_ideal_efficiency"><code class="docutils literal notranslate"><span class="pre">rankine_ideal_efficiency()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.thermodynamics.refrigeration_cop"><code class="docutils literal notranslate"><span class="pre">refrigeration_cop()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.thermodynamics.relative_humidity"><code class="docutils literal notranslate"><span class="pre">relative_humidity()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.thermodynamics.reversible_isothermal_work_ideal_gas"><code class="docutils literal notranslate"><span class="pre">reversible_isothermal_work_ideal_gas()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.thermodynamics.saturation_pressure"><code class="docutils literal notranslate"><span class="pre">saturation_pressure()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.thermodynamics.saturation_temperature"><code class="docutils literal notranslate"><span class="pre">saturation_temperature()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.thermodynamics.specific_enthalpy_ideal_gas"><code class="docutils literal notranslate"><span class="pre">specific_enthalpy_ideal_gas()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.thermodynamics.specific_internal_energy_ideal_gas"><code class="docutils literal notranslate"><span class="pre">specific_internal_energy_ideal_gas()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.thermodynamics.steam_properties"><code class="docutils literal notranslate"><span class="pre">steam_properties()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.thermodynamics.thermal_efficiency"><code class="docutils literal notranslate"><span class="pre">thermal_efficiency()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.thermodynamics.van_der_waals_critical_point"><code class="docutils literal notranslate"><span class="pre">van_der_waals_critical_point()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.thermodynamics.van_der_waals_pressure"><code class="docutils literal notranslate"><span class="pre">van_der_waals_pressure()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-engineeringkit.thermodynamics.utils.if97">Utilities</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.thermodynamics.utils.if97.P_CRIT"><code class="docutils literal notranslate"><span class="pre">P_CRIT</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.thermodynamics.utils.if97.R_WATER"><code class="docutils literal notranslate"><span class="pre">R_WATER</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.thermodynamics.utils.if97.T_CRIT"><code class="docutils literal notranslate"><span class="pre">T_CRIT</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.thermodynamics.utils.if97.b23_pressure_mpa"><code class="docutils literal notranslate"><span class="pre">b23_pressure_mpa()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.thermodynamics.utils.if97.b23_temperature_k"><code class="docutils literal notranslate"><span class="pre">b23_temperature_k()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.thermodynamics.utils.if97.region1"><code class="docutils literal notranslate"><span class="pre">region1()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.thermodynamics.utils.if97.region2"><code class="docutils literal notranslate"><span class="pre">region2()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.thermodynamics.utils.if97.region3"><code class="docutils literal notranslate"><span class="pre">region3()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.thermodynamics.utils.if97.region3_density"><code class="docutils literal notranslate"><span class="pre">region3_density()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.thermodynamics.utils.if97.saturation_pressure_mpa"><code class="docutils literal notranslate"><span class="pre">saturation_pressure_mpa()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.thermodynamics.utils.if97.saturation_temperature_k"><code class="docutils literal notranslate"><span class="pre">saturation_temperature_k()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-engineeringkit.thermodynamics.visualizers">Visualizers</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.thermodynamics.visualizers.plot_pv_diagram"><code class="docutils literal notranslate"><span class="pre">plot_pv_diagram()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.thermodynamics.visualizers.plot_saturation_dome"><code class="docutils literal notranslate"><span class="pre">plot_saturation_dome()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.thermodynamics.visualizers.plot_ts_diagram"><code class="docutils literal notranslate"><span class="pre">plot_ts_diagram()</span></code></a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

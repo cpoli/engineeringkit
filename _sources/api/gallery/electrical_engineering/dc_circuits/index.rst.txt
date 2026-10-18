@@ -1,0 +1,86 @@
+
+
+.. _sphx_glr_api_gallery_electrical_engineering_dc_circuits:
+
+DC circuits
+-----------
+
+Ohm's law, bridges and Kirchhoff's laws for resistive networks.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In 1826 Georg Simon Ohm drove current from a thermocouple, a steady source, through brass wires of different lengths x and read the current on a torsion galvanometer. The readings fitted X = a/(b + x): a fixed &quot;exciting force&quot; a divided by the total resistance of the wire plus the rest of the circuit, b. In modern form that is V = IR (~engineeringkit.electrical_engineering.ohms_law). This example rebuilds Ohm&#x27;s experiment, recovers the source voltage and internal resistance from the readings, and checks the series and parallel rules that follow from the law.">
+
+.. only:: html
+
+  .. image:: /api/gallery/electrical_engineering/dc_circuits/images/thumb/sphx_glr_plot_01_ohm_law_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/electrical_engineering/dc_circuits/plot_01_ohm_law`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Ohm's law</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Samuel Hunter Christie described the circuit in 1833, and Charles Wheatstone made it the standard way to measure resistance in his 1843 Bakerian lecture. Two voltage dividers share a source; a galvanometer joins their midpoints. When R_1/R_2 = R_3/R_4 the midpoints sit at the same potential and the galvanometer reads zero, whatever the source voltage (~engineeringkit.electrical_engineering.wheatstone_balanced). A null reading needs no calibrated meter, which is why the bridge is so accurate. This example balances a bridge against an unknown resistor and shows how sharply the null depends on it.">
+
+.. only:: html
+
+  .. image:: /api/gallery/electrical_engineering/dc_circuits/images/thumb/sphx_glr_plot_02_wheatstone_bridge_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/electrical_engineering/dc_circuits/plot_02_wheatstone_bridge`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Wheatstone's bridge</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In 1845, as a student in Königsberg, Gustav Kirchhoff stated the two laws that make any network of conductors solvable: the currents meeting at a junction sum to zero, and the voltages around any closed loop sum to zero. Writing the current law at every node, with Ohm&#x27;s law for each branch, gives a linear system G\mathbf{v} = \mathbf{i}, nodal analysis. Circuit simulators add one row per voltage source, modified nodal analysis (~engineeringkit.electrical_engineering.nodal_analysis). This example solves a two-source ladder network, checks both of Kirchhoff&#x27;s laws on the result, and verifies superposition.">
+
+.. only:: html
+
+  .. image:: /api/gallery/electrical_engineering/dc_circuits/images/thumb/sphx_glr_plot_03_kirchhoff_nodal_analysis_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/electrical_engineering/dc_circuits/plot_03_kirchhoff_nodal_analysis`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Kirchhoff's circuit laws and nodal analysis</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/electrical_engineering/dc_circuits/plot_01_ohm_law
+   /api/gallery/electrical_engineering/dc_circuits/plot_02_wheatstone_bridge
+   /api/gallery/electrical_engineering/dc_circuits/plot_03_kirchhoff_nodal_analysis
+

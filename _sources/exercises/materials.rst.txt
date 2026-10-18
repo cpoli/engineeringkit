@@ -17,7 +17,8 @@ torsional shear stress of 50 MPa. The steel yields at 250 MPa in tension.
 Find the principal stresses, the Tresca and von Mises equivalent stresses,
 and the safety factor against yield by each criterion.
 
-*Builds on:* :doc:`/api/gallery/materials/index`.
+*Builds on:* :doc:`/api/gallery/materials/yield/plot_01_tresca_criterion` and
+:doc:`/api/gallery/materials/yield/plot_02_von_mises_criterion`.
 
 .. dropdown:: Solution
 
@@ -53,7 +54,8 @@ crack to it, with Paris's law :math:`da/dN = C\,\Delta K^m`,
 :math:`C = 10^{-11}` m/cycle per (MPa√m)³ and :math:`m = 3`. Integrate
 numerically and check with the closed form.
 
-*Builds on:* :doc:`/api/gallery/materials/index`.
+*Builds on:* :doc:`/api/gallery/materials/fracture/plot_02_irwin_stress_intensity` and
+:doc:`/api/gallery/materials/fracture/plot_03_paris_law`.
 
 .. dropdown:: Solution
 
@@ -96,7 +98,7 @@ and across the fibres with the rule of mixtures, its density, and its
 specific stiffness :math:`E/\rho` compared with steel (200 GPa,
 7850 kg/m³) and aluminium (70 GPa, 2700 kg/m³).
 
-*Builds on:* :doc:`/api/gallery/materials/index` (the Voigt and Reuss bounds).
+*Builds on:* :doc:`/api/gallery/materials/composites/plot_01_voigt_reuss_bounds`.
 
 .. dropdown:: Solution
 

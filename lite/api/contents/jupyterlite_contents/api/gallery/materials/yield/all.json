@@ -1,0 +1,43 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-10-18T12:25:15.941882Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-18T12:25:13.344345Z",
+      "mimetype": null,
+      "name": "plot_02_von_mises_criterion.ipynb",
+      "path": "jupyterlite_contents/api/gallery/materials/yield/plot_02_von_mises_criterion.ipynb",
+      "size": 4591,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-18T12:25:15.941685Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-18T12:25:13.344229Z",
+      "mimetype": null,
+      "name": "plot_01_tresca_criterion.ipynb",
+      "path": "jupyterlite_contents/api/gallery/materials/yield/plot_01_tresca_criterion.ipynb",
+      "size": 3875,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2026-10-18T12:25:15.941882Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-10-18T12:25:15.941882Z",
+  "mimetype": null,
+  "name": "yield",
+  "path": "jupyterlite_contents/api/gallery/materials/yield",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

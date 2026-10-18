@@ -1,0 +1,86 @@
+
+
+.. _sphx_glr_api_gallery_structural_engineering_trusses:
+
+Trusses
+-------
+
+Pin-jointed trusses by statics and by stiffness.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="American railway bridges of the 1840s were built from rules of thumb, and some fell down. Squire Whipple, in A Work on Bridge Building (1847), showed that the force in every member of a pin-jointed truss follows from statics alone. Each joint is in equilibrium, so its two equations, \sum F_x = 0 and \sum F_y = 0, give the forces in two members. Start at a support and work across the truss, two unknowns at a time (~engineeringkit.structural_engineering.method_of_joints). The example solves a six-panel Pratt truss under a train of panel loads and checks the chord forces against the method of sections: at any vertical cut, the chord force is the bending moment divided by the truss depth.">
+
+.. only:: html
+
+  .. image:: /api/gallery/structural_engineering/trusses/images/thumb/sphx_glr_plot_01_whipple_method_of_joints_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/structural_engineering/trusses/plot_01_whipple_method_of_joints`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Whipple's method of joints</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="James Clerk Maxwell&#x27;s short 1864 paper &quot;On the calculation of the equilibrium and stiffness of frames&quot; made two contributions. First, a counting rule: a plane frame of j joints needs 2j - 3 bars to be stiff, or, counting the r support reactions, m + r = 2j for a statically determinate truss (~engineeringkit.structural_engineering.truss_determinacy). The count is necessary but not sufficient, since bars can be placed where they are not needed. Second, the reciprocal theorem: the deflection at joint i caused by a unit load at joint j equals the deflection at j caused by a unit load at i (~engineeringkit.structural_engineering.maxwell_betti_reciprocity). Betti generalised it in 1872. The example counts four trusses, shows one that passes the count and is still a mechanism, and checks reciprocity on a statically indeterminate truss.">
+
+.. only:: html
+
+  .. image:: /api/gallery/structural_engineering/trusses/images/thumb/sphx_glr_plot_02_maxwell_rigidity_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/structural_engineering/trusses/plot_02_maxwell_rigidity`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Maxwell's rigidity count and reciprocal theorem</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="At Boeing in the early 1950s, M. J. Turner, R. W. Clough, H. C. Martin and L. J. Topp needed the stiffness of swept jet wings, which hand methods could not give. Their 1956 paper wrote down a stiffness matrix for each element, added the matrices into one global matrix K according to which joints each element connects, and solved K_{ff}u_f = F_f on a computer. This is the direct stiffness method, the seed of the finite element method (~engineeringkit.structural_engineering.PlanarTruss). It handles statically indeterminate trusses as easily as determinate ones, but it fails without warning near a mechanism. The solver therefore reports \operatorname{cond}(K_{ff}) and warns when it is large. The example checks a redundant bridge truss against Clapeyron&#x27;s energy theorem, then flattens a joint until the warning fires.">
+
+.. only:: html
+
+  .. image:: /api/gallery/structural_engineering/trusses/images/thumb/sphx_glr_plot_03_direct_stiffness_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/structural_engineering/trusses/plot_03_direct_stiffness`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Turner, Clough, Martin and Topp: the direct stiffness method</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/structural_engineering/trusses/plot_01_whipple_method_of_joints
+   /api/gallery/structural_engineering/trusses/plot_02_maxwell_rigidity
+   /api/gallery/structural_engineering/trusses/plot_03_direct_stiffness
+

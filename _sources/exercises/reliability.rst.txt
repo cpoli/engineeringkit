@@ -17,7 +17,7 @@ shapes :math:`\beta = 0.5`, 1 and 3. For each, find the mean time to
 failure, the :math:`B_{10}` life (the age by which 10% have failed) and
 whether the hazard rate is falling, constant or rising.
 
-*Builds on:* :doc:`/api/gallery/reliability/index`.
+*Builds on:* :doc:`/api/gallery/reliability/lifetimes/plot_03_weibull_distribution`.
 
 .. dropdown:: Solution
 
@@ -53,7 +53,7 @@ the mean time to failure when the system needs all three, any two, or any
 one. Check the MTTFs against :math:`1/(3\lambda)`, :math:`5/(6\lambda)`
 and :math:`11/(6\lambda)`.
 
-*Builds on:* :doc:`/api/gallery/reliability/index`.
+*Builds on:* :doc:`/api/gallery/reliability/systems/plot_03_k_out_of_n`.
 
 .. dropdown:: Solution
 
@@ -90,7 +90,8 @@ dangerous undetected failure rate of :math:`2\times10^{-6}` per hour and
 is proof-tested once a year. Find its average probability of failure on
 demand and its SIL band; how often must it be tested to reach SIL 3?
 
-*Builds on:* :doc:`/api/gallery/reliability/index`.
+*Builds on:* :doc:`/api/gallery/reliability/maintenance/plot_02_markov_availability` and
+:doc:`/api/gallery/reliability/risk/plot_03_iec61508_sil`.
 
 .. dropdown:: Solution
 

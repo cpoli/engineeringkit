@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.714** total execution time for 3 files **from api/gallery/communications/modulation**:
+**00:00.397** total execution time for 3 files **from api/gallery/communications/modulation**:
 
 .. container::
 
@@ -33,11 +33,11 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_communications_modulation_plot_01_fessenden_amplitude_modulation.py` (``plot_01_fessenden_amplitude_modulation.py``)
-     - 00:00.331
+     - 00:00.180
      - 0.0
    * - :ref:`sphx_glr_api_gallery_communications_modulation_plot_03_armstrong_frequency_modulation.py` (``plot_03_armstrong_frequency_modulation.py``)
-     - 00:00.217
+     - 00:00.126
      - 0.0
    * - :ref:`sphx_glr_api_gallery_communications_modulation_plot_02_carson_suppressed_carrier.py` (``plot_02_carson_suppressed_carrier.py``)
-     - 00:00.166
+     - 00:00.091
      - 0.0

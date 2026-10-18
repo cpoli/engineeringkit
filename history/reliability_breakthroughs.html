@@ -6,8 +6,16 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Breakthroughs in Reliability" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://cpoli.github.io/engineeringkit/history/reliability_breakthroughs.html" />
+<meta property="og:site_name" content="engineeringkit" />
+<meta property="og:description" content="Domain hub · History · Examples · API reference “Probabilistic logics and the synthesis of reliable organisms from unreliable components.” – John von Neumann, title of his 1956 paper Reliability en..." />
+<meta property="og:image" content="https://cpoli.github.io/engineeringkit/_static/images/readme_hero.png" />
+<meta property="og:image:alt" content="engineeringkit" />
+<meta name="description" content="Domain hub · History · Examples · API reference “Probabilistic logics and the synthesis of reliable organisms from unreliable components.” – John von Neumann, title of his 1956 paper Reliability en..." />
 
-    <title>Breakthroughs in Reliability &#8212; engineeringkit 0.1.0 documentation</title>
+    <title>Breakthroughs in Reliability &#8212; engineeringkit</title>
   
   
   
@@ -30,6 +38,7 @@
 <link href="../_static/styles/pydata-sphinx-theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx_autodoc_typehints.css?v=057ac668" />
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Vibur" />
     <link rel="stylesheet" type="text/css" href="../_static/jupyterlite_sphinx.css?v=f676e775" />
@@ -55,6 +64,7 @@
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'history/reliability_breakthroughs';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="canonical" href="https://cpoli.github.io/engineeringkit/history/reliability_breakthroughs.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Examples" href="../examples/index.html" />
@@ -404,50 +414,409 @@
 <div class="subpkg-nav docutils container">
 <p><a class="reference internal" href="../_generated/subpackages/reliability.html"><span class="doc">Domain hub</span></a> · <a class="reference internal" href="#"><span class="doc">History</span></a> · <a class="reference internal" href="../api/gallery/reliability/index.html"><span class="doc">Examples</span></a> · <a class="reference internal" href="../api/reliability.html"><span class="doc">API reference</span></a></p>
 </div>
-<p>These landmarks trace a conceptual development from a physical law to a useful
-engineering model. The order is a learning path, not a dated chronology or a
-claim that any idea had a single inventor. SI units apply unless documented
-otherwise.</p>
-<section id="survival-analysis-failures-become-distributions">
-<h2>Survival analysis: failures become distributions<a class="headerlink" href="#survival-analysis-failures-become-distributions" title="Link to this heading">#</a></h2>
-<p>Reliability is the probability of surviving beyond a time. A constant hazard gives the exponential model, while Weibull shape permits increasing or decreasing hazard.</p>
-<div class="math notranslate nohighlight">
-\[R(t)=e^{-(t/\eta)^\beta}\]</div>
-<p>Use <a class="reference internal" href="../api/reliability.html#engineeringkit.reliability.weibull_reliability" title="engineeringkit.reliability.weibull_reliability"><code class="xref py py-obj docutils literal notranslate"><span class="pre">engineeringkit.reliability.weibull_reliability</span></code></a> to explore the model.
-Time and scale must share units; fitting a distribution and checking censoring are outside these algebraic helpers.</p>
-</section>
-<section id="redundancy-system-architecture-changes-survival">
-<h2>Redundancy: system architecture changes survival<a class="headerlink" href="#redundancy-system-architecture-changes-survival" title="Link to this heading">#</a></h2>
-<p>Series systems require every component to survive; parallel systems need at least one. Their simple product expressions make independence a critical modeling assumption.</p>
-<div class="math notranslate nohighlight">
-\[R_s=\prod_i R_i,\qquad R_p=1-\prod_i(1-R_i)\]</div>
-<p>Use <a class="reference internal" href="../api/reliability.html#engineeringkit.reliability.parallel_reliability" title="engineeringkit.reliability.parallel_reliability"><code class="xref py py-obj docutils literal notranslate"><span class="pre">engineeringkit.reliability.parallel_reliability</span></code></a> to explore the model.
-Common-cause failures violate independence and can sharply reduce the benefit of redundancy.</p>
-</section>
-<section id="repair-availability-answers-a-different-question">
-<h2>Repair: availability answers a different question<a class="headerlink" href="#repair-availability-answers-a-different-question" title="Link to this heading">#</a></h2>
-<p>A repairable system can fail repeatedly yet be available for most of its lifetime. Steady availability combines mean operating time and mean repair time.</p>
-<div class="math notranslate nohighlight">
-\[A=MTBF/(MTBF+MTTR)\]</div>
-<p>Use <a class="reference internal" href="../api/reliability.html#engineeringkit.reliability.availability" title="engineeringkit.reliability.availability"><code class="xref py py-obj docutils literal notranslate"><span class="pre">engineeringkit.reliability.availability</span></code></a> to explore the model.
-This long-run alternating-renewal ratio is distinct from the probability of no failure during a mission.</p>
-</section>
-<section id="explore-and-verify">
-<h2>Explore and verify<a class="headerlink" href="#explore-and-verify" title="Link to this heading">#</a></h2>
-<p><a class="reference internal" href="../guides/reliability.html"><span class="doc">Reliability: distributions, independence and rate units</span></a> records units, conventions and independent checks.
-Compare the gallery output against the equations before extending a model.</p>
-<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Two independent components provide a simple comparison of series and parallel architectures. At the component half-life, the series system survives with probability one quarter and the parallel system with probability three quarters."><img alt="" src="../_images/sphx_glr_plot_reliability_benchmark_thumb.png" />
-<p><a class="reference internal" href="../api/gallery/reliability/plot_reliability_benchmark.html"><span class="doc">Redundancy under independent failures</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Redundancy under independent failures</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Compute an inspectable engineering model using SI inputs. See the linked domain guide for assumptions and benchmark checks."><img alt="" src="../_images/sphx_glr_plot_reliability_models_thumb.png" />
-<p><a class="reference internal" href="../api/gallery/reliability/plot_reliability_models.html"><span class="doc">Weibull survival and shape</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Weibull survival and shape</div>
+<blockquote class="epigraph">
+<div><p>“Probabilistic logics and the synthesis of reliable organisms from
+unreliable components.”
+– John von Neumann, title of his 1956 paper</p>
+</div></blockquote>
+<p>Reliability engineering asks how long things last and how to make systems
+that last longer than their parts. Its mathematics began with life
+insurance: the first life tables were estimates of a hazard rate. Poisson
+supplied the law of rare events, and after the Second World War aircraft
+structures, vacuum-tube electronics and missiles turned these ideas into a
+discipline. Engineers learned to fit lifetime distributions to censored
+test data, to combine components into series, parallel and voting systems,
+to trace accidents through fault and event trees, and to schedule repair
+and replacement. The entries trace the ideas behind
+<a class="reference internal" href="../api/reliability.html#module-engineeringkit.reliability" title="engineeringkit.reliability"><code class="xref py py-mod docutils literal notranslate"><span class="pre">engineeringkit.reliability</span></code></a>. Each links to the implementing function
+and to a gallery example devoted to it.</p>
+<nav class="contents local" id="timeline">
+<p class="topic-title">Timeline</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#halley-s-life-table-and-the-hazard-rate" id="id1">1693 – Halley’s Life Table and the Hazard Rate</a></p></li>
+<li><p><a class="reference internal" href="#poisson-s-law-of-rare-events" id="id2">1837 – Poisson’s Law of Rare Events</a></p></li>
+<li><p><a class="reference internal" href="#freudenthal-s-stress-strength-interference" id="id3">1947 – Freudenthal’s Stress-Strength Interference</a></p></li>
+<li><p><a class="reference internal" href="#weibull-s-distribution" id="id4">1951 – Weibull’s Distribution</a></p></li>
+<li><p><a class="reference internal" href="#epstein-and-sobel-s-exponential-life-testing" id="id5">1953 – Epstein and Sobel’s Exponential Life Testing</a></p></li>
+<li><p><a class="reference internal" href="#von-neumann-s-redundancy" id="id6">1956 – Von Neumann’s Redundancy</a></p></li>
+<li><p><a class="reference internal" href="#the-agree-report-series-systems-and-mtbf" id="id7">1957 – The AGREE Report: Series Systems and MTBF</a></p></li>
+<li><p><a class="reference internal" href="#kaplan-and-meier-s-product-limit-estimator" id="id8">1958 – Kaplan and Meier’s Product-Limit Estimator</a></p></li>
+<li><p><a class="reference internal" href="#birnbaum-esary-and-saunders-s-k-out-of-n-systems" id="id9">1961 – Birnbaum, Esary and Saunders’s k-out-of-n Systems</a></p></li>
+<li><p><a class="reference internal" href="#watson-s-fault-tree" id="id10">1961 – Watson’s Fault Tree</a></p></li>
+<li><p><a class="reference internal" href="#duane-s-reliability-growth" id="id11">1964 – Duane’s Reliability Growth</a></p></li>
+<li><p><a class="reference internal" href="#barlow-and-proschan-s-age-replacement" id="id12">1965 – Barlow and Proschan’s Age Replacement</a></p></li>
+<li><p><a class="reference internal" href="#markov-models-of-repairable-systems" id="id13">1965 – Markov Models of Repairable Systems</a></p></li>
+<li><p><a class="reference internal" href="#birnbaum-s-component-importance" id="id14">1969 – Birnbaum’s Component Importance</a></p></li>
+<li><p><a class="reference internal" href="#hasofer-and-lind-s-reliability-index" id="id15">1974 – Hasofer and Lind’s Reliability Index</a></p></li>
+<li><p><a class="reference internal" href="#wash-1400-event-trees" id="id16">1975 – WASH-1400: Event Trees</a></p></li>
+<li><p><a class="reference internal" href="#iec-61508-and-safety-integrity-levels" id="id17">1998 – IEC 61508 and Safety Integrity Levels</a></p></li>
+<li><p><a class="reference internal" href="#see-also" id="id18">See Also</a></p></li>
+</ul>
+</nav>
+<section id="halley-s-life-table-and-the-hazard-rate">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">1693 – Halley’s Life Table and the Hazard Rate</a><a class="headerlink" href="#halley-s-life-table-and-the-hazard-rate" title="Link to this heading">#</a></h2>
+<p>Edmond Halley obtained five years of births and burials from the city of
+Breslau, a population with little migration, and tabulated how many of
+1000 one-year-olds would still be alive at each later age. He used the
+table to price life annuities. The fraction of those alive at one age who
+die before the next is the probability of failing in that interval given
+survival so far, which reliability engineers call the <em>hazard rate</em>.
+Halley’s hazard falls through childhood, is lowest around age ten and then
+rises steadily: the bathtub shape that also describes many machines, with
+early failures, a long period of random ones and wear-out.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/reliability.html#engineeringkit.reliability.life_table_hazard" title="engineeringkit.reliability.life_table_hazard"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.reliability.life_table_hazard()</span></code></a> and
+<a class="reference internal" href="../api/reliability.html#engineeringkit.reliability.bathtub_hazard" title="engineeringkit.reliability.bathtub_hazard"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.reliability.bathtub_hazard()</span></code></a>. The example computes the
+hazard from Halley’s table and fits a bathtub curve through it.</p>
+<p><em>References:</em> E. Halley, “An estimate of the degrees of the mortality of
+mankind, drawn from curious tables of the births and funerals at the city
+of Breslaw,” <em>Phil. Trans. R. Soc.</em> 17 (1693) 596-610.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="In 1693 Edmond Halley used five years of births and burials from Breslau to tabulate how many of 1000 one-year-olds were still alive at each later age. The fall from one age to the next is the probability of dying in that year, the first estimate of what reliability engineers call the hazard rate (~engineeringkit.reliability.life_table_hazard). Halley&#x27;s hazard is high in infancy, lowest around age ten and rises steadily with age: the bathtub curve (~engineeringkit.reliability.bathtub_hazard) that describes many machines as well as people."><img alt="" src="../_images/sphx_glr_plot_01_halley_life_table_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/reliability/lifetimes/plot_01_halley_life_table.html"><span class="doc">Halley’s life table and the hazard rate</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Halley's life table and the hazard rate</div>
 </div></div></section>
-<section id="further-reading">
-<h2>Further reading<a class="headerlink" href="#further-reading" title="Link to this heading">#</a></h2>
-<p><a class="reference external" href="https://www.itl.nist.gov/div898/handbook/apr/apr_d.htm">University or agency teaching reference</a>
-provides background beyond the implemented subset. The equations and examples
-here are concise original explanations, not reproductions of that reference.</p>
+<section id="poisson-s-law-of-rare-events">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">1837 – Poisson’s Law of Rare Events</a><a class="headerlink" href="#poisson-s-law-of-rare-events" title="Link to this heading">#</a></h2>
+<p>Siméon Denis Poisson, studying the verdicts of juries, derived the limit of
+the binomial distribution when there are many trials and each success is
+rare: the number of events in a fixed exposure has probability
+<span class="math notranslate nohighlight">\((\lambda T)^k e^{-\lambda T}/k!\)</span>. A fleet of units that fail
+independently at a constant rate is exactly this situation, with
+<span class="math notranslate nohighlight">\(\lambda T\)</span> expected failures over a total operating time
+<span class="math notranslate nohighlight">\(T\)</span>. The distribution sizes spare-parts kits and underlies every
+test of a constant failure rate.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/reliability.html#engineeringkit.reliability.poisson_failures_probability" title="engineeringkit.reliability.poisson_failures_probability"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.reliability.poisson_failures_probability()</span></code></a>
+and <a class="reference internal" href="../api/reliability.html#engineeringkit.reliability.expected_failures" title="engineeringkit.reliability.expected_failures"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.reliability.expected_failures()</span></code></a>. The example
+simulates failures with exponential gaps, checks the count distribution and
+sizes a spares kit.</p>
+<p><em>References:</em> S. D. Poisson, <em>Recherches sur la probabilité des jugements
+en matière criminelle et en matière civile</em> (Bachelier, Paris, 1837),
+§81.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Poisson (1837) derived the distribution of the number of rare events among many trials, P(k) = (\lambda T)^k e^{-\lambda T}/k! (~engineeringkit.reliability.poisson_failures_probability). A fleet of units failing independently at a constant rate \lambda has \lambda T expected failures in total operating time T (~engineeringkit.reliability.expected_failures), and the count is Poisson. The example simulates failures as exponential gaps and checks the counts, then sizes a spares kit."><img alt="" src="../_images/sphx_glr_plot_02_poisson_failures_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/reliability/lifetimes/plot_02_poisson_failures.html"><span class="doc">Poisson’s law of rare failures</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Poisson's law of rare failures</div>
+</div></div></section>
+<section id="freudenthal-s-stress-strength-interference">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">1947 – Freudenthal’s Stress-Strength Interference</a><a class="headerlink" href="#freudenthal-s-stress-strength-interference" title="Link to this heading">#</a></h2>
+<p>Alfred Freudenthal argued that a structure’s safety factor, mean strength
+over mean load, cannot measure its safety: two designs with the same factor
+fail at very different rates if their loads and strengths scatter
+differently. Safety is the probability that strength exceeds load, which
+depends on how far the two distributions overlap. For independent normal
+variables it is <span class="math notranslate nohighlight">\(\Phi(\beta)\)</span> with
+<span class="math notranslate nohighlight">\(\beta = (\mu_S - \mu_s)/\sqrt{\sigma_S^2 + \sigma_s^2}\)</span>. The paper
+started probabilistic structural design.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/reliability.html#engineeringkit.reliability.stress_strength_reliability" title="engineeringkit.reliability.stress_strength_reliability"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.reliability.stress_strength_reliability()</span></code></a>.
+The example checks the closed form by Monte Carlo and shows two designs
+with the same safety factor and different reliabilities.</p>
+<p><em>References:</em> A. M. Freudenthal, “The safety of structures,” <em>Trans. ASCE</em>
+112 (1947) 125-159.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Alfred Freudenthal (1947) argued that a safety factor, the ratio of mean strength to mean load, says nothing about safety on its own: two designs with the same factor can fail at very different rates if their loads and strengths scatter differently. What matters is the overlap of the two distributions. For independent normal strength S and stress s, R = P(S &gt; s) = \Phi(\beta) with \beta = (\mu_S - \mu_s)/\sqrt{\sigma_S^2 + \sigma_s^2} (~engineeringkit.reliability.stress_strength_reliability)."><img alt="" src="../_images/sphx_glr_plot_01_freudenthal_interference_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/reliability/structural/plot_01_freudenthal_interference.html"><span class="doc">Freudenthal’s stress-strength interference</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Freudenthal's stress-strength interference</div>
+</div></div></section>
+<section id="weibull-s-distribution">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">1951 – Weibull’s Distribution</a><a class="headerlink" href="#weibull-s-distribution" title="Link to this heading">#</a></h2>
+<p>Waloddi Weibull proposed a distribution, <span class="math notranslate nohighlight">\(R(t) = e^{-(t/\eta)^\beta}\)</span>,
+for data as varied as the yield strength of steel, the size of fly ash and
+the fatigue life of bearings. Its shape parameter sets the hazard: falling
+for <span class="math notranslate nohighlight">\(\beta &lt; 1\)</span>, constant for <span class="math notranslate nohighlight">\(\beta = 1\)</span> and rising above.
+Because <span class="math notranslate nohighlight">\(\ln(-\ln R)\)</span> is linear in <span class="math notranslate nohighlight">\(\ln t\)</span>, data can be fitted
+with a ruler on Weibull probability paper. The distribution became the
+standard model of component life.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/reliability.html#engineeringkit.reliability.weibull_reliability" title="engineeringkit.reliability.weibull_reliability"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.reliability.weibull_reliability()</span></code></a>,
+<a class="reference internal" href="../api/reliability.html#engineeringkit.reliability.weibull_cdf" title="engineeringkit.reliability.weibull_cdf"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.reliability.weibull_cdf()</span></code></a>,
+<a class="reference internal" href="../api/reliability.html#engineeringkit.reliability.weibull_hazard" title="engineeringkit.reliability.weibull_hazard"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.reliability.weibull_hazard()</span></code></a> and
+<a class="reference internal" href="../api/reliability.html#engineeringkit.reliability.weibull_mttf" title="engineeringkit.reliability.weibull_mttf"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.reliability.weibull_mttf()</span></code></a>. The example fits a small
+life test on Weibull axes and compares the mean life with the gamma-function
+formula.</p>
+<p><em>References:</em> W. Weibull, “A statistical distribution function of wide
+applicability,” <em>J. Appl. Mech.</em> 18 (1951) 293-297.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Waloddi Weibull (1951) proposed R(t) = e^{-(t/\eta)^\beta} (~engineeringkit.reliability.weibull_reliability) for anything from the strength of steel to the life of bearings. The shape \beta sets the hazard (~engineeringkit.reliability.weibull_hazard): falling for \beta &lt; 1, constant at 1, rising above. Because \ln(-\ln R) = \beta \ln t - \beta \ln \eta, failure data plotted on those axes fall on a line whose slope is \beta. The example fits a small life test that way and compares the mean life with weibull_mttf."><img alt="" src="../_images/sphx_glr_plot_03_weibull_distribution_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/reliability/lifetimes/plot_03_weibull_distribution.html"><span class="doc">Weibull’s distribution and the Weibull plot</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Weibull's distribution and the Weibull plot</div>
+</div></div></section>
+<section id="epstein-and-sobel-s-exponential-life-testing">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">1953 – Epstein and Sobel’s Exponential Life Testing</a><a class="headerlink" href="#epstein-and-sobel-s-exponential-life-testing" title="Link to this heading">#</a></h2>
+<p>Benjamin Epstein and Milton Sobel worked out how to demonstrate a mean life
+from a test that is stopped before every unit has failed. For exponential
+lives the <em>total time on test</em>, summed over failed and surviving units,
+carries all the information. The MTBF estimate is that time divided by the
+number of failures <span class="math notranslate nohighlight">\(r\)</span>, and twice the total time over the true MTBF is
+chi-square with <span class="math notranslate nohighlight">\(2r\)</span> degrees of freedom, which gives exact confidence
+bounds. Their results became the basis of the US military’s reliability
+demonstration plans.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/reliability.html#engineeringkit.reliability.exponential_reliability" title="engineeringkit.reliability.exponential_reliability"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.reliability.exponential_reliability()</span></code></a>,
+<a class="reference internal" href="../api/reliability.html#engineeringkit.reliability.exponential_mttf" title="engineeringkit.reliability.exponential_mttf"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.reliability.exponential_mttf()</span></code></a>,
+<a class="reference internal" href="../api/reliability.html#engineeringkit.reliability.failure_rate_from_mtbf" title="engineeringkit.reliability.failure_rate_from_mtbf"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.reliability.failure_rate_from_mtbf()</span></code></a> and
+<a class="reference internal" href="../api/reliability.html#engineeringkit.reliability.mtbf_confidence_bounds" title="engineeringkit.reliability.mtbf_confidence_bounds"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.reliability.mtbf_confidence_bounds()</span></code></a>. The example
+repeats a failure-terminated test many times and checks the coverage of the
+90% bounds.</p>
+<p><em>References:</em> B. Epstein and M. Sobel, “Life testing,” <em>J. Amer. Statist.
+Assoc.</em> 48 (1953) 486-502.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="How long must a test run, and with how many units, to demonstrate an MTBF? Epstein and Sobel (1953) showed that for exponential lives the total time on test T, summed over failed and surviving units, carries all the information: \hat\theta = T/r after r failures, and 2T/\theta is chi-square with 2r degrees of freedom. That gives exact confidence bounds (~engineeringkit.reliability.mtbf_confidence_bounds). The example stops a test of 12 units at the fourth failure, many times over, and checks that the 90% bounds catch the true MTBF 90% of the time."><img alt="" src="../_images/sphx_glr_plot_04_epstein_sobel_life_testing_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/reliability/lifetimes/plot_04_epstein_sobel_life_testing.html"><span class="doc">Epstein and Sobel’s exponential life testing</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Epstein and Sobel's exponential life testing</div>
+</div></div></section>
+<section id="von-neumann-s-redundancy">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">1956 – Von Neumann’s Redundancy</a><a class="headerlink" href="#von-neumann-s-redundancy" title="Link to this heading">#</a></h2>
+<p>John von Neumann asked how a computer, or a brain, can work when each of
+its components is unreliable. Active parallel redundancy, <span class="math notranslate nohighlight">\(1 - (1 -
+r)^n\)</span>, survives if any copy survives. For logic, where a wrong output is as
+bad as none, he used majority voting: three copies and a voter work with
+probability <span class="math notranslate nohighlight">\(3r^2 - 2r^3\)</span>. Voting on voters drives the error toward
+zero, but only if each part is right more than half the time. The paper
+founded the theory of fault-tolerant computing.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/reliability.html#engineeringkit.reliability.parallel_reliability" title="engineeringkit.reliability.parallel_reliability"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.reliability.parallel_reliability()</span></code></a>.
+The example compares parallel and triple-modular redundancy and iterates
+the majority vote.</p>
+<p><em>References:</em> J. von Neumann, “Probabilistic logics and the synthesis of
+reliable organisms from unreliable components,” in C. E. Shannon and J.
+McCarthy (eds.), <em>Automata Studies</em> (Princeton University Press, 1956)
+43-98.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="John von Neumann&#x27;s 1956 lectures asked how a computer, or a brain, can work when every component is unreliable. Two answers came out. Active parallel redundancy, 1 - (1 - r)^n (~engineeringkit.reliability.parallel_reliability), survives if any copy survives. For logic, where a wrong output is as bad as none, he used majority voting: three copies and a voter give 3r^2 - 2r^3, and voting on voters drives reliability toward one, but only if each part is better than a coin toss, r &gt; 1/2."><img alt="" src="../_images/sphx_glr_plot_01_von_neumann_redundancy_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/reliability/systems/plot_01_von_neumann_redundancy.html"><span class="doc">Von Neumann’s reliable machines from unreliable parts</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Von Neumann's reliable machines from unreliable parts</div>
+</div></div></section>
+<section id="the-agree-report-series-systems-and-mtbf">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">1957 – The AGREE Report: Series Systems and MTBF</a><a class="headerlink" href="#the-agree-report-series-systems-and-mtbf" title="Link to this heading">#</a></h2>
+<p>In the early 1950s much of the US forces’ electronic equipment was out of
+service at any one time, mostly because of vacuum-tube failures. The
+Advisory Group on Reliability of Electronic Equipment (AGREE) recommended
+that reliability be specified as a number in contracts, predicted from
+parts counts and demonstrated by test. Its model was a series system of
+parts with constant failure rates: the system’s failure rate is the sum of
+the parts’ rates and its MTBF the reciprocal, so reliability falls with
+every part added.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/reliability.html#engineeringkit.reliability.series_reliability" title="engineeringkit.reliability.series_reliability"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.reliability.series_reliability()</span></code></a>,
+<a class="reference internal" href="../api/reliability.html#engineeringkit.reliability.exponential_hazard" title="engineeringkit.reliability.exponential_hazard"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.reliability.exponential_hazard()</span></code></a> and
+<a class="reference internal" href="../api/reliability.html#engineeringkit.reliability.exponential_failure_probability" title="engineeringkit.reliability.exponential_failure_probability"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.reliability.exponential_failure_probability()</span></code></a>. The
+example makes a parts-count prediction for a receiver and checks it
+against the product of the parts’ reliabilities.</p>
+<p><em>References:</em> Advisory Group on Reliability of Electronic Equipment,
+<em>Reliability of Military Electronic Equipment</em> (Office of the Assistant
+Secretary of Defense, Washington, 4 June 1957).</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="In the early 1950s, most of the US Navy&#x27;s electronics was out of action at any given time, largely because of vacuum-tube failures. The Advisory Group on Reliability of Electronic Equipment (AGREE) reported in 1957 that reliability must be specified as a number, predicted and demonstrated by test. Its working model was a series system of parts with constant failure rates: the system&#x27;s hazard (~engineeringkit.reliability.exponential_hazard) is the sum of the parts&#x27; rates and its MTBF the reciprocal. More parts means less reliability, R_s = \prod R_i (~engineeringkit.reliability.series_reliability)."><img alt="" src="../_images/sphx_glr_plot_02_agree_series_systems_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/reliability/systems/plot_02_agree_series_systems.html"><span class="doc">The AGREE report: series systems and MTBF</span></a></p>
+  <div class="sphx-glr-thumbnail-title">The AGREE report: series systems and MTBF</div>
+</div></div></section>
+<section id="kaplan-and-meier-s-product-limit-estimator">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">1958 – Kaplan and Meier’s Product-Limit Estimator</a><a class="headerlink" href="#kaplan-and-meier-s-product-limit-estimator" title="Link to this heading">#</a></h2>
+<p>Field and clinical data are incomplete: some units are still working when
+the data are collected and others are withdrawn for reasons other than
+failure. Edward Kaplan and Paul Meier estimated the survival function by
+multiplying the conditional survival <span class="math notranslate nohighlight">\(1 - d_j/n_j\)</span> at each failure
+time, where <span class="math notranslate nohighlight">\(n_j\)</span> counts only the units still under observation. The
+estimator uses every censored unit for as long as it was observed. Their
+paper became one of the most cited in statistics.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/reliability.html#engineeringkit.reliability.kaplan_meier" title="engineeringkit.reliability.kaplan_meier"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.reliability.kaplan_meier()</span></code></a>, which
+returns a <a class="reference internal" href="../api/reliability.html#engineeringkit.reliability.KaplanMeierResult" title="engineeringkit.reliability.KaplanMeierResult"><code class="xref py py-class docutils literal notranslate"><span class="pre">KaplanMeierResult</span></code></a> with
+Greenwood’s standard errors. The example censors a Weibull sample at random
+and recovers the true survival curve.</p>
+<p><em>References:</em> E. L. Kaplan and P. Meier, “Nonparametric estimation from
+incomplete observations,” <em>J. Amer. Statist. Assoc.</em> 53 (1958) 457-481.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Field data are incomplete: some units are still working when the data are collected, others were removed for reasons other than failure. Dropping them biases the life estimate low; counting them as failures biases it too. Kaplan and Meier (1958) multiplied the conditional survival 1 - d_j/n_j at each failure, where n_j counts only units still under observation (~engineeringkit.reliability.kaplan_meier). The example censors a Weibull sample at random and recovers the true survival curve."><img alt="" src="../_images/sphx_glr_plot_05_kaplan_meier_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/reliability/lifetimes/plot_05_kaplan_meier.html"><span class="doc">Kaplan and Meier’s product-limit estimator</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Kaplan and Meier's product-limit estimator</div>
+</div></div></section>
+<section id="birnbaum-esary-and-saunders-s-k-out-of-n-systems">
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">1961 – Birnbaum, Esary and Saunders’s k-out-of-n Systems</a><a class="headerlink" href="#birnbaum-esary-and-saunders-s-k-out-of-n-systems" title="Link to this heading">#</a></h2>
+<p>Zygmunt Birnbaum, James Esary and Sam Saunders put system reliability on a
+general footing. A <em>structure function</em> says which combinations of working
+components keep the system working, and for independent components the
+system’s reliability follows from it. The <span class="math notranslate nohighlight">\(k\)</span>-out-of-<span class="math notranslate nohighlight">\(n\)</span>
+system, which works if at least <span class="math notranslate nohighlight">\(k\)</span> of its <span class="math notranslate nohighlight">\(n\)</span> identical
+components do, runs from parallel (<span class="math notranslate nohighlight">\(k = 1\)</span>) to series
+(<span class="math notranslate nohighlight">\(k = n\)</span>), and its reliability is a binomial tail.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/reliability.html#engineeringkit.reliability.k_of_n_reliability" title="engineeringkit.reliability.k_of_n_reliability"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.reliability.k_of_n_reliability()</span></code></a>.
+The example checks the binomial formula by enumerating component states and
+computes the mean life of each architecture.</p>
+<p><em>References:</em> Z. W. Birnbaum, J. D. Esary and S. C. Saunders,
+“Multi-component systems and structures and their reliability,”
+<em>Technometrics</em> 3 (1961) 55-77.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Birnbaum, Esary and Saunders (1961) put system reliability on a general footing: a structure function says which combinations of working components keep the system working. The k-out-of-n system, which works if at least k of n identical components do, spans the range from parallel (k = 1) to series (k = n), and its reliability is a binomial tail (~engineeringkit.reliability.k_of_n_reliability). The example checks it by enumerating component states and recovers the mean life of each architecture."><img alt="" src="../_images/sphx_glr_plot_03_k_out_of_n_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/reliability/systems/plot_03_k_out_of_n.html"><span class="doc">Birnbaum, Esary and Saunders’s k-out-of-n systems</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Birnbaum, Esary and Saunders's k-out-of-n systems</div>
+</div></div></section>
+<section id="watson-s-fault-tree">
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">1961 – Watson’s Fault Tree</a><a class="headerlink" href="#watson-s-fault-tree" title="Link to this heading">#</a></h2>
+<p>The US Air Force asked Bell Telephone Laboratories whether the Minuteman
+launch-control system could launch a missile without a valid order. H. A.
+Watson answered with a new diagram that starts from the undesired top event
+and works down through AND and OR gates to basic failures with known
+probabilities. Boeing extended the method to the whole Minuteman system,
+and David Haasl presented it at the first System Safety Symposium in 1965.
+Fault trees became standard in aerospace and nuclear safety. An event that
+feeds more than one branch makes the gate inputs dependent, so the tree
+must then be evaluated over the states of its basic events.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/reliability.html#engineeringkit.reliability.fault_tree_probability" title="engineeringkit.reliability.fault_tree_probability"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.reliability.fault_tree_probability()</span></code></a>.
+The example evaluates a tree with a repeated event exactly, checks it by
+Monte Carlo and shows the error of combining the gates as if independent.</p>
+<p><em>References:</em> H. A. Watson, <em>Launch Control Safety Study</em> (Bell Telephone
+Laboratories, Murray Hill, 1961); D. F. Haasl, “Advanced concepts in fault
+tree analysis,” <em>System Safety Symposium</em> (Seattle, 1965).</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="In 1961 the US Air Force asked Bell Telephone Laboratories whether the Minuteman launch-control system could fire a missile without a valid order. H. A. Watson&#x27;s answer was a new diagram, the fault tree. It starts from the undesired top event and works downward through AND gates (every input must happen) and OR gates (any input will do) until it reaches basic failures whose probabilities are known (~engineeringkit.reliability.fault_tree_probability). Boeing took the method into the rest of the Minuteman programme, and it spread to aviation and nuclear safety. One trap is an event that feeds more than one branch: the gate inputs are then dependent, and combining gates one by one gives the wrong answer."><img alt="" src="../_images/sphx_glr_plot_01_watson_fault_tree_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/reliability/risk/plot_01_watson_fault_tree.html"><span class="doc">Watson’s fault tree</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Watson's fault tree</div>
+</div></div></section>
+<section id="duane-s-reliability-growth">
+<h2><a class="toc-backref" href="#id11" role="doc-backlink">1964 – Duane’s Reliability Growth</a><a class="headerlink" href="#duane-s-reliability-growth" title="Link to this heading">#</a></h2>
+<p>James Duane, at General Electric, plotted the failure records of several
+development programmes, from hydraulic devices to aircraft generators. On
+log-log paper the cumulative MTBF, total test time over total failures,
+rose along a straight line, <span class="math notranslate nohighlight">\(\theta_c = K t^\alpha\)</span>. The
+instantaneous MTBF is <span class="math notranslate nohighlight">\(\theta_c/(1 - \alpha)\)</span>, and the line tells a
+programme how much more testing a reliability target needs. Larry Crow
+later recast the model as a non-homogeneous Poisson process (the AMSAA
+model).</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/reliability.html#engineeringkit.reliability.reliability_growth_duane" title="engineeringkit.reliability.reliability_growth_duane"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.reliability.reliability_growth_duane()</span></code></a>.
+The example simulates a power-law failure process, fits Duane’s line and
+predicts the test time needed to reach a target MTBF.</p>
+<p><em>References:</em> J. T. Duane, “Learning curve approach to reliability
+monitoring,” <em>IEEE Trans. Aerospace</em> 2 (1964) 563-566.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="James Duane, at General Electric&#x27;s Motor and Generator Department, plotted the failure records of five development programmes, from hydraulic devices to aircraft generators. On log-log paper the cumulative MTBF, total test time over total failures, rose along a straight line, each programme with a slope near 0.5. A straight line is a power law, \theta_c = K t^\alpha (~engineeringkit.reliability.reliability_growth_duane), so a few months of data predict how much more testing a reliability target needs. Because the failure count is N(t) = t^{1-\alpha}/K, the current failure rate is dN/dt, and the instantaneous MTBF is the cumulative one divided by 1 - \alpha."><img alt="" src="../_images/sphx_glr_plot_01_duane_growth_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/reliability/growth/plot_01_duane_growth.html"><span class="doc">Duane’s reliability growth</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Duane's reliability growth</div>
+</div></div></section>
+<section id="barlow-and-proschan-s-age-replacement">
+<h2><a class="toc-backref" href="#id12" role="doc-backlink">1965 – Barlow and Proschan’s Age Replacement</a><a class="headerlink" href="#barlow-and-proschan-s-age-replacement" title="Link to this heading">#</a></h2>
+<p>Richard Barlow and Frank Proschan’s <em>Mathematical Theory of Reliability</em>
+used renewal theory to decide when a part should be replaced before it
+fails. Under an age-replacement policy a part is replaced at failure or at
+age <span class="math notranslate nohighlight">\(T\)</span>, whichever comes first. The long-run cost rate is the
+expected cost per cycle over the expected cycle length, and it has a finite
+minimum only if the hazard rises and a failure costs more than a planned
+replacement. With a constant hazard a new part is no better than the old
+one, so planned replacement never pays.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/reliability.html#engineeringkit.reliability.age_replacement_cost_rate" title="engineeringkit.reliability.age_replacement_cost_rate"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.reliability.age_replacement_cost_rate()</span></code></a>
+and <a class="reference internal" href="../api/reliability.html#engineeringkit.reliability.renewal_interval_cost_rate" title="engineeringkit.reliability.renewal_interval_cost_rate"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.reliability.renewal_interval_cost_rate()</span></code></a>. The
+example finds the optimum replacement age of a Weibull part, checks the
+optimality condition and confirms the cost rate by simulation.</p>
+<p><em>References:</em> R. E. Barlow and F. Proschan, <em>Mathematical Theory of
+Reliability</em> (Wiley, New York, 1965), ch. 4.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Should a part be replaced on a schedule, before it fails? Richard Barlow and Frank Proschan answered with renewal theory. Replace at age T or at failure, whichever comes first. Each cycle then costs c_p R(T) + c_f F(T) and lasts \int_0^T R\,dt on average, so the long-run cost rate is their ratio (~engineeringkit.reliability.age_replacement_cost_rate). A finite best age exists only if the hazard rises (Weibull \beta &gt; 1) and a failure costs more than a planned replacement. With a constant hazard a new part is no better than the old one, so planned replacement only adds cost (~engineeringkit.reliability.renewal_interval_cost_rate)."><img alt="" src="../_images/sphx_glr_plot_01_barlow_proschan_replacement_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/reliability/maintenance/plot_01_barlow_proschan_replacement.html"><span class="doc">Barlow and Proschan’s age replacement</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Barlow and Proschan's age replacement</div>
+</div></div></section>
+<section id="markov-models-of-repairable-systems">
+<h2><a class="toc-backref" href="#id13" role="doc-backlink">1965 – Markov Models of Repairable Systems</a><a class="headerlink" href="#markov-models-of-repairable-systems" title="Link to this heading">#</a></h2>
+<p>A unit that fails and is repaired at constant rates is a continuous-time
+Markov chain, and so is any system of such units. Barlow and Proschan gave
+the availability of a single unit, which decays from one to the steady
+state <span class="math notranslate nohighlight">\(\mu/(\lambda + \mu)\)</span> with time constant
+<span class="math notranslate nohighlight">\(1/(\lambda + \mu)\)</span>, and treated larger systems through their
+transition-rate matrices. The state probabilities are the matrix
+exponential of that matrix applied to the initial state, and setting their
+derivatives to zero gives the long-run balance equations.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/reliability.html#engineeringkit.reliability.markov_availability" title="engineeringkit.reliability.markov_availability"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.reliability.markov_availability()</span></code></a>,
+<a class="reference internal" href="../api/reliability.html#engineeringkit.reliability.markov_state_probabilities" title="engineeringkit.reliability.markov_state_probabilities"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.reliability.markov_state_probabilities()</span></code></a>,
+<a class="reference internal" href="../api/reliability.html#engineeringkit.reliability.availability" title="engineeringkit.reliability.availability"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.reliability.availability()</span></code></a>,
+<a class="reference internal" href="../api/reliability.html#engineeringkit.reliability.unavailability" title="engineeringkit.reliability.unavailability"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.reliability.unavailability()</span></code></a>,
+<a class="reference internal" href="../api/reliability.html#engineeringkit.reliability.repair_rate" title="engineeringkit.reliability.repair_rate"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.reliability.repair_rate()</span></code></a> and
+<a class="reference internal" href="../api/reliability.html#engineeringkit.reliability.maintainability" title="engineeringkit.reliability.maintainability"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.reliability.maintainability()</span></code></a>. The example checks the
+closed form against the matrix exponential and solves two pumps with one
+repair crew.</p>
+<p><em>References:</em> R. E. Barlow and F. Proschan, <em>Mathematical Theory of
+Reliability</em> (Wiley, New York, 1965), ch. 5.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="A repairable unit fails and is mended over and over, so the question is not whether it survives but what fraction of time it is up. If failures and repairs both happen at constant rates, the unit is a continuous-time Markov chain. Barlow and Proschan&#x27;s 1965 monograph put such models at the centre of reliability theory. For one unit the up-probability decays from one to the steady state \mu/(\lambda + \mu) = \mathrm{MTBF}/(\mathrm{MTBF} + \mathrm{MTTR}) with time constant 1/(\lambda + \mu) (~engineeringkit.reliability.markov_availability). Larger systems need the matrix exponential of the transition-rate matrix (~engineeringkit.reliability.markov_state_probabilities)."><img alt="" src="../_images/sphx_glr_plot_02_markov_availability_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/reliability/maintenance/plot_02_markov_availability.html"><span class="doc">Markov models of repairable systems</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Markov models of repairable systems</div>
+</div></div></section>
+<section id="birnbaum-s-component-importance">
+<h2><a class="toc-backref" href="#id14" role="doc-backlink">1969 – Birnbaum’s Component Importance</a><a class="headerlink" href="#birnbaum-s-component-importance" title="Link to this heading">#</a></h2>
+<p>Which component should be improved first? Z. W. Birnbaum defined a
+component’s importance as the rate at which the system’s reliability
+changes with that component’s reliability,
+<span class="math notranslate nohighlight">\(I_i = \partial R_s/\partial R_i\)</span>. It equals the probability that the
+component is critical, that the system works if it works and fails if it
+fails. In a series system the importance is the product of the other
+components’ reliabilities, so the weakest part matters most.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/reliability.html#engineeringkit.reliability.birnbaum_importance_series" title="engineeringkit.reliability.birnbaum_importance_series"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.reliability.birnbaum_importance_series()</span></code></a>.
+The example checks the derivative numerically and shows that improving the
+most important component gains the most.</p>
+<p><em>References:</em> Z. W. Birnbaum, “On the importance of different components
+in a multicomponent system,” in P. R. Krishnaiah (ed.), <em>Multivariate
+Analysis II</em> (Academic Press, New York, 1969) 581-592.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Which component should be improved first? Birnbaum (1969) defined a component&#x27;s importance as the rate at which system reliability changes with its reliability, I_i = \partial R_s/\partial R_i. In a series system that is the product of all the other reliabilities (~engineeringkit.reliability.birnbaum_importance_series), so the weakest link is the most important. The example checks the derivative numerically and shows that improving the most important component buys the most."><img alt="" src="../_images/sphx_glr_plot_04_birnbaum_importance_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/reliability/systems/plot_04_birnbaum_importance.html"><span class="doc">Birnbaum’s component importance</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Birnbaum's component importance</div>
+</div></div></section>
+<section id="hasofer-and-lind-s-reliability-index">
+<h2><a class="toc-backref" href="#id15" role="doc-backlink">1974 – Hasofer and Lind’s Reliability Index</a><a class="headerlink" href="#hasofer-and-lind-s-reliability-index" title="Link to this heading">#</a></h2>
+<p>C. Allin Cornell’s 1969 reliability index, the mean of the safety margin
+over its standard deviation, depends on how the failure condition is
+written. Abraham Hasofer and Niels Lind removed the ambiguity by
+transforming to standard normal variables and measuring the shortest
+distance from the origin to the failure surface. The nearest point, the
+<em>design point</em>, is the most likely way to fail, and
+<span class="math notranslate nohighlight">\(\Phi(-\beta)\)</span> approximates the failure probability. The index is the
+basis of the first-order reliability method used to calibrate modern
+structural codes.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/reliability.html#engineeringkit.reliability.hasofer_lind_index" title="engineeringkit.reliability.hasofer_lind_index"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.reliability.hasofer_lind_index()</span></code></a>,
+which returns a <a class="reference internal" href="../api/reliability.html#engineeringkit.reliability.HasoferLindResult" title="engineeringkit.reliability.HasoferLindResult"><code class="xref py py-class docutils literal notranslate"><span class="pre">HasoferLindResult</span></code></a>,
+with <a class="reference internal" href="../api/reliability.html#engineeringkit.reliability.failure_probability_from_index" title="engineeringkit.reliability.failure_probability_from_index"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.reliability.failure_probability_from_index()</span></code></a> and
+<a class="reference internal" href="../api/reliability.html#engineeringkit.reliability.reliability_index_from_probability" title="engineeringkit.reliability.reliability_index_from_probability"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.reliability.reliability_index_from_probability()</span></code></a>. The
+example shows that Cornell’s index changes with the formulation and
+Hasofer and Lind’s does not, and checks the design point by Monte Carlo.</p>
+<p><em>References:</em> A. M. Hasofer and N. C. Lind, “Exact and invariant
+second-moment code format,” <em>J. Eng. Mech. Div. ASCE</em> 100 (1974) 111-121.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Cornell&#x27;s 1969 index, mean over standard deviation of the safety margin g, has a flaw: it changes when the same failure condition is written differently, say R - S &lt; 0 or R/S - 1 &lt; 0. Hasofer and Lind (1974) fixed it by measuring, in standardised variables, the shortest distance from the mean to the failure surface itself (~engineeringkit.reliability.hasofer_lind_index). The nearest point, the design point, is where failure is most likely to happen, and p_f \approx \Phi(-\beta)."><img alt="" src="../_images/sphx_glr_plot_02_hasofer_lind_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/reliability/structural/plot_02_hasofer_lind.html"><span class="doc">Hasofer and Lind’s reliability index</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Hasofer and Lind's reliability index</div>
+</div></div></section>
+<section id="wash-1400-event-trees">
+<h2><a class="toc-backref" href="#id16" role="doc-backlink">1975 – WASH-1400: Event Trees</a><a class="headerlink" href="#wash-1400-event-trees" title="Link to this heading">#</a></h2>
+<p>The Reactor Safety Study, led by Norman Rasmussen for the US Nuclear
+Regulatory Commission, was the first attempt to put a number on the risk
+of a nuclear power plant. It worked forward from each initiating event,
+such as a pipe break, and asked in turn whether each safety system
+worked. Every path through the resulting event tree is an accident
+sequence whose frequency is the initiator’s frequency times its branch
+probabilities, and fault trees supplied the branch probabilities. The
+study’s uncertainty bounds were criticised, but the 1979 accident at Three
+Mile Island followed a small-break sequence of the kind it had ranked high,
+and probabilistic risk assessment became regulatory practice.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/reliability.html#engineeringkit.reliability.event_tree_probability" title="engineeringkit.reliability.event_tree_probability"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.reliability.event_tree_probability()</span></code></a>,
+which returns an <a class="reference internal" href="../api/reliability.html#engineeringkit.reliability.EventTreeResult" title="engineeringkit.reliability.EventTreeResult"><code class="xref py py-class docutils literal notranslate"><span class="pre">EventTreeResult</span></code></a>. The
+example quantifies a loss-of-coolant tree and checks the core damage
+frequency against inclusion and exclusion.</p>
+<p><em>References:</em> U.S. Nuclear Regulatory Commission, <em>Reactor Safety Study: An
+Assessment of Accident Risks in U.S. Commercial Nuclear Power Plants</em>
+(WASH-1400, NUREG-75/014, 1975).</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="The Reactor Safety Study (WASH-1400, 1975), led by Norman Rasmussen, was the first attempt to put a number on the risk of a nuclear power plant. Its method worked forward from each initiating event, such as a pipe break, and asked in turn whether each safety system worked. Every path through the resulting event tree is an accident sequence. Its frequency is the initiator&#x27;s frequency times the branch probabilities (~engineeringkit.reliability.event_tree_probability). Fault trees supplied those branch probabilities. The study was criticised for its uncertainty bounds, but the Three Mile Island accident of 1979 followed a small-break sequence of the kind it had ranked among the most likely, and probabilistic risk assessment became standard practice."><img alt="" src="../_images/sphx_glr_plot_02_wash1400_event_tree_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/reliability/risk/plot_02_wash1400_event_tree.html"><span class="doc">WASH-1400: event trees</span></a></p>
+  <div class="sphx-glr-thumbnail-title">WASH-1400: event trees</div>
+</div></div></section>
+<section id="iec-61508-and-safety-integrity-levels">
+<h2><a class="toc-backref" href="#id17" role="doc-backlink">1998 – IEC 61508 and Safety Integrity Levels</a><a class="headerlink" href="#iec-61508-and-safety-integrity-levels" title="Link to this heading">#</a></h2>
+<p>Programmable electronics took over process trips, railway signalling and
+machine guards, and there was no agreed way to say how safe a
+software-based protection system was. The International Electrotechnical
+Commission’s standard IEC 61508 grades each safety function by the risk
+reduction it must achieve, in four safety integrity levels. For a function
+that acts on rare demands the measure is its average probability of failure
+on demand. A dangerous fault that no self-test detects stays hidden until
+the next proof test, so a single channel averages
+<span class="math notranslate nohighlight">\(\lambda_{DU} T/2\)</span> over a test interval <span class="math notranslate nohighlight">\(T\)</span>.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/reliability.html#engineeringkit.reliability.safety_integrity_pfd" title="engineeringkit.reliability.safety_integrity_pfd"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.reliability.safety_integrity_pfd()</span></code></a>
+and <a class="reference internal" href="../api/reliability.html#engineeringkit.reliability.safety_integrity_level" title="engineeringkit.reliability.safety_integrity_level"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.reliability.safety_integrity_level()</span></code></a>. The example
+checks the approximation against the exact time average and shows how
+common-cause failures limit a redundant pair.</p>
+<p><em>References:</em> IEC 61508, <em>Functional safety of electrical/electronic/
+programmable electronic safety-related systems</em> (International
+Electrotechnical Commission, Geneva, 1998-2000; 2nd ed. 2010), part 6,
+annex B.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Programmable electronics took over process trips, railway signalling and machine guards in the 1980s, and nobody could say how safe a software-based protection system was. The International Electrotechnical Commission&#x27;s answer, IEC 61508 (first parts published 1998), grades each safety function by the risk reduction it must achieve. For a function that acts only on rare demands, the measure is its average probability of failure on demand. A dangerous fault that no self-test detects stays hidden until the next proof test, so the channel&#x27;s unavailability rises from zero after each test, and over an interval T it averages \lambda_{DU} T/2 (~engineeringkit.reliability.safety_integrity_pfd). Each decade of PFDavg is one safety integrity level (~engineeringkit.reliability.safety_integrity_level)."><img alt="" src="../_images/sphx_glr_plot_03_iec61508_sil_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/reliability/risk/plot_03_iec61508_sil.html"><span class="doc">IEC 61508 and safety integrity levels</span></a></p>
+  <div class="sphx-glr-thumbnail-title">IEC 61508 and safety integrity levels</div>
+</div></div></section>
+<section id="see-also">
+<h2><a class="toc-backref" href="#id18" role="doc-backlink">See Also</a><a class="headerlink" href="#see-also" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../api/reliability.html"><span class="doc">engineeringkit.reliability</span></a></p></li>
+<li><p><a class="reference internal" href="../guides/reliability.html"><span class="doc">Reliability: distributions, independence and rate units</span></a></p></li>
+<li><p><a class="reference internal" href="materials_breakthroughs.html"><span class="doc">Breakthroughs in Materials</span></a></p></li>
+<li><p><a class="reference internal" href="structural_engineering_breakthroughs.html"><span class="doc">Breakthroughs in Structural Engineering</span></a></p></li>
+</ul>
 </section>
 </section>
 
@@ -498,11 +867,24 @@ here are concise original explanations, not reproductions of that reference.</p>
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="pst-show_toc_level nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#survival-analysis-failures-become-distributions">Survival analysis: failures become distributions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#redundancy-system-architecture-changes-survival">Redundancy: system architecture changes survival</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#repair-availability-answers-a-different-question">Repair: availability answers a different question</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explore-and-verify">Explore and verify</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">Further reading</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#halley-s-life-table-and-the-hazard-rate">1693 – Halley’s Life Table and the Hazard Rate</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#poisson-s-law-of-rare-events">1837 – Poisson’s Law of Rare Events</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#freudenthal-s-stress-strength-interference">1947 – Freudenthal’s Stress-Strength Interference</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#weibull-s-distribution">1951 – Weibull’s Distribution</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#epstein-and-sobel-s-exponential-life-testing">1953 – Epstein and Sobel’s Exponential Life Testing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#von-neumann-s-redundancy">1956 – Von Neumann’s Redundancy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-agree-report-series-systems-and-mtbf">1957 – The AGREE Report: Series Systems and MTBF</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kaplan-and-meier-s-product-limit-estimator">1958 – Kaplan and Meier’s Product-Limit Estimator</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#birnbaum-esary-and-saunders-s-k-out-of-n-systems">1961 – Birnbaum, Esary and Saunders’s k-out-of-n Systems</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#watson-s-fault-tree">1961 – Watson’s Fault Tree</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#duane-s-reliability-growth">1964 – Duane’s Reliability Growth</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#barlow-and-proschan-s-age-replacement">1965 – Barlow and Proschan’s Age Replacement</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#markov-models-of-repairable-systems">1965 – Markov Models of Repairable Systems</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#birnbaum-s-component-importance">1969 – Birnbaum’s Component Importance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hasofer-and-lind-s-reliability-index">1974 – Hasofer and Lind’s Reliability Index</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wash-1400-event-trees">1975 – WASH-1400: Event Trees</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iec-61508-and-safety-integrity-levels">1998 – IEC 61508 and Safety Integrity Levels</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#see-also">See Also</a></li>
 </ul>
   </nav></div>
 

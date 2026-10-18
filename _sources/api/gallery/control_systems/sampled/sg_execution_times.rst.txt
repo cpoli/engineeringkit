@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.176** total execution time for 1 file **from api/gallery/control_systems/sampled**:
+**00:00.617** total execution time for 2 files **from api/gallery/control_systems/sampled**:
 
 .. container::
 
@@ -32,6 +32,9 @@ Computation times
    * - Example
      - Time
      - Mem (MB)
+   * - :ref:`sphx_glr_api_gallery_control_systems_sampled_plot_02_jury_stability_test.py` (``plot_02_jury_stability_test.py``)
+     - 00:00.499
+     - 0.0
    * - :ref:`sphx_glr_api_gallery_control_systems_sampled_plot_01_ragazzini_zadeh_zero_order_hold.py` (``plot_01_ragazzini_zadeh_zero_order_hold.py``)
-     - 00:00.176
+     - 00:00.118
      - 0.0

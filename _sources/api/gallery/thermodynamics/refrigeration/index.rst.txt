@@ -1,0 +1,68 @@
+
+
+.. _sphx_glr_api_gallery_thermodynamics_refrigeration:
+
+Refrigeration
+-------------
+
+Refrigerators and heat pumps, and their Carnot limits.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In 1834 Jacob Perkins, an American engineer in London, patented a machine that evaporated ether at low pressure to absorb heat, compressed the vapour with a hand pump, and condensed it again under pressure. It was the first closed vapour-compression cycle, the cycle of nearly every refrigerator and air conditioner since. Its figure of merit is the coefficient of performance, the heat removed per unit of work, \mathrm{COP}_R = Q_c/W (~engineeringkit.thermodynamics.refrigeration_cop), and the second law bounds it by T_c/(T_h - T_c) (~engineeringkit.thermodynamics.carnot_cop_refrigerator). The example runs the ideal cycle with water as the refrigerant (R718, used today in some large chillers), because IAPWS-IF97 gives its properties.">
+
+.. only:: html
+
+  .. image:: /api/gallery/thermodynamics/refrigeration/images/thumb/sphx_glr_plot_01_perkins_vapor_compression_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/thermodynamics/refrigeration/plot_01_perkins_vapor_compression`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Perkins's vapour-compression refrigerator</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In 1852 William Thomson, later Lord Kelvin, pointed out that the second law cuts both ways. A refrigerator run backwards would warm a building with heat drawn from the cold outside air, and the heat delivered would be many times the work spent. He proposed an air machine for it: compress outside air, let it give its heat to the rooms, then expand it. The figure of merit is \mathrm{COP}_{HP} = Q_h/W (~engineeringkit.thermodynamics.heat_pump_cop), at most T_h/(T_h - T_c) (~engineeringkit.thermodynamics.carnot_cop_heat_pump). Practical heat pumps had to wait for vapour compression and cheap electricity; they now heat millions of homes.">
+
+.. only:: html
+
+  .. image:: /api/gallery/thermodynamics/refrigeration/images/thumb/sphx_glr_plot_02_kelvin_heat_pump_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/thermodynamics/refrigeration/plot_02_kelvin_heat_pump`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Kelvin's heat pump</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/thermodynamics/refrigeration/plot_01_perkins_vapor_compression
+   /api/gallery/thermodynamics/refrigeration/plot_02_kelvin_heat_pump
+

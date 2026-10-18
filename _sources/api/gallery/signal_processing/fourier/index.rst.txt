@@ -1,0 +1,68 @@
+
+
+.. _sphx_glr_api_gallery_signal_processing_fourier:
+
+Fourier analysis
+----------------
+
+Fourier series and the fast Fourier transform.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Albert Michelson&#x27;s harmonic analyser (1898) summed 80 Fourier terms mechanically, and its curves for a square wave overshot at every jump. Michelson suspected the machine. Josiah Willard Gibbs (1899) showed in Nature that the mathematics itself overshoots: near a discontinuity the partial sums (~engineeringkit.signal_processing.fourier_partial_sum) rise about 9% of the jump above it, however many terms are kept. The overshoot only narrows toward the jump. Henry Wilbraham had found the same effect in 1848, unnoticed.">
+
+.. only:: html
+
+  .. image:: /api/gallery/signal_processing/fourier/images/thumb/sphx_glr_plot_01_gibbs_phenomenon_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/signal_processing/fourier/plot_01_gibbs_phenomenon`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Gibbs's phenomenon</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A direct DFT of N samples needs N^2 complex multiplications. James Cooley and John Tukey (1965) split it into the DFTs of the even- and odd-numbered samples, combined by &quot;butterflies&quot; E_k \pm W^k O_k, and repeated the split down to single samples (~engineeringkit.signal_processing.radix2_fft). The cost falls to (N/2)\log_2 N. Gauss had used the same idea in 1805 to interpolate asteroid orbits. In 1965 it made spectral analysis on a computer routine, and it is what dft (NumPy&#x27;s FFT) does.">
+
+.. only:: html
+
+  .. image:: /api/gallery/signal_processing/fourier/images/thumb/sphx_glr_plot_02_cooley_tukey_fft_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/signal_processing/fourier/plot_02_cooley_tukey_fft`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Cooley and Tukey's fast Fourier transform</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/signal_processing/fourier/plot_01_gibbs_phenomenon
+   /api/gallery/signal_processing/fourier/plot_02_cooley_tukey_fft
+

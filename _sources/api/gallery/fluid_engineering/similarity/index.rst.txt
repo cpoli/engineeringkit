@@ -1,0 +1,68 @@
+
+
+.. _sphx_glr_api_gallery_fluid_engineering_similarity:
+
+Similarity
+----------
+
+Dimensionless groups, model testing and dimensional analysis.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In 1868 William Froude proposed to the Admiralty that a ship&#x27;s resistance could be predicted from towing a small model, if the model ran at the &quot;corresponding speed&quot;, v_m = v_s\sqrt{L_m/L_s}. Then the waves the two make have the same shape, because the Froude number Fr = v/\sqrt{gL} (~engineeringkit.fluid_engineering.froude_number) is the same. Skin friction does not scale that way, so Froude split the resistance: friction from flat-plank tests, the rest scaled with the displacement. His tank at Torquay checked the method against full-scale towing of HMS Greyhound in 1871. This example scales a model test to a ship, using the ITTC 1957 friction line in place of Froude&#x27;s planks.">
+
+.. only:: html
+
+  .. image:: /api/gallery/fluid_engineering/similarity/images/thumb/sphx_glr_plot_01_froude_ship_models_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/fluid_engineering/similarity/plot_01_froude_ship_models`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Froude's ship models</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Edgar Buckingham, at the US Bureau of Standards, published in 1914 the theorem that turned dimensional analysis into a method: a physical relation among n variables whose dimensions involve r independent base units can be rewritten as a relation among n - r dimensionless products. The products are the null space of the dimension matrix, which buckingham_pi finds by exact row reduction. This example derives the groups of pipe friction and of droplet break-up, then shows that pipes of different size and fluid with the same groups have the same Euler number (~engineeringkit.fluid_engineering.euler_number).">
+
+.. only:: html
+
+  .. image:: /api/gallery/fluid_engineering/similarity/images/thumb/sphx_glr_plot_02_buckingham_pi_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/fluid_engineering/similarity/plot_02_buckingham_pi`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Buckingham's Pi theorem</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/fluid_engineering/similarity/plot_01_froude_ship_models
+   /api/gallery/fluid_engineering/similarity/plot_02_buckingham_pi
+

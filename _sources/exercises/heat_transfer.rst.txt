@@ -16,7 +16,7 @@ coefficient is 8 W/(m² K) and the outside one 25. Find the heat loss with
 20 °C inside and -5 °C outside, the temperature at each interface, and the
 share of the total resistance due to the insulation.
 
-*Builds on:* :doc:`/api/gallery/heat_transfer/index`.
+*Builds on:* :doc:`/api/gallery/heat_transfer/conduction/plot_01_fourier_law`.
 
 .. dropdown:: Solution
 
@@ -54,7 +54,7 @@ long, stands on a surface at 80 °C in air at 25 °C with
 parameter :math:`mL`, its efficiency, its heat rate, and its
 effectiveness: the heat it carries over what the bare base area would.
 
-*Builds on:* :doc:`/api/gallery/heat_transfer/index`.
+*Builds on:* :doc:`/api/gallery/heat_transfer/conduction/plot_02_fin_efficiency`.
 
 .. dropdown:: Solution
 
@@ -88,7 +88,7 @@ A steel ball 10 mm in diameter (:math:`k = 40` W/(m K),
 Check that the lumped-capacitance model applies, then find how long the
 ball takes to reach 400 K.
 
-*Builds on:* :doc:`/api/gallery/heat_transfer/index`.
+*Builds on:* :doc:`/api/gallery/heat_transfer/transient/plot_01_biot_number`.
 
 .. dropdown:: Solution
 

@@ -1,0 +1,50 @@
+
+
+.. _sphx_glr_api_gallery_fluid_engineering_networks:
+
+Networks
+--------
+
+Looped pipe networks.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A city&#x27;s water mains form loops, and the flow in each pipe is fixed by two sets of conditions: continuity at every junction, and zero net head loss round every loop. In 1936 Hardy Cross, at the University of Illinois, proposed solving them by hand: guess flows that satisfy continuity, then correct one loop at a time by \Delta Q = -\sum r Q|Q|/(2\sum r|Q|), a Newton step that leaves the junctions balanced (~engineeringkit.fluid_engineering.hardy_cross). It was the standard method until computers took over. This example balances a two-loop network sized with Darcy-Weisbach resistances (~engineeringkit.fluid_engineering.pipe_resistance).">
+
+.. only:: html
+
+  .. image:: /api/gallery/fluid_engineering/networks/images/thumb/sphx_glr_plot_01_hardy_cross_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/fluid_engineering/networks/plot_01_hardy_cross`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Hardy Cross's method for pipe networks</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/fluid_engineering/networks/plot_01_hardy_cross
+

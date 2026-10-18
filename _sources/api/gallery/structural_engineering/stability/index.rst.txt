@@ -1,0 +1,68 @@
+
+
+.. _sphx_glr_api_gallery_structural_engineering_stability:
+
+Stability
+---------
+
+Elastic and inelastic column buckling.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In an appendix on elastic curves to his Methodus inveniendi (1744), Leonhard Euler found the load at which a straight, pin-ended column can stay in equilibrium bent as well as straight: P_{cr} = \pi^2EI/L^2. Other end conditions change the length of the half sine wave, which is what the effective-length factor K expresses (~engineeringkit.structural_engineering.euler_buckling_load). Dividing by the area gives the Euler stress \pi^2E/(KL/r)^2, a function of the slenderness alone (~engineeringkit.structural_engineering.slenderness_ratio, radius_of_gyration). The example recovers Euler&#x27;s load as the smallest eigenvalue of the finite-difference column equation EIy&#x27;&#x27; + Py = 0, then plots the Euler hyperbola against the yield stress.">
+
+.. only:: html
+
+  .. image:: /api/gallery/structural_engineering/stability/images/thumb/sphx_glr_plot_01_euler_buckling_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/structural_engineering/stability/plot_01_euler_buckling`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Euler's column buckling</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Tests on real columns of intermediate length failed well below Euler&#x27;s load. Friedrich Engesser (1889) argued that once the stress passes the proportional limit, a column bends against the material&#x27;s tangent modulus E_t = d\sigma/d\varepsilon and not against E, so P_t = \pi^2E_tI/(KL)^2. Since E_t depends on the stress it creates, the buckling stress solves \sigma = \pi^2E_t(\sigma)/(KL/r)^2 (~engineeringkit.structural_engineering.tangent_modulus_load). Engesser later proposed a &quot;double-modulus&quot; load, and Shanley (1947) showed that the tangent-modulus load is the one at which a real column starts to bend. The example builds the column curve of an aluminium alloy with a Ramberg-Osgood stress-strain law and checks the computed stresses against the defining equation.">
+
+.. only:: html
+
+  .. image:: /api/gallery/structural_engineering/stability/images/thumb/sphx_glr_plot_02_engesser_tangent_modulus_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/structural_engineering/stability/plot_02_engesser_tangent_modulus`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Engesser's tangent-modulus load</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/structural_engineering/stability/plot_01_euler_buckling
+   /api/gallery/structural_engineering/stability/plot_02_engesser_tangent_modulus
+

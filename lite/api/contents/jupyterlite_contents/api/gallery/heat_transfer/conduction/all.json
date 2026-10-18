@@ -1,0 +1,57 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-10-18T12:25:15.934868Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-18T12:25:13.340347Z",
+      "mimetype": null,
+      "name": "plot_03_crank_nicolson.ipynb",
+      "path": "jupyterlite_contents/api/gallery/heat_transfer/conduction/plot_03_crank_nicolson.ipynb",
+      "size": 5513,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-18T12:25:15.934462Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-18T12:25:13.340074Z",
+      "mimetype": null,
+      "name": "plot_01_fourier_law.ipynb",
+      "path": "jupyterlite_contents/api/gallery/heat_transfer/conduction/plot_01_fourier_law.ipynb",
+      "size": 5398,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-18T12:25:15.934682Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-18T12:25:13.340219Z",
+      "mimetype": null,
+      "name": "plot_02_fin_efficiency.ipynb",
+      "path": "jupyterlite_contents/api/gallery/heat_transfer/conduction/plot_02_fin_efficiency.ipynb",
+      "size": 5313,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2026-10-18T12:25:15.934868Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-10-18T12:25:15.934868Z",
+  "mimetype": null,
+  "name": "conduction",
+  "path": "jupyterlite_contents/api/gallery/heat_transfer/conduction",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

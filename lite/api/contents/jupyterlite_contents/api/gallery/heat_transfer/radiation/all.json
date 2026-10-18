@@ -1,0 +1,71 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-10-18T12:25:15.937266Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-18T12:25:13.341812Z",
+      "mimetype": null,
+      "name": "plot_04_nusselt_view_factor.ipynb",
+      "path": "jupyterlite_contents/api/gallery/heat_transfer/radiation/plot_04_nusselt_view_factor.ipynb",
+      "size": 5357,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-18T12:25:15.936695Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-18T12:25:13.341425Z",
+      "mimetype": null,
+      "name": "plot_01_kirchhoff_emissivity.ipynb",
+      "path": "jupyterlite_contents/api/gallery/heat_transfer/radiation/plot_01_kirchhoff_emissivity.ipynb",
+      "size": 5499,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-18T12:25:15.937083Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-18T12:25:13.341681Z",
+      "mimetype": null,
+      "name": "plot_03_wien_displacement.ipynb",
+      "path": "jupyterlite_contents/api/gallery/heat_transfer/radiation/plot_03_wien_displacement.ipynb",
+      "size": 4111,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-18T12:25:15.936898Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-18T12:25:13.341560Z",
+      "mimetype": null,
+      "name": "plot_02_stefan_boltzmann.ipynb",
+      "path": "jupyterlite_contents/api/gallery/heat_transfer/radiation/plot_02_stefan_boltzmann.ipynb",
+      "size": 4298,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2026-10-18T12:25:15.937266Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-10-18T12:25:15.937266Z",
+  "mimetype": null,
+  "name": "radiation",
+  "path": "jupyterlite_contents/api/gallery/heat_transfer/radiation",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

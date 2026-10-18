@@ -1,0 +1,68 @@
+
+
+.. _sphx_glr_api_gallery_materials_yield:
+
+Yield
+-----
+
+Multiaxial yield criteria for ductile metals.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Henri Tresca (1864) punched and extruded lead, copper and iron through dies at the Conservatoire des Arts et Métiers and found that metals flow like a viscous fluid once the largest shear stress reaches a constant. With principal stresses \sigma_1 \ge \sigma_2 \ge \sigma_3 the criterion is \sigma_1 - \sigma_3 = \sigma_y (~engineeringkit.materials.tresca_equivalent). It is the first criterion for yielding under combined stresses, and in the plane-stress principal plane it draws a hexagon. The example applies it to a shaft in bending and torsion and to biaxial stress states.">
+
+.. only:: html
+
+  .. image:: /api/gallery/materials/yield/images/thumb/sphx_glr_plot_01_tresca_criterion_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/materials/yield/plot_01_tresca_criterion`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Tresca's maximum-shear yield criterion</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Tresca&#x27;s hexagon has corners, which make the equations of plasticity awkward. Richard von Mises (1913) proposed a smooth surface through the corners: yield when the second invariant of the deviatoric stress reaches \sigma_y^2/3, in plane stress \sigma_x^2 - \sigma_x\sigma_y + \sigma_y^2 + 3\tau_{xy}^2 = \sigma_y^2 (~engineeringkit.materials.von_mises_plane_stress). Huber (1904) had proposed the same rule, and Hencky (1924) explained it as the elastic energy of distortion. Taylor and Quinney&#x27;s tension-torsion tests on thin tubes (1931) fell closer to von Mises than to Tresca.">
+
+.. only:: html
+
+  .. image:: /api/gallery/materials/yield/images/thumb/sphx_glr_plot_02_von_mises_criterion_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/materials/yield/plot_02_von_mises_criterion`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Von Mises's yield criterion</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/materials/yield/plot_01_tresca_criterion
+   /api/gallery/materials/yield/plot_02_von_mises_criterion
+

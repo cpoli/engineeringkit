@@ -5,7 +5,7 @@
 Optimal control and estimation
 ------------------------------
 
-Dynamic programming, the linear-quadratic regulator and the Kalman-Bucy filter.
+The linear-quadratic regulator, the Kalman-Bucy filter and the robustness of their combination.
 
 
 .. raw:: html
@@ -19,9 +19,68 @@ Dynamic programming, the linear-quadratic regulator and the Kalman-Bucy filter.
 
 .. thumbnail-parent-div-open
 
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Rudolf Kalman (1960) asked for the state feedback u = -Kx that minimises J = \int_0^\infty (x^\mathsf{T}Qx + u^\mathsf{T}Ru)\,dt. The answer is K = R^{-1}B^\mathsf{T}P, where P solves an algebraic Riccati equation, and the minimum cost from x_0 is x_0^\mathsf{T}Px_0 (~engineeringkit.control_systems.lqr). The weights replace pole locations as the designer&#x27;s knobs: a cheaper input (smaller R) buys a faster response.">
+
+.. only:: html
+
+  .. image:: /api/gallery/control_systems/optimal/images/thumb/sphx_glr_plot_01_kalman_lqr_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/control_systems/optimal/plot_01_kalman_lqr`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Kalman's linear-quadratic regulator</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A state estimator must trade trust in the model against trust in the measurement. Rudolf Kalman and Richard Bucy (1961) found the gain that minimises the steady estimation error for a linear system driven by white process noise of spectral density Q and measured through white noise of density R. The error covariance solves the Riccati equation of the LQR transposed (~engineeringkit.control_systems.kalman_gain).">
+
+.. only:: html
+
+  .. image:: /api/gallery/control_systems/optimal/images/thumb/sphx_glr_plot_02_kalman_bucy_filter_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/control_systems/optimal/plot_02_kalman_bucy_filter`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">The Kalman-Bucy filter</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A full-state LQR loop is famously robust: its Nyquist plot never enters the unit disc around -1, so it tolerates a gain anywhere in [1/2, \infty) and a phase change of at least 60°. It seemed natural that an LQR gain fed by a Kalman filter (the LQG controller) would inherit these margins. John Doyle&#x27;s 1978 note, whose abstract reads in full &quot;There are none.&quot;, gave a counterexample. As the design weights grow the LQG loop&#x27;s margins shrink towards zero, even though each half is optimal.">
+
+.. only:: html
+
+  .. image:: /api/gallery/control_systems/optimal/images/thumb/sphx_glr_plot_03_doyle_lqg_margins_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/control_systems/optimal/plot_03_doyle_lqg_margins`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Doyle's guaranteed margins for LQG: there are none</div>
+    </div>
+
+
 .. thumbnail-parent-div-close
 
 .. raw:: html
 
     </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/control_systems/optimal/plot_01_kalman_lqr
+   /api/gallery/control_systems/optimal/plot_02_kalman_bucy_filter
+   /api/gallery/control_systems/optimal/plot_03_doyle_lqg_margins
 

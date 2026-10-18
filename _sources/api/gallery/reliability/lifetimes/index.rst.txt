@@ -1,0 +1,122 @@
+
+
+.. _sphx_glr_api_gallery_reliability_lifetimes:
+
+Lifetimes
+---------
+
+Hazard rates, lifetime distributions and estimating them from test data.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In 1693 Edmond Halley used five years of births and burials from Breslau to tabulate how many of 1000 one-year-olds were still alive at each later age. The fall from one age to the next is the probability of dying in that year, the first estimate of what reliability engineers call the hazard rate (~engineeringkit.reliability.life_table_hazard). Halley&#x27;s hazard is high in infancy, lowest around age ten and rises steadily with age: the bathtub curve (~engineeringkit.reliability.bathtub_hazard) that describes many machines as well as people.">
+
+.. only:: html
+
+  .. image:: /api/gallery/reliability/lifetimes/images/thumb/sphx_glr_plot_01_halley_life_table_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/reliability/lifetimes/plot_01_halley_life_table`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Halley's life table and the hazard rate</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Poisson (1837) derived the distribution of the number of rare events among many trials, P(k) = (\lambda T)^k e^{-\lambda T}/k! (~engineeringkit.reliability.poisson_failures_probability). A fleet of units failing independently at a constant rate \lambda has \lambda T expected failures in total operating time T (~engineeringkit.reliability.expected_failures), and the count is Poisson. The example simulates failures as exponential gaps and checks the counts, then sizes a spares kit.">
+
+.. only:: html
+
+  .. image:: /api/gallery/reliability/lifetimes/images/thumb/sphx_glr_plot_02_poisson_failures_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/reliability/lifetimes/plot_02_poisson_failures`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Poisson's law of rare failures</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Waloddi Weibull (1951) proposed R(t) = e^{-(t/\eta)^\beta} (~engineeringkit.reliability.weibull_reliability) for anything from the strength of steel to the life of bearings. The shape \beta sets the hazard (~engineeringkit.reliability.weibull_hazard): falling for \beta &lt; 1, constant at 1, rising above. Because \ln(-\ln R) = \beta \ln t - \beta \ln \eta, failure data plotted on those axes fall on a line whose slope is \beta. The example fits a small life test that way and compares the mean life with weibull_mttf.">
+
+.. only:: html
+
+  .. image:: /api/gallery/reliability/lifetimes/images/thumb/sphx_glr_plot_03_weibull_distribution_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/reliability/lifetimes/plot_03_weibull_distribution`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Weibull's distribution and the Weibull plot</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="How long must a test run, and with how many units, to demonstrate an MTBF? Epstein and Sobel (1953) showed that for exponential lives the total time on test T, summed over failed and surviving units, carries all the information: \hat\theta = T/r after r failures, and 2T/\theta is chi-square with 2r degrees of freedom. That gives exact confidence bounds (~engineeringkit.reliability.mtbf_confidence_bounds). The example stops a test of 12 units at the fourth failure, many times over, and checks that the 90% bounds catch the true MTBF 90% of the time.">
+
+.. only:: html
+
+  .. image:: /api/gallery/reliability/lifetimes/images/thumb/sphx_glr_plot_04_epstein_sobel_life_testing_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/reliability/lifetimes/plot_04_epstein_sobel_life_testing`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Epstein and Sobel's exponential life testing</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Field data are incomplete: some units are still working when the data are collected, others were removed for reasons other than failure. Dropping them biases the life estimate low; counting them as failures biases it too. Kaplan and Meier (1958) multiplied the conditional survival 1 - d_j/n_j at each failure, where n_j counts only units still under observation (~engineeringkit.reliability.kaplan_meier). The example censors a Weibull sample at random and recovers the true survival curve.">
+
+.. only:: html
+
+  .. image:: /api/gallery/reliability/lifetimes/images/thumb/sphx_glr_plot_05_kaplan_meier_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/reliability/lifetimes/plot_05_kaplan_meier`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Kaplan and Meier's product-limit estimator</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/reliability/lifetimes/plot_01_halley_life_table
+   /api/gallery/reliability/lifetimes/plot_02_poisson_failures
+   /api/gallery/reliability/lifetimes/plot_03_weibull_distribution
+   /api/gallery/reliability/lifetimes/plot_04_epstein_sobel_life_testing
+   /api/gallery/reliability/lifetimes/plot_05_kaplan_meier
+

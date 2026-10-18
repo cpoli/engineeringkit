@@ -1,0 +1,50 @@
+
+
+.. _sphx_glr_api_gallery_structural_engineering_plasticity:
+
+Plasticity
+----------
+
+Plastic hinges and collapse loads.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In 1914 Gábor Kazinczy loaded steel beams built into concrete walls in Budapest. They carried far more than the elastic theory allowed: when the most stressed section yielded through its whole depth it went on turning at a constant plastic moment M_p = \sigma_yZ_p (a plastic hinge), and the load moved to other sections until enough hinges had formed to make a mechanism. For a rectangle Z_p = bh^2/4, 1.5 times the elastic modulus (~engineeringkit.structural_engineering.plastic_section_modulus). The collapse load follows from the work equation of the mechanism (~engineeringkit.structural_engineering.plastic_collapse_load). The example follows a built-in beam under a uniform load from first yield, through hinges at the walls, to collapse with a third hinge at midspan.">
+
+.. only:: html
+
+  .. image:: /api/gallery/structural_engineering/plasticity/images/thumb/sphx_glr_plot_01_kazinczy_plastic_hinge_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/structural_engineering/plasticity/plot_01_kazinczy_plastic_hinge`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Kazinczy's plastic hinge</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/structural_engineering/plasticity/plot_01_kazinczy_plastic_hinge
+

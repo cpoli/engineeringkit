@@ -1,0 +1,68 @@
+
+
+.. _sphx_glr_api_gallery_thermodynamics_exergy:
+
+Exergy
+------
+
+Work potential and the work lost to irreversibility.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Georges Gouy (1889) asked how much work a system can deliver when the only other body available is the environment at T_0. He showed that every irreversibility costs work equal to T_0 times the entropy it generates. Aurel Stodola reached the same result independently for steam turbines, in the editions of Die Dampfturbinen from 1898 to 1905. The Gouy-Stodola theorem, W_{lost} = T_0 S_{gen} (~engineeringkit.thermodynamics.exergy_destruction), lets an engineer rank the losses of a plant in a single currency. The example prices three irreversibilities: heat crossing a temperature difference, a throttling valve, and an imperfect turbine.">
+
+.. only:: html
+
+  .. image:: /api/gallery/thermodynamics/exergy/images/thumb/sphx_glr_plot_01_gouy_stodola_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/thermodynamics/exergy/plot_01_gouy_stodola`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Gouy and Stodola: lost work</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Gibbs&#x27;s available energy, Gouy&#x27;s énergie utilisable and Keenan&#x27;s availability all described the same quantity: the work a stream of energy could deliver if brought reversibly into equilibrium with the environment. In 1956 the Slovenian engineer Zoran Rant proposed one short word for it, exergy, built like energy from the Greek ergon, work. For heat Q available at T_s with surroundings at T_0 it is Q(1 - T_0/T_s) (~engineeringkit.thermodynamics.exergy_heat). An energy balance says energy is never lost. An exergy balance shows where the work potential goes.">
+
+.. only:: html
+
+  .. image:: /api/gallery/thermodynamics/exergy/images/thumb/sphx_glr_plot_02_rant_exergy_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/thermodynamics/exergy/plot_02_rant_exergy`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Rant names exergy</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/thermodynamics/exergy/plot_01_gouy_stodola
+   /api/gallery/thermodynamics/exergy/plot_02_rant_exergy
+

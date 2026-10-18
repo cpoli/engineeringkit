@@ -6,8 +6,16 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Breakthroughs in Heat Transfer" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://cpoli.github.io/engineeringkit/history/heat_transfer_breakthroughs.html" />
+<meta property="og:site_name" content="engineeringkit" />
+<meta property="og:description" content="Domain hub · History · Examples · API reference “Heat, like gravity, penetrates every substance of the universe, its rays occupy all parts of space.” – Joseph Fourier, Théorie analytique de la chal..." />
+<meta property="og:image" content="https://cpoli.github.io/engineeringkit/_static/images/readme_hero.png" />
+<meta property="og:image:alt" content="engineeringkit" />
+<meta name="description" content="Domain hub · History · Examples · API reference “Heat, like gravity, penetrates every substance of the universe, its rays occupy all parts of space.” – Joseph Fourier, Théorie analytique de la chal..." />
 
-    <title>Breakthroughs in Heat Transfer &#8212; engineeringkit 0.1.0 documentation</title>
+    <title>Breakthroughs in Heat Transfer &#8212; engineeringkit</title>
   
   
   
@@ -30,6 +38,7 @@
 <link href="../_static/styles/pydata-sphinx-theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx_autodoc_typehints.css?v=057ac668" />
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Vibur" />
     <link rel="stylesheet" type="text/css" href="../_static/jupyterlite_sphinx.css?v=f676e775" />
@@ -55,6 +64,7 @@
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'history/heat_transfer_breakthroughs';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="canonical" href="https://cpoli.github.io/engineeringkit/history/heat_transfer_breakthroughs.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Breakthroughs in Aerodynamics" href="aerodynamics_breakthroughs.html" />
@@ -404,50 +414,394 @@
 <div class="subpkg-nav docutils container">
 <p><a class="reference internal" href="../_generated/subpackages/heat_transfer.html"><span class="doc">Domain hub</span></a> · <a class="reference internal" href="#"><span class="doc">History</span></a> · <a class="reference internal" href="../api/gallery/heat_transfer/index.html"><span class="doc">Examples</span></a> · <a class="reference internal" href="../api/heat_transfer.html"><span class="doc">API reference</span></a></p>
 </div>
-<p>These landmarks trace a conceptual development from a physical law to a useful
-engineering model. The order is a learning path, not a dated chronology or a
-claim that any idea had a single inventor. SI units apply unless documented
-otherwise.</p>
-<section id="fourier-heat-follows-a-temperature-gradient">
-<h2>Fourier: heat follows a temperature gradient<a class="headerlink" href="#fourier-heat-follows-a-temperature-gradient" title="Link to this heading">#</a></h2>
-<p>A constitutive law for conduction makes thermal resistance networks possible. Geometry changes the resistance expression even when material conductivity is constant.</p>
-<div class="math notranslate nohighlight">
-\[\dot Q=kA\Delta T/L\]</div>
-<p>Use <a class="reference internal" href="../api/heat_transfer.html#engineeringkit.heat_transfer.plane_wall_resistance" title="engineeringkit.heat_transfer.plane_wall_resistance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">engineeringkit.heat_transfer.plane_wall_resistance</span></code></a> to explore the model.
-One-dimensional steady conduction and constant conductivity are assumed.</p>
-</section>
-<section id="transient-models-internal-gradients-matter">
-<h2>Transient models: internal gradients matter<a class="headerlink" href="#transient-models-internal-gradients-matter" title="Link to this heading">#</a></h2>
-<p>A lumped energy balance predicts exponential cooling when the body is nearly isothermal. The Biot number indicates whether internal conduction can support that approximation.</p>
-<div class="math notranslate nohighlight">
-\[(T-T_\infty)/(T_i-T_\infty)=e^{-hAt/(\rho c_p V)}\]</div>
-<p>Use <a class="reference internal" href="../api/heat_transfer.html#engineeringkit.heat_transfer.lumped_temperature" title="engineeringkit.heat_transfer.lumped_temperature"><code class="xref py py-obj docutils literal notranslate"><span class="pre">engineeringkit.heat_transfer.lumped_temperature</span></code></a> to explore the model.
-Check the Biot number and characteristic length; a small value supports, but does not replace, modeling judgment.</p>
-</section>
-<section id="radiation-and-exchangers-different-mechanisms-need-different-models">
-<h2>Radiation and exchangers: different mechanisms need different models<a class="headerlink" href="#radiation-and-exchangers-different-mechanisms-need-different-models" title="Link to this heading">#</a></h2>
-<p>Stefan-Boltzmann radiation depends on absolute temperature to the fourth power. Heat-exchanger effectiveness relates finite stream capacities to the maximum possible heat transfer.</p>
-<div class="math notranslate nohighlight">
-\[\dot Q=\epsilon\sigma A(T_s^4-T_{sur}^4)\]</div>
-<p>Use <a class="reference internal" href="../api/heat_transfer.html#engineeringkit.heat_transfer.radiation_heat_rate" title="engineeringkit.heat_transfer.radiation_heat_rate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">engineeringkit.heat_transfer.radiation_heat_rate</span></code></a> to explore the model.
-The radiation helper assumes a surface exchanging with a large surrounding enclosure; exchanger formulas assume their specified flow arrangement.</p>
-</section>
-<section id="explore-and-verify">
-<h2>Explore and verify<a class="headerlink" href="#explore-and-verify" title="Link to this heading">#</a></h2>
-<p><a class="reference internal" href="../guides/heat_transfer.html"><span class="doc">Heat transfer: absolute temperatures and resistance accounting</span></a> records units, conventions and independent checks.
-Compare the gallery output against the equations before extending a model.</p>
-<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="A small copper sphere has a small Biot number in the chosen convection field. Its excess temperature should decrease to 1/e of its initial value at one lumped time constant. All temperatures are absolute."><img alt="" src="../_images/sphx_glr_plot_heat_transfer_benchmark_thumb.png" />
-<p><a class="reference internal" href="../api/gallery/heat_transfer/plot_heat_transfer_benchmark.html"><span class="doc">Cooling and the lumped time constant</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Cooling and the lumped time constant</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Compute an inspectable engineering model using SI inputs. See the linked domain guide for assumptions and benchmark checks."><img alt="" src="../_images/sphx_glr_plot_heat_transfer_models_thumb.png" />
-<p><a class="reference internal" href="../api/gallery/heat_transfer/plot_heat_transfer_models.html"><span class="doc">Parallel and counterflow heat exchangers</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Parallel and counterflow heat exchangers</div>
+<blockquote class="epigraph">
+<div><p>“Heat, like gravity, penetrates every substance of the universe, its
+rays occupy all parts of space.”
+– Joseph Fourier, <em>Théorie analytique de la chaleur</em>, 1822</p>
+</div></blockquote>
+<p>Heat moves by conduction, convection and radiation, and each became
+computable at a different time. Conduction had its law and its equation by
+1822. Radiation waited for the blackbody laws of the late nineteenth
+century, and convection, which mixes heat transfer with fluid mechanics,
+for the dimensionless correlations of the twentieth. Phase change and heat
+exchangers turned these pieces into the design rules of power stations,
+engines and refrigerators. The entries trace the ideas behind
+<a class="reference internal" href="../api/heat_transfer.html#module-engineeringkit.heat_transfer" title="engineeringkit.heat_transfer"><code class="xref py py-mod docutils literal notranslate"><span class="pre">engineeringkit.heat_transfer</span></code></a>. Each links to the implementing function
+and to a gallery example devoted to it.</p>
+<nav class="contents local" id="timeline">
+<p class="topic-title">Timeline</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#newton-s-law-of-cooling" id="id1">1701 – Newton’s Law of Cooling</a></p></li>
+<li><p><a class="reference internal" href="#biot-s-heated-bar-and-the-biot-number" id="id2">1804 – Biot’s Heated Bar and the Biot Number</a></p></li>
+<li><p><a class="reference internal" href="#fourier-s-theorie-analytique-de-la-chaleur" id="id3">1822 – Fourier’s <em>Théorie analytique de la chaleur</em></a></p></li>
+<li><p><a class="reference internal" href="#kirchhoff-s-law-of-thermal-radiation" id="id4">1859 – Kirchhoff’s Law of Thermal Radiation</a></p></li>
+<li><p><a class="reference internal" href="#kelvin-s-age-of-the-earth" id="id5">1862 – Kelvin’s Age of the Earth</a></p></li>
+<li><p><a class="reference internal" href="#stefan-and-boltzmann-emission-grows-as-t4" id="id6">1879-1884 – Stefan and Boltzmann: Emission Grows as T⁴</a></p></li>
+<li><p><a class="reference internal" href="#stefan-s-problem-a-moving-freezing-front" id="id7">1891 – Stefan’s Problem: A Moving Freezing Front</a></p></li>
+<li><p><a class="reference internal" href="#wien-s-displacement-law" id="id8">1893 – Wien’s Displacement Law</a></p></li>
+<li><p><a class="reference internal" href="#nusselt-s-film-condensation" id="id9">1916 – Nusselt’s Film Condensation</a></p></li>
+<li><p><a class="reference internal" href="#harper-and-brown-s-fin-efficiency" id="id10">1922 – Harper and Brown’s Fin Efficiency</a></p></li>
+<li><p><a class="reference internal" href="#nusselt-s-unit-sphere-view-factor" id="id11">1928 – Nusselt’s Unit-Sphere View Factor</a></p></li>
+<li><p><a class="reference internal" href="#dittus-and-boelter-turbulent-pipe-convection" id="id12">1930 – Dittus and Boelter: Turbulent Pipe Convection</a></p></li>
+<li><p><a class="reference internal" href="#nukiyama-s-boiling-curve-and-zuber-s-critical-heat-flux" id="id13">1934 – Nukiyama’s Boiling Curve and Zuber’s Critical Heat Flux</a></p></li>
+<li><p><a class="reference internal" href="#heisler-s-transient-conduction-charts" id="id14">1947 – Heisler’s Transient Conduction Charts</a></p></li>
+<li><p><a class="reference internal" href="#crank-and-nicolson-numerical-conduction" id="id15">1947 – Crank and Nicolson: Numerical Conduction</a></p></li>
+<li><p><a class="reference internal" href="#kays-and-london-effectiveness-ntu" id="id16">1955 – Kays and London: Effectiveness-NTU</a></p></li>
+<li><p><a class="reference internal" href="#churchill-and-chu-natural-convection-over-all-rayleigh-numbers" id="id17">1975 – Churchill and Chu: Natural Convection over All Rayleigh Numbers</a></p></li>
+<li><p><a class="reference internal" href="#see-also" id="id18">See Also</a></p></li>
+</ul>
+</nav>
+<section id="newton-s-law-of-cooling">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">1701 – Newton’s Law of Cooling</a><a class="headerlink" href="#newton-s-law-of-cooling" title="Link to this heading">#</a></h2>
+<p>Isaac Newton wanted a temperature scale beyond the range of his linseed-oil
+thermometer. He heated a block of iron red hot, set it in a steady wind,
+and assumed that the heat it lost was proportional to its excess over the
+air temperature. Equal intervals of time then multiply the excess by equal
+factors, so the clock becomes a thermometer. The paper appeared anonymously
+in the <em>Philosophical Transactions</em>. Today the law defines the convection
+coefficient, <span class="math notranslate nohighlight">\(\dot Q = hA(T_s - T_\infty)\)</span>, which hides all the fluid
+mechanics in <span class="math notranslate nohighlight">\(h\)</span>.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/heat_transfer.html#engineeringkit.heat_transfer.convection_heat_rate" title="engineeringkit.heat_transfer.convection_heat_rate"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.heat_transfer.convection_heat_rate()</span></code></a>
+and <a class="reference internal" href="../api/heat_transfer.html#engineeringkit.heat_transfer.lumped_temperature" title="engineeringkit.heat_transfer.lumped_temperature"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.heat_transfer.lumped_temperature()</span></code></a>. The example
+recovers the time constant from readings at equal intervals and checks the
+energy balance of a cooling block.</p>
+<p><em>References:</em> [I. Newton], “Scala graduum caloris,” <em>Phil. Trans. R. Soc.</em>
+22 (1701) 824-829.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="In 1701 Newton published, anonymously, a temperature scale reaching far beyond the melting point of tin. He heated a block of iron red hot, set it in a steady wind, and timed how long it took to cool. Assuming that the heat lost is proportional to the excess temperature, \dot Q = hA(T - T_\infty) (~engineeringkit.heat_transfer.convection_heat_rate), equal intervals of time should multiply the excess temperature by equal factors (~engineeringkit.heat_transfer.lumped_temperature). Newton then read temperatures off the clock. This example repeats the measurement on a model block, recovers the time constant from the readings, and checks the energy balance."><img alt="" src="../_images/sphx_glr_plot_01_newton_cooling_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/heat_transfer/convection/plot_01_newton_cooling.html"><span class="doc">Newton’s law of cooling</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Newton's law of cooling</div>
 </div></div></section>
-<section id="further-reading">
-<h2>Further reading<a class="headerlink" href="#further-reading" title="Link to this heading">#</a></h2>
-<p><a class="reference external" href="https://ocw.mit.edu/courses/16-050-thermal-energy-fall-2002/pages/lecture-notes/">University or agency teaching reference</a>
-provides background beyond the implemented subset. The equations and examples
-here are concise original explanations, not reproductions of that reference.</p>
+<section id="biot-s-heated-bar-and-the-biot-number">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">1804 – Biot’s Heated Bar and the Biot Number</a><a class="headerlink" href="#biot-s-heated-bar-and-the-biot-number" title="Link to this heading">#</a></h2>
+<p>Jean-Baptiste Biot heated one end of iron bars and read thermometers along
+them. The steady profile was set by a contest between conduction along the
+bar and loss from its surface. Biot could not write a consistent
+differential equation for it, because he treated conduction as an action
+between distant slices; Fourier did in 1807. The ratio of surface
+conductance to internal conductance, <span class="math notranslate nohighlight">\(Bi = hL/k\)</span>, now carries Biot’s
+name and decides whether a body can be treated as one temperature.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/heat_transfer.html#engineeringkit.heat_transfer.biot_number" title="engineeringkit.heat_transfer.biot_number"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.heat_transfer.biot_number()</span></code></a>. The
+example compares the lumped model with the exact plane-wall solution at
+Biot numbers of 0.01, 0.1 and 1.</p>
+<p><em>References:</em> J.-B. Biot, “Mémoire sur la propagation de la chaleur,”
+<em>Bibliothèque britannique</em> 27 (1804) 310-329.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="In 1804 Jean-Baptiste Biot heated one end of iron bars and read thermometers set along them. He saw that the temperature profile is set by a contest between conduction along the bar and loss from its surface. He could not write a consistent differential equation for it; Fourier did in 1807. The ratio of the two effects, now the Biot number Bi = hL/k (~engineeringkit.heat_transfer.biot_number), decides whether a body can be treated as a single temperature. This example cools a plane wall at three Biot numbers and compares the lumped model e^{-Bi\,Fo} with the exact series solution."><img alt="" src="../_images/sphx_glr_plot_01_biot_number_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/heat_transfer/transient/plot_01_biot_number.html"><span class="doc">Biot’s heated bar and the Biot number</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Biot's heated bar and the Biot number</div>
+</div></div></section>
+<section id="fourier-s-theorie-analytique-de-la-chaleur">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">1822 – Fourier’s <em>Théorie analytique de la chaleur</em></a><a class="headerlink" href="#fourier-s-theorie-analytique-de-la-chaleur" title="Link to this heading">#</a></h2>
+<p>Joseph Fourier made the heat flux proportional to the temperature gradient,
+<span class="math notranslate nohighlight">\(q = -k\,\mathrm{d}T/\mathrm{d}x\)</span>, derived the heat equation from an
+energy balance, and solved it with trigonometric series. The memoir of 1807
+met objections from Lagrange and Laplace, and the full theory appeared as a
+book in 1822. For steady flow through a slab the law is
+<span class="math notranslate nohighlight">\(\dot Q = kA\Delta T/L\)</span>, so layers behave like resistors in series.
+Curved walls give logarithmic resistances and, with them, a critical radius
+below which insulation increases heat loss.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/heat_transfer.html#engineeringkit.heat_transfer.fourier_heat_rate" title="engineeringkit.heat_transfer.fourier_heat_rate"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.heat_transfer.fourier_heat_rate()</span></code></a>,
+<a class="reference internal" href="../api/heat_transfer.html#engineeringkit.heat_transfer.plane_wall_resistance" title="engineeringkit.heat_transfer.plane_wall_resistance"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.heat_transfer.plane_wall_resistance()</span></code></a>,
+<a class="reference internal" href="../api/heat_transfer.html#engineeringkit.heat_transfer.composite_wall" title="engineeringkit.heat_transfer.composite_wall"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.heat_transfer.composite_wall()</span></code></a>,
+<a class="reference internal" href="../api/heat_transfer.html#engineeringkit.heat_transfer.cylinder_resistance" title="engineeringkit.heat_transfer.cylinder_resistance"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.heat_transfer.cylinder_resistance()</span></code></a> and
+<a class="reference internal" href="../api/heat_transfer.html#engineeringkit.heat_transfer.critical_insulation_radius_cylinder" title="engineeringkit.heat_transfer.critical_insulation_radius_cylinder"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.heat_transfer.critical_insulation_radius_cylinder()</span></code></a>.
+The example solves a furnace wall as a resistor chain and finds the critical
+radius of wire insulation numerically.</p>
+<p><em>References:</em> J. Fourier, <em>Théorie analytique de la chaleur</em> (Paris:
+Firmin Didot, 1822).</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Joseph Fourier&#x27;s 1822 treatise made the heat flux proportional to the temperature gradient, q = -k\,\mathrm{d}T/\mathrm{d}x, derived the heat equation from it, and invented the series that bear his name to solve it. For steady flow through a slab the law gives \dot Q = kA\Delta T/L (~engineeringkit.heat_transfer.fourier_heat_rate), so a slab behaves like an electrical resistor L/(kA) (~engineeringkit.heat_transfer.plane_wall_resistance) and layered walls add like resistors in series (~engineeringkit.heat_transfer.composite_wall). Curved walls give logarithmic resistances, and with them the surprising critical radius of insulation."><img alt="" src="../_images/sphx_glr_plot_01_fourier_law_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/heat_transfer/conduction/plot_01_fourier_law.html"><span class="doc">Fourier’s Théorie analytique de la chaleur</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Fourier's Théorie analytique de la chaleur</div>
+</div></div></section>
+<section id="kirchhoff-s-law-of-thermal-radiation">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">1859 – Kirchhoff’s Law of Thermal Radiation</a><a class="headerlink" href="#kirchhoff-s-law-of-thermal-radiation" title="Link to this heading">#</a></h2>
+<p>Gustav Kirchhoff, working with Robert Bunsen on spectra, proved from the
+second law that at each wavelength a body’s emissivity equals its
+absorptivity. If it did not, a body in an isothermal enclosure could heat
+itself above its surroundings. The perfect absorber, the blackbody, became
+the universal emitter whose spectrum depends on temperature alone, and
+finding that spectrum occupied physics for the next forty years.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/heat_transfer.html#engineeringkit.heat_transfer.radiation_heat_rate" title="engineeringkit.heat_transfer.radiation_heat_rate"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.heat_transfer.radiation_heat_rate()</span></code></a>
+and <a class="reference internal" href="../api/heat_transfer.html#engineeringkit.heat_transfer.radiation_coefficient" title="engineeringkit.heat_transfer.radiation_coefficient"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.heat_transfer.radiation_coefficient()</span></code></a>. The example
+lets plates with <span class="math notranslate nohighlight">\(\alpha = \varepsilon\)</span> and <span class="math notranslate nohighlight">\(\alpha \ne \varepsilon\)</span>
+come to equilibrium in an enclosure, and linearises radiation as a
+heat-transfer coefficient.</p>
+<p><em>References:</em> G. Kirchhoff, “Über das Verhältniss zwischen dem
+Emissionsvermögen und dem Absorptionsvermögen der Körper für Wärme und
+Licht,” <em>Ann. Phys. Chem.</em> 109 (1860) 275-301.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="In 1859 Gustav Kirchhoff, explaining the dark lines that Fraunhofer had seen in the solar spectrum, proved from the second law that at every wavelength a body&#x27;s emissivity equals its absorptivity. A good absorber is a good emitter, and the perfect absorber, the blackbody, is the universal reference whose emission depends on temperature alone. For a gray surface in large surroundings the net exchange is \varepsilon\sigma A(T_s^4 - T_{sur}^4) (~engineeringkit.heat_transfer.radiation_heat_rate), often linearised as a coefficient h_r (~engineeringkit.heat_transfer.radiation_coefficient). This example shows why \alpha = \varepsilon is forced: anything else would let heat flow from cold to hot."><img alt="" src="../_images/sphx_glr_plot_01_kirchhoff_emissivity_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/heat_transfer/radiation/plot_01_kirchhoff_emissivity.html"><span class="doc">Kirchhoff’s law of thermal radiation</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Kirchhoff's law of thermal radiation</div>
+</div></div></section>
+<section id="kelvin-s-age-of-the-earth">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">1862 – Kelvin’s Age of the Earth</a><a class="headerlink" href="#kelvin-s-age-of-the-earth" title="Link to this heading">#</a></h2>
+<p>William Thomson treated the Earth as a semi-infinite solid that began molten
+and has cooled from its surface ever since. The error-function solution
+makes the surface gradient fall as <span class="math notranslate nohighlight">\(1/\sqrt t\)</span>, so the gradient
+measured in mines, about 1 °F per 50 ft, dates the Earth: about 98 million
+years. Geologists and Darwin needed far longer. The calculation was right;
+the model was not, because convection in the mantle (argued by John Perry
+in 1895) and radioactive heat keep the interior hot.</p>
+<p><em>Implementation:</em>
+<a class="reference internal" href="../api/heat_transfer.html#engineeringkit.heat_transfer.semi_infinite_temperature" title="engineeringkit.heat_transfer.semi_infinite_temperature"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.heat_transfer.semi_infinite_temperature()</span></code></a>. The example
+redoes Kelvin’s arithmetic in SI units and checks the gradient against the
+profile.</p>
+<p><em>References:</em> W. Thomson, “On the secular cooling of the earth,” <em>Trans.
+R. Soc. Edinburgh</em> 23 (1864) 157-169 (read 28 April 1862).</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="In 1862 William Thomson, later Lord Kelvin, treated the Earth as a semi-infinite solid that began at a uniform molten temperature and has cooled from its surface ever since. The temperature below the surface is then T_s + (T_i - T_s)\operatorname{erf}(x/2\sqrt{\alpha t}) (~engineeringkit.heat_transfer.semi_infinite_temperature), and the surface gradient (T_i - T_s)/\sqrt{\pi\alpha t} falls with time. From the gradient measured in mines, about 1 °F per 50 ft, he found an age of about 98 million years. This example redoes his arithmetic in SI units and checks the gradient against the profile itself."><img alt="" src="../_images/sphx_glr_plot_02_kelvin_age_of_earth_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/heat_transfer/transient/plot_02_kelvin_age_of_earth.html"><span class="doc">Kelvin’s age of the Earth</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Kelvin's age of the Earth</div>
+</div></div></section>
+<section id="stefan-and-boltzmann-emission-grows-as-t4">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">1879-1884 – Stefan and Boltzmann: Emission Grows as T⁴</a><a class="headerlink" href="#stefan-and-boltzmann-emission-grows-as-t4" title="Link to this heading">#</a></h2>
+<p>Josef Stefan noticed that John Tyndall’s platinum wire radiated 11.7 times
+as much at 1200 °C as at 525 °C, close to the ratio of the absolute
+temperatures to the fourth power. Five years later his former student
+Ludwig Boltzmann derived <span class="math notranslate nohighlight">\(E_b = \sigma T^4\)</span> from thermodynamics and
+Maxwell’s radiation pressure. The value of <span class="math notranslate nohighlight">\(\sigma\)</span> was explained
+only in 1900, by integrating Planck’s spectrum.</p>
+<p><em>Implementation:</em>
+<a class="reference internal" href="../api/heat_transfer.html#engineeringkit.heat_transfer.stefan_boltzmann_emissive_power" title="engineeringkit.heat_transfer.stefan_boltzmann_emissive_power"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.heat_transfer.stefan_boltzmann_emissive_power()</span></code></a> and
+<a class="reference internal" href="../api/heat_transfer.html#engineeringkit.heat_transfer.planck_spectral_emissive_power" title="engineeringkit.heat_transfer.planck_spectral_emissive_power"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.heat_transfer.planck_spectral_emissive_power()</span></code></a>. The
+example reproduces Stefan’s ratio and integrates Planck’s law to recover
+<span class="math notranslate nohighlight">\(\sigma T^4\)</span>.</p>
+<p><em>References:</em> J. Stefan, “Über die Beziehung zwischen der Wärmestrahlung
+und der Temperatur,” <em>Sitzungsber. Akad. Wiss. Wien</em> 79 (1879) 391-428;
+L. Boltzmann, “Ableitung des Stefan’schen Gesetzes, betreffend die
+Abhängigkeit der Wärmestrahlung von der Temperatur aus der
+electromagnetischen Lichttheorie,” <em>Ann. Phys. Chem.</em> 22 (1884) 291-294.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="In 1879 Josef Stefan reread John Tyndall&#x27;s measurements of a glowing platinum wire: at 1200 °C it radiated 11.7 times as much as at 525 °C. The ratio of the absolute temperatures to the fourth power is 11.6, and Stefan proposed E \propto T^4. In 1884 his former student Ludwig Boltzmann derived the law from thermodynamics and Maxwell&#x27;s radiation pressure, E_b = \sigma T^4 (~engineeringkit.heat_transfer.stefan_boltzmann_emissive_power). The constant \sigma was explained only by Planck&#x27;s spectrum (~engineeringkit.heat_transfer.planck_spectral_emissive_power), whose integral this example checks against the law."><img alt="" src="../_images/sphx_glr_plot_02_stefan_boltzmann_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/heat_transfer/radiation/plot_02_stefan_boltzmann.html"><span class="doc">Stefan and Boltzmann: emission grows as T⁴</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Stefan and Boltzmann: emission grows as T⁴</div>
+</div></div></section>
+<section id="stefan-s-problem-a-moving-freezing-front">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">1891 – Stefan’s Problem: A Moving Freezing Front</a><a class="headerlink" href="#stefan-s-problem-a-moving-freezing-front" title="Link to this heading">#</a></h2>
+<p>Josef Stefan asked how fast sea ice thickens in the polar winter. Latent
+heat is released at the ice-water interface, whose position is part of the
+unknown: the first moving-boundary problem. Stefan found that the thickness
+grows as the square root of time. Franz Neumann had already given the exact
+similarity solution in his Königsberg lectures,
+<span class="math notranslate nohighlight">\(s = 2\lambda\sqrt{\alpha t}\)</span> with
+<span class="math notranslate nohighlight">\(\lambda e^{\lambda^2}\operatorname{erf}\lambda = Ste/\sqrt\pi\)</span>. The
+same mathematics governs casting, welding and frozen ground.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/heat_transfer.html#engineeringkit.heat_transfer.neumann_stefan_front" title="engineeringkit.heat_transfer.neumann_stefan_front"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.heat_transfer.neumann_stefan_front()</span></code></a>
+and <a class="reference internal" href="../api/heat_transfer.html#engineeringkit.heat_transfer.stefan_number" title="engineeringkit.heat_transfer.stefan_number"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.heat_transfer.stefan_number()</span></code></a>. The example grows a
+winter of sea ice, checks the energy balance at the front and compares
+Stefan’s quasi-steady estimate.</p>
+<p><em>References:</em> J. Stefan, “Über die Theorie der Eisbildung, insbesondere
+über die Eisbildung im Polarmeere,” <em>Ann. Phys. Chem.</em> 42 (1891) 269-286.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="In 1891 Josef Stefan asked how fast sea ice thickens in the polar winter. The ice conducts heat from the freezing water below to the cold air above, and every millimetre of new ice releases latent heat at the moving interface, so the boundary is part of the unknown. Franz Neumann had found the exact similarity solution in his lectures of the 1860s: the front advances as s = 2\lambda\sqrt{\alpha t} with \lambda e^{\lambda^2}\operatorname{erf}\lambda = Ste/\sqrt\pi (~engineeringkit.heat_transfer.neumann_stefan_front, stefan_number). This example grows a winter of sea ice, checks the energy balance at the front, and compares with Stefan&#x27;s own quasi-steady estimate."><img alt="" src="../_images/sphx_glr_plot_01_stefan_problem_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/heat_transfer/phase_change/plot_01_stefan_problem.html"><span class="doc">Stefan’s problem: a moving freezing front</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Stefan's problem: a moving freezing front</div>
+</div></div></section>
+<section id="wien-s-displacement-law">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">1893 – Wien’s Displacement Law</a><a class="headerlink" href="#wien-s-displacement-law" title="Link to this heading">#</a></h2>
+<p>Wilhelm Wien compressed blackbody radiation in an imaginary cavity with a
+moving mirror. Doppler shifts and the second law forced the spectrum to
+keep its shape: divided by <span class="math notranslate nohighlight">\(T^5\)</span> it depends only on <span class="math notranslate nohighlight">\(\lambda T\)</span>.
+Its peak therefore sits at <span class="math notranslate nohighlight">\(\lambda_{max}T = b = 2898\)</span> um K, in the
+visible for the Sun and near 10 um for a person, which is why thermal
+cameras work in that band.</p>
+<p><em>Implementation:</em>
+<a class="reference internal" href="../api/heat_transfer.html#engineeringkit.heat_transfer.blackbody_peak_wavelength" title="engineeringkit.heat_transfer.blackbody_peak_wavelength"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.heat_transfer.blackbody_peak_wavelength()</span></code></a>. The example
+finds the peak of Planck’s spectrum numerically and collapses spectra at
+four temperatures onto one curve.</p>
+<p><em>References:</em> W. Wien, “Eine neue Beziehung der Strahlung schwarzer Körper
+zum zweiten Hauptsatz der Wärmetheorie,” <em>Sitzungsber. Preuss. Akad. Wiss.
+Berlin</em> (1893) 55-62.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="In 1893 Wilhelm Wien imagined blackbody radiation compressed adiabatically in a cavity with a moving mirror. Doppler shifts and the second law then forced the spectrum to keep its shape as the temperature changes: the spectral emissive power divided by T^5 depends only on \lambda T. Its peak therefore sits at \lambda_{max}T = b (~engineeringkit.heat_transfer.blackbody_peak_wavelength), with b = 2898 um K. The law says why the Sun peaks in the visible, a lamp filament in the near infrared and a person at about 10 um. This example finds the peak of Planck&#x27;s spectrum numerically and checks the similarity that Wien proved."><img alt="" src="../_images/sphx_glr_plot_03_wien_displacement_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/heat_transfer/radiation/plot_03_wien_displacement.html"><span class="doc">Wien’s displacement law</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Wien's displacement law</div>
+</div></div></section>
+<section id="nusselt-s-film-condensation">
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">1916 – Nusselt’s Film Condensation</a><a class="headerlink" href="#nusselt-s-film-condensation" title="Link to this heading">#</a></h2>
+<p>Wilhelm Nusselt analysed steam condensing on a cold vertical wall. The
+condensate forms a laminar film that drains under gravity; balancing weight
+against viscous shear and latent heat against conduction across the film
+gives a thickness growing as <span class="math notranslate nohighlight">\(x^{1/4}\)</span> and an average coefficient
+<span class="math notranslate nohighlight">\(0.943[g\rho_l(\rho_l-\rho_v)k_l^3h_{fg}/(\mu_lL\Delta T)]^{1/4}\)</span>. It
+was the first convection coefficient derived rather than measured, and is
+still the basis of condenser design.</p>
+<p><em>Implementation:</em>
+<a class="reference internal" href="../api/heat_transfer.html#engineeringkit.heat_transfer.nusselt_film_condensation" title="engineeringkit.heat_transfer.nusselt_film_condensation"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.heat_transfer.nusselt_film_condensation()</span></code></a>. The example
+integrates the local coefficient along the film and checks the mass and
+energy balance of the condensate.</p>
+<p><em>References:</em> W. Nusselt, “Die Oberflächenkondensation des
+Wasserdampfes,” <em>Z. VDI</em> 60 (1916) 541-546, 569-575.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Steam condensing on the cold tubes of a power-station condenser forms a liquid film that drains under gravity, and the film itself is the main resistance to heat flow. In 1916 Wilhelm Nusselt balanced gravity against viscous shear in the film and conduction across it. The film thickens as x^{1/4} down the wall, and the average coefficient over a height L is 0.943\,[g\rho_l(\rho_l - \rho_v)k_l^3h_{fg}/(\mu_l L\Delta T)]^{1/4} (~engineeringkit.heat_transfer.nusselt_film_condensation). This example rebuilds the film profile, checks the average against the local coefficient, and checks the energy balance."><img alt="" src="../_images/sphx_glr_plot_02_nusselt_condensation_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/heat_transfer/phase_change/plot_02_nusselt_condensation.html"><span class="doc">Nusselt’s film condensation</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Nusselt's film condensation</div>
+</div></div></section>
+<section id="harper-and-brown-s-fin-efficiency">
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">1922 – Harper and Brown’s Fin Efficiency</a><a class="headerlink" href="#harper-and-brown-s-fin-efficiency" title="Link to this heading">#</a></h2>
+<p>Air-cooled aero engines shed their heat through cylinder fins. D. R.
+Harper and W. B. Brown of the Bureau of Standards solved the fin equation
+<span class="math notranslate nohighlight">\(\theta'' = m^2\theta\)</span> for NACA, defined the fin efficiency, the heat
+carried over that of an isothermal fin, and showed that a convecting tip is
+accounted for by lengthening the fin by half its thickness. Their
+efficiency curves are still how fins are sized.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/heat_transfer.html#engineeringkit.heat_transfer.fin_parameter" title="engineeringkit.heat_transfer.fin_parameter"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.heat_transfer.fin_parameter()</span></code></a>,
+<a class="reference internal" href="../api/heat_transfer.html#engineeringkit.heat_transfer.fin_efficiency_adiabatic" title="engineeringkit.heat_transfer.fin_efficiency_adiabatic"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.heat_transfer.fin_efficiency_adiabatic()</span></code></a> and
+<a class="reference internal" href="../api/heat_transfer.html#engineeringkit.heat_transfer.fin_heat_rate_adiabatic" title="engineeringkit.heat_transfer.fin_heat_rate_adiabatic"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.heat_transfer.fin_heat_rate_adiabatic()</span></code></a>. The example
+solves the fin equation with a convecting tip numerically and checks the
+corrected length.</p>
+<p><em>References:</em> D. R. Harper and W. B. Brown, “Mathematical equations for
+heat conduction in the fins of air-cooled engines,” NACA Report 158 (1922).</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Air-cooled aero engines of the First World War shed their heat through cylinder fins, and in 1922 D. R. Harper and W. B. Brown of the Bureau of Standards gave NACA the mathematics. A thin fin obeys \theta&#x27;&#x27; = m^2\theta with m = \sqrt{hP/(kA_c)} (~engineeringkit.heat_transfer.fin_parameter); with an insulated tip it carries \sqrt{hPkA_c}\,\theta_b\tanh mL (~engineeringkit.heat_transfer.fin_heat_rate_adiabatic), a fraction \tanh(mL)/mL of what an isothermal fin would (~engineeringkit.heat_transfer.fin_efficiency_adiabatic). Their practical trick: a convecting tip is accounted for by lengthening the fin by half its thickness. This example solves the fin equation numerically and checks both."><img alt="" src="../_images/sphx_glr_plot_02_fin_efficiency_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/heat_transfer/conduction/plot_02_fin_efficiency.html"><span class="doc">Harper and Brown’s fin efficiency</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Harper and Brown's fin efficiency</div>
+</div></div></section>
+<section id="nusselt-s-unit-sphere-view-factor">
+<h2><a class="toc-backref" href="#id11" role="doc-backlink">1928 – Nusselt’s Unit-Sphere View Factor</a><a class="headerlink" href="#nusselt-s-unit-sphere-view-factor" title="Link to this heading">#</a></h2>
+<p>The fraction of radiation leaving one diffuse surface that reaches another
+is a fourfold integral. Wilhelm Nusselt reduced it to a drawing: project the
+second surface onto a unit hemisphere, then down onto the base circle; the
+covered fraction is the view factor. Closed forms for common geometries
+followed, and Nusselt’s construction lives on as the cosine-weighted
+sampling of Monte Carlo ray tracers.</p>
+<p><em>Implementation:</em>
+<a class="reference internal" href="../api/heat_transfer.html#engineeringkit.heat_transfer.view_factor_parallel_plates" title="engineeringkit.heat_transfer.view_factor_parallel_plates"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.heat_transfer.view_factor_parallel_plates()</span></code></a> and
+<a class="reference internal" href="../api/heat_transfer.html#engineeringkit.heat_transfer.view_factor_coaxial_disks" title="engineeringkit.heat_transfer.view_factor_coaxial_disks"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.heat_transfer.view_factor_coaxial_disks()</span></code></a>. The example
+turns the unit sphere into a Monte Carlo ray tracer and checks the closed
+forms and reciprocity.</p>
+<p><em>References:</em> W. Nusselt, “Graphische Bestimmung des Winkelverhältnisses
+bei der Wärmestrahlung,” <em>Z. VDI</em> 72 (1928) 673.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="How much of the radiation leaving one diffuse surface lands on another? The view factor is a fourfold integral of \cos\theta_1\cos\theta_2/\pi r^2. In 1928 Wilhelm Nusselt found a construction that a draughtsman could do: project the second surface onto a unit hemisphere centred on a point of the first, then project that image straight down onto the base circle. The fraction of the circle covered is the view factor from the point. Picking points uniformly in the circle is the same as picking cosine-weighted directions, which makes the construction a Monte Carlo method. This example uses it to check the closed forms for opposed rectangles (~engineeringkit.heat_transfer.view_factor_parallel_plates) and coaxial disks (~engineeringkit.heat_transfer.view_factor_coaxial_disks)."><img alt="" src="../_images/sphx_glr_plot_04_nusselt_view_factor_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/heat_transfer/radiation/plot_04_nusselt_view_factor.html"><span class="doc">Nusselt’s unit-sphere view factor</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Nusselt's unit-sphere view factor</div>
+</div></div></section>
+<section id="dittus-and-boelter-turbulent-pipe-convection">
+<h2><a class="toc-backref" href="#id12" role="doc-backlink">1930 – Dittus and Boelter: Turbulent Pipe Convection</a><a class="headerlink" href="#dittus-and-boelter-turbulent-pipe-convection" title="Link to this heading">#</a></h2>
+<p>F. W. Dittus and L. M. K. Boelter at Berkeley correlated tests on
+automobile radiator tubes with a power law in the Reynolds and Prandtl
+numbers. McAdams’s rounded version, <span class="math notranslate nohighlight">\(Nu = 0.023Re^{0.8}Pr^n\)</span> with
+<span class="math notranslate nohighlight">\(n = 0.4\)</span> for heating and 0.3 for cooling, became the most quoted
+equation in convection, though the original paper gave 0.0243 and 0.0265.
+Colburn’s analogy (1933) between friction and heat transfer reproduces the
+0.023.</p>
+<p><em>Implementation:</em>
+<a class="reference internal" href="../api/heat_transfer.html#engineeringkit.heat_transfer.dittus_boelter_nusselt" title="engineeringkit.heat_transfer.dittus_boelter_nusselt"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.heat_transfer.dittus_boelter_nusselt()</span></code></a>. The example
+sizes the coefficient for water in a tube, derives it from the Colburn
+analogy and compares it with Gnielinski’s correlation.</p>
+<p><em>References:</em> F. W. Dittus and L. M. K. Boelter, “Heat transfer in
+automobile radiators of the tubular type,” <em>Univ. Calif. Publ. Eng.</em> 2
+(1930) 443-461; R. H. S. Winterton, “Where did the Dittus and Boelter
+equation come from?”, <em>Int. J. Heat Mass Transfer</em> 41 (1998) 809-810.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="At Berkeley in 1930 Frank Dittus and Llewellyn Boelter correlated tests on automobile radiator tubes with a power law in the Reynolds and Prandtl numbers. In McAdams&#x27;s rounded form, Nu = 0.023\,Re^{0.8}Pr^{n} with n = 0.4 for heating and 0.3 for cooling (~engineeringkit.heat_transfer.dittus_boelter_nusselt), it became the most quoted equation in convection. This example sizes the coefficient for water in a tube, shows that the Colburn analogy between friction and heat transfer reproduces the 0.023, and measures the scatter against Gnielinski&#x27;s modern correlation."><img alt="" src="../_images/sphx_glr_plot_02_dittus_boelter_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/heat_transfer/convection/plot_02_dittus_boelter.html"><span class="doc">Dittus and Boelter: turbulent pipe convection</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Dittus and Boelter: turbulent pipe convection</div>
+</div></div></section>
+<section id="nukiyama-s-boiling-curve-and-zuber-s-critical-heat-flux">
+<h2><a class="toc-backref" href="#id13" role="doc-backlink">1934 – Nukiyama’s Boiling Curve and Zuber’s Critical Heat Flux</a><a class="headerlink" href="#nukiyama-s-boiling-curve-and-zuber-s-critical-heat-flux" title="Link to this heading">#</a></h2>
+<p>Shiro Nukiyama boiled water on electrically heated wires and found that the
+heat flux reached a maximum a few tens of kelvin above saturation. At the
+next increment of power the wire was blanketed by vapour and jumped to red
+heat, or melted. The full curve, with its falling transition region and
+minimum, was traced later by controlling temperature instead of power. In
+1958 Novak Zuber explained the maximum as a Taylor-Helmholtz instability of
+the vapour columns, <span class="math notranslate nohighlight">\(q''_{max} = (\pi/24)h_{fg}\rho_v[\sigma g(\rho_l -
+\rho_v)/\rho_v^2]^{1/4}\)</span>. The critical heat flux limits every boiler and
+nuclear reactor core.</p>
+<p><em>Implementation:</em>
+<a class="reference internal" href="../api/heat_transfer.html#engineeringkit.heat_transfer.zuber_critical_heat_flux" title="engineeringkit.heat_transfer.zuber_critical_heat_flux"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.heat_transfer.zuber_critical_heat_flux()</span></code></a>. The example
+sketches the boiling curve of water with standard correlations and finds
+the temperature jump at constant power.</p>
+<p><em>References:</em> S. Nukiyama, “The maximum and minimum values of the heat Q
+transmitted from metal to boiling water under atmospheric pressure,” <em>J.
+Soc. Mech. Eng. Japan</em> 37 (1934) 367-374 (transl. <em>Int. J. Heat Mass
+Transfer</em> 9 (1966) 1419-1433); N. Zuber, “On the stability of boiling heat
+transfer,” <em>Trans. ASME</em> 80 (1958) 711-720.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="In 1934 Shiro Nukiyama boiled water at atmospheric pressure on electrically heated wires. Raising the power, he found that the heat flux reached a maximum a few tens of kelvin above saturation. One step more and the wire was suddenly covered by vapour: a nichrome wire melted, a platinum wire glowed red. Controlling the temperature instead of the power later traced the whole curve, through a falling transition region to a minimum and on into film boiling. In 1958 Novak Zuber explained the maximum as a hydrodynamic (Taylor and Helmholtz) instability of the vapour columns, q&#x27;&#x27;_{max} = C h_{fg}\rho_v[\sigma g(\rho_l - \rho_v)/\rho_v^2]^{1/4} (~engineeringkit.heat_transfer.zuber_critical_heat_flux). This example sketches the curve with standard correlations and finds Nukiyama&#x27;s jump."><img alt="" src="../_images/sphx_glr_plot_03_nukiyama_boiling_curve_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/heat_transfer/phase_change/plot_03_nukiyama_boiling_curve.html"><span class="doc">Nukiyama’s boiling curve and Zuber’s critical heat flux</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Nukiyama's boiling curve and Zuber's critical heat flux</div>
+</div></div></section>
+<section id="heisler-s-transient-conduction-charts">
+<h2><a class="toc-backref" href="#id14" role="doc-backlink">1947 – Heisler’s Transient Conduction Charts</a><a class="headerlink" href="#heisler-s-transient-conduction-charts" title="Link to this heading">#</a></h2>
+<p>The cooling of a slab, cylinder or sphere is a Fourier series whose
+eigenvalues solve a transcendental equation, <span class="math notranslate nohighlight">\(\zeta\tan\zeta = Bi\)</span>
+for the slab. M. P. Heisler, working on induction heating, kept only the
+first term, valid once the Fourier number exceeds about 0.2, and charted the
+centre temperature against <span class="math notranslate nohighlight">\(Fo\)</span> for each <span class="math notranslate nohighlight">\(1/Bi\)</span>. The Heisler
+charts were the standard tool for transient conduction until computers made
+the series trivial.</p>
+<p><em>Implementation:</em>
+<a class="reference internal" href="../api/heat_transfer.html#engineeringkit.heat_transfer.plane_wall_transient" title="engineeringkit.heat_transfer.plane_wall_transient"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.heat_transfer.plane_wall_transient()</span></code></a> and
+<a class="reference internal" href="../api/heat_transfer.html#engineeringkit.heat_transfer.fourier_number" title="engineeringkit.heat_transfer.fourier_number"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.heat_transfer.fourier_number()</span></code></a>. The example redraws the
+centre chart, measures the one-term error and times the quench of a steel
+plate.</p>
+<p><em>References:</em> M. P. Heisler, “Temperature charts for induction and
+constant-temperature heating,” <em>Trans. ASME</em> 69 (1947) 227-236.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Separation of variables gives the cooling of a plane wall as a Fourier series whose eigenvalues solve \zeta\tan\zeta = Bi. Before computers, nobody summed it by hand. In 1947 M. P. Heisler, working on induction heating, noticed that after a short time only the first term matters, and plotted that term as charts of centre temperature against the Fourier number for each Biot number. Generations of students read them with a ruler. plane_wall_transient sums the series (or its first term, terms=1); this example redraws the centre chart, measures the one-term error, and times the quench of a steel plate."><img alt="" src="../_images/sphx_glr_plot_03_heisler_charts_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/heat_transfer/transient/plot_03_heisler_charts.html"><span class="doc">Heisler’s transient conduction charts</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Heisler's transient conduction charts</div>
+</div></div></section>
+<section id="crank-and-nicolson-numerical-conduction">
+<h2><a class="toc-backref" href="#id15" role="doc-backlink">1947 – Crank and Nicolson: Numerical Conduction</a><a class="headerlink" href="#crank-and-nicolson-numerical-conduction" title="Link to this heading">#</a></h2>
+<p>The explicit finite-difference scheme for the heat equation is stable only
+for a mesh Fourier number <span class="math notranslate nohighlight">\(\alpha\Delta t/\Delta x^2 \le 1/2\)</span>, which
+forces tiny time steps; the fully implicit scheme is always stable but only
+first-order accurate. John Crank and Phyllis Nicolson averaged the two and
+obtained a scheme that is both unconditionally stable and second order in
+time. It remains the default for diffusion problems, from heat conduction
+to option pricing.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/heat_transfer.html#engineeringkit.heat_transfer.conduction_1d" title="engineeringkit.heat_transfer.conduction_1d"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.heat_transfer.conduction_1d()</span></code></a>. The
+example measures the order of accuracy of the implicit and Crank-Nicolson
+schemes and watches the explicit one blow up above <span class="math notranslate nohighlight">\(r = 1/2\)</span>.</p>
+<p><em>References:</em> J. Crank and P. Nicolson, “A practical method for numerical
+evaluation of solutions of partial differential equations of the
+heat-conduction type,” <em>Proc. Cambridge Phil. Soc.</em> 43 (1947) 50-67.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="In 1947 John Crank and Phyllis Nicolson, solving heat-conduction problems with heat generation on desk calculators, needed a finite-difference scheme for the heat equation that was both stable and accurate. The explicit scheme is stable only for a mesh Fourier number r = \alpha\Delta t/\Delta x^2 \le 1/2; the fully implicit one is always stable but only first order in time. Averaging the two, they got an unconditionally stable, second-order method (~engineeringkit.heat_transfer.conduction_1d). This example measures the order of each scheme and watches the explicit one blow up."><img alt="" src="../_images/sphx_glr_plot_03_crank_nicolson_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/heat_transfer/conduction/plot_03_crank_nicolson.html"><span class="doc">Crank and Nicolson: numerical conduction</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Crank and Nicolson: numerical conduction</div>
+</div></div></section>
+<section id="kays-and-london-effectiveness-ntu">
+<h2><a class="toc-backref" href="#id16" role="doc-backlink">1955 – Kays and London: Effectiveness-NTU</a><a class="headerlink" href="#kays-and-london-effectiveness-ntu" title="Link to this heading">#</a></h2>
+<p>The log-mean temperature difference sizes an exchanger when all four end
+temperatures are known, but rating a given exchanger with it needs
+iteration. William Kays and Alexander London, testing compact exchangers at
+Stanford, organised the results around the effectiveness
+<span class="math notranslate nohighlight">\(\varepsilon = \dot Q/\dot Q_{max}\)</span> as a function of
+<span class="math notranslate nohighlight">\(NTU = UA/C_{min}\)</span> and the capacity ratio, and published charts for
+every flow arrangement in <em>Compact Heat Exchangers</em>.</p>
+<p><em>Implementation:</em>
+<a class="reference internal" href="../api/heat_transfer.html#engineeringkit.heat_transfer.exchanger_effectiveness_counterflow" title="engineeringkit.heat_transfer.exchanger_effectiveness_counterflow"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.heat_transfer.exchanger_effectiveness_counterflow()</span></code></a>,
+<a class="reference internal" href="../api/heat_transfer.html#engineeringkit.heat_transfer.exchanger_effectiveness_parallel" title="engineeringkit.heat_transfer.exchanger_effectiveness_parallel"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.heat_transfer.exchanger_effectiveness_parallel()</span></code></a>,
+<a class="reference internal" href="../api/heat_transfer.html#engineeringkit.heat_transfer.log_mean_temperature_difference" title="engineeringkit.heat_transfer.log_mean_temperature_difference"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.heat_transfer.log_mean_temperature_difference()</span></code></a>,
+<a class="reference internal" href="../api/heat_transfer.html#engineeringkit.heat_transfer.heat_exchanger_rate" title="engineeringkit.heat_transfer.heat_exchanger_rate"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.heat_transfer.heat_exchanger_rate()</span></code></a> and
+<a class="reference internal" href="../api/heat_transfer.html#engineeringkit.heat_transfer.overall_u" title="engineeringkit.heat_transfer.overall_u"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.heat_transfer.overall_u()</span></code></a>. The example rates an oil
+cooler by both methods and integrates the stream temperatures along it.</p>
+<p><em>References:</em> W. M. Kays and A. L. London, <em>Compact Heat Exchangers</em>
+(1955).</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="The log-mean temperature difference sizes an exchanger when all four end temperatures are known (~engineeringkit.heat_transfer.log_mean_temperature_difference, heat_exchanger_rate). To rate a given exchanger, when only the inlets are known, it needs iteration. William Kays and Alexander London, testing compact exchangers for the US Navy at Stanford, organised everything around the effectiveness \varepsilon = \dot Q/\dot Q_{max} as a function of NTU = UA/C_{min} and C_r = C_{min}/C_{max} (~engineeringkit.heat_transfer.exchanger_effectiveness_counterflow, exchanger_effectiveness_parallel), and published the charts in Compact Heat Exchangers (1955). This example rates an oil cooler both ways and marches the energy equations along it."><img alt="" src="../_images/sphx_glr_plot_01_kays_london_ntu_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/heat_transfer/exchangers/plot_01_kays_london_ntu.html"><span class="doc">Kays and London: the effectiveness-NTU method</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Kays and London: the effectiveness-NTU method</div>
+</div></div></section>
+<section id="churchill-and-chu-natural-convection-over-all-rayleigh-numbers">
+<h2><a class="toc-backref" href="#id17" role="doc-backlink">1975 – Churchill and Chu: Natural Convection over All Rayleigh Numbers</a><a class="headerlink" href="#churchill-and-chu-natural-convection-over-all-rayleigh-numbers" title="Link to this heading">#</a></h2>
+<p>Free convection on a vertical plate was long described piecewise: a laminar
+<span class="math notranslate nohighlight">\(Ra^{1/4}\)</span> law, a turbulent <span class="math notranslate nohighlight">\(Ra^{1/3}\)</span> law and a gap between
+them. Stuart Churchill and Humbert Chu fitted one smooth expression from
+creeping flow to turbulent plumes, using Churchill’s method of blending
+asymptotes. Their correlation is the standard for walls, radiators and
+electronics enclosures.</p>
+<p><em>Implementation:</em>
+<a class="reference internal" href="../api/heat_transfer.html#engineeringkit.heat_transfer.churchill_chu_nusselt" title="engineeringkit.heat_transfer.churchill_chu_nusselt"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.heat_transfer.churchill_chu_nusselt()</span></code></a> and
+<a class="reference internal" href="../api/heat_transfer.html#engineeringkit.heat_transfer.rayleigh_number" title="engineeringkit.heat_transfer.rayleigh_number"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.heat_transfer.rayleigh_number()</span></code></a>. The example checks
+both asymptotes and the laminar boundary-layer solution.</p>
+<p><em>References:</em> S. W. Churchill and H. H. S. Chu, “Correlating equations for
+laminar and turbulent free convection from a vertical plate,” <em>Int. J. Heat
+Mass Transfer</em> 18 (1975) 1323-1329.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Free convection on a vertical plate was long described piecewise: a laminar Ra^{1/4} law, a turbulent Ra^{1/3} law, and a gap between them. In 1975 Stuart Churchill and Humbert Chu fitted one smooth expression to the data from conduction-dominated creeping flow to fully turbulent plumes, Nu = \{0.825 + 0.387 Ra^{1/6}/[1 + (0.492/Pr)^{9/16}]^{8/27}\}^2 (~engineeringkit.heat_transfer.churchill_chu_nusselt, with rayleigh_number). The example checks both asymptotes and the laminar boundary-layer theory it replaces."><img alt="" src="../_images/sphx_glr_plot_03_churchill_chu_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/heat_transfer/convection/plot_03_churchill_chu.html"><span class="doc">Churchill and Chu: natural convection over all Rayleigh numbers</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Churchill and Chu: natural convection over all Rayleigh numbers</div>
+</div></div></section>
+<section id="see-also">
+<h2><a class="toc-backref" href="#id18" role="doc-backlink">See Also</a><a class="headerlink" href="#see-also" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../api/heat_transfer.html"><span class="doc">engineeringkit.heat_transfer</span></a></p></li>
+<li><p><a class="reference internal" href="../guides/heat_transfer.html"><span class="doc">Heat transfer: absolute temperatures and resistance accounting</span></a></p></li>
+<li><p><a class="reference internal" href="thermodynamics_breakthroughs.html"><span class="doc">Breakthroughs in Thermodynamics</span></a></p></li>
+<li><p><a class="reference internal" href="fluid_engineering_breakthroughs.html"><span class="doc">Breakthroughs in Fluid Engineering</span></a></p></li>
+</ul>
 </section>
 </section>
 
@@ -498,11 +852,24 @@ here are concise original explanations, not reproductions of that reference.</p>
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="pst-show_toc_level nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fourier-heat-follows-a-temperature-gradient">Fourier: heat follows a temperature gradient</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transient-models-internal-gradients-matter">Transient models: internal gradients matter</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#radiation-and-exchangers-different-mechanisms-need-different-models">Radiation and exchangers: different mechanisms need different models</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explore-and-verify">Explore and verify</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">Further reading</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#newton-s-law-of-cooling">1701 – Newton’s Law of Cooling</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#biot-s-heated-bar-and-the-biot-number">1804 – Biot’s Heated Bar and the Biot Number</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fourier-s-theorie-analytique-de-la-chaleur">1822 – Fourier’s <em>Théorie analytique de la chaleur</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kirchhoff-s-law-of-thermal-radiation">1859 – Kirchhoff’s Law of Thermal Radiation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kelvin-s-age-of-the-earth">1862 – Kelvin’s Age of the Earth</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stefan-and-boltzmann-emission-grows-as-t4">1879-1884 – Stefan and Boltzmann: Emission Grows as T⁴</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stefan-s-problem-a-moving-freezing-front">1891 – Stefan’s Problem: A Moving Freezing Front</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wien-s-displacement-law">1893 – Wien’s Displacement Law</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nusselt-s-film-condensation">1916 – Nusselt’s Film Condensation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#harper-and-brown-s-fin-efficiency">1922 – Harper and Brown’s Fin Efficiency</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nusselt-s-unit-sphere-view-factor">1928 – Nusselt’s Unit-Sphere View Factor</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dittus-and-boelter-turbulent-pipe-convection">1930 – Dittus and Boelter: Turbulent Pipe Convection</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nukiyama-s-boiling-curve-and-zuber-s-critical-heat-flux">1934 – Nukiyama’s Boiling Curve and Zuber’s Critical Heat Flux</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#heisler-s-transient-conduction-charts">1947 – Heisler’s Transient Conduction Charts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#crank-and-nicolson-numerical-conduction">1947 – Crank and Nicolson: Numerical Conduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kays-and-london-effectiveness-ntu">1955 – Kays and London: Effectiveness-NTU</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#churchill-and-chu-natural-convection-over-all-rayleigh-numbers">1975 – Churchill and Chu: Natural Convection over All Rayleigh Numbers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#see-also">See Also</a></li>
 </ul>
   </nav></div>
 

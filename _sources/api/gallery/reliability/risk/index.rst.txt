@@ -1,0 +1,86 @@
+
+
+.. _sphx_glr_api_gallery_reliability_risk:
+
+Risk
+----
+
+Fault trees, event trees and the safety integrity of protection systems.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In 1961 the US Air Force asked Bell Telephone Laboratories whether the Minuteman launch-control system could fire a missile without a valid order. H. A. Watson&#x27;s answer was a new diagram, the fault tree. It starts from the undesired top event and works downward through AND gates (every input must happen) and OR gates (any input will do) until it reaches basic failures whose probabilities are known (~engineeringkit.reliability.fault_tree_probability). Boeing took the method into the rest of the Minuteman programme, and it spread to aviation and nuclear safety. One trap is an event that feeds more than one branch: the gate inputs are then dependent, and combining gates one by one gives the wrong answer.">
+
+.. only:: html
+
+  .. image:: /api/gallery/reliability/risk/images/thumb/sphx_glr_plot_01_watson_fault_tree_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/reliability/risk/plot_01_watson_fault_tree`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Watson's fault tree</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="The Reactor Safety Study (WASH-1400, 1975), led by Norman Rasmussen, was the first attempt to put a number on the risk of a nuclear power plant. Its method worked forward from each initiating event, such as a pipe break, and asked in turn whether each safety system worked. Every path through the resulting event tree is an accident sequence. Its frequency is the initiator&#x27;s frequency times the branch probabilities (~engineeringkit.reliability.event_tree_probability). Fault trees supplied those branch probabilities. The study was criticised for its uncertainty bounds, but the Three Mile Island accident of 1979 followed a small-break sequence of the kind it had ranked among the most likely, and probabilistic risk assessment became standard practice.">
+
+.. only:: html
+
+  .. image:: /api/gallery/reliability/risk/images/thumb/sphx_glr_plot_02_wash1400_event_tree_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/reliability/risk/plot_02_wash1400_event_tree`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">WASH-1400: event trees</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Programmable electronics took over process trips, railway signalling and machine guards in the 1980s, and nobody could say how safe a software-based protection system was. The International Electrotechnical Commission&#x27;s answer, IEC 61508 (first parts published 1998), grades each safety function by the risk reduction it must achieve. For a function that acts only on rare demands, the measure is its average probability of failure on demand. A dangerous fault that no self-test detects stays hidden until the next proof test, so the channel&#x27;s unavailability rises from zero after each test, and over an interval T it averages \lambda_{DU} T/2 (~engineeringkit.reliability.safety_integrity_pfd). Each decade of PFDavg is one safety integrity level (~engineeringkit.reliability.safety_integrity_level).">
+
+.. only:: html
+
+  .. image:: /api/gallery/reliability/risk/images/thumb/sphx_glr_plot_03_iec61508_sil_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/reliability/risk/plot_03_iec61508_sil`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">IEC 61508 and safety integrity levels</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/reliability/risk/plot_01_watson_fault_tree
+   /api/gallery/reliability/risk/plot_02_wash1400_event_tree
+   /api/gallery/reliability/risk/plot_03_iec61508_sil
+

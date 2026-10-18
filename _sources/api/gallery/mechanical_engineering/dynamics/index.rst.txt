@@ -1,0 +1,68 @@
+
+
+.. _sphx_glr_api_gallery_mechanical_engineering_dynamics:
+
+Dynamics
+--------
+
+Moments of inertia, work, kinetic energy and power.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Christiaan Huygens (1673) asked how long a simple pendulum must be to swing in step with a rigid body pivoted at a point. His answer, the length L = I_O/(m d) to the centre of oscillation, needs the body&#x27;s moment of inertia about the pivot, which Jakob Steiner later wrote in general as I_O = I_G + m d^2 (~engineeringkit.mechanical_engineering.parallel_axis). The example checks the theorem by summing r^2\,dm over a disk, recovers Huygens&#x27;s rule that pivot and centre of oscillation can be swapped without changing the period, and finds the correction he applied to a clock&#x27;s spherical bob.">
+
+.. only:: html
+
+  .. image:: /api/gallery/mechanical_engineering/dynamics/images/thumb/sphx_glr_plot_01_huygens_moment_of_inertia_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/mechanical_engineering/dynamics/plot_01_huygens_moment_of_inertia`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Huygens's compound pendulum and the parallel-axis theorem</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In Du calcul de l&#x27;effet des machines (1829) Gaspard-Gustave Coriolis named the product of force and distance travail, work, and defined the kinetic energy as \tfrac12 m v^2 so that the work done on a body equals its gain in kinetic energy, with no stray factor of two (~engineeringkit.mechanical_engineering.work_constant_force, kinetic_energy). The same accounting runs a punch press: a flywheel stores \tfrac12 I\omega^2 (~engineeringkit.mechanical_engineering.rotational_energy) and gives up flywheel_energy as it slows. The example checks the work-energy theorem against integrated equations of motion.">
+
+.. only:: html
+
+  .. image:: /api/gallery/mechanical_engineering/dynamics/images/thumb/sphx_glr_plot_02_coriolis_work_energy_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/mechanical_engineering/dynamics/plot_02_coriolis_work_energy`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Coriolis's work and kinetic energy</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/mechanical_engineering/dynamics/plot_01_huygens_moment_of_inertia
+   /api/gallery/mechanical_engineering/dynamics/plot_02_coriolis_work_energy
+

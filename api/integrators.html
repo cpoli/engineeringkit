@@ -6,8 +6,16 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Integrators" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://cpoli.github.io/engineeringkit/api/integrators.html" />
+<meta property="og:site_name" content="engineeringkit" />
+<meta property="og:description" content="Inspectable Euler, RK4 and adaptive integration of SI state models." />
+<meta property="og:image" content="https://cpoli.github.io/engineeringkit/_static/images/readme_hero.png" />
+<meta property="og:image:alt" content="engineeringkit" />
+<meta name="description" content="Inspectable Euler, RK4 and adaptive integration of SI state models." />
 
-    <title>Integrators &#8212; engineeringkit 0.1.0 documentation</title>
+    <title>Integrators &#8212; engineeringkit</title>
   
   
   
@@ -30,6 +38,7 @@
 <link href="../_static/styles/pydata-sphinx-theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx_autodoc_typehints.css?v=057ac668" />
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Vibur" />
     <link rel="stylesheet" type="text/css" href="../_static/jupyterlite_sphinx.css?v=f676e775" />
@@ -52,8 +61,10 @@
     <script src="../_static/sg-tags.js?v=d80f6fa4"></script>
     <script src="../_static/jupyterlite_sphinx.js?v=96e329c5"></script>
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'api/integrators';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="canonical" href="https://cpoli.github.io/engineeringkit/api/integrators.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Visualizers" href="visualizers.html" />
@@ -413,7 +424,7 @@
 <dt class="sig sig-object py" id="engineeringkit.integrators.IntegrationResult">
 <span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">engineeringkit.integrators.</span></span><span class="sig-name descname"><span class="pre">IntegrationResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">history</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">evaluations</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/integrators.html#IntegrationResult"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.integrators.IntegrationResult" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Time [s] and state history with shape (samples, states).</p>
+<p>Output of <a class="reference internal" href="#engineeringkit.integrators.integrate_ode" title="engineeringkit.integrators.integrate_ode"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.integrators.integrate_ode()</span></code></a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -427,28 +438,61 @@
 <dl class="py attribute">
 <dt class="sig sig-object py" id="engineeringkit.integrators.IntegrationResult.evaluations">
 <span class="sig-name descname"><span class="pre">evaluations</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></span><a class="headerlink" href="#engineeringkit.integrators.IntegrationResult.evaluations" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
+<dd><p>Number of calls to the right-hand side.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="engineeringkit.integrators.IntegrationResult.history">
 <span class="sig-name descname"><span class="pre">history</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></span><a class="headerlink" href="#engineeringkit.integrators.IntegrationResult.history" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
+<dd><p>State at each sample, shape <code class="docutils literal notranslate"><span class="pre">(samples,</span> <span class="pre">states)</span></code>, in the model’s units.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="engineeringkit.integrators.IntegrationResult.method">
 <span class="sig-name descname"><span class="pre">method</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></span><a class="headerlink" href="#engineeringkit.integrators.IntegrationResult.method" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
+<dd><p>Integration method used (<code class="docutils literal notranslate"><span class="pre">&quot;euler&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;rk4&quot;</span></code> or a SciPy method name).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="engineeringkit.integrators.IntegrationResult.plot">
 <span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">labels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/integrators.html#IntegrationResult.plot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.integrators.IntegrationResult.plot" title="Link to this definition">#</a></dt>
-<dd><p>Plot state histories; labels should include their physical units.</p>
+<dd><p>Plot each state against time; return <code class="docutils literal notranslate"><span class="pre">(fig,</span> <span class="pre">ax)</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>labels</strong> (<em>sequence</em><em> of </em><em>str</em><em>, </em><em>optional</em>) – One label per state, including its unit (e.g. <code class="docutils literal notranslate"><span class="pre">&quot;x</span> <span class="pre">[m]&quot;</span></code>).</p></li>
+<li><p><strong>ax</strong> (<em>matplotlib.axes.Axes</em><em>, </em><em>optional</em>) – Axes to draw on; a new figure is created if omitted.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">(fig,</span> <span class="pre">ax)</span></code>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="engineeringkit.integrators.IntegrationResult.summary">
 <span class="sig-name descname"><span class="pre">summary</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/integrators.html#IntegrationResult.summary"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.integrators.IntegrationResult.summary" title="Link to this definition">#</a></dt>
-<dd><dl class="field-list simple">
+<dd><p>Method, sample count, right-hand-side evaluations and final state.</p>
+<dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></span></p>
 </dd>
@@ -458,31 +502,53 @@
 <dl class="py attribute">
 <dt class="sig sig-object py" id="engineeringkit.integrators.IntegrationResult.t">
 <span class="sig-name descname"><span class="pre">t</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></span><a class="headerlink" href="#engineeringkit.integrators.IntegrationResult.t" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
+<dd><p>Sample times [s], strictly increasing.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+</dd></dl>
 
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.integrators.integrate_ode">
 <span class="sig-prename descclassname"><span class="pre">engineeringkit.integrators.</span></span><span class="sig-name descname"><span class="pre">integrate_ode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rhs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'RK45'</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">rtol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-08</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-10</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/integrators.html#integrate_ode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.integrators.integrate_ode" title="Link to this definition">#</a></dt>
-<dd><p>Solve dy/dt = rhs(t, y) on a strictly increasing finite time grid.</p>
-<p><code class="docutils literal notranslate"><span class="pre">euler</span></code> and <code class="docutils literal notranslate"><span class="pre">rk4</span></code> expose explicit fixed-step methods using the supplied
-grid. Other names select SciPy adaptive methods. Explicit methods are for
-non-stiff teaching problems; step size controls stability and accuracy.
-State units follow the caller’s model; time is in seconds.</p>
+<dd><p>Solve <span class="math notranslate nohighlight">\(dy/dt = f(t, y)\)</span> on a strictly increasing finite time grid.</p>
 <dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>rhs</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code></span>) – <code class="docutils literal notranslate"><span class="pre">rhs(t,</span> <span class="pre">y)</span></code> returning the derivative, a finite array shaped like <code class="docutils literal notranslate"><span class="pre">y0</span></code>,
+in state units per second.</p></li>
+<li><p><strong>y0</strong> (<em>float</em><em> or </em><em>array_like</em>) – Initial state, in the model’s units.</p></li>
+<li><p><strong>t</strong> (<em>array_like</em>) – At least two finite, strictly increasing sample times [s].</p></li>
+<li><p><strong>method</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – <code class="docutils literal notranslate"><span class="pre">&quot;euler&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;rk4&quot;</span></code> for explicit fixed steps on the grid <code class="docutils literal notranslate"><span class="pre">t</span></code>;
+any other name is passed to <code class="xref py py-func docutils literal notranslate"><span class="pre">scipy.integrate.solve_ivp()</span></code> (e.g.
+<code class="docutils literal notranslate"><span class="pre">&quot;RK45&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;Radau&quot;</span></code>).</p></li>
+<li><p><strong>rtol</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></span>) – Positive relative and absolute tolerances of the adaptive methods.</p></li>
+<li><p><strong>atol</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></span>) – Positive relative and absolute tolerances of the adaptive methods.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Times [s], the state history at each time and the number of
+right-hand-side evaluations.</p>
+</dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#engineeringkit.integrators.IntegrationResult" title="engineeringkit.integrators.IntegrationResult"><code class="xref py py-class docutils literal notranslate"><span class="pre">IntegrationResult</span></code></a></span></p>
 </dd>
-<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>rhs</strong> (<em>Callable</em>)</p></li>
-<li><p><strong>method</strong> (<em>str</em>)</p></li>
-<li><p><strong>rtol</strong> (<em>float</em>)</p></li>
-<li><p><strong>atol</strong> (<em>float</em>)</p></li>
+<li><p><strong>ValueError</strong> – If the grid, initial state or tolerances are invalid, or <code class="docutils literal notranslate"><span class="pre">rhs</span></code>
+    returns a nonfinite or wrongly shaped derivative.</p></li>
+<li><p><strong>RuntimeError</strong> – If a fixed-step state becomes nonfinite or the adaptive solver fails.</p></li>
 </ul>
 </dd>
 </dl>
+<p class="rubric">Notes</p>
+<p>Explicit methods are for non-stiff teaching problems; the step size
+controls their stability and accuracy. Inputs are raw SI numbers with no
+dimensional metadata; see <a class="reference internal" href="../numerical_methods.html"><span class="doc">Numerical methods and inspectable histories</span></a>.</p>
 </dd></dl>
 
 </section>

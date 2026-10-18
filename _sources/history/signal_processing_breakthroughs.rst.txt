@@ -1,60 +1,426 @@
 Breakthroughs in Signal Processing
 ==================================
 
+
 .. include:: /_generated/nav/signal_processing.rst
 
-These landmarks trace a conceptual development from a physical law to a useful
-engineering model. The order is a learning path, not a dated chronology or a
-claim that any idea had a single inventor. SI units apply unless documented
-otherwise.
+.. epigraph::
 
-Fourier: a waveform has a frequency description
------------------------------------------------
+   "If a function f(t) contains no frequencies higher than W cps, it is
+   completely determined by giving its ordinates at a series of points
+   spaced 1/2W seconds apart."
+   -- Claude E. Shannon, *Communication in the Presence of Noise* (1949)
 
-Decomposing a signal into complex exponentials makes filtering and spectral analysis tractable. A finite record and a window alter the displayed spectrum.
+Signal processing grew out of the search for hidden periodicities in
+scientific records, and out of the telephone, radio and radar engineering
+of the first half of the twentieth century. Fourier series and the
+periodogram described signals by their frequencies. Analogue filter design
+and the theory of sampled servomechanisms prepared the ground for digital
+filters, while the war and its aftermath brought optimal filtering,
+quantization and the sampling theorem. In the 1960s cheap computation
+arrived: the fast Fourier transform, adaptive filters, window design and
+the cascaded sections that make recursive filters work in finite
+precision. The entries trace the ideas behind
+:mod:`engineeringkit.signal_processing`. Each links to the implementing
+function and to a gallery example devoted to it.
 
-.. math::
+.. contents:: Timeline
+   :local:
+   :depth: 1
 
-    X_k=\sum_{n=0}^{N-1}x_n e^{-j2\pi kn/N}
+1898 -- Schuster's Periodogram
+------------------------------
 
-Use :py:obj:`engineeringkit.signal_processing.dft` to explore the model.
-FFT bins are a finite-record representation; leakage and normalization must be considered.
+Arthur Schuster wanted to know whether meteorological records hid a
+26-day period linked to the Sun's rotation. He computed the squared
+magnitude of a record's Fourier coefficients at each trial period, the
+*periodogram*, and worked out how high a peak pure noise is likely to
+produce. A true periodicity gives a peak that grows with the record length,
+while the noise does not shrink. The periodogram is the discrete Fourier
+transform's squared magnitude, and Parseval's theorem makes it an energy
+decomposition of the record.
 
-Sampling: information can be lost before filtering
---------------------------------------------------
+*Implementation:* :func:`engineeringkit.signal_processing.dft`,
+:func:`engineeringkit.signal_processing.idft`,
+:func:`engineeringkit.signal_processing.power_spectral_density` and
+:class:`engineeringkit.signal_processing.Spectrum`. The example finds a weak
+26-day sine in noise four times stronger and checks Parseval's theorem.
 
-Sampling creates indistinguishable frequencies separated by integer multiples of the sample rate. Band-limited reconstruction requires an adequate rate and antialias filtering before digitization.
+*References:* A. Schuster, "On the investigation of hidden periodicities
+with application to a supposed 26 day period of meteorological phenomena,"
+*Terr. Magn.* 3 (1898) 13-41.
 
-.. math::
+.. minigallery:: ../../examples/signal_processing/spectral/plot_01_schuster_periodogram.py
 
-    f_{Nyquist}=f_s/2
+1899 -- Gibbs's Phenomenon
+--------------------------
 
-Use :py:obj:`engineeringkit.signal_processing.alias_frequency` to explore the model.
-Finite sinc reconstruction is truncated; samples cannot reveal an already aliased original frequency.
+Albert Michelson's mechanical harmonic analyser summed 80 Fourier terms,
+and its square waves overshot at every jump. Michelson suspected the
+machine. Josiah Willard Gibbs showed in letters to *Nature* that the
+partial sums of the series overshoot by about 9% of the jump however many
+terms are kept; the overshoot only narrows toward the discontinuity. Henry
+Wilbraham had found the same effect in 1848. The ringing reappears
+whenever a spectrum is truncated, in filter design as much as in Fourier
+series.
 
-Digital filtering: system memory is explicit
---------------------------------------------
+*Implementation:* :func:`engineeringkit.signal_processing.fourier_partial_sum`.
+The example checks the peak against :math:`\tfrac{2}{\pi}\operatorname{Si}(\pi)`
+and shows that the mean squared error still falls as :math:`1/K`.
 
-Convolution connects an input to an impulse response. FIR and IIR implementations trade finite memory against recursive structure and phase behavior.
+*References:* J. W. Gibbs, "Fourier's series," *Nature* 59 (1898) 200 and
+59 (1899) 606; H. Wilbraham, "On a certain periodic function," *Cambridge
+Dublin Math. J.* 3 (1848) 198-201.
 
-.. math::
+.. minigallery:: ../../examples/signal_processing/fourier/plot_01_gibbs_phenomenon.py
 
-    y[n]=\sum_k h[k]x[n-k]
+1910 -- Haar's Wavelet
+----------------------
 
-Use :py:obj:`engineeringkit.signal_processing.filter_signal` to explore the model.
-These helpers use causal forward filtering with default initial state, so startup transients and phase delay remain.
+In his dissertation, Alfréd Haar built an orthonormal basis of
+square-integrable functions from a single step: the difference between the
+two halves of an interval, shrunk and shifted to every scale and position.
+Each basis function lives on a short interval, so a jump in a signal touches
+only a few coefficients at each scale, where a sine wave spreads it over
+every Fourier coefficient. The fast transform takes averages and
+differences of neighbouring samples and repeats on the averages. It was the
+first wavelet, though the name came in the 1980s.
 
-Explore and verify
-------------------
+*Implementation:* :func:`engineeringkit.signal_processing.haar_transform`
+and :func:`engineeringkit.signal_processing.inverse_haar_transform`. The
+example checks energy preservation and exact inversion, and compresses a
+piecewise signal better than a Fourier basis does.
 
-:doc:`/guides/signal_processing` records units, conventions and independent checks.
-Compare the gallery output against the equations before extending a model.
+*References:* A. Haar, "Zur Theorie der orthogonalen Funktionensysteme,"
+*Math. Ann.* 69 (1910) 331-371.
 
-.. minigallery:: ../../examples/signal_processing/plot_signal_processing_models.py ../../examples/signal_processing/plot_signal_processing_benchmark.py
+.. minigallery:: ../../examples/signal_processing/wavelets/plot_01_haar_wavelet.py
 
-Further reading
----------------
+1930 -- Butterworth's Maximally Flat Filter
+-------------------------------------------
 
-`University or agency teaching reference <https://ocw.mit.edu/courses/res-6-007-signals-and-systems-spring-2011/pages/lecture-notes/>`_
-provides background beyond the implemented subset. The equations and examples
-here are concise original explanations, not reproductions of that reference.
+Stephen Butterworth, designing filters for valve amplifiers, asked for a
+response as flat as possible in the passband. His answer,
+:math:`|H|^2 = 1/(1 + (\omega/\omega_c)^{2n})`, has its first
+:math:`2n - 1` derivatives zero at DC, falls by 20 dB per decade for each
+order and passes :math:`1/\sqrt2` at the cutoff for every order. The
+bilinear transform carries it into discrete time by warping the frequency
+axis onto the unit circle.
+
+*Implementation:* :func:`engineeringkit.signal_processing.butterworth_lowpass`,
+:func:`engineeringkit.signal_processing.butterworth_highpass` and
+:func:`engineeringkit.signal_processing.frequency_response`. The example
+checks the digital response against the warped formula and the power
+complementarity of a low-pass and high-pass pair.
+
+*References:* S. Butterworth, "On the theory of filter amplifiers,"
+*Wireless Engineer* 7 (1930) 536-541.
+
+.. minigallery:: ../../examples/signal_processing/filters/plot_01_butterworth.py
+
+1934 -- The Wiener-Khinchin Theorem
+-----------------------------------
+
+A random signal has no Fourier transform of its own, so what is its
+spectrum? Norbert Wiener's generalized harmonic analysis (1930) and
+Aleksandr Khinchin's correlation theory of stationary processes (1934)
+gave the answer: the power spectrum is the Fourier transform of the
+autocorrelation function. For a finite record the discrete version is an
+identity, since the DFT of the biased sample autocorrelation is the
+periodogram.
+
+*Implementation:* :func:`engineeringkit.signal_processing.correlation` and
+:func:`engineeringkit.signal_processing.power_spectral_density`. The
+example checks the finite-record identity and compares the estimated
+spectrum of an autoregressive process with its theoretical spectrum.
+
+*References:* N. Wiener, "Generalized harmonic analysis," *Acta Math.* 55
+(1930) 117-258; A. Khintchine, "Korrelationstheorie der stationären
+stochastischen Prozesse," *Math. Ann.* 109 (1934) 604-615.
+
+.. minigallery:: ../../examples/signal_processing/spectral/plot_02_wiener_khinchin.py
+
+1946 -- Gabor's Time-Frequency Atoms
+------------------------------------
+
+A Fourier spectrum says which frequencies a signal contains but not when.
+Dennis Gabor described signals by elementary "atoms", Gaussian-windowed
+sinusoids that each occupy a cell of the time-frequency plane. Sliding a
+window along a signal and transforming each frame gives the short-time
+Fourier transform. Gabor showed that the cells cannot be made arbitrarily
+small: the product of a window's spreads in time and frequency has a lower
+bound, reached only by the Gaussian.
+
+*Implementation:* :func:`engineeringkit.signal_processing.stft`, which
+returns an :class:`~engineeringkit.signal_processing.STFTResult`. The
+example measures the uncertainty product of three windows and analyses a
+chirp with a click using short and long windows.
+
+*References:* D. Gabor, "Theory of communication," *J. IEE* 93, part III
+(1946) 429-457.
+
+.. minigallery:: ../../examples/signal_processing/spectral/plot_03_gabor_stft.py
+
+1947 -- Hurewicz's z-Transform
+------------------------------
+
+Radar fire-control systems sampled their targets, and the MIT Radiation
+Laboratory needed a theory of feedback loops that saw data only at
+discrete instants. In the Laboratory's *Theory of Servomechanisms*, Witold
+Hurewicz described a sampled sequence by its generating function
+:math:`\sum_n x_n z^{-n}`, which John Ragazzini and Lotfi Zadeh named the
+z-transform in 1952. A linear difference equation becomes a rational
+function :math:`H(z) = B(z)/A(z)`; the system is stable when its poles lie
+inside the unit circle, and on the circle it gives the frequency response.
+
+*Implementation:* :func:`engineeringkit.signal_processing.frequency_response`,
+:func:`engineeringkit.signal_processing.filter_signal` and
+:func:`engineeringkit.signal_processing.moving_average`. The example builds
+a resonator from its poles, checks its impulse and frequency responses and
+moves the poles outside the circle.
+
+*References:* W. Hurewicz, "Filters and servo systems with pulsed data,"
+ch. 5 in H. M. James, N. B. Nichols and R. S. Phillips (eds.), *Theory of
+Servomechanisms* (McGraw-Hill, New York, 1947); J. R. Ragazzini and L. A.
+Zadeh, "The analysis of sampled-data systems," *Trans. AIEE* 71, part II
+(1952) 225-234.
+
+.. minigallery:: ../../examples/signal_processing/filters/plot_02_hurewicz_z_transform.py
+
+1948 -- Bennett's Quantization Noise
+------------------------------------
+
+Pulse-code modulation, developed at Bell Laboratories during the war,
+rounds every sample to one of :math:`2^N` levels. W. R. Bennett analysed
+the spectrum of the rounding error and showed that for a signal that is
+busy compared with the step :math:`q`, the error is spread evenly over
+:math:`[-q/2, q/2]` and behaves like white noise of power :math:`q^2/12`.
+For a full-scale sine this gives the rule quoted on every converter's data
+sheet, :math:`\mathrm{SNR} = 6.02N + 1.76` dB.
+
+*Implementation:* :func:`engineeringkit.signal_processing.quantize`,
+:func:`engineeringkit.signal_processing.quantization_step`,
+:func:`engineeringkit.signal_processing.snr_db` and
+:func:`engineeringkit.signal_processing.rms`. The example measures the
+error power and the SNR for 2 to 16 bits and shows the correlated error of
+a slow ramp.
+
+*References:* W. R. Bennett, "Spectra of quantized signals," *Bell Syst.
+Tech. J.* 27 (1948) 446-472.
+
+.. minigallery:: ../../examples/signal_processing/sampling/plot_01_bennett_quantization.py
+
+1949 -- Shannon's Sampling Theorem
+----------------------------------
+
+Claude Shannon's paper on communication in the presence of noise opens
+with a theorem: a signal with no frequencies above :math:`W` is completely
+determined by samples spaced :math:`1/(2W)` apart, and it is rebuilt by a
+sum of sinc pulses centred on the samples. E. T. Whittaker (1915), Harry
+Nyquist (1928) and Vladimir Kotelnikov (1933) had reached parts of the
+result. A frequency above half the sampling rate gives exactly the samples
+of a lower frequency, its alias, which is why every converter has an
+anti-aliasing filter in front of it.
+
+*Implementation:* :func:`engineeringkit.signal_processing.sinc_reconstruct`,
+:func:`engineeringkit.signal_processing.alias_frequency`,
+:func:`engineeringkit.signal_processing.nyquist_frequency` and
+:func:`engineeringkit.signal_processing.sampling_period`. The example
+rebuilds a two-tone signal between its samples and shows a 70 Hz tone
+coming back at 30 Hz.
+
+*References:* C. E. Shannon, "Communication in the presence of noise,"
+*Proc. IRE* 37 (1949) 10-21; E. T. Whittaker, "On the functions which are
+represented by the expansions of the interpolation-theory," *Proc. R. Soc.
+Edinburgh* 35 (1915) 181-194.
+
+.. minigallery:: ../../examples/signal_processing/sampling/plot_02_shannon_sampling.py
+
+1949 -- Wiener's Optimal Filter
+-------------------------------
+
+Asked during the war to predict the path of an aircraft from noisy radar
+data, Norbert Wiener posed filtering as an optimization: find the linear
+filter that minimizes the mean squared error between its output and the
+wanted signal, given only their correlations. His classified 1942 report,
+known for its difficulty as the "yellow peril", was published in 1949.
+Norman Levinson recast it for discrete finite filters, where the answer
+solves the Toeplitz normal equations :math:`Rw = p`, and gave a fast
+recursion to solve them.
+
+*Implementation:* :func:`engineeringkit.signal_processing.wiener_filter`.
+The example recovers an autoregressive signal from white noise, checks the
+weights and error against theory and shows that no moving average does
+better.
+
+*References:* N. Wiener, *Extrapolation, Interpolation, and Smoothing of
+Stationary Time Series* (MIT Press and Wiley, 1949); N. Levinson, "The
+Wiener RMS (root mean square) error criterion in filter design and
+prediction," *J. Math. Phys.* 25 (1947) 261-278.
+
+.. minigallery:: ../../examples/signal_processing/filters/plot_03_wiener_filter.py
+
+1958 -- Blackman and Tukey's Spectral Windows
+---------------------------------------------
+
+Ralph Blackman and John Tukey's *The Measurement of Power Spectra* turned
+spectral estimation into an engineering procedure for the telephone and
+seismic data of the Bell System. Cutting a finite record from a signal
+multiplies it by a rectangular window, and every tone is then smeared by
+that window's transform, whose sidelobes fall slowly enough to hide a weak
+tone near a strong one. Tapered windows, among them Hann's and Hamming's,
+trade a wider main lobe for much lower sidelobes.
+
+*Implementation:* :func:`engineeringkit.signal_processing.windowed_spectrum`.
+The example draws each window's own spectrum and finds a tone 50 dB below
+a neighbour that the rectangular window hides.
+
+*References:* R. B. Blackman and J. W. Tukey, "The measurement of power
+spectra from the point of view of communications engineering," *Bell Syst.
+Tech. J.* 37 (1958) 185-282 and 485-569.
+
+.. minigallery:: ../../examples/signal_processing/spectral/plot_04_blackman_tukey_windows.py
+
+1958 -- Goertzel's Algorithm
+----------------------------
+
+Gerald Goertzel evaluated a single term of a finite trigonometric series
+with a second-order recursion that needs one real multiplication per
+sample. When only a few frequencies matter it is cheaper than a full FFT,
+and it needs no buffer of samples. Its best-known use is the touch-tone
+telephone receiver, which listens for eight frequencies, four in a low
+group and four in a high group.
+
+*Implementation:* :func:`engineeringkit.signal_processing.goertzel`. The
+example checks it against DFT bins, decodes a dialled number and compares
+its cost with an FFT.
+
+*References:* G. Goertzel, "An algorithm for the evaluation of finite
+trigonometric series," *Amer. Math. Monthly* 65 (1958) 34-35.
+
+.. minigallery:: ../../examples/signal_processing/spectral/plot_05_goertzel.py
+
+1960 -- Widrow and Hoff's LMS Adaptive Filter
+---------------------------------------------
+
+At Stanford, Bernard Widrow and his student Ted Hoff looked for a way to
+train an adaptive linear neuron without knowing the statistics the Wiener
+solution needs. Their least-mean-squares rule nudges the weights after
+every sample against the gradient of the instantaneous squared error,
+:math:`w \leftarrow w + \mu e_n u_n`. It costs about :math:`2L`
+multiplications per sample, converges on average to the Wiener filter and
+follows it when the system changes. Echo cancellers, channel equalizers and
+noise-cancelling headphones run on it.
+
+*Implementation:* :func:`engineeringkit.signal_processing.lms_filter`,
+which returns an :class:`~engineeringkit.signal_processing.LMSResult`. The
+example identifies an unknown FIR system, compares the result with the
+Wiener solution, and tracks a sudden change.
+
+*References:* B. Widrow and M. E. Hoff, "Adaptive switching circuits,"
+*IRE WESCON Convention Record*, part 4 (1960) 96-104.
+
+.. minigallery:: ../../examples/signal_processing/filters/plot_04_widrow_hoff_lms.py
+
+1965 -- Cooley and Tukey's Fast Fourier Transform
+-------------------------------------------------
+
+A direct discrete Fourier transform of :math:`N` samples needs
+:math:`N^2` complex multiplications. James Cooley and John Tukey split it
+into the transforms of the even and odd samples, combined by butterflies,
+and repeated the split down to single samples, for
+:math:`(N/2)\log_2 N` multiplications. Gauss had used the idea in 1805,
+unpublished. The 1965 paper made spectral analysis, fast convolution and
+the rest of digital signal processing practical on computers.
+
+*Implementation:* :func:`engineeringkit.signal_processing.radix2_fft`,
+:func:`engineeringkit.signal_processing.dft`,
+:func:`engineeringkit.signal_processing.fft_frequencies` and
+:func:`engineeringkit.signal_processing.convolution`. The example checks
+the butterflies against a direct DFT, counts the multiplications and
+convolves through the FFT.
+
+*References:* J. W. Cooley and J. W. Tukey, "An algorithm for the machine
+calculation of complex Fourier series," *Math. Comp.* 19 (1965) 297-301;
+M. T. Heideman, D. H. Johnson and C. S. Burrus, "Gauss and the history of
+the fast Fourier transform," *IEEE ASSP Mag.* 1 (1984) 14-21.
+
+.. minigallery:: ../../examples/signal_processing/fourier/plot_02_cooley_tukey_fft.py
+
+1966 -- Kaiser's Window Method for FIR Design
+---------------------------------------------
+
+An ideal low-pass filter has an infinitely long sinc impulse response.
+Truncating it leaves Gibbs ripples at the band edge, and tapering it with a
+window trades ripple for a wider transition band. James Kaiser of Bell
+Laboratories used a window built on the modified Bessel function
+:math:`I_0`, whose single parameter :math:`\beta` sets that trade
+continuously, and gave empirical formulas for the length and :math:`\beta`
+that meet a required attenuation and transition width. Windowed FIR filters
+have exactly linear phase.
+
+*Implementation:* :func:`engineeringkit.signal_processing.kaiser_order` and
+:func:`engineeringkit.signal_processing.fir_lowpass`. The example designs a
+filter to a specification, checks its linear phase and compares it with a
+fixed Hamming window.
+
+*References:* J. F. Kaiser, "Digital filters," ch. 7 in F. F. Kuo and J.
+F. Kaiser (eds.), *System Analysis by Digital Computer* (Wiley, New York,
+1966); J. F. Kaiser, "Nonrecursive digital filter design using the
+I0-sinh window function," *Proc. IEEE Int. Symp. Circuits Syst.* (1974)
+20-23.
+
+.. minigallery:: ../../examples/signal_processing/filters/plot_05_kaiser_fir.py
+
+1967 -- Welch's Averaged Periodogram
+------------------------------------
+
+The periodogram of noise does not settle down as the record grows: at each
+frequency its standard deviation equals its mean. Peter Welch cut the
+record into overlapping segments, windowed each, and averaged their
+periodograms, computed with the new FFT. Averaging :math:`K` nearly
+independent segments divides the variance by about :math:`K`, at the price
+of a resolution of :math:`f_s/L` for segments of :math:`L` samples. It is
+the default spectral estimator of most signal-analysis software.
+
+*Implementation:* :func:`engineeringkit.signal_processing.welch_psd`. The
+example matches SciPy's estimate, measures the variance reduction and finds
+a tone in noise.
+
+*References:* P. D. Welch, "The use of fast Fourier transform for the
+estimation of power spectra: a method based on time averaging over short,
+modified periodograms," *IEEE Trans. Audio Electroacoust.* 15 (1967)
+70-73.
+
+.. minigallery:: ../../examples/signal_processing/spectral/plot_06_welch_psd.py
+
+1970 -- Jackson's Cascaded Second-Order Sections
+------------------------------------------------
+
+A recursive filter can be computed directly from its transfer function, but
+the roots of a high-degree polynomial are very sensitive to rounding in its
+coefficients. When the poles crowd near :math:`z = 1`, as they do in a
+narrow low-pass filter, even double precision moves them out of the unit
+circle. Kaiser had warned of this in 1965. Leland Jackson analysed how
+roundoff noise and overflow depend on how a filter is split into a cascade
+of second-order sections, each holding one pair of poles, and such
+cascades of biquads became the standard realization.
+
+*Implementation:* :func:`engineeringkit.signal_processing.butterworth_lowpass`
+with ``output="sos"`` and :func:`engineeringkit.signal_processing.filter_signal`
+with ``a=None``. The example shows a twelfth-order filter that blows up as
+one polynomial and works as six sections.
+
+*References:* L. B. Jackson, "On the interaction of roundoff noise and
+dynamic range in digital filters," *Bell Syst. Tech. J.* 49 (1970)
+159-184.
+
+.. minigallery:: ../../examples/signal_processing/filters/plot_06_second_order_sections.py
+
+See Also
+--------
+
+- :doc:`/api/signal_processing`
+- :doc:`/guides/signal_processing`
+- :doc:`/history/communications_breakthroughs`
+- :doc:`/history/control_systems_breakthroughs`

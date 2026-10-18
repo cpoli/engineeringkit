@@ -6,8 +6,16 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Visualizers" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://cpoli.github.io/engineeringkit/api/visualizers.html" />
+<meta property="og:site_name" content="engineeringkit" />
+<meta property="og:description" content="Reusable customizable plots and animations, independent of numerical solvers." />
+<meta property="og:image" content="https://cpoli.github.io/engineeringkit/_static/images/readme_hero.png" />
+<meta property="og:image:alt" content="engineeringkit" />
+<meta name="description" content="Reusable customizable plots and animations, independent of numerical solvers." />
 
-    <title>Visualizers &#8212; engineeringkit 0.1.0 documentation</title>
+    <title>Visualizers &#8212; engineeringkit</title>
   
   
   
@@ -30,6 +38,7 @@
 <link href="../_static/styles/pydata-sphinx-theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx_autodoc_typehints.css?v=057ac668" />
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Vibur" />
     <link rel="stylesheet" type="text/css" href="../_static/jupyterlite_sphinx.css?v=f676e775" />
@@ -54,6 +63,7 @@
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'api/visualizers';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="canonical" href="https://cpoli.github.io/engineeringkit/api/visualizers.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Units" href="units.html" />
@@ -412,16 +422,53 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.visualizers.animate_displacement">
 <span class="sig-prename descclassname"><span class="pre">engineeringkit.visualizers.</span></span><span class="sig-name descname"><span class="pre">animate_displacement</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">displacement</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">interval</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">30</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/visualizers.html#animate_displacement"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.visualizers.animate_displacement" title="Link to this definition">#</a></dt>
-<dd><p>Animate 1D displacement [m]; return (figure, FuncAnimation).</p>
-<p>Input samples play at interval milliseconds/frame, independently of physical
-time. Retain the animation until displaying or saving it.</p>
+<dd><p>Animate a mass moving along a line.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>t</strong> (<em>array_like</em>) – Sample times [s], one-dimensional.</p></li>
+<li><p><strong>displacement</strong> (<em>array_like</em>) – Displacement at each time [m], same shape as <code class="docutils literal notranslate"><span class="pre">t</span></code>.</p></li>
+<li><p><strong>interval</strong> (<em>float</em><em>, </em><em>optional</em>) – Delay between frames [ms], positive. Samples play at this rate,
+independently of physical time.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">(fig,</span> <span class="pre">animation)</span></code>, the animation a
+<code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.animation.FuncAnimation</span></code>. Keep a reference to it
+until it is shown or saved.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../numerical_methods.html"><span class="doc">Numerical methods and inspectable histories</span></a>.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.visualizers.plot_history">
 <span class="sig-prename descclassname"><span class="pre">engineeringkit.visualizers.</span></span><span class="sig-name descname"><span class="pre">plot_history</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">history</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">labels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/visualizers.html#plot_history"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.visualizers.plot_history" title="Link to this definition">#</a></dt>
-<dd><p>Plot scalar/vector histories; return (figure, axes). Time is in seconds.</p>
-<p>State labels should include units, for example <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">[m]</span></code>.</p>
+<dd><p>Plot scalar or vector state histories against time.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>t</strong> (<em>array_like</em>) – Sample times [s], one-dimensional.</p></li>
+<li><p><strong>history</strong> (<em>array_like</em>) – States, shape <code class="docutils literal notranslate"><span class="pre">(len(t),)</span></code> or <code class="docutils literal notranslate"><span class="pre">(len(t),</span> <span class="pre">states)</span></code>.</p></li>
+<li><p><strong>labels</strong> (<em>sequence</em><em> of </em><em>str</em><em>, </em><em>optional</em>) – One label per state, including its unit (e.g. <code class="docutils literal notranslate"><span class="pre">&quot;x</span> <span class="pre">[m]&quot;</span></code>).</p></li>
+<li><p><strong>ax</strong> (<em>matplotlib.axes.Axes</em><em>, </em><em>optional</em>) – Axes to draw on; a new figure is created if omitted.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">(fig,</span> <span class="pre">ax)</span></code>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../numerical_methods.html"><span class="doc">Numerical methods and inspectable histories</span></a>.</p>
 </dd></dl>
 
 </section>

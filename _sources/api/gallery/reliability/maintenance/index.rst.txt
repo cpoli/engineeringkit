@@ -1,0 +1,68 @@
+
+
+.. _sphx_glr_api_gallery_reliability_maintenance:
+
+Maintenance
+-----------
+
+Repairable units, availability and when to replace a part before it fails.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Should a part be replaced on a schedule, before it fails? Richard Barlow and Frank Proschan answered with renewal theory. Replace at age T or at failure, whichever comes first. Each cycle then costs c_p R(T) + c_f F(T) and lasts \int_0^T R\,dt on average, so the long-run cost rate is their ratio (~engineeringkit.reliability.age_replacement_cost_rate). A finite best age exists only if the hazard rises (Weibull \beta &gt; 1) and a failure costs more than a planned replacement. With a constant hazard a new part is no better than the old one, so planned replacement only adds cost (~engineeringkit.reliability.renewal_interval_cost_rate).">
+
+.. only:: html
+
+  .. image:: /api/gallery/reliability/maintenance/images/thumb/sphx_glr_plot_01_barlow_proschan_replacement_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/reliability/maintenance/plot_01_barlow_proschan_replacement`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Barlow and Proschan's age replacement</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A repairable unit fails and is mended over and over, so the question is not whether it survives but what fraction of time it is up. If failures and repairs both happen at constant rates, the unit is a continuous-time Markov chain. Barlow and Proschan&#x27;s 1965 monograph put such models at the centre of reliability theory. For one unit the up-probability decays from one to the steady state \mu/(\lambda + \mu) = \mathrm{MTBF}/(\mathrm{MTBF} + \mathrm{MTTR}) with time constant 1/(\lambda + \mu) (~engineeringkit.reliability.markov_availability). Larger systems need the matrix exponential of the transition-rate matrix (~engineeringkit.reliability.markov_state_probabilities).">
+
+.. only:: html
+
+  .. image:: /api/gallery/reliability/maintenance/images/thumb/sphx_glr_plot_02_markov_availability_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/reliability/maintenance/plot_02_markov_availability`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Markov models of repairable systems</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/reliability/maintenance/plot_01_barlow_proschan_replacement
+   /api/gallery/reliability/maintenance/plot_02_markov_availability
+

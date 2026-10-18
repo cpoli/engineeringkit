@@ -6,8 +6,16 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Examples" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://cpoli.github.io/engineeringkit/api/gallery/electrical_engineering/index.html" />
+<meta property="og:site_name" content="engineeringkit" />
+<meta property="og:description" content="Domain hub · History · Examples · API reference This gallery walks through every public feature of engineeringkit.electrical_engineering, one breakthrough per script: DC circuits and nodal analysis..." />
+<meta property="og:image" content="https://cpoli.github.io/engineeringkit/_static/images/readme_hero.png" />
+<meta property="og:image:alt" content="engineeringkit" />
+<meta name="description" content="Domain hub · History · Examples · API reference This gallery walks through every public feature of engineeringkit.electrical_engineering, one breakthrough per script: DC circuits and nodal analysis..." />
 
-    <title>Examples &#8212; engineeringkit 0.1.0 documentation</title>
+    <title>Examples &#8212; engineeringkit</title>
   
   
   
@@ -30,6 +38,7 @@
 <link href="../../../_static/styles/pydata-sphinx-theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx_autodoc_typehints.css?v=057ac668" />
     <link rel="stylesheet" type="text/css" href="../../../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Vibur" />
     <link rel="stylesheet" type="text/css" href="../../../_static/jupyterlite_sphinx.css?v=f676e775" />
@@ -54,9 +63,10 @@
     <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'api/gallery/electrical_engineering/index';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="canonical" href="https://cpoli.github.io/engineeringkit/api/gallery/electrical_engineering/index.html" />
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="RC charge and energy accounting" href="plot_electrical_engineering_benchmark.html" />
+    <link rel="next" title="AC circuits" href="ac_circuits/index.html" />
     <link rel="prev" title="Oswald’s efficiency factor and the parabolic drag polar" href="../aerodynamics/wings/plot_03_oswald_drag_polar.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="color-scheme" content="light dark"/>
@@ -327,28 +337,52 @@
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
   <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../structural_engineering/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../structural_engineering/plot_structural_engineering_benchmark.html">Buckling and effective length</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../structural_engineering/plot_structural_engineering_models.html">Beam deflection under a uniform load</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../structural_engineering/beams/index.html">Beams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../structural_engineering/energy/index.html">Energy methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../structural_engineering/frames/index.html">Frames</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../structural_engineering/members/index.html">Members</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../structural_engineering/plasticity/index.html">Plasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../structural_engineering/stability/index.html">Stability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../structural_engineering/stress/index.html">Stress</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../structural_engineering/trusses/index.html">Trusses</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../mechanical_engineering/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../mechanical_engineering/plot_mechanical_engineering_benchmark.html">Oscillator energy balance</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../mechanical_engineering/plot_mechanical_engineering_models.html">Damping and vibration histories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mechanical_engineering/dynamics/index.html">Dynamics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mechanical_engineering/machine_elements/index.html">Machine elements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mechanical_engineering/mechanisms/index.html">Mechanisms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mechanical_engineering/rotordynamics/index.html">Rotordynamics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mechanical_engineering/transmission/index.html">Transmission</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mechanical_engineering/vibration/index.html">Vibration</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../thermodynamics/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../thermodynamics/plot_thermodynamics_benchmark.html">Carnot engine and heat-pump limits</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../thermodynamics/plot_thermodynamics_models.html">Ideal power-cycle efficiency</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../thermodynamics/cycles/index.html">Cycles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../thermodynamics/exergy/index.html">Exergy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../thermodynamics/laws/index.html">Laws</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../thermodynamics/properties/index.html">Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../thermodynamics/psychrometrics/index.html">Psychrometrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../thermodynamics/refrigeration/index.html">Refrigeration</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../fluid_engineering/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../fluid_engineering/plot_fluid_engineering_benchmark.html">Poiseuille profile and volume flow</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../fluid_engineering/plot_fluid_engineering_models.html">Darcy friction across two flow regimes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fluid_engineering/hydrostatics/index.html">Hydrostatics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fluid_engineering/measurement/index.html">Measurement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fluid_engineering/networks/index.html">Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fluid_engineering/open_channel/index.html">Open channels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fluid_engineering/pipe_flow/index.html">Pipe flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fluid_engineering/pumps/index.html">Pumps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fluid_engineering/similarity/index.html">Similarity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fluid_engineering/transients/index.html">Transients</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../heat_transfer/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../heat_transfer/plot_heat_transfer_benchmark.html">Cooling and the lumped time constant</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../heat_transfer/plot_heat_transfer_models.html">Parallel and counterflow heat exchangers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../heat_transfer/conduction/index.html">Conduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../heat_transfer/convection/index.html">Convection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../heat_transfer/exchangers/index.html">Heat exchangers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../heat_transfer/phase_change/index.html">Phase change</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../heat_transfer/radiation/index.html">Radiation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../heat_transfer/transient/index.html">Transient conduction</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../aerodynamics/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -363,8 +397,12 @@
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a aria-current="page" class="current reference internal" href="#">Examples</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="plot_electrical_engineering_benchmark.html">RC charge and energy accounting</a></li>
-<li class="toctree-l2"><a class="reference internal" href="plot_electrical_engineering_models.html">RLC current after a voltage step</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ac_circuits/index.html">AC circuits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dc_circuits/index.html">DC circuits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="networks/index.html">Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="power/index.html">Power</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transients/index.html">Transients</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transmission_lines/index.html">Transmission lines</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../control_systems/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -379,8 +417,11 @@
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../signal_processing/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../signal_processing/plot_signal_processing_benchmark.html">Aliasing before reconstruction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../signal_processing/plot_signal_processing_models.html">Sampling and a signal spectrum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../signal_processing/filters/index.html">Filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../signal_processing/fourier/index.html">Fourier analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../signal_processing/sampling/index.html">Sampling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../signal_processing/spectral/index.html">Spectral analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../signal_processing/wavelets/index.html">Wavelets</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../communications/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -395,13 +436,22 @@
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../materials/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../materials/plot_materials_benchmark.html">Crack size and fracture threshold</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../materials/plot_materials_models.html">Voigt and Reuss composite bounds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../materials/composites/index.html">Composites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../materials/creep/index.html">Creep</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../materials/elasticity/index.html">Elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../materials/fatigue/index.html">Fatigue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../materials/fracture/index.html">Fracture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../materials/plasticity/index.html">Plasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../materials/yield/index.html">Yield</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../reliability/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../reliability/plot_reliability_benchmark.html">Redundancy under independent failures</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../reliability/plot_reliability_models.html">Weibull survival and shape</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reliability/growth/index.html">Growth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reliability/lifetimes/index.html">Lifetimes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reliability/maintenance/index.html">Maintenance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reliability/risk/index.html">Risk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reliability/structural/index.html">Structural reliability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reliability/systems/index.html">Systems</a></li>
 </ul>
 </details></li>
 </ul>
@@ -440,7 +490,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../guides/control_systems.html">Control systems: matrix contracts and numerical stability</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../guides/signal_processing.html">Signal processing: sampled energy, spectra and quantization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../guides/communications.html">Communications: linear ratios, modulation phase and channel scope</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../guides/materials.html">Materials: elasticity, fracture and fatigue conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../guides/materials.html">Materials: elasticity, yield, fatigue, fracture and creep conventions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../guides/reliability.html">Reliability: distributions, independence and rate units</a></li>
 </ul>
 </div>
@@ -507,17 +557,95 @@
 <div class="subpkg-nav docutils container">
 <p><a class="reference internal" href="../../../_generated/subpackages/electrical_engineering.html"><span class="doc">Domain hub</span></a> · <a class="reference internal" href="../../../history/electrical_engineering_breakthroughs.html"><span class="doc">History</span></a> · <a class="reference internal" href="#"><span class="doc">Examples</span></a> · <a class="reference internal" href="../../electrical_engineering.html"><span class="doc">API reference</span></a></p>
 </div>
-<p>RLC current after a voltage step.</p>
+<p>This gallery walks through every public feature of
+<code class="docutils literal notranslate"><span class="pre">engineeringkit.electrical_engineering</span></code>, one breakthrough per script: DC
+circuits and nodal analysis, equivalent networks, transients, AC circuits,
+transmission lines and power systems.</p>
 <p><a class="reference internal" href="../../../guides/electrical_engineering.html"><span class="doc">Units, assumptions and numerical validation</span></a>
-provides the interpretation and physical validity limits.</p>
-<p>Each script is self-contained; run it with
-<code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">examples/electrical_engineering/plot_electrical_engineering_models.py</span></code>.</p>
-<div id='sg-tag-list' class='sphx-glr-tag-list'></div><div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Charging an initially empty ideal capacitor from a constant voltage source dissipates half the eventual source energy in the resistor. Numerical integration checks energy conservation over a finite time interval."><img alt="" src="../../../_images/sphx_glr_plot_electrical_engineering_benchmark_thumb.png" />
-<p><a class="reference internal" href="plot_electrical_engineering_benchmark.html"><span class="doc">RC charge and energy accounting</span></a></p>
-  <div class="sphx-glr-thumbnail-title">RC charge and energy accounting</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Compute an inspectable engineering model using SI inputs. See the linked domain guide for assumptions and benchmark checks."><img alt="" src="../../../_images/sphx_glr_plot_electrical_engineering_models_thumb.png" />
-<p><a class="reference internal" href="plot_electrical_engineering_models.html"><span class="doc">RLC current after a voltage step</span></a></p>
-  <div class="sphx-glr-thumbnail-title">RLC current after a voltage step</div>
+gives the physical validity limits. Each script is self-contained and can be
+run directly with <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">examples/electrical_engineering/&lt;section&gt;/&lt;script&gt;.py</span></code>.</p>
+<section id="sections">
+<h2>Sections<a class="headerlink" href="#sections" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>dc_circuits</strong> – Ohm’s law, Wheatstone’s bridge and Kirchhoff’s nodal analysis.</p></li>
+<li><p><strong>networks</strong> – Jacobi’s maximum power theorem, Thévenin and Norton equivalents.</p></li>
+<li><p><strong>transients</strong> – Kelvin’s telegraph cable and the RC time constant.</p></li>
+<li><p><strong>ac_circuits</strong> – Stanley’s transformer, Steinmetz’s phasors and Lodge’s resonance.</p></li>
+<li><p><strong>transmission_lines</strong> – Heaviside’s telegrapher’s equations and the Smith chart.</p></li>
+<li><p><strong>power</strong> – Tesla’s three-phase system, Fortescue’s symmetrical components, Budeanu’s reactive power and the digital load flow.</p></li>
+</ul>
+<div id='sg-tag-list' class='sphx-glr-tag-list'></div><div class="sphx-glr-thumbnails"></div></section>
+<section id="ac-circuits">
+<h2>AC circuits<a class="headerlink" href="#ac-circuits" title="Link to this heading">#</a></h2>
+<p>Phasors, complex impedance, resonance and the transformer.</p>
+<div id='sg-tag-list' class='sphx-glr-tag-list'></div><div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="In March 1886 William Stanley, working for George Westinghouse, lit the shops of Great Barrington, Massachusetts, from a 500 V alternator through transformers that stepped the voltage down to 100 V at each building. His design, refined from the Gaulard-Gibbs secondary generator and the Hungarian ZBD transformer of 1885, had a closed iron core and windings in parallel across the line. An ideal transformer scales voltage by the turns ratio, V_2 = V_1 N_2/N_1 (~engineeringkit.electrical_engineering.transformer_secondary), current by its inverse and impedance by its square. This example shows why that made AC distribution win: stepping up the voltage cuts line losses by the square of the ratio."><img alt="" src="../../../_images/sphx_glr_plot_01_stanley_transformer_thumb.png" />
+<p><a class="reference internal" href="ac_circuits/plot_01_stanley_transformer.html"><span class="doc">Stanley’s transformer</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Stanley's transformer</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="AC circuits obey linear differential equations, and before 1893 engineers solved them with trigonometry and graphical constructions. At the International Electrical Congress in Chicago, Charles Proteus Steinmetz showed that a sinusoid A\cos(\omega t + \phi) can be carried as the complex number Ae^{j\phi}. Differentiation becomes multiplication by j\omega, so an inductor becomes the impedance j\omega L (~engineeringkit.electrical_engineering.inductor_impedance), a capacitor 1/j\omega C (~engineeringkit.electrical_engineering.capacitor_impedance), and AC circuits are solved by Ohm&#x27;s law with complex numbers (~engineeringkit.electrical_engineering.series_rlc_impedance). This example solves a series RLC circuit by phasors and checks the answer against a time-domain simulation."><img alt="" src="../../../_images/sphx_glr_plot_02_steinmetz_phasors_thumb.png" />
+<p><a class="reference internal" href="ac_circuits/plot_02_steinmetz_phasors.html"><span class="doc">Steinmetz’s phasors and complex impedance</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Steinmetz's phasors and complex impedance</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Early spark transmitters splattered energy over a wide band, so every receiver heard every transmitter. Oliver Lodge&#x27;s 1897 patent on &quot;syntonic&quot; telegraphy put an inductance in series with the antenna&#x27;s capacitance at both ends, tuning transmitter and receiver to the same frequency f_0 = 1/2\pi\sqrt{LC} (~engineeringkit.electrical_engineering.resonance_frequency). At resonance the inductive and capacitive reactances cancel and the current is limited only by the resistance; the sharpness of the peak is the quality factor Q = \sqrt{L/C}/R, and the half-power bandwidth is f_0/Q. Marconi bought the patent in 1912. This example measures the bandwidth of a tuned circuit (~engineeringkit.electrical_engineering.SeriesRLC) and shows how much tuning rejects a neighbouring station."><img alt="" src="../../../_images/sphx_glr_plot_03_lodge_resonance_thumb.png" />
+<p><a class="reference internal" href="ac_circuits/plot_03_lodge_resonance.html"><span class="doc">Lodge’s syntonic tuning: series resonance</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Lodge's syntonic tuning: series resonance</div>
+</div></div></section>
+<section id="dc-circuits">
+<h2>DC circuits<a class="headerlink" href="#dc-circuits" title="Link to this heading">#</a></h2>
+<p>Ohm’s law, bridges and Kirchhoff’s laws for resistive networks.</p>
+<div id='sg-tag-list' class='sphx-glr-tag-list'></div><div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="In 1826 Georg Simon Ohm drove current from a thermocouple, a steady source, through brass wires of different lengths x and read the current on a torsion galvanometer. The readings fitted X = a/(b + x): a fixed &quot;exciting force&quot; a divided by the total resistance of the wire plus the rest of the circuit, b. In modern form that is V = IR (~engineeringkit.electrical_engineering.ohms_law). This example rebuilds Ohm&#x27;s experiment, recovers the source voltage and internal resistance from the readings, and checks the series and parallel rules that follow from the law."><img alt="" src="../../../_images/sphx_glr_plot_01_ohm_law_thumb.png" />
+<p><a class="reference internal" href="dc_circuits/plot_01_ohm_law.html"><span class="doc">Ohm’s law</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Ohm's law</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Samuel Hunter Christie described the circuit in 1833, and Charles Wheatstone made it the standard way to measure resistance in his 1843 Bakerian lecture. Two voltage dividers share a source; a galvanometer joins their midpoints. When R_1/R_2 = R_3/R_4 the midpoints sit at the same potential and the galvanometer reads zero, whatever the source voltage (~engineeringkit.electrical_engineering.wheatstone_balanced). A null reading needs no calibrated meter, which is why the bridge is so accurate. This example balances a bridge against an unknown resistor and shows how sharply the null depends on it."><img alt="" src="../../../_images/sphx_glr_plot_02_wheatstone_bridge_thumb.png" />
+<p><a class="reference internal" href="dc_circuits/plot_02_wheatstone_bridge.html"><span class="doc">Wheatstone’s bridge</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Wheatstone's bridge</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="In 1845, as a student in Königsberg, Gustav Kirchhoff stated the two laws that make any network of conductors solvable: the currents meeting at a junction sum to zero, and the voltages around any closed loop sum to zero. Writing the current law at every node, with Ohm&#x27;s law for each branch, gives a linear system G\mathbf{v} = \mathbf{i}, nodal analysis. Circuit simulators add one row per voltage source, modified nodal analysis (~engineeringkit.electrical_engineering.nodal_analysis). This example solves a two-source ladder network, checks both of Kirchhoff&#x27;s laws on the result, and verifies superposition."><img alt="" src="../../../_images/sphx_glr_plot_03_kirchhoff_nodal_analysis_thumb.png" />
+<p><a class="reference internal" href="dc_circuits/plot_03_kirchhoff_nodal_analysis.html"><span class="doc">Kirchhoff’s circuit laws and nodal analysis</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Kirchhoff's circuit laws and nodal analysis</div>
+</div></div></section>
+<section id="networks">
+<h2>Networks<a class="headerlink" href="#networks" title="Link to this heading">#</a></h2>
+<p>Two-terminal equivalents and maximum power transfer.</p>
+<div id='sg-tag-list' class='sphx-glr-tag-list'></div><div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Around 1840 Moritz von Jacobi, building battery-powered electric motors in St Petersburg (one drove a boat on the Neva), asked what load draws the most power from a battery. A source of EMF V and internal resistance R_s delivers P = V^2 R_L/(R_s + R_L)^2 to a load R_L, largest when R_L = R_s (~engineeringkit.electrical_engineering.maximum_power_transfer). At that match the source wastes as much as it delivers, so the efficiency is only 50%. Engineers later learned to read the theorem the other way: power grids run far from the match, at high efficiency, while radio receivers match to capture every last picowatt."><img alt="" src="../../../_images/sphx_glr_plot_01_jacobi_maximum_power_thumb.png" />
+<p><a class="reference internal" href="networks/plot_01_jacobi_maximum_power.html"><span class="doc">Jacobi’s maximum power theorem</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Jacobi's maximum power theorem</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Léon Charles Thévenin, an engineer of the French telegraph service, showed in 1883 that any linear network seen from two terminals behaves like a single EMF in series with a single resistance (Hermann von Helmholtz had reached the same result in 1853). The EMF is the open-circuit voltage; the resistance is that voltage divided by the short-circuit current, or the resistance seen with every source zeroed. This example reduces a two-source network with nodal_analysis, builds the equivalent with thevenin_from_source, and checks that the two agree for every load."><img alt="" src="../../../_images/sphx_glr_plot_02_thevenin_equivalent_thumb.png" />
+<p><a class="reference internal" href="networks/plot_02_thevenin_equivalent.html"><span class="doc">Thévenin’s equivalent circuit</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Thévenin's equivalent circuit</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="In 1926 Edward Lawry Norton at Bell Labs, and independently Hans Ferdinand Mayer at Siemens, gave the dual of Thévenin&#x27;s theorem: a linear two-terminal network also behaves like a current source I_N = V_{th}/R_{th} in parallel with the same resistance (~engineeringkit.electrical_engineering.norton_from_thevenin). Norton wrote it in an internal memorandum on filter design; Mayer used it to model the vacuum-tube amplifier, which acts more like a current source than a voltage source. This example checks that the Thévenin and Norton forms are indistinguishable at the terminals, and that converting sources back and forth simplifies a ladder to a single source."><img alt="" src="../../../_images/sphx_glr_plot_03_norton_equivalent_thumb.png" />
+<p><a class="reference internal" href="networks/plot_03_norton_equivalent.html"><span class="doc">Norton’s equivalent circuit</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Norton's equivalent circuit</div>
+</div></div></section>
+<section id="power">
+<h2>Power<a class="headerlink" href="#power" title="Link to this heading">#</a></h2>
+<p>Three-phase supply, reactive power, symmetrical components and load flow.</p>
+<div id='sg-tag-list' class='sphx-glr-tag-list'></div><div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="In May 1888 Nikola Tesla presented &quot;A new system of alternate current motors and transformers&quot; to the American Institute of Electrical Engineers. Currents displaced in phase produce a rotating magnetic field, which drives an induction motor with no commutator. Polyphase supply has a second advantage that Mikhail Dolivo-Dobrovolsky exploited with three phases in 1889-1891: a balanced three-phase load draws constant instantaneous power, \sqrt3 V_L I_L \cos\phi (~engineeringkit.electrical_engineering.three_phase_power), and the three return currents cancel, so three wires do the work of six. This example checks both, and draws the rotating field."><img alt="" src="../../../_images/sphx_glr_plot_01_tesla_three_phase_thumb.png" />
+<p><a class="reference internal" href="power/plot_01_tesla_three_phase.html"><span class="doc">Tesla’s polyphase system</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Tesla's polyphase system</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="An unbalanced three-phase system, such as one with a fault to ground, couples all three phases and resisted hand calculation. Charles LeGeyt Fortescue of Westinghouse showed in 1918 that any three phasors are the sum of three balanced sets: a zero-sequence set (three equal phasors), a positive-sequence set (a-b-c rotation) and a negative-sequence set (a-c-b) (~engineeringkit.electrical_engineering.symmetrical_components). In a symmetrical network the three sequences do not interact, so each is solved as a single-phase circuit and the results recombined (~engineeringkit.electrical_engineering.phase_components). This example decomposes an unbalanced set and computes a single-line-to-ground fault the way protection engineers still do."><img alt="" src="../../../_images/sphx_glr_plot_02_fortescue_symmetrical_components_thumb.png" />
+<p><a class="reference internal" href="power/plot_02_fortescue_symmetrical_components.html"><span class="doc">Fortescue’s symmetrical components</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Fortescue's symmetrical components</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="When a load&#x27;s current lags its voltage, part of the energy flows back and forth every half cycle and does no work. Constantin Budeanu of Bucharest gave this the name reactive power in 1927 and the unit &quot;var&quot; (volt-ampere reactive), adopted by the IEC in 1930. For sinusoids the power triangle holds: real power P = VI\cos\phi (~engineeringkit.electrical_engineering.real_power), reactive power Q = VI\sin\phi (~engineeringkit.electrical_engineering.reactive_power), apparent power S^2 = P^2 + Q^2, and the power factor P/S (~engineeringkit.electrical_engineering.power_factor). Budeanu extended Q to distorted waveforms as a sum over harmonics, which leaves a remainder he called the distortion power D. This example checks the power triangle from waveforms and computes D for a current with harmonics."><img alt="" src="../../../_images/sphx_glr_plot_03_budeanu_reactive_power_thumb.png" />
+<p><a class="reference internal" href="power/plot_03_budeanu_reactive_power.html"><span class="doc">Budeanu’s reactive power and the power factor</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Budeanu's reactive power and the power factor</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Until the 1950s, utilities computed the flow of power in their networks on AC network analysers, scale models of the grid built from resistors, inductors and capacitors. In 1956 J. B. Ward and H. W. Hale of American Gas and Electric published the first practical digital method. They wrote the network as its bus admittance matrix (~engineeringkit.electrical_engineering.admittance_matrix) and improved each bus voltage in turn from the power specified there, a Gauss-Seidel iteration (~engineeringkit.electrical_engineering.gauss_seidel_load_flow). The method is simple and needs little memory but converges slowly, which over-relaxation partly cures; Newton-Raphson methods replaced it in the 1960s. This example solves a five-bus network and checks the solution against a general-purpose nonlinear solver."><img alt="" src="../../../_images/sphx_glr_plot_04_ward_hale_load_flow_thumb.png" />
+<p><a class="reference internal" href="power/plot_04_ward_hale_load_flow.html"><span class="doc">Ward and Hale’s digital load flow</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Ward and Hale's digital load flow</div>
+</div></div></section>
+<section id="transients">
+<h2>Transients<a class="headerlink" href="#transients" title="Link to this heading">#</a></h2>
+<p>First-order charging and the RC time constant.</p>
+<div id='sg-tag-list' class='sphx-glr-tag-list'></div><div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Before the first transatlantic cable was laid, William Thomson (later Lord Kelvin) analysed how a signal spreads along a submarine cable. In 1855 he showed that, with negligible inductance, the line obeys a diffusion equation: a pulse arrives smeared over a time proportional to rc\,\ell^2, the resistance and capacitance per unit length times the length squared, the law of squares. The building block is the single RC section, whose voltage rises as 1 - e^{-t/RC} (~engineeringkit.electrical_engineering.rc_charging_voltage). This example checks the time constant of one section, then chains sections into a cable and confirms the law of squares."><img alt="" src="../../../_images/sphx_glr_plot_01_kelvin_rc_cable_thumb.png" />
+<p><a class="reference internal" href="transients/plot_01_kelvin_rc_cable.html"><span class="doc">Kelvin’s telegraph cable and the RC time constant</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Kelvin's telegraph cable and the RC time constant</div>
+</div></div></section>
+<section id="transmission-lines">
+<h2>Transmission lines<a class="headerlink" href="#transmission-lines" title="Link to this heading">#</a></h2>
+<p>Distributed lines, reflections and the Smith chart.</p>
+<div id='sg-tag-list' class='sphx-glr-tag-list'></div><div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Kelvin&#x27;s cable theory ignored inductance. Oliver Heaviside, a self-taught former telegraph operator, kept all four line constants: series resistance R and inductance L, shunt conductance G and capacitance C per metre. In 1876 he wrote the telegrapher&#x27;s equations, whose sinusoidal waves decay and travel according to \gamma = \sqrt{(R + j\omega L)(G + j\omega C)} (~engineeringkit.electrical_engineering.propagation_constant). In 1887 he found that if R/L = G/C (~engineeringkit.electrical_engineering.distortionless_condition), every frequency is attenuated equally and travels at the same speed, so a signal arrives weaker but undistorted. Real cables have far too little inductance; Pupin&#x27;s and Campbell&#x27;s loading coils (1899-1900) added it and made long-distance telephony possible. This example compares a cable with and without enough inductance."><img alt="" src="../../../_images/sphx_glr_plot_01_heaviside_telegrapher_thumb.png" />
+<p><a class="reference internal" href="transmission_lines/plot_01_heaviside_telegrapher.html"><span class="doc">Heaviside’s telegrapher’s equations and the distortionless line</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Heaviside's telegrapher's equations and the distortionless line</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Phillip Hagar Smith, an engineer at Bell Labs, tired of evaluating the transmission-line equations with a slide rule. His 1939 chart plots the reflection coefficient \Gamma = (Z_L - Z_0)/(Z_L + Z_0) (~engineeringkit.electrical_engineering.reflection_coefficient) in the unit disc, overlaid with circles of constant normalised resistance and arcs of constant reactance. Moving along a lossless line just rotates \Gamma around the centre, at constant standing-wave ratio (~engineeringkit.electrical_engineering.standing_wave_ratio), so the input impedance (~engineeringkit.electrical_engineering.input_impedance) can be read off the grid. This example uses the chart to design a single-stub match, drawn with plot_smith_chart."><img alt="" src="../../../_images/sphx_glr_plot_02_smith_chart_thumb.png" />
+<p><a class="reference internal" href="transmission_lines/plot_02_smith_chart.html"><span class="doc">Smith’s chart</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Smith's chart</div>
 </div></div><div class="toctree-wrapper compound">
 </div>
 <div class="sphx-glr-footer sphx-glr-footer-gallery docutils container">
@@ -529,6 +657,7 @@ provides the interpretation and physical validity limits.</p>
 </div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
+</section>
 </section>
 
 
@@ -551,11 +680,11 @@ provides the interpretation and physical validity limits.</p>
       </div>
     </a>
     <a class="right-next"
-       href="plot_electrical_engineering_benchmark.html"
+       href="ac_circuits/index.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">RC charge and energy accounting</p>
+        <p class="prev-next-title">AC circuits</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -569,6 +698,24 @@ provides the interpretation and physical validity limits.</p>
                 <dialog id="pst-secondary-sidebar-modal"></dialog>
                 <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sections">Sections</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ac-circuits">AC circuits</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dc-circuits">DC circuits</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#networks">Networks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#power">Power</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transients">Transients</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transmission-lines">Transmission lines</a></li>
+</ul>
+  </nav></div>
 
   <div class="sidebar-secondary-item">
 

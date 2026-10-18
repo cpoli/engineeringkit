@@ -1,0 +1,104 @@
+
+
+.. _sphx_glr_api_gallery_heat_transfer_radiation:
+
+Radiation
+---------
+
+Blackbody laws, gray-surface exchange and view factors.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In 1859 Gustav Kirchhoff, explaining the dark lines that Fraunhofer had seen in the solar spectrum, proved from the second law that at every wavelength a body&#x27;s emissivity equals its absorptivity. A good absorber is a good emitter, and the perfect absorber, the blackbody, is the universal reference whose emission depends on temperature alone. For a gray surface in large surroundings the net exchange is \varepsilon\sigma A(T_s^4 - T_{sur}^4) (~engineeringkit.heat_transfer.radiation_heat_rate), often linearised as a coefficient h_r (~engineeringkit.heat_transfer.radiation_coefficient). This example shows why \alpha = \varepsilon is forced: anything else would let heat flow from cold to hot.">
+
+.. only:: html
+
+  .. image:: /api/gallery/heat_transfer/radiation/images/thumb/sphx_glr_plot_01_kirchhoff_emissivity_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/heat_transfer/radiation/plot_01_kirchhoff_emissivity`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Kirchhoff's law of thermal radiation</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In 1879 Josef Stefan reread John Tyndall&#x27;s measurements of a glowing platinum wire: at 1200 °C it radiated 11.7 times as much as at 525 °C. The ratio of the absolute temperatures to the fourth power is 11.6, and Stefan proposed E \propto T^4. In 1884 his former student Ludwig Boltzmann derived the law from thermodynamics and Maxwell&#x27;s radiation pressure, E_b = \sigma T^4 (~engineeringkit.heat_transfer.stefan_boltzmann_emissive_power). The constant \sigma was explained only by Planck&#x27;s spectrum (~engineeringkit.heat_transfer.planck_spectral_emissive_power), whose integral this example checks against the law.">
+
+.. only:: html
+
+  .. image:: /api/gallery/heat_transfer/radiation/images/thumb/sphx_glr_plot_02_stefan_boltzmann_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/heat_transfer/radiation/plot_02_stefan_boltzmann`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Stefan and Boltzmann: emission grows as T⁴</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In 1893 Wilhelm Wien imagined blackbody radiation compressed adiabatically in a cavity with a moving mirror. Doppler shifts and the second law then forced the spectrum to keep its shape as the temperature changes: the spectral emissive power divided by T^5 depends only on \lambda T. Its peak therefore sits at \lambda_{max}T = b (~engineeringkit.heat_transfer.blackbody_peak_wavelength), with b = 2898 um K. The law says why the Sun peaks in the visible, a lamp filament in the near infrared and a person at about 10 um. This example finds the peak of Planck&#x27;s spectrum numerically and checks the similarity that Wien proved.">
+
+.. only:: html
+
+  .. image:: /api/gallery/heat_transfer/radiation/images/thumb/sphx_glr_plot_03_wien_displacement_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/heat_transfer/radiation/plot_03_wien_displacement`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Wien's displacement law</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="How much of the radiation leaving one diffuse surface lands on another? The view factor is a fourfold integral of \cos\theta_1\cos\theta_2/\pi r^2. In 1928 Wilhelm Nusselt found a construction that a draughtsman could do: project the second surface onto a unit hemisphere centred on a point of the first, then project that image straight down onto the base circle. The fraction of the circle covered is the view factor from the point. Picking points uniformly in the circle is the same as picking cosine-weighted directions, which makes the construction a Monte Carlo method. This example uses it to check the closed forms for opposed rectangles (~engineeringkit.heat_transfer.view_factor_parallel_plates) and coaxial disks (~engineeringkit.heat_transfer.view_factor_coaxial_disks).">
+
+.. only:: html
+
+  .. image:: /api/gallery/heat_transfer/radiation/images/thumb/sphx_glr_plot_04_nusselt_view_factor_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/heat_transfer/radiation/plot_04_nusselt_view_factor`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Nusselt's unit-sphere view factor</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/heat_transfer/radiation/plot_01_kirchhoff_emissivity
+   /api/gallery/heat_transfer/radiation/plot_02_stefan_boltzmann
+   /api/gallery/heat_transfer/radiation/plot_03_wien_displacement
+   /api/gallery/heat_transfer/radiation/plot_04_nusselt_view_factor
+

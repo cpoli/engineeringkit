@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>engineeringkit.materials.systems.fracture &#8212; engineeringkit</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx_autodoc_typehints.css?v=057ac668" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/plot_directive.css" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Vibur" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/jupyterlite_sphinx.css?v=f676e775" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery.css?v=c83e6b79" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/engineeringkit.css?v=62935cec" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../../../_static/scripts/fontawesome.js?digest=18bd87630a240e9c25be"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be" />
+
+    <script src="../../../../_static/documentation_options.js?v=38b66d78"></script>
+    <script src="../../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../../_static/sg-tags.js?v=d80f6fa4"></script>
+    <script src="../../../../_static/jupyterlite_sphinx.js?v=96e329c5"></script>
+    <script src="../../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/engineeringkit/materials/systems/fracture';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="canonical" href="https://cpoli.github.io/engineeringkit/_modules/engineeringkit/materials/systems/fracture.html" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="color-scheme" content="light dark"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../../../_static/searchtools.js"></script>
+    <script src="../../../../_static/language_data.js"></script>
+    <script src="../../../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../_static/engineeringkit_logo_transparent.png" class="logo__image only-light" alt="engineeringkit logo"/>
+    <img src="../../../../_static/engineeringkit_logo_transparent.png" class="logo__image only-dark pst-js-only" alt="engineeringkit logo"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../subpackages/index.html">
+    Subpackages
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../history/index.html">
+    History
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../api/index.html">
+    API
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../subpackages/index.html">
+    Subpackages
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../history/index.html">
+    History
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../api/index.html">
+    API
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">engineeringkit.materials.systems.fracture</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for engineeringkit.materials.systems.fracture</h1><div class="highlight"><pre>
+<span></span><span class="sa">r</span><span class="sd">"""Fracture mechanics: Griffith's energy balance, Irwin's K and Paris's law.</span>
+
+<span class="sd">Griffith showed that a crack grows when the elastic energy it releases pays</span>
+<span class="sd">for the new surface, which makes strength fall as :math:`1/\sqrt{a}`. Irwin</span>
+<span class="sd">recast the balance as the stress intensity factor</span>
+<span class="sd">:math:`K = Y\sigma\sqrt{\pi a}` reaching the toughness :math:`K_{Ic}`. Paris</span>
+<span class="sd">found that a fatigue crack grows by a power of the range of :math:`K` each</span>
+<span class="sd">cycle.</span>
+<span class="sd">"""</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections.abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">Callable</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.integrate</span><span class="w"> </span><span class="kn">import</span> <span class="n">cumulative_trapezoid</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit._validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">integer</span> <span class="k">as</span> <span class="n">_integer</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit._validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">nonnegative</span> <span class="k">as</span> <span class="n">_nonnegative</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit._validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">positive</span> <span class="k">as</span> <span class="n">_positive</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit.materials.core.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">CrackGrowthResult</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"griffith_fracture_stress"</span><span class="p">,</span> <span class="s2">"stress_intensity"</span><span class="p">,</span> <span class="s2">"critical_crack_length"</span><span class="p">,</span> <span class="s2">"paris_crack_growth"</span><span class="p">,</span> <span class="s2">"crack_growth_life"</span><span class="p">]</span>
+
+
+<div class="viewcode-block" id="griffith_fracture_stress">
+<a class="viewcode-back" href="../../../../api/materials.html#engineeringkit.materials.griffith_fracture_stress">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">griffith_fracture_stress</span><span class="p">(</span><span class="n">E</span><span class="p">,</span> <span class="n">gamma</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Griffith's fracture stress of a brittle plate with a central crack.</span>
+
+<span class="sd">    .. math:: \sigma_f = \sqrt{\frac{2E\gamma_s}{\pi a}}</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    E : float or array_like</span>
+<span class="sd">        Young's modulus [Pa], positive.</span>
+<span class="sd">    gamma : float or array_like</span>
+<span class="sd">        Surface energy :math:`\gamma_s` [J/m^2], positive.</span>
+<span class="sd">    a : float or array_like</span>
+<span class="sd">        Half-length of the crack [m], positive.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float or ndarray</span>
+<span class="sd">        Remote tensile stress at fracture [Pa], plane stress.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Ideally brittle solid; plastic work at the tip, which dominates in</span>
+<span class="sd">    metals, is left out. Inputs are raw SI numbers with no dimensional</span>
+<span class="sd">    metadata; see :doc:`/guides/materials`.</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    A. A. Griffith, "The phenomena of rupture and flow in solids," *Phil.</span>
+<span class="sd">    Trans. R. Soc. Lond. A* 221 (1921) 163-198.</span>
+<span class="sd">    """</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">E</span><span class="o">=</span><span class="n">E</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="n">gamma</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="n">a</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">E</span> <span class="o">*</span> <span class="n">gamma</span> <span class="o">/</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">a</span><span class="p">)))</span></div>
+
+
+
+<div class="viewcode-block" id="stress_intensity">
+<a class="viewcode-back" href="../../../../api/materials.html#engineeringkit.materials.stress_intensity">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">stress_intensity</span><span class="p">(</span><span class="n">K_geometry</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Mode-I stress intensity factor :math:`K_I = Y\sigma\sqrt{\pi a}`.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    K_geometry : float or array_like</span>
+<span class="sd">        Geometry factor :math:`Y` [-], positive (1 for a central crack in an</span>
+<span class="sd">        infinite plate, about 1.12 for an edge crack).</span>
+<span class="sd">    sigma : float or array_like</span>
+<span class="sd">        Remote tensile stress [Pa], nonnegative.</span>
+<span class="sd">    a : float or array_like</span>
+<span class="sd">        Crack length (edge) or half-length (central) [m], positive.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float or ndarray</span>
+<span class="sd">        Stress intensity [Pa sqrt(m)].</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Linear-elastic fracture mechanics, valid while the plastic zone is small</span>
+<span class="sd">    compared with the crack. Inputs are raw SI numbers with no dimensional</span>
+<span class="sd">    metadata; see :doc:`/guides/materials`.</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    G. R. Irwin, "Analysis of stresses and strains near the end of a crack</span>
+<span class="sd">    traversing a plate," *J. Appl. Mech.* 24 (1957) 361-364.</span>
+<span class="sd">    """</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">K_geometry</span><span class="o">=</span><span class="n">K_geometry</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="n">a</span><span class="p">)</span>
+    <span class="n">_nonnegative</span><span class="p">(</span><span class="n">sigma</span><span class="o">=</span><span class="n">sigma</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">K_geometry</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">sigma</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">a</span><span class="p">))</span></div>
+
+
+
+<div class="viewcode-block" id="critical_crack_length">
+<a class="viewcode-back" href="../../../../api/materials.html#engineeringkit.materials.critical_crack_length">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">critical_crack_length</span><span class="p">(</span><span class="n">Kic</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">Y</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Crack length at which :math:`K_I` reaches the toughness, :math:`a_c = (K_{Ic}/Y\sigma)^2/\pi`.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    Kic : float or array_like</span>
+<span class="sd">        Plane-strain fracture toughness [Pa sqrt(m)], positive.</span>
+<span class="sd">    sigma : float or array_like</span>
+<span class="sd">        Remote tensile stress [Pa], positive.</span>
+<span class="sd">    Y : float or array_like</span>
+<span class="sd">        Geometry factor [-], positive.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float or ndarray</span>
+<span class="sd">        Critical crack length [m].</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Inputs are raw SI numbers with no dimensional metadata; see</span>
+<span class="sd">    :doc:`/guides/materials`.</span>
+<span class="sd">    """</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">Kic</span><span class="o">=</span><span class="n">Kic</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="n">sigma</span><span class="p">,</span> <span class="n">Y</span><span class="o">=</span><span class="n">Y</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">Kic</span> <span class="o">/</span> <span class="p">(</span><span class="n">Y</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">sigma</span><span class="p">)))</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span></div>
+
+
+
+<div class="viewcode-block" id="paris_crack_growth">
+<a class="viewcode-back" href="../../../../api/materials.html#engineeringkit.materials.paris_crack_growth">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">paris_crack_growth</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">delta_K</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Fatigue crack growth rate from Paris's law, :math:`da/dN = C\,\Delta K^m`.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    C : float or array_like</span>
+<span class="sd">        Paris coefficient [m/cycle per (Pa sqrt(m))^m], nonnegative. Values</span>
+<span class="sd">        quoted for MPa sqrt(m) must be multiplied by :math:`10^{-6m}`.</span>
+<span class="sd">    m : float or array_like</span>
+<span class="sd">        Paris exponent [-], positive (about 3 for steels).</span>
+<span class="sd">    delta_K : float or array_like</span>
+<span class="sd">        Stress intensity range [Pa sqrt(m)], nonnegative.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float or ndarray</span>
+<span class="sd">        Growth per cycle [m/cycle].</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    The stable (Region II) regime only: neither the threshold</span>
+<span class="sd">    :math:`\Delta K_{th}` nor the acceleration near :math:`K_{Ic}` is</span>
+<span class="sd">    modelled. Inputs are raw SI numbers with no dimensional metadata; see</span>
+<span class="sd">    :doc:`/guides/materials`.</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    P. Paris and F. Erdogan, "A critical analysis of crack propagation laws,"</span>
+<span class="sd">    *J. Basic Eng.* 85 (1963) 528-533.</span>
+<span class="sd">    """</span>
+    <span class="n">_nonnegative</span><span class="p">(</span><span class="n">C</span><span class="o">=</span><span class="n">C</span><span class="p">,</span> <span class="n">delta_K</span><span class="o">=</span><span class="n">delta_K</span><span class="p">)</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">m</span><span class="o">=</span><span class="n">m</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">C</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">delta_K</span><span class="p">)</span> <span class="o">**</span> <span class="n">m</span></div>
+
+
+
+<div class="viewcode-block" id="crack_growth_life">
+<a class="viewcode-back" href="../../../../api/materials.html#engineeringkit.materials.crack_growth_life">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">crack_growth_life</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">delta_sigma</span><span class="p">,</span> <span class="n">a0</span><span class="p">,</span> <span class="n">af</span><span class="p">,</span> <span class="n">Y</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="n">Callable</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">points</span><span class="o">=</span><span class="mi">2001</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Integrate Paris's law from an initial to a final crack length.</span>
+
+<span class="sd">    .. math:: N = \int_{a_0}^{a_f} \frac{da}{C\,(Y(a)\,\Delta\sigma\sqrt{\pi a})^m}</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    C : float</span>
+<span class="sd">        Paris coefficient [m/cycle per (Pa sqrt(m))^m], positive.</span>
+<span class="sd">    m : float</span>
+<span class="sd">        Paris exponent [-], positive.</span>
+<span class="sd">    delta_sigma : float</span>
+<span class="sd">        Stress range [Pa], positive.</span>
+<span class="sd">    a0 : float</span>
+<span class="sd">        Initial crack length [m], positive.</span>
+<span class="sd">    af : float</span>
+<span class="sd">        Final crack length [m], greater than ``a0``; often</span>
+<span class="sd">        :func:`critical_crack_length` at the peak stress.</span>
+<span class="sd">    Y : float or callable</span>
+<span class="sd">        Geometry factor [-], a positive constant or a function ``Y(a)`` of</span>
+<span class="sd">        crack length [m] (for example a finite-width correction).</span>
+<span class="sd">    points : int</span>
+<span class="sd">        Number of geometrically spaced crack lengths, at least 2.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    CrackGrowthResult</span>
+<span class="sd">        Crack length against cycles.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    The trapezoid rule on a geometric grid; with a constant ``Y`` and</span>
+<span class="sd">    :math:`m \ne 2` the closed form</span>
+<span class="sd">    :math:`N = 2(a_0^{1-m/2} - a_f^{1-m/2}) / ((m - 2) C (Y\Delta\sigma\sqrt\pi)^m)`</span>
+<span class="sd">    checks it. Inputs are raw SI numbers with no dimensional metadata; see</span>
+<span class="sd">    :doc:`/guides/materials`.</span>
+<span class="sd">    """</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">C</span><span class="o">=</span><span class="n">C</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="n">m</span><span class="p">,</span> <span class="n">delta_sigma</span><span class="o">=</span><span class="n">delta_sigma</span><span class="p">,</span> <span class="n">a0</span><span class="o">=</span><span class="n">a0</span><span class="p">,</span> <span class="n">af</span><span class="o">=</span><span class="n">af</span><span class="p">)</span>
+    <span class="n">_integer</span><span class="p">(</span><span class="s2">"points"</span><span class="p">,</span> <span class="n">points</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">af</span> <span class="o">&lt;=</span> <span class="n">a0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"af must exceed a0"</span><span class="p">)</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">geomspace</span><span class="p">(</span><span class="n">a0</span><span class="p">,</span> <span class="n">af</span><span class="p">,</span> <span class="n">points</span><span class="p">)</span>
+    <span class="n">geometry</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">Y</span><span class="p">(</span><span class="n">a</span><span class="p">),</span> <span class="nb">float</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="k">if</span> <span class="nb">callable</span><span class="p">(</span><span class="n">Y</span><span class="p">)</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">full_like</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">Y</span><span class="o">=</span><span class="n">geometry</span><span class="p">)</span>
+    <span class="n">rate</span> <span class="o">=</span> <span class="n">paris_crack_growth</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">stress_intensity</span><span class="p">(</span><span class="n">geometry</span><span class="p">,</span> <span class="n">delta_sigma</span><span class="p">,</span> <span class="n">a</span><span class="p">))</span>
+    <span class="n">cycles</span> <span class="o">=</span> <span class="n">cumulative_trapezoid</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="n">rate</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">initial</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">CrackGrowthResult</span><span class="p">(</span><span class="n">crack_length</span><span class="o">=</span><span class="n">a</span><span class="p">,</span> <span class="n">cycles</span><span class="o">=</span><span class="n">cycles</span><span class="p">)</span></div>
+
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../../_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be"></script>
+<script defer src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.23.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

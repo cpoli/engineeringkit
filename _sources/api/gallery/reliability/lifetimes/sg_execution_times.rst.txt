@@ -1,0 +1,49 @@
+
+:orphan:
+
+.. _sphx_glr_api_gallery_reliability_lifetimes_sg_execution_times:
+
+
+Computation times
+=================
+**00:00.564** total execution time for 5 files **from api/gallery/reliability/lifetimes**:
+
+.. container::
+
+  .. raw:: html
+
+    <style scoped>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
+    </style>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+    <script type="text/javascript" class="init">
+    $(document).ready( function () {
+        $('table.sg-datatable').DataTable({order: [[1, 'desc']]});
+    } );
+    </script>
+
+  .. list-table::
+   :header-rows: 1
+   :class: table table-striped sg-datatable
+
+   * - Example
+     - Time
+     - Mem (MB)
+   * - :ref:`sphx_glr_api_gallery_reliability_lifetimes_plot_04_epstein_sobel_life_testing.py` (``plot_04_epstein_sobel_life_testing.py``)
+     - 00:00.141
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_reliability_lifetimes_plot_03_weibull_distribution.py` (``plot_03_weibull_distribution.py``)
+     - 00:00.138
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_reliability_lifetimes_plot_02_poisson_failures.py` (``plot_02_poisson_failures.py``)
+     - 00:00.136
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_reliability_lifetimes_plot_01_halley_life_table.py` (``plot_01_halley_life_table.py``)
+     - 00:00.086
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_reliability_lifetimes_plot_05_kaplan_meier.py` (``plot_05_kaplan_meier.py``)
+     - 00:00.063
+     - 0.0

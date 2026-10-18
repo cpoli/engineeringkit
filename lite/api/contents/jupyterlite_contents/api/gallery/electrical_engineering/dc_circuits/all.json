@@ -1,0 +1,57 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-10-18T12:25:15.927979Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-18T12:25:13.336229Z",
+      "mimetype": null,
+      "name": "plot_02_wheatstone_bridge.ipynb",
+      "path": "jupyterlite_contents/api/gallery/electrical_engineering/dc_circuits/plot_02_wheatstone_bridge.ipynb",
+      "size": 3597,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-18T12:25:15.927773Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-18T12:25:13.336114Z",
+      "mimetype": null,
+      "name": "plot_01_ohm_law.ipynb",
+      "path": "jupyterlite_contents/api/gallery/electrical_engineering/dc_circuits/plot_01_ohm_law.ipynb",
+      "size": 4474,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-18T12:25:15.928156Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-18T12:25:13.336351Z",
+      "mimetype": null,
+      "name": "plot_03_kirchhoff_nodal_analysis.ipynb",
+      "path": "jupyterlite_contents/api/gallery/electrical_engineering/dc_circuits/plot_03_kirchhoff_nodal_analysis.ipynb",
+      "size": 3809,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2026-10-18T12:25:15.928156Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-10-18T12:25:15.928156Z",
+  "mimetype": null,
+  "name": "dc_circuits",
+  "path": "jupyterlite_contents/api/gallery/electrical_engineering/dc_circuits",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

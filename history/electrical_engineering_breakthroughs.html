@@ -6,8 +6,16 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Breakthroughs in Electrical Engineering" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://cpoli.github.io/engineeringkit/history/electrical_engineering_breakthroughs.html" />
+<meta property="og:site_name" content="engineeringkit" />
+<meta property="og:description" content="Domain hub · History · Examples · API reference “The force of the current in a galvanic circuit is directly as the sum of all the tensions, and inversely as the entire reduced length of the circuit..." />
+<meta property="og:image" content="https://cpoli.github.io/engineeringkit/_static/images/readme_hero.png" />
+<meta property="og:image:alt" content="engineeringkit" />
+<meta name="description" content="Domain hub · History · Examples · API reference “The force of the current in a galvanic circuit is directly as the sum of all the tensions, and inversely as the entire reduced length of the circuit..." />
 
-    <title>Breakthroughs in Electrical Engineering &#8212; engineeringkit 0.1.0 documentation</title>
+    <title>Breakthroughs in Electrical Engineering &#8212; engineeringkit</title>
   
   
   
@@ -30,6 +38,7 @@
 <link href="../_static/styles/pydata-sphinx-theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx_autodoc_typehints.css?v=057ac668" />
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Vibur" />
     <link rel="stylesheet" type="text/css" href="../_static/jupyterlite_sphinx.css?v=f676e775" />
@@ -55,6 +64,7 @@
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'history/electrical_engineering_breakthroughs';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="canonical" href="https://cpoli.github.io/engineeringkit/history/electrical_engineering_breakthroughs.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Breakthroughs in Control Systems" href="control_systems_breakthroughs.html" />
@@ -404,50 +414,394 @@
 <div class="subpkg-nav docutils container">
 <p><a class="reference internal" href="../_generated/subpackages/electrical_engineering.html"><span class="doc">Domain hub</span></a> · <a class="reference internal" href="#"><span class="doc">History</span></a> · <a class="reference internal" href="../api/gallery/electrical_engineering/index.html"><span class="doc">Examples</span></a> · <a class="reference internal" href="../api/electrical_engineering.html"><span class="doc">API reference</span></a></p>
 </div>
-<p>These landmarks trace a conceptual development from a physical law to a useful
-engineering model. The order is a learning path, not a dated chronology or a
-claim that any idea had a single inventor. SI units apply unless documented
-otherwise.</p>
-<section id="ohm-and-kirchhoff-networks-become-solvable">
-<h2>Ohm and Kirchhoff: networks become solvable<a class="headerlink" href="#ohm-and-kirchhoff-networks-become-solvable" title="Link to this heading">#</a></h2>
-<p>Component laws combined with current and voltage conservation make resistor networks quantitative. Equivalent sources simplify a network as seen from two terminals.</p>
-<div class="math notranslate nohighlight">
-\[V=IR\]</div>
-<p>Use <a class="reference internal" href="../api/electrical_engineering.html#engineeringkit.electrical_engineering.ohms_law" title="engineeringkit.electrical_engineering.ohms_law"><code class="xref py py-obj docutils literal notranslate"><span class="pre">engineeringkit.electrical_engineering.ohms_law</span></code></a> to explore the model.
-A linear resistance and the stated passive-network assumptions are required.</p>
-</section>
-<section id="energy-storage-circuits-acquire-memory">
-<h2>Energy storage: circuits acquire memory<a class="headerlink" href="#energy-storage-circuits-acquire-memory" title="Link to this heading">#</a></h2>
-<p>A capacitor stores charge, so its voltage cannot be determined by an instantaneous resistance law alone. The RC time constant sets the transient scale.</p>
-<div class="math notranslate nohighlight">
-\[V_C(t)=V_s+(V_0-V_s)e^{-t/(RC)}\]</div>
-<p>Use <a class="reference internal" href="../api/electrical_engineering.html#engineeringkit.electrical_engineering.rc_charging_voltage" title="engineeringkit.electrical_engineering.rc_charging_voltage"><code class="xref py py-obj docutils literal notranslate"><span class="pre">engineeringkit.electrical_engineering.rc_charging_voltage</span></code></a> to explore the model.
-Ideal constant components and a constant applied source are assumed.</p>
-</section>
-<section id="phasors-differential-equations-become-impedance-algebra">
-<h2>Phasors: differential equations become impedance algebra<a class="headerlink" href="#phasors-differential-equations-become-impedance-algebra" title="Link to this heading">#</a></h2>
-<p>Complex impedance encodes both amplitude and phase in sinusoidal steady state. Inductive and capacitive reactances cancel at series resonance.</p>
-<div class="math notranslate nohighlight">
-\[Z=R+j(\omega L-1/(\omega C))\]</div>
-<p>Use <a class="reference internal" href="../api/electrical_engineering.html#engineeringkit.electrical_engineering.series_rlc_impedance" title="engineeringkit.electrical_engineering.series_rlc_impedance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">engineeringkit.electrical_engineering.series_rlc_impedance</span></code></a> to explore the model.
-Phasors describe steady sinusoidal operation, not startup transients or nonlinear switching.</p>
-</section>
-<section id="explore-and-verify">
-<h2>Explore and verify<a class="headerlink" href="#explore-and-verify" title="Link to this heading">#</a></h2>
-<p><a class="reference internal" href="../guides/electrical_engineering.html"><span class="doc">Electrical engineering: passive components and circuit responses</span></a> records units, conventions and independent checks.
-Compare the gallery output against the equations before extending a model.</p>
-<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Charging an initially empty ideal capacitor from a constant voltage source dissipates half the eventual source energy in the resistor. Numerical integration checks energy conservation over a finite time interval."><img alt="" src="../_images/sphx_glr_plot_electrical_engineering_benchmark_thumb.png" />
-<p><a class="reference internal" href="../api/gallery/electrical_engineering/plot_electrical_engineering_benchmark.html"><span class="doc">RC charge and energy accounting</span></a></p>
-  <div class="sphx-glr-thumbnail-title">RC charge and energy accounting</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Compute an inspectable engineering model using SI inputs. See the linked domain guide for assumptions and benchmark checks."><img alt="" src="../_images/sphx_glr_plot_electrical_engineering_models_thumb.png" />
-<p><a class="reference internal" href="../api/gallery/electrical_engineering/plot_electrical_engineering_models.html"><span class="doc">RLC current after a voltage step</span></a></p>
-  <div class="sphx-glr-thumbnail-title">RLC current after a voltage step</div>
+<blockquote class="epigraph">
+<div><p>“The force of the current in a galvanic circuit is directly as the sum of
+all the tensions, and inversely as the entire reduced length of the
+circuit.”
+– Georg Simon Ohm, 1827</p>
+</div></blockquote>
+<p>Circuit theory began as a branch of physics, with Ohm’s wires and
+Kirchhoff’s junctions. The telegraph, the electric light and the telephone
+then turned it into engineering: equivalent circuits, impedance and the
+transmission line were invented by telegraph and power engineers to answer
+practical questions. The entries trace the ideas behind
+<a class="reference internal" href="../api/electrical_engineering.html#module-engineeringkit.electrical_engineering" title="engineeringkit.electrical_engineering"><code class="xref py py-mod docutils literal notranslate"><span class="pre">engineeringkit.electrical_engineering</span></code></a>, from a thermocouple and a
+galvanometer to a digital computer solving the power grid. Each links to the
+implementing function and to a gallery example devoted to it.</p>
+<nav class="contents local" id="timeline">
+<p class="topic-title">Timeline</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#ohm-s-law" id="id1">1827 – Ohm’s Law</a></p></li>
+<li><p><a class="reference internal" href="#c-1840-jacobi-s-maximum-power-theorem" id="id2">c. 1840 – Jacobi’s Maximum Power Theorem</a></p></li>
+<li><p><a class="reference internal" href="#wheatstone-s-bridge" id="id3">1843 – Wheatstone’s Bridge</a></p></li>
+<li><p><a class="reference internal" href="#kirchhoff-s-circuit-laws-and-nodal-analysis" id="id4">1845 – Kirchhoff’s Circuit Laws and Nodal Analysis</a></p></li>
+<li><p><a class="reference internal" href="#kelvin-s-telegraph-cable-and-the-rc-time-constant" id="id5">1855 – Kelvin’s Telegraph Cable and the RC Time Constant</a></p></li>
+<li><p><a class="reference internal" href="#heaviside-s-telegrapher-s-equations-and-the-distortionless-line" id="id6">1876-1887 – Heaviside’s Telegrapher’s Equations and the Distortionless Line</a></p></li>
+<li><p><a class="reference internal" href="#thevenin-s-equivalent-circuit" id="id7">1883 – Thévenin’s Equivalent Circuit</a></p></li>
+<li><p><a class="reference internal" href="#stanley-s-transformer" id="id8">1886 – Stanley’s Transformer</a></p></li>
+<li><p><a class="reference internal" href="#tesla-s-polyphase-system" id="id9">1888 – Tesla’s Polyphase System</a></p></li>
+<li><p><a class="reference internal" href="#steinmetz-s-phasors-and-complex-impedance" id="id10">1893 – Steinmetz’s Phasors and Complex Impedance</a></p></li>
+<li><p><a class="reference internal" href="#lodge-s-syntonic-tuning-series-resonance" id="id11">1897 – Lodge’s Syntonic Tuning: Series Resonance</a></p></li>
+<li><p><a class="reference internal" href="#fortescue-s-symmetrical-components" id="id12">1918 – Fortescue’s Symmetrical Components</a></p></li>
+<li><p><a class="reference internal" href="#norton-s-equivalent-circuit" id="id13">1926 – Norton’s Equivalent Circuit</a></p></li>
+<li><p><a class="reference internal" href="#budeanu-s-reactive-power-and-the-power-factor" id="id14">1927 – Budeanu’s Reactive Power and the Power Factor</a></p></li>
+<li><p><a class="reference internal" href="#smith-s-chart" id="id15">1939 – Smith’s Chart</a></p></li>
+<li><p><a class="reference internal" href="#ward-and-hale-s-digital-load-flow" id="id16">1956 – Ward and Hale’s Digital Load Flow</a></p></li>
+<li><p><a class="reference internal" href="#see-also" id="id17">See Also</a></p></li>
+</ul>
+</nav>
+<section id="ohm-s-law">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">1827 – Ohm’s Law</a><a class="headerlink" href="#ohm-s-law" title="Link to this heading">#</a></h2>
+<p>Georg Simon Ohm, a schoolteacher in Cologne, replaced unsteady voltaic
+piles with a thermocouple and measured the current through brass wires of
+different lengths with a torsion galvanometer. His readings fitted
+<span class="math notranslate nohighlight">\(X = a/(b + x)\)</span>, an “exciting force” divided by the resistance of the
+wire plus that of the rest of the circuit. <em>Die galvanische Kette</em> (1827)
+framed the result by analogy with Fourier’s heat flow and was received
+coldly in Germany, until the Royal Society awarded Ohm its Copley Medal in
+1841. In modern form, <span class="math notranslate nohighlight">\(V = IR\)</span>, and resistances add in series while
+conductances add in parallel.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/electrical_engineering.html#engineeringkit.electrical_engineering.ohms_law" title="engineeringkit.electrical_engineering.ohms_law"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.electrical_engineering.ohms_law()</span></code></a>,
+<a class="reference internal" href="../api/electrical_engineering.html#engineeringkit.electrical_engineering.series_resistance" title="engineeringkit.electrical_engineering.series_resistance"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.electrical_engineering.series_resistance()</span></code></a> and
+<a class="reference internal" href="../api/electrical_engineering.html#engineeringkit.electrical_engineering.parallel_resistance" title="engineeringkit.electrical_engineering.parallel_resistance"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.electrical_engineering.parallel_resistance()</span></code></a>. The
+example rebuilds Ohm’s experiment and recovers the source EMF and internal
+resistance from the readings.</p>
+<p><em>References:</em> G. S. Ohm, <em>Die galvanische Kette, mathematisch bearbeitet</em>
+(Berlin: T. H. Riemann, 1827).</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="In 1826 Georg Simon Ohm drove current from a thermocouple, a steady source, through brass wires of different lengths x and read the current on a torsion galvanometer. The readings fitted X = a/(b + x): a fixed &quot;exciting force&quot; a divided by the total resistance of the wire plus the rest of the circuit, b. In modern form that is V = IR (~engineeringkit.electrical_engineering.ohms_law). This example rebuilds Ohm&#x27;s experiment, recovers the source voltage and internal resistance from the readings, and checks the series and parallel rules that follow from the law."><img alt="" src="../_images/sphx_glr_plot_01_ohm_law_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/electrical_engineering/dc_circuits/plot_01_ohm_law.html"><span class="doc">Ohm’s law</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Ohm's law</div>
 </div></div></section>
-<section id="further-reading">
-<h2>Further reading<a class="headerlink" href="#further-reading" title="Link to this heading">#</a></h2>
-<p><a class="reference external" href="https://ocw.mit.edu/courses/8-02-physics-ii-electricity-and-magnetism-spring-2007/resources/cha12ac_circuits/">University or agency teaching reference</a>
-provides background beyond the implemented subset. The equations and examples
-here are concise original explanations, not reproductions of that reference.</p>
+<section id="c-1840-jacobi-s-maximum-power-theorem">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">c. 1840 – Jacobi’s Maximum Power Theorem</a><a class="headerlink" href="#c-1840-jacobi-s-maximum-power-theorem" title="Link to this heading">#</a></h2>
+<p>Moritz Hermann von Jacobi built some of the first practical electric motors
+in St Petersburg, one of which drove a boat on the Neva in 1839. Asking how
+to get the most power from his batteries, he found that a source of EMF
+<span class="math notranslate nohighlight">\(V\)</span> and internal resistance <span class="math notranslate nohighlight">\(R_s\)</span> delivers the most power,
+<span class="math notranslate nohighlight">\(V^2/4R_s\)</span>, to a load equal to its own resistance. The result is
+often misread as a recipe for efficiency: at the match half the power is
+lost inside the source. Power systems therefore run far from the match,
+while radio receivers and amplifiers, where the signal matters more than
+the energy, are matched deliberately.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/electrical_engineering.html#engineeringkit.electrical_engineering.maximum_power_transfer" title="engineeringkit.electrical_engineering.maximum_power_transfer"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.electrical_engineering.maximum_power_transfer()</span></code></a>.
+The example sweeps the load and plots the delivered power against the
+efficiency.</p>
+<p><em>References:</em> M. H. Jacobi’s motor experiments of 1837-1840; for a modern
+statement see C. K. Alexander and M. N. O. Sadiku, <em>Fundamentals of
+Electric Circuits</em> (New York: McGraw-Hill), ch. 4.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Around 1840 Moritz von Jacobi, building battery-powered electric motors in St Petersburg (one drove a boat on the Neva), asked what load draws the most power from a battery. A source of EMF V and internal resistance R_s delivers P = V^2 R_L/(R_s + R_L)^2 to a load R_L, largest when R_L = R_s (~engineeringkit.electrical_engineering.maximum_power_transfer). At that match the source wastes as much as it delivers, so the efficiency is only 50%. Engineers later learned to read the theorem the other way: power grids run far from the match, at high efficiency, while radio receivers match to capture every last picowatt."><img alt="" src="../_images/sphx_glr_plot_01_jacobi_maximum_power_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/electrical_engineering/networks/plot_01_jacobi_maximum_power.html"><span class="doc">Jacobi’s maximum power theorem</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Jacobi's maximum power theorem</div>
+</div></div></section>
+<section id="wheatstone-s-bridge">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">1843 – Wheatstone’s Bridge</a><a class="headerlink" href="#wheatstone-s-bridge" title="Link to this heading">#</a></h2>
+<p>Samuel Hunter Christie described the circuit in 1833. Charles Wheatstone
+credited him and made it the standard instrument for measuring resistance
+in his 1843 Bakerian lecture. Two voltage dividers are connected across one
+source and a galvanometer joins their midpoints. When
+<span class="math notranslate nohighlight">\(R_1/R_2 = R_3/R_4\)</span> the galvanometer reads zero, whatever the source
+voltage. A null needs no calibrated meter, only calibrated resistors, so
+the bridge measured resistances, and later capacitances and inductances,
+more accurately than any deflection instrument.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/electrical_engineering.html#engineeringkit.electrical_engineering.wheatstone_balanced" title="engineeringkit.electrical_engineering.wheatstone_balanced"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.electrical_engineering.wheatstone_balanced()</span></code></a>.
+The example balances a bridge against an unknown resistor, using nodal
+analysis for the galvanometer current.</p>
+<p><em>References:</em> C. Wheatstone, “An account of several new instruments and
+processes for determining the constants of a voltaic circuit,” <em>Phil.
+Trans. R. Soc.</em> 133 (1843) 303-327.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Samuel Hunter Christie described the circuit in 1833, and Charles Wheatstone made it the standard way to measure resistance in his 1843 Bakerian lecture. Two voltage dividers share a source; a galvanometer joins their midpoints. When R_1/R_2 = R_3/R_4 the midpoints sit at the same potential and the galvanometer reads zero, whatever the source voltage (~engineeringkit.electrical_engineering.wheatstone_balanced). A null reading needs no calibrated meter, which is why the bridge is so accurate. This example balances a bridge against an unknown resistor and shows how sharply the null depends on it."><img alt="" src="../_images/sphx_glr_plot_02_wheatstone_bridge_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/electrical_engineering/dc_circuits/plot_02_wheatstone_bridge.html"><span class="doc">Wheatstone’s bridge</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Wheatstone's bridge</div>
+</div></div></section>
+<section id="kirchhoff-s-circuit-laws-and-nodal-analysis">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">1845 – Kirchhoff’s Circuit Laws and Nodal Analysis</a><a class="headerlink" href="#kirchhoff-s-circuit-laws-and-nodal-analysis" title="Link to this heading">#</a></h2>
+<p>Gustav Kirchhoff, then a 21-year-old student of Franz Neumann in
+Königsberg, ended a paper on current flow in a plane conductor with two
+laws for networks of wires: the currents meeting at a junction sum to
+zero, and around any closed loop the EMFs equal the sum of the resistance
+drops. In 1847 he showed how many independent equations a network gives,
+an early result in graph theory. Writing the current law at every node
+gives the linear system <span class="math notranslate nohighlight">\(G\mathbf{v} = \mathbf{i}\)</span>. With one extra row
+per voltage source (modified nodal analysis, 1975), it is how SPICE and
+every circuit simulator still work.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/electrical_engineering.html#engineeringkit.electrical_engineering.nodal_analysis" title="engineeringkit.electrical_engineering.nodal_analysis"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.electrical_engineering.nodal_analysis()</span></code></a>,
+returning a <a class="reference internal" href="../api/electrical_engineering.html#engineeringkit.electrical_engineering.NodalResult" title="engineeringkit.electrical_engineering.NodalResult"><code class="xref py py-class docutils literal notranslate"><span class="pre">NodalResult</span></code></a>.
+The example solves a two-source ladder, checks both laws and verifies
+superposition.</p>
+<p><em>References:</em> G. Kirchhoff, “Ueber den Durchgang eines elektrischen Stromes
+durch eine Ebene, insbesondere durch eine kreisförmige,” <em>Ann. Phys.</em> 64
+(1845) 497-514; C.-W. Ho, A. E. Ruehli and P. A. Brennan, “The modified
+nodal approach to network analysis,” <em>IEEE Trans. Circuits Syst.</em> 22
+(1975) 504-509.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="In 1845, as a student in Königsberg, Gustav Kirchhoff stated the two laws that make any network of conductors solvable: the currents meeting at a junction sum to zero, and the voltages around any closed loop sum to zero. Writing the current law at every node, with Ohm&#x27;s law for each branch, gives a linear system G\mathbf{v} = \mathbf{i}, nodal analysis. Circuit simulators add one row per voltage source, modified nodal analysis (~engineeringkit.electrical_engineering.nodal_analysis). This example solves a two-source ladder network, checks both of Kirchhoff&#x27;s laws on the result, and verifies superposition."><img alt="" src="../_images/sphx_glr_plot_03_kirchhoff_nodal_analysis_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/electrical_engineering/dc_circuits/plot_03_kirchhoff_nodal_analysis.html"><span class="doc">Kirchhoff’s circuit laws and nodal analysis</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Kirchhoff's circuit laws and nodal analysis</div>
+</div></div></section>
+<section id="kelvin-s-telegraph-cable-and-the-rc-time-constant">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">1855 – Kelvin’s Telegraph Cable and the RC Time Constant</a><a class="headerlink" href="#kelvin-s-telegraph-cable-and-the-rc-time-constant" title="Link to this heading">#</a></h2>
+<p>Faraday had noticed that a submarine cable, a copper core in gutta-percha
+under seawater, behaves like a long capacitor. William Thomson, later Lord
+Kelvin, worked out the consequence. With inductance neglected, the cable
+obeys a diffusion equation like Fourier’s heat equation: a pulse arrives
+smeared out, over a time proportional to <span class="math notranslate nohighlight">\(rc\,\ell^2\)</span>. This <em>law of
+squares</em> set the signalling speed of the first transatlantic cables. Its
+building block is one resistor charging one capacitor, which approaches the
+source voltage as <span class="math notranslate nohighlight">\(1 - e^{-t/RC}\)</span>.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/electrical_engineering.html#engineeringkit.electrical_engineering.rc_time_constant" title="engineeringkit.electrical_engineering.rc_time_constant"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.electrical_engineering.rc_time_constant()</span></code></a>,
+<a class="reference internal" href="../api/electrical_engineering.html#engineeringkit.electrical_engineering.rc_charging_voltage" title="engineeringkit.electrical_engineering.rc_charging_voltage"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.electrical_engineering.rc_charging_voltage()</span></code></a> and
+<a class="reference internal" href="../api/electrical_engineering.html#engineeringkit.electrical_engineering.rl_time_constant" title="engineeringkit.electrical_engineering.rl_time_constant"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.electrical_engineering.rl_time_constant()</span></code></a>. The example
+checks one RC section, then chains sections into a cable and recovers the
+law of squares.</p>
+<p><em>References:</em> W. Thomson, “On the theory of the electric telegraph,” <em>Proc.
+R. Soc. London</em> 7 (1855) 382-399.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Before the first transatlantic cable was laid, William Thomson (later Lord Kelvin) analysed how a signal spreads along a submarine cable. In 1855 he showed that, with negligible inductance, the line obeys a diffusion equation: a pulse arrives smeared over a time proportional to rc\,\ell^2, the resistance and capacitance per unit length times the length squared, the law of squares. The building block is the single RC section, whose voltage rises as 1 - e^{-t/RC} (~engineeringkit.electrical_engineering.rc_charging_voltage). This example checks the time constant of one section, then chains sections into a cable and confirms the law of squares."><img alt="" src="../_images/sphx_glr_plot_01_kelvin_rc_cable_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/electrical_engineering/transients/plot_01_kelvin_rc_cable.html"><span class="doc">Kelvin’s telegraph cable and the RC time constant</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Kelvin's telegraph cable and the RC time constant</div>
+</div></div></section>
+<section id="heaviside-s-telegrapher-s-equations-and-the-distortionless-line">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">1876-1887 – Heaviside’s Telegrapher’s Equations and the Distortionless Line</a><a class="headerlink" href="#heaviside-s-telegrapher-s-equations-and-the-distortionless-line" title="Link to this heading">#</a></h2>
+<p>Oliver Heaviside, a former telegraph operator who taught himself
+mathematics, kept all four constants of a line: series resistance and
+inductance, shunt conductance and capacitance per unit length. The
+resulting telegrapher’s equations carry waves that decay and travel
+according to <span class="math notranslate nohighlight">\(\gamma = \sqrt{(R + j\omega L)(G + j\omega C)}\)</span>. In 1887
+he showed that if <span class="math notranslate nohighlight">\(R/L = G/C\)</span> every frequency is attenuated equally and
+travels at the same speed, so signals arrive undistorted. Telephone cables
+had far too little inductance. The Post Office ignored him, but Pupin’s and
+Campbell’s loading coils (1899-1900) added the missing inductance and made
+long-distance telephony work.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/electrical_engineering.html#engineeringkit.electrical_engineering.propagation_constant" title="engineeringkit.electrical_engineering.propagation_constant"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.electrical_engineering.propagation_constant()</span></code></a>,
+<a class="reference internal" href="../api/electrical_engineering.html#engineeringkit.electrical_engineering.distortionless_condition" title="engineeringkit.electrical_engineering.distortionless_condition"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.electrical_engineering.distortionless_condition()</span></code></a>,
+<a class="reference internal" href="../api/electrical_engineering.html#engineeringkit.electrical_engineering.transmission_line_z0" title="engineeringkit.electrical_engineering.transmission_line_z0"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.electrical_engineering.transmission_line_z0()</span></code></a> and
+<a class="reference internal" href="../api/electrical_engineering.html#engineeringkit.electrical_engineering.transmission_line_velocity" title="engineeringkit.electrical_engineering.transmission_line_velocity"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.electrical_engineering.transmission_line_velocity()</span></code></a>.
+The example compares attenuation, velocity and a received pulse for an
+unloaded and a distortionless line.</p>
+<p><em>References:</em> O. Heaviside, “On the extra current,” <em>Phil. Mag.</em> 2 (1876)
+135-145; O. Heaviside, “Electromagnetic induction and its propagation,”
+<em>The Electrician</em> (1887), reprinted in <em>Electrical Papers</em>, vol. 2 (London:
+Macmillan, 1892).</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Kelvin&#x27;s cable theory ignored inductance. Oliver Heaviside, a self-taught former telegraph operator, kept all four line constants: series resistance R and inductance L, shunt conductance G and capacitance C per metre. In 1876 he wrote the telegrapher&#x27;s equations, whose sinusoidal waves decay and travel according to \gamma = \sqrt{(R + j\omega L)(G + j\omega C)} (~engineeringkit.electrical_engineering.propagation_constant). In 1887 he found that if R/L = G/C (~engineeringkit.electrical_engineering.distortionless_condition), every frequency is attenuated equally and travels at the same speed, so a signal arrives weaker but undistorted. Real cables have far too little inductance; Pupin&#x27;s and Campbell&#x27;s loading coils (1899-1900) added it and made long-distance telephony possible. This example compares a cable with and without enough inductance."><img alt="" src="../_images/sphx_glr_plot_01_heaviside_telegrapher_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/electrical_engineering/transmission_lines/plot_01_heaviside_telegrapher.html"><span class="doc">Heaviside’s telegrapher’s equations and the distortionless line</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Heaviside's telegrapher's equations and the distortionless line</div>
+</div></div></section>
+<section id="thevenin-s-equivalent-circuit">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">1883 – Thévenin’s Equivalent Circuit</a><a class="headerlink" href="#thevenin-s-equivalent-circuit" title="Link to this heading">#</a></h2>
+<p>Léon Charles Thévenin, an engineer of the French Postes et Télégraphes,
+proved that any network of EMFs and resistances, seen from two of its
+terminals, acts as a single EMF in series with a single resistance.
+Hermann von Helmholtz had stated the result in 1853, but it was Thévenin’s
+paper that engineers read. The EMF is the open-circuit voltage. The
+resistance is the open-circuit voltage divided by the short-circuit
+current, or equally the resistance seen with every source zeroed. The
+theorem lets an engineer analyse what is connected to a network without
+solving the network again for each load.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/electrical_engineering.html#engineeringkit.electrical_engineering.thevenin_from_source" title="engineeringkit.electrical_engineering.thevenin_from_source"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.electrical_engineering.thevenin_from_source()</span></code></a>,
+with <a class="reference internal" href="../api/electrical_engineering.html#engineeringkit.electrical_engineering.nodal_analysis" title="engineeringkit.electrical_engineering.nodal_analysis"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.electrical_engineering.nodal_analysis()</span></code></a> for the
+open- and short-circuit tests. The example reduces a two-source network and
+checks the equivalent for every load.</p>
+<p><em>References:</em> L. Thévenin, “Extension de la loi d’Ohm aux circuits
+électromoteurs complexes,” <em>Annales Télégraphiques</em> 10 (1883) 222-224.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Léon Charles Thévenin, an engineer of the French telegraph service, showed in 1883 that any linear network seen from two terminals behaves like a single EMF in series with a single resistance (Hermann von Helmholtz had reached the same result in 1853). The EMF is the open-circuit voltage; the resistance is that voltage divided by the short-circuit current, or the resistance seen with every source zeroed. This example reduces a two-source network with nodal_analysis, builds the equivalent with thevenin_from_source, and checks that the two agree for every load."><img alt="" src="../_images/sphx_glr_plot_02_thevenin_equivalent_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/electrical_engineering/networks/plot_02_thevenin_equivalent.html"><span class="doc">Thévenin’s equivalent circuit</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Thévenin's equivalent circuit</div>
+</div></div></section>
+<section id="stanley-s-transformer">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">1886 – Stanley’s Transformer</a><a class="headerlink" href="#stanley-s-transformer" title="Link to this heading">#</a></h2>
+<p>Gaulard and Gibbs’s “secondary generator” and the closed-core transformer
+of Zipernowsky, Bláthy and Déri (1885) showed that AC voltage could be
+changed with coils on iron. William Stanley, for George Westinghouse,
+connected the primaries in parallel across the line and in March 1886 lit
+Great Barrington, Massachusetts, stepping 500 V down to 100 V at each
+building. An ideal transformer scales voltage by the turns ratio, current
+by its inverse and impedance by its square. Because line loss falls as the
+square of the transmission voltage, the transformer won the “war of the
+currents” for AC.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/electrical_engineering.html#engineeringkit.electrical_engineering.transformer_secondary" title="engineeringkit.electrical_engineering.transformer_secondary"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.electrical_engineering.transformer_secondary()</span></code></a>.
+The example checks the power and impedance transformation and the
+<span class="math notranslate nohighlight">\(1/V^2\)</span> line loss.</p>
+<p><em>References:</em> W. Stanley, “Induction-coil,” U.S. Patent 349,611 (1886).</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="In March 1886 William Stanley, working for George Westinghouse, lit the shops of Great Barrington, Massachusetts, from a 500 V alternator through transformers that stepped the voltage down to 100 V at each building. His design, refined from the Gaulard-Gibbs secondary generator and the Hungarian ZBD transformer of 1885, had a closed iron core and windings in parallel across the line. An ideal transformer scales voltage by the turns ratio, V_2 = V_1 N_2/N_1 (~engineeringkit.electrical_engineering.transformer_secondary), current by its inverse and impedance by its square. This example shows why that made AC distribution win: stepping up the voltage cuts line losses by the square of the ratio."><img alt="" src="../_images/sphx_glr_plot_01_stanley_transformer_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/electrical_engineering/ac_circuits/plot_01_stanley_transformer.html"><span class="doc">Stanley’s transformer</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Stanley's transformer</div>
+</div></div></section>
+<section id="tesla-s-polyphase-system">
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">1888 – Tesla’s Polyphase System</a><a class="headerlink" href="#tesla-s-polyphase-system" title="Link to this heading">#</a></h2>
+<p>Nikola Tesla’s lecture to the AIEE described motors driven by currents
+displaced in phase. Together they produce a rotating magnetic field that
+turns an induction motor with no commutator or brushes. Westinghouse bought
+the patents. Mikhail Dolivo-Dobrovolsky chose three phases for the
+Lauffen-Frankfurt line of 1891. A balanced three-phase load draws constant
+instantaneous power, <span class="math notranslate nohighlight">\(\sqrt3 V_L I_L\cos\phi\)</span>, so generators and
+motors run without torque pulsation, and the three return currents cancel,
+so three wires do the work of six.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/electrical_engineering.html#engineeringkit.electrical_engineering.three_phase_power" title="engineeringkit.electrical_engineering.three_phase_power"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.electrical_engineering.three_phase_power()</span></code></a>.
+The example checks the constant total power, the zero neutral current and
+the rotating field.</p>
+<p><em>References:</em> N. Tesla, “A new system of alternate current motors and
+transformers,” <em>Trans. AIEE</em> 5 (1888) 308-327.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="In May 1888 Nikola Tesla presented &quot;A new system of alternate current motors and transformers&quot; to the American Institute of Electrical Engineers. Currents displaced in phase produce a rotating magnetic field, which drives an induction motor with no commutator. Polyphase supply has a second advantage that Mikhail Dolivo-Dobrovolsky exploited with three phases in 1889-1891: a balanced three-phase load draws constant instantaneous power, \sqrt3 V_L I_L \cos\phi (~engineeringkit.electrical_engineering.three_phase_power), and the three return currents cancel, so three wires do the work of six. This example checks both, and draws the rotating field."><img alt="" src="../_images/sphx_glr_plot_01_tesla_three_phase_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/electrical_engineering/power/plot_01_tesla_three_phase.html"><span class="doc">Tesla’s polyphase system</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Tesla's polyphase system</div>
+</div></div></section>
+<section id="steinmetz-s-phasors-and-complex-impedance">
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">1893 – Steinmetz’s Phasors and Complex Impedance</a><a class="headerlink" href="#steinmetz-s-phasors-and-complex-impedance" title="Link to this heading">#</a></h2>
+<p>Charles Proteus Steinmetz, at the International Electrical Congress in
+Chicago, showed that a sinusoid <span class="math notranslate nohighlight">\(A\cos(\omega t + \phi)\)</span> can be carried
+as the complex number <span class="math notranslate nohighlight">\(Ae^{j\phi}\)</span>. Differentiation becomes
+multiplication by <span class="math notranslate nohighlight">\(j\omega\)</span>, so an inductor is the impedance
+<span class="math notranslate nohighlight">\(j\omega L\)</span> and a capacitor <span class="math notranslate nohighlight">\(1/j\omega C\)</span>. The differential
+equations of an AC circuit become Ohm’s and Kirchhoff’s laws with complex
+numbers. Steinmetz’s method, taught at General Electric and in his
+textbooks, made AC design routine.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/electrical_engineering.html#engineeringkit.electrical_engineering.inductor_impedance" title="engineeringkit.electrical_engineering.inductor_impedance"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.electrical_engineering.inductor_impedance()</span></code></a>,
+<a class="reference internal" href="../api/electrical_engineering.html#engineeringkit.electrical_engineering.capacitor_impedance" title="engineeringkit.electrical_engineering.capacitor_impedance"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.electrical_engineering.capacitor_impedance()</span></code></a>,
+<a class="reference internal" href="../api/electrical_engineering.html#engineeringkit.electrical_engineering.series_rlc_impedance" title="engineeringkit.electrical_engineering.series_rlc_impedance"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.electrical_engineering.series_rlc_impedance()</span></code></a>,
+<a class="reference internal" href="../api/electrical_engineering.html#engineeringkit.electrical_engineering.phasor" title="engineeringkit.electrical_engineering.phasor"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.electrical_engineering.phasor()</span></code></a> and
+<a class="reference internal" href="../api/electrical_engineering.html#engineeringkit.electrical_engineering.polar" title="engineeringkit.electrical_engineering.polar"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.electrical_engineering.polar()</span></code></a>, drawn with
+<a class="reference internal" href="../api/electrical_engineering.html#engineeringkit.electrical_engineering.visualizers.plot_phasors" title="engineeringkit.electrical_engineering.visualizers.plot_phasors"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.electrical_engineering.visualizers.plot_phasors()</span></code></a>. The
+example solves a series RLC circuit by phasors and checks it against a
+time-domain simulation.</p>
+<p><em>References:</em> C. P. Steinmetz, “Complex quantities and their use in
+electrical engineering,” <em>Proc. International Electrical Congress, Chicago
+1893</em> (New York: AIEE, 1894) 33-74.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="AC circuits obey linear differential equations, and before 1893 engineers solved them with trigonometry and graphical constructions. At the International Electrical Congress in Chicago, Charles Proteus Steinmetz showed that a sinusoid A\cos(\omega t + \phi) can be carried as the complex number Ae^{j\phi}. Differentiation becomes multiplication by j\omega, so an inductor becomes the impedance j\omega L (~engineeringkit.electrical_engineering.inductor_impedance), a capacitor 1/j\omega C (~engineeringkit.electrical_engineering.capacitor_impedance), and AC circuits are solved by Ohm&#x27;s law with complex numbers (~engineeringkit.electrical_engineering.series_rlc_impedance). This example solves a series RLC circuit by phasors and checks the answer against a time-domain simulation."><img alt="" src="../_images/sphx_glr_plot_02_steinmetz_phasors_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/electrical_engineering/ac_circuits/plot_02_steinmetz_phasors.html"><span class="doc">Steinmetz’s phasors and complex impedance</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Steinmetz's phasors and complex impedance</div>
+</div></div></section>
+<section id="lodge-s-syntonic-tuning-series-resonance">
+<h2><a class="toc-backref" href="#id11" role="doc-backlink">1897 – Lodge’s Syntonic Tuning: Series Resonance</a><a class="headerlink" href="#lodge-s-syntonic-tuning-series-resonance" title="Link to this heading">#</a></h2>
+<p>Spark transmitters radiated over a wide band, so every receiver heard every
+station. Oliver Lodge’s patent put an adjustable inductance in series with
+the antenna capacitance at both ends of the link, tuning transmitter and
+receiver to the same frequency, <span class="math notranslate nohighlight">\(f_0 = 1/2\pi\sqrt{LC}\)</span>. At resonance
+the reactances cancel and only the resistance limits the current. The
+sharpness of the peak is the quality factor <span class="math notranslate nohighlight">\(Q = \sqrt{L/C}/R\)</span>, and the
+half-power bandwidth is <span class="math notranslate nohighlight">\(f_0/Q\)</span>. Marconi’s company bought the patent in
+1912.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/electrical_engineering.html#engineeringkit.electrical_engineering.resonance_frequency" title="engineeringkit.electrical_engineering.resonance_frequency"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.electrical_engineering.resonance_frequency()</span></code></a>
+and <a class="reference internal" href="../api/electrical_engineering.html#engineeringkit.electrical_engineering.SeriesRLC" title="engineeringkit.electrical_engineering.SeriesRLC"><code class="xref py py-class docutils literal notranslate"><span class="pre">SeriesRLC</span></code></a> (its
+<code class="docutils literal notranslate"><span class="pre">impedance</span></code>, <code class="docutils literal notranslate"><span class="pre">quality_factor</span></code> and <code class="docutils literal notranslate"><span class="pre">step_response</span></code>). The example
+measures the bandwidth and the rejection of a neighbouring station.</p>
+<p><em>References:</em> O. J. Lodge, “Improvements in syntonized telegraphy without
+line wires,” British Patent 11,575 (1897).</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Early spark transmitters splattered energy over a wide band, so every receiver heard every transmitter. Oliver Lodge&#x27;s 1897 patent on &quot;syntonic&quot; telegraphy put an inductance in series with the antenna&#x27;s capacitance at both ends, tuning transmitter and receiver to the same frequency f_0 = 1/2\pi\sqrt{LC} (~engineeringkit.electrical_engineering.resonance_frequency). At resonance the inductive and capacitive reactances cancel and the current is limited only by the resistance; the sharpness of the peak is the quality factor Q = \sqrt{L/C}/R, and the half-power bandwidth is f_0/Q. Marconi bought the patent in 1912. This example measures the bandwidth of a tuned circuit (~engineeringkit.electrical_engineering.SeriesRLC) and shows how much tuning rejects a neighbouring station."><img alt="" src="../_images/sphx_glr_plot_03_lodge_resonance_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/electrical_engineering/ac_circuits/plot_03_lodge_resonance.html"><span class="doc">Lodge’s syntonic tuning: series resonance</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Lodge's syntonic tuning: series resonance</div>
+</div></div></section>
+<section id="fortescue-s-symmetrical-components">
+<h2><a class="toc-backref" href="#id12" role="doc-backlink">1918 – Fortescue’s Symmetrical Components</a><a class="headerlink" href="#fortescue-s-symmetrical-components" title="Link to this heading">#</a></h2>
+<p>Charles LeGeyt Fortescue of Westinghouse showed that any three phasors are
+the sum of three balanced sets: zero sequence (three equal phasors),
+positive sequence (rotation a-b-c) and negative sequence (a-c-b). In a
+symmetrical network the three sequences do not interact, so an unbalanced
+problem splits into three single-phase ones. His 114-page paper became the
+basis of fault analysis and protective relaying. A single line-to-ground
+fault, for instance, connects the three sequence networks in series.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/electrical_engineering.html#engineeringkit.electrical_engineering.symmetrical_components" title="engineeringkit.electrical_engineering.symmetrical_components"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.electrical_engineering.symmetrical_components()</span></code></a>
+and <a class="reference internal" href="../api/electrical_engineering.html#engineeringkit.electrical_engineering.phase_components" title="engineeringkit.electrical_engineering.phase_components"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.electrical_engineering.phase_components()</span></code></a>. The
+example decomposes an unbalanced set and computes a line-to-ground fault.</p>
+<p><em>References:</em> C. L. Fortescue, “Method of symmetrical co-ordinates applied
+to the solution of polyphase networks,” <em>Trans. AIEE</em> 37 (1918)
+1027-1140.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="An unbalanced three-phase system, such as one with a fault to ground, couples all three phases and resisted hand calculation. Charles LeGeyt Fortescue of Westinghouse showed in 1918 that any three phasors are the sum of three balanced sets: a zero-sequence set (three equal phasors), a positive-sequence set (a-b-c rotation) and a negative-sequence set (a-c-b) (~engineeringkit.electrical_engineering.symmetrical_components). In a symmetrical network the three sequences do not interact, so each is solved as a single-phase circuit and the results recombined (~engineeringkit.electrical_engineering.phase_components). This example decomposes an unbalanced set and computes a single-line-to-ground fault the way protection engineers still do."><img alt="" src="../_images/sphx_glr_plot_02_fortescue_symmetrical_components_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/electrical_engineering/power/plot_02_fortescue_symmetrical_components.html"><span class="doc">Fortescue’s symmetrical components</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Fortescue's symmetrical components</div>
+</div></div></section>
+<section id="norton-s-equivalent-circuit">
+<h2><a class="toc-backref" href="#id13" role="doc-backlink">1926 – Norton’s Equivalent Circuit</a><a class="headerlink" href="#norton-s-equivalent-circuit" title="Link to this heading">#</a></h2>
+<p>Edward Lawry Norton of Bell Labs, in an internal memorandum on filter
+design, and Hans Ferdinand Mayer of Siemens, in a paper on the vacuum-tube
+amplifier, gave the dual of Thévenin’s theorem in the same year. A linear
+two-terminal network also acts as a current source <span class="math notranslate nohighlight">\(V_{th}/R_{th}\)</span> in
+parallel with the same resistance. Converting between the two forms (a
+<em>source transformation</em>) is a standard hand-analysis step, and the Norton
+form suits devices such as transistors that behave more like current
+sources.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/electrical_engineering.html#engineeringkit.electrical_engineering.norton_from_thevenin" title="engineeringkit.electrical_engineering.norton_from_thevenin"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.electrical_engineering.norton_from_thevenin()</span></code></a>.
+The example checks that the two forms are indistinguishable at the
+terminals and combines two batteries in parallel.</p>
+<p><em>References:</em> E. L. Norton, “Design of finite networks for uniform
+frequency characteristic,” Bell Laboratories Technical Report
+TM26-0-1860 (1926); H. F. Mayer, “Ueber das Ersatzschema der
+Verstärkerröhre,” <em>Telegraphen- und Fernsprech-Technik</em> 15 (1926) 335-337.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="In 1926 Edward Lawry Norton at Bell Labs, and independently Hans Ferdinand Mayer at Siemens, gave the dual of Thévenin&#x27;s theorem: a linear two-terminal network also behaves like a current source I_N = V_{th}/R_{th} in parallel with the same resistance (~engineeringkit.electrical_engineering.norton_from_thevenin). Norton wrote it in an internal memorandum on filter design; Mayer used it to model the vacuum-tube amplifier, which acts more like a current source than a voltage source. This example checks that the Thévenin and Norton forms are indistinguishable at the terminals, and that converting sources back and forth simplifies a ladder to a single source."><img alt="" src="../_images/sphx_glr_plot_03_norton_equivalent_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/electrical_engineering/networks/plot_03_norton_equivalent.html"><span class="doc">Norton’s equivalent circuit</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Norton's equivalent circuit</div>
+</div></div></section>
+<section id="budeanu-s-reactive-power-and-the-power-factor">
+<h2><a class="toc-backref" href="#id14" role="doc-backlink">1927 – Budeanu’s Reactive Power and the Power Factor</a><a class="headerlink" href="#budeanu-s-reactive-power-and-the-power-factor" title="Link to this heading">#</a></h2>
+<p>When the current lags the voltage, energy flows back and forth each half
+cycle without doing work, yet still loads the cables. Constantin Budeanu
+of Bucharest named this <em>reactive power</em>, <span class="math notranslate nohighlight">\(Q = VI\sin\phi\)</span>, measured in
+vars, a unit the IEC adopted in 1930. Real power <span class="math notranslate nohighlight">\(P = VI\cos\phi\)</span>, the
+apparent power <span class="math notranslate nohighlight">\(S^2 = P^2 + Q^2\)</span> and the power factor <span class="math notranslate nohighlight">\(P/S\)</span> became
+the vocabulary of tariffs and power-factor correction. For distorted
+waveforms Budeanu summed <span class="math notranslate nohighlight">\(Q\)</span> over harmonics and called the remainder
+distortion power. That definition is still debated, and IEEE 1459 (2000)
+replaced it.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/electrical_engineering.html#engineeringkit.electrical_engineering.real_power" title="engineeringkit.electrical_engineering.real_power"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.electrical_engineering.real_power()</span></code></a>,
+<a class="reference internal" href="../api/electrical_engineering.html#engineeringkit.electrical_engineering.reactive_power" title="engineeringkit.electrical_engineering.reactive_power"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.electrical_engineering.reactive_power()</span></code></a>,
+<a class="reference internal" href="../api/electrical_engineering.html#engineeringkit.electrical_engineering.power_factor" title="engineeringkit.electrical_engineering.power_factor"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.electrical_engineering.power_factor()</span></code></a> and
+<a class="reference internal" href="../api/electrical_engineering.html#engineeringkit.electrical_engineering.rms_sine" title="engineeringkit.electrical_engineering.rms_sine"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.electrical_engineering.rms_sine()</span></code></a>. The example
+recovers the power triangle from waveforms and computes the distortion
+power of a harmonic-rich load.</p>
+<p><em>References:</em> C. I. Budeanu, <em>Puissances réactives et fictives</em> (Bucharest:
+Institut National Roumain pour l’Étude de l’Aménagement et de l’Utilisation
+des Sources d’Énergie, 1927).</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="When a load&#x27;s current lags its voltage, part of the energy flows back and forth every half cycle and does no work. Constantin Budeanu of Bucharest gave this the name reactive power in 1927 and the unit &quot;var&quot; (volt-ampere reactive), adopted by the IEC in 1930. For sinusoids the power triangle holds: real power P = VI\cos\phi (~engineeringkit.electrical_engineering.real_power), reactive power Q = VI\sin\phi (~engineeringkit.electrical_engineering.reactive_power), apparent power S^2 = P^2 + Q^2, and the power factor P/S (~engineeringkit.electrical_engineering.power_factor). Budeanu extended Q to distorted waveforms as a sum over harmonics, which leaves a remainder he called the distortion power D. This example checks the power triangle from waveforms and computes D for a current with harmonics."><img alt="" src="../_images/sphx_glr_plot_03_budeanu_reactive_power_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/electrical_engineering/power/plot_03_budeanu_reactive_power.html"><span class="doc">Budeanu’s reactive power and the power factor</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Budeanu's reactive power and the power factor</div>
+</div></div></section>
+<section id="smith-s-chart">
+<h2><a class="toc-backref" href="#id15" role="doc-backlink">1939 – Smith’s Chart</a><a class="headerlink" href="#smith-s-chart" title="Link to this heading">#</a></h2>
+<p>Phillip Hagar Smith of Bell Labs plotted the reflection coefficient
+<span class="math notranslate nohighlight">\(\Gamma = (Z_L - Z_0)/(Z_L + Z_0)\)</span> in the unit disc. Over it he drew
+circles of constant normalised resistance and arcs of constant reactance.
+Moving along a lossless line only rotates <span class="math notranslate nohighlight">\(\Gamma\)</span> about the centre at
+constant standing-wave ratio, so input impedances, standing waves and
+matching networks could be read off a sheet of paper instead of worked out
+with a slide rule. The chart outlived the slide rule: every vector network
+analyser still displays it.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/electrical_engineering.html#engineeringkit.electrical_engineering.reflection_coefficient" title="engineeringkit.electrical_engineering.reflection_coefficient"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.electrical_engineering.reflection_coefficient()</span></code></a>,
+<a class="reference internal" href="../api/electrical_engineering.html#engineeringkit.electrical_engineering.standing_wave_ratio" title="engineeringkit.electrical_engineering.standing_wave_ratio"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.electrical_engineering.standing_wave_ratio()</span></code></a> and
+<a class="reference internal" href="../api/electrical_engineering.html#engineeringkit.electrical_engineering.input_impedance" title="engineeringkit.electrical_engineering.input_impedance"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.electrical_engineering.input_impedance()</span></code></a>, drawn with
+<a class="reference internal" href="../api/electrical_engineering.html#engineeringkit.electrical_engineering.visualizers.plot_smith_chart" title="engineeringkit.electrical_engineering.visualizers.plot_smith_chart"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.electrical_engineering.visualizers.plot_smith_chart()</span></code></a>.
+The example designs a single-stub match.</p>
+<p><em>References:</em> P. H. Smith, “Transmission line calculator,” <em>Electronics</em> 12
+(January 1939) 29-31.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Phillip Hagar Smith, an engineer at Bell Labs, tired of evaluating the transmission-line equations with a slide rule. His 1939 chart plots the reflection coefficient \Gamma = (Z_L - Z_0)/(Z_L + Z_0) (~engineeringkit.electrical_engineering.reflection_coefficient) in the unit disc, overlaid with circles of constant normalised resistance and arcs of constant reactance. Moving along a lossless line just rotates \Gamma around the centre, at constant standing-wave ratio (~engineeringkit.electrical_engineering.standing_wave_ratio), so the input impedance (~engineeringkit.electrical_engineering.input_impedance) can be read off the grid. This example uses the chart to design a single-stub match, drawn with plot_smith_chart."><img alt="" src="../_images/sphx_glr_plot_02_smith_chart_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/electrical_engineering/transmission_lines/plot_02_smith_chart.html"><span class="doc">Smith’s chart</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Smith's chart</div>
+</div></div></section>
+<section id="ward-and-hale-s-digital-load-flow">
+<h2><a class="toc-backref" href="#id16" role="doc-backlink">1956 – Ward and Hale’s Digital Load Flow</a><a class="headerlink" href="#ward-and-hale-s-digital-load-flow" title="Link to this heading">#</a></h2>
+<p>Power companies had studied their grids on AC network analysers, scale
+models built from resistors, inductors and capacitors. J. B. Ward and
+H. W. Hale of American Gas and Electric published the first practical
+digital method. They described the network by its bus admittance matrix
+and improved each bus voltage in turn from the power specified there, an
+iteration now called Gauss-Seidel. It needs little memory but converges
+slowly. Over-relaxation helps, and Newton-Raphson methods with sparse
+matrices replaced it in the 1960s.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/electrical_engineering.html#engineeringkit.electrical_engineering.admittance_matrix" title="engineeringkit.electrical_engineering.admittance_matrix"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.electrical_engineering.admittance_matrix()</span></code></a>
+and <a class="reference internal" href="../api/electrical_engineering.html#engineeringkit.electrical_engineering.gauss_seidel_load_flow" title="engineeringkit.electrical_engineering.gauss_seidel_load_flow"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.electrical_engineering.gauss_seidel_load_flow()</span></code></a>,
+returning a <a class="reference internal" href="../api/electrical_engineering.html#engineeringkit.electrical_engineering.LoadFlowResult" title="engineeringkit.electrical_engineering.LoadFlowResult"><code class="xref py py-class docutils literal notranslate"><span class="pre">LoadFlowResult</span></code></a>.
+The example solves a five-bus network and checks it against SciPy’s
+nonlinear solver.</p>
+<p><em>References:</em> J. B. Ward and H. W. Hale, “Digital computer solution of
+power-flow problems,” <em>Trans. AIEE Part III</em> 75 (1956) 398-404.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Until the 1950s, utilities computed the flow of power in their networks on AC network analysers, scale models of the grid built from resistors, inductors and capacitors. In 1956 J. B. Ward and H. W. Hale of American Gas and Electric published the first practical digital method. They wrote the network as its bus admittance matrix (~engineeringkit.electrical_engineering.admittance_matrix) and improved each bus voltage in turn from the power specified there, a Gauss-Seidel iteration (~engineeringkit.electrical_engineering.gauss_seidel_load_flow). The method is simple and needs little memory but converges slowly, which over-relaxation partly cures; Newton-Raphson methods replaced it in the 1960s. This example solves a five-bus network and checks the solution against a general-purpose nonlinear solver."><img alt="" src="../_images/sphx_glr_plot_04_ward_hale_load_flow_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/electrical_engineering/power/plot_04_ward_hale_load_flow.html"><span class="doc">Ward and Hale’s digital load flow</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Ward and Hale's digital load flow</div>
+</div></div></section>
+<section id="see-also">
+<h2><a class="toc-backref" href="#id17" role="doc-backlink">See Also</a><a class="headerlink" href="#see-also" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../api/electrical_engineering.html"><span class="doc">engineeringkit.electrical_engineering</span></a></p></li>
+<li><p><a class="reference internal" href="../guides/electrical_engineering.html"><span class="doc">Electrical engineering: passive components and circuit responses</span></a></p></li>
+<li><p><a class="reference internal" href="communications_breakthroughs.html"><span class="doc">Breakthroughs in Communications</span></a></p></li>
+<li><p><a class="reference internal" href="control_systems_breakthroughs.html"><span class="doc">Breakthroughs in Control Systems</span></a></p></li>
+</ul>
 </section>
 </section>
 
@@ -498,11 +852,23 @@ here are concise original explanations, not reproductions of that reference.</p>
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="pst-show_toc_level nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ohm-and-kirchhoff-networks-become-solvable">Ohm and Kirchhoff: networks become solvable</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#energy-storage-circuits-acquire-memory">Energy storage: circuits acquire memory</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#phasors-differential-equations-become-impedance-algebra">Phasors: differential equations become impedance algebra</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explore-and-verify">Explore and verify</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">Further reading</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ohm-s-law">1827 – Ohm’s Law</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c-1840-jacobi-s-maximum-power-theorem">c. 1840 – Jacobi’s Maximum Power Theorem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wheatstone-s-bridge">1843 – Wheatstone’s Bridge</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kirchhoff-s-circuit-laws-and-nodal-analysis">1845 – Kirchhoff’s Circuit Laws and Nodal Analysis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kelvin-s-telegraph-cable-and-the-rc-time-constant">1855 – Kelvin’s Telegraph Cable and the RC Time Constant</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#heaviside-s-telegrapher-s-equations-and-the-distortionless-line">1876-1887 – Heaviside’s Telegrapher’s Equations and the Distortionless Line</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thevenin-s-equivalent-circuit">1883 – Thévenin’s Equivalent Circuit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stanley-s-transformer">1886 – Stanley’s Transformer</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tesla-s-polyphase-system">1888 – Tesla’s Polyphase System</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#steinmetz-s-phasors-and-complex-impedance">1893 – Steinmetz’s Phasors and Complex Impedance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lodge-s-syntonic-tuning-series-resonance">1897 – Lodge’s Syntonic Tuning: Series Resonance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fortescue-s-symmetrical-components">1918 – Fortescue’s Symmetrical Components</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#norton-s-equivalent-circuit">1926 – Norton’s Equivalent Circuit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#budeanu-s-reactive-power-and-the-power-factor">1927 – Budeanu’s Reactive Power and the Power Factor</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#smith-s-chart">1939 – Smith’s Chart</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ward-and-hale-s-digital-load-flow">1956 – Ward and Hale’s Digital Load Flow</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#see-also">See Also</a></li>
 </ul>
   </nav></div>
 

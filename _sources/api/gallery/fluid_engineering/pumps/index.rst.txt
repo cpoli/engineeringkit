@@ -1,0 +1,50 @@
+
+
+.. _sphx_glr_api_gallery_fluid_engineering_pumps:
+
+Pumps
+-----
+
+Pump power and cavitation.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Water turbines of the 1910s and 1920s ran faster and lower than before, and their runners were eaten away by cavitation. Dieter Thoma, at Munich, found in 1924 that machines of one design start to cavitate at the same ratio \sigma = \mathrm{NPSH}/H (~engineeringkit.fluid_engineering.thoma_sigma) of the head margin above vapour pressure at the runner to the machine head. The same parameter, through the net positive suction head (~engineeringkit.fluid_engineering.npsh_available), governs how far a pump may lift water. This example finds the largest suction lift of a pump at several water temperatures.">
+
+.. only:: html
+
+  .. image:: /api/gallery/fluid_engineering/pumps/images/thumb/sphx_glr_plot_01_thoma_cavitation_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/fluid_engineering/pumps/plot_01_thoma_cavitation`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Thoma's cavitation parameter</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/fluid_engineering/pumps/plot_01_thoma_cavitation
+

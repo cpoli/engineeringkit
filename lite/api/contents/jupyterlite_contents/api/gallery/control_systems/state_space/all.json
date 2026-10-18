@@ -1,0 +1,57 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-10-18T12:25:15.926192Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-18T12:25:13.335200Z",
+      "mimetype": null,
+      "name": "plot_02_luenberger_observer.ipynb",
+      "path": "jupyterlite_contents/api/gallery/control_systems/state_space/plot_02_luenberger_observer.ipynb",
+      "size": 3692,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-18T12:25:15.925991Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-18T12:25:13.335081Z",
+      "mimetype": null,
+      "name": "plot_01_kalman_controllability_observability.ipynb",
+      "path": "jupyterlite_contents/api/gallery/control_systems/state_space/plot_01_kalman_controllability_observability.ipynb",
+      "size": 4928,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-18T12:25:15.926364Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-18T12:25:13.335318Z",
+      "mimetype": null,
+      "name": "plot_03_wonham_pole_assignment.ipynb",
+      "path": "jupyterlite_contents/api/gallery/control_systems/state_space/plot_03_wonham_pole_assignment.ipynb",
+      "size": 4083,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2026-10-18T12:25:15.926364Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-10-18T12:25:15.926364Z",
+  "mimetype": null,
+  "name": "state_space",
+  "path": "jupyterlite_contents/api/gallery/control_systems/state_space",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

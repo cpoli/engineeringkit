@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.165** total execution time for 2 files **from api/gallery/materials**:
+**00:00.000** total execution time for 0 files **from api/gallery/materials**:
 
 .. container::
 
@@ -32,9 +32,6 @@ Computation times
    * - Example
      - Time
      - Mem (MB)
-   * - :ref:`sphx_glr_api_gallery_materials_plot_materials_models.py` (``plot_materials_models.py``)
-     - 00:00.086
-     - 0.0
-   * - :ref:`sphx_glr_api_gallery_materials_plot_materials_benchmark.py` (``plot_materials_benchmark.py``)
-     - 00:00.078
-     - 0.0
+   * - N/A
+     - N/A
+     - N/A

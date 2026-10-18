@@ -1,0 +1,50 @@
+
+
+.. _sphx_glr_api_gallery_thermodynamics_psychrometrics:
+
+Psychrometrics
+--------------
+
+Moist air: humidity, relative humidity and dew point.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In 1902 Willis Carrier designed a system to control the humidity in a Brooklyn printing plant, where paper swelling in the summer air spoiled the colour registration. He cooled the air below its dew point to condense the excess water, then let it warm up again. His 1911 paper &quot;Rational psychrometric formulae&quot; treated moist air as an ideal mixture of dry air and water vapour and drew the chart that air-conditioning engineers still use: humidity ratio w = 0.622\,p_v/(p - p_v) (~engineeringkit.thermodynamics.humidity_ratio) against dry-bulb temperature, with curves of constant relative humidity (~engineeringkit.thermodynamics.relative_humidity) and the dew point (~engineeringkit.thermodynamics.dew_point) where they meet saturation.">
+
+.. only:: html
+
+  .. image:: /api/gallery/thermodynamics/psychrometrics/images/thumb/sphx_glr_plot_01_carrier_psychrometrics_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/thermodynamics/psychrometrics/plot_01_carrier_psychrometrics`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Carrier's psychrometric chart</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/thermodynamics/psychrometrics/plot_01_carrier_psychrometrics
+

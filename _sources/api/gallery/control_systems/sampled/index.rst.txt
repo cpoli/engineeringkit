@@ -5,7 +5,7 @@
 Sampled-data control
 --------------------
 
-Computer control with a zero-order hold.
+Computer control with a zero-order hold, and stability inside the unit circle.
 
 
 .. raw:: html
@@ -36,6 +36,23 @@ Computer control with a zero-order hold.
     </div>
 
 
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A sampled loop is stable when every root of its characteristic polynomial in z lies inside the unit circle, not in the left half-plane, so Routh&#x27;s test does not apply directly. Eliahu Jury (1961) gave the discrete counterpart: a table that reduces the polynomial one degree at a time and checks |a_n| &lt; |a_0| at each step, with no roots computed (~engineeringkit.control_systems.jury_stable).">
+
+.. only:: html
+
+  .. image:: /api/gallery/control_systems/sampled/images/thumb/sphx_glr_plot_02_jury_stability_test_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/control_systems/sampled/plot_02_jury_stability_test`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Jury's stability test for sampled systems</div>
+    </div>
+
+
 .. thumbnail-parent-div-close
 
 .. raw:: html
@@ -47,4 +64,5 @@ Computer control with a zero-order hold.
    :hidden:
 
    /api/gallery/control_systems/sampled/plot_01_ragazzini_zadeh_zero_order_hold
+   /api/gallery/control_systems/sampled/plot_02_jury_stability_test
 

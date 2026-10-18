@@ -1,0 +1,104 @@
+
+
+.. _sphx_glr_api_gallery_structural_engineering_beams:
+
+Beams
+-----
+
+Bending stress, continuous beams and moving loads.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In the Two New Sciences (1638) Galileo asked how strong a cantilever is, and answered that its breaking moment grows with the width b and the square of the depth h, so a plank on edge is stronger than one laid flat by the ratio h/b. He assumed the whole section pulls with the same stress and pivots about its bottom edge, which gives M = \sigma bh^2/2. Linear elasticity (Navier, 1826) puts the pivot at the centroid with a linear stress profile, M = \sigma bh^2/6 (~engineeringkit.structural_engineering.rectangular_section_modulus): Galileo&#x27;s scaling law was right, his constant three times too large.">
+
+.. only:: html
+
+  .. image:: /api/gallery/structural_engineering/beams/images/thumb/sphx_glr_plot_01_galileo_cantilever_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/structural_engineering/beams/plot_01_galileo_cantilever`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Galileo's cantilever</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Navier&#x27;s 1826 lectures at the École des ponts et chaussées put beam theory in its modern form: plane sections stay plane, the neutral axis passes through the centroid, the stress is \sigma = My/I (~engineeringkit.structural_engineering.bending_stress) and the curvature is y&#x27;&#x27; = M/(EI). The example loads a steel beam (~engineeringkit.structural_engineering.SimplySupportedBeam), checks the midspan deflection 5wL^4/(384EI), and checks that the stress profile carries no net force and exactly the applied moment.">
+
+.. only:: html
+
+  .. image:: /api/gallery/structural_engineering/beams/images/thumb/sphx_glr_plot_02_navier_beam_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/structural_engineering/beams/plot_02_navier_beam`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Navier's beam theory</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A beam continuous over several supports is statically indeterminate: the support moments cannot be found from equilibrium alone. Émile Clapeyron met the problem rebuilding the Asnières railway bridge over the Seine and in 1857 published one equation per interior support, linking each support moment to its two neighbours (~engineeringkit.structural_engineering.three_moment_equation). The example checks the textbook coefficients for equal spans, then builds the moment diagram of an unequal three-span beam and checks by double integration that the beam really does not move at the interior supports.">
+
+.. only:: html
+
+  .. image:: /api/gallery/structural_engineering/beams/images/thumb/sphx_glr_plot_03_clapeyron_three_moment_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/structural_engineering/beams/plot_03_clapeyron_three_moment`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Clapeyron's three-moment equation</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A railway bridge must be checked for a train in every position. Emil Winkler (1867-1868), and Otto Mohr independently (1868), plotted the value of a response, such as the moment at one section, against the position of a unit load: the influence line (~engineeringkit.structural_engineering.influence_line). The response to any train is then the sum of the axle loads times the ordinates under them, and the worst position can be read off the plot. The example finds the worst position of a four-axle locomotive on a 20 m span and checks it against a brute-force superposition of point-load solutions.">
+
+.. only:: html
+
+  .. image:: /api/gallery/structural_engineering/beams/images/thumb/sphx_glr_plot_04_winkler_influence_lines_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/structural_engineering/beams/plot_04_winkler_influence_lines`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Winkler's influence lines</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/structural_engineering/beams/plot_01_galileo_cantilever
+   /api/gallery/structural_engineering/beams/plot_02_navier_beam
+   /api/gallery/structural_engineering/beams/plot_03_clapeyron_three_moment
+   /api/gallery/structural_engineering/beams/plot_04_winkler_influence_lines
+

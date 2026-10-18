@@ -1,0 +1,68 @@
+
+
+.. _sphx_glr_api_gallery_fluid_engineering_measurement:
+
+Measurement
+-----------
+
+Flow speed and flow rate from pressure differences.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In 1732 Henri Pitot lowered a glass tube bent at a right angle into the Seine, its mouth facing upstream, and watched the water inside rise above the river surface. The rise is the velocity head v^2/(2g), and it showed, against the belief of the day, that the current is faster near the surface than at depth. Turned around, the stagnation rise gives the speed, v = \sqrt{2\Delta p/\rho} (~engineeringkit.fluid_engineering.pitot_velocity). This example reads river and air speeds from a Pitot tube and finds the Mach number at which the incompressible formula starts to mislead an airspeed indicator.">
+
+.. only:: html
+
+  .. image:: /api/gallery/fluid_engineering/measurement/images/thumb/sphx_glr_plot_01_pitot_tube_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/fluid_engineering/measurement/plot_01_pitot_tube`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Pitot's tube</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Giovanni Battista Venturi reported in 1797 that water flowing through a contraction drops in pressure at the narrowest point and recovers most of it in a gentle expansion. Clemens Herschel turned the effect into the Venturi water meter in 1887: continuity and Bernoulli&#x27;s equation give the flow from the pressure drop between inlet and throat, Q = C_d A_2\sqrt{2\Delta p/[\rho(1 - (A_2/A_1)^2)]} (~engineeringkit.fluid_engineering.venturi_flow). This example draws the pressure along a meter and reads the flow back from it.">
+
+.. only:: html
+
+  .. image:: /api/gallery/fluid_engineering/measurement/images/thumb/sphx_glr_plot_02_venturi_meter_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/fluid_engineering/measurement/plot_02_venturi_meter`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Venturi's tube</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/fluid_engineering/measurement/plot_01_pitot_tube
+   /api/gallery/fluid_engineering/measurement/plot_02_venturi_meter
+

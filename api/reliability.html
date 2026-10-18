@@ -6,8 +6,16 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="engineeringkit.reliability" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://cpoli.github.io/engineeringkit/api/reliability.html" />
+<meta property="og:site_name" content="engineeringkit" />
+<meta property="og:description" content="Domain hub · History · Examples · API reference Halley’s life table and the bathtub hazard; Poisson failure counts; exponential and Weibull lifetimes, Epstein-Sobel MTBF confidence bounds ( scipy.s..." />
+<meta property="og:image" content="https://cpoli.github.io/engineeringkit/_static/images/readme_hero.png" />
+<meta property="og:image:alt" content="engineeringkit" />
+<meta name="description" content="Domain hub · History · Examples · API reference Halley’s life table and the bathtub hazard; Poisson failure counts; exponential and Weibull lifetimes, Epstein-Sobel MTBF confidence bounds ( scipy.s..." />
 
-    <title>engineeringkit.reliability &#8212; engineeringkit 0.1.0 documentation</title>
+    <title>engineeringkit.reliability &#8212; engineeringkit</title>
   
   
   
@@ -30,6 +38,7 @@
 <link href="../_static/styles/pydata-sphinx-theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx_autodoc_typehints.css?v=057ac668" />
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Vibur" />
     <link rel="stylesheet" type="text/css" href="../_static/jupyterlite_sphinx.css?v=f676e775" />
@@ -52,8 +61,10 @@
     <script src="../_static/sg-tags.js?v=d80f6fa4"></script>
     <script src="../_static/jupyterlite_sphinx.js?v=96e329c5"></script>
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'api/reliability';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="canonical" href="https://cpoli.github.io/engineeringkit/api/reliability.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Integrators" href="integrators.html" />
@@ -411,563 +422,1576 @@
 <div class="subpkg-nav docutils container">
 <p><a class="reference internal" href="../_generated/subpackages/reliability.html"><span class="doc">Domain hub</span></a> · <a class="reference internal" href="../history/reliability_breakthroughs.html"><span class="doc">History</span></a> · <a class="reference internal" href="gallery/reliability/index.html"><span class="doc">Examples</span></a> · <a class="reference internal" href="#"><span class="doc">API reference</span></a></p>
 </div>
-<p>Lifetime distributions, independent systems, availability and maintenance.</p>
-<p id="module-engineeringkit.reliability">Reliability engineering: lifetime distributions, systems, availability and maintenance.</p>
-<dl class="py function">
-<dt class="sig sig-object py" id="engineeringkit.reliability.availability">
-<span class="sig-prename descclassname"><span class="pre">engineeringkit.reliability.</span></span><span class="sig-name descname"><span class="pre">availability</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mtbf</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mttr</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/reliability.html#availability"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.reliability.availability" title="Link to this definition">#</a></dt>
-<dd><p>Availability.</p>
+<p>Halley’s life table and the bathtub hazard; Poisson failure counts;
+exponential and Weibull lifetimes, Epstein-Sobel MTBF confidence bounds
+(<code class="docutils literal notranslate"><span class="pre">scipy.stats.chi2</span></code>) and the Kaplan-Meier estimator for censored data;
+series, parallel and k-out-of-n systems with Birnbaum importance;
+Freudenthal’s stress-strength interference and the Hasofer-Lind index; fault
+trees with repeated events, event trees and IEC 61508 safety integrity
+levels; Markov availability (<code class="docutils literal notranslate"><span class="pre">scipy.linalg.expm</span></code>), Barlow-Proschan age
+replacement and Duane reliability growth.</p>
+<p id="module-engineeringkit.reliability">engineeringkit.reliability: lifetimes, redundancy, structural reliability, risk and maintenance.</p>
+<p>Halley’s life table and the bathtub hazard; Poisson failure counts;
+exponential and Weibull lifetimes with Epstein-Sobel confidence bounds and
+the Kaplan-Meier estimator for censored data; series, parallel and
+k-out-of-n systems with Birnbaum importance; Freudenthal’s stress-strength
+interference and the Hasofer-Lind index; Watson’s fault trees, WASH-1400
+event trees and IEC 61508 safety integrity levels; Markov availability,
+Barlow-Proschan age replacement and Duane reliability growth. Models are
+hand-written closed forms; SciPy supplies special functions, chi-square
+quantiles and the matrix exponential.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="engineeringkit.reliability.EventTreeResult">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">engineeringkit.reliability.</span></span><span class="sig-name descname"><span class="pre">EventTreeResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">outcomes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frequencies</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/reliability/core/base.html#EventTreeResult"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.reliability.EventTreeResult" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Output of <a class="reference internal" href="#engineeringkit.reliability.event_tree_probability" title="engineeringkit.reliability.event_tree_probability"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.reliability.event_tree_probability()</span></code></a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>mtbf</strong> (<em>s</em>) – Input in the units stated above.</p></li>
-<li><p><strong>mttr</strong> (<em>s</em>) – Input in the units stated above.</p></li>
+<li><p><strong>outcomes</strong> (<em>ndarray</em>)</p></li>
+<li><p><strong>frequencies</strong> (<em>ndarray</em>)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="engineeringkit.reliability.EventTreeResult.frequencies">
+<span class="sig-name descname"><span class="pre">frequencies</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></span><a class="headerlink" href="#engineeringkit.reliability.EventTreeResult.frequencies" title="Link to this definition">#</a></dt>
+<dd><p>Frequency of each sequence [1/s] (or probability if the initiator was a probability).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="engineeringkit.reliability.EventTreeResult.frequency">
+<span class="sig-name descname"><span class="pre">frequency</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">failed</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/reliability/core/base.html#EventTreeResult.frequency"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.reliability.EventTreeResult.frequency" title="Link to this definition">#</a></dt>
+<dd><p>Total frequency of the sequences in which the functions listed in <code class="docutils literal notranslate"><span class="pre">failed</span></code> all fail.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>failed</strong> (<em>sequence</em><em> of </em><em>int</em>) – Indices of the safety functions that must fail.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Summed sequence frequency [1/s].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="engineeringkit.reliability.EventTreeResult.outcomes">
+<span class="sig-name descname"><span class="pre">outcomes</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></span><a class="headerlink" href="#engineeringkit.reliability.EventTreeResult.outcomes" title="Link to this definition">#</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">True</span></code> where a safety function fails in a sequence.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray of bool, shape <code class="docutils literal notranslate"><span class="pre">(2**m,</span> <span class="pre">m)</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="engineeringkit.reliability.EventTreeResult.summary">
+<span class="sig-name descname"><span class="pre">summary</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/reliability/core/base.html#EventTreeResult.summary"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.reliability.EventTreeResult.summary" title="Link to this definition">#</a></dt>
+<dd><p>Number of sequences, total frequency and the frequency with every function successful.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="engineeringkit.reliability.HasoferLindResult">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">engineeringkit.reliability.</span></span><span class="sig-name descname"><span class="pre">HasoferLindResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">beta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">design_point</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iterations</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/reliability/core/base.html#HasoferLindResult"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.reliability.HasoferLindResult" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Output of <a class="reference internal" href="#engineeringkit.reliability.hasofer_lind_index" title="engineeringkit.reliability.hasofer_lind_index"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.reliability.hasofer_lind_index()</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>beta</strong> (<em>float</em>)</p></li>
+<li><p><strong>design_point</strong> (<em>ndarray</em>)</p></li>
+<li><p><strong>alpha</strong> (<em>ndarray</em>)</p></li>
+<li><p><strong>iterations</strong> (<em>int</em>)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="engineeringkit.reliability.HasoferLindResult.alpha">
+<span class="sig-name descname"><span class="pre">alpha</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></span><a class="headerlink" href="#engineeringkit.reliability.HasoferLindResult.alpha" title="Link to this definition">#</a></dt>
+<dd><p>Unit sensitivity vector; <code class="docutils literal notranslate"><span class="pre">alpha[i]**2</span></code> is variable <code class="docutils literal notranslate"><span class="pre">i</span></code>’s share of the uncertainty [-].</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="engineeringkit.reliability.HasoferLindResult.beta">
+<span class="sig-name descname"><span class="pre">beta</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></span><a class="headerlink" href="#engineeringkit.reliability.HasoferLindResult.beta" title="Link to this definition">#</a></dt>
+<dd><p>Hasofer-Lind reliability index, the distance to the limit state in standard normal space [-].</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="engineeringkit.reliability.HasoferLindResult.design_point">
+<span class="sig-name descname"><span class="pre">design_point</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></span><a class="headerlink" href="#engineeringkit.reliability.HasoferLindResult.design_point" title="Link to this definition">#</a></dt>
+<dd><p>Most probable failure point in the original variables (same units as <code class="docutils literal notranslate"><span class="pre">mean</span></code>).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="engineeringkit.reliability.HasoferLindResult.failure_probability">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">failure_probability</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></span><a class="headerlink" href="#engineeringkit.reliability.HasoferLindResult.failure_probability" title="Link to this definition">#</a></dt>
+<dd><p>First-order failure probability <span class="math notranslate nohighlight">\(\Phi(-\beta)\)</span> [-].</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="engineeringkit.reliability.HasoferLindResult.iterations">
+<span class="sig-name descname"><span class="pre">iterations</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></span><a class="headerlink" href="#engineeringkit.reliability.HasoferLindResult.iterations" title="Link to this definition">#</a></dt>
+<dd><p>HL-RF iterations used.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="engineeringkit.reliability.HasoferLindResult.summary">
+<span class="sig-name descname"><span class="pre">summary</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/reliability/core/base.html#HasoferLindResult.summary"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.reliability.HasoferLindResult.summary" title="Link to this definition">#</a></dt>
+<dd><p>Reliability index, first-order failure probability and iteration count.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="engineeringkit.reliability.KaplanMeierResult">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">engineeringkit.reliability.</span></span><span class="sig-name descname"><span class="pre">KaplanMeierResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">times</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">survival</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">at_risk</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">failures</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">std_error</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">censored</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/reliability/core/base.html#KaplanMeierResult"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.reliability.KaplanMeierResult" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Output of <a class="reference internal" href="#engineeringkit.reliability.kaplan_meier" title="engineeringkit.reliability.kaplan_meier"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.reliability.kaplan_meier()</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>times</strong> (<em>ndarray</em>)</p></li>
+<li><p><strong>survival</strong> (<em>ndarray</em>)</p></li>
+<li><p><strong>at_risk</strong> (<em>ndarray</em>)</p></li>
+<li><p><strong>failures</strong> (<em>ndarray</em>)</p></li>
+<li><p><strong>std_error</strong> (<em>ndarray</em>)</p></li>
+<li><p><strong>n</strong> (<em>int</em>)</p></li>
+<li><p><strong>censored</strong> (<em>int</em>)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="engineeringkit.reliability.KaplanMeierResult.at_risk">
+<span class="sig-name descname"><span class="pre">at_risk</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></span><a class="headerlink" href="#engineeringkit.reliability.KaplanMeierResult.at_risk" title="Link to this definition">#</a></dt>
+<dd><p>Units still on test just before each failure time.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray of int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="engineeringkit.reliability.KaplanMeierResult.censored">
+<span class="sig-name descname"><span class="pre">censored</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></span><a class="headerlink" href="#engineeringkit.reliability.KaplanMeierResult.censored" title="Link to this definition">#</a></dt>
+<dd><p>Number of units removed from test without failing.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="engineeringkit.reliability.KaplanMeierResult.failures">
+<span class="sig-name descname"><span class="pre">failures</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></span><a class="headerlink" href="#engineeringkit.reliability.KaplanMeierResult.failures" title="Link to this definition">#</a></dt>
+<dd><p>Failures observed at each failure time.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray of int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="engineeringkit.reliability.KaplanMeierResult.n">
+<span class="sig-name descname"><span class="pre">n</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></span><a class="headerlink" href="#engineeringkit.reliability.KaplanMeierResult.n" title="Link to this definition">#</a></dt>
+<dd><p>Number of units on test.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="engineeringkit.reliability.KaplanMeierResult.plot">
+<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Kaplan-Meier'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/reliability/core/base.html#KaplanMeierResult.plot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.reliability.KaplanMeierResult.plot" title="Link to this definition">#</a></dt>
+<dd><p>Draw the survival step function; return <code class="docutils literal notranslate"><span class="pre">(fig,</span> <span class="pre">ax)</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ax</strong> (<em>matplotlib.axes.Axes</em><em>, </em><em>optional</em>) – Axes to draw on; a new figure is created if omitted.</p></li>
+<li><p><strong>label</strong> (<em>str</em><em>, </em><em>optional</em>) – Legend label of the curve.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>probability [0,1].</p>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">(fig,</span> <span class="pre">ax)</span></code>.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>result</p>
+<dd class="field-odd"><p>tuple</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="engineeringkit.reliability.KaplanMeierResult.std_error">
+<span class="sig-name descname"><span class="pre">std_error</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></span><a class="headerlink" href="#engineeringkit.reliability.KaplanMeierResult.std_error" title="Link to this definition">#</a></dt>
+<dd><p>Greenwood standard error of the survival estimate [-].</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="engineeringkit.reliability.KaplanMeierResult.summary">
+<span class="sig-name descname"><span class="pre">summary</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/reliability/core/base.html#KaplanMeierResult.summary"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.reliability.KaplanMeierResult.summary" title="Link to this definition">#</a></dt>
+<dd><p>Units on test, failures, censored units and the last survival estimate.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="engineeringkit.reliability.KaplanMeierResult.survival">
+<span class="sig-name descname"><span class="pre">survival</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></span><a class="headerlink" href="#engineeringkit.reliability.KaplanMeierResult.survival" title="Link to this definition">#</a></dt>
+<dd><p>Product-limit survival estimate just after each failure time [-].</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="engineeringkit.reliability.KaplanMeierResult.survival_at">
+<span class="sig-name descname"><span class="pre">survival_at</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/reliability/core/base.html#KaplanMeierResult.survival_at"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.reliability.KaplanMeierResult.survival_at" title="Link to this definition">#</a></dt>
+<dd><p>Step-function survival estimate, one before the first failure.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>t</strong> (<em>float</em><em> or </em><em>array_like</em>) – Time(s) [s].</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Survival probability [-].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="engineeringkit.reliability.KaplanMeierResult.times">
+<span class="sig-name descname"><span class="pre">times</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></span><a class="headerlink" href="#engineeringkit.reliability.KaplanMeierResult.times" title="Link to this definition">#</a></dt>
+<dd><p>Distinct failure times [s], increasing.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.reliability.age_replacement_cost_rate">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.reliability.</span></span><span class="sig-name descname"><span class="pre">age_replacement_cost_rate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">T</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">preventive_cost</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">failure_cost</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">beta</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/reliability/systems/maintenance.html#age_replacement_cost_rate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.reliability.age_replacement_cost_rate" title="Link to this definition">#</a></dt>
+<dd><p>Long-run cost per unit time of replacing a Weibull unit at age <code class="docutils literal notranslate"><span class="pre">T</span></code> or at failure.</p>
+<p>Barlow and Proschan’s renewal-reward ratio,
+<span class="math notranslate nohighlight">\(C(T) = [c_p R(T) + c_f F(T)] / \int_0^T R(t)\,dt\)</span>, with the Weibull
+integral <span class="math notranslate nohighlight">\(\eta\,\Gamma(1+1/\beta)\,P(1/\beta, (T/\eta)^\beta)\)</span>
+(<span class="math notranslate nohighlight">\(P\)</span> the regularised lower incomplete gamma function).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>T</strong> (<em>float</em><em> or </em><em>array_like</em>) – Planned replacement age [s], positive.</p></li>
+<li><p><strong>preventive_cost</strong> (<em>float</em>) – Cost of a planned replacement [currency], nonnegative.</p></li>
+<li><p><strong>failure_cost</strong> (<em>float</em>) – Cost of a replacement after failure [currency], nonnegative.</p></li>
+<li><p><strong>eta</strong> (<em>float</em>) – Weibull scale [s], positive.</p></li>
+<li><p><strong>beta</strong> (<em>float</em>) – Weibull shape [-], positive.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Cost rate [currency/s].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
-<p>Assumptions, governing equations and validity limits are discussed in
-<a class="reference internal" href="../guides/reliability.html"><span class="doc">Reliability: distributions, independence and rate units</span></a>. SI inputs are required; raw numbers carry no
-dimensional metadata.</p>
+<p>A finite optimum exists only if <span class="math notranslate nohighlight">\(\beta &gt; 1\)</span> and
+<span class="math notranslate nohighlight">\(c_f &gt; c_p\)</span>; otherwise the cost rate keeps falling toward
+<span class="math notranslate nohighlight">\(c_f/\mathrm{MTTF}\)</span> (run to failure). Inputs are raw SI numbers
+with no dimensional metadata; see <a class="reference internal" href="../guides/reliability.html"><span class="doc">Reliability: distributions, independence and rate units</span></a>.</p>
+<p class="rubric">References</p>
+<p>R. E. Barlow and F. Proschan, <em>Mathematical Theory of Reliability</em>
+(Wiley, 1965), ch. 4.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">age_replacement_cost_rate</span><span class="p">(</span><span class="mf">1e9</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mf">1000.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)),</span> <span class="mi">4</span><span class="p">)</span>
+<span class="go">0.01</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.reliability.availability">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.reliability.</span></span><span class="sig-name descname"><span class="pre">availability</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mtbf</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mttr</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/reliability/systems/maintenance.html#availability"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.reliability.availability" title="Link to this definition">#</a></dt>
+<dd><p>Steady-state availability <span class="math notranslate nohighlight">\(A = \mathrm{MTBF}/(\mathrm{MTBF} + \mathrm{MTTR})\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mtbf</strong> (<em>float</em><em> or </em><em>array_like</em>) – Mean time between failures [s], positive.</p></li>
+<li><p><strong>mttr</strong> (<em>float</em><em> or </em><em>array_like</em>) – Mean time to repair [s], nonnegative.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Long-run fraction of time the unit is up [-].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>This is a long-run average, not the probability of surviving a mission.
+Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/reliability.html"><span class="doc">Reliability: distributions, independence and rate units</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">availability</span><span class="p">(</span><span class="mf">100.0</span><span class="p">,</span> <span class="mf">25.0</span><span class="p">)</span>
+<span class="go">0.8</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.reliability.bathtub_hazard">
-<span class="sig-prename descclassname"><span class="pre">engineeringkit.reliability.</span></span><span class="sig-name descname"><span class="pre">bathtub_hazard</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">early_scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">early_rate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_rate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wear_scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-06</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wear_power</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/reliability.html#bathtub_hazard"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.reliability.bathtub_hazard" title="Link to this definition">#</a></dt>
-<dd><p>Bathtub hazard.</p>
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.reliability.</span></span><span class="sig-name descname"><span class="pre">bathtub_hazard</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">early_scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">early_rate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_rate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wear_scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-06</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wear_power</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/reliability/systems/lifetimes.html#bathtub_hazard"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.reliability.bathtub_hazard" title="Link to this definition">#</a></dt>
+<dd><p>Bathtub-shaped hazard: decaying infant mortality, a constant floor and power-law wear-out.</p>
+<p><span class="math notranslate nohighlight">\(h(t) = a e^{-b t} + c + d\,t^{p}\)</span>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>t</strong> (<em>s</em>) – Input in the units stated above.</p></li>
-<li><p><strong>early_scale</strong> (<em>1/s</em>) – Input in the units stated above.</p></li>
-<li><p><strong>early_rate</strong> (<em>1/s</em>) – Input in the units stated above.</p></li>
-<li><p><strong>random_rate</strong> (<em>1/s</em>) – Input in the units stated above.</p></li>
-<li><p><strong>wear_scale</strong> (<em>1/s^</em><em>(</em><em>wear_power+1</em><em>)</em>) – Input in the units stated above.</p></li>
-<li><p><strong>wear_power</strong> (<em>1</em>) – Input in the units stated above.</p></li>
+<li><p><strong>t</strong> (<em>float</em><em> or </em><em>array_like</em>) – Age [s], nonnegative.</p></li>
+<li><p><strong>early_scale</strong> (<em>float</em><em>, </em><em>optional</em>) – Infant-mortality hazard at age zero, <span class="math notranslate nohighlight">\(a\)</span> [1/s].</p></li>
+<li><p><strong>early_rate</strong> (<em>float</em><em>, </em><em>optional</em>) – Decay rate of infant mortality, <span class="math notranslate nohighlight">\(b\)</span> [1/s].</p></li>
+<li><p><strong>random_rate</strong> (<em>float</em><em>, </em><em>optional</em>) – Constant random-failure hazard, <span class="math notranslate nohighlight">\(c\)</span> [1/s].</p></li>
+<li><p><strong>wear_scale</strong> (<em>float</em><em>, </em><em>optional</em>) – Wear-out coefficient, <span class="math notranslate nohighlight">\(d\)</span> [1/s^(p+1)].</p></li>
+<li><p><strong>wear_power</strong> (<em>float</em><em>, </em><em>optional</em>) – Wear-out exponent, <span class="math notranslate nohighlight">\(p\)</span> [-].</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>1/s.</p>
+<dd class="field-even"><p>Hazard rate [1/s].</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>result</p>
+<dd class="field-odd"><p>float or ndarray</p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
-<p>Assumptions, governing equations and validity limits are discussed in
-<a class="reference internal" href="../guides/reliability.html"><span class="doc">Reliability: distributions, independence and rate units</span></a>. SI inputs are required; raw numbers carry no
-dimensional metadata.</p>
+<p>All parameters are nonnegative. Inputs are raw SI numbers with no
+dimensional metadata; see <a class="reference internal" href="../guides/reliability.html"><span class="doc">Reliability: distributions, independence and rate units</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">float</span><span class="p">(</span><span class="n">bathtub_hazard</span><span class="p">(</span><span class="mf">0.0</span><span class="p">))</span>
+<span class="go">1.01</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.reliability.birnbaum_importance_series">
-<span class="sig-prename descclassname"><span class="pre">engineeringkit.reliability.</span></span><span class="sig-name descname"><span class="pre">birnbaum_importance_series</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reliabilities</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/reliability.html#birnbaum_importance_series"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.reliability.birnbaum_importance_series" title="Link to this definition">#</a></dt>
-<dd><p>Birnbaum importance series.</p>
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.reliability.</span></span><span class="sig-name descname"><span class="pre">birnbaum_importance_series</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reliabilities</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/reliability/systems/architecture.html#birnbaum_importance_series"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.reliability.birnbaum_importance_series" title="Link to this definition">#</a></dt>
+<dd><p>Birnbaum importance <span class="math notranslate nohighlight">\(\partial R_s/\partial R_i = \prod_{j \ne i} R_j\)</span> of a series component.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>reliabilities</strong> (<em>1</em>) – Input in the units stated above.</p></li>
-<li><p><strong>i</strong> (<em>1</em>) – Input in the units stated above.</p></li>
+<li><p><strong>reliabilities</strong> (<em>array_like</em>) – Component reliabilities [-], each in [0, 1].</p></li>
+<li><p><strong>i</strong> (<em>int</em>) – Index of the component, from zero.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>dimensionless sensitivity.</p>
+<dd class="field-even"><p>Sensitivity of system reliability to component <code class="docutils literal notranslate"><span class="pre">i</span></code> [-].</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>result</p>
+<dd class="field-odd"><p>float</p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
-<p>Assumptions, governing equations and validity limits are discussed in
-<a class="reference internal" href="../guides/reliability.html"><span class="doc">Reliability: distributions, independence and rate units</span></a>. SI inputs are required; raw numbers carry no
-dimensional metadata.</p>
+<p>In a series system the <em>least</em> reliable component has the largest
+importance. Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/reliability.html"><span class="doc">Reliability: distributions, independence and rate units</span></a>.</p>
+<p class="rubric">References</p>
+<p>Z. W. Birnbaum, “On the importance of different components in a
+multicomponent system,” in <em>Multivariate Analysis II</em> (Academic Press,
+1969) 581-592.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="n">birnbaum_importance_series</span><span class="p">([</span><span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">],</span> <span class="mi">0</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span>
+<span class="go">0.72</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.reliability.event_tree_probability">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.reliability.</span></span><span class="sig-name descname"><span class="pre">event_tree_probability</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">initiating_frequency</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">failure_probabilities</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/reliability/systems/risk.html#event_tree_probability"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.reliability.event_tree_probability" title="Link to this definition">#</a></dt>
+<dd><p>Frequencies of every sequence of an event tree with independent branch points.</p>
+<p>After an initiating event of frequency <span class="math notranslate nohighlight">\(f_0\)</span>, each of <span class="math notranslate nohighlight">\(m\)</span>
+safety functions succeeds or fails; a sequence’s frequency is
+<span class="math notranslate nohighlight">\(f_0 \prod_j q_j^{\,o_j}(1-q_j)^{1-o_j}\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>initiating_frequency</strong> (<em>float</em>) – Initiating-event frequency [1/s] (or a probability), nonnegative.</p></li>
+<li><p><strong>failure_probabilities</strong> (<em>array_like</em>) – Failure-on-demand probability of each safety function [-], in
+[0, 1], in the order the tree asks them (at most 20).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The <span class="math notranslate nohighlight">\(2^m\)</span> outcome rows (first function most significant, all
+successes first) and their frequencies.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#engineeringkit.reliability.EventTreeResult" title="engineeringkit.reliability.EventTreeResult">EventTreeResult</a></p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Real event trees prune branches that cannot matter and condition later
+functions on earlier ones; this helper keeps every branch and assumes
+independence. Inputs are raw SI numbers with no dimensional metadata;
+see <a class="reference internal" href="../guides/reliability.html"><span class="doc">Reliability: distributions, independence and rate units</span></a>.</p>
+<p class="rubric">References</p>
+<p>U.S. Nuclear Regulatory Commission, <em>Reactor Safety Study</em> (WASH-1400,
+NUREG-75/014, 1975).</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">event_tree_probability</span><span class="p">(</span><span class="mf">1e-2</span><span class="p">,</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">frequencies</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="go">array([0.0045, 0.0045, 0.0005, 0.0005])</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.reliability.expected_failures">
-<span class="sig-prename descclassname"><span class="pre">engineeringkit.reliability.</span></span><span class="sig-name descname"><span class="pre">expected_failures</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lam</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total_time</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/reliability.html#expected_failures"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.reliability.expected_failures" title="Link to this definition">#</a></dt>
-<dd><p>Expected failures.</p>
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.reliability.</span></span><span class="sig-name descname"><span class="pre">expected_failures</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lam</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total_time</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/reliability/systems/lifetimes.html#expected_failures"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.reliability.expected_failures" title="Link to this definition">#</a></dt>
+<dd><p>Expected number of failures <span class="math notranslate nohighlight">\(\lambda T\)</span> in a total operating time.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>lam</strong> (<em>1/s</em>) – Input in the units stated above.</p></li>
-<li><p><strong>total_time</strong> (<em>s</em>) – Input in the units stated above.</p></li>
+<li><p><strong>lam</strong> (<em>float</em><em> or </em><em>array_like</em>) – Constant failure rate [1/s], nonnegative.</p></li>
+<li><p><strong>total_time</strong> (<em>float</em><em> or </em><em>array_like</em>) – Accumulated operating time [s], nonnegative.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>expected count.</p>
+<dd class="field-even"><p>Expected count [-].</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>result</p>
+<dd class="field-odd"><p>float or ndarray</p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
-<p>Assumptions, governing equations and validity limits are discussed in
-<a class="reference internal" href="../guides/reliability.html"><span class="doc">Reliability: distributions, independence and rate units</span></a>. SI inputs are required; raw numbers carry no
-dimensional metadata.</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/reliability.html"><span class="doc">Reliability: distributions, independence and rate units</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">expected_failures</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">)</span>
+<span class="go">1.0</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.reliability.exponential_failure_probability">
-<span class="sig-prename descclassname"><span class="pre">engineeringkit.reliability.</span></span><span class="sig-name descname"><span class="pre">exponential_failure_probability</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lam</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/reliability.html#exponential_failure_probability"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.reliability.exponential_failure_probability" title="Link to this definition">#</a></dt>
-<dd><p>Exponential failure probability.</p>
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.reliability.</span></span><span class="sig-name descname"><span class="pre">exponential_failure_probability</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lam</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/reliability/systems/lifetimes.html#exponential_failure_probability"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.reliability.exponential_failure_probability" title="Link to this definition">#</a></dt>
+<dd><p>Failure probability <span class="math notranslate nohighlight">\(F(t) = 1 - e^{-\lambda t}\)</span>, accurate for tiny <span class="math notranslate nohighlight">\(\lambda t\)</span>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>t</strong> (<em>s</em>) – Input in the units stated above.</p></li>
-<li><p><strong>lam</strong> (<em>1/s</em>) – Input in the units stated above.</p></li>
+<li><p><strong>t</strong> (<em>float</em><em> or </em><em>array_like</em>) – Time [s], nonnegative.</p></li>
+<li><p><strong>lam</strong> (<em>float</em><em> or </em><em>array_like</em>) – Constant failure rate [1/s], nonnegative.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>probability [0,1].</p>
+<dd class="field-even"><p>Probability of failure by time <code class="docutils literal notranslate"><span class="pre">t</span></code> [-].</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>result</p>
+<dd class="field-odd"><p>float or ndarray</p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
-<p>Assumptions, governing equations and validity limits are discussed in
-<a class="reference internal" href="../guides/reliability.html"><span class="doc">Reliability: distributions, independence and rate units</span></a>. SI inputs are required; raw numbers carry no
-dimensional metadata.</p>
+<p><code class="docutils literal notranslate"><span class="pre">expm1</span></code> keeps the result accurate when <span class="math notranslate nohighlight">\(\lambda t \ll 1\)</span>.
+Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/reliability.html"><span class="doc">Reliability: distributions, independence and rate units</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">exponential_failure_probability</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1e-12</span><span class="p">))</span> <span class="o">/</span> <span class="mf">1e-12</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>
+<span class="go">1.0</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.reliability.exponential_hazard">
-<span class="sig-prename descclassname"><span class="pre">engineeringkit.reliability.</span></span><span class="sig-name descname"><span class="pre">exponential_hazard</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lam</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/reliability.html#exponential_hazard"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.reliability.exponential_hazard" title="Link to this definition">#</a></dt>
-<dd><p>Exponential hazard.</p>
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.reliability.</span></span><span class="sig-name descname"><span class="pre">exponential_hazard</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lam</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/reliability/systems/lifetimes.html#exponential_hazard"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.reliability.exponential_hazard" title="Link to this definition">#</a></dt>
+<dd><p>Hazard rate of an exponential life, the constant <span class="math notranslate nohighlight">\(\lambda\)</span> itself.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>lam</strong> (<em>1/s</em>) – Input in the units stated above.</p>
+<dd class="field-odd"><p><strong>lam</strong> (<em>float</em><em> or </em><em>array_like</em>) – Constant failure rate [1/s], nonnegative.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>1/s.</p>
+<dd class="field-even"><p>Hazard rate [1/s].</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>result</p>
+<dd class="field-odd"><p>float or ndarray</p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
-<p>Assumptions, governing equations and validity limits are discussed in
-<a class="reference internal" href="../guides/reliability.html"><span class="doc">Reliability: distributions, independence and rate units</span></a>. SI inputs are required; raw numbers carry no
-dimensional metadata.</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/reliability.html"><span class="doc">Reliability: distributions, independence and rate units</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">exponential_hazard</span><span class="p">(</span><span class="mf">2e-6</span><span class="p">)</span>
+<span class="go">2e-06</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.reliability.exponential_mttf">
-<span class="sig-prename descclassname"><span class="pre">engineeringkit.reliability.</span></span><span class="sig-name descname"><span class="pre">exponential_mttf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lam</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/reliability.html#exponential_mttf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.reliability.exponential_mttf" title="Link to this definition">#</a></dt>
-<dd><p>Exponential mttf.</p>
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.reliability.</span></span><span class="sig-name descname"><span class="pre">exponential_mttf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lam</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/reliability/systems/lifetimes.html#exponential_mttf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.reliability.exponential_mttf" title="Link to this definition">#</a></dt>
+<dd><p>Mean time to failure <span class="math notranslate nohighlight">\(1/\lambda\)</span> of an exponential life.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>lam</strong> (<em>1/s</em>) – Input in the units stated above.</p>
+<dd class="field-odd"><p><strong>lam</strong> (<em>float</em>) – Constant failure rate [1/s], positive.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><ol class="loweralpha simple" start="19">
-<li></li>
-</ol>
-</p>
+<dd class="field-even"><p>Mean time to failure [s].</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>result</p>
+<dd class="field-odd"><p>float</p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
-<p>Assumptions, governing equations and validity limits are discussed in
-<a class="reference internal" href="../guides/reliability.html"><span class="doc">Reliability: distributions, independence and rate units</span></a>. SI inputs are required; raw numbers carry no
-dimensional metadata.</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/reliability.html"><span class="doc">Reliability: distributions, independence and rate units</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">exponential_mttf</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="go">2.0</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.reliability.exponential_reliability">
-<span class="sig-prename descclassname"><span class="pre">engineeringkit.reliability.</span></span><span class="sig-name descname"><span class="pre">exponential_reliability</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lam</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/reliability.html#exponential_reliability"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.reliability.exponential_reliability" title="Link to this definition">#</a></dt>
-<dd><p>Exponential reliability.</p>
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.reliability.</span></span><span class="sig-name descname"><span class="pre">exponential_reliability</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lam</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/reliability/systems/lifetimes.html#exponential_reliability"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.reliability.exponential_reliability" title="Link to this definition">#</a></dt>
+<dd><p>Survival probability <span class="math notranslate nohighlight">\(R(t) = e^{-\lambda t}\)</span> under a constant hazard.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>t</strong> (<em>s</em>) – Input in the units stated above.</p></li>
-<li><p><strong>lam</strong> (<em>1/s</em>) – Input in the units stated above.</p></li>
+<li><p><strong>t</strong> (<em>float</em><em> or </em><em>array_like</em>) – Time [s], nonnegative.</p></li>
+<li><p><strong>lam</strong> (<em>float</em><em> or </em><em>array_like</em>) – Constant failure rate <span class="math notranslate nohighlight">\(\lambda\)</span> [1/s], nonnegative.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>probability [0,1].</p>
+<dd class="field-even"><p>Reliability [-], in [0, 1].</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>result</p>
+<dd class="field-odd"><p>float or ndarray</p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
-<p>Assumptions, governing equations and validity limits are discussed in
-<a class="reference internal" href="../guides/reliability.html"><span class="doc">Reliability: distributions, independence and rate units</span></a>. SI inputs are required; raw numbers carry no
-dimensional metadata.</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/reliability.html"><span class="doc">Reliability: distributions, independence and rate units</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">exponential_reliability</span><span class="p">(</span><span class="mf">1000.0</span><span class="p">,</span> <span class="mf">1e-3</span><span class="p">)),</span> <span class="mi">4</span><span class="p">)</span>
+<span class="go">0.3679</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.reliability.failure_probability_from_index">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.reliability.</span></span><span class="sig-name descname"><span class="pre">failure_probability_from_index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">beta</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/reliability/utils/normal.html#failure_probability_from_index"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.reliability.failure_probability_from_index" title="Link to this definition">#</a></dt>
+<dd><p>Failure probability <span class="math notranslate nohighlight">\(p_f = \Phi(-\beta)\)</span> for a reliability index.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>beta</strong> (<em>float</em><em> or </em><em>array_like</em>) – Reliability index [-]; negative values mean failure is more likely
+than not.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Failure probability [-].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/reliability.html"><span class="doc">Reliability: distributions, independence and rate units</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">failure_probability_from_index</span><span class="p">(</span><span class="mf">3.0</span><span class="p">)),</span> <span class="mi">6</span><span class="p">)</span>
+<span class="go">0.00135</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.reliability.failure_rate_from_mtbf">
-<span class="sig-prename descclassname"><span class="pre">engineeringkit.reliability.</span></span><span class="sig-name descname"><span class="pre">failure_rate_from_mtbf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mtbf</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/reliability.html#failure_rate_from_mtbf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.reliability.failure_rate_from_mtbf" title="Link to this definition">#</a></dt>
-<dd><p>Failure rate from mtbf.</p>
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.reliability.</span></span><span class="sig-name descname"><span class="pre">failure_rate_from_mtbf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mtbf</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/reliability/systems/lifetimes.html#failure_rate_from_mtbf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.reliability.failure_rate_from_mtbf" title="Link to this definition">#</a></dt>
+<dd><p>Constant failure rate <span class="math notranslate nohighlight">\(\lambda = 1/\mathrm{MTBF}\)</span>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>mtbf</strong> (<em>s</em>) – Input in the units stated above.</p>
+<dd class="field-odd"><p><strong>mtbf</strong> (<em>float</em><em> or </em><em>array_like</em>) – Mean time between failures [s], positive.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>1/s.</p>
+<dd class="field-even"><p>Failure rate [1/s].</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>result</p>
+<dd class="field-odd"><p>float or ndarray</p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
-<p>Assumptions, governing equations and validity limits are discussed in
-<a class="reference internal" href="../guides/reliability.html"><span class="doc">Reliability: distributions, independence and rate units</span></a>. SI inputs are required; raw numbers carry no
-dimensional metadata.</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/reliability.html"><span class="doc">Reliability: distributions, independence and rate units</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">failure_rate_from_mtbf</span><span class="p">(</span><span class="mf">10.0</span><span class="p">)</span>
+<span class="go">0.1</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.reliability.fault_tree_probability">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.reliability.</span></span><span class="sig-name descname"><span class="pre">fault_tree_probability</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tree</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">probabilities</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/reliability/systems/risk.html#fault_tree_probability"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.reliability.fault_tree_probability" title="Link to this definition">#</a></dt>
+<dd><p>Probability of a fault tree’s top event from independent basic-event probabilities.</p>
+<p>A tree is a basic-event name (<code class="docutils literal notranslate"><span class="pre">str</span></code>) or a gate tuple
+<code class="docutils literal notranslate"><span class="pre">(&quot;and&quot;,</span> <span class="pre">child,</span> <span class="pre">...)</span></code> / <code class="docutils literal notranslate"><span class="pre">(&quot;or&quot;,</span> <span class="pre">child,</span> <span class="pre">...)</span></code>. If no basic event
+appears twice, gates combine directly: <span class="math notranslate nohighlight">\(\prod p_i\)</span> for AND and
+<span class="math notranslate nohighlight">\(1 - \prod(1 - p_i)\)</span> for OR. A repeated event makes the gate inputs
+dependent, so the top event is then evaluated exactly over every state
+of the basic events.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tree</strong> (<em>str</em><em> or </em><em>tuple</em>) – Fault-tree structure.</p></li>
+<li><p><strong>probabilities</strong> (<em>mapping</em><em> of </em><em>str to float</em>) – Probability of each basic event [-], in [0, 1].</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Top-event probability [-].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Exact enumeration is limited to 20 distinct basic events. Inputs are raw
+SI numbers with no dimensional metadata; see <a class="reference internal" href="../guides/reliability.html"><span class="doc">Reliability: distributions, independence and rate units</span></a>.</p>
+<p class="rubric">References</p>
+<p>H. A. Watson, <em>Launch Control Safety Study</em> (Bell Telephone
+Laboratories, 1961); D. F. Haasl, “Advanced concepts in fault tree
+analysis,” <em>System Safety Symposium</em> (Seattle, 1965).</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="n">fault_tree_probability</span><span class="p">((</span><span class="s2">"or"</span><span class="p">,</span> <span class="s2">"A"</span><span class="p">,</span> <span class="p">(</span><span class="s2">"and"</span><span class="p">,</span> <span class="s2">"B"</span><span class="p">,</span> <span class="s2">"C"</span><span class="p">)),</span> <span class="p">{</span><span class="s2">"A"</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">,</span> <span class="s2">"B"</span><span class="p">:</span> <span class="mf">0.2</span><span class="p">,</span> <span class="s2">"C"</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">}),</span> <span class="mi">3</span><span class="p">)</span>
+<span class="go">0.19</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.reliability.hasofer_lind_index">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.reliability.</span></span><span class="sig-name descname"><span class="pre">hasofer_lind_index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">limit_state</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mean</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">std</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-08</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/reliability/systems/structural.html#hasofer_lind_index"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.reliability.hasofer_lind_index" title="Link to this definition">#</a></dt>
+<dd><p>Hasofer-Lind reliability index for independent normal variables (HL-RF iteration).</p>
+<p>Each variable is standardised, <span class="math notranslate nohighlight">\(u_i = (x_i - \mu_i)/\sigma_i\)</span>, and
+<span class="math notranslate nohighlight">\(\beta\)</span> is the distance from the origin to the nearest point of
+the failure surface <span class="math notranslate nohighlight">\(g = 0\)</span>. The Rackwitz-Fiessler update
+<span class="math notranslate nohighlight">\(u_{k+1} = [(\nabla g \cdot u_k - g)/|\nabla g|^2]\,\nabla g\)</span>
+finds it, with central-difference gradients.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>limit_state</strong> (<em>callable</em>) – <span class="math notranslate nohighlight">\(g(x)\)</span> for a 1-D array <code class="docutils literal notranslate"><span class="pre">x</span></code>; failure is <span class="math notranslate nohighlight">\(g &lt; 0\)</span>.</p></li>
+<li><p><strong>mean</strong> (<em>array_like</em>) – Means of the variables (their own units).</p></li>
+<li><p><strong>std</strong> (<em>array_like</em>) – Standard deviations, positive, same length as <code class="docutils literal notranslate"><span class="pre">mean</span></code>.</p></li>
+<li><p><strong>tol</strong> (<em>float</em><em>, </em><em>optional</em>) – Convergence tolerance on the design point in standard space [-].</p></li>
+<li><p><strong>max_iter</strong> (<em>int</em><em>, </em><em>optional</em>) – Maximum number of iterations.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Index, design point, sensitivity vector and iteration count. The
+index is negative if the mean point already lies in the failure
+domain.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#engineeringkit.reliability.HasoferLindResult" title="engineeringkit.reliability.HasoferLindResult">HasoferLindResult</a></p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If the gradient vanishes or the iteration does not converge.</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/reliability.html"><span class="doc">Reliability: distributions, independence and rate units</span></a>.</p>
+<p class="rubric">References</p>
+<p>A. M. Hasofer and N. C. Lind, “Exact and invariant second-moment code
+format,” <em>J. Eng. Mech. Div. ASCE</em> 100 (1974) 111-121; R. Rackwitz and
+B. Fiessler, “Structural reliability under combined random load
+sequences,” <em>Comput. Struct.</em> 9 (1978) 489-494.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">hasofer_lind_index</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mf">500.0</span><span class="p">,</span> <span class="mf">400.0</span><span class="p">],</span> <span class="p">[</span><span class="mf">30.0</span><span class="p">,</span> <span class="mf">40.0</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">beta</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="go">2.0</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.reliability.k_of_n_reliability">
-<span class="sig-prename descclassname"><span class="pre">engineeringkit.reliability.</span></span><span class="sig-name descname"><span class="pre">k_of_n_reliability</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/reliability.html#k_of_n_reliability"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.reliability.k_of_n_reliability" title="Link to this definition">#</a></dt>
-<dd><p>K of n reliability.</p>
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.reliability.</span></span><span class="sig-name descname"><span class="pre">k_of_n_reliability</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/reliability/systems/architecture.html#k_of_n_reliability"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.reliability.k_of_n_reliability" title="Link to this definition">#</a></dt>
+<dd><p>Reliability of a <span class="math notranslate nohighlight">\(k\)</span>-out-of-<span class="math notranslate nohighlight">\(n\)</span> system of identical independent components.</p>
+<p><span class="math notranslate nohighlight">\(R = \sum_{i=k}^{n} \binom{n}{i} r^i (1-r)^{n-i}\)</span>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>n</strong> (<em>1</em>) – Input in the units stated above.</p></li>
-<li><p><strong>k</strong> (<em>1</em>) – Input in the units stated above.</p></li>
-<li><p><strong>r</strong> (<em>1</em>) – Input in the units stated above.</p></li>
+<li><p><strong>n</strong> (<em>int</em>) – Number of components, at least one.</p></li>
+<li><p><strong>k</strong> (<em>int</em>) – Number that must work, from zero to <code class="docutils literal notranslate"><span class="pre">n</span></code>.</p></li>
+<li><p><strong>r</strong> (<em>float</em>) – Component reliability [-], in [0, 1].</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>probability [0,1].</p>
+<dd class="field-even"><p>System reliability [-].</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>result</p>
+<dd class="field-odd"><p>float</p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
-<p>Assumptions, governing equations and validity limits are discussed in
-<a class="reference internal" href="../guides/reliability.html"><span class="doc">Reliability: distributions, independence and rate units</span></a>. SI inputs are required; raw numbers carry no
-dimensional metadata.</p>
+<p><code class="docutils literal notranslate"><span class="pre">k</span> <span class="pre">=</span> <span class="pre">n</span></code> is a series system and <code class="docutils literal notranslate"><span class="pre">k</span> <span class="pre">=</span> <span class="pre">1</span></code> a parallel one. Inputs are raw
+SI numbers with no dimensional metadata; see <a class="reference internal" href="../guides/reliability.html"><span class="doc">Reliability: distributions, independence and rate units</span></a>.</p>
+<p class="rubric">References</p>
+<p>Z. W. Birnbaum, J. D. Esary and S. C. Saunders, “Multi-component systems
+and structures and their reliability,” <em>Technometrics</em> 3 (1961) 55-77.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="n">k_of_n_reliability</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">),</span> <span class="mi">3</span><span class="p">)</span>
+<span class="go">0.972</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.reliability.kaplan_meier">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.reliability.</span></span><span class="sig-name descname"><span class="pre">kaplan_meier</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">times</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">failed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/reliability/systems/lifetimes.html#kaplan_meier"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.reliability.kaplan_meier" title="Link to this definition">#</a></dt>
+<dd><p>Kaplan-Meier product-limit estimate of survival from censored life data.</p>
+<p>At each distinct failure time <span class="math notranslate nohighlight">\(t_j\)</span>, with <span class="math notranslate nohighlight">\(n_j\)</span> units at risk
+and <span class="math notranslate nohighlight">\(d_j\)</span> failures, <span class="math notranslate nohighlight">\(\hat S(t) = \prod_{t_j \le t}(1 - d_j/n_j)\)</span>.
+Censored units leave the risk set without moving the curve; a unit
+censored at a failure time counts as at risk for that failure.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>times</strong> (<em>array_like</em>) – Failure or censoring time of each unit [s], nonnegative.</p></li>
+<li><p><strong>failed</strong> (<em>array_like</em><em> of </em><em>{0</em><em>, </em><em>1}</em><em> or </em><em>bool</em><em>, </em><em>optional</em>) – <code class="docutils literal notranslate"><span class="pre">1</span></code> where the unit failed, <code class="docutils literal notranslate"><span class="pre">0</span></code> where it was censored (removed or
+still running). Default: every unit failed.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Failure times, survival estimate, risk-set sizes, failure counts and
+Greenwood standard errors.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#engineeringkit.reliability.KaplanMeierResult" title="engineeringkit.reliability.KaplanMeierResult">KaplanMeierResult</a></p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/reliability.html"><span class="doc">Reliability: distributions, independence and rate units</span></a>.</p>
+<p class="rubric">References</p>
+<p>E. L. Kaplan and P. Meier, “Nonparametric estimation from incomplete
+observations,” <em>J. Amer. Statist. Assoc.</em> 53 (1958) 457-481.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">kaplan_meier</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">survival</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="go">array([0.75 , 0.375, 0.   ])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.reliability.life_table_hazard">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.reliability.</span></span><span class="sig-name descname"><span class="pre">life_table_hazard</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ages</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">survivors</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/reliability/systems/lifetimes.html#life_table_hazard"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.reliability.life_table_hazard" title="Link to this definition">#</a></dt>
+<dd><p>Piecewise-constant hazard rates from a life table of survivor counts.</p>
+<p>Over each interval <span class="math notranslate nohighlight">\([x_i, x_{i+1})\)</span> the hazard
+<span class="math notranslate nohighlight">\(h_i = -\ln(l_{i+1}/l_i)/(x_{i+1}-x_i)\)</span> reproduces the recorded
+fall from <span class="math notranslate nohighlight">\(l_i\)</span> to <span class="math notranslate nohighlight">\(l_{i+1}\)</span> survivors exactly.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ages</strong> (<em>array_like</em>) – Ages at which survivors are counted [s], strictly increasing, at
+least two.</p></li>
+<li><p><strong>survivors</strong> (<em>array_like</em>) – Number alive at each age [-], positive and nonincreasing.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Hazard rate on each of the <code class="docutils literal notranslate"><span class="pre">len(ages)</span> <span class="pre">-</span> <span class="pre">1</span></code> intervals [1/s].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/reliability.html"><span class="doc">Reliability: distributions, independence and rate units</span></a>.</p>
+<p class="rubric">References</p>
+<p>E. Halley, “An estimate of the degrees of the mortality of mankind,”
+<em>Phil. Trans. R. Soc.</em> 17 (1693) 596-610.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">life_table_hazard</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">250</span><span class="p">]),</span> <span class="mi">4</span><span class="p">)</span>
+<span class="go">array([0.6931, 0.6931])</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.reliability.maintainability">
-<span class="sig-prename descclassname"><span class="pre">engineeringkit.reliability.</span></span><span class="sig-name descname"><span class="pre">maintainability</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mu</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/reliability.html#maintainability"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.reliability.maintainability" title="Link to this definition">#</a></dt>
-<dd><p>Maintainability.</p>
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.reliability.</span></span><span class="sig-name descname"><span class="pre">maintainability</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mu</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/reliability/systems/maintenance.html#maintainability"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.reliability.maintainability" title="Link to this definition">#</a></dt>
+<dd><p>Probability <span class="math notranslate nohighlight">\(M(t) = 1 - e^{-\mu t}\)</span> that a repair is finished within <code class="docutils literal notranslate"><span class="pre">t</span></code>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>t</strong> (<em>s</em>) – Input in the units stated above.</p></li>
-<li><p><strong>mu</strong> (<em>1/s</em>) – Input in the units stated above.</p></li>
+<li><p><strong>t</strong> (<em>float</em><em> or </em><em>array_like</em>) – Time since the repair started [s], nonnegative.</p></li>
+<li><p><strong>mu</strong> (<em>float</em><em> or </em><em>array_like</em>) – Constant repair rate [1/s], nonnegative.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>probability [0,1].</p>
+<dd class="field-even"><p>Probability [-].</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>result</p>
+<dd class="field-odd"><p>float or ndarray</p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
-<p>Assumptions, governing equations and validity limits are discussed in
-<a class="reference internal" href="../guides/reliability.html"><span class="doc">Reliability: distributions, independence and rate units</span></a>. SI inputs are required; raw numbers carry no
-dimensional metadata.</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/reliability.html"><span class="doc">Reliability: distributions, independence and rate units</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">maintainability</span><span class="p">(</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)),</span> <span class="mi">4</span><span class="p">)</span>
+<span class="go">0.6321</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.reliability.markov_availability">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.reliability.</span></span><span class="sig-name descname"><span class="pre">markov_availability</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lam</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mu</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/reliability/systems/maintenance.html#markov_availability"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.reliability.markov_availability" title="Link to this definition">#</a></dt>
+<dd><p>Point availability of a repairable unit that starts working at <code class="docutils literal notranslate"><span class="pre">t</span> <span class="pre">=</span> <span class="pre">0</span></code>.</p>
+<p>The two-state Markov model gives
+<span class="math notranslate nohighlight">\(A(t) = \frac{\mu}{\lambda+\mu} + \frac{\lambda}{\lambda+\mu}e^{-(\lambda+\mu)t}\)</span>,
+which decays from one to the steady state with time constant
+<span class="math notranslate nohighlight">\(1/(\lambda+\mu)\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>t</strong> (<em>float</em><em> or </em><em>array_like</em>) – Time [s], nonnegative.</p></li>
+<li><p><strong>lam</strong> (<em>float</em>) – Constant failure rate [1/s], nonnegative.</p></li>
+<li><p><strong>mu</strong> (<em>float</em>) – Constant repair rate [1/s], nonnegative; <code class="docutils literal notranslate"><span class="pre">lam</span> <span class="pre">+</span> <span class="pre">mu</span></code> must be positive.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Probability that the unit is up at time <code class="docutils literal notranslate"><span class="pre">t</span></code> [-].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/reliability.html"><span class="doc">Reliability: distributions, independence and rate units</span></a>.</p>
+<p class="rubric">References</p>
+<p>R. E. Barlow and F. Proschan, <em>Mathematical Theory of Reliability</em>
+(Wiley, 1965), ch. 5.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">markov_availability</span><span class="p">(</span><span class="mf">1e6</span><span class="p">,</span> <span class="mf">1e-3</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)),</span> <span class="mi">4</span><span class="p">)</span>
+<span class="go">0.9901</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.reliability.markov_state_probabilities">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.reliability.</span></span><span class="sig-name descname"><span class="pre">markov_state_probabilities</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">generator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/reliability/systems/maintenance.html#markov_state_probabilities"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.reliability.markov_state_probabilities" title="Link to this definition">#</a></dt>
+<dd><p>State probabilities <span class="math notranslate nohighlight">\(p(t) = p(0)\,e^{Qt}\)</span> of a continuous-time Markov chain.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>generator</strong> (<em>array_like</em><em>, </em><em>shape</em><em> (</em><a class="reference internal" href="#engineeringkit.reliability.KaplanMeierResult.n" title="engineeringkit.reliability.KaplanMeierResult.n"><em>n</em></a><em>, </em><a class="reference internal" href="#engineeringkit.reliability.KaplanMeierResult.n" title="engineeringkit.reliability.KaplanMeierResult.n"><em>n</em></a><em>)</em>) – Transition-rate matrix <span class="math notranslate nohighlight">\(Q\)</span> [1/s]: nonnegative off-diagonal
+rates, rows summing to zero.</p></li>
+<li><p><strong>initial</strong> (<em>array_like</em><em>, </em><em>shape</em><em> (</em><a class="reference internal" href="#engineeringkit.reliability.KaplanMeierResult.n" title="engineeringkit.reliability.KaplanMeierResult.n"><em>n</em></a><em>,</em><em>)</em>) – Initial state probabilities [-], nonnegative and summing to one.</p></li>
+<li><p><strong>t</strong> (<em>float</em><em> or </em><em>array_like</em>) – Time(s) [s], nonnegative.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Shape <code class="docutils literal notranslate"><span class="pre">(n,)</span></code> for scalar <code class="docutils literal notranslate"><span class="pre">t</span></code>, otherwise <code class="docutils literal notranslate"><span class="pre">(len(t),</span> <span class="pre">n)</span></code> [-].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Uses SciPy’s matrix exponential. Availability is the summed probability
+of the up states. Inputs are raw SI numbers with no dimensional metadata;
+see <a class="reference internal" href="../guides/reliability.html"><span class="doc">Reliability: distributions, independence and rate units</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Q</span> <span class="o">=</span> <span class="p">[[</span><span class="o">-</span><span class="mf">1e-3</span><span class="p">,</span> <span class="mf">1e-3</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.1</span><span class="p">]]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">markov_state_probabilities</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="mf">1e6</span><span class="p">),</span> <span class="mi">4</span><span class="p">)</span>
+<span class="go">array([0.9901, 0.0099])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.reliability.mtbf_confidence_bounds">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.reliability.</span></span><span class="sig-name descname"><span class="pre">mtbf_confidence_bounds</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">total_time</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">failures</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">confidence</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.9</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_terminated</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/reliability/systems/lifetimes.html#mtbf_confidence_bounds"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.reliability.mtbf_confidence_bounds" title="Link to this definition">#</a></dt>
+<dd><p>Two-sided chi-square confidence bounds on an exponential MTBF from a life test.</p>
+<p>With <span class="math notranslate nohighlight">\(r\)</span> failures in total unit-time <span class="math notranslate nohighlight">\(T\)</span>, the estimate is
+<span class="math notranslate nohighlight">\(\hat\theta = T/r\)</span> and <span class="math notranslate nohighlight">\(2T/\theta\)</span> is chi-square with
+<span class="math notranslate nohighlight">\(2r\)</span> degrees of freedom for a failure-terminated test (Epstein and
+Sobel). A time-terminated test uses <span class="math notranslate nohighlight">\(2r + 2\)</span> degrees of freedom for
+the lower bound.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>total_time</strong> (<em>float</em>) – Total time on test summed over all units, censored ones included [s],
+positive.</p></li>
+<li><p><strong>failures</strong> (<em>int</em>) – Number of failures <span class="math notranslate nohighlight">\(r\)</span>; at least one for a failure-terminated
+test, at least zero for a time-terminated one.</p></li>
+<li><p><strong>confidence</strong> (<em>float</em><em>, </em><em>optional</em>) – Two-sided confidence level [-], in (0, 1).</p></li>
+<li><p><strong>time_terminated</strong> (<em>bool</em><em>, </em><em>optional</em>) – <code class="docutils literal notranslate"><span class="pre">True</span></code> if the test stopped at a fixed time rather than at the
+<span class="math notranslate nohighlight">\(r\)</span>-th failure.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">(lower,</span> <span class="pre">upper)</span></code> MTBF bounds [s]; <code class="docutils literal notranslate"><span class="pre">upper</span></code> is infinite for a
+time-terminated test with no failures.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple of float</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/reliability.html"><span class="doc">Reliability: distributions, independence and rate units</span></a>.</p>
+<p class="rubric">References</p>
+<p>B. Epstein and M. Sobel, “Life testing,” <em>J. Amer. Statist. Assoc.</em> 48
+(1953) 486-502.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="nb">round</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">mtbf_confidence_bounds</span><span class="p">(</span><span class="mf">10000.0</span><span class="p">,</span> <span class="mi">5</span><span class="p">)]</span>
+<span class="go">[1092, 5076]</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.reliability.parallel_reliability">
-<span class="sig-prename descclassname"><span class="pre">engineeringkit.reliability.</span></span><span class="sig-name descname"><span class="pre">parallel_reliability</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">r</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/reliability.html#parallel_reliability"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.reliability.parallel_reliability" title="Link to this definition">#</a></dt>
-<dd><p>Parallel reliability.</p>
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.reliability.</span></span><span class="sig-name descname"><span class="pre">parallel_reliability</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">r</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/reliability/systems/architecture.html#parallel_reliability"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.reliability.parallel_reliability" title="Link to this definition">#</a></dt>
+<dd><p>Reliability of independent components in active parallel, <span class="math notranslate nohighlight">\(1 - \prod_i (1 - R_i)\)</span>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>r</strong> (<em>1</em>) – Input in the units stated above.</p>
+<dd class="field-odd"><p><strong>*r</strong> (<em>float</em>) – Component reliabilities [-], each in [0, 1].</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>probability [0,1].</p>
+<dd class="field-even"><p>System reliability [-].</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>result</p>
+<dd class="field-odd"><p>float</p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
-<p>Assumptions, governing equations and validity limits are discussed in
-<a class="reference internal" href="../guides/reliability.html"><span class="doc">Reliability: distributions, independence and rate units</span></a>. SI inputs are required; raw numbers carry no
-dimensional metadata.</p>
+<p>Assumes perfect switching and no common-cause failures. Inputs are raw SI
+numbers with no dimensional metadata; see <a class="reference internal" href="../guides/reliability.html"><span class="doc">Reliability: distributions, independence and rate units</span></a>.</p>
+<p class="rubric">References</p>
+<p>J. von Neumann, “Probabilistic logics and the synthesis of reliable
+organisms from unreliable components,” in <em>Automata Studies</em> (Princeton,
+1956) 43-98.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="n">parallel_reliability</span><span class="p">(</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span>
+<span class="go">0.98</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.reliability.poisson_failures_probability">
-<span class="sig-prename descclassname"><span class="pre">engineeringkit.reliability.</span></span><span class="sig-name descname"><span class="pre">poisson_failures_probability</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">k</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lam</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total_time</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/reliability.html#poisson_failures_probability"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.reliability.poisson_failures_probability" title="Link to this definition">#</a></dt>
-<dd><p>Evaluate a Poisson count probability stably in log space.</p>
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.reliability.</span></span><span class="sig-name descname"><span class="pre">poisson_failures_probability</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">k</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lam</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total_time</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/reliability/systems/lifetimes.html#poisson_failures_probability"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.reliability.poisson_failures_probability" title="Link to this definition">#</a></dt>
+<dd><p>Poisson probability of exactly <code class="docutils literal notranslate"><span class="pre">k</span></code> failures, <span class="math notranslate nohighlight">\((\lambda T)^k e^{-\lambda T}/k!\)</span>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>k</strong> (<em>1</em>) – Input in the units stated above.</p></li>
-<li><p><strong>lam</strong> (<em>1/s</em>) – Input in the units stated above.</p></li>
-<li><p><strong>total_time</strong> (<em>s</em>) – Input in the units stated above.</p></li>
+<li><p><strong>k</strong> (<em>int</em>) – Number of failures, nonnegative.</p></li>
+<li><p><strong>lam</strong> (<em>float</em>) – Constant failure rate [1/s], nonnegative.</p></li>
+<li><p><strong>total_time</strong> (<em>float</em>) – Accumulated operating time [s], nonnegative.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>probability [0,1].</p>
+<dd class="field-even"><p>Probability [-].</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>result</p>
+<dd class="field-odd"><p>float</p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
-<p>Assumptions, governing equations and validity limits are discussed in
-<a class="reference internal" href="../guides/reliability.html"><span class="doc">Reliability: distributions, independence and rate units</span></a>. SI inputs are required; raw numbers carry no
-dimensional metadata.</p>
+<p>Evaluated in log space with <code class="docutils literal notranslate"><span class="pre">gammaln</span></code> so that large counts do not
+overflow. Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/reliability.html"><span class="doc">Reliability: distributions, independence and rate units</span></a>.</p>
+<p class="rubric">References</p>
+<p>S.-D. Poisson, <em>Recherches sur la probabilité des jugements en matière
+criminelle et en matière civile</em> (Paris, Bachelier, 1837).</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="n">poisson_failures_probability</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> <span class="mi">4</span><span class="p">)</span>
+<span class="go">0.3679</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.reliability.reliability_growth_duane">
-<span class="sig-prename descclassname"><span class="pre">engineeringkit.reliability.</span></span><span class="sig-name descname"><span class="pre">reliability_growth_duane</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">K</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/reliability.html#reliability_growth_duane"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.reliability.reliability_growth_duane" title="Link to this definition">#</a></dt>
-<dd><p>Reliability growth duane.</p>
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.reliability.</span></span><span class="sig-name descname"><span class="pre">reliability_growth_duane</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">K</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/reliability/systems/growth.html#reliability_growth_duane"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.reliability.reliability_growth_duane" title="Link to this definition">#</a></dt>
+<dd><p>Duane’s cumulative MTBF <span class="math notranslate nohighlight">\(\theta_c(t) = K t^{\alpha}\)</span> after test time <code class="docutils literal notranslate"><span class="pre">t</span></code>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>t</strong> (<em>s</em>) – Input in the units stated above.</p></li>
-<li><p><strong>K</strong> (<em>s^</em><em>(</em><em>1-alpha</em><em>)</em>) – Input in the units stated above.</p></li>
-<li><p><strong>alpha</strong> (<em>1</em>) – Input in the units stated above.</p></li>
+<li><p><strong>t</strong> (<em>float</em><em> or </em><em>array_like</em>) – Cumulative test time [s], positive.</p></li>
+<li><p><strong>K</strong> (<em>float</em>) – Coefficient [s^(1-alpha)], positive: the cumulative MTBF at
+<code class="docutils literal notranslate"><span class="pre">t</span> <span class="pre">=</span> <span class="pre">1</span></code>.</p></li>
+<li><p><strong>alpha</strong> (<em>float</em>) – Growth rate [-], nonnegative; Duane found 0.3-0.6 for vigorous
+programmes.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><ol class="loweralpha simple" start="19">
-<li></li>
-</ol>
-</p>
+<dd class="field-even"><p>Cumulative MTBF [s]. The instantaneous (current) MTBF is
+<span class="math notranslate nohighlight">\(\theta_c/(1-\alpha)\)</span>.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>result</p>
+<dd class="field-odd"><p>float or ndarray</p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
-<p>Assumptions, governing equations and validity limits are discussed in
-<a class="reference internal" href="../guides/reliability.html"><span class="doc">Reliability: distributions, independence and rate units</span></a>. SI inputs are required; raw numbers carry no
-dimensional metadata.</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/reliability.html"><span class="doc">Reliability: distributions, independence and rate units</span></a>.</p>
+<p class="rubric">References</p>
+<p>J. T. Duane, “Learning curve approach to reliability monitoring,” <em>IEEE
+Trans. Aerospace</em> 2 (1964) 563-566.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">float</span><span class="p">(</span><span class="n">reliability_growth_duane</span><span class="p">(</span><span class="mf">4.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">))</span>
+<span class="go">4.0</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.reliability.reliability_index_from_probability">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.reliability.</span></span><span class="sig-name descname"><span class="pre">reliability_index_from_probability</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pf</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/reliability/utils/normal.html#reliability_index_from_probability"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.reliability.reliability_index_from_probability" title="Link to this definition">#</a></dt>
+<dd><p>Reliability index <span class="math notranslate nohighlight">\(\beta = -\Phi^{-1}(p_f)\)</span> for a failure probability.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>pf</strong> (<em>float</em><em> or </em><em>array_like</em>) – Failure probability [-], in the open interval (0, 1).</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Reliability index [-].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/reliability.html"><span class="doc">Reliability: distributions, independence and rate units</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">reliability_index_from_probability</span><span class="p">(</span><span class="mf">1e-4</span><span class="p">)),</span> <span class="mi">3</span><span class="p">)</span>
+<span class="go">3.719</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.reliability.renewal_interval_cost_rate">
-<span class="sig-prename descclassname"><span class="pre">engineeringkit.reliability.</span></span><span class="sig-name descname"><span class="pre">renewal_interval_cost_rate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">preventive_cost</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">failure_cost</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lam</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/reliability.html#renewal_interval_cost_rate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.reliability.renewal_interval_cost_rate" title="Link to this definition">#</a></dt>
-<dd><p>Compute a simple scheduled-maintenance cost-rate baseline, not a renewal solver.</p>
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.reliability.</span></span><span class="sig-name descname"><span class="pre">renewal_interval_cost_rate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">preventive_cost</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">failure_cost</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lam</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/reliability/systems/maintenance.html#renewal_interval_cost_rate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.reliability.renewal_interval_cost_rate" title="Link to this definition">#</a></dt>
+<dd><p>Constant-hazard maintenance cost-rate baseline <span class="math notranslate nohighlight">\(c_p/T + c_f\lambda\)</span>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>preventive_cost</strong> (<em>currency units</em>) – Input in the units stated above.</p></li>
-<li><p><strong>failure_cost</strong> (<em>currency units</em>) – Input in the units stated above.</p></li>
-<li><p><strong>lam</strong> (<em>1/s</em>) – Input in the units stated above.</p></li>
-<li><p><strong>T</strong> (<em>s</em>) – Input in the units stated above.</p></li>
+<li><p><strong>preventive_cost</strong> (<em>float</em>) – Cost of each scheduled maintenance action [currency], nonnegative.</p></li>
+<li><p><strong>failure_cost</strong> (<em>float</em>) – Cost of each failure [currency], nonnegative.</p></li>
+<li><p><strong>lam</strong> (<em>float</em>) – Constant failure rate [1/s], nonnegative.</p></li>
+<li><p><strong>T</strong> (<em>float</em>) – Maintenance interval [s], positive.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>currency/s.</p>
+<dd class="field-even"><p>Cost rate [currency/s].</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>result</p>
+<dd class="field-odd"><p>float</p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
-<p>Assumptions, governing equations and validity limits are discussed in
-<a class="reference internal" href="../guides/reliability.html"><span class="doc">Reliability: distributions, independence and rate units</span></a>. SI inputs are required; raw numbers carry no
-dimensional metadata.</p>
+<p>With a constant hazard, scheduled replacement does not change the
+failure rate, so this cost only falls as <code class="docutils literal notranslate"><span class="pre">T</span></code> grows. Use
+<a class="reference internal" href="#engineeringkit.reliability.age_replacement_cost_rate" title="engineeringkit.reliability.age_replacement_cost_rate"><code class="xref py py-func docutils literal notranslate"><span class="pre">age_replacement_cost_rate()</span></code></a> for wear-out. Inputs are raw SI numbers
+with no dimensional metadata; see <a class="reference internal" href="../guides/reliability.html"><span class="doc">Reliability: distributions, independence and rate units</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">renewal_interval_cost_rate</span><span class="p">(</span><span class="mf">10.0</span><span class="p">,</span> <span class="mf">20.0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">)</span>
+<span class="go">7.0</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.reliability.repair_rate">
-<span class="sig-prename descclassname"><span class="pre">engineeringkit.reliability.</span></span><span class="sig-name descname"><span class="pre">repair_rate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mttr</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/reliability.html#repair_rate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.reliability.repair_rate" title="Link to this definition">#</a></dt>
-<dd><p>Repair rate.</p>
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.reliability.</span></span><span class="sig-name descname"><span class="pre">repair_rate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mttr</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/reliability/systems/maintenance.html#repair_rate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.reliability.repair_rate" title="Link to this definition">#</a></dt>
+<dd><p>Constant repair rate <span class="math notranslate nohighlight">\(\mu = 1/\mathrm{MTTR}\)</span>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>mttr</strong> (<em>s</em>) – Input in the units stated above.</p>
+<dd class="field-odd"><p><strong>mttr</strong> (<em>float</em><em> or </em><em>array_like</em>) – Mean time to repair [s], positive.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>1/s.</p>
+<dd class="field-even"><p>Repair rate [1/s].</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>result</p>
+<dd class="field-odd"><p>float or ndarray</p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
-<p>Assumptions, governing equations and validity limits are discussed in
-<a class="reference internal" href="../guides/reliability.html"><span class="doc">Reliability: distributions, independence and rate units</span></a>. SI inputs are required; raw numbers carry no
-dimensional metadata.</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/reliability.html"><span class="doc">Reliability: distributions, independence and rate units</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">repair_rate</span><span class="p">(</span><span class="mf">2.0</span><span class="p">)</span>
+<span class="go">0.5</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.reliability.safety_integrity_level">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.reliability.</span></span><span class="sig-name descname"><span class="pre">safety_integrity_level</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pfd_avg</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/reliability/systems/risk.html#safety_integrity_level"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.reliability.safety_integrity_level" title="Link to this definition">#</a></dt>
+<dd><p>IEC 61508 safety integrity level for a low-demand PFDavg (0 if it meets none).</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>SIL</p></th>
+<th class="head"><p>PFDavg</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>4</p></td>
+<td><p><span class="math notranslate nohighlight">\(&lt; 10^{-4}\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p><span class="math notranslate nohighlight">\([10^{-4}, 10^{-3})\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p><span class="math notranslate nohighlight">\([10^{-3}, 10^{-2})\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p><span class="math notranslate nohighlight">\([10^{-2}, 10^{-1})\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>0</p></td>
+<td><p><span class="math notranslate nohighlight">\(\ge 10^{-1}\)</span></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>pfd_avg</strong> (<em>float</em><em> or </em><em>array_like</em>) – Average probability of failure on demand [-], in [0, 1].</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Safety integrity level.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int or ndarray of int</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>The standard’s SIL 4 band starts at <span class="math notranslate nohighlight">\(10^{-5}\)</span>; a lower PFDavg is
+still reported as SIL 4. A level also needs architectural constraints
+and systematic capability, which a number alone cannot show. Inputs are
+raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/reliability.html"><span class="doc">Reliability: distributions, independence and rate units</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">safety_integrity_level</span><span class="p">(</span><span class="mf">8.76e-3</span><span class="p">)</span>
+<span class="go">2</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.reliability.safety_integrity_pfd">
-<span class="sig-prename descclassname"><span class="pre">engineeringkit.reliability.</span></span><span class="sig-name descname"><span class="pre">safety_integrity_pfd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lam_du</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">test_interval</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/reliability.html#safety_integrity_pfd"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.reliability.safety_integrity_pfd" title="Link to this definition">#</a></dt>
-<dd><p>Estimate average dangerous undetected failure probability for rare failures.</p>
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.reliability.</span></span><span class="sig-name descname"><span class="pre">safety_integrity_pfd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lam_du</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">test_interval</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/reliability/systems/risk.html#safety_integrity_pfd"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.reliability.safety_integrity_pfd" title="Link to this definition">#</a></dt>
+<dd><p>Average probability of failure on demand of a single channel, <span class="math notranslate nohighlight">\(\lambda_{DU} T/2\)</span>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>lam_du</strong> (<em>1/s</em>) – Input in the units stated above.</p></li>
-<li><p><strong>test_interval</strong> (<em>s</em>) – Input in the units stated above.</p></li>
+<li><p><strong>lam_du</strong> (<em>float</em><em> or </em><em>array_like</em>) – Dangerous undetected failure rate [1/s], nonnegative.</p></li>
+<li><p><strong>test_interval</strong> (<em>float</em><em> or </em><em>array_like</em>) – Proof-test interval [s], positive.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>probability [0,1].</p>
+<dd class="field-even"><p>PFDavg [-].</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>result</p>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If any <span class="math notranslate nohighlight">\(\lambda_{DU} T &gt; 0.1\)</span>, where the rare-failure
+    approximation no longer holds.</p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
-<p>Assumptions, governing equations and validity limits are discussed in
-<a class="reference internal" href="../guides/reliability.html"><span class="doc">Reliability: distributions, independence and rate units</span></a>. SI inputs are required; raw numbers carry no
-dimensional metadata.</p>
+<p>Assumes perfect proof tests and negligible repair time. Inputs are raw SI
+numbers with no dimensional metadata; see <a class="reference internal" href="../guides/reliability.html"><span class="doc">Reliability: distributions, independence and rate units</span></a>.</p>
+<p class="rubric">References</p>
+<p>IEC 61508-6, <em>Functional safety of electrical/electronic/programmable
+electronic safety-related systems</em> (1998; 2nd ed. 2010), Annex B.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">safety_integrity_pfd</span><span class="p">(</span><span class="mf">0.001</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">)</span>
+<span class="go">0.005</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.reliability.series_reliability">
-<span class="sig-prename descclassname"><span class="pre">engineeringkit.reliability.</span></span><span class="sig-name descname"><span class="pre">series_reliability</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">r</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/reliability.html#series_reliability"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.reliability.series_reliability" title="Link to this definition">#</a></dt>
-<dd><p>Series reliability.</p>
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.reliability.</span></span><span class="sig-name descname"><span class="pre">series_reliability</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">r</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/reliability/systems/architecture.html#series_reliability"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.reliability.series_reliability" title="Link to this definition">#</a></dt>
+<dd><p>Reliability of independent components in series, <span class="math notranslate nohighlight">\(R_s = \prod_i R_i\)</span>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>r</strong> (<em>1</em>) – Input in the units stated above.</p>
+<dd class="field-odd"><p><strong>*r</strong> (<em>float</em>) – Component reliabilities [-], each in [0, 1].</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>probability [0,1].</p>
+<dd class="field-even"><p>System reliability [-].</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>result</p>
+<dd class="field-odd"><p>float</p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
-<p>Assumptions, governing equations and validity limits are discussed in
-<a class="reference internal" href="../guides/reliability.html"><span class="doc">Reliability: distributions, independence and rate units</span></a>. SI inputs are required; raw numbers carry no
-dimensional metadata.</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/reliability.html"><span class="doc">Reliability: distributions, independence and rate units</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="n">series_reliability</span><span class="p">(</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span>
+<span class="go">0.72</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.reliability.stress_strength_reliability">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.reliability.</span></span><span class="sig-name descname"><span class="pre">stress_strength_reliability</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">strength_mean</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strength_std</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stress_mean</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stress_std</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/reliability/systems/structural.html#stress_strength_reliability"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.reliability.stress_strength_reliability" title="Link to this definition">#</a></dt>
+<dd><p>Probability that a normal strength exceeds an independent normal stress.</p>
+<p><span class="math notranslate nohighlight">\(R = \Phi\left((\mu_S - \mu_s)/\sqrt{\sigma_S^2 + \sigma_s^2}\right)\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>strength_mean</strong> (<em>float</em><em> or </em><em>array_like</em>) – Mean and standard deviation of the strength [Pa] (or any load unit);
+the standard deviation is nonnegative.</p></li>
+<li><p><strong>strength_std</strong> (<em>float</em><em> or </em><em>array_like</em>) – Mean and standard deviation of the strength [Pa] (or any load unit);
+the standard deviation is nonnegative.</p></li>
+<li><p><strong>stress_mean</strong> (<em>float</em><em> or </em><em>array_like</em>) – Mean and standard deviation of the applied stress, in the same unit.</p></li>
+<li><p><strong>stress_std</strong> (<em>float</em><em> or </em><em>array_like</em>) – Mean and standard deviation of the applied stress, in the same unit.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Reliability [-].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>The two standard deviations may not both be zero. Inputs are raw SI
+numbers with no dimensional metadata; see <a class="reference internal" href="../guides/reliability.html"><span class="doc">Reliability: distributions, independence and rate units</span></a>.</p>
+<p class="rubric">References</p>
+<p>A. M. Freudenthal, “The safety of structures,” <em>Trans. ASCE</em> 112 (1947)
+125-180.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">stress_strength_reliability</span><span class="p">(</span><span class="mf">500e6</span><span class="p">,</span> <span class="mf">30e6</span><span class="p">,</span> <span class="mf">400e6</span><span class="p">,</span> <span class="mf">40e6</span><span class="p">)),</span> <span class="mi">4</span><span class="p">)</span>
+<span class="go">0.9772</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.reliability.unavailability">
-<span class="sig-prename descclassname"><span class="pre">engineeringkit.reliability.</span></span><span class="sig-name descname"><span class="pre">unavailability</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mtbf</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mttr</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/reliability.html#unavailability"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.reliability.unavailability" title="Link to this definition">#</a></dt>
-<dd><p>Unavailability.</p>
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.reliability.</span></span><span class="sig-name descname"><span class="pre">unavailability</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mtbf</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mttr</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/reliability/systems/maintenance.html#unavailability"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.reliability.unavailability" title="Link to this definition">#</a></dt>
+<dd><p>Steady-state unavailability <span class="math notranslate nohighlight">\(1 - A = \mathrm{MTTR}/(\mathrm{MTBF} + \mathrm{MTTR})\)</span>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>mtbf</strong> (<em>s</em>) – Input in the units stated above.</p></li>
-<li><p><strong>mttr</strong> (<em>s</em>) – Input in the units stated above.</p></li>
+<li><p><strong>mtbf</strong> (<em>float</em><em> or </em><em>array_like</em>) – Mean time between failures [s], positive.</p></li>
+<li><p><strong>mttr</strong> (<em>float</em><em> or </em><em>array_like</em>) – Mean time to repair [s], nonnegative.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>probability [0,1].</p>
+<dd class="field-even"><p>Long-run fraction of time the unit is down [-].</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>result</p>
+<dd class="field-odd"><p>float or ndarray</p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
-<p>Assumptions, governing equations and validity limits are discussed in
-<a class="reference internal" href="../guides/reliability.html"><span class="doc">Reliability: distributions, independence and rate units</span></a>. SI inputs are required; raw numbers carry no
-dimensional metadata.</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/reliability.html"><span class="doc">Reliability: distributions, independence and rate units</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="n">unavailability</span><span class="p">(</span><span class="mf">100.0</span><span class="p">,</span> <span class="mf">25.0</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span>
+<span class="go">0.2</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.reliability.weibull_cdf">
-<span class="sig-prename descclassname"><span class="pre">engineeringkit.reliability.</span></span><span class="sig-name descname"><span class="pre">weibull_cdf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">beta</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/reliability.html#weibull_cdf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.reliability.weibull_cdf" title="Link to this definition">#</a></dt>
-<dd><p>Weibull cdf.</p>
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.reliability.</span></span><span class="sig-name descname"><span class="pre">weibull_cdf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">beta</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/reliability/systems/lifetimes.html#weibull_cdf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.reliability.weibull_cdf" title="Link to this definition">#</a></dt>
+<dd><p>Weibull failure probability <span class="math notranslate nohighlight">\(F(t) = 1 - e^{-(t/\eta)^\beta}\)</span>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>t</strong> (<em>s</em>) – Input in the units stated above.</p></li>
-<li><p><strong>eta</strong> (<em>s</em>) – Input in the units stated above.</p></li>
-<li><p><strong>beta</strong> (<em>1</em>) – Input in the units stated above.</p></li>
+<li><p><strong>t</strong> (<em>float</em><em> or </em><em>array_like</em>) – Time [s], nonnegative.</p></li>
+<li><p><strong>eta</strong> (<em>float</em><em> or </em><em>array_like</em>) – Scale [s], positive.</p></li>
+<li><p><strong>beta</strong> (<em>float</em><em> or </em><em>array_like</em>) – Shape [-], positive.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>probability [0,1].</p>
+<dd class="field-even"><p>Probability of failure by time <code class="docutils literal notranslate"><span class="pre">t</span></code> [-].</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>result</p>
+<dd class="field-odd"><p>float or ndarray</p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
-<p>Assumptions, governing equations and validity limits are discussed in
-<a class="reference internal" href="../guides/reliability.html"><span class="doc">Reliability: distributions, independence and rate units</span></a>. SI inputs are required; raw numbers carry no
-dimensional metadata.</p>
+<p><code class="docutils literal notranslate"><span class="pre">expm1</span></code> keeps early-life probabilities accurate. Inputs are raw SI
+numbers with no dimensional metadata; see <a class="reference internal" href="../guides/reliability.html"><span class="doc">Reliability: distributions, independence and rate units</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">weibull_cdf</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)),</span> <span class="mi">4</span><span class="p">)</span>
+<span class="go">0.6321</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.reliability.weibull_hazard">
-<span class="sig-prename descclassname"><span class="pre">engineeringkit.reliability.</span></span><span class="sig-name descname"><span class="pre">weibull_hazard</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">beta</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/reliability.html#weibull_hazard"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.reliability.weibull_hazard" title="Link to this definition">#</a></dt>
-<dd><p>Weibull hazard.</p>
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.reliability.</span></span><span class="sig-name descname"><span class="pre">weibull_hazard</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">beta</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/reliability/systems/lifetimes.html#weibull_hazard"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.reliability.weibull_hazard" title="Link to this definition">#</a></dt>
+<dd><p>Weibull hazard rate <span class="math notranslate nohighlight">\(h(t) = (\beta/\eta)(t/\eta)^{\beta-1}\)</span>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>t</strong> (<em>s</em>) – Input in the units stated above.</p></li>
-<li><p><strong>eta</strong> (<em>s</em>) – Input in the units stated above.</p></li>
-<li><p><strong>beta</strong> (<em>1</em>) – Input in the units stated above.</p></li>
+<li><p><strong>t</strong> (<em>float</em><em> or </em><em>array_like</em>) – Time [s], nonnegative.</p></li>
+<li><p><strong>eta</strong> (<em>float</em><em> or </em><em>array_like</em>) – Scale [s], positive.</p></li>
+<li><p><strong>beta</strong> (<em>float</em><em> or </em><em>array_like</em>) – Shape [-], positive.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>1/s.</p>
+<dd class="field-even"><p>Hazard rate [1/s]; infinite at <code class="docutils literal notranslate"><span class="pre">t</span> <span class="pre">=</span> <span class="pre">0</span></code> when <code class="docutils literal notranslate"><span class="pre">beta</span> <span class="pre">&lt;</span> <span class="pre">1</span></code>.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>result</p>
+<dd class="field-odd"><p>float or ndarray</p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
-<p>Assumptions, governing equations and validity limits are discussed in
-<a class="reference internal" href="../guides/reliability.html"><span class="doc">Reliability: distributions, independence and rate units</span></a>. SI inputs are required; raw numbers carry no
-dimensional metadata.</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/reliability.html"><span class="doc">Reliability: distributions, independence and rate units</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">float</span><span class="p">(</span><span class="n">weibull_hazard</span><span class="p">(</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">))</span>
+<span class="go">0.5</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.reliability.weibull_mttf">
-<span class="sig-prename descclassname"><span class="pre">engineeringkit.reliability.</span></span><span class="sig-name descname"><span class="pre">weibull_mttf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">eta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">beta</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/reliability.html#weibull_mttf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.reliability.weibull_mttf" title="Link to this definition">#</a></dt>
-<dd><p>Weibull mttf.</p>
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.reliability.</span></span><span class="sig-name descname"><span class="pre">weibull_mttf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">eta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">beta</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/reliability/systems/lifetimes.html#weibull_mttf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.reliability.weibull_mttf" title="Link to this definition">#</a></dt>
+<dd><p>Weibull mean life <span class="math notranslate nohighlight">\(\eta\,\Gamma(1 + 1/\beta)\)</span>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>eta</strong> (<em>s</em>) – Input in the units stated above.</p></li>
-<li><p><strong>beta</strong> (<em>1</em>) – Input in the units stated above.</p></li>
+<li><p><strong>eta</strong> (<em>float</em><em> or </em><em>array_like</em>) – Scale [s], positive.</p></li>
+<li><p><strong>beta</strong> (<em>float</em><em> or </em><em>array_like</em>) – Shape [-], positive.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><ol class="loweralpha simple" start="19">
-<li></li>
-</ol>
-</p>
+<dd class="field-even"><p>Mean time to failure [s].</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>result</p>
+<dd class="field-odd"><p>float or ndarray</p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
-<p>Assumptions, governing equations and validity limits are discussed in
-<a class="reference internal" href="../guides/reliability.html"><span class="doc">Reliability: distributions, independence and rate units</span></a>. SI inputs are required; raw numbers carry no
-dimensional metadata.</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/reliability.html"><span class="doc">Reliability: distributions, independence and rate units</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">weibull_mttf</span><span class="p">(</span><span class="mf">3.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">)),</span> <span class="mi">5</span><span class="p">)</span>
+<span class="go">2.65868</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.reliability.weibull_reliability">
-<span class="sig-prename descclassname"><span class="pre">engineeringkit.reliability.</span></span><span class="sig-name descname"><span class="pre">weibull_reliability</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">beta</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/reliability.html#weibull_reliability"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.reliability.weibull_reliability" title="Link to this definition">#</a></dt>
-<dd><p>Weibull reliability.</p>
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.reliability.</span></span><span class="sig-name descname"><span class="pre">weibull_reliability</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">beta</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/reliability/systems/lifetimes.html#weibull_reliability"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.reliability.weibull_reliability" title="Link to this definition">#</a></dt>
+<dd><p>Weibull survival probability <span class="math notranslate nohighlight">\(R(t) = e^{-(t/\eta)^\beta}\)</span>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>t</strong> (<em>s</em>) – Input in the units stated above.</p></li>
-<li><p><strong>eta</strong> (<em>s</em>) – Input in the units stated above.</p></li>
-<li><p><strong>beta</strong> (<em>1</em>) – Input in the units stated above.</p></li>
+<li><p><strong>t</strong> (<em>float</em><em> or </em><em>array_like</em>) – Time [s], nonnegative.</p></li>
+<li><p><strong>eta</strong> (<em>float</em><em> or </em><em>array_like</em>) – Scale (characteristic life, 63.2% failed) [s], positive.</p></li>
+<li><p><strong>beta</strong> (<em>float</em><em> or </em><em>array_like</em>) – Shape [-], positive: below one the hazard falls, at one it is
+constant (exponential), above one it rises.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>probability [0,1].</p>
+<dd class="field-even"><p>Reliability [-].</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>result</p>
+<dd class="field-odd"><p>float or ndarray</p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
-<p>Assumptions, governing equations and validity limits are discussed in
-<a class="reference internal" href="../guides/reliability.html"><span class="doc">Reliability: distributions, independence and rate units</span></a>. SI inputs are required; raw numbers carry no
-dimensional metadata.</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/reliability.html"><span class="doc">Reliability: distributions, independence and rate units</span></a>.</p>
+<p class="rubric">References</p>
+<p>W. Weibull, “A statistical distribution function of wide
+applicability,” <em>J. Appl. Mech.</em> 18 (1951) 293-297.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">weibull_reliability</span><span class="p">(</span><span class="mf">3.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">)),</span> <span class="mi">4</span><span class="p">)</span>
+<span class="go">0.3679</span>
+</pre></div>
+</div>
 </dd></dl>
 
+<section id="module-engineeringkit.reliability.utils">
+<span id="utilities"></span><h2>Utilities<a class="headerlink" href="#module-engineeringkit.reliability.utils" title="Link to this heading">#</a></h2>
+<p>Supporting numerics for engineeringkit.reliability’s systems/ modules.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.reliability.utils.failure_probability_from_index">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.reliability.utils.</span></span><span class="sig-name descname"><span class="pre">failure_probability_from_index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">beta</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/reliability/utils/normal.html#failure_probability_from_index"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.reliability.utils.failure_probability_from_index" title="Link to this definition">#</a></dt>
+<dd><p>Failure probability <span class="math notranslate nohighlight">\(p_f = \Phi(-\beta)\)</span> for a reliability index.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>beta</strong> (<em>float</em><em> or </em><em>array_like</em>) – Reliability index [-]; negative values mean failure is more likely
+than not.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Failure probability [-].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/reliability.html"><span class="doc">Reliability: distributions, independence and rate units</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">failure_probability_from_index</span><span class="p">(</span><span class="mf">3.0</span><span class="p">)),</span> <span class="mi">6</span><span class="p">)</span>
+<span class="go">0.00135</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.reliability.utils.reliability_index_from_probability">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.reliability.utils.</span></span><span class="sig-name descname"><span class="pre">reliability_index_from_probability</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pf</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/reliability/utils/normal.html#reliability_index_from_probability"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.reliability.utils.reliability_index_from_probability" title="Link to this definition">#</a></dt>
+<dd><p>Reliability index <span class="math notranslate nohighlight">\(\beta = -\Phi^{-1}(p_f)\)</span> for a failure probability.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>pf</strong> (<em>float</em><em> or </em><em>array_like</em>) – Failure probability [-], in the open interval (0, 1).</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Reliability index [-].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/reliability.html"><span class="doc">Reliability: distributions, independence and rate units</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">reliability_index_from_probability</span><span class="p">(</span><span class="mf">1e-4</span><span class="p">)),</span> <span class="mi">3</span><span class="p">)</span>
+<span class="go">3.719</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+<section id="module-engineeringkit.reliability.visualizers">
+<span id="visualizers"></span><h2>Visualizers<a class="headerlink" href="#module-engineeringkit.reliability.visualizers" title="Link to this heading">#</a></h2>
+<p>Matplotlib visualizers for engineeringkit.reliability.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.reliability.visualizers.plot_hazard">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.reliability.visualizers.</span></span><span class="sig-name descname"><span class="pre">plot_hazard</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">times</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hazard</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/reliability/visualizers/plots.html#plot_hazard"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.reliability.visualizers.plot_hazard" title="Link to this definition">#</a></dt>
+<dd><p>Plot a hazard rate against time.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>times</strong> (<em>array_like</em>) – Times [s].</p></li>
+<li><p><strong>hazard</strong> (<em>array_like</em>) – Matching hazard rates [1/s].</p></li>
+<li><p><strong>ax</strong> (<em>matplotlib.axes.Axes</em><em>, </em><em>optional</em>) – Axes to draw on; a new figure is created if omitted.</p></li>
+<li><p><strong>label</strong> (<em>str</em><em>, </em><em>optional</em>) – Legend label.</p></li>
+<li><p><strong>log</strong> (<em>bool</em><em>, </em><em>optional</em>) – Use a logarithmic hazard axis.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>matplotlib.axes.Axes</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.reliability.visualizers.plot_survival">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.reliability.visualizers.</span></span><span class="sig-name descname"><span class="pre">plot_survival</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">times</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">survival</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/reliability/visualizers/plots.html#plot_survival"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.reliability.visualizers.plot_survival" title="Link to this definition">#</a></dt>
+<dd><p>Plot a survival (reliability) curve against time.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>times</strong> (<em>array_like</em>) – Times [s].</p></li>
+<li><p><strong>survival</strong> (<em>array_like</em>) – Matching survival probabilities [-].</p></li>
+<li><p><strong>ax</strong> (<em>matplotlib.axes.Axes</em><em>, </em><em>optional</em>) – Axes to draw on; a new figure is created if omitted.</p></li>
+<li><p><strong>label</strong> (<em>str</em><em>, </em><em>optional</em>) – Legend label.</p></li>
+<li><p><strong>step</strong> (<em>bool</em><em>, </em><em>optional</em>) – Draw a right-continuous step function (for empirical estimates)
+instead of a line.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>matplotlib.axes.Axes</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
 </section>
 
 
@@ -1017,29 +2041,81 @@ dimensional metadata.</p>
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.reliability.EventTreeResult"><code class="docutils literal notranslate"><span class="pre">EventTreeResult</span></code></a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.reliability.EventTreeResult.frequencies"><code class="docutils literal notranslate"><span class="pre">EventTreeResult.frequencies</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.reliability.EventTreeResult.frequency"><code class="docutils literal notranslate"><span class="pre">EventTreeResult.frequency()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.reliability.EventTreeResult.outcomes"><code class="docutils literal notranslate"><span class="pre">EventTreeResult.outcomes</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.reliability.EventTreeResult.summary"><code class="docutils literal notranslate"><span class="pre">EventTreeResult.summary()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.reliability.HasoferLindResult"><code class="docutils literal notranslate"><span class="pre">HasoferLindResult</span></code></a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.reliability.HasoferLindResult.alpha"><code class="docutils literal notranslate"><span class="pre">HasoferLindResult.alpha</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.reliability.HasoferLindResult.beta"><code class="docutils literal notranslate"><span class="pre">HasoferLindResult.beta</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.reliability.HasoferLindResult.design_point"><code class="docutils literal notranslate"><span class="pre">HasoferLindResult.design_point</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.reliability.HasoferLindResult.failure_probability"><code class="docutils literal notranslate"><span class="pre">HasoferLindResult.failure_probability</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.reliability.HasoferLindResult.iterations"><code class="docutils literal notranslate"><span class="pre">HasoferLindResult.iterations</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.reliability.HasoferLindResult.summary"><code class="docutils literal notranslate"><span class="pre">HasoferLindResult.summary()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.reliability.KaplanMeierResult"><code class="docutils literal notranslate"><span class="pre">KaplanMeierResult</span></code></a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.reliability.KaplanMeierResult.at_risk"><code class="docutils literal notranslate"><span class="pre">KaplanMeierResult.at_risk</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.reliability.KaplanMeierResult.censored"><code class="docutils literal notranslate"><span class="pre">KaplanMeierResult.censored</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.reliability.KaplanMeierResult.failures"><code class="docutils literal notranslate"><span class="pre">KaplanMeierResult.failures</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.reliability.KaplanMeierResult.n"><code class="docutils literal notranslate"><span class="pre">KaplanMeierResult.n</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.reliability.KaplanMeierResult.plot"><code class="docutils literal notranslate"><span class="pre">KaplanMeierResult.plot()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.reliability.KaplanMeierResult.std_error"><code class="docutils literal notranslate"><span class="pre">KaplanMeierResult.std_error</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.reliability.KaplanMeierResult.summary"><code class="docutils literal notranslate"><span class="pre">KaplanMeierResult.summary()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.reliability.KaplanMeierResult.survival"><code class="docutils literal notranslate"><span class="pre">KaplanMeierResult.survival</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.reliability.KaplanMeierResult.survival_at"><code class="docutils literal notranslate"><span class="pre">KaplanMeierResult.survival_at()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.reliability.KaplanMeierResult.times"><code class="docutils literal notranslate"><span class="pre">KaplanMeierResult.times</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.reliability.age_replacement_cost_rate"><code class="docutils literal notranslate"><span class="pre">age_replacement_cost_rate()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.reliability.availability"><code class="docutils literal notranslate"><span class="pre">availability()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.reliability.bathtub_hazard"><code class="docutils literal notranslate"><span class="pre">bathtub_hazard()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.reliability.birnbaum_importance_series"><code class="docutils literal notranslate"><span class="pre">birnbaum_importance_series()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.reliability.event_tree_probability"><code class="docutils literal notranslate"><span class="pre">event_tree_probability()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.reliability.expected_failures"><code class="docutils literal notranslate"><span class="pre">expected_failures()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.reliability.exponential_failure_probability"><code class="docutils literal notranslate"><span class="pre">exponential_failure_probability()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.reliability.exponential_hazard"><code class="docutils literal notranslate"><span class="pre">exponential_hazard()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.reliability.exponential_mttf"><code class="docutils literal notranslate"><span class="pre">exponential_mttf()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.reliability.exponential_reliability"><code class="docutils literal notranslate"><span class="pre">exponential_reliability()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.reliability.failure_probability_from_index"><code class="docutils literal notranslate"><span class="pre">failure_probability_from_index()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.reliability.failure_rate_from_mtbf"><code class="docutils literal notranslate"><span class="pre">failure_rate_from_mtbf()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.reliability.fault_tree_probability"><code class="docutils literal notranslate"><span class="pre">fault_tree_probability()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.reliability.hasofer_lind_index"><code class="docutils literal notranslate"><span class="pre">hasofer_lind_index()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.reliability.k_of_n_reliability"><code class="docutils literal notranslate"><span class="pre">k_of_n_reliability()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.reliability.kaplan_meier"><code class="docutils literal notranslate"><span class="pre">kaplan_meier()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.reliability.life_table_hazard"><code class="docutils literal notranslate"><span class="pre">life_table_hazard()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.reliability.maintainability"><code class="docutils literal notranslate"><span class="pre">maintainability()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.reliability.markov_availability"><code class="docutils literal notranslate"><span class="pre">markov_availability()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.reliability.markov_state_probabilities"><code class="docutils literal notranslate"><span class="pre">markov_state_probabilities()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.reliability.mtbf_confidence_bounds"><code class="docutils literal notranslate"><span class="pre">mtbf_confidence_bounds()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.reliability.parallel_reliability"><code class="docutils literal notranslate"><span class="pre">parallel_reliability()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.reliability.poisson_failures_probability"><code class="docutils literal notranslate"><span class="pre">poisson_failures_probability()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.reliability.reliability_growth_duane"><code class="docutils literal notranslate"><span class="pre">reliability_growth_duane()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.reliability.reliability_index_from_probability"><code class="docutils literal notranslate"><span class="pre">reliability_index_from_probability()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.reliability.renewal_interval_cost_rate"><code class="docutils literal notranslate"><span class="pre">renewal_interval_cost_rate()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.reliability.repair_rate"><code class="docutils literal notranslate"><span class="pre">repair_rate()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.reliability.safety_integrity_level"><code class="docutils literal notranslate"><span class="pre">safety_integrity_level()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.reliability.safety_integrity_pfd"><code class="docutils literal notranslate"><span class="pre">safety_integrity_pfd()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.reliability.series_reliability"><code class="docutils literal notranslate"><span class="pre">series_reliability()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.reliability.stress_strength_reliability"><code class="docutils literal notranslate"><span class="pre">stress_strength_reliability()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.reliability.unavailability"><code class="docutils literal notranslate"><span class="pre">unavailability()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.reliability.weibull_cdf"><code class="docutils literal notranslate"><span class="pre">weibull_cdf()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.reliability.weibull_hazard"><code class="docutils literal notranslate"><span class="pre">weibull_hazard()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.reliability.weibull_mttf"><code class="docutils literal notranslate"><span class="pre">weibull_mttf()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.reliability.weibull_reliability"><code class="docutils literal notranslate"><span class="pre">weibull_reliability()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-engineeringkit.reliability.utils">Utilities</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.reliability.utils.failure_probability_from_index"><code class="docutils literal notranslate"><span class="pre">failure_probability_from_index()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.reliability.utils.reliability_index_from_probability"><code class="docutils literal notranslate"><span class="pre">reliability_index_from_probability()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-engineeringkit.reliability.visualizers">Visualizers</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.reliability.visualizers.plot_hazard"><code class="docutils literal notranslate"><span class="pre">plot_hazard()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.reliability.visualizers.plot_survival"><code class="docutils literal notranslate"><span class="pre">plot_survival()</span></code></a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

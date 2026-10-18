@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>engineeringkit.heat_transfer.systems.radiation &#8212; engineeringkit</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx_autodoc_typehints.css?v=057ac668" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/plot_directive.css" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Vibur" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/jupyterlite_sphinx.css?v=f676e775" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery.css?v=c83e6b79" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/engineeringkit.css?v=62935cec" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../../../_static/scripts/fontawesome.js?digest=18bd87630a240e9c25be"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be" />
+
+    <script src="../../../../_static/documentation_options.js?v=38b66d78"></script>
+    <script src="../../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../../_static/sg-tags.js?v=d80f6fa4"></script>
+    <script src="../../../../_static/jupyterlite_sphinx.js?v=96e329c5"></script>
+    <script src="../../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/engineeringkit/heat_transfer/systems/radiation';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="canonical" href="https://cpoli.github.io/engineeringkit/_modules/engineeringkit/heat_transfer/systems/radiation.html" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="color-scheme" content="light dark"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../../../_static/searchtools.js"></script>
+    <script src="../../../../_static/language_data.js"></script>
+    <script src="../../../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../_static/engineeringkit_logo_transparent.png" class="logo__image only-light" alt="engineeringkit logo"/>
+    <img src="../../../../_static/engineeringkit_logo_transparent.png" class="logo__image only-dark pst-js-only" alt="engineeringkit logo"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../subpackages/index.html">
+    Subpackages
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../history/index.html">
+    History
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../api/index.html">
+    API
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../subpackages/index.html">
+    Subpackages
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../history/index.html">
+    History
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../api/index.html">
+    API
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">engineeringkit.heat_transfer.systems.radiation</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for engineeringkit.heat_transfer.systems.radiation</h1><div class="highlight"><pre>
+<span></span><span class="sa">r</span><span class="sd">"""Thermal radiation: blackbody laws, gray-surface exchange and view factors.</span>
+
+<span class="sd">Kirchhoff (1859) proved that a body's emissivity equals its absorptivity,</span>
+<span class="sd">which makes the blackbody the universal reference. Stefan (1879) and</span>
+<span class="sd">Boltzmann (1884) found its total emissive power :math:`\sigma T^4`; Wien</span>
+<span class="sd">(1893) showed its spectrum shifts as :math:`\lambda_{max}T = b`; Planck</span>
+<span class="sd">(1900) gave its exact shape. Nusselt (1928) reduced the geometry of</span>
+<span class="sd">exchange between surfaces to a projection on a unit sphere.</span>
+<span class="sd">"""</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit._validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">finite</span> <span class="k">as</span> <span class="n">_finite</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit._validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">interval</span> <span class="k">as</span> <span class="n">_interval</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit._validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">nonnegative</span> <span class="k">as</span> <span class="n">_nonnegative</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit._validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">positive</span> <span class="k">as</span> <span class="n">_positive</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit.heat_transfer.utils.constants</span><span class="w"> </span><span class="kn">import</span> <span class="n">BOLTZMANN</span><span class="p">,</span> <span class="n">PLANCK</span><span class="p">,</span> <span class="n">SPEED_OF_LIGHT</span><span class="p">,</span> <span class="n">STEFAN_BOLTZMANN</span><span class="p">,</span> <span class="n">WIEN_DISPLACEMENT</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">"radiation_heat_rate"</span><span class="p">,</span>
+    <span class="s2">"radiation_coefficient"</span><span class="p">,</span>
+    <span class="s2">"stefan_boltzmann_emissive_power"</span><span class="p">,</span>
+    <span class="s2">"blackbody_peak_wavelength"</span><span class="p">,</span>
+    <span class="s2">"planck_spectral_emissive_power"</span><span class="p">,</span>
+    <span class="s2">"view_factor_parallel_plates"</span><span class="p">,</span>
+    <span class="s2">"view_factor_coaxial_disks"</span><span class="p">,</span>
+<span class="p">]</span>
+
+
+<div class="viewcode-block" id="radiation_heat_rate">
+<a class="viewcode-back" href="../../../../api/heat_transfer.html#engineeringkit.heat_transfer.radiation_heat_rate">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">radiation_heat_rate</span><span class="p">(</span><span class="n">epsilon</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">Ts</span><span class="p">,</span> <span class="n">Tsur</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="n">STEFAN_BOLTZMANN</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Net radiation from a small gray surface to large surroundings, :math:`\dot Q = \varepsilon\sigma A(T_s^4 - T_{sur}^4)`.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    epsilon : float or array_like</span>
+<span class="sd">        Surface emissivity [-], in [0, 1]; by Kirchhoff's law also its absorptivity.</span>
+<span class="sd">    A : float or array_like</span>
+<span class="sd">        Surface area [m^2], positive.</span>
+<span class="sd">    Ts : float or array_like</span>
+<span class="sd">        Absolute surface temperature [K], nonnegative.</span>
+<span class="sd">    Tsur : float or array_like</span>
+<span class="sd">        Absolute temperature of the surroundings [K], nonnegative.</span>
+<span class="sd">    sigma : float, optional</span>
+<span class="sd">        Stefan-Boltzmann constant [W/(m^2 K^4)].</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float or ndarray</span>
+<span class="sd">        Net heat rate leaving the surface [W].</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Inputs are raw SI numbers with no dimensional metadata; see</span>
+<span class="sd">    :doc:`/guides/heat_transfer`. The surroundings are a large isothermal</span>
+<span class="sd">    enclosure; Celsius temperatures give wrong answers silently.</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    G. Kirchhoff, "Über das Verhältniss zwischen dem Emissionsvermögen und</span>
+<span class="sd">    dem Absorptionsvermögen der Körper für Wärme und Licht," *Ann. Phys.</span>
+<span class="sd">    Chem.* 109 (1860) 275-301.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; round(float(radiation_heat_rate(0.8, 1.0, 400.0, 300.0)), 1)</span>
+<span class="sd">    793.9</span>
+<span class="sd">    """</span>
+    <span class="n">_finite</span><span class="p">(</span><span class="n">epsilon</span><span class="o">=</span><span class="n">epsilon</span><span class="p">,</span> <span class="n">A</span><span class="o">=</span><span class="n">A</span><span class="p">,</span> <span class="n">Ts</span><span class="o">=</span><span class="n">Ts</span><span class="p">,</span> <span class="n">Tsur</span><span class="o">=</span><span class="n">Tsur</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="n">sigma</span><span class="p">)</span>
+    <span class="n">_interval</span><span class="p">(</span><span class="s2">"epsilon"</span><span class="p">,</span> <span class="n">epsilon</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">A</span><span class="o">=</span><span class="n">A</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="n">sigma</span><span class="p">)</span>
+    <span class="n">_nonnegative</span><span class="p">(</span><span class="n">Ts</span><span class="o">=</span><span class="n">Ts</span><span class="p">,</span> <span class="n">Tsur</span><span class="o">=</span><span class="n">Tsur</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">epsilon</span> <span class="o">*</span> <span class="n">sigma</span> <span class="o">*</span> <span class="n">A</span> <span class="o">*</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">Ts</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span> <span class="o">**</span> <span class="mi">4</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">Tsur</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span> <span class="o">**</span> <span class="mi">4</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="radiation_coefficient">
+<a class="viewcode-back" href="../../../../api/heat_transfer.html#engineeringkit.heat_transfer.radiation_coefficient">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">radiation_coefficient</span><span class="p">(</span><span class="n">epsilon</span><span class="p">,</span> <span class="n">Ts</span><span class="p">,</span> <span class="n">Tsur</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="n">STEFAN_BOLTZMANN</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Radiation heat-transfer coefficient :math:`h_r = \varepsilon\sigma(T_s + T_{sur})(T_s^2 + T_{sur}^2)`.</span>
+
+<span class="sd">    With it, radiation can be written like convection,</span>
+<span class="sd">    :math:`\dot Q = h_r A (T_s - T_{sur})`, and added to :math:`h` in parallel.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    epsilon : float or array_like</span>
+<span class="sd">        Surface emissivity [-], in [0, 1].</span>
+<span class="sd">    Ts : float or array_like</span>
+<span class="sd">        Absolute surface temperature [K], nonnegative.</span>
+<span class="sd">    Tsur : float or array_like</span>
+<span class="sd">        Absolute temperature of the surroundings [K], nonnegative.</span>
+<span class="sd">    sigma : float, optional</span>
+<span class="sd">        Stefan-Boltzmann constant [W/(m^2 K^4)].</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float or ndarray</span>
+<span class="sd">        Radiation coefficient [W/(m^2 K)].</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Inputs are raw SI numbers with no dimensional metadata; see</span>
+<span class="sd">    :doc:`/guides/heat_transfer`.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; round(float(radiation_coefficient(0.8, 400.0, 300.0)), 3)</span>
+<span class="sd">    7.939</span>
+<span class="sd">    """</span>
+    <span class="n">_finite</span><span class="p">(</span><span class="n">epsilon</span><span class="o">=</span><span class="n">epsilon</span><span class="p">,</span> <span class="n">Ts</span><span class="o">=</span><span class="n">Ts</span><span class="p">,</span> <span class="n">Tsur</span><span class="o">=</span><span class="n">Tsur</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="n">sigma</span><span class="p">)</span>
+    <span class="n">_interval</span><span class="p">(</span><span class="s2">"epsilon"</span><span class="p">,</span> <span class="n">epsilon</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">sigma</span><span class="o">=</span><span class="n">sigma</span><span class="p">)</span>
+    <span class="n">_nonnegative</span><span class="p">(</span><span class="n">Ts</span><span class="o">=</span><span class="n">Ts</span><span class="p">,</span> <span class="n">Tsur</span><span class="o">=</span><span class="n">Tsur</span><span class="p">)</span>
+    <span class="n">Ts</span><span class="p">,</span> <span class="n">Tsur</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">Ts</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">Tsur</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">epsilon</span> <span class="o">*</span> <span class="n">sigma</span> <span class="o">*</span> <span class="p">(</span><span class="n">Ts</span> <span class="o">+</span> <span class="n">Tsur</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">Ts</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">Tsur</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="stefan_boltzmann_emissive_power">
+<a class="viewcode-back" href="../../../../api/heat_transfer.html#engineeringkit.heat_transfer.stefan_boltzmann_emissive_power">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">stefan_boltzmann_emissive_power</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="n">STEFAN_BOLTZMANN</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Total emissive power of a blackbody, :math:`E_b = \sigma T^4` (Stefan-Boltzmann law).</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    T : float or array_like</span>
+<span class="sd">        Absolute temperature [K], nonnegative.</span>
+<span class="sd">    sigma : float, optional</span>
+<span class="sd">        Stefan-Boltzmann constant [W/(m^2 K^4)].</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float or ndarray</span>
+<span class="sd">        Emissive power [W/m^2].</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Inputs are raw SI numbers with no dimensional metadata; see</span>
+<span class="sd">    :doc:`/guides/heat_transfer`.</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    J. Stefan, "Über die Beziehung zwischen der Wärmestrahlung und der</span>
+<span class="sd">    Temperatur," *Sitzungsber. Akad. Wiss. Wien* 79 (1879) 391-428;</span>
+<span class="sd">    L. Boltzmann, "Ableitung des Stefan'schen Gesetzes," *Ann. Phys. Chem.*</span>
+<span class="sd">    22 (1884) 291-294.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; round(float(stefan_boltzmann_emissive_power(5772.0)) / 1e6, 2)</span>
+<span class="sd">    62.94</span>
+<span class="sd">    """</span>
+    <span class="n">_finite</span><span class="p">(</span><span class="n">T</span><span class="o">=</span><span class="n">T</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="n">sigma</span><span class="p">)</span>
+    <span class="n">_nonnegative</span><span class="p">(</span><span class="n">T</span><span class="o">=</span><span class="n">T</span><span class="p">)</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">sigma</span><span class="o">=</span><span class="n">sigma</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">sigma</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span> <span class="o">**</span> <span class="mi">4</span></div>
+
+
+
+<div class="viewcode-block" id="blackbody_peak_wavelength">
+<a class="viewcode-back" href="../../../../api/heat_transfer.html#engineeringkit.heat_transfer.blackbody_peak_wavelength">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">blackbody_peak_wavelength</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Wavelength of maximum blackbody spectral emissive power, :math:`\lambda_{max} = b/T` (Wien's displacement law).</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    T : float or array_like</span>
+<span class="sd">        Absolute temperature [K], positive.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float or ndarray</span>
+<span class="sd">        Peak wavelength [m]; :math:`b = 2.898\times10^{-3}` m K.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Inputs are raw SI numbers with no dimensional metadata; see</span>
+<span class="sd">    :doc:`/guides/heat_transfer`.</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    W. Wien, "Eine neue Beziehung der Strahlung schwarzer Körper zum zweiten</span>
+<span class="sd">    Hauptsatz der Wärmetheorie," *Sitzungsber. Preuss. Akad. Wiss. Berlin*</span>
+<span class="sd">    (1893) 55-62.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; round(float(blackbody_peak_wavelength(5772.0)) * 1e9, 1)</span>
+<span class="sd">    502.0</span>
+<span class="sd">    """</span>
+    <span class="n">_finite</span><span class="p">(</span><span class="n">T</span><span class="o">=</span><span class="n">T</span><span class="p">)</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">T</span><span class="o">=</span><span class="n">T</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">WIEN_DISPLACEMENT</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="planck_spectral_emissive_power">
+<a class="viewcode-back" href="../../../../api/heat_transfer.html#engineeringkit.heat_transfer.planck_spectral_emissive_power">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">planck_spectral_emissive_power</span><span class="p">(</span><span class="n">wavelength</span><span class="p">,</span> <span class="n">T</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Planck's spectral emissive power of a blackbody.</span>
+
+<span class="sd">    .. math::</span>
+
+<span class="sd">        E_{\lambda,b} = \frac{2\pi h c^2}{\lambda^5\,[\exp(hc/\lambda k T) - 1]}</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    wavelength : float or array_like</span>
+<span class="sd">        Wavelength [m], positive.</span>
+<span class="sd">    T : float or array_like</span>
+<span class="sd">        Absolute temperature [K], positive.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float or ndarray</span>
+<span class="sd">        Spectral emissive power [W/(m^2 m)], broadcast over the inputs. Its</span>
+<span class="sd">        integral over wavelength is :math:`\sigma T^4`.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Inputs are raw SI numbers with no dimensional metadata; see</span>
+<span class="sd">    :doc:`/guides/heat_transfer`. Written with :math:`e^{-x}/(1 - e^{-x})`</span>
+<span class="sd">    so that very short wavelengths underflow to zero instead of overflowing.</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    M. Planck, "Über das Gesetz der Energieverteilung im Normalspectrum,"</span>
+<span class="sd">    *Ann. Phys.* 4 (1901) 553-563.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; f"{float(planck_spectral_emissive_power(10e-6, 300.0)):.4e}"</span>
+<span class="sd">    '3.1177e+07'</span>
+<span class="sd">    """</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">wavelength</span><span class="o">=</span><span class="n">wavelength</span><span class="p">,</span> <span class="n">T</span><span class="o">=</span><span class="n">T</span><span class="p">)</span>
+    <span class="n">lam</span><span class="p">,</span> <span class="n">T</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">wavelength</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">PLANCK</span> <span class="o">*</span> <span class="n">SPEED_OF_LIGHT</span> <span class="o">/</span> <span class="p">(</span><span class="n">lam</span> <span class="o">*</span> <span class="n">BOLTZMANN</span> <span class="o">*</span> <span class="n">T</span><span class="p">)</span>
+    <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">PLANCK</span> <span class="o">*</span> <span class="n">SPEED_OF_LIGHT</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="n">lam</span><span class="o">**</span><span class="mi">5</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">)</span> <span class="o">/</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">expm1</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="view_factor_parallel_plates">
+<a class="viewcode-back" href="../../../../api/heat_transfer.html#engineeringkit.heat_transfer.view_factor_parallel_plates">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">view_factor_parallel_plates</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">L</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""View factor between two aligned, directly opposed parallel rectangles.</span>
+
+<span class="sd">    With :math:`X = a/L` and :math:`Y = b/L`,</span>
+
+<span class="sd">    .. math::</span>
+
+<span class="sd">        F_{12} = \frac{2}{\pi XY}\Big\{\ln\Big[\frac{(1+X^2)(1+Y^2)}{1+X^2+Y^2}\Big]^{1/2}</span>
+<span class="sd">        + X\sqrt{1+Y^2}\arctan\frac{X}{\sqrt{1+Y^2}}</span>
+<span class="sd">        + Y\sqrt{1+X^2}\arctan\frac{Y}{\sqrt{1+X^2}} - X\arctan X - Y\arctan Y\Big\}.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    a, b : float or array_like</span>
+<span class="sd">        Side lengths of each rectangle [m], positive.</span>
+<span class="sd">    L : float or array_like</span>
+<span class="sd">        Separation [m], positive.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float or ndarray</span>
+<span class="sd">        Fraction of the diffuse radiation leaving one rectangle that strikes the other [-].</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Inputs are raw SI numbers with no dimensional metadata; see</span>
+<span class="sd">    :doc:`/guides/heat_transfer`.</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    W. Nusselt, "Graphische Bestimmung des Winkelverhältnisses bei der</span>
+<span class="sd">    Wärmestrahlung," *Z. VDI* 72 (1928) 673; J. R. Howell, *A Catalog of</span>
+<span class="sd">    Radiation Heat Transfer Configuration Factors*, case C-11.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; round(float(view_factor_parallel_plates(1.0, 1.0, 1.0)), 4)</span>
+<span class="sd">    0.1998</span>
+<span class="sd">    """</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="n">b</span><span class="p">,</span> <span class="n">L</span><span class="o">=</span><span class="n">L</span><span class="p">)</span>
+    <span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span> <span class="o">/</span> <span class="n">L</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span> <span class="o">/</span> <span class="n">L</span>
+    <span class="n">sx</span><span class="p">,</span> <span class="n">sy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">X</span><span class="o">**</span><span class="mi">2</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">Y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">bracket</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="mf">0.5</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">sx</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">sy</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">X</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">Y</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+        <span class="o">+</span> <span class="n">X</span> <span class="o">*</span> <span class="n">sy</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan</span><span class="p">(</span><span class="n">X</span> <span class="o">/</span> <span class="n">sy</span><span class="p">)</span>
+        <span class="o">+</span> <span class="n">Y</span> <span class="o">*</span> <span class="n">sx</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan</span><span class="p">(</span><span class="n">Y</span> <span class="o">/</span> <span class="n">sx</span><span class="p">)</span>
+        <span class="o">-</span> <span class="n">X</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+        <span class="o">-</span> <span class="n">Y</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan</span><span class="p">(</span><span class="n">Y</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="mi">2</span> <span class="o">/</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">X</span> <span class="o">*</span> <span class="n">Y</span><span class="p">)</span> <span class="o">*</span> <span class="n">bracket</span></div>
+
+
+
+<div class="viewcode-block" id="view_factor_coaxial_disks">
+<a class="viewcode-back" href="../../../../api/heat_transfer.html#engineeringkit.heat_transfer.view_factor_coaxial_disks">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">view_factor_coaxial_disks</span><span class="p">(</span><span class="n">r1</span><span class="p">,</span> <span class="n">r2</span><span class="p">,</span> <span class="n">L</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""View factor from one disk to a parallel, coaxial disk.</span>
+
+<span class="sd">    With :math:`R_1 = r_1/L`, :math:`R_2 = r_2/L` and</span>
+<span class="sd">    :math:`S = 1 + (1 + R_2^2)/R_1^2`,</span>
+<span class="sd">    :math:`F_{12} = \tfrac12\{S - [S^2 - 4(r_2/r_1)^2]^{1/2}\}`.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    r1 : float or array_like</span>
+<span class="sd">        Radius of the emitting disk [m], positive.</span>
+<span class="sd">    r2 : float or array_like</span>
+<span class="sd">        Radius of the receiving disk [m], positive.</span>
+<span class="sd">    L : float or array_like</span>
+<span class="sd">        Separation [m], positive.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float or ndarray</span>
+<span class="sd">        View factor :math:`F_{12}` [-]; reciprocity gives :math:`r_1^2F_{12} = r_2^2F_{21}`.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Inputs are raw SI numbers with no dimensional metadata; see</span>
+<span class="sd">    :doc:`/guides/heat_transfer`.</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    W. Nusselt, "Graphische Bestimmung des Winkelverhältnisses bei der</span>
+<span class="sd">    Wärmestrahlung," *Z. VDI* 72 (1928) 673; J. R. Howell, *A Catalog of</span>
+<span class="sd">    Radiation Heat Transfer Configuration Factors*, case C-41.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; round(float(view_factor_coaxial_disks(1.0, 1.0, 1.0)), 4)</span>
+<span class="sd">    0.382</span>
+<span class="sd">    """</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">r1</span><span class="o">=</span><span class="n">r1</span><span class="p">,</span> <span class="n">r2</span><span class="o">=</span><span class="n">r2</span><span class="p">,</span> <span class="n">L</span><span class="o">=</span><span class="n">L</span><span class="p">)</span>
+    <span class="n">r1</span><span class="p">,</span> <span class="n">r2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">r1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">r2</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+    <span class="n">R1</span><span class="p">,</span> <span class="n">R2</span> <span class="o">=</span> <span class="n">r1</span> <span class="o">/</span> <span class="n">L</span><span class="p">,</span> <span class="n">r2</span> <span class="o">/</span> <span class="n">L</span>
+    <span class="n">S</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">R2</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="n">R1</span><span class="o">**</span><span class="mi">2</span>
+    <span class="k">return</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">S</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">S</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">4</span> <span class="o">*</span> <span class="p">(</span><span class="n">r2</span> <span class="o">/</span> <span class="n">r1</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">))</span></div>
+
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../../_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be"></script>
+<script defer src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.23.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

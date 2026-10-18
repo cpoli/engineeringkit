@@ -1,0 +1,43 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-10-18T12:25:15.958571Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-18T12:25:13.353936Z",
+      "mimetype": null,
+      "name": "plot_01_joule_first_law.ipynb",
+      "path": "jupyterlite_contents/api/gallery/thermodynamics/laws/plot_01_joule_first_law.ipynb",
+      "size": 4606,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-18T12:25:15.958804Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-18T12:25:13.354062Z",
+      "mimetype": null,
+      "name": "plot_02_clausius_entropy.ipynb",
+      "path": "jupyterlite_contents/api/gallery/thermodynamics/laws/plot_02_clausius_entropy.ipynb",
+      "size": 5098,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2026-10-18T12:25:15.958571Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-10-18T12:25:15.958571Z",
+  "mimetype": null,
+  "name": "laws",
+  "path": "jupyterlite_contents/api/gallery/thermodynamics/laws",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

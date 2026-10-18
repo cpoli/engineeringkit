@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.912** total execution time for 3 files **from api/gallery/communications/propagation**:
+**00:00.462** total execution time for 3 files **from api/gallery/communications/propagation**:
 
 .. container::
 
@@ -33,11 +33,11 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_communications_propagation_plot_02_friis_transmission.py` (``plot_02_friis_transmission.py``)
-     - 00:00.448
+     - 00:00.225
      - 0.0
    * - :ref:`sphx_glr_api_gallery_communications_propagation_plot_01_hertz_wavelength.py` (``plot_01_hertz_wavelength.py``)
-     - 00:00.272
+     - 00:00.140
      - 0.0
    * - :ref:`sphx_glr_api_gallery_communications_propagation_plot_03_telstar_link_budget.py` (``plot_03_telstar_link_budget.py``)
-     - 00:00.192
+     - 00:00.097
      - 0.0

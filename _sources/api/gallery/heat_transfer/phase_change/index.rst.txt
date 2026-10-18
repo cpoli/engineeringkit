@@ -1,0 +1,86 @@
+
+
+.. _sphx_glr_api_gallery_heat_transfer_phase_change:
+
+Phase change
+------------
+
+Melting and freezing fronts, condensation and boiling.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In 1891 Josef Stefan asked how fast sea ice thickens in the polar winter. The ice conducts heat from the freezing water below to the cold air above, and every millimetre of new ice releases latent heat at the moving interface, so the boundary is part of the unknown. Franz Neumann had found the exact similarity solution in his lectures of the 1860s: the front advances as s = 2\lambda\sqrt{\alpha t} with \lambda e^{\lambda^2}\operatorname{erf}\lambda = Ste/\sqrt\pi (~engineeringkit.heat_transfer.neumann_stefan_front, stefan_number). This example grows a winter of sea ice, checks the energy balance at the front, and compares with Stefan&#x27;s own quasi-steady estimate.">
+
+.. only:: html
+
+  .. image:: /api/gallery/heat_transfer/phase_change/images/thumb/sphx_glr_plot_01_stefan_problem_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/heat_transfer/phase_change/plot_01_stefan_problem`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Stefan's problem: a moving freezing front</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Steam condensing on the cold tubes of a power-station condenser forms a liquid film that drains under gravity, and the film itself is the main resistance to heat flow. In 1916 Wilhelm Nusselt balanced gravity against viscous shear in the film and conduction across it. The film thickens as x^{1/4} down the wall, and the average coefficient over a height L is 0.943\,[g\rho_l(\rho_l - \rho_v)k_l^3h_{fg}/(\mu_l L\Delta T)]^{1/4} (~engineeringkit.heat_transfer.nusselt_film_condensation). This example rebuilds the film profile, checks the average against the local coefficient, and checks the energy balance.">
+
+.. only:: html
+
+  .. image:: /api/gallery/heat_transfer/phase_change/images/thumb/sphx_glr_plot_02_nusselt_condensation_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/heat_transfer/phase_change/plot_02_nusselt_condensation`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Nusselt's film condensation</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In 1934 Shiro Nukiyama boiled water at atmospheric pressure on electrically heated wires. Raising the power, he found that the heat flux reached a maximum a few tens of kelvin above saturation. One step more and the wire was suddenly covered by vapour: a nichrome wire melted, a platinum wire glowed red. Controlling the temperature instead of the power later traced the whole curve, through a falling transition region to a minimum and on into film boiling. In 1958 Novak Zuber explained the maximum as a hydrodynamic (Taylor and Helmholtz) instability of the vapour columns, q&#x27;&#x27;_{max} = C h_{fg}\rho_v[\sigma g(\rho_l - \rho_v)/\rho_v^2]^{1/4} (~engineeringkit.heat_transfer.zuber_critical_heat_flux). This example sketches the curve with standard correlations and finds Nukiyama&#x27;s jump.">
+
+.. only:: html
+
+  .. image:: /api/gallery/heat_transfer/phase_change/images/thumb/sphx_glr_plot_03_nukiyama_boiling_curve_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/heat_transfer/phase_change/plot_03_nukiyama_boiling_curve`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Nukiyama's boiling curve and Zuber's critical heat flux</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/heat_transfer/phase_change/plot_01_stefan_problem
+   /api/gallery/heat_transfer/phase_change/plot_02_nusselt_condensation
+   /api/gallery/heat_transfer/phase_change/plot_03_nukiyama_boiling_curve
+

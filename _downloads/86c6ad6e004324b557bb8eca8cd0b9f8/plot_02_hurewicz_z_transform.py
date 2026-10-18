@@ -1,0 +1,96 @@
+r"""
+Hurewicz's z-transform
+======================
+
+Radar fire-control systems of the Second World War sampled their targets,
+and the MIT Radiation Laboratory needed a theory of feedback loops that
+saw data only at instants :math:`nT`. In the Laboratory's 1947 volume
+*Theory of Servomechanisms*, the topologist Witold Hurewicz described a
+sampled sequence by the generating function
+:math:`X(z) = \sum_n x_n z^{-n}`, which Ragazzini and Zadeh named the
+z-transform in 1952. A difference equation becomes the rational function
+:math:`H(z) = B(z)/A(z)`. Its poles must lie inside the unit circle for
+stability, and on the circle :math:`z = e^{j2\pi f/f_s}` it gives the
+frequency response
+(:func:`~engineeringkit.signal_processing.frequency_response`,
+:func:`~engineeringkit.signal_processing.filter_signal`).
+"""
+
+# %%
+import matplotlib.pyplot as plt
+import numpy as np
+
+from engineeringkit.signal_processing import dft, filter_signal, frequency_response, moving_average
+from engineeringkit.signal_processing.visualizers import plot_pole_zero
+
+# %%
+# A resonator from its poles
+# --------------------------
+#
+# Poles at :math:`re^{\pm j\theta}` give
+# :math:`A(z) = 1 - 2r\cos\theta\,z^{-1} + r^2 z^{-2}` and the impulse
+# response :math:`r^n \sin((n+1)\theta)/\sin\theta`, a decaying ringing at
+# :math:`\theta f_s/2\pi` Hz.
+
+fs, r, f0 = 1000.0, 0.95, 100.0
+theta = 2 * np.pi * f0 / fs
+b, a = [1.0], [1.0, -2 * r * np.cos(theta), r**2]
+n = np.arange(200)
+impulse = np.zeros(n.size)
+impulse[0] = 1.0
+h = filter_signal(b, a, impulse)
+assert np.allclose(h, r**n * np.sin((n + 1) * theta) / np.sin(theta))
+print(f"poles at |z| = {abs(np.roots(a))[0]:.2f}, angle {np.degrees(np.angle(np.roots(a)).max()):.0f} deg -> rings at {f0:.0f} Hz")
+
+# %%
+# The frequency response is H on the unit circle
+# ----------------------------------------------
+#
+# Evaluating :math:`B/A` at :math:`z = e^{j2\pi f/f_s}` and taking the DFT
+# of the (decayed) impulse response give the same curve.
+
+f, H = frequency_response(b, a, worN=1024, fs=fs)
+z = np.exp(2j * np.pi * f / fs)
+assert np.allclose(H, 1 / (1 - 2 * r * np.cos(theta) / z + r**2 / z**2))
+H_dft = dft(np.pad(h, (0, 2048 - h.size)))[:1024]
+assert np.allclose(abs(H_dft), abs(H), rtol=1e-3, atol=1e-3)
+print(f"peak gain {abs(H).max():.1f} at {f[np.argmax(abs(H))]:.0f} Hz")
+
+# %%
+# Stability is the unit circle
+# ----------------------------
+#
+# Moving the poles outside the circle (:math:`r = 1.05`) makes the same
+# recursion grow without bound.
+
+h_unstable = filter_signal(b, [1.0, -2 * 1.05 * np.cos(theta), 1.05**2], impulse)
+assert abs(h_unstable[-10:]).max() > 1e2 * abs(h_unstable[:10]).max()
+
+# %%
+# A moving average is an FIR filter
+# ---------------------------------
+#
+# :func:`~engineeringkit.signal_processing.moving_average` is
+# :math:`H(z) = \frac1M\sum_{k<M} z^{-k}`, all zeros and no poles: its
+# zeros on the unit circle null the frequencies :math:`kf_s/M`.
+
+M = 10
+x = np.sin(2 * np.pi * 100 * np.arange(400) / fs) + 1.0
+y = moving_average(x, M)
+assert np.allclose(y, 1.0)
+assert np.allclose(filter_signal(np.ones(M) / M, [1.0], x)[M - 1 :], y)
+
+fig, axes = plt.subplots(1, 3, figsize=(12, 3.6))
+plot_pole_zero(b, a, ax=axes[0])
+axes[0].set_title("Resonator poles")
+axes[1].plot(n, h, label="r = 0.95")
+axes[1].plot(n[:120], h_unstable[:120] / 50, label="r = 1.05 (scaled 1/50)")
+axes[1].set(xlabel="n", ylabel="impulse response")
+axes[1].legend()
+axes[2].plot(f, abs(H), label="$B/A$ on the unit circle")
+axes[2].plot(f, abs(H_dft), "--", label="DFT of impulse response")
+axes[2].set(xlabel="frequency [Hz]", ylabel="|H|")
+axes[2].legend()
+fig.tight_layout()
+
+plt.show()

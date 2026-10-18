@@ -1,5 +1,5 @@
-engineeringkit
-==============
+engineeringkit: Computational Engineering in Python
+===================================================
 
 .. include:: /_generated/vars.rst
 
@@ -71,3 +71,13 @@ coverage. That metric does not prove scientific correctness or model applicabili
 
    api/index
 
+.. rubric:: Related toolkits
+
+Sibling Python toolkits for learning and teaching, built the same way:
+
+- `blockchainkit <https://cpoli.github.io/blockchainkit/>`__ -- cryptography, consensus and blockchain systems
+- `chemistrykit <https://cpoli.github.io/chemistrykit/>`__ -- computational chemistry
+- `financialkit <https://cpoli.github.io/financialkit/>`__ -- quantitative finance
+- `mathematicskit <https://cpoli.github.io/mathematicskit/>`__ -- computational mathematics
+- `physicskit <https://cpoli.github.io/physicskit/>`__ -- computational physics
+- `tbkit <https://cpoli.github.io/tbkit/>`__ -- tight-binding models, band topology and quantum transport

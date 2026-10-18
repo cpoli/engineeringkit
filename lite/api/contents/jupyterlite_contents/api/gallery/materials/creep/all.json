@@ -1,0 +1,43 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-10-18T12:25:15.938669Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-18T12:25:13.342544Z",
+      "mimetype": null,
+      "name": "plot_02_larson_miller.ipynb",
+      "path": "jupyterlite_contents/api/gallery/materials/creep/plot_02_larson_miller.ipynb",
+      "size": 4253,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-18T12:25:15.938457Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-18T12:25:13.342416Z",
+      "mimetype": null,
+      "name": "plot_01_norton_creep.ipynb",
+      "path": "jupyterlite_contents/api/gallery/materials/creep/plot_01_norton_creep.ipynb",
+      "size": 3828,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2026-10-18T12:25:15.938669Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-10-18T12:25:15.938669Z",
+  "mimetype": null,
+  "name": "creep",
+  "path": "jupyterlite_contents/api/gallery/materials/creep",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

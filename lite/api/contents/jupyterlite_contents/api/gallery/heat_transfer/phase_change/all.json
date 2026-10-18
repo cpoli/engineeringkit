@@ -1,0 +1,57 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-10-18T12:25:15.936425Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-18T12:25:13.341287Z",
+      "mimetype": null,
+      "name": "plot_03_nukiyama_boiling_curve.ipynb",
+      "path": "jupyterlite_contents/api/gallery/heat_transfer/phase_change/plot_03_nukiyama_boiling_curve.ipynb",
+      "size": 5698,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-18T12:25:15.936035Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-18T12:25:13.341030Z",
+      "mimetype": null,
+      "name": "plot_01_stefan_problem.ipynb",
+      "path": "jupyterlite_contents/api/gallery/heat_transfer/phase_change/plot_01_stefan_problem.ipynb",
+      "size": 5778,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-18T12:25:15.936237Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-18T12:25:13.341155Z",
+      "mimetype": null,
+      "name": "plot_02_nusselt_condensation.ipynb",
+      "path": "jupyterlite_contents/api/gallery/heat_transfer/phase_change/plot_02_nusselt_condensation.ipynb",
+      "size": 4877,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2026-10-18T12:25:15.936425Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-10-18T12:25:15.936425Z",
+  "mimetype": null,
+  "name": "phase_change",
+  "path": "jupyterlite_contents/api/gallery/heat_transfer/phase_change",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

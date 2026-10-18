@@ -1,0 +1,86 @@
+
+
+.. _sphx_glr_api_gallery_electrical_engineering_networks:
+
+Networks
+--------
+
+Two-terminal equivalents and maximum power transfer.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Around 1840 Moritz von Jacobi, building battery-powered electric motors in St Petersburg (one drove a boat on the Neva), asked what load draws the most power from a battery. A source of EMF V and internal resistance R_s delivers P = V^2 R_L/(R_s + R_L)^2 to a load R_L, largest when R_L = R_s (~engineeringkit.electrical_engineering.maximum_power_transfer). At that match the source wastes as much as it delivers, so the efficiency is only 50%. Engineers later learned to read the theorem the other way: power grids run far from the match, at high efficiency, while radio receivers match to capture every last picowatt.">
+
+.. only:: html
+
+  .. image:: /api/gallery/electrical_engineering/networks/images/thumb/sphx_glr_plot_01_jacobi_maximum_power_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/electrical_engineering/networks/plot_01_jacobi_maximum_power`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Jacobi's maximum power theorem</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Léon Charles Thévenin, an engineer of the French telegraph service, showed in 1883 that any linear network seen from two terminals behaves like a single EMF in series with a single resistance (Hermann von Helmholtz had reached the same result in 1853). The EMF is the open-circuit voltage; the resistance is that voltage divided by the short-circuit current, or the resistance seen with every source zeroed. This example reduces a two-source network with nodal_analysis, builds the equivalent with thevenin_from_source, and checks that the two agree for every load.">
+
+.. only:: html
+
+  .. image:: /api/gallery/electrical_engineering/networks/images/thumb/sphx_glr_plot_02_thevenin_equivalent_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/electrical_engineering/networks/plot_02_thevenin_equivalent`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Thévenin's equivalent circuit</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In 1926 Edward Lawry Norton at Bell Labs, and independently Hans Ferdinand Mayer at Siemens, gave the dual of Thévenin&#x27;s theorem: a linear two-terminal network also behaves like a current source I_N = V_{th}/R_{th} in parallel with the same resistance (~engineeringkit.electrical_engineering.norton_from_thevenin). Norton wrote it in an internal memorandum on filter design; Mayer used it to model the vacuum-tube amplifier, which acts more like a current source than a voltage source. This example checks that the Thévenin and Norton forms are indistinguishable at the terminals, and that converting sources back and forth simplifies a ladder to a single source.">
+
+.. only:: html
+
+  .. image:: /api/gallery/electrical_engineering/networks/images/thumb/sphx_glr_plot_03_norton_equivalent_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/electrical_engineering/networks/plot_03_norton_equivalent`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Norton's equivalent circuit</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/electrical_engineering/networks/plot_01_jacobi_maximum_power
+   /api/gallery/electrical_engineering/networks/plot_02_thevenin_equivalent
+   /api/gallery/electrical_engineering/networks/plot_03_norton_equivalent
+

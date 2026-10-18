@@ -6,8 +6,16 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="engineeringkit.materials" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://cpoli.github.io/engineeringkit/api/materials.html" />
+<meta property="og:site_name" content="engineeringkit" />
+<meta property="og:description" content="Domain hub · History · Examples · API reference Normal stress and strain, Hooke’s law, Lamé’s isotropic constants and Duhamel’s thermal stress; resilience, toughness and the measured stress-strain ..." />
+<meta property="og:image" content="https://cpoli.github.io/engineeringkit/_static/images/readme_hero.png" />
+<meta property="og:image:alt" content="engineeringkit" />
+<meta name="description" content="Domain hub · History · Examples · API reference Normal stress and strain, Hooke’s law, Lamé’s isotropic constants and Duhamel’s thermal stress; resilience, toughness and the measured stress-strain ..." />
 
-    <title>engineeringkit.materials &#8212; engineeringkit 0.1.0 documentation</title>
+    <title>engineeringkit.materials &#8212; engineeringkit</title>
   
   
   
@@ -30,6 +38,7 @@
 <link href="../_static/styles/pydata-sphinx-theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx_autodoc_typehints.css?v=057ac668" />
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Vibur" />
     <link rel="stylesheet" type="text/css" href="../_static/jupyterlite_sphinx.css?v=f676e775" />
@@ -52,8 +61,10 @@
     <script src="../_static/sg-tags.js?v=d80f6fa4"></script>
     <script src="../_static/jupyterlite_sphinx.js?v=96e329c5"></script>
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'api/materials';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="canonical" href="https://cpoli.github.io/engineeringkit/api/materials.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="engineeringkit.reliability" href="reliability.html" />
@@ -411,12 +422,114 @@
 <div class="subpkg-nav docutils container">
 <p><a class="reference internal" href="../_generated/subpackages/materials.html"><span class="doc">Domain hub</span></a> · <a class="reference internal" href="../history/materials_breakthroughs.html"><span class="doc">History</span></a> · <a class="reference internal" href="gallery/materials/index.html"><span class="doc">Examples</span></a> · <a class="reference internal" href="#"><span class="doc">API reference</span></a></p>
 </div>
-<p>Elastic constants, yielding, fracture, fatigue, creep and composites.</p>
-<p id="module-engineeringkit.materials">Engineering materials: elasticity, yielding, fracture, fatigue, creep and composites.</p>
+<p>Normal stress and strain, Hooke’s law, Lamé’s isotropic constants and
+Duhamel’s thermal stress; resilience, toughness and the measured
+stress-strain curve with its offset yield strength; the Tresca and von Mises
+yield criteria; the Voigt and Reuss rules of mixtures; Basquin’s S-N law,
+Goodman’s mean-stress line, the Coffin-Manson strain-life curve and
+Palmgren-Miner damage; Griffith’s fracture stress, Irwin’s stress intensity
+factor and Paris crack growth integrated over a crack’s life
+(<code class="docutils literal notranslate"><span class="pre">scipy.integrate.cumulative_trapezoid</span></code>); Norton creep and the
+Larson-Miller parameter; Frenkel’s ideal shear strength, the Peierls stress,
+Hall-Petch strengthening and the Ramberg-Osgood curve.</p>
+<p id="module-engineeringkit.materials">engineeringkit.materials: elasticity, yielding, fracture, fatigue, creep, plasticity and composites.</p>
+<p>Young’s modulus, Lamé’s isotropic constants and Duhamel’s thermal stress;
+Tresca’s and von Mises’s yield criteria; the Voigt and Reuss bounds on a
+composite; Basquin’s S-N law, Goodman’s mean-stress line, the Coffin-Manson
+strain-life law and Palmgren-Miner damage; Griffith’s and Irwin’s fracture
+mechanics and Paris’s crack growth; Norton creep and the Larson-Miller
+parameter; Frenkel’s ideal strength, the Peierls stress, Hall-Petch
+strengthening and the Ramberg-Osgood curve. Models are hand-written closed
+forms; SciPy’s trapezoid rules integrate measured curves and crack growth.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="engineeringkit.materials.CrackGrowthResult">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">engineeringkit.materials.</span></span><span class="sig-name descname"><span class="pre">CrackGrowthResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">crack_length</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cycles</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/materials/core/base.html#CrackGrowthResult"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.materials.CrackGrowthResult" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Fatigue crack length against cycles, from <a class="reference internal" href="#engineeringkit.materials.crack_growth_life" title="engineeringkit.materials.crack_growth_life"><code class="xref py py-func docutils literal notranslate"><span class="pre">crack_growth_life()</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>crack_length</strong> (<em>ndarray</em>)</p></li>
+<li><p><strong>cycles</strong> (<em>ndarray</em>)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="engineeringkit.materials.CrackGrowthResult.crack_length">
+<span class="sig-name descname"><span class="pre">crack_length</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></span><a class="headerlink" href="#engineeringkit.materials.CrackGrowthResult.crack_length" title="Link to this definition">#</a></dt>
+<dd><p>Crack lengths, increasing [m].</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="engineeringkit.materials.CrackGrowthResult.cycles">
+<span class="sig-name descname"><span class="pre">cycles</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></span><a class="headerlink" href="#engineeringkit.materials.CrackGrowthResult.cycles" title="Link to this definition">#</a></dt>
+<dd><p>Cycles needed to grow from the first crack length to each one.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="engineeringkit.materials.CrackGrowthResult.cycles_to">
+<span class="sig-name descname"><span class="pre">cycles_to</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/materials/core/base.html#CrackGrowthResult.cycles_to"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.materials.CrackGrowthResult.cycles_to" title="Link to this definition">#</a></dt>
+<dd><p>Cycles to reach a crack length, interpolated along the growth history.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>a</strong> (<em>float</em><em> or </em><em>array_like</em>) – Crack length [m], between the initial and final lengths.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Load cycles [-].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="engineeringkit.materials.CrackGrowthResult.life">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">life</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></span><a class="headerlink" href="#engineeringkit.materials.CrackGrowthResult.life" title="Link to this definition">#</a></dt>
+<dd><p>Cycles to grow from the initial to the final crack length.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="engineeringkit.materials.CrackGrowthResult.plot">
+<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/materials/core/base.html#CrackGrowthResult.plot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.materials.CrackGrowthResult.plot" title="Link to this definition">#</a></dt>
+<dd><p>Plot crack length [mm] against cycles; return <code class="docutils literal notranslate"><span class="pre">(fig,</span> <span class="pre">ax)</span></code>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="engineeringkit.materials.CrackGrowthResult.summary">
+<span class="sig-name descname"><span class="pre">summary</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/materials/core/base.html#CrackGrowthResult.summary"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.materials.CrackGrowthResult.summary" title="Link to this definition">#</a></dt>
+<dd><p>Initial and final crack lengths [m], life [cycles] and the cycles spent doubling the initial crack.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 <dl class="py class">
 <dt class="sig sig-object py" id="engineeringkit.materials.StressStrainCurve">
-<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">engineeringkit.materials.</span></span><span class="sig-name descname"><span class="pre">StressStrainCurve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">strain</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stress</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/materials.html#StressStrainCurve"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.materials.StressStrainCurve" title="Link to this definition">#</a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">engineeringkit.materials.</span></span><span class="sig-name descname"><span class="pre">StressStrainCurve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">strain</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stress</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/materials/core/base.html#StressStrainCurve"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.materials.StressStrainCurve" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A sampled engineering stress-strain curve from a tensile test.</p>
+<p>The arrays are validated (matching vectors, strictly increasing strain)
+and copied on construction.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -426,664 +539,1174 @@
 </dd>
 </dl>
 <dl class="py method">
+<dt class="sig sig-object py" id="engineeringkit.materials.StressStrainCurve.offset_yield_strength">
+<span class="sig-name descname"><span class="pre">offset_yield_strength</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.002</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/materials/core/base.html#StressStrainCurve.offset_yield_strength"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.materials.StressStrainCurve.offset_yield_strength" title="Link to this definition">#</a></dt>
+<dd><p>Stress where the curve crosses the elastic line shifted by <code class="docutils literal notranslate"><span class="pre">offset</span></code> strain.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>offset</strong> (<em>float</em><em>, </em><em>optional</em>) – Plastic strain offset [-], positive (0.2% by default).</p></li>
+<li><p><strong>n</strong> (<em>int</em><em>, </em><em>optional</em>) – Samples used for the elastic slope, as in <a class="reference internal" href="#engineeringkit.materials.StressStrainCurve.young_modulus" title="engineeringkit.materials.StressStrainCurve.young_modulus"><code class="xref py py-meth docutils literal notranslate"><span class="pre">young_modulus()</span></code></a>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Offset yield strength [Pa].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If the curve never crosses the offset line.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="engineeringkit.materials.StressStrainCurve.plot">
-<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/materials.html#StressStrainCurve.plot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.materials.StressStrainCurve.plot" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/materials/core/base.html#StressStrainCurve.plot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.materials.StressStrainCurve.plot" title="Link to this definition">#</a></dt>
+<dd><p>Plot stress [Pa] against strain; return <code class="docutils literal notranslate"><span class="pre">(fig,</span> <span class="pre">ax)</span></code>.</p>
+</dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="engineeringkit.materials.StressStrainCurve.strain">
 <span class="sig-name descname"><span class="pre">strain</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></span><a class="headerlink" href="#engineeringkit.materials.StressStrainCurve.strain" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
+<dd><p>Engineering strain, strictly increasing [-].</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="engineeringkit.materials.StressStrainCurve.stress">
 <span class="sig-name descname"><span class="pre">stress</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></span><a class="headerlink" href="#engineeringkit.materials.StressStrainCurve.stress" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
+<dd><p>Engineering stress at each strain [Pa].</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="engineeringkit.materials.StressStrainCurve.summary">
+<span class="sig-name descname"><span class="pre">summary</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/materials/core/base.html#StressStrainCurve.summary"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.materials.StressStrainCurve.summary" title="Link to this definition">#</a></dt>
+<dd><p>Young’s modulus [Pa], ultimate strength [Pa], strain at the end [-] and toughness [J/m^3].</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="engineeringkit.materials.StressStrainCurve.toughness">
-<span class="sig-name descname"><span class="pre">toughness</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/materials.html#StressStrainCurve.toughness"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.materials.StressStrainCurve.toughness" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">toughness</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/materials/core/base.html#StressStrainCurve.toughness"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.materials.StressStrainCurve.toughness" title="Link to this definition">#</a></dt>
+<dd><p>Area under the curve [J/m^3].</p>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="engineeringkit.materials.StressStrainCurve.young_modulus">
-<span class="sig-name descname"><span class="pre">young_modulus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/materials.html#StressStrainCurve.young_modulus"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.materials.StressStrainCurve.young_modulus" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">young_modulus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/materials/core/base.html#StressStrainCurve.young_modulus"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.materials.StressStrainCurve.young_modulus" title="Link to this definition">#</a></dt>
+<dd><p>Slope of a least-squares line through the first <code class="docutils literal notranslate"><span class="pre">n</span></code> samples.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>n</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of leading samples to fit, between 2 and the number of
+samples. They should all be elastic.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Young’s modulus [Pa].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
 
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.materials.arrhenius_creep_rate">
-<span class="sig-prename descclassname"><span class="pre">engineeringkit.materials.</span></span><span class="sig-name descname"><span class="pre">arrhenius_creep_rate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Q</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">R</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/materials.html#arrhenius_creep_rate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.materials.arrhenius_creep_rate" title="Link to this definition">#</a></dt>
-<dd><p>Arrhenius creep rate.</p>
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.materials.</span></span><span class="sig-name descname"><span class="pre">arrhenius_creep_rate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Q</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">R</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/materials/systems/creep.html#arrhenius_creep_rate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.materials.arrhenius_creep_rate" title="Link to this definition">#</a></dt>
+<dd><p>Steady-state (secondary) creep rate, Norton’s law with an Arrhenius factor.</p>
+<div class="math notranslate nohighlight">
+\[\dot\varepsilon = A\,\sigma^n e^{-Q/RT}\]</div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>A</strong> (<em>1/</em><em>(</em><em>s Pa^n</em><em>)</em>) – Input in the units stated above.</p></li>
-<li><p><strong>Q</strong> (<em>J/mol</em>) – Input in the units stated above.</p></li>
-<li><p><strong>R</strong> (<em>J/</em><em>(</em><em>mol K</em><em>)</em>) – Input in the units stated above.</p></li>
-<li><p><strong>T</strong> (<em>K</em><em> (</em><em>absolute</em><em>)</em>) – Input in the units stated above.</p></li>
-<li><p><strong>sigma</strong> (<em>Pa</em>) – Input in the units stated above.</p></li>
-<li><p><strong>n</strong> (<em>1</em>) – Input in the units stated above.</p></li>
+<li><p><strong>A</strong> (<em>float</em><em> or </em><em>array_like</em>) – Material constant [1/(s Pa^n)], nonnegative.</p></li>
+<li><p><strong>Q</strong> (<em>float</em><em> or </em><em>array_like</em>) – Activation energy for creep [J/mol], nonnegative.</p></li>
+<li><p><strong>R</strong> (<em>float</em><em> or </em><em>array_like</em>) – Gas constant [J/(mol K)], positive (8.314).</p></li>
+<li><p><strong>T</strong> (<em>float</em><em> or </em><em>array_like</em>) – Absolute temperature [K], positive.</p></li>
+<li><p><strong>sigma</strong> (<em>float</em><em> or </em><em>array_like</em>) – Applied stress [Pa], nonnegative.</p></li>
+<li><p><strong>n</strong> (<em>float</em><em> or </em><em>array_like</em>) – Stress exponent [-], positive (1 for diffusion creep, 3 to 8 for
+dislocation creep).</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>1/s.</p>
+<dd class="field-even"><p>Creep strain rate [1/s].</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>result</p>
+<dd class="field-odd"><p>float or ndarray</p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
-<p>Assumptions, governing equations and validity limits are discussed in
-<a class="reference internal" href="../guides/materials.html"><span class="doc">Materials: elasticity, fracture and fatigue conventions</span></a>. SI inputs are required; raw numbers carry no
-dimensional metadata.</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/materials.html"><span class="doc">Materials: elasticity, yield, fatigue, fracture and creep conventions</span></a>.</p>
+<p class="rubric">References</p>
+<p>F. H. Norton, <em>The Creep of Steel at High Temperatures</em> (McGraw-Hill,
+New York, 1929).</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.materials.basquin_cycles">
-<span class="sig-prename descclassname"><span class="pre">engineeringkit.materials.</span></span><span class="sig-name descname"><span class="pre">basquin_cycles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stress_amplitude</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma_f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/materials.html#basquin_cycles"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.materials.basquin_cycles" title="Link to this definition">#</a></dt>
-<dd><p>Estimate fatigue life in cycles from Basquin stress-life parameters.</p>
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.materials.</span></span><span class="sig-name descname"><span class="pre">basquin_cycles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stress_amplitude</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma_f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/materials/systems/fatigue.html#basquin_cycles"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.materials.basquin_cycles" title="Link to this definition">#</a></dt>
+<dd><p>Cycles to failure from Basquin’s stress-life law.</p>
+<div class="math notranslate nohighlight">
+\[\sigma_a = \sigma_f'(2N)^b \quad\Rightarrow\quad
+N = \tfrac{1}{2}\left(\sigma_a/\sigma_f'\right)^{1/b}\]</div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>stress_amplitude</strong> (<em>Pa</em>) – Input in the units stated above.</p></li>
-<li><p><strong>sigma_f</strong> (<em>Pa</em>) – Input in the units stated above.</p></li>
-<li><p><strong>b</strong> (<em>1</em>) – Input in the units stated above.</p></li>
+<li><p><strong>stress_amplitude</strong> (<em>float</em><em> or </em><em>array_like</em>) – Fully reversed stress amplitude <span class="math notranslate nohighlight">\(\sigma_a\)</span> [Pa], positive.</p></li>
+<li><p><strong>sigma_f</strong> (<em>float</em><em> or </em><em>array_like</em>) – Fatigue strength coefficient <span class="math notranslate nohighlight">\(\sigma_f'\)</span> [Pa], positive.</p></li>
+<li><p><strong>b</strong> (<em>float</em><em> or </em><em>array_like</em>) – Fatigue strength exponent [-], negative (typically -0.05 to -0.12).</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>cycles (not reversals).</p>
+<dd class="field-even"><p>Cycles to failure <span class="math notranslate nohighlight">\(N\)</span> (not reversals <span class="math notranslate nohighlight">\(2N\)</span>).</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>result</p>
+<dd class="field-odd"><p>float or ndarray</p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
-<p>Assumptions, governing equations and validity limits are discussed in
-<a class="reference internal" href="../guides/materials.html"><span class="doc">Materials: elasticity, fracture and fatigue conventions</span></a>. SI inputs are required; raw numbers carry no
-dimensional metadata.</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/materials.html"><span class="doc">Materials: elasticity, yield, fatigue, fracture and creep conventions</span></a>.</p>
+<p class="rubric">References</p>
+<p>O. H. Basquin, “The exponential law of endurance tests,” <em>Proc. Am. Soc.
+Test. Mater.</em> 10 (1910) 625-630.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">float</span><span class="p">(</span><span class="n">basquin_cycles</span><span class="p">(</span><span class="mf">500e6</span><span class="p">,</span> <span class="mf">1000e6</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.1</span><span class="p">))</span>
+<span class="go">512.0</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.materials.bulk_modulus">
-<span class="sig-prename descclassname"><span class="pre">engineeringkit.materials.</span></span><span class="sig-name descname"><span class="pre">bulk_modulus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">E</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nu</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/materials.html#bulk_modulus"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.materials.bulk_modulus" title="Link to this definition">#</a></dt>
-<dd><p>Bulk modulus.</p>
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.materials.</span></span><span class="sig-name descname"><span class="pre">bulk_modulus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">E</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nu</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/materials/systems/elasticity.html#bulk_modulus"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.materials.bulk_modulus" title="Link to this definition">#</a></dt>
+<dd><p>Isotropic bulk modulus <span class="math notranslate nohighlight">\(K = E / (3(1 - 2\nu))\)</span>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>E</strong> (<em>Pa</em>) – Input in the units stated above.</p></li>
-<li><p><strong>nu</strong> (<em>1</em>) – Input in the units stated above.</p></li>
+<li><p><strong>E</strong> (<em>float</em><em> or </em><em>array_like</em>) – Young’s modulus [Pa], positive.</p></li>
+<li><p><strong>nu</strong> (<em>float</em><em> or </em><em>array_like</em>) – Poisson’s ratio [-], in (-1, 0.5); <span class="math notranslate nohighlight">\(K \to \infty\)</span> as
+<span class="math notranslate nohighlight">\(\nu \to 1/2\)</span>.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Pa.</p>
+<dd class="field-even"><p>Bulk modulus [Pa].</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>result</p>
+<dd class="field-odd"><p>float or ndarray</p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
-<p>Assumptions, governing equations and validity limits are discussed in
-<a class="reference internal" href="../guides/materials.html"><span class="doc">Materials: elasticity, fracture and fatigue conventions</span></a>. SI inputs are required; raw numbers carry no
-dimensional metadata.</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/materials.html"><span class="doc">Materials: elasticity, yield, fatigue, fracture and creep conventions</span></a>.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.materials.coffin_manson_cycles">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.materials.</span></span><span class="sig-name descname"><span class="pre">coffin_manson_cycles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plastic_strain_amplitude</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epsilon_f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/materials/systems/fatigue.html#coffin_manson_cycles"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.materials.coffin_manson_cycles" title="Link to this definition">#</a></dt>
+<dd><p>Cycles to failure from the Coffin-Manson low-cycle fatigue law.</p>
+<div class="math notranslate nohighlight">
+\[\frac{\Delta\varepsilon_p}{2} = \varepsilon_f'(2N)^c
+\quad\Rightarrow\quad
+N = \tfrac{1}{2}\left(\frac{\Delta\varepsilon_p/2}{\varepsilon_f'}\right)^{1/c}\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>plastic_strain_amplitude</strong> (<em>float</em><em> or </em><em>array_like</em>) – Plastic strain amplitude <span class="math notranslate nohighlight">\(\Delta\varepsilon_p/2\)</span> [-], positive.</p></li>
+<li><p><strong>epsilon_f</strong> (<em>float</em><em> or </em><em>array_like</em>) – Fatigue ductility coefficient <span class="math notranslate nohighlight">\(\varepsilon_f'\)</span> [-], positive.</p></li>
+<li><p><strong>c</strong> (<em>float</em><em> or </em><em>array_like</em>) – Fatigue ductility exponent [-], negative (typically -0.5 to -0.7).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Cycles to failure <span class="math notranslate nohighlight">\(N\)</span>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/materials.html"><span class="doc">Materials: elasticity, yield, fatigue, fracture and creep conventions</span></a>.</p>
+<p class="rubric">References</p>
+<p>L. F. Coffin Jr., “A study of the effects of cyclic thermal stresses on a
+ductile metal,” <em>Trans. ASME</em> 76 (1954) 931-950; S. S. Manson, “Behavior
+of materials under conditions of thermal stress,” NACA Report 1170 (1954).</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">float</span><span class="p">(</span><span class="n">coffin_manson_cycles</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.64</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">))</span>
+<span class="go">2048.0</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.materials.constrained_thermal_stress">
-<span class="sig-prename descclassname"><span class="pre">engineeringkit.materials.</span></span><span class="sig-name descname"><span class="pre">constrained_thermal_stress</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">E</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dT</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/materials.html#constrained_thermal_stress"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.materials.constrained_thermal_stress" title="Link to this definition">#</a></dt>
-<dd><p>Constrained thermal stress.</p>
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.materials.</span></span><span class="sig-name descname"><span class="pre">constrained_thermal_stress</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">E</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dT</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/materials/systems/elasticity.html#constrained_thermal_stress"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.materials.constrained_thermal_stress" title="Link to this definition">#</a></dt>
+<dd><p>Stress in a bar held at fixed length while its temperature changes.</p>
+<div class="math notranslate nohighlight">
+\[\sigma = -E\alpha\,\Delta T\]</div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>E</strong> (<em>Pa</em>) – Input in the units stated above.</p></li>
-<li><p><strong>alpha</strong> (<em>1/K</em>) – Input in the units stated above.</p></li>
-<li><p><strong>dT</strong> (<em>K</em><em> (</em><em>difference</em><em>)</em>) – Input in the units stated above.</p></li>
+<li><p><strong>E</strong> (<em>float</em><em> or </em><em>array_like</em>) – Young’s modulus [Pa], positive.</p></li>
+<li><p><strong>alpha</strong> (<em>float</em><em> or </em><em>array_like</em>) – Linear expansion coefficient [1/K].</p></li>
+<li><p><strong>dT</strong> (<em>float</em><em> or </em><em>array_like</em>) – Temperature change [K].</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Pa.</p>
+<dd class="field-even"><p>Stress [Pa], compressive (negative) on heating.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>result</p>
+<dd class="field-odd"><p>float or ndarray</p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
-<p>Assumptions, governing equations and validity limits are discussed in
-<a class="reference internal" href="../guides/materials.html"><span class="doc">Materials: elasticity, fracture and fatigue conventions</span></a>. SI inputs are required; raw numbers carry no
-dimensional metadata.</p>
+<p>Uniaxial restraint only; a plate restrained in two directions carries
+<span class="math notranslate nohighlight">\(-E\alpha\Delta T/(1 - \nu)\)</span>. Inputs are raw SI numbers with no
+dimensional metadata; see <a class="reference internal" href="../guides/materials.html"><span class="doc">Materials: elasticity, yield, fatigue, fracture and creep conventions</span></a>.</p>
+<p class="rubric">References</p>
+<p>J.-M.-C. Duhamel, “Mémoire sur le calcul des actions moléculaires
+développées par les changements de température dans les corps solides,”
+<em>Mém. Divers Savants Acad. R. Sci. Inst. France</em> 5 (1838) 440-498.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.materials.crack_growth_life">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.materials.</span></span><span class="sig-name descname"><span class="pre">crack_growth_life</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">C</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delta_sigma</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">af</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">points</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2001</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/materials/systems/fracture.html#crack_growth_life"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.materials.crack_growth_life" title="Link to this definition">#</a></dt>
+<dd><p>Integrate Paris’s law from an initial to a final crack length.</p>
+<div class="math notranslate nohighlight">
+\[N = \int_{a_0}^{a_f} \frac{da}{C\,(Y(a)\,\Delta\sigma\sqrt{\pi a})^m}\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>C</strong> (<em>float</em>) – Paris coefficient [m/cycle per (Pa sqrt(m))^m], positive.</p></li>
+<li><p><strong>m</strong> (<em>float</em>) – Paris exponent [-], positive.</p></li>
+<li><p><strong>delta_sigma</strong> (<em>float</em>) – Stress range [Pa], positive.</p></li>
+<li><p><strong>a0</strong> (<em>float</em>) – Initial crack length [m], positive.</p></li>
+<li><p><strong>af</strong> (<em>float</em>) – Final crack length [m], greater than <code class="docutils literal notranslate"><span class="pre">a0</span></code>; often
+<a class="reference internal" href="#engineeringkit.materials.critical_crack_length" title="engineeringkit.materials.critical_crack_length"><code class="xref py py-func docutils literal notranslate"><span class="pre">critical_crack_length()</span></code></a> at the peak stress.</p></li>
+<li><p><strong>Y</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code> | <code class="xref py py-class docutils literal notranslate"><span class="pre">Callable</span></code></span>) – Geometry factor [-], a positive constant or a function <code class="docutils literal notranslate"><span class="pre">Y(a)</span></code> of
+crack length [m] (for example a finite-width correction).</p></li>
+<li><p><strong>points</strong> (<em>int</em>) – Number of geometrically spaced crack lengths, at least 2.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Crack length against cycles.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#engineeringkit.materials.CrackGrowthResult" title="engineeringkit.materials.CrackGrowthResult">CrackGrowthResult</a></p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>The trapezoid rule on a geometric grid; with a constant <code class="docutils literal notranslate"><span class="pre">Y</span></code> and
+<span class="math notranslate nohighlight">\(m \ne 2\)</span> the closed form
+<span class="math notranslate nohighlight">\(N = 2(a_0^{1-m/2} - a_f^{1-m/2}) / ((m - 2) C (Y\Delta\sigma\sqrt\pi)^m)\)</span>
+checks it. Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/materials.html"><span class="doc">Materials: elasticity, yield, fatigue, fracture and creep conventions</span></a>.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.materials.critical_crack_length">
-<span class="sig-prename descclassname"><span class="pre">engineeringkit.materials.</span></span><span class="sig-name descname"><span class="pre">critical_crack_length</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Kic</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/materials.html#critical_crack_length"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.materials.critical_crack_length" title="Link to this definition">#</a></dt>
-<dd><p>Critical crack length.</p>
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.materials.</span></span><span class="sig-name descname"><span class="pre">critical_crack_length</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Kic</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/materials/systems/fracture.html#critical_crack_length"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.materials.critical_crack_length" title="Link to this definition">#</a></dt>
+<dd><p>Crack length at which <span class="math notranslate nohighlight">\(K_I\)</span> reaches the toughness, <span class="math notranslate nohighlight">\(a_c = (K_{Ic}/Y\sigma)^2/\pi\)</span>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>Kic</strong> (<em>Pa sqrt</em><em>(</em><em>m</em><em>)</em>) – Input in the units stated above.</p></li>
-<li><p><strong>sigma</strong> (<em>Pa</em>) – Input in the units stated above.</p></li>
-<li><p><strong>Y</strong> (<em>1</em>) – Input in the units stated above.</p></li>
+<li><p><strong>Kic</strong> (<em>float</em><em> or </em><em>array_like</em>) – Plane-strain fracture toughness [Pa sqrt(m)], positive.</p></li>
+<li><p><strong>sigma</strong> (<em>float</em><em> or </em><em>array_like</em>) – Remote tensile stress [Pa], positive.</p></li>
+<li><p><strong>Y</strong> (<em>float</em><em> or </em><em>array_like</em>) – Geometry factor [-], positive.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><ol class="loweralpha simple" start="13">
-<li></li>
-</ol>
-</p>
+<dd class="field-even"><p>Critical crack length [m].</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>result</p>
+<dd class="field-odd"><p>float or ndarray</p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
-<p>Assumptions, governing equations and validity limits are discussed in
-<a class="reference internal" href="../guides/materials.html"><span class="doc">Materials: elasticity, fracture and fatigue conventions</span></a>. SI inputs are required; raw numbers carry no
-dimensional metadata.</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/materials.html"><span class="doc">Materials: elasticity, yield, fatigue, fracture and creep conventions</span></a>.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.materials.density_rule_of_mixtures">
-<span class="sig-prename descclassname"><span class="pre">engineeringkit.materials.</span></span><span class="sig-name descname"><span class="pre">density_rule_of_mixtures</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rhof</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rhom</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Vf</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/materials.html#density_rule_of_mixtures"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.materials.density_rule_of_mixtures" title="Link to this definition">#</a></dt>
-<dd><p>Density rule of mixtures.</p>
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.materials.</span></span><span class="sig-name descname"><span class="pre">density_rule_of_mixtures</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rhof</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rhom</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Vf</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/materials/systems/composites.html#density_rule_of_mixtures"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.materials.density_rule_of_mixtures" title="Link to this definition">#</a></dt>
+<dd><p>Composite density <span class="math notranslate nohighlight">\(\rho = V_f\rho_f + (1 - V_f)\rho_m\)</span>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>rhof</strong> (<em>kg/m^3</em>) – Input in the units stated above.</p></li>
-<li><p><strong>rhom</strong> (<em>kg/m^3</em>) – Input in the units stated above.</p></li>
-<li><p><strong>Vf</strong> (<em>1</em>) – Input in the units stated above.</p></li>
+<li><p><strong>rhof</strong> (<em>float</em><em> or </em><em>array_like</em>) – Fibre density [kg/m^3], positive.</p></li>
+<li><p><strong>rhom</strong> (<em>float</em><em> or </em><em>array_like</em>) – Matrix density [kg/m^3], positive.</p></li>
+<li><p><strong>Vf</strong> (<em>float</em><em> or </em><em>array_like</em>) – Fibre volume fraction [-], in [0, 1].</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>kg/m^3.</p>
+<dd class="field-even"><p>Density [kg/m^3], exact for a void-free composite.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>result</p>
+<dd class="field-odd"><p>float or ndarray</p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
-<p>Assumptions, governing equations and validity limits are discussed in
-<a class="reference internal" href="../guides/materials.html"><span class="doc">Materials: elasticity, fracture and fatigue conventions</span></a>. SI inputs are required; raw numbers carry no
-dimensional metadata.</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/materials.html"><span class="doc">Materials: elasticity, yield, fatigue, fracture and creep conventions</span></a>.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.materials.factor_of_safety">
-<span class="sig-prename descclassname"><span class="pre">engineeringkit.materials.</span></span><span class="sig-name descname"><span class="pre">factor_of_safety</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">strength</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stress</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/materials.html#factor_of_safety"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.materials.factor_of_safety" title="Link to this definition">#</a></dt>
-<dd><p>Factor of safety.</p>
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.materials.</span></span><span class="sig-name descname"><span class="pre">factor_of_safety</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">strength</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stress</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/materials/systems/yielding.html#factor_of_safety"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.materials.factor_of_safety" title="Link to this definition">#</a></dt>
+<dd><p>Factor of safety <span class="math notranslate nohighlight">\(n = S / \sigma\)</span>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>strength</strong> (<em>Pa</em>) – Input in the units stated above.</p></li>
-<li><p><strong>stress</strong> (<em>Pa</em>) – Input in the units stated above.</p></li>
+<li><p><strong>strength</strong> (<em>float</em><em> or </em><em>array_like</em>) – Material strength [Pa], positive.</p></li>
+<li><p><strong>stress</strong> (<em>float</em><em> or </em><em>array_like</em>) – Equivalent working stress [Pa], positive.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><ol class="arabic simple">
-<li></li>
-</ol>
-</p>
+<dd class="field-even"><p>Safety factor [-].</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>result</p>
+<dd class="field-odd"><p>float or ndarray</p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
-<p>Assumptions, governing equations and validity limits are discussed in
-<a class="reference internal" href="../guides/materials.html"><span class="doc">Materials: elasticity, fracture and fatigue conventions</span></a>. SI inputs are required; raw numbers carry no
-dimensional metadata.</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/materials.html"><span class="doc">Materials: elasticity, yield, fatigue, fracture and creep conventions</span></a>.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.materials.goodman_safety_factor">
-<span class="sig-prename descclassname"><span class="pre">engineeringkit.materials.</span></span><span class="sig-name descname"><span class="pre">goodman_safety_factor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sa</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Se</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Sut</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/materials.html#goodman_safety_factor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.materials.goodman_safety_factor" title="Link to this definition">#</a></dt>
-<dd><p>Goodman safety factor.</p>
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.materials.</span></span><span class="sig-name descname"><span class="pre">goodman_safety_factor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sa</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Se</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Sut</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/materials/systems/fatigue.html#goodman_safety_factor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.materials.goodman_safety_factor" title="Link to this definition">#</a></dt>
+<dd><p>Safety factor against fatigue on Goodman’s mean-stress line.</p>
+<div class="math notranslate nohighlight">
+\[\frac{1}{n} = \frac{\sigma_a}{S_e} + \frac{\sigma_m}{S_{ut}}\]</div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>sa</strong> (<em>Pa</em>) – Input in the units stated above.</p></li>
-<li><p><strong>sm</strong> (<em>Pa</em>) – Input in the units stated above.</p></li>
-<li><p><strong>Se</strong> (<em>Pa</em>) – Input in the units stated above.</p></li>
-<li><p><strong>Sut</strong> (<em>Pa</em>) – Input in the units stated above.</p></li>
+<li><p><strong>sa</strong> (<em>float</em><em> or </em><em>array_like</em>) – Alternating stress amplitude [Pa], nonnegative.</p></li>
+<li><p><strong>sm</strong> (<em>float</em><em> or </em><em>array_like</em>) – Mean stress [Pa], nonnegative (tensile).</p></li>
+<li><p><strong>Se</strong> (<em>float</em><em> or </em><em>array_like</em>) – Endurance limit or fully reversed fatigue strength [Pa], positive.</p></li>
+<li><p><strong>Sut</strong> (<em>float</em><em> or </em><em>array_like</em>) – Ultimate tensile strength [Pa], positive.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><ol class="arabic simple">
-<li></li>
-</ol>
-</p>
+<dd class="field-even"><p>Safety factor [-], the factor by which both stresses can grow
+proportionally before reaching the Goodman line.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>result</p>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If both stresses are zero.</p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
-<p>Assumptions, governing equations and validity limits are discussed in
-<a class="reference internal" href="../guides/materials.html"><span class="doc">Materials: elasticity, fracture and fatigue conventions</span></a>. SI inputs are required; raw numbers carry no
-dimensional metadata.</p>
+<p>Compressive mean stresses, where the line is usually replaced by
+<span class="math notranslate nohighlight">\(\sigma_a = S_e\)</span>, are not accepted. Inputs are raw SI numbers with
+no dimensional metadata; see <a class="reference internal" href="../guides/materials.html"><span class="doc">Materials: elasticity, yield, fatigue, fracture and creep conventions</span></a>.</p>
+<p class="rubric">References</p>
+<p>J. Goodman, <em>Mechanics Applied to Engineering</em> (Longmans, Green, London,
+1899).</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.materials.griffith_fracture_stress">
-<span class="sig-prename descclassname"><span class="pre">engineeringkit.materials.</span></span><span class="sig-name descname"><span class="pre">griffith_fracture_stress</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">E</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/materials.html#griffith_fracture_stress"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.materials.griffith_fracture_stress" title="Link to this definition">#</a></dt>
-<dd><p>Griffith fracture stress.</p>
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.materials.</span></span><span class="sig-name descname"><span class="pre">griffith_fracture_stress</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">E</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/materials/systems/fracture.html#griffith_fracture_stress"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.materials.griffith_fracture_stress" title="Link to this definition">#</a></dt>
+<dd><p>Griffith’s fracture stress of a brittle plate with a central crack.</p>
+<div class="math notranslate nohighlight">
+\[\sigma_f = \sqrt{\frac{2E\gamma_s}{\pi a}}\]</div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>E</strong> (<em>Pa</em>) – Input in the units stated above.</p></li>
-<li><p><strong>gamma</strong> (<em>J/m^2</em>) – Input in the units stated above.</p></li>
-<li><p><strong>a</strong> (<em>m</em>) – Input in the units stated above.</p></li>
+<li><p><strong>E</strong> (<em>float</em><em> or </em><em>array_like</em>) – Young’s modulus [Pa], positive.</p></li>
+<li><p><strong>gamma</strong> (<em>float</em><em> or </em><em>array_like</em>) – Surface energy <span class="math notranslate nohighlight">\(\gamma_s\)</span> [J/m^2], positive.</p></li>
+<li><p><strong>a</strong> (<em>float</em><em> or </em><em>array_like</em>) – Half-length of the crack [m], positive.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Pa.</p>
+<dd class="field-even"><p>Remote tensile stress at fracture [Pa], plane stress.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>result</p>
+<dd class="field-odd"><p>float or ndarray</p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
-<p>Assumptions, governing equations and validity limits are discussed in
-<a class="reference internal" href="../guides/materials.html"><span class="doc">Materials: elasticity, fracture and fatigue conventions</span></a>. SI inputs are required; raw numbers carry no
-dimensional metadata.</p>
+<p>Ideally brittle solid; plastic work at the tip, which dominates in
+metals, is left out. Inputs are raw SI numbers with no dimensional
+metadata; see <a class="reference internal" href="../guides/materials.html"><span class="doc">Materials: elasticity, yield, fatigue, fracture and creep conventions</span></a>.</p>
+<p class="rubric">References</p>
+<p>A. A. Griffith, “The phenomena of rupture and flow in solids,” <em>Phil.
+Trans. R. Soc. Lond. A</em> 221 (1921) 163-198.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.materials.hall_petch">
-<span class="sig-prename descclassname"><span class="pre">engineeringkit.materials.</span></span><span class="sig-name descname"><span class="pre">hall_petch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sigma0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">d</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/materials.html#hall_petch"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.materials.hall_petch" title="Link to this definition">#</a></dt>
-<dd><p>Hall petch.</p>
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.materials.</span></span><span class="sig-name descname"><span class="pre">hall_petch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sigma0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">d</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/materials/systems/plasticity.html#hall_petch"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.materials.hall_petch" title="Link to this definition">#</a></dt>
+<dd><p>Hall-Petch yield strength <span class="math notranslate nohighlight">\(\sigma_y = \sigma_0 + k\,d^{-1/2}\)</span>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>sigma0</strong> (<em>Pa</em>) – Input in the units stated above.</p></li>
-<li><p><strong>k</strong> (<em>Pa sqrt</em><em>(</em><em>m</em><em>)</em>) – Input in the units stated above.</p></li>
-<li><p><strong>d</strong> (<em>m</em>) – Input in the units stated above.</p></li>
+<li><p><strong>sigma0</strong> (<em>float</em><em> or </em><em>array_like</em>) – Friction stress of a single crystal [Pa], nonnegative.</p></li>
+<li><p><strong>k</strong> (<em>float</em><em> or </em><em>array_like</em>) – Strengthening coefficient [Pa sqrt(m)], nonnegative.</p></li>
+<li><p><strong>d</strong> (<em>float</em><em> or </em><em>array_like</em>) – Mean grain diameter [m], positive.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Pa.</p>
+<dd class="field-even"><p>Yield strength [Pa].</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>result</p>
+<dd class="field-odd"><p>float or ndarray</p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
-<p>Assumptions, governing equations and validity limits are discussed in
-<a class="reference internal" href="../guides/materials.html"><span class="doc">Materials: elasticity, fracture and fatigue conventions</span></a>. SI inputs are required; raw numbers carry no
-dimensional metadata.</p>
+<p>Holds down to grain sizes of tens of nanometres, below which grain
+boundary sliding softens the metal (the inverse Hall-Petch effect).
+Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/materials.html"><span class="doc">Materials: elasticity, yield, fatigue, fracture and creep conventions</span></a>.</p>
+<p class="rubric">References</p>
+<p>E. O. Hall, “The deformation and ageing of mild steel: III Discussion of
+results,” <em>Proc. Phys. Soc. B</em> 64 (1951) 747-753; N. J. Petch, “The
+cleavage strength of polycrystals,” <em>J. Iron Steel Inst.</em> 174 (1953)
+25-28.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.materials.hooke_stress">
-<span class="sig-prename descclassname"><span class="pre">engineeringkit.materials.</span></span><span class="sig-name descname"><span class="pre">hooke_stress</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">E</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strain</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/materials.html#hooke_stress"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.materials.hooke_stress" title="Link to this definition">#</a></dt>
-<dd><p>Hooke stress.</p>
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.materials.</span></span><span class="sig-name descname"><span class="pre">hooke_stress</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">E</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strain</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/materials/systems/elasticity.html#hooke_stress"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.materials.hooke_stress" title="Link to this definition">#</a></dt>
+<dd><p>Uniaxial Hooke’s law <span class="math notranslate nohighlight">\(\sigma = E\varepsilon\)</span>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>E</strong> (<em>Pa</em>) – Input in the units stated above.</p></li>
-<li><p><strong>strain</strong> (<em>1</em>) – Input in the units stated above.</p></li>
+<li><p><strong>E</strong> (<em>float</em><em> or </em><em>array_like</em>) – Young’s modulus [Pa], positive.</p></li>
+<li><p><strong>strain</strong> (<em>float</em><em> or </em><em>array_like</em>) – Normal strain [-].</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Pa.</p>
+<dd class="field-even"><p>Stress [Pa].</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>result</p>
+<dd class="field-odd"><p>float or ndarray</p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
-<p>Assumptions, governing equations and validity limits are discussed in
-<a class="reference internal" href="../guides/materials.html"><span class="doc">Materials: elasticity, fracture and fatigue conventions</span></a>. SI inputs are required; raw numbers carry no
-dimensional metadata.</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/materials.html"><span class="doc">Materials: elasticity, yield, fatigue, fracture and creep conventions</span></a>.</p>
+<p class="rubric">References</p>
+<p>T. Young, <em>A Course of Lectures on Natural Philosophy and the Mechanical
+Arts</em> (Johnson, London, 1807), vol. 1, lecture XIII.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.materials.ideal_shear_strength">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.materials.</span></span><span class="sig-name descname"><span class="pre">ideal_shear_strength</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">G</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/materials/systems/plasticity.html#ideal_shear_strength"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.materials.ideal_shear_strength" title="Link to this definition">#</a></dt>
+<dd><p>Frenkel’s theoretical shear strength of a perfect crystal.</p>
+<div class="math notranslate nohighlight">
+\[\tau_{max} = \frac{G\,b}{2\pi a}\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>G</strong> (<em>float</em><em> or </em><em>array_like</em>) – Shear modulus [Pa], positive.</p></li>
+<li><p><strong>b</strong> (<em>float</em><em> or </em><em>array_like</em>) – Atomic spacing in the slip direction [m], positive.</p></li>
+<li><p><strong>a</strong> (<em>float</em><em> or </em><em>array_like</em>) – Spacing of the slip planes [m], positive.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Stress to slide one plane rigidly over the next [Pa].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>A sinusoidal resistance whose initial slope is <span class="math notranslate nohighlight">\(G\)</span>. Inputs are raw
+SI numbers with no dimensional metadata; see <a class="reference internal" href="../guides/materials.html"><span class="doc">Materials: elasticity, yield, fatigue, fracture and creep conventions</span></a>.</p>
+<p class="rubric">References</p>
+<p>J. Frenkel, “Zur Theorie der Elastizitätsgrenze und der Festigkeit
+kristallinischer Körper,” <em>Z. Phys.</em> 37 (1926) 572-609.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">ideal_shear_strength</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)),</span> <span class="mi">12</span><span class="p">)</span>
+<span class="go">1.0</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.materials.lame_parameters">
-<span class="sig-prename descclassname"><span class="pre">engineeringkit.materials.</span></span><span class="sig-name descname"><span class="pre">lame_parameters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">E</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nu</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/materials.html#lame_parameters"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.materials.lame_parameters" title="Link to this definition">#</a></dt>
-<dd><p>Lame parameters.</p>
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.materials.</span></span><span class="sig-name descname"><span class="pre">lame_parameters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">E</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nu</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/materials/systems/elasticity.html#lame_parameters"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.materials.lame_parameters" title="Link to this definition">#</a></dt>
+<dd><p>Lamé’s constants <span class="math notranslate nohighlight">\(\lambda\)</span> and <span class="math notranslate nohighlight">\(\mu = G\)</span> from <span class="math notranslate nohighlight">\(E\)</span> and <span class="math notranslate nohighlight">\(\nu\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\lambda = \frac{E\nu}{(1 + \nu)(1 - 2\nu)}, \qquad
+\mu = \frac{E}{2(1 + \nu)}\]</div>
+<p>so that <span class="math notranslate nohighlight">\(\sigma_{ij} = \lambda\,\varepsilon_{kk}\delta_{ij} + 2\mu\,\varepsilon_{ij}\)</span>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>E</strong> (<em>Pa</em>) – Input in the units stated above.</p></li>
-<li><p><strong>nu</strong> (<em>1</em>) – Input in the units stated above.</p></li>
+<li><p><strong>E</strong> (<em>float</em><em> or </em><em>array_like</em>) – Young’s modulus [Pa], positive.</p></li>
+<li><p><strong>nu</strong> (<em>float</em><em> or </em><em>array_like</em>) – Poisson’s ratio [-], in (-1, 0.5).</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>(lambda [Pa], shear modulus [Pa]).</p>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">(lambda,</span> <span class="pre">mu)</span></code> [Pa].</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>result</p>
+<dd class="field-odd"><p>tuple</p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
-<p>Assumptions, governing equations and validity limits are discussed in
-<a class="reference internal" href="../guides/materials.html"><span class="doc">Materials: elasticity, fracture and fatigue conventions</span></a>. SI inputs are required; raw numbers carry no
-dimensional metadata.</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/materials.html"><span class="doc">Materials: elasticity, yield, fatigue, fracture and creep conventions</span></a>.</p>
+<p class="rubric">References</p>
+<p>G. Lamé, <em>Leçons sur la théorie mathématique de l’élasticité des corps
+solides</em> (Bachelier, Paris, 1852).</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.materials.larson_miller_parameter">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.materials.</span></span><span class="sig-name descname"><span class="pre">larson_miller_parameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">T</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rupture_time</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">C</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/materials/systems/creep.html#larson_miller_parameter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.materials.larson_miller_parameter" title="Link to this definition">#</a></dt>
+<dd><p>Larson-Miller parameter <span class="math notranslate nohighlight">\(P = T\,(C + \log_{10} t_r)\)</span> with <span class="math notranslate nohighlight">\(t_r\)</span> in hours.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>T</strong> (<em>float</em><em> or </em><em>array_like</em>) – Absolute temperature [K], positive.</p></li>
+<li><p><strong>rupture_time</strong> (<em>float</em><em> or </em><em>array_like</em>) – Time to rupture [s], positive; converted to hours inside, the unit
+the constant <code class="docutils literal notranslate"><span class="pre">C</span></code> is defined for.</p></li>
+<li><p><strong>C</strong> (<em>float</em>) – Larson-Miller constant [-], positive (about 20 for steels).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Parameter [K], in the conventional K log10(h) units.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/materials.html"><span class="doc">Materials: elasticity, yield, fatigue, fracture and creep conventions</span></a>.</p>
+<p class="rubric">References</p>
+<p>F. R. Larson and J. Miller, “A time-temperature relationship for rupture
+and creep stresses,” <em>Trans. ASME</em> 74 (1952) 765-775.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">float</span><span class="p">(</span><span class="n">larson_miller_parameter</span><span class="p">(</span><span class="mf">1000.0</span><span class="p">,</span> <span class="mf">3600.0</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">))</span>
+<span class="go">23000.0</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.materials.larson_miller_rupture_time">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.materials.</span></span><span class="sig-name descname"><span class="pre">larson_miller_rupture_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">P</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">C</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/materials/systems/creep.html#larson_miller_rupture_time"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.materials.larson_miller_rupture_time" title="Link to this definition">#</a></dt>
+<dd><p>Time to rupture at temperature <span class="math notranslate nohighlight">\(T\)</span> for a given Larson-Miller parameter.</p>
+<div class="math notranslate nohighlight">
+\[t_r = 10^{P/T - C}\ \text{hours}\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>P</strong> (<em>float</em><em> or </em><em>array_like</em>) – Larson-Miller parameter [K], positive, read from a master curve at
+the working stress.</p></li>
+<li><p><strong>T</strong> (<em>float</em><em> or </em><em>array_like</em>) – Absolute temperature [K], positive.</p></li>
+<li><p><strong>C</strong> (<em>float</em>) – Larson-Miller constant [-], positive.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Time to rupture [s].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/materials.html"><span class="doc">Materials: elasticity, yield, fatigue, fracture and creep conventions</span></a>.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.materials.miner_damage">
-<span class="sig-prename descclassname"><span class="pre">engineeringkit.materials.</span></span><span class="sig-name descname"><span class="pre">miner_damage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cycles</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cycles_to_failure</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/materials.html#miner_damage"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.materials.miner_damage" title="Link to this definition">#</a></dt>
-<dd><p>Miner damage.</p>
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.materials.</span></span><span class="sig-name descname"><span class="pre">miner_damage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cycles</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cycles_to_failure</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/materials/systems/fatigue.html#miner_damage"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.materials.miner_damage" title="Link to this definition">#</a></dt>
+<dd><p>Palmgren-Miner cumulative damage <span class="math notranslate nohighlight">\(D = \sum_i n_i / N_i\)</span>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>cycles</strong> (<em>cycles</em>) – Input in the units stated above.</p></li>
-<li><p><strong>cycles_to_failure</strong> (<em>cycles</em>) – Input in the units stated above.</p></li>
+<li><p><strong>cycles</strong> (<em>array_like</em>) – Applied cycles <span class="math notranslate nohighlight">\(n_i\)</span> at each amplitude, nonnegative.</p></li>
+<li><p><strong>cycles_to_failure</strong> (<em>array_like</em>) – Matching lives <span class="math notranslate nohighlight">\(N_i\)</span> at those amplitudes, positive.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><ol class="arabic simple">
-<li></li>
-</ol>
-</p>
+<dd class="field-even"><p>Damage [-]; failure is predicted at <span class="math notranslate nohighlight">\(D = 1\)</span>.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>result</p>
+<dd class="field-odd"><p>float</p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
-<p>Assumptions, governing equations and validity limits are discussed in
-<a class="reference internal" href="../guides/materials.html"><span class="doc">Materials: elasticity, fracture and fatigue conventions</span></a>. SI inputs are required; raw numbers carry no
-dimensional metadata.</p>
+<p>The sum ignores the order of the blocks. Inputs are raw SI numbers with
+no dimensional metadata; see <a class="reference internal" href="../guides/materials.html"><span class="doc">Materials: elasticity, yield, fatigue, fracture and creep conventions</span></a>.</p>
+<p class="rubric">References</p>
+<p>A. Palmgren, “Die Lebensdauer von Kugellagern,” <em>Z. Ver. Dtsch. Ing.</em> 68
+(1924) 339-341; M. A. Miner, “Cumulative damage in fatigue,” <em>J. Appl.
+Mech.</em> 12 (1945) A159-A164.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.materials.normal_strain">
-<span class="sig-prename descclassname"><span class="pre">engineeringkit.materials.</span></span><span class="sig-name descname"><span class="pre">normal_strain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">delta_length</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">length</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/materials.html#normal_strain"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.materials.normal_strain" title="Link to this definition">#</a></dt>
-<dd><p>Normal strain.</p>
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.materials.</span></span><span class="sig-name descname"><span class="pre">normal_strain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">delta_length</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">length</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/materials/systems/elasticity.html#normal_strain"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.materials.normal_strain" title="Link to this definition">#</a></dt>
+<dd><p>Engineering normal strain <span class="math notranslate nohighlight">\(\varepsilon = \Delta L / L_0\)</span>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>delta_length</strong> (<em>m</em>) – Input in the units stated above.</p></li>
-<li><p><strong>length</strong> (<em>m</em>) – Input in the units stated above.</p></li>
+<li><p><strong>delta_length</strong> (<em>float</em><em> or </em><em>array_like</em>) – Change of length <span class="math notranslate nohighlight">\(\Delta L\)</span> [m], positive in extension.</p></li>
+<li><p><strong>length</strong> (<em>float</em><em> or </em><em>array_like</em>) – Original gauge length <span class="math notranslate nohighlight">\(L_0\)</span> [m], positive.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><ol class="arabic simple">
-<li></li>
-</ol>
-</p>
+<dd class="field-even"><p>Strain [-].</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>result</p>
+<dd class="field-odd"><p>float or ndarray</p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
-<p>Assumptions, governing equations and validity limits are discussed in
-<a class="reference internal" href="../guides/materials.html"><span class="doc">Materials: elasticity, fracture and fatigue conventions</span></a>. SI inputs are required; raw numbers carry no
-dimensional metadata.</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/materials.html"><span class="doc">Materials: elasticity, yield, fatigue, fracture and creep conventions</span></a>.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.materials.normal_stress">
-<span class="sig-prename descclassname"><span class="pre">engineeringkit.materials.</span></span><span class="sig-name descname"><span class="pre">normal_stress</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">force</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">area</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/materials.html#normal_stress"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.materials.normal_stress" title="Link to this definition">#</a></dt>
-<dd><p>Normal stress.</p>
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.materials.</span></span><span class="sig-name descname"><span class="pre">normal_stress</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">force</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">area</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/materials/systems/elasticity.html#normal_stress"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.materials.normal_stress" title="Link to this definition">#</a></dt>
+<dd><p>Engineering normal stress <span class="math notranslate nohighlight">\(\sigma = F/A_0\)</span>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>force</strong> (<em>N</em>) – Input in the units stated above.</p></li>
-<li><p><strong>area</strong> (<em>m^2</em>) – Input in the units stated above.</p></li>
+<li><p><strong>force</strong> (<em>float</em><em> or </em><em>array_like</em>) – Axial force <span class="math notranslate nohighlight">\(F\)</span> [N], positive in tension.</p></li>
+<li><p><strong>area</strong> (<em>float</em><em> or </em><em>array_like</em>) – Original cross-sectional area <span class="math notranslate nohighlight">\(A_0\)</span> [m^2], positive.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Pa.</p>
+<dd class="field-even"><p>Normal stress [Pa].</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>result</p>
+<dd class="field-odd"><p>float or ndarray</p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
-<p>Assumptions, governing equations and validity limits are discussed in
-<a class="reference internal" href="../guides/materials.html"><span class="doc">Materials: elasticity, fracture and fatigue conventions</span></a>. SI inputs are required; raw numbers carry no
-dimensional metadata.</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/materials.html"><span class="doc">Materials: elasticity, yield, fatigue, fracture and creep conventions</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">float</span><span class="p">(</span><span class="n">normal_stress</span><span class="p">(</span><span class="mf">1000.0</span><span class="p">,</span> <span class="mf">1e-4</span><span class="p">))</span>
+<span class="go">10000000.0</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.materials.paris_crack_growth">
-<span class="sig-prename descclassname"><span class="pre">engineeringkit.materials.</span></span><span class="sig-name descname"><span class="pre">paris_crack_growth</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">C</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delta_K</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/materials.html#paris_crack_growth"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.materials.paris_crack_growth" title="Link to this definition">#</a></dt>
-<dd><p>Paris crack growth.</p>
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.materials.</span></span><span class="sig-name descname"><span class="pre">paris_crack_growth</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">C</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delta_K</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/materials/systems/fracture.html#paris_crack_growth"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.materials.paris_crack_growth" title="Link to this definition">#</a></dt>
+<dd><p>Fatigue crack growth rate from Paris’s law, <span class="math notranslate nohighlight">\(da/dN = C\,\Delta K^m\)</span>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>C</strong> (<em>m/</em><em>(</em><em>cycle</em><em> (</em><em>Pa sqrt</em><em>(</em><em>m</em><em>)</em><em>)</em><em>^m</em><em>)</em>) – Input in the units stated above.</p></li>
-<li><p><strong>m</strong> (<em>1</em>) – Input in the units stated above.</p></li>
-<li><p><strong>delta_K</strong> (<em>Pa sqrt</em><em>(</em><em>m</em><em>)</em>) – Input in the units stated above.</p></li>
+<li><p><strong>C</strong> (<em>float</em><em> or </em><em>array_like</em>) – Paris coefficient [m/cycle per (Pa sqrt(m))^m], nonnegative. Values
+quoted for MPa sqrt(m) must be multiplied by <span class="math notranslate nohighlight">\(10^{-6m}\)</span>.</p></li>
+<li><p><strong>m</strong> (<em>float</em><em> or </em><em>array_like</em>) – Paris exponent [-], positive (about 3 for steels).</p></li>
+<li><p><strong>delta_K</strong> (<em>float</em><em> or </em><em>array_like</em>) – Stress intensity range [Pa sqrt(m)], nonnegative.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>m/cycle.</p>
+<dd class="field-even"><p>Growth per cycle [m/cycle].</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>result</p>
+<dd class="field-odd"><p>float or ndarray</p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
-<p>Assumptions, governing equations and validity limits are discussed in
-<a class="reference internal" href="../guides/materials.html"><span class="doc">Materials: elasticity, fracture and fatigue conventions</span></a>. SI inputs are required; raw numbers carry no
-dimensional metadata.</p>
+<p>The stable (Region II) regime only: neither the threshold
+<span class="math notranslate nohighlight">\(\Delta K_{th}\)</span> nor the acceleration near <span class="math notranslate nohighlight">\(K_{Ic}\)</span> is
+modelled. Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/materials.html"><span class="doc">Materials: elasticity, yield, fatigue, fracture and creep conventions</span></a>.</p>
+<p class="rubric">References</p>
+<p>P. Paris and F. Erdogan, “A critical analysis of crack propagation laws,”
+<em>J. Basic Eng.</em> 85 (1963) 528-533.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.materials.peierls_stress">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.materials.</span></span><span class="sig-name descname"><span class="pre">peierls_stress</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">G</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nu</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/materials/systems/plasticity.html#peierls_stress"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.materials.peierls_stress" title="Link to this definition">#</a></dt>
+<dd><p>Peierls-Nabarro stress to move an edge dislocation through a perfect lattice.</p>
+<div class="math notranslate nohighlight">
+\[\tau_P = \frac{2G}{1 - \nu}\exp\!\left(-\frac{2\pi a}{(1 - \nu)\,b}\right)\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>G</strong> (<em>float</em><em> or </em><em>array_like</em>) – Shear modulus [Pa], positive.</p></li>
+<li><p><strong>nu</strong> (<em>float</em><em> or </em><em>array_like</em>) – Poisson’s ratio [-], in (-1, 0.5).</p></li>
+<li><p><strong>b</strong> (<em>float</em><em> or </em><em>array_like</em>) – Burgers vector [m], positive.</p></li>
+<li><p><strong>a</strong> (<em>float</em><em> or </em><em>array_like</em>) – Slip-plane spacing [m], positive.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Lattice friction stress [Pa].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>The exponential makes the estimate a guide to trends (wide, close-packed
+planes slip easily) rather than an accurate value. Inputs are raw SI
+numbers with no dimensional metadata; see <a class="reference internal" href="../guides/materials.html"><span class="doc">Materials: elasticity, yield, fatigue, fracture and creep conventions</span></a>.</p>
+<p class="rubric">References</p>
+<p>R. Peierls, “The size of a dislocation,” <em>Proc. Phys. Soc.</em> 52 (1940)
+34-37; F. R. N. Nabarro, “Dislocations in a simple cubic lattice,”
+<em>Proc. Phys. Soc.</em> 59 (1947) 256-272.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.materials.ramberg_osgood_strain">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.materials.</span></span><span class="sig-name descname"><span class="pre">ramberg_osgood_strain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stress</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">E</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yield_strength</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.002</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/materials/systems/plasticity.html#ramberg_osgood_strain"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.materials.ramberg_osgood_strain" title="Link to this definition">#</a></dt>
+<dd><p>Total strain on a Ramberg-Osgood stress-strain curve.</p>
+<div class="math notranslate nohighlight">
+\[\varepsilon = \frac{\sigma}{E} + \varepsilon_o\left(\frac{\sigma}{\sigma_y}\right)^n\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>stress</strong> (<em>float</em><em> or </em><em>array_like</em>) – Stress [Pa]; the curve is odd, so compression mirrors tension.</p></li>
+<li><p><strong>E</strong> (<em>float</em><em> or </em><em>array_like</em>) – Young’s modulus [Pa], positive.</p></li>
+<li><p><strong>yield_strength</strong> (<em>float</em><em> or </em><em>array_like</em>) – Offset yield strength <span class="math notranslate nohighlight">\(\sigma_y\)</span> [Pa], positive.</p></li>
+<li><p><strong>n</strong> (<em>float</em><em> or </em><em>array_like</em>) – Hardening exponent [-], at least 1 (large <code class="docutils literal notranslate"><span class="pre">n</span></code> is nearly
+elastic-perfectly plastic).</p></li>
+<li><p><strong>offset</strong> (<em>float</em><em> or </em><em>array_like</em>) – Plastic strain <span class="math notranslate nohighlight">\(\varepsilon_o\)</span> at <span class="math notranslate nohighlight">\(\sigma_y\)</span> [-],
+positive; 0.002 is the 0.2% proof stress.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Strain [-], elastic plus plastic.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Ramberg and Osgood wrote <span class="math notranslate nohighlight">\(\varepsilon = \sigma/E + K(\sigma/E)^n\)</span>;
+the offset form is the same curve with <span class="math notranslate nohighlight">\(K = \varepsilon_o (E/\sigma_y)^n\)</span>.
+Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/materials.html"><span class="doc">Materials: elasticity, yield, fatigue, fracture and creep conventions</span></a>.</p>
+<p class="rubric">References</p>
+<p>W. Ramberg and W. R. Osgood, “Description of stress-strain curves by
+three parameters,” NACA Technical Note 902 (1943).</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">ramberg_osgood_strain</span><span class="p">(</span><span class="mf">400e6</span><span class="p">,</span> <span class="mf">200e9</span><span class="p">,</span> <span class="mf">400e6</span><span class="p">,</span> <span class="mi">10</span><span class="p">)),</span> <span class="mi">6</span><span class="p">)</span>
+<span class="go">0.004</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.materials.resilience_modulus">
-<span class="sig-prename descclassname"><span class="pre">engineeringkit.materials.</span></span><span class="sig-name descname"><span class="pre">resilience_modulus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sigma_y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">E</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/materials.html#resilience_modulus"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.materials.resilience_modulus" title="Link to this definition">#</a></dt>
-<dd><p>Resilience modulus.</p>
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.materials.</span></span><span class="sig-name descname"><span class="pre">resilience_modulus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sigma_y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">E</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/materials/systems/elasticity.html#resilience_modulus"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.materials.resilience_modulus" title="Link to this definition">#</a></dt>
+<dd><p>Elastic strain energy per volume at yield, <span class="math notranslate nohighlight">\(U_r = \sigma_y^2 / 2E\)</span>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>sigma_y</strong> (<em>Pa</em>) – Input in the units stated above.</p></li>
-<li><p><strong>E</strong> (<em>Pa</em>) – Input in the units stated above.</p></li>
+<li><p><strong>sigma_y</strong> (<em>float</em><em> or </em><em>array_like</em>) – Yield strength [Pa], positive.</p></li>
+<li><p><strong>E</strong> (<em>float</em><em> or </em><em>array_like</em>) – Young’s modulus [Pa], positive.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>J/m^3.</p>
+<dd class="field-even"><p>Modulus of resilience [J/m^3].</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>result</p>
+<dd class="field-odd"><p>float or ndarray</p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
-<p>Assumptions, governing equations and validity limits are discussed in
-<a class="reference internal" href="../guides/materials.html"><span class="doc">Materials: elasticity, fracture and fatigue conventions</span></a>. SI inputs are required; raw numbers carry no
-dimensional metadata.</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/materials.html"><span class="doc">Materials: elasticity, yield, fatigue, fracture and creep conventions</span></a>.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.materials.rule_of_mixtures_E_longitudinal">
-<span class="sig-prename descclassname"><span class="pre">engineeringkit.materials.</span></span><span class="sig-name descname"><span class="pre">rule_of_mixtures_E_longitudinal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Ef</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Em</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Vf</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/materials.html#rule_of_mixtures_E_longitudinal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.materials.rule_of_mixtures_E_longitudinal" title="Link to this definition">#</a></dt>
-<dd><p>Rule of mixtures e longitudinal.</p>
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.materials.</span></span><span class="sig-name descname"><span class="pre">rule_of_mixtures_E_longitudinal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Ef</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Em</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Vf</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/materials/systems/composites.html#rule_of_mixtures_E_longitudinal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.materials.rule_of_mixtures_E_longitudinal" title="Link to this definition">#</a></dt>
+<dd><p>Voigt (equal-strain) modulus <span class="math notranslate nohighlight">\(E_1 = V_f E_f + (1 - V_f) E_m\)</span>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>Ef</strong> (<em>Pa</em>) – Input in the units stated above.</p></li>
-<li><p><strong>Em</strong> (<em>Pa</em>) – Input in the units stated above.</p></li>
-<li><p><strong>Vf</strong> (<em>1</em>) – Input in the units stated above.</p></li>
+<li><p><strong>Ef</strong> (<em>float</em><em> or </em><em>array_like</em>) – Fibre modulus [Pa], positive.</p></li>
+<li><p><strong>Em</strong> (<em>float</em><em> or </em><em>array_like</em>) – Matrix modulus [Pa], positive.</p></li>
+<li><p><strong>Vf</strong> (<em>float</em><em> or </em><em>array_like</em>) – Fibre volume fraction [-], in [0, 1].</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Pa.</p>
+<dd class="field-even"><p>Modulus along continuous aligned fibres [Pa], the upper bound.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>result</p>
+<dd class="field-odd"><p>float or ndarray</p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
-<p>Assumptions, governing equations and validity limits are discussed in
-<a class="reference internal" href="../guides/materials.html"><span class="doc">Materials: elasticity, fracture and fatigue conventions</span></a>. SI inputs are required; raw numbers carry no
-dimensional metadata.</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/materials.html"><span class="doc">Materials: elasticity, yield, fatigue, fracture and creep conventions</span></a>.</p>
+<p class="rubric">References</p>
+<p>W. Voigt, “Ueber die Beziehung zwischen den beiden Elasticitätsconstanten
+isotroper Körper,” <em>Ann. Phys.</em> 274 (1889) 573-587.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.materials.rule_of_mixtures_E_transverse">
-<span class="sig-prename descclassname"><span class="pre">engineeringkit.materials.</span></span><span class="sig-name descname"><span class="pre">rule_of_mixtures_E_transverse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Ef</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Em</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Vf</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/materials.html#rule_of_mixtures_E_transverse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.materials.rule_of_mixtures_E_transverse" title="Link to this definition">#</a></dt>
-<dd><p>Rule of mixtures e transverse.</p>
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.materials.</span></span><span class="sig-name descname"><span class="pre">rule_of_mixtures_E_transverse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Ef</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Em</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Vf</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/materials/systems/composites.html#rule_of_mixtures_E_transverse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.materials.rule_of_mixtures_E_transverse" title="Link to this definition">#</a></dt>
+<dd><p>Reuss (equal-stress) modulus <span class="math notranslate nohighlight">\(1/E_2 = V_f/E_f + (1 - V_f)/E_m\)</span>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>Ef</strong> (<em>Pa</em>) – Input in the units stated above.</p></li>
-<li><p><strong>Em</strong> (<em>Pa</em>) – Input in the units stated above.</p></li>
-<li><p><strong>Vf</strong> (<em>1</em>) – Input in the units stated above.</p></li>
+<li><p><strong>Ef</strong> (<em>float</em><em> or </em><em>array_like</em>) – Fibre modulus [Pa], positive.</p></li>
+<li><p><strong>Em</strong> (<em>float</em><em> or </em><em>array_like</em>) – Matrix modulus [Pa], positive.</p></li>
+<li><p><strong>Vf</strong> (<em>float</em><em> or </em><em>array_like</em>) – Fibre volume fraction [-], in [0, 1].</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Pa.</p>
+<dd class="field-even"><p>Modulus across the fibres [Pa], the lower bound.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>result</p>
+<dd class="field-odd"><p>float or ndarray</p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
-<p>Assumptions, governing equations and validity limits are discussed in
-<a class="reference internal" href="../guides/materials.html"><span class="doc">Materials: elasticity, fracture and fatigue conventions</span></a>. SI inputs are required; raw numbers carry no
-dimensional metadata.</p>
+<p>Real transverse moduli lie above the Reuss value because the matrix
+between neighbouring fibres is not uniformly stressed. Inputs are raw SI
+numbers with no dimensional metadata; see <a class="reference internal" href="../guides/materials.html"><span class="doc">Materials: elasticity, yield, fatigue, fracture and creep conventions</span></a>.</p>
+<p class="rubric">References</p>
+<p>A. Reuss, “Berechnung der Fließgrenze von Mischkristallen auf Grund der
+Plastizitätsbedingung für Einkristalle,” <em>Z. Angew. Math. Mech.</em> 9 (1929)
+49-58.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.materials.shear_modulus">
-<span class="sig-prename descclassname"><span class="pre">engineeringkit.materials.</span></span><span class="sig-name descname"><span class="pre">shear_modulus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">E</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nu</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/materials.html#shear_modulus"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.materials.shear_modulus" title="Link to this definition">#</a></dt>
-<dd><p>Shear modulus.</p>
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.materials.</span></span><span class="sig-name descname"><span class="pre">shear_modulus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">E</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nu</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/materials/systems/elasticity.html#shear_modulus"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.materials.shear_modulus" title="Link to this definition">#</a></dt>
+<dd><p>Isotropic shear modulus <span class="math notranslate nohighlight">\(G = E / (2(1 + \nu))\)</span>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>E</strong> (<em>Pa</em>) – Input in the units stated above.</p></li>
-<li><p><strong>nu</strong> (<em>1</em>) – Input in the units stated above.</p></li>
+<li><p><strong>E</strong> (<em>float</em><em> or </em><em>array_like</em>) – Young’s modulus [Pa], positive.</p></li>
+<li><p><strong>nu</strong> (<em>float</em><em> or </em><em>array_like</em>) – Poisson’s ratio [-], in (-1, 0.5).</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Pa.</p>
+<dd class="field-even"><p>Shear modulus [Pa].</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>result</p>
+<dd class="field-odd"><p>float or ndarray</p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
-<p>Assumptions, governing equations and validity limits are discussed in
-<a class="reference internal" href="../guides/materials.html"><span class="doc">Materials: elasticity, fracture and fatigue conventions</span></a>. SI inputs are required; raw numbers carry no
-dimensional metadata.</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/materials.html"><span class="doc">Materials: elasticity, yield, fatigue, fracture and creep conventions</span></a>.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.materials.strain_life_amplitude">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.materials.</span></span><span class="sig-name descname"><span class="pre">strain_life_amplitude</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cycles</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">E</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma_f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epsilon_f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/materials/systems/fatigue.html#strain_life_amplitude"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.materials.strain_life_amplitude" title="Link to this definition">#</a></dt>
+<dd><p>Total strain amplitude of the Basquin-Coffin-Manson strain-life curve.</p>
+<div class="math notranslate nohighlight">
+\[\frac{\Delta\varepsilon}{2} = \frac{\sigma_f'}{E}(2N)^b + \varepsilon_f'(2N)^c\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cycles</strong> (<em>float</em><em> or </em><em>array_like</em>) – Cycles to failure <span class="math notranslate nohighlight">\(N\)</span>, positive.</p></li>
+<li><p><strong>E</strong> (<em>float</em><em> or </em><em>array_like</em>) – Young’s modulus [Pa], positive.</p></li>
+<li><p><strong>sigma_f</strong> (<em>float</em><em> or </em><em>array_like</em>) – Fatigue strength coefficient [Pa], positive.</p></li>
+<li><p><strong>b</strong> (<em>float</em><em> or </em><em>array_like</em>) – Fatigue strength exponent [-], negative.</p></li>
+<li><p><strong>epsilon_f</strong> (<em>float</em><em> or </em><em>array_like</em>) – Fatigue ductility coefficient [-], positive.</p></li>
+<li><p><strong>c</strong> (<em>float</em><em> or </em><em>array_like</em>) – Fatigue ductility exponent [-], negative.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">(total,</span> <span class="pre">elastic,</span> <span class="pre">plastic)</span></code> strain amplitudes [-].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple of float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>The elastic and plastic lines cross at the transition life
+<span class="math notranslate nohighlight">\(2N_t = (\varepsilon_f' E/\sigma_f')^{1/(b - c)}\)</span>. Inputs are raw SI
+numbers with no dimensional metadata; see <a class="reference internal" href="../guides/materials.html"><span class="doc">Materials: elasticity, yield, fatigue, fracture and creep conventions</span></a>.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.materials.stress_intensity">
-<span class="sig-prename descclassname"><span class="pre">engineeringkit.materials.</span></span><span class="sig-name descname"><span class="pre">stress_intensity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">K_geometry</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/materials.html#stress_intensity"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.materials.stress_intensity" title="Link to this definition">#</a></dt>
-<dd><p>Stress intensity.</p>
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.materials.</span></span><span class="sig-name descname"><span class="pre">stress_intensity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">K_geometry</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/materials/systems/fracture.html#stress_intensity"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.materials.stress_intensity" title="Link to this definition">#</a></dt>
+<dd><p>Mode-I stress intensity factor <span class="math notranslate nohighlight">\(K_I = Y\sigma\sqrt{\pi a}\)</span>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>K_geometry</strong> (<em>1</em>) – Input in the units stated above.</p></li>
-<li><p><strong>sigma</strong> (<em>Pa</em>) – Input in the units stated above.</p></li>
-<li><p><strong>a</strong> (<em>m</em>) – Input in the units stated above.</p></li>
+<li><p><strong>K_geometry</strong> (<em>float</em><em> or </em><em>array_like</em>) – Geometry factor <span class="math notranslate nohighlight">\(Y\)</span> [-], positive (1 for a central crack in an
+infinite plate, about 1.12 for an edge crack).</p></li>
+<li><p><strong>sigma</strong> (<em>float</em><em> or </em><em>array_like</em>) – Remote tensile stress [Pa], nonnegative.</p></li>
+<li><p><strong>a</strong> (<em>float</em><em> or </em><em>array_like</em>) – Crack length (edge) or half-length (central) [m], positive.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Pa sqrt(m).</p>
+<dd class="field-even"><p>Stress intensity [Pa sqrt(m)].</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>result</p>
+<dd class="field-odd"><p>float or ndarray</p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
-<p>Assumptions, governing equations and validity limits are discussed in
-<a class="reference internal" href="../guides/materials.html"><span class="doc">Materials: elasticity, fracture and fatigue conventions</span></a>. SI inputs are required; raw numbers carry no
-dimensional metadata.</p>
+<p>Linear-elastic fracture mechanics, valid while the plastic zone is small
+compared with the crack. Inputs are raw SI numbers with no dimensional
+metadata; see <a class="reference internal" href="../guides/materials.html"><span class="doc">Materials: elasticity, yield, fatigue, fracture and creep conventions</span></a>.</p>
+<p class="rubric">References</p>
+<p>G. R. Irwin, “Analysis of stresses and strains near the end of a crack
+traversing a plate,” <em>J. Appl. Mech.</em> 24 (1957) 361-364.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.materials.thermal_strain">
-<span class="sig-prename descclassname"><span class="pre">engineeringkit.materials.</span></span><span class="sig-name descname"><span class="pre">thermal_strain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alpha</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dT</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/materials.html#thermal_strain"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.materials.thermal_strain" title="Link to this definition">#</a></dt>
-<dd><p>Thermal strain.</p>
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.materials.</span></span><span class="sig-name descname"><span class="pre">thermal_strain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alpha</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dT</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/materials/systems/elasticity.html#thermal_strain"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.materials.thermal_strain" title="Link to this definition">#</a></dt>
+<dd><p>Free thermal strain <span class="math notranslate nohighlight">\(\varepsilon_T = \alpha\,\Delta T\)</span>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>alpha</strong> (<em>1/K</em>) – Input in the units stated above.</p></li>
-<li><p><strong>dT</strong> (<em>K</em><em> (</em><em>difference</em><em>)</em>) – Input in the units stated above.</p></li>
+<li><p><strong>alpha</strong> (<em>float</em><em> or </em><em>array_like</em>) – Linear expansion coefficient [1/K].</p></li>
+<li><p><strong>dT</strong> (<em>float</em><em> or </em><em>array_like</em>) – Temperature change [K].</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><ol class="arabic simple">
-<li></li>
-</ol>
-</p>
+<dd class="field-even"><p>Strain [-].</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>result</p>
+<dd class="field-odd"><p>float or ndarray</p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
-<p>Assumptions, governing equations and validity limits are discussed in
-<a class="reference internal" href="../guides/materials.html"><span class="doc">Materials: elasticity, fracture and fatigue conventions</span></a>. SI inputs are required; raw numbers carry no
-dimensional metadata.</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/materials.html"><span class="doc">Materials: elasticity, yield, fatigue, fracture and creep conventions</span></a>.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.materials.toughness">
-<span class="sig-prename descclassname"><span class="pre">engineeringkit.materials.</span></span><span class="sig-name descname"><span class="pre">toughness</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">strain</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stress</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/materials.html#toughness"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.materials.toughness" title="Link to this definition">#</a></dt>
-<dd><p>Toughness.</p>
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.materials.</span></span><span class="sig-name descname"><span class="pre">toughness</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">strain</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stress</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/materials/systems/elasticity.html#toughness"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.materials.toughness" title="Link to this definition">#</a></dt>
+<dd><p>Area under a stress-strain curve, <span class="math notranslate nohighlight">\(\int \sigma\,d\varepsilon\)</span>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>strain</strong> (<em>1</em>) – Input in the units stated above.</p></li>
-<li><p><strong>stress</strong> (<em>Pa</em>) – Input in the units stated above.</p></li>
+<li><p><strong>strain</strong> (<em>array_like</em>) – Strictly increasing strains [-], at least two.</p></li>
+<li><p><strong>stress</strong> (<em>array_like</em>) – Matching stresses [Pa].</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>J/m^3.</p>
+<dd class="field-even"><p>Energy absorbed per unit volume [J/m^3], by the trapezoid rule.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>result</p>
+<dd class="field-odd"><p>float</p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
-<p>Assumptions, governing equations and validity limits are discussed in
-<a class="reference internal" href="../guides/materials.html"><span class="doc">Materials: elasticity, fracture and fatigue conventions</span></a>. SI inputs are required; raw numbers carry no
-dimensional metadata.</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/materials.html"><span class="doc">Materials: elasticity, yield, fatigue, fracture and creep conventions</span></a>.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.materials.tresca_equivalent">
-<span class="sig-prename descclassname"><span class="pre">engineeringkit.materials.</span></span><span class="sig-name descname"><span class="pre">tresca_equivalent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">principal</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/materials.html#tresca_equivalent"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.materials.tresca_equivalent" title="Link to this definition">#</a></dt>
-<dd><p>Tresca equivalent.</p>
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.materials.</span></span><span class="sig-name descname"><span class="pre">tresca_equivalent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">principal</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/materials/systems/yielding.html#tresca_equivalent"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.materials.tresca_equivalent" title="Link to this definition">#</a></dt>
+<dd><p>Tresca equivalent stress, the largest minus the smallest principal stress.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>principal</strong> (<em>Pa</em>) – Input in the units stated above.</p>
+<dd class="field-odd"><p><strong>principal</strong> (<em>array_like</em>) – Principal stresses [Pa] along the last axis, in any order. Include
+the zero out-of-plane stress for plane stress.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Pa.</p>
+<dd class="field-even"><p><span class="math notranslate nohighlight">\(\sigma_{max} - \sigma_{min} = 2\tau_{max}\)</span> [Pa], one value per
+stress state.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>result</p>
+<dd class="field-odd"><p>float or ndarray</p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
-<p>Assumptions, governing equations and validity limits are discussed in
-<a class="reference internal" href="../guides/materials.html"><span class="doc">Materials: elasticity, fracture and fatigue conventions</span></a>. SI inputs are required; raw numbers carry no
-dimensional metadata.</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/materials.html"><span class="doc">Materials: elasticity, yield, fatigue, fracture and creep conventions</span></a>.</p>
+<p class="rubric">References</p>
+<p>H. Tresca, “Mémoire sur l’écoulement des corps solides soumis à de
+fortes pressions,” <em>C. R. Acad. Sci. Paris</em> 59 (1864) 754-758.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">float</span><span class="p">(</span><span class="n">tresca_equivalent</span><span class="p">([</span><span class="mf">100.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">50.0</span><span class="p">]))</span>
+<span class="go">150.0</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.materials.von_mises_plane_stress">
-<span class="sig-prename descclassname"><span class="pre">engineeringkit.materials.</span></span><span class="sig-name descname"><span class="pre">von_mises_plane_stress</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">txy</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/materials.html#von_mises_plane_stress"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.materials.von_mises_plane_stress" title="Link to this definition">#</a></dt>
-<dd><p>Von mises plane stress.</p>
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.materials.</span></span><span class="sig-name descname"><span class="pre">von_mises_plane_stress</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">txy</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/materials/systems/yielding.html#von_mises_plane_stress"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.materials.von_mises_plane_stress" title="Link to this definition">#</a></dt>
+<dd><p>Von Mises equivalent stress for plane stress.</p>
+<div class="math notranslate nohighlight">
+\[\sigma_{vM} = \sqrt{\sigma_x^2 - \sigma_x\sigma_y + \sigma_y^2 + 3\tau_{xy}^2}\]</div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>sx</strong> (<em>Pa</em>) – Input in the units stated above.</p></li>
-<li><p><strong>sy</strong> (<em>Pa</em>) – Input in the units stated above.</p></li>
-<li><p><strong>txy</strong> (<em>Pa</em>) – Input in the units stated above.</p></li>
+<li><p><strong>sx</strong> (<em>float</em><em> or </em><em>array_like</em>) – Normal stresses [Pa].</p></li>
+<li><p><strong>sy</strong> (<em>float</em><em> or </em><em>array_like</em>) – Normal stresses [Pa].</p></li>
+<li><p><strong>txy</strong> (<em>float</em><em> or </em><em>array_like</em>) – In-plane shear stress [Pa].</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Pa.</p>
+<dd class="field-even"><p>Equivalent stress [Pa]; yield is predicted when it reaches the
+uniaxial yield strength.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>result</p>
+<dd class="field-odd"><p>float or ndarray</p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
-<p>Assumptions, governing equations and validity limits are discussed in
-<a class="reference internal" href="../guides/materials.html"><span class="doc">Materials: elasticity, fracture and fatigue conventions</span></a>. SI inputs are required; raw numbers carry no
-dimensional metadata.</p>
+<p>Assumes an isotropic, pressure-insensitive ductile metal with
+<span class="math notranslate nohighlight">\(\sigma_z = \tau_{xz} = \tau_{yz} = 0\)</span>. Inputs are raw SI numbers
+with no dimensional metadata; see <a class="reference internal" href="../guides/materials.html"><span class="doc">Materials: elasticity, yield, fatigue, fracture and creep conventions</span></a>.</p>
+<p class="rubric">References</p>
+<p>R. von Mises, “Mechanik der festen Körper im plastisch-deformablen
+Zustand,” <em>Nachr. Ges. Wiss. Göttingen, Math.-Phys. Kl.</em> (1913) 582-592.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">von_mises_plane_stress</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)),</span> <span class="mi">6</span><span class="p">)</span>
+<span class="go">1.732051</span>
+</pre></div>
+</div>
 </dd></dl>
 
+<section id="module-engineeringkit.materials.utils">
+<span id="utilities"></span><h2>Utilities<a class="headerlink" href="#module-engineeringkit.materials.utils" title="Link to this heading">#</a></h2>
+<p>Supporting numerics for engineeringkit.materials’s systems/ modules.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.materials.utils.power_law_fit">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.materials.utils.</span></span><span class="sig-name descname"><span class="pre">power_law_fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/materials/utils/fitting.html#power_law_fit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.materials.utils.power_law_fit" title="Link to this definition">#</a></dt>
+<dd><p>Least-squares fit of <span class="math notranslate nohighlight">\(y = A\,x^p\)</span> on log-log axes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>array_like</em>) – Matching vectors of at least two positive samples, with at least two
+distinct <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></li>
+<li><p><strong>y</strong> (<em>array_like</em>) – Matching vectors of at least two positive samples, with at least two
+distinct <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">(A,</span> <span class="pre">p)</span></code>, the coefficient (in the units of <code class="docutils literal notranslate"><span class="pre">y</span></code> over those of
+<span class="math notranslate nohighlight">\(x^p\)</span>) and the exponent.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple of float</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>The fit minimises the error in <span class="math notranslate nohighlight">\(\log y\)</span>, so every decade of data
+carries the same weight. Inputs are raw SI numbers with no dimensional
+metadata; see <a class="reference internal" href="../guides/materials.html"><span class="doc">Materials: elasticity, yield, fatigue, fracture and creep conventions</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">A</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="n">power_law_fit</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mf">100.0</span><span class="p">],</span> <span class="p">[</span><span class="mf">3.0</span><span class="p">,</span> <span class="mf">30.0</span><span class="p">,</span> <span class="mf">300.0</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="mi">9</span><span class="p">),</span> <span class="nb">round</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>
+<span class="go">(3.0, 1.0)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+<section id="module-engineeringkit.materials.visualizers">
+<span id="visualizers"></span><h2>Visualizers<a class="headerlink" href="#module-engineeringkit.materials.visualizers" title="Link to this heading">#</a></h2>
+<p>Matplotlib visualizers for engineeringkit.materials.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.materials.visualizers.plot_crack_growth">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.materials.visualizers.</span></span><span class="sig-name descname"><span class="pre">plot_crack_growth</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cycles</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">crack_length</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/materials/visualizers/plots.html#plot_crack_growth"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.materials.visualizers.plot_crack_growth" title="Link to this definition">#</a></dt>
+<dd><p>Plot crack length in mm against cycles.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cycles</strong> (<em>array_like</em>) – Cycles.</p></li>
+<li><p><strong>crack_length</strong> (<em>array_like</em>) – Matching crack lengths [m].</p></li>
+<li><p><strong>ax</strong> (<em>matplotlib.axes.Axes</em><em>, </em><em>optional</em>) – Axes to draw on; a new figure is created if omitted.</p></li>
+<li><p><strong>label</strong> (<em>str</em><em>, </em><em>optional</em>) – Legend label.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>matplotlib.axes.Axes</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.materials.visualizers.plot_sn_curve">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.materials.visualizers.</span></span><span class="sig-name descname"><span class="pre">plot_sn_curve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cycles</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stress_amplitude</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'-'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/materials/visualizers/plots.html#plot_sn_curve"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.materials.visualizers.plot_sn_curve" title="Link to this definition">#</a></dt>
+<dd><p>Log-log plot of stress amplitude in MPa against cycles to failure.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cycles</strong> (<em>array_like</em>) – Cycles to failure, positive.</p></li>
+<li><p><strong>stress_amplitude</strong> (<em>array_like</em>) – Matching stress amplitudes [Pa], positive.</p></li>
+<li><p><strong>ax</strong> (<em>matplotlib.axes.Axes</em><em>, </em><em>optional</em>) – Axes to draw on; a new figure is created if omitted.</p></li>
+<li><p><strong>label</strong> (<em>str</em><em>, </em><em>optional</em>) – Legend label.</p></li>
+<li><p><strong>style</strong> (<em>str</em>) – Matplotlib format string, e.g. <code class="docutils literal notranslate"><span class="pre">&quot;o&quot;</span></code> for test points.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>matplotlib.axes.Axes</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.materials.visualizers.plot_stress_strain">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.materials.visualizers.</span></span><span class="sig-name descname"><span class="pre">plot_stress_strain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">strain</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stress</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/materials/visualizers/plots.html#plot_stress_strain"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.materials.visualizers.plot_stress_strain" title="Link to this definition">#</a></dt>
+<dd><p>Plot stress in MPa against strain.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>strain</strong> (<em>array_like</em>) – Strains [-].</p></li>
+<li><p><strong>stress</strong> (<em>array_like</em>) – Matching stresses [Pa].</p></li>
+<li><p><strong>ax</strong> (<em>matplotlib.axes.Axes</em><em>, </em><em>optional</em>) – Axes to draw on; a new figure is created if omitted.</p></li>
+<li><p><strong>label</strong> (<em>str</em><em>, </em><em>optional</em>) – Legend label.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>matplotlib.axes.Axes</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.materials.visualizers.plot_yield_surfaces">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.materials.visualizers.</span></span><span class="sig-name descname"><span class="pre">plot_yield_surfaces</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">yield_strength</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/materials/visualizers/plots.html#plot_yield_surfaces"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.materials.visualizers.plot_yield_surfaces" title="Link to this definition">#</a></dt>
+<dd><p>Draw the Tresca hexagon and the von Mises ellipse in the plane-stress principal plane.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>yield_strength</strong> (<em>float</em>) – Uniaxial yield strength [Pa], positive; the axes are scaled by it.</p></li>
+<li><p><strong>ax</strong> (<em>matplotlib.axes.Axes</em><em>, </em><em>optional</em>) – Axes to draw on; a new figure is created if omitted.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>matplotlib.axes.Axes</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
 </section>
 
 
@@ -1133,10 +1756,21 @@ dimensional metadata.</p>
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.materials.CrackGrowthResult"><code class="docutils literal notranslate"><span class="pre">CrackGrowthResult</span></code></a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.materials.CrackGrowthResult.crack_length"><code class="docutils literal notranslate"><span class="pre">CrackGrowthResult.crack_length</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.materials.CrackGrowthResult.cycles"><code class="docutils literal notranslate"><span class="pre">CrackGrowthResult.cycles</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.materials.CrackGrowthResult.cycles_to"><code class="docutils literal notranslate"><span class="pre">CrackGrowthResult.cycles_to()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.materials.CrackGrowthResult.life"><code class="docutils literal notranslate"><span class="pre">CrackGrowthResult.life</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.materials.CrackGrowthResult.plot"><code class="docutils literal notranslate"><span class="pre">CrackGrowthResult.plot()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.materials.CrackGrowthResult.summary"><code class="docutils literal notranslate"><span class="pre">CrackGrowthResult.summary()</span></code></a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.materials.StressStrainCurve"><code class="docutils literal notranslate"><span class="pre">StressStrainCurve</span></code></a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.materials.StressStrainCurve.offset_yield_strength"><code class="docutils literal notranslate"><span class="pre">StressStrainCurve.offset_yield_strength()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.materials.StressStrainCurve.plot"><code class="docutils literal notranslate"><span class="pre">StressStrainCurve.plot()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.materials.StressStrainCurve.strain"><code class="docutils literal notranslate"><span class="pre">StressStrainCurve.strain</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.materials.StressStrainCurve.stress"><code class="docutils literal notranslate"><span class="pre">StressStrainCurve.stress</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.materials.StressStrainCurve.summary"><code class="docutils literal notranslate"><span class="pre">StressStrainCurve.summary()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.materials.StressStrainCurve.toughness"><code class="docutils literal notranslate"><span class="pre">StressStrainCurve.toughness()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.materials.StressStrainCurve.young_modulus"><code class="docutils literal notranslate"><span class="pre">StressStrainCurve.young_modulus()</span></code></a></li>
 </ul>
@@ -1144,7 +1778,9 @@ dimensional metadata.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.materials.arrhenius_creep_rate"><code class="docutils literal notranslate"><span class="pre">arrhenius_creep_rate()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.materials.basquin_cycles"><code class="docutils literal notranslate"><span class="pre">basquin_cycles()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.materials.bulk_modulus"><code class="docutils literal notranslate"><span class="pre">bulk_modulus()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.materials.coffin_manson_cycles"><code class="docutils literal notranslate"><span class="pre">coffin_manson_cycles()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.materials.constrained_thermal_stress"><code class="docutils literal notranslate"><span class="pre">constrained_thermal_stress()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.materials.crack_growth_life"><code class="docutils literal notranslate"><span class="pre">crack_growth_life()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.materials.critical_crack_length"><code class="docutils literal notranslate"><span class="pre">critical_crack_length()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.materials.density_rule_of_mixtures"><code class="docutils literal notranslate"><span class="pre">density_rule_of_mixtures()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.materials.factor_of_safety"><code class="docutils literal notranslate"><span class="pre">factor_of_safety()</span></code></a></li>
@@ -1152,20 +1788,37 @@ dimensional metadata.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.materials.griffith_fracture_stress"><code class="docutils literal notranslate"><span class="pre">griffith_fracture_stress()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.materials.hall_petch"><code class="docutils literal notranslate"><span class="pre">hall_petch()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.materials.hooke_stress"><code class="docutils literal notranslate"><span class="pre">hooke_stress()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.materials.ideal_shear_strength"><code class="docutils literal notranslate"><span class="pre">ideal_shear_strength()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.materials.lame_parameters"><code class="docutils literal notranslate"><span class="pre">lame_parameters()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.materials.larson_miller_parameter"><code class="docutils literal notranslate"><span class="pre">larson_miller_parameter()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.materials.larson_miller_rupture_time"><code class="docutils literal notranslate"><span class="pre">larson_miller_rupture_time()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.materials.miner_damage"><code class="docutils literal notranslate"><span class="pre">miner_damage()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.materials.normal_strain"><code class="docutils literal notranslate"><span class="pre">normal_strain()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.materials.normal_stress"><code class="docutils literal notranslate"><span class="pre">normal_stress()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.materials.paris_crack_growth"><code class="docutils literal notranslate"><span class="pre">paris_crack_growth()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.materials.peierls_stress"><code class="docutils literal notranslate"><span class="pre">peierls_stress()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.materials.ramberg_osgood_strain"><code class="docutils literal notranslate"><span class="pre">ramberg_osgood_strain()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.materials.resilience_modulus"><code class="docutils literal notranslate"><span class="pre">resilience_modulus()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.materials.rule_of_mixtures_E_longitudinal"><code class="docutils literal notranslate"><span class="pre">rule_of_mixtures_E_longitudinal()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.materials.rule_of_mixtures_E_transverse"><code class="docutils literal notranslate"><span class="pre">rule_of_mixtures_E_transverse()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.materials.shear_modulus"><code class="docutils literal notranslate"><span class="pre">shear_modulus()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.materials.strain_life_amplitude"><code class="docutils literal notranslate"><span class="pre">strain_life_amplitude()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.materials.stress_intensity"><code class="docutils literal notranslate"><span class="pre">stress_intensity()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.materials.thermal_strain"><code class="docutils literal notranslate"><span class="pre">thermal_strain()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.materials.toughness"><code class="docutils literal notranslate"><span class="pre">toughness()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.materials.tresca_equivalent"><code class="docutils literal notranslate"><span class="pre">tresca_equivalent()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.materials.von_mises_plane_stress"><code class="docutils literal notranslate"><span class="pre">von_mises_plane_stress()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-engineeringkit.materials.utils">Utilities</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.materials.utils.power_law_fit"><code class="docutils literal notranslate"><span class="pre">power_law_fit()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-engineeringkit.materials.visualizers">Visualizers</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.materials.visualizers.plot_crack_growth"><code class="docutils literal notranslate"><span class="pre">plot_crack_growth()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.materials.visualizers.plot_sn_curve"><code class="docutils literal notranslate"><span class="pre">plot_sn_curve()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.materials.visualizers.plot_stress_strain"><code class="docutils literal notranslate"><span class="pre">plot_stress_strain()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.materials.visualizers.plot_yield_surfaces"><code class="docutils literal notranslate"><span class="pre">plot_yield_surfaces()</span></code></a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

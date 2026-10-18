@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>engineeringkit.visualizers &#8212; engineeringkit 0.1.0 documentation</title>
+    <title>engineeringkit.visualizers &#8212; engineeringkit</title>
   
   
   
@@ -29,6 +29,7 @@
 <link href="../../_static/styles/pydata-sphinx-theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx_autodoc_typehints.css?v=057ac668" />
     <link rel="stylesheet" type="text/css" href="../../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Vibur" />
     <link rel="stylesheet" type="text/css" href="../../_static/jupyterlite_sphinx.css?v=f676e775" />
@@ -53,6 +54,7 @@
     <script src="../../_static/design-tabs.js?v=f930bc37"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '_modules/engineeringkit/visualizers';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="canonical" href="https://cpoli.github.io/engineeringkit/_modules/engineeringkit/visualizers.html" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -371,9 +373,28 @@
 <div class="viewcode-block" id="plot_history">
 <a class="viewcode-back" href="../../api/visualizers.html#engineeringkit.visualizers.plot_history">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">plot_history</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">history</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""Plot scalar/vector histories; return (figure, axes). Time is in seconds.</span>
+<span class="w">    </span><span class="sd">"""Plot scalar or vector state histories against time.</span>
 
-<span class="sd">    State labels should include units, for example ``x [m]``.</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    t : array_like</span>
+<span class="sd">        Sample times [s], one-dimensional.</span>
+<span class="sd">    history : array_like</span>
+<span class="sd">        States, shape ``(len(t),)`` or ``(len(t), states)``.</span>
+<span class="sd">    labels : sequence of str, optional</span>
+<span class="sd">        One label per state, including its unit (e.g. ``"x [m]"``).</span>
+<span class="sd">    ax : matplotlib.axes.Axes, optional</span>
+<span class="sd">        Axes to draw on; a new figure is created if omitted.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    tuple</span>
+<span class="sd">        ``(fig, ax)``.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Inputs are raw SI numbers with no dimensional metadata; see</span>
+<span class="sd">    :doc:`/numerical_methods`.</span>
 <span class="sd">    """</span>
     <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
@@ -399,10 +420,29 @@
 <div class="viewcode-block" id="animate_displacement">
 <a class="viewcode-back" href="../../api/visualizers.html#engineeringkit.visualizers.animate_displacement">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">animate_displacement</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">displacement</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">interval</span><span class="o">=</span><span class="mi">30</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""Animate 1D displacement [m]; return (figure, FuncAnimation).</span>
+<span class="w">    </span><span class="sd">"""Animate a mass moving along a line.</span>
 
-<span class="sd">    Input samples play at interval milliseconds/frame, independently of physical</span>
-<span class="sd">    time. Retain the animation until displaying or saving it.</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    t : array_like</span>
+<span class="sd">        Sample times [s], one-dimensional.</span>
+<span class="sd">    displacement : array_like</span>
+<span class="sd">        Displacement at each time [m], same shape as ``t``.</span>
+<span class="sd">    interval : float, optional</span>
+<span class="sd">        Delay between frames [ms], positive. Samples play at this rate,</span>
+<span class="sd">        independently of physical time.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    tuple</span>
+<span class="sd">        ``(fig, animation)``, the animation a</span>
+<span class="sd">        :class:`matplotlib.animation.FuncAnimation`. Keep a reference to it</span>
+<span class="sd">        until it is shown or saved.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Inputs are raw SI numbers with no dimensional metadata; see</span>
+<span class="sd">    :doc:`/numerical_methods`.</span>
 <span class="sd">    """</span>
     <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
     <span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.animation</span><span class="w"> </span><span class="kn">import</span> <span class="n">FuncAnimation</span>

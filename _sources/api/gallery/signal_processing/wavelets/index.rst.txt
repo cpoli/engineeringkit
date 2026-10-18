@@ -1,0 +1,50 @@
+
+
+.. _sphx_glr_api_gallery_signal_processing_wavelets:
+
+Wavelets
+--------
+
+Bases that are local in both time and scale.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In his 1909 dissertation, published in 1910, Alfréd Haar built an orthonormal basis from a single step function: the difference between the two halves of an interval, shrunk and shifted to every scale and position (~engineeringkit.signal_processing.haar_transform). It was the first wavelet, though the word came 70 years later. Each Haar function lives on a short interval, so a jump in a signal touches only a few coefficients at each scale. A sine, by contrast, extends over all time and smears a jump over every coefficient. The transform keeps the signal&#x27;s energy and is inverted exactly (~engineeringkit.signal_processing.inverse_haar_transform).">
+
+.. only:: html
+
+  .. image:: /api/gallery/signal_processing/wavelets/images/thumb/sphx_glr_plot_01_haar_wavelet_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/signal_processing/wavelets/plot_01_haar_wavelet`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Haar's wavelet</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/signal_processing/wavelets/plot_01_haar_wavelet
+

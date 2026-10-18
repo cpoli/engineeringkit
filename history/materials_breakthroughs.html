@@ -6,8 +6,16 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Breakthroughs in Materials" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://cpoli.github.io/engineeringkit/history/materials_breakthroughs.html" />
+<meta property="og:site_name" content="engineeringkit" />
+<meta property="og:description" content="Domain hub · History · Examples · API reference “Ut tensio, sic vis” (as the extension, so the force). – Robert Hooke, Lectures de Potentia Restitutiva, 1678 The strength of materials began as a li..." />
+<meta property="og:image" content="https://cpoli.github.io/engineeringkit/_static/images/readme_hero.png" />
+<meta property="og:image:alt" content="engineeringkit" />
+<meta name="description" content="Domain hub · History · Examples · API reference “Ut tensio, sic vis” (as the extension, so the force). – Robert Hooke, Lectures de Potentia Restitutiva, 1678 The strength of materials began as a li..." />
 
-    <title>Breakthroughs in Materials &#8212; engineeringkit 0.1.0 documentation</title>
+    <title>Breakthroughs in Materials &#8212; engineeringkit</title>
   
   
   
@@ -30,6 +38,7 @@
 <link href="../_static/styles/pydata-sphinx-theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx_autodoc_typehints.css?v=057ac668" />
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Vibur" />
     <link rel="stylesheet" type="text/css" href="../_static/jupyterlite_sphinx.css?v=f676e775" />
@@ -55,6 +64,7 @@
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'history/materials_breakthroughs';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="canonical" href="https://cpoli.github.io/engineeringkit/history/materials_breakthroughs.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Breakthroughs in Reliability" href="reliability_breakthroughs.html" />
@@ -404,50 +414,432 @@
 <div class="subpkg-nav docutils container">
 <p><a class="reference internal" href="../_generated/subpackages/materials.html"><span class="doc">Domain hub</span></a> · <a class="reference internal" href="#"><span class="doc">History</span></a> · <a class="reference internal" href="../api/gallery/materials/index.html"><span class="doc">Examples</span></a> · <a class="reference internal" href="../api/materials.html"><span class="doc">API reference</span></a></p>
 </div>
-<p>These landmarks trace a conceptual development from a physical law to a useful
-engineering model. The order is a learning path, not a dated chronology or a
-claim that any idea had a single inventor. SI units apply unless documented
-otherwise.</p>
-<section id="elasticity-and-yielding-deformation-has-regimes">
-<h2>Elasticity and yielding: deformation has regimes<a class="headerlink" href="#elasticity-and-yielding-deformation-has-regimes" title="Link to this heading">#</a></h2>
-<p>Hooke elasticity describes recoverable small strain. Multiaxial yield criteria replace a single normal-stress threshold with an equivalent stress measure.</p>
-<div class="math notranslate nohighlight">
-\[\sigma_{VM}=\sqrt{\sigma_x^2-\sigma_x\sigma_y+\sigma_y^2+3\tau_{xy}^2}\]</div>
-<p>Use <a class="reference internal" href="../api/materials.html#engineeringkit.materials.von_mises_plane_stress" title="engineeringkit.materials.von_mises_plane_stress"><code class="xref py py-obj docutils literal notranslate"><span class="pre">engineeringkit.materials.von_mises_plane_stress</span></code></a> to explore the model.
-The plane-stress criterion is intended for isotropic ductile yielding and does not model subsequent plastic deformation.</p>
-</section>
-<section id="griffith-and-stress-intensity-cracks-alter-strength">
-<h2>Griffith and stress intensity: cracks alter strength<a class="headerlink" href="#griffith-and-stress-intensity-cracks-alter-strength" title="Link to this heading">#</a></h2>
-<p>An energy balance explains why a crack can grow even when nominal stress is modest. Stress intensity combines applied tension, crack size and a geometry correction.</p>
-<div class="math notranslate nohighlight">
-\[K_I=Y\sigma\sqrt{\pi a}\]</div>
-<p>Use <a class="reference internal" href="../api/materials.html#engineeringkit.materials.stress_intensity" title="engineeringkit.materials.stress_intensity"><code class="xref py py-obj docutils literal notranslate"><span class="pre">engineeringkit.materials.stress_intensity</span></code></a> to explore the model.
-Linear-elastic mode-I fracture requires suitable constraint and small-scale yielding; the caller supplies the geometry factor.</p>
-</section>
-<section id="fatigue-load-history-becomes-part-of-the-model">
-<h2>Fatigue: load history becomes part of the model<a class="headerlink" href="#fatigue-load-history-becomes-part-of-the-model" title="Link to this heading">#</a></h2>
-<p>Basquin describes an empirical stress-life relation, Paris describes stable crack growth, and Miner accumulates cycle fractions. Each answers a different fatigue question.</p>
-<div class="math notranslate nohighlight">
-\[da/dN=C(\Delta K)^m,\qquad D=\sum_i n_i/N_i\]</div>
-<p>Use <a class="reference internal" href="../api/materials.html#engineeringkit.materials.paris_crack_growth" title="engineeringkit.materials.paris_crack_growth"><code class="xref py py-obj docutils literal notranslate"><span class="pre">engineeringkit.materials.paris_crack_growth</span></code></a> to explore the model.
-Calibration units and validity ranges matter. Miner damage omits sequence effects and Paris growth omits threshold and rapid-fracture regimes.</p>
-</section>
-<section id="explore-and-verify">
-<h2>Explore and verify<a class="headerlink" href="#explore-and-verify" title="Link to this heading">#</a></h2>
-<p><a class="reference internal" href="../guides/materials.html"><span class="doc">Materials: elasticity, fracture and fatigue conventions</span></a> records units, conventions and independent checks.
-Compare the gallery output against the equations before extending a model.</p>
-<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="With a fixed tensile stress and geometry factor, stress intensity rises with the square root of crack length. Inverting the toughness threshold recovers the critical crack length. Small-scale yielding is assumed."><img alt="" src="../_images/sphx_glr_plot_materials_benchmark_thumb.png" />
-<p><a class="reference internal" href="../api/gallery/materials/plot_materials_benchmark.html"><span class="doc">Crack size and fracture threshold</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Crack size and fracture threshold</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Compute an inspectable engineering model using SI inputs. See the linked domain guide for assumptions and benchmark checks."><img alt="" src="../_images/sphx_glr_plot_materials_models_thumb.png" />
-<p><a class="reference internal" href="../api/gallery/materials/plot_materials_models.html"><span class="doc">Voigt and Reuss composite bounds</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Voigt and Reuss composite bounds</div>
+<blockquote class="epigraph">
+<div><p>“Ut tensio, sic vis” (as the extension, so the force).
+– Robert Hooke, <em>Lectures de Potentia Restitutiva</em>, 1678</p>
+</div></blockquote>
+<p>The strength of materials began as a list of breaking loads and became a
+science in three stages. The nineteenth century gave elasticity its
+constants and its thermal stresses, and gave plasticity its first yield
+criterion. Around 1900 engineers learned that parts fail by fatigue and
+creep long before they reach their static strength, and wrote empirical
+laws for both. The twentieth century explained those laws from the inside:
+cracks explained why real solids are weak, dislocations why metals are
+soft, and fracture mechanics turned crack size into a design variable. The
+entries trace the ideas behind <a class="reference internal" href="../api/materials.html#module-engineeringkit.materials" title="engineeringkit.materials"><code class="xref py py-mod docutils literal notranslate"><span class="pre">engineeringkit.materials</span></code></a>. Each links
+to the implementing function and to a gallery example devoted to it.</p>
+<nav class="contents local" id="timeline">
+<p class="topic-title">Timeline</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#young-s-modulus" id="id1">1807 – Young’s Modulus</a></p></li>
+<li><p><a class="reference internal" href="#duhamel-s-thermal-stress" id="id2">1838 – Duhamel’s Thermal Stress</a></p></li>
+<li><p><a class="reference internal" href="#lame-s-elastic-constants" id="id3">1852 – Lamé’s Elastic Constants</a></p></li>
+<li><p><a class="reference internal" href="#tresca-s-maximum-shear-yield-criterion" id="id4">1864 – Tresca’s Maximum-Shear Yield Criterion</a></p></li>
+<li><p><a class="reference internal" href="#voigt-and-reuss-bounds-on-a-composite" id="id5">1889-1929 – Voigt and Reuss: Bounds on a Composite</a></p></li>
+<li><p><a class="reference internal" href="#goodman-s-mean-stress-diagram" id="id6">1899 – Goodman’s Mean-Stress Diagram</a></p></li>
+<li><p><a class="reference internal" href="#basquin-s-s-n-law" id="id7">1910 – Basquin’s S-N Law</a></p></li>
+<li><p><a class="reference internal" href="#von-mises-s-yield-criterion" id="id8">1913 – Von Mises’s Yield Criterion</a></p></li>
+<li><p><a class="reference internal" href="#griffith-s-theory-of-brittle-fracture" id="id9">1920 – Griffith’s Theory of Brittle Fracture</a></p></li>
+<li><p><a class="reference internal" href="#norton-s-power-law-creep" id="id10">1929 – Norton’s Power-Law Creep</a></p></li>
+<li><p><a class="reference internal" href="#taylor-orowan-and-polanyi-dislocations" id="id11">1934 – Taylor, Orowan and Polanyi: Dislocations</a></p></li>
+<li><p><a class="reference internal" href="#ramberg-and-osgood-s-stress-strain-curve" id="id12">1943 – Ramberg and Osgood’s Stress-Strain Curve</a></p></li>
+<li><p><a class="reference internal" href="#palmgren-and-miner-s-cumulative-damage" id="id13">1945 – Palmgren and Miner’s Cumulative Damage</a></p></li>
+<li><p><a class="reference internal" href="#hall-and-petch-grain-size-strengthening" id="id14">1951-1953 – Hall and Petch: Grain-Size Strengthening</a></p></li>
+<li><p><a class="reference internal" href="#the-larson-miller-parameter" id="id15">1952 – The Larson-Miller Parameter</a></p></li>
+<li><p><a class="reference internal" href="#coffin-and-manson-low-cycle-fatigue" id="id16">1954 – Coffin and Manson: Low-Cycle Fatigue</a></p></li>
+<li><p><a class="reference internal" href="#irwin-s-stress-intensity-factor" id="id17">1957 – Irwin’s Stress Intensity Factor</a></p></li>
+<li><p><a class="reference internal" href="#paris-s-crack-growth-law" id="id18">1963 – Paris’s Crack-Growth Law</a></p></li>
+<li><p><a class="reference internal" href="#see-also" id="id19">See Also</a></p></li>
+</ul>
+</nav>
+<section id="young-s-modulus">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">1807 – Young’s Modulus</a><a class="headerlink" href="#young-s-modulus" title="Link to this heading">#</a></h2>
+<p>Hooke’s law said that extension is proportional to force, but the constant
+belonged to a particular spring or wire. Thomas Young’s <em>Course of Lectures
+on Natural Philosophy and the Mechanical Arts</em> gave a constant for the
+material itself. Young described his “modulus of elasticity” as the height
+of a column of the material whose weight would compress it to nothing if
+the law stayed linear, a length of thousands of kilometres for steel.
+Navier (1826) restated it as stress over strain, <span class="math notranslate nohighlight">\(E = \sigma/\varepsilon\)</span>,
+the form every tensile test now reports.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/materials.html#engineeringkit.materials.hooke_stress" title="engineeringkit.materials.hooke_stress"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.materials.hooke_stress()</span></code></a>,
+<a class="reference internal" href="../api/materials.html#engineeringkit.materials.normal_stress" title="engineeringkit.materials.normal_stress"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.materials.normal_stress()</span></code></a>,
+<a class="reference internal" href="../api/materials.html#engineeringkit.materials.normal_strain" title="engineeringkit.materials.normal_strain"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.materials.normal_strain()</span></code></a>,
+<a class="reference internal" href="../api/materials.html#engineeringkit.materials.resilience_modulus" title="engineeringkit.materials.resilience_modulus"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.materials.resilience_modulus()</span></code></a>,
+<a class="reference internal" href="../api/materials.html#engineeringkit.materials.toughness" title="engineeringkit.materials.toughness"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.materials.toughness()</span></code></a> and
+<a class="reference internal" href="../api/materials.html#engineeringkit.materials.StressStrainCurve" title="engineeringkit.materials.StressStrainCurve"><code class="xref py py-class docutils literal notranslate"><span class="pre">engineeringkit.materials.StressStrainCurve</span></code></a>. The example reduces a
+simulated tensile test to a stress-strain curve, fits the modulus and
+measures resilience and toughness.</p>
+<p><em>References:</em> T. Young, <em>A Course of Lectures on Natural Philosophy and the
+Mechanical Arts</em> (Johnson, London, 1807), vol. 1, lecture XIII; C.-L.
+Navier, <em>Résumé des leçons données à l’École des Ponts et Chaussées sur
+l’application de la mécanique</em> (Didot, Paris, 1826).</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Thomas Young&#x27;s Lectures on Natural Philosophy (1807) gave a single number for the stiffness of a material, its &quot;modulus of elasticity&quot;. Young expressed it as the height of a column of the material whose weight would compress it to nothing if the law stayed linear; Navier (1826) restated it as the ratio of stress to strain, E = \sigma/\varepsilon, the form used today (~engineeringkit.materials.hooke_stress). The example reduces a simulated tensile test from load and extension to stress and strain (~engineeringkit.materials.normal_stress, normal_strain), fits the modulus with StressStrainCurve and measures the energy the bar absorbs."><img alt="" src="../_images/sphx_glr_plot_01_young_modulus_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/materials/elasticity/plot_01_young_modulus.html"><span class="doc">Young’s modulus</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Young's modulus</div>
 </div></div></section>
-<section id="further-reading">
-<h2>Further reading<a class="headerlink" href="#further-reading" title="Link to this heading">#</a></h2>
-<p><a class="reference external" href="https://ocw.mit.edu/courses/16-21-techniques-for-structural-analysis-and-design-spring-2005/pages/lecture-notes/">University or agency teaching reference</a>
-provides background beyond the implemented subset. The equations and examples
-here are concise original explanations, not reproductions of that reference.</p>
+<section id="duhamel-s-thermal-stress">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">1838 – Duhamel’s Thermal Stress</a><a class="headerlink" href="#duhamel-s-thermal-stress" title="Link to this heading">#</a></h2>
+<p>Jean-Marie Duhamel extended the equations of elasticity to bodies heated
+unevenly. A temperature change <span class="math notranslate nohighlight">\(\Delta T\)</span> produces a free strain
+<span class="math notranslate nohighlight">\(\alpha\,\Delta T\)</span>; where the body cannot expand, an elastic strain
+cancels it and a stress <span class="math notranslate nohighlight">\(-E\alpha\,\Delta T\)</span> appears. The stress does
+not depend on the length of the bar, so a long weld is no worse than a short
+one, but it is large: 40 K in restrained steel gives about 100 MPa. Franz
+Neumann reached the same equations independently in 1841.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/materials.html#engineeringkit.materials.thermal_strain" title="engineeringkit.materials.thermal_strain"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.materials.thermal_strain()</span></code></a> and
+<a class="reference internal" href="../api/materials.html#engineeringkit.materials.constrained_thermal_stress" title="engineeringkit.materials.constrained_thermal_stress"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.materials.constrained_thermal_stress()</span></code></a>. The example
+computes the stress in continuously welded and jointed rail.</p>
+<p><em>References:</em> J.-M.-C. Duhamel, “Mémoire sur le calcul des actions
+moléculaires développées par les changements de température dans les corps
+solides,” <em>Mém. Divers Savants Acad. R. Sci. Inst. France</em> 5 (1838)
+440-498.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Jean-Marie Duhamel (1838) added temperature to Navier&#x27;s equations of elasticity: a change \Delta T produces a free strain \alpha\,\Delta T (~engineeringkit.materials.thermal_strain) that causes no stress if the body can expand, and a stress -E\alpha\,\Delta T (~engineeringkit.materials.constrained_thermal_stress) if it is held. The stress does not depend on the length of the bar, which is why continuously welded rail must be laid at a chosen neutral temperature."><img alt="" src="../_images/sphx_glr_plot_02_duhamel_thermal_stress_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/materials/elasticity/plot_02_duhamel_thermal_stress.html"><span class="doc">Duhamel’s thermal stress</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Duhamel's thermal stress</div>
+</div></div></section>
+<section id="lame-s-elastic-constants">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">1852 – Lamé’s Elastic Constants</a><a class="headerlink" href="#lame-s-elastic-constants" title="Link to this heading">#</a></h2>
+<p>Navier and Poisson built elasticity from forces between molecules and
+concluded that an isotropic solid has one elastic constant, with Poisson’s
+ratio fixed at 1/4. Cauchy and Green, working from the continuum, found two,
+and measurements on rubber and metals sided with them. Gabriel Lamé’s
+<em>Leçons</em>, the first book on the mathematical theory of elasticity, wrote the
+isotropic law with the two constants <span class="math notranslate nohighlight">\(\lambda\)</span> and <span class="math notranslate nohighlight">\(\mu\)</span>,
+<span class="math notranslate nohighlight">\(\sigma_{ij} = \lambda\,\varepsilon_{kk}\delta_{ij} + 2\mu\,\varepsilon_{ij}\)</span>.
+Any two of <span class="math notranslate nohighlight">\(E\)</span>, <span class="math notranslate nohighlight">\(\nu\)</span>, <span class="math notranslate nohighlight">\(G\)</span>, <span class="math notranslate nohighlight">\(K\)</span>, <span class="math notranslate nohighlight">\(\lambda\)</span>
+give the rest.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/materials.html#engineeringkit.materials.lame_parameters" title="engineeringkit.materials.lame_parameters"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.materials.lame_parameters()</span></code></a>,
+<a class="reference internal" href="../api/materials.html#engineeringkit.materials.shear_modulus" title="engineeringkit.materials.shear_modulus"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.materials.shear_modulus()</span></code></a> and
+<a class="reference internal" href="../api/materials.html#engineeringkit.materials.bulk_modulus" title="engineeringkit.materials.bulk_modulus"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.materials.bulk_modulus()</span></code></a>. The example recovers
+uniaxial tension from Lamé’s law and plots the moduli against Poisson’s
+ratio.</p>
+<p><em>References:</em> G. Lamé, <em>Leçons sur la théorie mathématique de l’élasticité
+des corps solides</em> (Bachelier, Paris, 1852).</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Early elasticity theories built from molecular forces predicted a single elastic constant for an isotropic solid, with Poisson&#x27;s ratio fixed at 1/4. Measurements disagreed. Gabriel Lamé&#x27;s Leçons sur la théorie mathématique de l&#x27;élasticité (1852) wrote the isotropic law with two constants,"><img alt="" src="../_images/sphx_glr_plot_03_lame_constants_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/materials/elasticity/plot_03_lame_constants.html"><span class="doc">Lamé’s elastic constants</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Lamé's elastic constants</div>
+</div></div></section>
+<section id="tresca-s-maximum-shear-yield-criterion">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">1864 – Tresca’s Maximum-Shear Yield Criterion</a><a class="headerlink" href="#tresca-s-maximum-shear-yield-criterion" title="Link to this heading">#</a></h2>
+<p>Henri Tresca, at the Conservatoire des Arts et Métiers in Paris, punched and
+extruded lead, copper and iron and found that solid metal flows like a
+liquid once the largest shear stress reaches a constant. With principal
+stresses <span class="math notranslate nohighlight">\(\sigma_1 \ge \sigma_2 \ge \sigma_3\)</span>, yield is
+<span class="math notranslate nohighlight">\(\sigma_1 - \sigma_3 = \sigma_y\)</span>. Saint-Venant (1870) built the first
+theory of plastic flow on it. It is the first criterion for yielding under
+combined stresses, and it remains the conservative choice in pressure
+vessel codes.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/materials.html#engineeringkit.materials.tresca_equivalent" title="engineeringkit.materials.tresca_equivalent"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.materials.tresca_equivalent()</span></code></a> and
+<a class="reference internal" href="../api/materials.html#engineeringkit.materials.factor_of_safety" title="engineeringkit.materials.factor_of_safety"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.materials.factor_of_safety()</span></code></a>. The example checks a
+shaft in bending and torsion and plots Tresca’s hexagon.</p>
+<p><em>References:</em> H. Tresca, “Mémoire sur l’écoulement des corps solides soumis
+à de fortes pressions,” <em>C. R. Acad. Sci. Paris</em> 59 (1864) 754-758.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Henri Tresca (1864) punched and extruded lead, copper and iron through dies at the Conservatoire des Arts et Métiers and found that metals flow like a viscous fluid once the largest shear stress reaches a constant. With principal stresses \sigma_1 \ge \sigma_2 \ge \sigma_3 the criterion is \sigma_1 - \sigma_3 = \sigma_y (~engineeringkit.materials.tresca_equivalent). It is the first criterion for yielding under combined stresses, and in the plane-stress principal plane it draws a hexagon. The example applies it to a shaft in bending and torsion and to biaxial stress states."><img alt="" src="../_images/sphx_glr_plot_01_tresca_criterion_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/materials/yield/plot_01_tresca_criterion.html"><span class="doc">Tresca’s maximum-shear yield criterion</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Tresca's maximum-shear yield criterion</div>
+</div></div></section>
+<section id="voigt-and-reuss-bounds-on-a-composite">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">1889-1929 – Voigt and Reuss: Bounds on a Composite</a><a class="headerlink" href="#voigt-and-reuss-bounds-on-a-composite" title="Link to this heading">#</a></h2>
+<p>Woldemar Voigt (1889) estimated the elastic constants of a polycrystal by
+assuming that all its crystals strain alike, which averages their
+stiffnesses. Adolf Reuss (1929) assumed instead that they all carry the
+same stress, which averages their compliances. For a fibre composite the
+two assumptions are exact along and across the fibres: the rules of
+mixtures. Rodney Hill (1952) proved that they bound the modulus of every
+arrangement of the phases, and Hashin and Shtrikman (1963) narrowed the
+bounds for isotropic mixtures.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/materials.html#engineeringkit.materials.rule_of_mixtures_E_longitudinal" title="engineeringkit.materials.rule_of_mixtures_E_longitudinal"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.materials.rule_of_mixtures_E_longitudinal()</span></code></a>,
+<a class="reference internal" href="../api/materials.html#engineeringkit.materials.rule_of_mixtures_E_transverse" title="engineeringkit.materials.rule_of_mixtures_E_transverse"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.materials.rule_of_mixtures_E_transverse()</span></code></a> and
+<a class="reference internal" href="../api/materials.html#engineeringkit.materials.density_rule_of_mixtures" title="engineeringkit.materials.density_rule_of_mixtures"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.materials.density_rule_of_mixtures()</span></code></a>. The example
+builds both bounds from springs and plots the band between them for glass
+fibre in epoxy.</p>
+<p><em>References:</em> W. Voigt, “Ueber die Beziehung zwischen den beiden
+Elasticitätsconstanten isotroper Körper,” <em>Ann. Phys.</em> 274 (1889) 573-587;
+A. Reuss, “Berechnung der Fließgrenze von Mischkristallen auf Grund der
+Plastizitätsbedingung für Einkristalle,” <em>Z. Angew. Math. Mech.</em> 9 (1929)
+49-58; R. Hill, “The elastic behaviour of a crystalline aggregate,” <em>Proc.
+Phys. Soc. A</em> 65 (1952) 349-354.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="How stiff is a mixture of two phases? Woldemar Voigt (1889) averaged the elastic constants of the crystals in a polycrystal on the assumption that all of them strain alike; Adolf Reuss (1929) averaged the compliances on the assumption that all carry the same stress. For a fibre composite the two assumptions are exact along and across the fibres (~engineeringkit.materials.rule_of_mixtures_E_longitudinal, rule_of_mixtures_E_transverse), and Hill (1952) proved that every other arrangement lies between them. The example builds both from springs and checks a glass-epoxy laminate."><img alt="" src="../_images/sphx_glr_plot_01_voigt_reuss_bounds_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/materials/composites/plot_01_voigt_reuss_bounds.html"><span class="doc">Voigt and Reuss: bounds on a composite’s stiffness</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Voigt and Reuss: bounds on a composite's stiffness</div>
+</div></div></section>
+<section id="goodman-s-mean-stress-diagram">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">1899 – Goodman’s Mean-Stress Diagram</a><a class="headerlink" href="#goodman-s-mean-stress-diagram" title="Link to this heading">#</a></h2>
+<p>Wöhler’s tests showed that a steady stress lowers the alternating stress a
+part can survive. Gerber (1874) fitted a parabola through Wöhler’s data.
+John Goodman, professor of engineering at Leeds, replaced it in his
+textbook <em>Mechanics Applied to Engineering</em> with a straight line from the
+endurance limit at zero mean stress to the ultimate strength at zero
+amplitude, <span class="math notranslate nohighlight">\(\sigma_a/S_e + \sigma_m/S_{ut} = 1/n\)</span>. The line is slightly
+conservative, easy to use, and still the default in machine design.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/materials.html#engineeringkit.materials.goodman_safety_factor" title="engineeringkit.materials.goodman_safety_factor"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.materials.goodman_safety_factor()</span></code></a>.
+The example finds the safety factor of a preloaded bolt and compares the
+Gerber, Goodman and Soderberg lines.</p>
+<p><em>References:</em> J. Goodman, <em>Mechanics Applied to Engineering</em> (Longmans,
+Green, London, 1899).</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Wöhler&#x27;s endurance tests reversed the stress fully, but most machine parts carry a steady stress with an alternating one on top. John Goodman&#x27;s Mechanics Applied to Engineering (1899) drew the line that design still uses: the alternating stress a part can carry falls linearly from the endurance limit S_e at zero mean to nothing at the ultimate strength S_{ut},"><img alt="" src="../_images/sphx_glr_plot_01_goodman_diagram_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/materials/fatigue/plot_01_goodman_diagram.html"><span class="doc">Goodman’s mean-stress diagram</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Goodman's mean-stress diagram</div>
+</div></div></section>
+<section id="basquin-s-s-n-law">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">1910 – Basquin’s S-N Law</a><a class="headerlink" href="#basquin-s-s-n-law" title="Link to this heading">#</a></h2>
+<p>August Wöhler’s railway-axle tests of the 1860s established the stress-life
+(S-N) curve and the endurance limit of steel. Olin Basquin, of Northwestern
+University, noticed that on log-log axes the finite-life part of the
+curve is a straight line, <span class="math notranslate nohighlight">\(\sigma_a = \sigma_f'(2N)^b\)</span>, with
+<span class="math notranslate nohighlight">\(b\)</span> around -0.1. A fixed fraction of strength is lost for each decade
+of life, and two parameters describe a material’s whole high-cycle fatigue
+behaviour.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/materials.html#engineeringkit.materials.basquin_cycles" title="engineeringkit.materials.basquin_cycles"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.materials.basquin_cycles()</span></code></a> and
+<a class="reference internal" href="../api/materials.html#engineeringkit.materials.utils.power_law_fit" title="engineeringkit.materials.utils.power_law_fit"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.materials.utils.power_law_fit()</span></code></a>. The example fits the
+law to scattered endurance tests and recovers its constants.</p>
+<p><em>References:</em> O. H. Basquin, “The exponential law of endurance tests,”
+<em>Proc. Am. Soc. Test. Mater.</em> 10 (1910) 625-630.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="August Wöhler&#x27;s railway-axle tests of the 1860s showed that steel breaks under repeated stresses far below its static strength, and that below an endurance limit it may never break. Olin Basquin (1910) noticed that on log-log axes the finite-life part of Wöhler&#x27;s curves is a straight line, \sigma_a = \sigma_f&#x27;(2N)^b (~engineeringkit.materials.basquin_cycles). The example fits the line to scattered test results with power_law_fit and recovers the constants that produced them."><img alt="" src="../_images/sphx_glr_plot_02_basquin_sn_curve_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/materials/fatigue/plot_02_basquin_sn_curve.html"><span class="doc">Basquin’s S-N law</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Basquin's S-N law</div>
+</div></div></section>
+<section id="von-mises-s-yield-criterion">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">1913 – Von Mises’s Yield Criterion</a><a class="headerlink" href="#von-mises-s-yield-criterion" title="Link to this heading">#</a></h2>
+<p>Richard von Mises replaced Tresca’s hexagon with the smooth surface through
+its corners, yield when the second invariant of the deviatoric stress
+reaches <span class="math notranslate nohighlight">\(\sigma_y^2/3\)</span>. Maksymilian Huber had proposed the same rule in
+1904, and Heinrich Hencky (1924) explained it as a critical elastic energy
+of distortion. The criterion predicts shear yield at
+<span class="math notranslate nohighlight">\(\sigma_y/\sqrt3\)</span>, 15% above Tresca’s <span class="math notranslate nohighlight">\(\sigma_y/2\)</span>, and Taylor and
+Quinney’s tension-torsion tests on tubes of copper, aluminium and steel
+(1931) fell closer to it.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/materials.html#engineeringkit.materials.von_mises_plane_stress" title="engineeringkit.materials.von_mises_plane_stress"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.materials.von_mises_plane_stress()</span></code></a>
+and <a class="reference internal" href="../api/materials.html#engineeringkit.materials.visualizers.plot_yield_surfaces" title="engineeringkit.materials.visualizers.plot_yield_surfaces"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.materials.visualizers.plot_yield_surfaces()</span></code></a>. The
+example checks the distortion-energy form and compares the two criteria for
+a tube in tension and torsion.</p>
+<p><em>References:</em> R. von Mises, “Mechanik der festen Körper im
+plastisch-deformablen Zustand,” <em>Nachr. Ges. Wiss. Göttingen,
+Math.-Phys. Kl.</em> (1913) 582-592; G. I. Taylor and H. Quinney, “The plastic
+distortion of metals,” <em>Phil. Trans. R. Soc. Lond. A</em> 230 (1931) 323-362.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Tresca&#x27;s hexagon has corners, which make the equations of plasticity awkward. Richard von Mises (1913) proposed a smooth surface through the corners: yield when the second invariant of the deviatoric stress reaches \sigma_y^2/3, in plane stress \sigma_x^2 - \sigma_x\sigma_y + \sigma_y^2 + 3\tau_{xy}^2 = \sigma_y^2 (~engineeringkit.materials.von_mises_plane_stress). Huber (1904) had proposed the same rule, and Hencky (1924) explained it as the elastic energy of distortion. Taylor and Quinney&#x27;s tension-torsion tests on thin tubes (1931) fell closer to von Mises than to Tresca."><img alt="" src="../_images/sphx_glr_plot_02_von_mises_criterion_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/materials/yield/plot_02_von_mises_criterion.html"><span class="doc">Von Mises’s yield criterion</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Von Mises's yield criterion</div>
+</div></div></section>
+<section id="griffith-s-theory-of-brittle-fracture">
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">1920 – Griffith’s Theory of Brittle Fracture</a><a class="headerlink" href="#griffith-s-theory-of-brittle-fracture" title="Link to this heading">#</a></h2>
+<p>Alan Arnold Griffith, at the Royal Aircraft Establishment, asked why glass
+breaks at a hundredth of the strength its atomic bonds imply. His answer,
+read to the Royal Society in 1920 and published in 1921, was that small
+cracks concentrate the stress, and that a crack grows when the elastic
+energy it releases exceeds the surface energy it creates. Strength then
+falls as the inverse square root of crack size,
+<span class="math notranslate nohighlight">\(\sigma_f = \sqrt{2E\gamma_s/\pi a}\)</span>. Griffith confirmed it on scratched
+glass bulbs and tubes, and freshly drawn glass fibres came close to the
+theoretical strength.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/materials.html#engineeringkit.materials.griffith_fracture_stress" title="engineeringkit.materials.griffith_fracture_stress"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.materials.griffith_fracture_stress()</span></code></a>.
+The example finds the maximum of the energy balance and plots strength
+against flaw size for glass.</p>
+<p><em>References:</em> A. A. Griffith, “The phenomena of rupture and flow in
+solids,” <em>Phil. Trans. R. Soc. Lond. A</em> 221 (1921) 163-198.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Glass should be as strong as its atomic bonds, about E/10, yet it breaks at a few hundredths of that. Alan Arnold Griffith (paper read in 1920, published 1921) blamed small cracks. A crack of half-length a in a plate under stress \sigma releases elastic energy \pi\sigma^2a^2/E per unit thickness and costs surface energy 4a\gamma_s. It grows when the release outpaces the cost, at \sigma_f = \sqrt{2E\gamma_s/\pi a} (~engineeringkit.materials.griffith_fracture_stress). Griffith confirmed it on glass bulbs and tubes with scratches of known size, and drawing fresh glass fibres showed strengths approaching the theoretical value."><img alt="" src="../_images/sphx_glr_plot_01_griffith_fracture_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/materials/fracture/plot_01_griffith_fracture.html"><span class="doc">Griffith’s theory of brittle fracture</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Griffith's theory of brittle fracture</div>
+</div></div></section>
+<section id="norton-s-power-law-creep">
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">1929 – Norton’s Power-Law Creep</a><a class="headerlink" href="#norton-s-power-law-creep" title="Link to this heading">#</a></h2>
+<p>Steam turbines and cracking stills of the 1920s ran hot enough for their
+steel to stretch slowly under constant load. Frederick Norton, at MIT,
+measured creep rates of steels at temperature and found the steady rate
+rising as a power of stress, <span class="math notranslate nohighlight">\(\dot\varepsilon = A\sigma^n\)</span>, with
+<span class="math notranslate nohighlight">\(n\)</span> around 4 to 6. In the 1950s Dorn and co-workers showed that the
+temperature dependence is an Arrhenius factor <span class="math notranslate nohighlight">\(e^{-Q/RT}\)</span> with an
+activation energy close to that of self-diffusion, which tied creep to the
+climb of dislocations.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/materials.html#engineeringkit.materials.arrhenius_creep_rate" title="engineeringkit.materials.arrhenius_creep_rate"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.materials.arrhenius_creep_rate()</span></code></a>.
+The example recovers the stress exponent and the activation energy from
+simulated creep tests.</p>
+<p><em>References:</em> F. H. Norton, <em>The Creep of Steel at High Temperatures</em>
+(McGraw-Hill, New York, 1929).</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Steam turbines of the 1920s ran hot enough for their steel to stretch slowly under constant load. Frederick Norton&#x27;s The Creep of Steel at High Temperatures (1929) found that the steady creep rate rises as a power of stress, \dot\varepsilon = A\sigma^n, with n around 5. Its temperature dependence is thermally activated, e^{-Q/RT}, with an activation energy close to that of self-diffusion (Dorn, 1950s) (~engineeringkit.materials.arrhenius_creep_rate). The example recovers n and Q from simulated creep tests."><img alt="" src="../_images/sphx_glr_plot_01_norton_creep_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/materials/creep/plot_01_norton_creep.html"><span class="doc">Norton’s power-law creep</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Norton's power-law creep</div>
+</div></div></section>
+<section id="taylor-orowan-and-polanyi-dislocations">
+<h2><a class="toc-backref" href="#id11" role="doc-backlink">1934 – Taylor, Orowan and Polanyi: Dislocations</a><a class="headerlink" href="#taylor-orowan-and-polanyi-dislocations" title="Link to this heading">#</a></h2>
+<p>Jacob Frenkel (1926) estimated that shearing a perfect crystal needs about
+<span class="math notranslate nohighlight">\(G/2\pi\)</span>, thousands of times more than metal single crystals need. In
+1934 Geoffrey Taylor, Egon Orowan and Michael Polanyi independently
+proposed the dislocation, a line defect whose glide moves one row of atoms
+at a time, so that slip needs only a small stress. Rudolf Peierls (1940) and
+Frank Nabarro (1947) estimated the lattice’s resistance to it, which falls
+exponentially as the slip planes get farther apart. Dislocations were seen
+directly in the electron microscope in 1956.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/materials.html#engineeringkit.materials.ideal_shear_strength" title="engineeringkit.materials.ideal_shear_strength"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.materials.ideal_shear_strength()</span></code></a> and
+<a class="reference internal" href="../api/materials.html#engineeringkit.materials.peierls_stress" title="engineeringkit.materials.peierls_stress"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.materials.peierls_stress()</span></code></a>. The example compares
+Frenkel’s estimate, the Peierls stress and measured strengths of copper and
+aluminium.</p>
+<p><em>References:</em> J. Frenkel, “Zur Theorie der Elastizitätsgrenze und der
+Festigkeit kristallinischer Körper,” <em>Z. Phys.</em> 37 (1926) 572-609; G. I.
+Taylor, “The mechanism of plastic deformation of crystals. Part I.
+Theoretical,” <em>Proc. R. Soc. Lond. A</em> 145 (1934) 362-387; E. Orowan, “Zur
+Kristallplastizität. III,” <em>Z. Phys.</em> 89 (1934) 634-659; M. Polanyi, “Über
+eine Art Gitterstörung, die einen Kristall plastisch machen könnte,” <em>Z.
+Phys.</em> 89 (1934) 660-664; R. Peierls, “The size of a dislocation,” <em>Proc.
+Phys. Soc.</em> 52 (1940) 34-37; F. R. N. Nabarro, “Dislocations in a simple
+cubic lattice,” <em>Proc. Phys. Soc.</em> 59 (1947) 256-272.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Jacob Frenkel (1926) estimated the shear stress needed to slide one plane of a perfect crystal over the next as about G/2\pi (~engineeringkit.materials.ideal_shear_strength). Single crystals of copper and aluminium slip at stresses of order 1 MPa, thousands of times less. In 1934 Geoffrey Taylor, Egon Orowan and Michael Polanyi independently explained the gap with the dislocation, a line defect whose glide moves one row of atoms at a time. The lattice resists it only with the Peierls stress (Peierls 1940, Nabarro 1947), which falls exponentially as the slip planes get farther apart (~engineeringkit.materials.peierls_stress)."><img alt="" src="../_images/sphx_glr_plot_01_dislocations_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/materials/plasticity/plot_01_dislocations.html"><span class="doc">Taylor, Orowan and Polanyi: dislocations</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Taylor, Orowan and Polanyi: dislocations</div>
+</div></div></section>
+<section id="ramberg-and-osgood-s-stress-strain-curve">
+<h2><a class="toc-backref" href="#id12" role="doc-backlink">1943 – Ramberg and Osgood’s Stress-Strain Curve</a><a class="headerlink" href="#ramberg-and-osgood-s-stress-strain-curve" title="Link to this heading">#</a></h2>
+<p>Aluminium alloys and stainless steels yield gradually, with no sharp yield
+point, and wartime aircraft designers needed their curves in a form they
+could compute with. Walter Ramberg and William Osgood, at the National
+Bureau of Standards for NACA, described the whole curve by three
+parameters, <span class="math notranslate nohighlight">\(\varepsilon = \sigma/E + K(\sigma/E)^n\)</span>. Written with the
+0.2% offset yield strength, <span class="math notranslate nohighlight">\(\varepsilon = \sigma/E + 0.002(\sigma/\sigma_y)^n\)</span>,
+it remains the standard description of hardening in buckling and fatigue
+analysis.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/materials.html#engineeringkit.materials.ramberg_osgood_strain" title="engineeringkit.materials.ramberg_osgood_strain"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.materials.ramberg_osgood_strain()</span></code></a>
+and <a class="reference internal" href="../api/materials.html#engineeringkit.materials.StressStrainCurve.offset_yield_strength" title="engineeringkit.materials.StressStrainCurve.offset_yield_strength"><code class="xref py py-meth docutils literal notranslate"><span class="pre">engineeringkit.materials.StressStrainCurve.offset_yield_strength()</span></code></a>.
+The example plots the family of curves and recovers the offset yield
+strength from sampled data.</p>
+<p><em>References:</em> W. Ramberg and W. R. Osgood, “Description of stress-strain
+curves by three parameters,” NACA Technical Note 902 (1943).</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Aluminium alloys have no sharp yield point: their stress-strain curves bend over smoothly, and aircraft designers of the Second World War needed them in a form they could compute with. Walter Ramberg and William Osgood (NACA, 1943) described the whole curve with three numbers, \varepsilon = \sigma/E + K(\sigma/E)^n, usually written today with the 0.2% offset yield strength, \varepsilon = \sigma/E + 0.002(\sigma/\sigma_y)^n (~engineeringkit.materials.ramberg_osgood_strain). The example plots the family and recovers the offset yield strength from a sampled curve."><img alt="" src="../_images/sphx_glr_plot_02_ramberg_osgood_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/materials/plasticity/plot_02_ramberg_osgood.html"><span class="doc">Ramberg and Osgood’s stress-strain curve</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Ramberg and Osgood's stress-strain curve</div>
+</div></div></section>
+<section id="palmgren-and-miner-s-cumulative-damage">
+<h2><a class="toc-backref" href="#id13" role="doc-backlink">1945 – Palmgren and Miner’s Cumulative Damage</a><a class="headerlink" href="#palmgren-and-miner-s-cumulative-damage" title="Link to this heading">#</a></h2>
+<p>Arvid Palmgren (1924), estimating the lives of ball bearings under varying
+loads, assumed that each cycle at amplitude <span class="math notranslate nohighlight">\(\sigma_i\)</span> uses up
+<span class="math notranslate nohighlight">\(1/N_i\)</span> of the life. Milton Miner, at Douglas Aircraft, tested riveted
+aluminium joints under mixed amplitudes and found failure near
+<span class="math notranslate nohighlight">\(\sum n_i/N_i = 1\)</span>. The rule ignores the order of the loads, which
+tests show matters, but it is simple and turned load spectra into fatigue
+lives for every aircraft since.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/materials.html#engineeringkit.materials.miner_damage" title="engineeringkit.materials.miner_damage"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.materials.miner_damage()</span></code></a>. The example
+sums the damage of a block spectrum and reduces it to an equivalent
+constant amplitude.</p>
+<p><em>References:</em> A. Palmgren, “Die Lebensdauer von Kugellagern,” <em>Z. Ver.
+Dtsch. Ing.</em> 68 (1924) 339-341; M. A. Miner, “Cumulative damage in
+fatigue,” <em>J. Appl. Mech.</em> 12 (1945) A159-A164.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Real loads vary in amplitude. Arvid Palmgren (1924), estimating the lives of ball bearings, assumed that each cycle at amplitude \sigma_i uses up a fraction 1/N_i of the life, and Milton Miner (1945) confirmed the rule on riveted aluminium joints for aircraft: failure comes when D = \sum n_i/N_i reaches 1 (~engineeringkit.materials.miner_damage). The example applies it to a block load spectrum and reduces the spectrum to one equivalent amplitude."><img alt="" src="../_images/sphx_glr_plot_03_palmgren_miner_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/materials/fatigue/plot_03_palmgren_miner.html"><span class="doc">Palmgren and Miner’s cumulative damage</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Palmgren and Miner's cumulative damage</div>
+</div></div></section>
+<section id="hall-and-petch-grain-size-strengthening">
+<h2><a class="toc-backref" href="#id14" role="doc-backlink">1951-1953 – Hall and Petch: Grain-Size Strengthening</a><a class="headerlink" href="#hall-and-petch-grain-size-strengthening" title="Link to this heading">#</a></h2>
+<p>Eric Hall measured the yield stress of mild steels with different grain
+sizes, and Norman Petch the cleavage strength of iron. Both found strength
+rising linearly with the inverse square root of grain size,
+<span class="math notranslate nohighlight">\(\sigma_y = \sigma_0 + k\,d^{-1/2}\)</span>. Dislocations pile up at grain
+boundaries, and the stress at the head of a pile-up grows with its length.
+Grain refinement, by controlled rolling, became the way to make steels
+both stronger and tougher.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/materials.html#engineeringkit.materials.hall_petch" title="engineeringkit.materials.hall_petch"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.materials.hall_petch()</span></code></a>. The example
+fits the Hall-Petch line to scattered yield strengths.</p>
+<p><em>References:</em> E. O. Hall, “The deformation and ageing of mild steel: III
+Discussion of results,” <em>Proc. Phys. Soc. B</em> 64 (1951) 747-753; N. J.
+Petch, “The cleavage strength of polycrystals,” <em>J. Iron Steel Inst.</em> 174
+(1953) 25-28.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Eric Hall (1951) measured the lower yield stress of mild steels with different grain sizes, and Norman Petch (1953) the cleavage strength of iron. Both found the strength rising linearly with d^{-1/2}, \sigma_y = \sigma_0 + k\,d^{-1/2} (~engineeringkit.materials.hall_petch). Dislocations pile up against grain boundaries, and the stress concentrated at the head of a pile-up of length d grows as \sqrt d; slip crosses into the next grain when it reaches a fixed value. Grain refinement is the only strengthening mechanism that also makes steel tougher."><img alt="" src="../_images/sphx_glr_plot_03_hall_petch_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/materials/plasticity/plot_03_hall_petch.html"><span class="doc">Hall and Petch: grain-size strengthening</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Hall and Petch: grain-size strengthening</div>
+</div></div></section>
+<section id="the-larson-miller-parameter">
+<h2><a class="toc-backref" href="#id15" role="doc-backlink">1952 – The Larson-Miller Parameter</a><a class="headerlink" href="#the-larson-miller-parameter" title="Link to this heading">#</a></h2>
+<p>Power plants are designed for 100,000 hours of creep, longer than anyone
+can test. Frank Larson and James Miller, of General Electric, showed that
+rupture times at different temperatures collapse onto one curve of stress
+against <span class="math notranslate nohighlight">\(P = T(C + \log_{10} t_r)\)</span>, with <span class="math notranslate nohighlight">\(C\)</span> about 20 for hours.
+The parameter follows from an Arrhenius rupture time, and lets a short test
+at a higher temperature stand in for a long life at a lower one. Sherby
+and Dorn (1954) and Manson and Haferd (1953) proposed rival parameters, but
+Larson-Miller remains the one in design codes.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/materials.html#engineeringkit.materials.larson_miller_parameter" title="engineeringkit.materials.larson_miller_parameter"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.materials.larson_miller_parameter()</span></code></a>
+and <a class="reference internal" href="../api/materials.html#engineeringkit.materials.larson_miller_rupture_time" title="engineeringkit.materials.larson_miller_rupture_time"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.materials.larson_miller_rupture_time()</span></code></a>. The example
+collapses rupture tests onto a master curve and finds the short test
+equivalent to a 100,000-hour life.</p>
+<p><em>References:</em> F. R. Larson and J. Miller, “A time-temperature relationship
+for rupture and creep stresses,” <em>Trans. ASME</em> 74 (1952) 765-775.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="A boiler tube must last 100,000 hours, eleven years, but nobody can wait that long for a test. Frank Larson and James Miller (1952) observed that rupture times at different temperatures fall on one curve if plotted against P = T(C + \log_{10}t_r), with C \approx 20 (~engineeringkit.materials.larson_miller_parameter). A short test at a higher temperature then stands in for a long life at a lower one (~engineeringkit.materials.larson_miller_rupture_time). The parameter follows from an Arrhenius rupture time t_r = t_0 e^{Q(\sigma)/RT}: then C = -\log_{10}t_0 and P = Q(\sigma)/(2.303R) depends on stress alone."><img alt="" src="../_images/sphx_glr_plot_02_larson_miller_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/materials/creep/plot_02_larson_miller.html"><span class="doc">The Larson-Miller parameter</span></a></p>
+  <div class="sphx-glr-thumbnail-title">The Larson-Miller parameter</div>
+</div></div></section>
+<section id="coffin-and-manson-low-cycle-fatigue">
+<h2><a class="toc-backref" href="#id16" role="doc-backlink">1954 – Coffin and Manson: Low-Cycle Fatigue</a><a class="headerlink" href="#coffin-and-manson-low-cycle-fatigue" title="Link to this heading">#</a></h2>
+<p>Parts of nuclear plant and jet engines heated and cooled a few thousand
+times fail by cycles of plastic strain, which Basquin’s stress-life law
+cannot describe. Louis Coffin, at General Electric, and Samson Manson, at
+NACA’s Lewis laboratory, independently found that the plastic strain
+amplitude follows a power law of life,
+<span class="math notranslate nohighlight">\(\Delta\varepsilon_p/2 = \varepsilon_f'(2N)^c\)</span>, with <span class="math notranslate nohighlight">\(c\)</span> near
+-0.6. Added to Basquin’s elastic line it gives the strain-life curve used
+for notched parts and thermal fatigue.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/materials.html#engineeringkit.materials.coffin_manson_cycles" title="engineeringkit.materials.coffin_manson_cycles"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.materials.coffin_manson_cycles()</span></code></a> and
+<a class="reference internal" href="../api/materials.html#engineeringkit.materials.strain_life_amplitude" title="engineeringkit.materials.strain_life_amplitude"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.materials.strain_life_amplitude()</span></code></a>. The example draws
+the strain-life curve, finds its transition life and solves for the life
+at a given strain.</p>
+<p><em>References:</em> L. F. Coffin Jr., “A study of the effects of cyclic thermal
+stresses on a ductile metal,” <em>Trans. ASME</em> 76 (1954) 931-950; S. S.
+Manson, “Behavior of materials under conditions of thermal stress,” NACA
+Report 1170 (1954).</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Nuclear plant and jet-engine parts heated and cooled a few thousand times fail by cycles of plastic strain, where Basquin&#x27;s stress-life law is useless because the stress hardly changes. Louis Coffin (1954) and Samson Manson (1953-1954) independently found that the plastic strain amplitude follows its own power law, \Delta\varepsilon_p/2 = \varepsilon_f&#x27;(2N)^c (~engineeringkit.materials.coffin_manson_cycles). Added to Basquin&#x27;s elastic line it gives the strain-life curve (~engineeringkit.materials.strain_life_amplitude) used for notched parts today."><img alt="" src="../_images/sphx_glr_plot_04_coffin_manson_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/materials/fatigue/plot_04_coffin_manson.html"><span class="doc">Coffin and Manson: low-cycle fatigue</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Coffin and Manson: low-cycle fatigue</div>
+</div></div></section>
+<section id="irwin-s-stress-intensity-factor">
+<h2><a class="toc-backref" href="#id17" role="doc-backlink">1957 – Irwin’s Stress Intensity Factor</a><a class="headerlink" href="#irwin-s-stress-intensity-factor" title="Link to this heading">#</a></h2>
+<p>Griffith’s energy balance predicted absurdly low strengths for steel,
+whose cracks blunt by plastic flow, and the brittle fractures of welded
+Liberty ships and tankers needed explaining. George Irwin, at the US Naval
+Research Laboratory, added the plastic work to Griffith’s surface energy
+(1948) and then showed that the stresses near every crack tip have one
+shape, scaled by the stress intensity factor <span class="math notranslate nohighlight">\(K_I = Y\sigma\sqrt{\pi a}\)</span>.
+Fracture occurs when <span class="math notranslate nohighlight">\(K_I\)</span> reaches the toughness <span class="math notranslate nohighlight">\(K_{Ic}\)</span>, a
+material property that can be measured. Linear-elastic fracture mechanics
+was born.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/materials.html#engineeringkit.materials.stress_intensity" title="engineeringkit.materials.stress_intensity"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.materials.stress_intensity()</span></code></a> and
+<a class="reference internal" href="../api/materials.html#engineeringkit.materials.critical_crack_length" title="engineeringkit.materials.critical_crack_length"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.materials.critical_crack_length()</span></code></a>. The example shows
+that Irwin’s criterion reproduces Griffith’s for glass and compares the
+crack tolerance of two steels.</p>
+<p><em>References:</em> G. R. Irwin, “Analysis of stresses and strains near the end
+of a crack traversing a plate,” <em>J. Appl. Mech.</em> 24 (1957) 361-364.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Griffith&#x27;s balance worked for glass but predicted absurdly low strengths for steel, whose cracks blunt by plastic flow. George Irwin, at the US Naval Research Laboratory after the brittle failures of welded Liberty ships, showed that the stresses near every crack tip have the same shape, \sigma_{ij} = K f_{ij}(\theta)/\sqrt{2\pi r}, scaled by one number, the stress intensity factor K_I = Y\sigma\sqrt{\pi a} (1957) (~engineeringkit.materials.stress_intensity). Fracture happens when K_I reaches the material&#x27;s toughness K_{Ic}, and the critical crack length follows (~engineeringkit.materials.critical_crack_length). The energy release rate links the two views, \mathcal{G} = K^2/E."><img alt="" src="../_images/sphx_glr_plot_02_irwin_stress_intensity_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/materials/fracture/plot_02_irwin_stress_intensity.html"><span class="doc">Irwin’s stress intensity factor</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Irwin's stress intensity factor</div>
+</div></div></section>
+<section id="paris-s-crack-growth-law">
+<h2><a class="toc-backref" href="#id18" role="doc-backlink">1963 – Paris’s Crack-Growth Law</a><a class="headerlink" href="#paris-s-crack-growth-law" title="Link to this heading">#</a></h2>
+<p>The Comet airliner disasters of 1954 showed that fatigue cracks grow in
+service. Paul Paris, with Gomez and Anderson (1961), proposed that the
+growth per cycle depends on the range of the stress intensity factor alone,
+<span class="math notranslate nohighlight">\(da/dN = C\,\Delta K^m\)</span>. Journals rejected the idea at first; Paris and
+Erdogan’s 1963 paper, comparing it with the laws then in use on aluminium
+test data, made it standard. Integrated from the largest crack an
+inspection can miss to the critical size, it sets the inspection intervals
+of damage-tolerant aircraft design.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/materials.html#engineeringkit.materials.paris_crack_growth" title="engineeringkit.materials.paris_crack_growth"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.materials.paris_crack_growth()</span></code></a>,
+<a class="reference internal" href="../api/materials.html#engineeringkit.materials.crack_growth_life" title="engineeringkit.materials.crack_growth_life"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.materials.crack_growth_life()</span></code></a> and
+<a class="reference internal" href="../api/materials.html#engineeringkit.materials.CrackGrowthResult" title="engineeringkit.materials.CrackGrowthResult"><code class="xref py py-class docutils literal notranslate"><span class="pre">engineeringkit.materials.CrackGrowthResult</span></code></a>. The example fits the
+law to growth-rate data and integrates the life of a cracked panel with a
+finite-width correction.</p>
+<p><em>References:</em> P. C. Paris, M. P. Gomez and W. E. Anderson, “A rational
+analytic theory of fatigue,” <em>The Trend in Engineering</em> 13 (1961) 9-14;
+P. Paris and F. Erdogan, “A critical analysis of crack propagation laws,”
+<em>J. Basic Eng.</em> 85 (1963) 528-533.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Fracture mechanics tells how long a crack can be; fatigue makes it grow there. Paul Paris, after measuring cracks in aluminium aircraft panels, proposed with Gomez and Anderson (1961) and argued with Erdogan (1963) that the growth per cycle depends on the range of the stress intensity factor alone, da/dN = C\,\Delta K^m (~engineeringkit.materials.paris_crack_growth). Integrating it from the largest crack an inspection can miss to the critical size gives the inspection interval of damage-tolerant design (~engineeringkit.materials.crack_growth_life)."><img alt="" src="../_images/sphx_glr_plot_03_paris_law_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/materials/fracture/plot_03_paris_law.html"><span class="doc">Paris’s crack-growth law</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Paris's crack-growth law</div>
+</div></div></section>
+<section id="see-also">
+<h2><a class="toc-backref" href="#id19" role="doc-backlink">See Also</a><a class="headerlink" href="#see-also" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../api/materials.html"><span class="doc">engineeringkit.materials</span></a></p></li>
+<li><p><a class="reference internal" href="../guides/materials.html"><span class="doc">Materials: elasticity, yield, fatigue, fracture and creep conventions</span></a></p></li>
+<li><p><a class="reference internal" href="structural_engineering_breakthroughs.html"><span class="doc">Breakthroughs in Structural Engineering</span></a></p></li>
+<li><p><a class="reference internal" href="reliability_breakthroughs.html"><span class="doc">Breakthroughs in Reliability</span></a></p></li>
+</ul>
 </section>
 </section>
 
@@ -498,11 +890,25 @@ here are concise original explanations, not reproductions of that reference.</p>
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="pst-show_toc_level nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#elasticity-and-yielding-deformation-has-regimes">Elasticity and yielding: deformation has regimes</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#griffith-and-stress-intensity-cracks-alter-strength">Griffith and stress intensity: cracks alter strength</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fatigue-load-history-becomes-part-of-the-model">Fatigue: load history becomes part of the model</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explore-and-verify">Explore and verify</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">Further reading</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#young-s-modulus">1807 – Young’s Modulus</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#duhamel-s-thermal-stress">1838 – Duhamel’s Thermal Stress</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lame-s-elastic-constants">1852 – Lamé’s Elastic Constants</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tresca-s-maximum-shear-yield-criterion">1864 – Tresca’s Maximum-Shear Yield Criterion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#voigt-and-reuss-bounds-on-a-composite">1889-1929 – Voigt and Reuss: Bounds on a Composite</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#goodman-s-mean-stress-diagram">1899 – Goodman’s Mean-Stress Diagram</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basquin-s-s-n-law">1910 – Basquin’s S-N Law</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#von-mises-s-yield-criterion">1913 – Von Mises’s Yield Criterion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#griffith-s-theory-of-brittle-fracture">1920 – Griffith’s Theory of Brittle Fracture</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#norton-s-power-law-creep">1929 – Norton’s Power-Law Creep</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#taylor-orowan-and-polanyi-dislocations">1934 – Taylor, Orowan and Polanyi: Dislocations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ramberg-and-osgood-s-stress-strain-curve">1943 – Ramberg and Osgood’s Stress-Strain Curve</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#palmgren-and-miner-s-cumulative-damage">1945 – Palmgren and Miner’s Cumulative Damage</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hall-and-petch-grain-size-strengthening">1951-1953 – Hall and Petch: Grain-Size Strengthening</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-larson-miller-parameter">1952 – The Larson-Miller Parameter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coffin-and-manson-low-cycle-fatigue">1954 – Coffin and Manson: Low-Cycle Fatigue</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#irwin-s-stress-intensity-factor">1957 – Irwin’s Stress Intensity Factor</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#paris-s-crack-growth-law">1963 – Paris’s Crack-Growth Law</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#see-also">See Also</a></li>
 </ul>
   </nav></div>
 

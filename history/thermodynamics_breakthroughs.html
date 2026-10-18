@@ -6,8 +6,16 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Breakthroughs in Thermodynamics" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://cpoli.github.io/engineeringkit/history/thermodynamics_breakthroughs.html" />
+<meta property="og:site_name" content="engineeringkit" />
+<meta property="og:description" content="Domain hub · History · Examples · API reference “The energy of the universe is constant. The entropy of the universe tends to a maximum.” – Rudolf Clausius, 1865 Thermodynamics began as the theory ..." />
+<meta property="og:image" content="https://cpoli.github.io/engineeringkit/_static/images/readme_hero.png" />
+<meta property="og:image:alt" content="engineeringkit" />
+<meta name="description" content="Domain hub · History · Examples · API reference “The energy of the universe is constant. The entropy of the universe tends to a maximum.” – Rudolf Clausius, 1865 Thermodynamics began as the theory ..." />
 
-    <title>Breakthroughs in Thermodynamics &#8212; engineeringkit 0.1.0 documentation</title>
+    <title>Breakthroughs in Thermodynamics &#8212; engineeringkit</title>
   
   
   
@@ -30,6 +38,7 @@
 <link href="../_static/styles/pydata-sphinx-theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx_autodoc_typehints.css?v=057ac668" />
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Vibur" />
     <link rel="stylesheet" type="text/css" href="../_static/jupyterlite_sphinx.css?v=f676e775" />
@@ -55,6 +64,7 @@
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'history/thermodynamics_breakthroughs';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="canonical" href="https://cpoli.github.io/engineeringkit/history/thermodynamics_breakthroughs.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Breakthroughs in Fluid Engineering" href="fluid_engineering_breakthroughs.html" />
@@ -404,50 +414,401 @@
 <div class="subpkg-nav docutils container">
 <p><a class="reference internal" href="../_generated/subpackages/thermodynamics.html"><span class="doc">Domain hub</span></a> · <a class="reference internal" href="#"><span class="doc">History</span></a> · <a class="reference internal" href="../api/gallery/thermodynamics/index.html"><span class="doc">Examples</span></a> · <a class="reference internal" href="../api/thermodynamics.html"><span class="doc">API reference</span></a></p>
 </div>
-<p>These landmarks trace a conceptual development from a physical law to a useful
-engineering model. The order is a learning path, not a dated chronology or a
-claim that any idea had a single inventor. SI units apply unless documented
-otherwise.</p>
-<section id="the-first-law-heat-and-work-share-an-energy-balance">
-<h2>The first law: heat and work share an energy balance<a class="headerlink" href="#the-first-law-heat-and-work-share-an-energy-balance" title="Link to this heading">#</a></h2>
-<p>Energy conservation links heat supplied, internal-energy change and work delivered. A consistent sign convention is essential when changing between closed and flowing systems.</p>
-<div class="math notranslate nohighlight">
-\[Q=\Delta U+W_{by}\]</div>
-<p>Use <a class="reference internal" href="../api/thermodynamics.html#engineeringkit.thermodynamics.first_law_heat" title="engineeringkit.thermodynamics.first_law_heat"><code class="xref py py-obj docutils literal notranslate"><span class="pre">engineeringkit.thermodynamics.first_law_heat</span></code></a> to explore the model.
-The helper uses work done by the system as positive; kinetic and potential energy need separate terms when relevant.</p>
-</section>
-<section id="carnot-and-entropy-conservation-is-not-enough">
-<h2>Carnot and entropy: conservation is not enough<a class="headerlink" href="#carnot-and-entropy-conservation-is-not-enough" title="Link to this heading">#</a></h2>
-<p>The second law restricts the conversion of heat to work. A reversible engine between two reservoirs supplies an upper efficiency bound expressed using absolute temperatures.</p>
-<div class="math notranslate nohighlight">
-\[\eta_C=1-T_c/T_h\]</div>
-<p>Use <a class="reference internal" href="../api/thermodynamics.html#engineeringkit.thermodynamics.carnot_efficiency" title="engineeringkit.thermodynamics.carnot_efficiency"><code class="xref py py-obj docutils literal notranslate"><span class="pre">engineeringkit.thermodynamics.carnot_efficiency</span></code></a> to explore the model.
-Both temperatures are kelvin; finite-rate heat transfer and irreversibility lower real efficiency.</p>
-</section>
-<section id="cycles-and-exergy-useful-work-depends-on-the-surroundings">
-<h2>Cycles and exergy: useful work depends on the surroundings<a class="headerlink" href="#cycles-and-exergy-useful-work-depends-on-the-surroundings" title="Link to this heading">#</a></h2>
-<p>Ideal Otto, Diesel and Brayton cycles relate efficiency to compression or pressure ratios. Exergy measures the work potential of energy relative to an environment.</p>
-<div class="math notranslate nohighlight">
-\[B_Q=Q(1-T_0/T_s),\qquad B_{destroyed}=T_0S_{gen}\]</div>
-<p>Use <a class="reference internal" href="../api/thermodynamics.html#engineeringkit.thermodynamics.exergy_heat" title="engineeringkit.thermodynamics.exergy_heat"><code class="xref py py-obj docutils literal notranslate"><span class="pre">engineeringkit.thermodynamics.exergy_heat</span></code></a> to explore the model.
-Ideal-gas cycle formulas use constant heat-capacity ratios. Exergy accounting requires a consistent environmental reference.</p>
-</section>
-<section id="explore-and-verify">
-<h2>Explore and verify<a class="headerlink" href="#explore-and-verify" title="Link to this heading">#</a></h2>
-<p><a class="reference internal" href="../guides/thermodynamics.html"><span class="doc">Thermodynamics: total versus specific quantities and cycle states</span></a> records units, conventions and independent checks.
-Compare the gallery output against the equations before extending a model.</p>
-<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="A reversible heat pump delivers absorbed heat plus supplied work. Consequently its COP exceeds refrigerator COP by one. The temperature difference must remain positive and absolute temperatures are used."><img alt="" src="../_images/sphx_glr_plot_thermodynamics_benchmark_thumb.png" />
-<p><a class="reference internal" href="../api/gallery/thermodynamics/plot_thermodynamics_benchmark.html"><span class="doc">Carnot engine and heat-pump limits</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Carnot engine and heat-pump limits</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Compute an inspectable engineering model using SI inputs. See the linked domain guide for assumptions and benchmark checks."><img alt="" src="../_images/sphx_glr_plot_thermodynamics_models_thumb.png" />
-<p><a class="reference internal" href="../api/gallery/thermodynamics/plot_thermodynamics_models.html"><span class="doc">Ideal power-cycle efficiency</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Ideal power-cycle efficiency</div>
+<blockquote class="epigraph">
+<div><p>“The energy of the universe is constant. The entropy of the universe
+tends to a maximum.”
+– Rudolf Clausius, 1865</p>
+</div></blockquote>
+<p>Thermodynamics began as the theory of the steam engine and became a science
+of energy itself. Carnot’s question of how much work heat can give led,
+through Joule’s experiments, to the first law, and through Clausius and
+Kelvin to the second law and entropy. Engineers turned the laws into cycles
+for every kind of engine, refrigerator and heat pump. Equations of state and
+vapour-pressure laws described the working fluids, and exergy put all losses
+in one currency. The entries trace the ideas behind
+<a class="reference internal" href="../api/thermodynamics.html#module-engineeringkit.thermodynamics" title="engineeringkit.thermodynamics"><code class="xref py py-mod docutils literal notranslate"><span class="pre">engineeringkit.thermodynamics</span></code></a>. Each links to the implementing
+function and to a gallery example devoted to it.</p>
+<nav class="contents local" id="timeline">
+<p class="topic-title">Timeline</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#carnot-s-reflexions" id="id1">1824 – Carnot’s <em>Réflexions</em></a></p></li>
+<li><p><a class="reference internal" href="#clapeyron-s-ideal-gas-law" id="id2">1834 – Clapeyron’s Ideal Gas Law</a></p></li>
+<li><p><a class="reference internal" href="#the-clausius-clapeyron-relation" id="id3">1834-1850 – The Clausius-Clapeyron Relation</a></p></li>
+<li><p><a class="reference internal" href="#perkins-s-vapour-compression-refrigerator" id="id4">1834 – Perkins’s Vapour-Compression Refrigerator</a></p></li>
+<li><p><a class="reference internal" href="#joule-and-the-first-law" id="id5">1843-1850 – Joule and the First Law</a></p></li>
+<li><p><a class="reference internal" href="#kelvin-s-heat-pump" id="id6">1852 – Kelvin’s Heat Pump</a></p></li>
+<li><p><a class="reference internal" href="#the-joule-thomson-effect" id="id7">1852 – The Joule-Thomson Effect</a></p></li>
+<li><p><a class="reference internal" href="#clausius-s-inequality-and-entropy" id="id8">1854-1865 – Clausius’s Inequality and Entropy</a></p></li>
+<li><p><a class="reference internal" href="#rankine-s-steam-cycle" id="id9">1859 – Rankine’s Steam Cycle</a></p></li>
+<li><p><a class="reference internal" href="#brayton-s-constant-pressure-cycle" id="id10">1872 – Brayton’s Constant-Pressure Cycle</a></p></li>
+<li><p><a class="reference internal" href="#van-der-waals-s-equation-of-state" id="id11">1873 – Van der Waals’s Equation of State</a></p></li>
+<li><p><a class="reference internal" href="#otto-s-four-stroke-cycle" id="id12">1876 – Otto’s Four-Stroke Cycle</a></p></li>
+<li><p><a class="reference internal" href="#antoine-s-vapour-pressure-equation" id="id13">1888 – Antoine’s Vapour-Pressure Equation</a></p></li>
+<li><p><a class="reference internal" href="#gouy-and-stodola-lost-work" id="id14">1889-1905 – Gouy and Stodola: Lost Work</a></p></li>
+<li><p><a class="reference internal" href="#diesel-s-compression-ignition-cycle" id="id15">1893 – Diesel’s Compression-Ignition Cycle</a></p></li>
+<li><p><a class="reference internal" href="#carrier-s-psychrometric-chart" id="id16">1911 – Carrier’s Psychrometric Chart</a></p></li>
+<li><p><a class="reference internal" href="#rant-names-exergy" id="id17">1956 – Rant Names Exergy</a></p></li>
+<li><p><a class="reference internal" href="#curzon-and-ahlborn-efficiency-at-maximum-power" id="id18">1975 – Curzon and Ahlborn: Efficiency at Maximum Power</a></p></li>
+<li><p><a class="reference internal" href="#iapws-if97-steam-properties" id="id19">1997 – IAPWS-IF97 Steam Properties</a></p></li>
+<li><p><a class="reference internal" href="#see-also" id="id20">See Also</a></p></li>
+</ul>
+</nav>
+<section id="carnot-s-reflexions">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">1824 – Carnot’s <em>Réflexions</em></a><a class="headerlink" href="#carnot-s-reflexions" title="Link to this heading">#</a></h2>
+<p>Sadi Carnot, a young French engineer officer, asked whether the work of a
+steam engine had a limit. He compared heat falling from a hot body to a cold
+one with water falling over a wheel, and argued that a reversible engine
+between two temperatures is the best possible, whatever its working
+substance. If any engine did better, it could drive a reversible engine
+backwards and move heat from cold to hot for nothing. The little book was
+almost ignored until Clapeyron and then Kelvin took it up. In modern form the
+bound is <span class="math notranslate nohighlight">\(\eta = 1 - T_c/T_h\)</span>.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/thermodynamics.html#engineeringkit.thermodynamics.carnot_efficiency" title="engineeringkit.thermodynamics.carnot_efficiency"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.thermodynamics.carnot_efficiency()</span></code></a>,
+<a class="reference internal" href="../api/thermodynamics.html#engineeringkit.thermodynamics.heat_engine_work" title="engineeringkit.thermodynamics.heat_engine_work"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.thermodynamics.heat_engine_work()</span></code></a> and
+<a class="reference internal" href="../api/thermodynamics.html#engineeringkit.thermodynamics.thermal_efficiency" title="engineeringkit.thermodynamics.thermal_efficiency"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.thermodynamics.thermal_efficiency()</span></code></a>. The example runs
+Carnot’s argument with numbers and plots the bound against source
+temperature.</p>
+<p><em>References:</em> S. Carnot, <em>Réflexions sur la puissance motrice du feu</em>
+(Paris: Bachelier, 1824).</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Sadi Carnot (1824) argued that a heat engine&#x27;s work comes from heat falling from a hot body to a cold one, as a water wheel&#x27;s comes from falling water, and that a reversible engine between two temperatures is the best possible. If some engine did better, it could drive the reversible engine backwards as a heat pump and, with no work left over, move heat from cold to hot. In modern form the bound is \eta_C = 1 - T_c/T_h (~engineeringkit.thermodynamics.carnot_efficiency), with absolute temperatures. The example runs Carnot&#x27;s argument with numbers and shows how the bound rises with the boiler temperature."><img alt="" src="../_images/sphx_glr_plot_01_carnot_efficiency_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/thermodynamics/cycles/plot_01_carnot_efficiency.html"><span class="doc">Carnot’s Réflexions: no engine beats the reversible one</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Carnot's Réflexions: no engine beats the reversible one</div>
 </div></div></section>
-<section id="further-reading">
-<h2>Further reading<a class="headerlink" href="#further-reading" title="Link to this heading">#</a></h2>
-<p><a class="reference external" href="https://ocw.mit.edu/courses/16-050-thermal-energy-fall-2002/pages/lecture-notes/">University or agency teaching reference</a>
-provides background beyond the implemented subset. The equations and examples
-here are concise original explanations, not reproductions of that reference.</p>
+<section id="clapeyron-s-ideal-gas-law">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">1834 – Clapeyron’s Ideal Gas Law</a><a class="headerlink" href="#clapeyron-s-ideal-gas-law" title="Link to this heading">#</a></h2>
+<p>Émile Clapeyron restated Carnot’s argument with a cycle drawn on pressure
+and volume axes, the indicator diagram of the steam engineer. To compute the
+work of a gas cycle he combined Boyle and Mariotte’s law with Gay-Lussac’s
+law of expansion into <span class="math notranslate nohighlight">\(pv = R(267 + t)\)</span>. With Regnault’s better
+coefficient and absolute temperature it became <span class="math notranslate nohighlight">\(pV = nRT\)</span>, the
+equation of state against which every real fluid is still measured.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/thermodynamics.html#engineeringkit.thermodynamics.ideal_gas_pressure" title="engineeringkit.thermodynamics.ideal_gas_pressure"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.thermodynamics.ideal_gas_pressure()</span></code></a>
+and <a class="reference internal" href="../api/thermodynamics.html#engineeringkit.thermodynamics.ideal_gas_temperature" title="engineeringkit.thermodynamics.ideal_gas_temperature"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.thermodynamics.ideal_gas_temperature()</span></code></a>. The example
+extrapolates a constant-volume gas thermometer to the absolute zero.</p>
+<p><em>References:</em> É. Clapeyron, “Mémoire sur la puissance motrice de la
+chaleur,” <em>J. École Polytechnique</em> 14 (1834) 153-190.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Boyle (1662) and Mariotte found that at fixed temperature a gas&#x27;s pressure times its volume stays constant. Gay-Lussac (1802) found that at fixed pressure every gas expands by the same fraction of its volume at 0 °C, about 1/267 per degree. In his 1834 memoir on Carnot&#x27;s theory, Émile Clapeyron combined the two as pv = R(267 + t). Regnault&#x27;s better measurements moved the 267 to 273, and with absolute temperature and the amount of gas the law reads pV = nRT (~engineeringkit.thermodynamics.ideal_gas_pressure, ideal_gas_temperature). The example rebuilds the absolute zero from a gas thermometer."><img alt="" src="../_images/sphx_glr_plot_01_clapeyron_ideal_gas_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/thermodynamics/properties/plot_01_clapeyron_ideal_gas.html"><span class="doc">Clapeyron’s ideal gas law</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Clapeyron's ideal gas law</div>
+</div></div></section>
+<section id="the-clausius-clapeyron-relation">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">1834-1850 – The Clausius-Clapeyron Relation</a><a class="headerlink" href="#the-clausius-clapeyron-relation" title="Link to this heading">#</a></h2>
+<p>In the same memoir Clapeyron applied Carnot’s reasoning to an infinitesimal
+cycle of boiling and condensing. The slope of the vapour-pressure curve came
+out fixed by the latent heat and the change of volume,
+<span class="math notranslate nohighlight">\(\mathrm{d}p/\mathrm{d}T = h_{fg}/[T(v_g - v_f)]\)</span>. Clausius rederived
+it in 1850 from the new mechanical theory of heat. Neglecting the liquid
+volume and treating the vapour as an ideal gas, he integrated it to make
+<span class="math notranslate nohighlight">\(\ln p\)</span> linear in <span class="math notranslate nohighlight">\(1/T\)</span>.</p>
+<p><em>Implementation:</em>
+<a class="reference internal" href="../api/thermodynamics.html#engineeringkit.thermodynamics.clausius_clapeyron_pressure" title="engineeringkit.thermodynamics.clausius_clapeyron_pressure"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.thermodynamics.clausius_clapeyron_pressure()</span></code></a>. The
+example checks the exact slope against IAPWS-IF97 steam and finds the boiling
+point on Everest.</p>
+<p><em>References:</em> É. Clapeyron (1834), as above; R. Clausius, “Über die
+bewegende Kraft der Wärme,” <em>Ann. Phys.</em> 79 (1850) 368-397, 500-524.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Clapeyron (1834) applied Carnot&#x27;s reasoning to a small cycle of boiling and condensing and found that the slope of the vapour-pressure curve is fixed by the latent heat, \mathrm{d}p/\mathrm{d}T = h_{fg}/[T(v_g - v_f)]. Clausius (1850) rederived it from the two laws and, treating the vapour as an ideal gas and neglecting the liquid volume, integrated it: \ln p is linear in 1/T (~engineeringkit.thermodynamics.clausius_clapeyron_pressure). The example checks the exact slope against IAPWS-IF97 steam and uses the integrated form to find where water boils on a mountain."><img alt="" src="../_images/sphx_glr_plot_02_clausius_clapeyron_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/thermodynamics/properties/plot_02_clausius_clapeyron.html"><span class="doc">The Clausius-Clapeyron relation</span></a></p>
+  <div class="sphx-glr-thumbnail-title">The Clausius-Clapeyron relation</div>
+</div></div></section>
+<section id="perkins-s-vapour-compression-refrigerator">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">1834 – Perkins’s Vapour-Compression Refrigerator</a><a class="headerlink" href="#perkins-s-vapour-compression-refrigerator" title="Link to this heading">#</a></h2>
+<p>Jacob Perkins, an American inventor working in London, patented a closed
+machine that evaporated a volatile liquid at low pressure to absorb heat,
+compressed the vapour and condensed it under pressure, then let the liquid
+back through a valve. Every domestic refrigerator and air conditioner still
+works this way. The coefficient of performance, heat removed per unit of
+work, is bounded by Carnot’s <span class="math notranslate nohighlight">\(T_c/(T_h - T_c)\)</span>.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/thermodynamics.html#engineeringkit.thermodynamics.refrigeration_cop" title="engineeringkit.thermodynamics.refrigeration_cop"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.thermodynamics.refrigeration_cop()</span></code></a>
+and <a class="reference internal" href="../api/thermodynamics.html#engineeringkit.thermodynamics.carnot_cop_refrigerator" title="engineeringkit.thermodynamics.carnot_cop_refrigerator"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.thermodynamics.carnot_cop_refrigerator()</span></code></a>. The
+example runs the ideal cycle with water as refrigerant on IF97 properties.</p>
+<p><em>References:</em> J. Perkins, “Apparatus and means for producing ice, and in
+cooling fluids,” British Patent 6662 (1834).</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="In 1834 Jacob Perkins, an American engineer in London, patented a machine that evaporated ether at low pressure to absorb heat, compressed the vapour with a hand pump, and condensed it again under pressure. It was the first closed vapour-compression cycle, the cycle of nearly every refrigerator and air conditioner since. Its figure of merit is the coefficient of performance, the heat removed per unit of work, \mathrm{COP}_R = Q_c/W (~engineeringkit.thermodynamics.refrigeration_cop), and the second law bounds it by T_c/(T_h - T_c) (~engineeringkit.thermodynamics.carnot_cop_refrigerator). The example runs the ideal cycle with water as the refrigerant (R718, used today in some large chillers), because IAPWS-IF97 gives its properties."><img alt="" src="../_images/sphx_glr_plot_01_perkins_vapor_compression_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/thermodynamics/refrigeration/plot_01_perkins_vapor_compression.html"><span class="doc">Perkins’s vapour-compression refrigerator</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Perkins's vapour-compression refrigerator</div>
+</div></div></section>
+<section id="joule-and-the-first-law">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">1843-1850 – Joule and the First Law</a><a class="headerlink" href="#joule-and-the-first-law" title="Link to this heading">#</a></h2>
+<p>James Prescott Joule, a Manchester brewer’s son, measured the heat produced
+by electric currents, by compressing air, and finally by falling weights
+that stirred water with a paddle wheel. Each time the same work gave the same
+heat: 772 foot-pounds per British thermal unit, about 4.16 J/cal. Heat and work
+became two forms of one conserved quantity, and Clausius wrote the balance
+as <span class="math notranslate nohighlight">\(Q = \Delta U + W\)</span>.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/thermodynamics.html#engineeringkit.thermodynamics.first_law_heat" title="engineeringkit.thermodynamics.first_law_heat"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.thermodynamics.first_law_heat()</span></code></a>,
+<a class="reference internal" href="../api/thermodynamics.html#engineeringkit.thermodynamics.specific_internal_energy_ideal_gas" title="engineeringkit.thermodynamics.specific_internal_energy_ideal_gas"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.thermodynamics.specific_internal_energy_ideal_gas()</span></code></a> and
+<a class="reference internal" href="../api/thermodynamics.html#engineeringkit.thermodynamics.specific_enthalpy_ideal_gas" title="engineeringkit.thermodynamics.specific_enthalpy_ideal_gas"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.thermodynamics.specific_enthalpy_ideal_gas()</span></code></a>. The
+example redoes the paddle-wheel balance and converts Joule’s number to SI.</p>
+<p><em>References:</em> J. P. Joule, “On the calorific effects of magneto-electricity,
+and on the mechanical value of heat,” <em>Phil. Mag.</em> 23 (1843) 263-276, 347-355,
+435-443; “On the mechanical equivalent of heat,” <em>Phil. Trans. R. Soc.</em> 140
+(1850) 61-82.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="James Prescott Joule spent the 1840s showing that a given amount of work, however it is done, always produces the same amount of heat. In his best known experiment (published 1850) falling weights turned a paddle wheel in an insulated can of water, and he measured the temperature rise to a hundredth of a degree. His result, 772 foot-pounds per British thermal unit, made heat and work two forms of one conserved quantity, energy: Q = \Delta U + W (~engineeringkit.thermodynamics.first_law_heat). The example redoes the paddle-wheel balance, converts Joule&#x27;s number to SI, and checks the ideal-gas energy functions."><img alt="" src="../_images/sphx_glr_plot_01_joule_first_law_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/thermodynamics/laws/plot_01_joule_first_law.html"><span class="doc">Joule and the first law</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Joule and the first law</div>
+</div></div></section>
+<section id="kelvin-s-heat-pump">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">1852 – Kelvin’s Heat Pump</a><a class="headerlink" href="#kelvin-s-heat-pump" title="Link to this heading">#</a></h2>
+<p>William Thomson saw that a reversed heat engine could warm a building with
+heat taken from the colder outside air, delivering more heat than the work
+spent on it. He proposed an air machine for the purpose and argued that it
+would heat with less fuel than burning that fuel directly. The heat pump’s
+coefficient of performance is bounded by <span class="math notranslate nohighlight">\(T_h/(T_h - T_c)\)</span>, one more
+than the refrigerator’s.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/thermodynamics.html#engineeringkit.thermodynamics.heat_pump_cop" title="engineeringkit.thermodynamics.heat_pump_cop"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.thermodynamics.heat_pump_cop()</span></code></a> and
+<a class="reference internal" href="../api/thermodynamics.html#engineeringkit.thermodynamics.carnot_cop_heat_pump" title="engineeringkit.thermodynamics.carnot_cop_heat_pump"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.thermodynamics.carnot_cop_heat_pump()</span></code></a>. The example
+works out Kelvin’s air cycle as a reversed Brayton cycle and repeats his
+economy argument.</p>
+<p><em>References:</em> W. Thomson, “On the economy of the heating or cooling of
+buildings by means of currents of air,” <em>Proc. Phil. Soc. Glasgow</em> 3 (1852)
+269-272.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="In 1852 William Thomson, later Lord Kelvin, pointed out that the second law cuts both ways. A refrigerator run backwards would warm a building with heat drawn from the cold outside air, and the heat delivered would be many times the work spent. He proposed an air machine for it: compress outside air, let it give its heat to the rooms, then expand it. The figure of merit is \mathrm{COP}_{HP} = Q_h/W (~engineeringkit.thermodynamics.heat_pump_cop), at most T_h/(T_h - T_c) (~engineeringkit.thermodynamics.carnot_cop_heat_pump). Practical heat pumps had to wait for vapour compression and cheap electricity; they now heat millions of homes."><img alt="" src="../_images/sphx_glr_plot_02_kelvin_heat_pump_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/thermodynamics/refrigeration/plot_02_kelvin_heat_pump.html"><span class="doc">Kelvin’s heat pump</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Kelvin's heat pump</div>
+</div></div></section>
+<section id="the-joule-thomson-effect">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">1852 – The Joule-Thomson Effect</a><a class="headerlink" href="#the-joule-thomson-effect" title="Link to this heading">#</a></h2>
+<p>Joule and Thomson forced gases steadily through a porous plug and found
+them slightly cooler on the far side. Air cooled by about a quarter of a
+kelvin per atmosphere and carbon dioxide by about one, while hydrogen warmed.
+The throttled flow keeps its enthalpy, so the effect measures how far a
+real gas departs from ideal. Below an inversion temperature throttling
+cools the gas, the basis of Linde’s air liquefier of 1895.</p>
+<p><em>Implementation:</em>
+<a class="reference internal" href="../api/thermodynamics.html#engineeringkit.thermodynamics.joule_thomson_coefficient_vdw" title="engineeringkit.thermodynamics.joule_thomson_coefficient_vdw"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.thermodynamics.joule_thomson_coefficient_vdw()</span></code></a>. The
+example compares nitrogen, carbon dioxide and hydrogen and integrates a
+throttle valve.</p>
+<p><em>References:</em> J. P. Joule and W. Thomson, “On the thermal effects
+experienced by air in rushing through small apertures,” <em>Phil. Mag.</em> 4
+(1852) 481-492.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Joule&#x27;s free expansion of 1845 showed no temperature change, which was too coarse a test of whether a gas has internal energy apart from its temperature. From 1852 Joule and William Thomson forced gas steadily through a porous plug and measured the temperature on each side. The flow keeps its enthalpy, and real gases came out slightly cooler: air by about a quarter of a kelvin per atmosphere, carbon dioxide by about one. Hydrogen came out warmer. For a van der Waals gas at low pressure the coefficient is \mu_{JT} = (2a/RT - b)/c_{p,m} (~engineeringkit.thermodynamics.joule_thomson_coefficient_vdw). Attraction (a) cools the gas and the size of the molecules (b) warms it. The sign changes at the inversion temperature 2a/(Rb), which Linde&#x27;s air liquefier (1895) relied on."><img alt="" src="../_images/sphx_glr_plot_03_joule_thomson_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/thermodynamics/properties/plot_03_joule_thomson.html"><span class="doc">The Joule-Thomson effect</span></a></p>
+  <div class="sphx-glr-thumbnail-title">The Joule-Thomson effect</div>
+</div></div></section>
+<section id="clausius-s-inequality-and-entropy">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">1854-1865 – Clausius’s Inequality and Entropy</a><a class="headerlink" href="#clausius-s-inequality-and-entropy" title="Link to this heading">#</a></h2>
+<p>Rudolf Clausius showed in 1854 that around any cycle the heat received,
+divided by the temperature at which it crosses the boundary, sums to zero
+for a reversible cycle and is negative otherwise. So <span class="math notranslate nohighlight">\(\delta Q_{rev}/T\)</span>
+is the change of a property of state, which in 1865 he named entropy, from
+the Greek for transformation. The second law became a statement about
+entropy: in an isolated system it never decreases.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/thermodynamics.html#engineeringkit.thermodynamics.clausius_inequality" title="engineeringkit.thermodynamics.clausius_inequality"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.thermodynamics.clausius_inequality()</span></code></a>,
+<a class="reference internal" href="../api/thermodynamics.html#engineeringkit.thermodynamics.entropy_change_isothermal_ideal_gas" title="engineeringkit.thermodynamics.entropy_change_isothermal_ideal_gas"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.thermodynamics.entropy_change_isothermal_ideal_gas()</span></code></a>,
+<a class="reference internal" href="../api/thermodynamics.html#engineeringkit.thermodynamics.reversible_isothermal_work_ideal_gas" title="engineeringkit.thermodynamics.reversible_isothermal_work_ideal_gas"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.thermodynamics.reversible_isothermal_work_ideal_gas()</span></code></a>,
+<a class="reference internal" href="../api/thermodynamics.html#engineeringkit.thermodynamics.isentropic_pressure_volume" title="engineeringkit.thermodynamics.isentropic_pressure_volume"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.thermodynamics.isentropic_pressure_volume()</span></code></a> and
+<a class="reference internal" href="../api/thermodynamics.html#engineeringkit.thermodynamics.isentropic_temperature_ratio" title="engineeringkit.thermodynamics.isentropic_temperature_ratio"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.thermodynamics.isentropic_temperature_ratio()</span></code></a>. The
+example builds an ideal-gas Carnot cycle and makes it irreversible.</p>
+<p><em>References:</em> R. Clausius, “Über eine veränderte Form des zweiten
+Hauptsatzes der mechanischen Wärmetheorie,” <em>Ann. Phys.</em> 93 (1854) 481-506;
+“Über verschiedene für die Anwendung bequeme Formen der Hauptgleichungen der
+mechanischen Wärmetheorie,” <em>Ann. Phys.</em> 125 (1865) 353-400.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Rudolf Clausius (1854) showed that around any cycle the heat received, each part divided by the temperature at which it crosses the boundary, sums to zero or less: \oint \delta Q/T \le 0 (~engineeringkit.thermodynamics.clausius_inequality), with equality only for a reversible cycle. Then \delta Q_{rev}/T is the change of a state function, which in 1865 he named entropy. The example builds a Carnot cycle from an ideal gas, checks that its Clausius sum is zero, and shows that drawing the same heat across a finite temperature difference makes the sum negative."><img alt="" src="../_images/sphx_glr_plot_02_clausius_entropy_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/thermodynamics/laws/plot_02_clausius_entropy.html"><span class="doc">Clausius’s inequality and entropy</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Clausius's inequality and entropy</div>
+</div></div></section>
+<section id="rankine-s-steam-cycle">
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">1859 – Rankine’s Steam Cycle</a><a class="headerlink" href="#rankine-s-steam-cycle" title="Link to this heading">#</a></h2>
+<p>William Rankine’s <em>Manual of the Steam Engine</em> was the first textbook of
+engineering thermodynamics. It analysed the steam plant as a cycle of pump,
+boiler, engine and condenser. Pumping the water as a liquid costs about 1% of
+the engine’s work, and the condenser lets the steam expand to a vacuum.
+With superheat and reheat added, the Rankine cycle still produces most of the
+world’s electricity, from coal, nuclear and solar thermal plants.</p>
+<p><em>Implementation:</em>
+<a class="reference internal" href="../api/thermodynamics.html#engineeringkit.thermodynamics.rankine_ideal_efficiency" title="engineeringkit.thermodynamics.rankine_ideal_efficiency"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.thermodynamics.rankine_ideal_efficiency()</span></code></a>, with states
+from <a class="reference internal" href="../api/thermodynamics.html#engineeringkit.thermodynamics.steam_properties" title="engineeringkit.thermodynamics.steam_properties"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.thermodynamics.steam_properties()</span></code></a>. The example
+computes a 10 MPa, 500 °C plant and plots it on the T-s diagram.</p>
+<p><em>References:</em> W. J. M. Rankine, <em>A Manual of the Steam Engine and Other
+Prime Movers</em> (London: Griffin, 1859).</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="William Rankine&#x27;s Manual of the Steam Engine (1859) analysed the steam engine as a cycle of four steady-flow steps: a pump raises condensed water to boiler pressure, the boiler turns it into superheated steam, the steam expands through the engine (now a turbine), and a condenser turns the exhaust back into water. Because the water is pumped as a liquid, the pump needs about 1% of the turbine work, which is the cycle&#x27;s great advantage over gas cycles. The efficiency (~engineeringkit.thermodynamics.rankine_ideal_efficiency) is computed here with IAPWS-IF97 steam properties (~engineeringkit.thermodynamics.steam_properties) for a plant at 10 MPa and 500 °C condensing at 10 kPa."><img alt="" src="../_images/sphx_glr_plot_02_rankine_cycle_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/thermodynamics/cycles/plot_02_rankine_cycle.html"><span class="doc">Rankine’s steam cycle</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Rankine's steam cycle</div>
+</div></div></section>
+<section id="brayton-s-constant-pressure-cycle">
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">1872 – Brayton’s Constant-Pressure Cycle</a><a class="headerlink" href="#brayton-s-constant-pressure-cycle" title="Link to this heading">#</a></h2>
+<p>George Brayton’s “Ready Motor” compressed air, burned fuel in it at constant
+pressure and expanded the hot gas in a second cylinder. Joule had proposed the
+same cycle for an air engine. The engine lost out to Otto’s, but the cycle of
+isentropic compression, constant-pressure heating, isentropic expansion and
+constant-pressure cooling is the cycle of every gas turbine and jet engine.
+Its ideal efficiency depends only on the pressure ratio.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/thermodynamics.html#engineeringkit.thermodynamics.brayton_efficiency" title="engineeringkit.thermodynamics.brayton_efficiency"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.thermodynamics.brayton_efficiency()</span></code></a>.
+The example rebuilds the efficiency from the four state temperatures.</p>
+<p><em>References:</em> G. B. Brayton, “Improvement in gas-engines,” U.S. Patent
+125,166 (1872).</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="George Brayton&#x27;s &quot;Ready Motor&quot; (patented 1872) compressed air in one cylinder, burned fuel in it at constant pressure, and expanded the gases in another. The engine itself lost out to Otto&#x27;s, but its cycle (also called Joule&#x27;s) is the cycle of every gas turbine and jet engine: isentropic compression, heat addition at constant pressure, isentropic expansion and heat rejection at constant pressure. With a calorically perfect gas the efficiency depends only on the pressure ratio, \eta = 1 - r_p^{(1-\gamma)/\gamma} (~engineeringkit.thermodynamics.brayton_efficiency). The example rebuilds that result from the four state temperatures."><img alt="" src="../_images/sphx_glr_plot_03_brayton_cycle_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/thermodynamics/cycles/plot_03_brayton_cycle.html"><span class="doc">Brayton’s constant-pressure cycle</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Brayton's constant-pressure cycle</div>
+</div></div></section>
+<section id="van-der-waals-s-equation-of-state">
+<h2><a class="toc-backref" href="#id11" role="doc-backlink">1873 – Van der Waals’s Equation of State</a><a class="headerlink" href="#van-der-waals-s-equation-of-state" title="Link to this heading">#</a></h2>
+<p>Andrews had shown in 1869 that carbon dioxide has a critical temperature
+above which it cannot be liquefied. In his Leiden thesis Johannes van der
+Waals corrected the ideal gas for the volume of the molecules and their
+mutual attraction, <span class="math notranslate nohighlight">\(p = RT/(v - b) - a/v^2\)</span>. One equation then covers
+gas and liquid and predicts the critical point. Maxwell’s equal-area rule
+(1875) gives the vapour pressure. Van der Waals received the 1910 Nobel Prize
+in Physics.</p>
+<p><em>Implementation:</em>
+<a class="reference internal" href="../api/thermodynamics.html#engineeringkit.thermodynamics.van_der_waals_pressure" title="engineeringkit.thermodynamics.van_der_waals_pressure"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.thermodynamics.van_der_waals_pressure()</span></code></a> and
+<a class="reference internal" href="../api/thermodynamics.html#engineeringkit.thermodynamics.van_der_waals_critical_point" title="engineeringkit.thermodynamics.van_der_waals_critical_point"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.thermodynamics.van_der_waals_critical_point()</span></code></a>. The
+example draws carbon dioxide’s isotherms with Maxwell’s construction.</p>
+<p><em>References:</em> J. D. van der Waals, <em>Over de continuïteit van den gas- en
+vloeistoftoestand</em>, thesis, Leiden (1873).</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="In 1869 Thomas Andrews showed that carbon dioxide above 31 °C cannot be liquefied by any pressure, and below it liquefies at a sharp pressure. In his 1873 thesis Johannes van der Waals explained this with two corrections to the ideal gas: the molecules fill a volume b per mole, and they attract each other, which lowers the pressure by a/v^2: p = RT/(v - b) - a/v^2 (~engineeringkit.thermodynamics.van_der_waals_pressure). One equation then describes both gas and liquid, and has a critical point (~engineeringkit.thermodynamics.van_der_waals_critical_point). He received the 1910 Nobel Prize in Physics for it."><img alt="" src="../_images/sphx_glr_plot_04_van_der_waals_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/thermodynamics/properties/plot_04_van_der_waals.html"><span class="doc">Van der Waals’s equation of state</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Van der Waals's equation of state</div>
+</div></div></section>
+<section id="otto-s-four-stroke-cycle">
+<h2><a class="toc-backref" href="#id12" role="doc-backlink">1876 – Otto’s Four-Stroke Cycle</a><a class="headerlink" href="#otto-s-four-stroke-cycle" title="Link to this heading">#</a></h2>
+<p>Nicolaus Otto’s engine compressed its charge of gas and air before igniting
+it, a principle Beau de Rochas had published in 1862. Its four strokes of
+intake, compression, power and exhaust are idealized as the air-standard
+Otto cycle, with heat added and rejected at constant volume. The efficiency
+<span class="math notranslate nohighlight">\(1 - r^{1-\gamma}\)</span> depends only on the compression ratio, and
+knock sets the limit on that ratio.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/thermodynamics.html#engineeringkit.thermodynamics.otto_efficiency" title="engineeringkit.thermodynamics.otto_efficiency"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.thermodynamics.otto_efficiency()</span></code></a> and
+<a class="reference internal" href="../api/thermodynamics.html#engineeringkit.thermodynamics.OttoCycle" title="engineeringkit.thermodynamics.OttoCycle"><code class="xref py py-class docutils literal notranslate"><span class="pre">engineeringkit.thermodynamics.OttoCycle</span></code></a>. The example draws the
+cycle on the p-v diagram and checks the efficiency from the four states.</p>
+<p><em>References:</em> N. A. Otto, “Gas motor engine,” U.S. Patent 194,047 (1877).</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Nicolaus Otto&#x27;s 1876 engine compressed its charge before igniting it, a principle Alphonse Beau de Rochas had described in 1862. Its four strokes (intake, compression, power, exhaust) are idealized as the air-standard Otto cycle: isentropic compression through a ratio r, heat added at constant volume, isentropic expansion and heat rejected at constant volume. The efficiency 1 - r^{1-\gamma} (~engineeringkit.thermodynamics.otto_efficiency, OttoCycle) depends only on the compression ratio. Otto&#x27;s first engine had r \approx 2.5; knock limits petrol engines to about 10-12 today."><img alt="" src="../_images/sphx_glr_plot_04_otto_cycle_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/thermodynamics/cycles/plot_04_otto_cycle.html"><span class="doc">Otto’s four-stroke cycle</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Otto's four-stroke cycle</div>
+</div></div></section>
+<section id="antoine-s-vapour-pressure-equation">
+<h2><a class="toc-backref" href="#id13" role="doc-backlink">1888 – Antoine’s Vapour-Pressure Equation</a><a class="headerlink" href="#antoine-s-vapour-pressure-equation" title="Link to this heading">#</a></h2>
+<p>Measured vapour pressures bend away from the straight Clausius-Clapeyron
+line because the latent heat falls with temperature. Charles Antoine added a
+third constant, <span class="math notranslate nohighlight">\(\log_{10} p = A - B/(C + T)\)</span>, which fits most liquids
+within a fraction of a percent over a wide range. Tables of Antoine constants
+remain a standard tool of chemical engineering.</p>
+<p><em>Implementation:</em>
+<a class="reference internal" href="../api/thermodynamics.html#engineeringkit.thermodynamics.antoine_vapor_pressure" title="engineeringkit.thermodynamics.antoine_vapor_pressure"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.thermodynamics.antoine_vapor_pressure()</span></code></a>. The example
+fits Antoine and Clausius-Clapeyron to IF97 water and compares their errors.</p>
+<p><em>References:</em> C. Antoine, “Tensions des vapeurs; nouvelle relation entre
+les tensions et les températures,” <em>C. R. Acad. Sci.</em> 107 (1888) 681-684,
+778-780, 836-837.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="The integrated Clausius-Clapeyron relation makes \log p linear in 1/T. Measured vapour pressures bend away from that line because the latent heat falls as the temperature rises. In 1888 Charles Antoine, a French naval engineer, added a third constant to the temperature, \log_{10} p = A - B/(C + T) (~engineeringkit.thermodynamics.antoine_vapor_pressure). It fits most liquids to within a fraction of a percent over a range of 100 K, and tables of Antoine constants are still standard in chemical engineering. The example fits both forms to IAPWS-IF97 water and compares them."><img alt="" src="../_images/sphx_glr_plot_05_antoine_equation_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/thermodynamics/properties/plot_05_antoine_equation.html"><span class="doc">Antoine’s vapour-pressure equation</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Antoine's vapour-pressure equation</div>
+</div></div></section>
+<section id="gouy-and-stodola-lost-work">
+<h2><a class="toc-backref" href="#id14" role="doc-backlink">1889-1905 – Gouy and Stodola: Lost Work</a><a class="headerlink" href="#gouy-and-stodola-lost-work" title="Link to this heading">#</a></h2>
+<p>Georges Gouy defined the useful energy of a system in surroundings at
+<span class="math notranslate nohighlight">\(T_0\)</span> and showed that every irreversibility destroys work equal to
+<span class="math notranslate nohighlight">\(T_0\)</span> times the entropy it generates. Aurel Stodola found the same
+result for steam turbines. The Gouy-Stodola theorem lets an engineer rank
+the losses of a plant, from heat crossing temperature differences to
+throttling and friction, in one currency.</p>
+<p><em>Implementation:</em>
+<a class="reference internal" href="../api/thermodynamics.html#engineeringkit.thermodynamics.exergy_destruction" title="engineeringkit.thermodynamics.exergy_destruction"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.thermodynamics.exergy_destruction()</span></code></a>. The example prices
+heat transfer, a throttling valve and an imperfect turbine.</p>
+<p><em>References:</em> G. Gouy, “Sur l’énergie utilisable,” <em>J. Phys. Théor. Appl.</em>
+8 (1889) 501-518; A. Stodola, <em>Die Dampfturbinen</em>, 3rd ed. (Berlin:
+Springer, 1905).</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Georges Gouy (1889) asked how much work a system can deliver when the only other body available is the environment at T_0. He showed that every irreversibility costs work equal to T_0 times the entropy it generates. Aurel Stodola reached the same result independently for steam turbines, in the editions of Die Dampfturbinen from 1898 to 1905. The Gouy-Stodola theorem, W_{lost} = T_0 S_{gen} (~engineeringkit.thermodynamics.exergy_destruction), lets an engineer rank the losses of a plant in a single currency. The example prices three irreversibilities: heat crossing a temperature difference, a throttling valve, and an imperfect turbine."><img alt="" src="../_images/sphx_glr_plot_01_gouy_stodola_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/thermodynamics/exergy/plot_01_gouy_stodola.html"><span class="doc">Gouy and Stodola: lost work</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Gouy and Stodola: lost work</div>
+</div></div></section>
+<section id="diesel-s-compression-ignition-cycle">
+<h2><a class="toc-backref" href="#id15" role="doc-backlink">1893 – Diesel’s Compression-Ignition Cycle</a><a class="headerlink" href="#diesel-s-compression-ignition-cycle" title="Link to this heading">#</a></h2>
+<p>Rudolf Diesel set out to approach Carnot’s efficiency by compressing air
+alone until injected fuel ignites by itself. With no fuel present during
+compression the engine cannot knock, so it can use compression ratios of 15
+to 22. The air-standard Diesel cycle adds heat at constant pressure up to a
+cutoff ratio. At the same compression ratio it is less efficient than Otto’s
+cycle, but its higher ratios make it more efficient in practice.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/thermodynamics.html#engineeringkit.thermodynamics.diesel_efficiency" title="engineeringkit.thermodynamics.diesel_efficiency"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.thermodynamics.diesel_efficiency()</span></code></a>.
+The example compares Diesel and Otto cycles at their practical compression
+ratios.</p>
+<p><em>References:</em> R. Diesel, <em>Theorie und Konstruktion eines rationellen
+Wärmemotors</em> (Berlin: Springer, 1893).</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Rudolf Diesel&#x27;s Theorie und Konstruktion eines rationellen Wärmemotors (1893) set out to approach Carnot&#x27;s efficiency by compressing air alone so hard that injected fuel ignites by itself. Because there is no fuel in the cylinder during compression, a diesel cannot knock and can use compression ratios of 15-22. The fuel burns while the piston moves, which the air-standard Diesel cycle idealizes as heat added at constant pressure up to a cutoff ratio r_c = v_3/v_2 (~engineeringkit.thermodynamics.diesel_efficiency)."><img alt="" src="../_images/sphx_glr_plot_05_diesel_cycle_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/thermodynamics/cycles/plot_05_diesel_cycle.html"><span class="doc">Diesel’s compression-ignition cycle</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Diesel's compression-ignition cycle</div>
+</div></div></section>
+<section id="carrier-s-psychrometric-chart">
+<h2><a class="toc-backref" href="#id16" role="doc-backlink">1911 – Carrier’s Psychrometric Chart</a><a class="headerlink" href="#carrier-s-psychrometric-chart" title="Link to this heading">#</a></h2>
+<p>Willis Carrier controlled the humidity of a Brooklyn printing plant in 1902
+by cooling the air below its dew point and reheating it. His paper of 1911
+treated moist air as an ideal mixture of dry air and water vapour. It gave
+the formulae and the chart of humidity ratio against temperature that
+air-conditioning engineers still use.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/thermodynamics.html#engineeringkit.thermodynamics.humidity_ratio" title="engineeringkit.thermodynamics.humidity_ratio"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.thermodynamics.humidity_ratio()</span></code></a>,
+<a class="reference internal" href="../api/thermodynamics.html#engineeringkit.thermodynamics.relative_humidity" title="engineeringkit.thermodynamics.relative_humidity"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.thermodynamics.relative_humidity()</span></code></a> and
+<a class="reference internal" href="../api/thermodynamics.html#engineeringkit.thermodynamics.dew_point" title="engineeringkit.thermodynamics.dew_point"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.thermodynamics.dew_point()</span></code></a>. The example draws the chart
+and follows air through a cooling coil.</p>
+<p><em>References:</em> W. H. Carrier, “Rational psychrometric formulae,” <em>Trans.
+ASME</em> 33 (1911) 1005-1053.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="In 1902 Willis Carrier designed a system to control the humidity in a Brooklyn printing plant, where paper swelling in the summer air spoiled the colour registration. He cooled the air below its dew point to condense the excess water, then let it warm up again. His 1911 paper &quot;Rational psychrometric formulae&quot; treated moist air as an ideal mixture of dry air and water vapour and drew the chart that air-conditioning engineers still use: humidity ratio w = 0.622\,p_v/(p - p_v) (~engineeringkit.thermodynamics.humidity_ratio) against dry-bulb temperature, with curves of constant relative humidity (~engineeringkit.thermodynamics.relative_humidity) and the dew point (~engineeringkit.thermodynamics.dew_point) where they meet saturation."><img alt="" src="../_images/sphx_glr_plot_01_carrier_psychrometrics_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/thermodynamics/psychrometrics/plot_01_carrier_psychrometrics.html"><span class="doc">Carrier’s psychrometric chart</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Carrier's psychrometric chart</div>
+</div></div></section>
+<section id="rant-names-exergy">
+<h2><a class="toc-backref" href="#id17" role="doc-backlink">1956 – Rant Names Exergy</a><a class="headerlink" href="#rant-names-exergy" title="Link to this heading">#</a></h2>
+<p>Gibbs’s available energy, Gouy’s useful energy and Keenan’s availability
+were the same quantity under different names. Zoran Rant proposed one short
+word, exergy, for the work that energy could deliver when brought into
+equilibrium with the environment. For heat at <span class="math notranslate nohighlight">\(T_s\)</span> it is
+<span class="math notranslate nohighlight">\(Q(1 - T_0/T_s)\)</span>. Exergy balances show where work potential is lost,
+which energy balances cannot.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/thermodynamics.html#engineeringkit.thermodynamics.exergy_heat" title="engineeringkit.thermodynamics.exergy_heat"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.thermodynamics.exergy_heat()</span></code></a>. The
+example plots the quality of heat against temperature and draws up the
+exergy balance of a gas boiler.</p>
+<p><em>References:</em> Z. Rant, “Exergie, ein neues Wort für ‘technische
+Arbeitsfähigkeit’,” <em>Forsch. Ingenieurwes.</em> 22 (1956) 36-37.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Gibbs&#x27;s available energy, Gouy&#x27;s énergie utilisable and Keenan&#x27;s availability all described the same quantity: the work a stream of energy could deliver if brought reversibly into equilibrium with the environment. In 1956 the Slovenian engineer Zoran Rant proposed one short word for it, exergy, built like energy from the Greek ergon, work. For heat Q available at T_s with surroundings at T_0 it is Q(1 - T_0/T_s) (~engineeringkit.thermodynamics.exergy_heat). An energy balance says energy is never lost. An exergy balance shows where the work potential goes."><img alt="" src="../_images/sphx_glr_plot_02_rant_exergy_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/thermodynamics/exergy/plot_02_rant_exergy.html"><span class="doc">Rant names exergy</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Rant names exergy</div>
+</div></div></section>
+<section id="curzon-and-ahlborn-efficiency-at-maximum-power">
+<h2><a class="toc-backref" href="#id18" role="doc-backlink">1975 – Curzon and Ahlborn: Efficiency at Maximum Power</a><a class="headerlink" href="#curzon-and-ahlborn-efficiency-at-maximum-power" title="Link to this heading">#</a></h2>
+<p>A Carnot engine reaches its efficiency only by running infinitely slowly.
+Frank Curzon and Boye Ahlborn let a reversible engine exchange heat with
+its reservoirs through finite conductances and maximized the power. The
+efficiency at maximum power is <span class="math notranslate nohighlight">\(1 - \sqrt{T_c/T_h}\)</span>, whatever the
+conductances. Novikov and Chambadal had found it in 1957. It matches real
+power stations better than Carnot’s bound and founded finite-time
+thermodynamics.</p>
+<p><em>Implementation:</em>
+<a class="reference internal" href="../api/thermodynamics.html#engineeringkit.thermodynamics.curzon_ahlborn_efficiency" title="engineeringkit.thermodynamics.curzon_ahlborn_efficiency"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.thermodynamics.curzon_ahlborn_efficiency()</span></code></a>. The example
+maximizes the power numerically and compares three power stations.</p>
+<p><em>References:</em> F. L. Curzon and B. Ahlborn, “Efficiency of a Carnot engine
+at maximum power output,” <em>Am. J. Phys.</em> 43 (1975) 22-24.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="A Carnot engine reaches its efficiency only by running infinitely slowly, so it delivers no power. Frank Curzon and Boye Ahlborn (1975), after Novikov and Chambadal (1957), let a reversible engine exchange heat with its reservoirs through finite conductances, \dot Q = K\,\Delta T. Run slowly, it is efficient but weak; run fast, the temperature drops eat the whole temperature difference. At maximum power the efficiency is 1 - \sqrt{T_c/T_h} (~engineeringkit.thermodynamics.curzon_ahlborn_efficiency), whatever the conductances, and it describes real power plants better than Carnot&#x27;s bound does."><img alt="" src="../_images/sphx_glr_plot_06_curzon_ahlborn_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/thermodynamics/cycles/plot_06_curzon_ahlborn.html"><span class="doc">Curzon and Ahlborn: efficiency at maximum power</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Curzon and Ahlborn: efficiency at maximum power</div>
+</div></div></section>
+<section id="iapws-if97-steam-properties">
+<h2><a class="toc-backref" href="#id19" role="doc-backlink">1997 – IAPWS-IF97 Steam Properties</a><a class="headerlink" href="#iapws-if97-steam-properties" title="Link to this heading">#</a></h2>
+<p>The International Association for the Properties of Water and Steam
+replaced the 1967 industrial formulation with IAPWS-IF97, developed under
+Wolfgang Wagner. Separate fast equations cover five regions. In the
+compressed liquid and the vapour each is a dimensionless Gibbs free energy
+from which every property follows by differentiation. The release gives
+nine-digit verification values, and every power-plant calculation since uses
+it.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/thermodynamics.html#engineeringkit.thermodynamics.steam_properties" title="engineeringkit.thermodynamics.steam_properties"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.thermodynamics.steam_properties()</span></code></a>,
+<a class="reference internal" href="../api/thermodynamics.html#engineeringkit.thermodynamics.saturation_pressure" title="engineeringkit.thermodynamics.saturation_pressure"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.thermodynamics.saturation_pressure()</span></code></a>,
+<a class="reference internal" href="../api/thermodynamics.html#engineeringkit.thermodynamics.saturation_temperature" title="engineeringkit.thermodynamics.saturation_temperature"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.thermodynamics.saturation_temperature()</span></code></a> and
+<a class="reference internal" href="../api/thermodynamics.html#engineeringkit.thermodynamics.SteamState" title="engineeringkit.thermodynamics.SteamState"><code class="xref py py-class docutils literal notranslate"><span class="pre">engineeringkit.thermodynamics.SteamState</span></code></a> (regions 1 to 4). The
+example checks the verification values and draws the T-s diagram.</p>
+<p><em>References:</em> W. Wagner et al., “The IAPWS Industrial Formulation 1997 for
+the thermodynamic properties of water and steam,” <em>J. Eng. Gas Turbines
+Power</em> 122 (2000) 150-182.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Steam tables have been the working data of power engineering since Callendar and Mollier&#x27;s tables of the early 1900s. In 1997 the International Association for the Properties of Water and Steam adopted the Industrial Formulation IAPWS-IF97, led by Wolfgang Wagner. It splits the fluid into five regions, each with its own fast equation fitted to the scientific formulation IAPWS-95. In the compressed liquid (region 1) and the vapour (region 2) the equation is a dimensionless Gibbs free energy g(p, T)/(RT), and every property follows from its derivatives. Near the critical point (region 3) it is a Helmholtz free energy f(\rho, T)/(RT) of density, and region 4 is the saturation line (~engineeringkit.thermodynamics.steam_properties, saturation_pressure). The example checks the release&#x27;s own verification values and draws the T-s diagram."><img alt="" src="../_images/sphx_glr_plot_06_iapws_if97_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/thermodynamics/properties/plot_06_iapws_if97.html"><span class="doc">IAPWS-IF97: the properties of water and steam</span></a></p>
+  <div class="sphx-glr-thumbnail-title">IAPWS-IF97: the properties of water and steam</div>
+</div></div></section>
+<section id="see-also">
+<h2><a class="toc-backref" href="#id20" role="doc-backlink">See Also</a><a class="headerlink" href="#see-also" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../api/thermodynamics.html"><span class="doc">engineeringkit.thermodynamics</span></a></p></li>
+<li><p><a class="reference internal" href="../guides/thermodynamics.html"><span class="doc">Thermodynamics: total versus specific quantities and cycle states</span></a></p></li>
+<li><p><a class="reference internal" href="heat_transfer_breakthroughs.html"><span class="doc">Breakthroughs in Heat Transfer</span></a></p></li>
+<li><p><a class="reference internal" href="fluid_engineering_breakthroughs.html"><span class="doc">Breakthroughs in Fluid Engineering</span></a></p></li>
+</ul>
 </section>
 </section>
 
@@ -498,11 +859,26 @@ here are concise original explanations, not reproductions of that reference.</p>
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="pst-show_toc_level nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-first-law-heat-and-work-share-an-energy-balance">The first law: heat and work share an energy balance</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#carnot-and-entropy-conservation-is-not-enough">Carnot and entropy: conservation is not enough</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cycles-and-exergy-useful-work-depends-on-the-surroundings">Cycles and exergy: useful work depends on the surroundings</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explore-and-verify">Explore and verify</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">Further reading</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#carnot-s-reflexions">1824 – Carnot’s <em>Réflexions</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clapeyron-s-ideal-gas-law">1834 – Clapeyron’s Ideal Gas Law</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-clausius-clapeyron-relation">1834-1850 – The Clausius-Clapeyron Relation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perkins-s-vapour-compression-refrigerator">1834 – Perkins’s Vapour-Compression Refrigerator</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#joule-and-the-first-law">1843-1850 – Joule and the First Law</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kelvin-s-heat-pump">1852 – Kelvin’s Heat Pump</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-joule-thomson-effect">1852 – The Joule-Thomson Effect</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clausius-s-inequality-and-entropy">1854-1865 – Clausius’s Inequality and Entropy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rankine-s-steam-cycle">1859 – Rankine’s Steam Cycle</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#brayton-s-constant-pressure-cycle">1872 – Brayton’s Constant-Pressure Cycle</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#van-der-waals-s-equation-of-state">1873 – Van der Waals’s Equation of State</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#otto-s-four-stroke-cycle">1876 – Otto’s Four-Stroke Cycle</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#antoine-s-vapour-pressure-equation">1888 – Antoine’s Vapour-Pressure Equation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gouy-and-stodola-lost-work">1889-1905 – Gouy and Stodola: Lost Work</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diesel-s-compression-ignition-cycle">1893 – Diesel’s Compression-Ignition Cycle</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#carrier-s-psychrometric-chart">1911 – Carrier’s Psychrometric Chart</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rant-names-exergy">1956 – Rant Names Exergy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#curzon-and-ahlborn-efficiency-at-maximum-power">1975 – Curzon and Ahlborn: Efficiency at Maximum Power</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iapws-if97-steam-properties">1997 – IAPWS-IF97 Steam Properties</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#see-also">See Also</a></li>
 </ul>
   </nav></div>
 

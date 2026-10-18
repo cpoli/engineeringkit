@@ -6,8 +6,16 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Frequency response" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://cpoli.github.io/engineeringkit/api/gallery/control_systems/frequency/index.html" />
+<meta property="og:site_name" content="engineeringkit" />
+<meta property="og:description" content="The Nyquist criterion, Bode plots and stability margins. Nyquist’s stability criterion Bode’s gain and phase margins" />
+<meta property="og:image" content="https://cpoli.github.io/engineeringkit/_static/images/readme_hero.png" />
+<meta property="og:image:alt" content="engineeringkit" />
+<meta name="description" content="The Nyquist criterion, Bode plots and stability margins. Nyquist’s stability criterion Bode’s gain and phase margins" />
 
-    <title>Frequency response &#8212; engineeringkit 0.1.0 documentation</title>
+    <title>Frequency response &#8212; engineeringkit</title>
   
   
   
@@ -30,6 +38,7 @@
 <link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx_autodoc_typehints.css?v=057ac668" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Vibur" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/jupyterlite_sphinx.css?v=f676e775" />
@@ -54,6 +63,7 @@
     <script src="../../../../_static/design-tabs.js?v=f930bc37"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'api/gallery/control_systems/frequency/index';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="canonical" href="https://cpoli.github.io/engineeringkit/api/gallery/control_systems/frequency/index.html" />
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
     <link rel="next" title="Nyquist’s stability criterion" href="plot_01_nyquist_stability_criterion.html" />
@@ -327,28 +337,52 @@
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
   <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../structural_engineering/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../structural_engineering/plot_structural_engineering_benchmark.html">Buckling and effective length</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../structural_engineering/plot_structural_engineering_models.html">Beam deflection under a uniform load</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../structural_engineering/beams/index.html">Beams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../structural_engineering/energy/index.html">Energy methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../structural_engineering/frames/index.html">Frames</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../structural_engineering/members/index.html">Members</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../structural_engineering/plasticity/index.html">Plasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../structural_engineering/stability/index.html">Stability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../structural_engineering/stress/index.html">Stress</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../structural_engineering/trusses/index.html">Trusses</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../mechanical_engineering/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../mechanical_engineering/plot_mechanical_engineering_benchmark.html">Oscillator energy balance</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../mechanical_engineering/plot_mechanical_engineering_models.html">Damping and vibration histories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../mechanical_engineering/dynamics/index.html">Dynamics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../mechanical_engineering/machine_elements/index.html">Machine elements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../mechanical_engineering/mechanisms/index.html">Mechanisms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../mechanical_engineering/rotordynamics/index.html">Rotordynamics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../mechanical_engineering/transmission/index.html">Transmission</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../mechanical_engineering/vibration/index.html">Vibration</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../thermodynamics/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../thermodynamics/plot_thermodynamics_benchmark.html">Carnot engine and heat-pump limits</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../thermodynamics/plot_thermodynamics_models.html">Ideal power-cycle efficiency</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../thermodynamics/cycles/index.html">Cycles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../thermodynamics/exergy/index.html">Exergy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../thermodynamics/laws/index.html">Laws</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../thermodynamics/properties/index.html">Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../thermodynamics/psychrometrics/index.html">Psychrometrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../thermodynamics/refrigeration/index.html">Refrigeration</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../fluid_engineering/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../fluid_engineering/plot_fluid_engineering_benchmark.html">Poiseuille profile and volume flow</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../fluid_engineering/plot_fluid_engineering_models.html">Darcy friction across two flow regimes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../fluid_engineering/hydrostatics/index.html">Hydrostatics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../fluid_engineering/measurement/index.html">Measurement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../fluid_engineering/networks/index.html">Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../fluid_engineering/open_channel/index.html">Open channels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../fluid_engineering/pipe_flow/index.html">Pipe flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../fluid_engineering/pumps/index.html">Pumps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../fluid_engineering/similarity/index.html">Similarity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../fluid_engineering/transients/index.html">Transients</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../heat_transfer/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../heat_transfer/plot_heat_transfer_benchmark.html">Cooling and the lumped time constant</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../heat_transfer/plot_heat_transfer_models.html">Parallel and counterflow heat exchangers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../heat_transfer/conduction/index.html">Conduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../heat_transfer/convection/index.html">Convection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../heat_transfer/exchangers/index.html">Heat exchangers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../heat_transfer/phase_change/index.html">Phase change</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../heat_transfer/radiation/index.html">Radiation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../heat_transfer/transient/index.html">Transient conduction</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../aerodynamics/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -363,8 +397,12 @@
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../electrical_engineering/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../electrical_engineering/plot_electrical_engineering_benchmark.html">RC charge and energy accounting</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../electrical_engineering/plot_electrical_engineering_models.html">RLC current after a voltage step</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../electrical_engineering/ac_circuits/index.html">AC circuits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../electrical_engineering/dc_circuits/index.html">DC circuits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../electrical_engineering/networks/index.html">Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../electrical_engineering/power/index.html">Power</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../electrical_engineering/transients/index.html">Transients</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../electrical_engineering/transmission_lines/index.html">Transmission lines</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">Examples</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
@@ -379,8 +417,11 @@
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../signal_processing/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../signal_processing/plot_signal_processing_benchmark.html">Aliasing before reconstruction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../signal_processing/plot_signal_processing_models.html">Sampling and a signal spectrum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../signal_processing/filters/index.html">Filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../signal_processing/fourier/index.html">Fourier analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../signal_processing/sampling/index.html">Sampling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../signal_processing/spectral/index.html">Spectral analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../signal_processing/wavelets/index.html">Wavelets</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../communications/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -395,13 +436,22 @@
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../materials/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../materials/plot_materials_benchmark.html">Crack size and fracture threshold</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../materials/plot_materials_models.html">Voigt and Reuss composite bounds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../materials/composites/index.html">Composites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../materials/creep/index.html">Creep</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../materials/elasticity/index.html">Elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../materials/fatigue/index.html">Fatigue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../materials/fracture/index.html">Fracture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../materials/plasticity/index.html">Plasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../materials/yield/index.html">Yield</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../reliability/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../reliability/plot_reliability_benchmark.html">Redundancy under independent failures</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../reliability/plot_reliability_models.html">Weibull survival and shape</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reliability/growth/index.html">Growth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reliability/lifetimes/index.html">Lifetimes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reliability/maintenance/index.html">Maintenance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reliability/risk/index.html">Risk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reliability/structural/index.html">Structural reliability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reliability/systems/index.html">Systems</a></li>
 </ul>
 </details></li>
 </ul>
@@ -440,7 +490,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../guides/control_systems.html">Control systems: matrix contracts and numerical stability</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../guides/signal_processing.html">Signal processing: sampled energy, spectra and quantization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../guides/communications.html">Communications: linear ratios, modulation phase and channel scope</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../guides/materials.html">Materials: elasticity, fracture and fatigue conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../guides/materials.html">Materials: elasticity, yield, fatigue, fracture and creep conventions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../guides/reliability.html">Reliability: distributions, independence and rate units</a></li>
 </ul>
 </div>
@@ -511,7 +561,7 @@
 <div id='sg-tag-list' class='sphx-glr-tag-list'></div><div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Long-distance telephone repeaters with feedback sometimes &quot;sang&quot;. Harry Nyquist (1932) showed how to predict this from the measured open-loop frequency response alone. Trace L(j\omega) for all frequencies (~engineeringkit.control_systems.nyquist): the closed loop has Z = N + P unstable poles, where N counts clockwise encirclements of -1 (~engineeringkit.control_systems.nyquist_encirclements) and P the unstable open-loop poles."><img alt="" src="../../../../_images/sphx_glr_plot_01_nyquist_stability_criterion_thumb.png" />
 <p><a class="reference internal" href="plot_01_nyquist_stability_criterion.html"><span class="doc">Nyquist’s stability criterion</span></a></p>
   <div class="sphx-glr-thumbnail-title">Nyquist's stability criterion</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Hendrik Bode (1940, 1945) turned Nyquist&#x27;s criterion into design numbers read off a logarithmic plot of gain and phase (~engineeringkit.control_systems.bode). The gain margin is how much the loop gain can grow before the phase-crossover point reaches -1; the phase margin is how much extra lag the loop tolerates at the gain crossover (~engineeringkit.control_systems.stability_margins). For L = 2/(s(s+1)(s+2)) the phase crosses -180^\circ at \omega = \sqrt2, where |L| = 1/3, so the gain margin is 3."><img alt="" src="../../../../_images/sphx_glr_plot_02_bode_stability_margins_thumb.png" />
+</div><div class="sphx-glr-thumbcontainer" tooltip="Hendrik Bode (1940, 1945) turned Nyquist&#x27;s criterion into design numbers read off a logarithmic plot of gain and phase (~engineeringkit.control_systems.bode). The gain margin is how much the loop gain can grow before the phase-crossover point reaches -1; the phase margin is how much extra lag the loop tolerates at the gain crossover (~engineeringkit.control_systems.stability_margins). For L = 2/(s(s+1)(s+2)) the phase crosses -180^\circ at \omega = \sqrt2, where |L| = 1/3, so the gain margin is 3. A loop can also cross -180^\circ more than once. Then the margin that matters is the crossover nearest instability, which need not be the first."><img alt="" src="../../../../_images/sphx_glr_plot_02_bode_stability_margins_thumb.png" />
 <p><a class="reference internal" href="plot_02_bode_stability_margins.html"><span class="doc">Bode’s gain and phase margins</span></a></p>
   <div class="sphx-glr-thumbnail-title">Bode's gain and phase margins</div>
 </div></div><div class="toctree-wrapper compound">

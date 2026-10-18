@@ -6,8 +6,16 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Scope and remaining limitations" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://cpoli.github.io/engineeringkit/limitations.html" />
+<meta property="og:site_name" content="engineeringkit" />
+<meta property="og:description" content="engineeringkit is a teaching toolkit. Each domain covers the canonical topics of an undergraduate course, and each history entry has a gallery example that ends in a check of the result it illustra..." />
+<meta property="og:image" content="https://cpoli.github.io/engineeringkit/_static/images/readme_hero.png" />
+<meta property="og:image:alt" content="engineeringkit" />
+<meta name="description" content="engineeringkit is a teaching toolkit. Each domain covers the canonical topics of an undergraduate course, and each history entry has a gallery example that ends in a check of the result it illustra..." />
 
-    <title>Scope and remaining limitations &#8212; engineeringkit 0.1.0 documentation</title>
+    <title>Scope and remaining limitations &#8212; engineeringkit</title>
   
   
   
@@ -30,6 +38,7 @@
 <link href="_static/styles/pydata-sphinx-theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx_autodoc_typehints.css?v=057ac668" />
     <link rel="stylesheet" type="text/css" href="_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Vibur" />
     <link rel="stylesheet" type="text/css" href="_static/jupyterlite_sphinx.css?v=f676e775" />
@@ -52,8 +61,10 @@
     <script src="_static/sg-tags.js?v=d80f6fa4"></script>
     <script src="_static/jupyterlite_sphinx.js?v=96e329c5"></script>
     <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'limitations';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="canonical" href="https://cpoli.github.io/engineeringkit/limitations.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="prev" title="Numerical validation policy" href="validation.html" />
@@ -407,27 +418,66 @@
                   
   <section id="scope-and-remaining-limitations">
 <h1>Scope and remaining limitations<a class="headerlink" href="#scope-and-remaining-limitations" title="Link to this heading">#</a></h1>
-<p>Version 0.1 strengthens physical input contracts, adds public scalar input/output
-units and detailed validity guides, and independently benchmarks all twelve
-domains. This does not establish that every original roadmap method is covered
-or that these ideal models represent a particular real system.</p>
-<p>Unresolved work includes wider benchmark coverage for legacy helpers, full-
-project static typing, comprehensive historical primary references, property-
-table thermodynamics, high-order digital filters in second-order sections,
-conditioning diagnostics for near-singular trusses, and robust multi-crossover
-stability margins. Some low-level SciPy wrappers delegate shape/range errors to
-SciPy. Existing result objects and complex multidimensional helper APIs do not
-yet all have full NumPy-style parameter docstrings. Raw numbers do not carry
-units, so dimensional mistakes remain possible despite explicit documentation.</p>
-<p>Model-specific unenforced assumptions (laminar development, Biot limits,
-small-angle attached flow, far-field antennas, independent failures, linear
-elasticity) are described in the domain guides. Probabilistic models are not
-empirical reliability forecasts without calibrated data. Scalar conditional
-parameters such as gamma, aspect ratio and distribution shape are not uniformly
-vectorized; use vector arrays only where the model’s operations support them.</p>
-<p>Local verification records exactly which checks ran. CI configuration is not
-evidence that the remote multi-version matrix has already passed. Releases are
-published to PyPI only from a <code class="docutils literal notranslate"><span class="pre">vX.Y.Z</span></code> tag (<code class="docutils literal notranslate"><span class="pre">.github/workflows/release.yml</span></code>).</p>
+<p>engineeringkit is a teaching toolkit. Each domain covers the canonical
+topics of an undergraduate course, and each history entry has a gallery
+example that ends in a check of the result it illustrates. This page lists
+what is still open. The plan for each item is in <code class="docutils literal notranslate"><span class="pre">ROADMAP.md</span></code>.</p>
+<section id="out-of-scope">
+<h2>Out of scope<a class="headerlink" href="#out-of-scope" title="Link to this heading">#</a></h2>
+<p>The only dependencies are NumPy, SciPy and Matplotlib, so the following
+are not planned: CAD and meshing, general finite element or CFD solvers,
+wrappers around CoolProp, python-control or SPICE, and unit-carrying types.
+Inputs and outputs are raw SI numbers. The docstrings give the unit of
+every parameter and return value, but nothing stops a value in the wrong
+unit from being passed.</p>
+</section>
+<section id="open-numerical-gaps">
+<h2>Open numerical gaps<a class="headerlink" href="#open-numerical-gaps" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Steam above 1073.15 K.</strong> <code class="docutils literal notranslate"><span class="pre">steam_properties</span></code> implements IAPWS-IF97
+regions 1 to 4. Region 5 (1073.15 K to 2273.15 K, for gas turbines) is
+not implemented and raises <code class="docutils literal notranslate"><span class="pre">ValueError</span></code>. <code class="docutils literal notranslate"><span class="pre">steam_properties</span></code> takes
+scalars only, and close to the critical point, where <span class="math notranslate nohighlight">\(c_p\)</span>
+diverges, its region 3 values carry the formulation’s larger tolerance.</p></li>
+<li><p><strong>Real fluids other than water.</strong> Van der Waals’s equation, the
+Joule-Thomson coefficient and the Clausius-Clapeyron and Antoine vapour
+pressures are available, but there are no property tables for
+refrigerants or other working fluids. Refrigeration stops at Carnot and
+energy-balance coefficients of performance; there is no vapour-
+compression cycle.</p></li>
+<li><p><strong>SciPy errors.</strong> Some thin wrappers around SciPy leave shape and range
+checks to SciPy, so a bad input can raise a SciPy error rather than one
+from <code class="docutils literal notranslate"><span class="pre">_validation.py</span></code> (<code class="docutils literal notranslate"><span class="pre">filter_signal</span></code> with a two-dimensional <code class="docutils literal notranslate"><span class="pre">b</span></code>,
+for example).</p></li>
+</ul>
+</section>
+<section id="documentation-gaps">
+<h2>Documentation gaps<a class="headerlink" href="#documentation-gaps" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Two history entries have no primary source: Jacobi’s maximum power
+theorem (<code class="docutils literal notranslate"><span class="pre">electrical_engineering</span></code>) cites a textbook, and Thoma’s 1924
+cavitation paper (<code class="docutils literal notranslate"><span class="pre">fluid_engineering</span></code>) is cited by title and year only.</p></li>
+</ul>
+</section>
+<section id="using-the-models">
+<h2>Using the models<a class="headerlink" href="#using-the-models" title="Link to this heading">#</a></h2>
+<p>The models are ideal, and their assumptions are stated, not enforced:
+laminar development, Biot-number limits, small-angle attached flow,
+far-field antennas, independent failures, linear elasticity and so on.
+Each domain guide lists them. A result can be computed outside a model’s
+range of validity without any warning. The probabilistic models in
+<code class="docutils literal notranslate"><span class="pre">reliability</span></code> are not forecasts for a real system unless they are fitted
+to data from it.</p>
+</section>
+<section id="release-status">
+<h2>Release status<a class="headerlink" href="#release-status" title="Link to this heading">#</a></h2>
+<p>Nothing has been released to PyPI yet, so the Colab and JupyterLite links
+of the tutorials and quickstart notebook do not work until the first
+release. Releases are published to PyPI only from a <code class="docutils literal notranslate"><span class="pre">vX.Y.Z</span></code> tag
+(<code class="docutils literal notranslate"><span class="pre">.github/workflows/release.yml</span></code>). The CI configuration shows which
+checks run, not that the multi-version matrix has passed on a given
+commit.</p>
+</section>
 </section>
 
 
@@ -459,6 +509,22 @@ published to PyPI only from a <code class="docutils literal notranslate"><span c
                 <dialog id="pst-secondary-sidebar-modal"></dialog>
                 <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#out-of-scope">Out of scope</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#open-numerical-gaps">Open numerical gaps</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#documentation-gaps">Documentation gaps</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-models">Using the models</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#release-status">Release status</a></li>
+</ul>
+  </nav></div>
 
   <div class="sidebar-secondary-item">
 

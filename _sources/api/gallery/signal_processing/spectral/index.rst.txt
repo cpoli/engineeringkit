@@ -1,0 +1,140 @@
+
+
+.. _sphx_glr_api_gallery_signal_processing_spectral:
+
+Spectral analysis
+-----------------
+
+Estimating how a signal's power is spread over frequency, and how that spread changes in time.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Was there a 26-day period in the weather, linked to the Sun&#x27;s rotation? Arthur Schuster (1898) answered such questions with the periodogram: the squared magnitude of the record&#x27;s Fourier coefficients, |X_k|^2/N, plotted against period (~engineeringkit.signal_processing.dft, power_spectral_density). A true periodicity stands out as a peak that grows with the record length, while the noise level does not. Schuster also worked out how high a peak pure noise is likely to throw up. The example hides a weak sine in noise several times stronger and finds it.">
+
+.. only:: html
+
+  .. image:: /api/gallery/signal_processing/spectral/images/thumb/sphx_glr_plot_01_schuster_periodogram_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/signal_processing/spectral/plot_01_schuster_periodogram`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Schuster's periodogram</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Norbert Wiener (1930) and Aleksandr Khinchin (1934) showed that the power spectrum of a stationary random process is the Fourier transform of its autocorrelation function. A random signal has no Fourier transform of its own, but its correlation does, and that gives its spectrum a precise meaning. For a finite record the discrete version is exact: the DFT of the biased sample autocorrelation equals the periodogram (~engineeringkit.signal_processing.correlation, power_spectral_density).">
+
+.. only:: html
+
+  .. image:: /api/gallery/signal_processing/spectral/images/thumb/sphx_glr_plot_02_wiener_khinchin_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/signal_processing/spectral/plot_02_wiener_khinchin`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">The Wiener-Khinchin theorem</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A Fourier spectrum says which frequencies a signal contains but not when. Dennis Gabor (1946) described signals instead by &quot;atoms&quot;: Gaussian-windowed sinusoids, each occupying a cell of the time-frequency plane. Sliding a window along the signal and taking a DFT of each frame gives the short-time Fourier transform (~engineeringkit.signal_processing.stft). The cells cannot be made arbitrarily small. For RMS widths \sigma_t and \sigma_f of a window&#x27;s energy in time and frequency, \sigma_t\sigma_f \ge 1/(4\pi), and only the Gaussian reaches the bound.">
+
+.. only:: html
+
+  .. image:: /api/gallery/signal_processing/spectral/images/thumb/sphx_glr_plot_03_gabor_stft_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/signal_processing/spectral/plot_03_gabor_stft`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Gabor's time-frequency atoms</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Ralph Blackman and John Tukey&#x27;s The Measurement of Power Spectra (1958) turned spectral estimation into an engineering procedure for the telephone and seismic data of the Bell System. Cutting a finite record out of a signal multiplies it by a rectangular window. In frequency, every tone is then smeared by that window&#x27;s transform, whose sidelobes fall only slowly, so a strong tone can hide a weak one nearby. Their book named the tapered windows of Julius von Hann and Richard Hamming that trade a wider main lobe for far lower sidelobes (~engineeringkit.signal_processing.windowed_spectrum).">
+
+.. only:: html
+
+  .. image:: /api/gallery/signal_processing/spectral/images/thumb/sphx_glr_plot_04_blackman_tukey_windows_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/signal_processing/spectral/plot_04_blackman_tukey_windows`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Blackman and Tukey's spectral windows</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Gerald Goertzel (1958) evaluated a single term of a Fourier series with a second-order recursion that needs one real multiplication per sample (~engineeringkit.signal_processing.goertzel). When only a handful of frequencies matter, it is cheaper than a full FFT and needs no buffer of samples. Its classic use is the touch-tone (DTMF) telephone keypad, where each key sends two tones, one from a low group and one from a high group, and the receiver has to measure only eight frequencies.">
+
+.. only:: html
+
+  .. image:: /api/gallery/signal_processing/spectral/images/thumb/sphx_glr_plot_05_goertzel_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/signal_processing/spectral/plot_05_goertzel`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Goertzel's algorithm</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="The periodogram of noise does not settle down as the record grows. At every frequency its standard deviation equals its mean, whatever the length. Peter Welch (1967) cut the record into overlapping segments, windowed each, and averaged their periodograms, computed with the new FFT (~engineeringkit.signal_processing.welch_psd). Averaging K nearly independent segments divides the variance by about K; the price is a coarser resolution, f_s/L for segments of L samples.">
+
+.. only:: html
+
+  .. image:: /api/gallery/signal_processing/spectral/images/thumb/sphx_glr_plot_06_welch_psd_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/signal_processing/spectral/plot_06_welch_psd`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Welch's averaged periodogram</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/signal_processing/spectral/plot_01_schuster_periodogram
+   /api/gallery/signal_processing/spectral/plot_02_wiener_khinchin
+   /api/gallery/signal_processing/spectral/plot_03_gabor_stft
+   /api/gallery/signal_processing/spectral/plot_04_blackman_tukey_windows
+   /api/gallery/signal_processing/spectral/plot_05_goertzel
+   /api/gallery/signal_processing/spectral/plot_06_welch_psd
+

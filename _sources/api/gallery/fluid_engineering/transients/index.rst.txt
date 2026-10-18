@@ -1,0 +1,50 @@
+
+
+.. _sphx_glr_api_gallery_fluid_engineering_transients:
+
+Transients
+----------
+
+Pressure waves in pipelines.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Burst mains in Moscow&#x27;s new water system led Nikolai Joukowsky to a series of experiments in 1897, with pipes up to 760 m long. He reported in 1898 that closing a valve suddenly raises the pressure by \Delta p = \rho a \Delta v (~engineeringkit.fluid_engineering.water_hammer_pressure), where a is the speed of the pressure wave, slowed below the speed of sound in water by the elasticity of the pipe wall (Korteweg&#x27;s formula, pipe_wave_speed). The wave runs to the reservoir and back in 2L/a (~engineeringkit.fluid_engineering.critical_closure_time), and a valve closed faster than that sees the full rise. This example compares pipe materials and draws the pressure at the valve.">
+
+.. only:: html
+
+  .. image:: /api/gallery/fluid_engineering/transients/images/thumb/sphx_glr_plot_01_joukowsky_water_hammer_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/fluid_engineering/transients/plot_01_joukowsky_water_hammer`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Joukowsky's water hammer</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/fluid_engineering/transients/plot_01_joukowsky_water_hammer
+

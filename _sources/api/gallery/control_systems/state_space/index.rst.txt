@@ -19,9 +19,68 @@ Controllability, pole placement and observers.
 
 .. thumbnail-parent-div-open
 
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A transfer function describes only the part of a system that the input reaches and the output sees. Rudolf Kalman (1960) split the state into these parts. The state of \dot x = Ax + Bu can be steered anywhere only if the controllability matrix [B, AB, \dots, A^{n-1}B] has full rank, and reconstructed from y = Cx only if the observability matrix [C; CA; \dots; CA^{n-1}] does (~engineeringkit.control_systems.is_controllable, is_observable). A mode that fails either test disappears from the transfer function in a pole-zero cancellation, but it is still there.">
+
+.. only:: html
+
+  .. image:: /api/gallery/control_systems/state_space/images/thumb/sphx_glr_plot_01_kalman_controllability_observability_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/control_systems/state_space/plot_01_kalman_controllability_observability`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Kalman's controllability and observability</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="State feedback needs every state, but sensors measure only some of them. David Luenberger (1964) built the missing states from a copy of the model driven by the same input and corrected by the output error, \dot{\hat x} = A\hat x + Bu + L(y - C\hat x). The estimation error e = x - \hat x then obeys \dot e = (A - LC)e whatever the input, and if (A, C) is observable the gain L places those error poles anywhere (~engineeringkit.control_systems.observer_gain).">
+
+.. only:: html
+
+  .. image:: /api/gallery/control_systems/state_space/images/thumb/sphx_glr_plot_02_luenberger_observer_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/control_systems/state_space/plot_02_luenberger_observer`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Luenberger's observer</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="For a single input, controllability lets state feedback u = -Kx place the poles of A - BK anywhere, and K is unique (Ackermann&#x27;s formula). Murray Wonham (1967) proved that the same holds with several inputs: the closed-loop poles can be assigned arbitrarily if and only if (A, B) is controllable, even when no single input could do it (~engineeringkit.control_systems.state_feedback_poles). A precompensator N then scales the reference so the output settles on it (~engineeringkit.control_systems.feedforward_gain).">
+
+.. only:: html
+
+  .. image:: /api/gallery/control_systems/state_space/images/thumb/sphx_glr_plot_03_wonham_pole_assignment_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/control_systems/state_space/plot_03_wonham_pole_assignment`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Wonham's pole assignment</div>
+    </div>
+
+
 .. thumbnail-parent-div-close
 
 .. raw:: html
 
     </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/control_systems/state_space/plot_01_kalman_controllability_observability
+   /api/gallery/control_systems/state_space/plot_02_luenberger_observer
+   /api/gallery/control_systems/state_space/plot_03_wonham_pole_assignment
 

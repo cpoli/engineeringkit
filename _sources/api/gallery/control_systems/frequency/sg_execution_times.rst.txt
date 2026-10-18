@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.444** total execution time for 2 files **from api/gallery/control_systems/frequency**:
+**00:00.337** total execution time for 2 files **from api/gallery/control_systems/frequency**:
 
 .. container::
 
@@ -32,9 +32,9 @@ Computation times
    * - Example
      - Time
      - Mem (MB)
-   * - :ref:`sphx_glr_api_gallery_control_systems_frequency_plot_01_nyquist_stability_criterion.py` (``plot_01_nyquist_stability_criterion.py``)
-     - 00:00.233
-     - 0.0
    * - :ref:`sphx_glr_api_gallery_control_systems_frequency_plot_02_bode_stability_margins.py` (``plot_02_bode_stability_margins.py``)
-     - 00:00.211
+     - 00:00.214
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_control_systems_frequency_plot_01_nyquist_stability_criterion.py` (``plot_01_nyquist_stability_criterion.py``)
+     - 00:00.124
      - 0.0

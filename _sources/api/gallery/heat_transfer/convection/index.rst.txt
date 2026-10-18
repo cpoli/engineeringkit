@@ -1,0 +1,86 @@
+
+
+.. _sphx_glr_api_gallery_heat_transfer_convection:
+
+Convection
+----------
+
+Newton cooling and Nusselt-number correlations for forced and natural convection.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In 1701 Newton published, anonymously, a temperature scale reaching far beyond the melting point of tin. He heated a block of iron red hot, set it in a steady wind, and timed how long it took to cool. Assuming that the heat lost is proportional to the excess temperature, \dot Q = hA(T - T_\infty) (~engineeringkit.heat_transfer.convection_heat_rate), equal intervals of time should multiply the excess temperature by equal factors (~engineeringkit.heat_transfer.lumped_temperature). Newton then read temperatures off the clock. This example repeats the measurement on a model block, recovers the time constant from the readings, and checks the energy balance.">
+
+.. only:: html
+
+  .. image:: /api/gallery/heat_transfer/convection/images/thumb/sphx_glr_plot_01_newton_cooling_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/heat_transfer/convection/plot_01_newton_cooling`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Newton's law of cooling</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="At Berkeley in 1930 Frank Dittus and Llewellyn Boelter correlated tests on automobile radiator tubes with a power law in the Reynolds and Prandtl numbers. In McAdams&#x27;s rounded form, Nu = 0.023\,Re^{0.8}Pr^{n} with n = 0.4 for heating and 0.3 for cooling (~engineeringkit.heat_transfer.dittus_boelter_nusselt), it became the most quoted equation in convection. This example sizes the coefficient for water in a tube, shows that the Colburn analogy between friction and heat transfer reproduces the 0.023, and measures the scatter against Gnielinski&#x27;s modern correlation.">
+
+.. only:: html
+
+  .. image:: /api/gallery/heat_transfer/convection/images/thumb/sphx_glr_plot_02_dittus_boelter_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/heat_transfer/convection/plot_02_dittus_boelter`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Dittus and Boelter: turbulent pipe convection</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Free convection on a vertical plate was long described piecewise: a laminar Ra^{1/4} law, a turbulent Ra^{1/3} law, and a gap between them. In 1975 Stuart Churchill and Humbert Chu fitted one smooth expression to the data from conduction-dominated creeping flow to fully turbulent plumes, Nu = \{0.825 + 0.387 Ra^{1/6}/[1 + (0.492/Pr)^{9/16}]^{8/27}\}^2 (~engineeringkit.heat_transfer.churchill_chu_nusselt, with rayleigh_number). The example checks both asymptotes and the laminar boundary-layer theory it replaces.">
+
+.. only:: html
+
+  .. image:: /api/gallery/heat_transfer/convection/images/thumb/sphx_glr_plot_03_churchill_chu_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/heat_transfer/convection/plot_03_churchill_chu`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Churchill and Chu: natural convection over all Rayleigh numbers</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/heat_transfer/convection/plot_01_newton_cooling
+   /api/gallery/heat_transfer/convection/plot_02_dittus_boelter
+   /api/gallery/heat_transfer/convection/plot_03_churchill_chu
+

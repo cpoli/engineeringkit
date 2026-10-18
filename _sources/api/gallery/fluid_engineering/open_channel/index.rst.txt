@@ -1,0 +1,50 @@
+
+
+.. _sphx_glr_api_gallery_fluid_engineering_open_channel:
+
+Open channels
+-------------
+
+Uniform flow with a free surface.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Robert Manning, chief engineer of the Irish Board of Works, compared the open-channel formulas of his day against the best measurements in 1889 and proposed that the mean velocity of uniform flow is V = R^{2/3}S^{1/2}/n in SI units (~engineeringkit.fluid_engineering.manning_velocity), with R the hydraulic radius (~engineeringkit.fluid_engineering.hydraulic_radius), S the bed slope and n a roughness coefficient. It is Chézy&#x27;s formula V = C\sqrt{RS} with C = R^{1/6}/n. This example finds the normal depth of a concrete channel and checks whether the flow is subcritical.">
+
+.. only:: html
+
+  .. image:: /api/gallery/fluid_engineering/open_channel/images/thumb/sphx_glr_plot_01_manning_formula_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/fluid_engineering/open_channel/plot_01_manning_formula`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Manning's open-channel formula</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/fluid_engineering/open_channel/plot_01_manning_formula
+

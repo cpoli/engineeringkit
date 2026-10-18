@@ -1,0 +1,86 @@
+
+
+.. _sphx_glr_api_gallery_electrical_engineering_ac_circuits:
+
+AC circuits
+-----------
+
+Phasors, complex impedance, resonance and the transformer.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In March 1886 William Stanley, working for George Westinghouse, lit the shops of Great Barrington, Massachusetts, from a 500 V alternator through transformers that stepped the voltage down to 100 V at each building. His design, refined from the Gaulard-Gibbs secondary generator and the Hungarian ZBD transformer of 1885, had a closed iron core and windings in parallel across the line. An ideal transformer scales voltage by the turns ratio, V_2 = V_1 N_2/N_1 (~engineeringkit.electrical_engineering.transformer_secondary), current by its inverse and impedance by its square. This example shows why that made AC distribution win: stepping up the voltage cuts line losses by the square of the ratio.">
+
+.. only:: html
+
+  .. image:: /api/gallery/electrical_engineering/ac_circuits/images/thumb/sphx_glr_plot_01_stanley_transformer_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/electrical_engineering/ac_circuits/plot_01_stanley_transformer`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Stanley's transformer</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="AC circuits obey linear differential equations, and before 1893 engineers solved them with trigonometry and graphical constructions. At the International Electrical Congress in Chicago, Charles Proteus Steinmetz showed that a sinusoid A\cos(\omega t + \phi) can be carried as the complex number Ae^{j\phi}. Differentiation becomes multiplication by j\omega, so an inductor becomes the impedance j\omega L (~engineeringkit.electrical_engineering.inductor_impedance), a capacitor 1/j\omega C (~engineeringkit.electrical_engineering.capacitor_impedance), and AC circuits are solved by Ohm&#x27;s law with complex numbers (~engineeringkit.electrical_engineering.series_rlc_impedance). This example solves a series RLC circuit by phasors and checks the answer against a time-domain simulation.">
+
+.. only:: html
+
+  .. image:: /api/gallery/electrical_engineering/ac_circuits/images/thumb/sphx_glr_plot_02_steinmetz_phasors_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/electrical_engineering/ac_circuits/plot_02_steinmetz_phasors`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Steinmetz's phasors and complex impedance</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Early spark transmitters splattered energy over a wide band, so every receiver heard every transmitter. Oliver Lodge&#x27;s 1897 patent on &quot;syntonic&quot; telegraphy put an inductance in series with the antenna&#x27;s capacitance at both ends, tuning transmitter and receiver to the same frequency f_0 = 1/2\pi\sqrt{LC} (~engineeringkit.electrical_engineering.resonance_frequency). At resonance the inductive and capacitive reactances cancel and the current is limited only by the resistance; the sharpness of the peak is the quality factor Q = \sqrt{L/C}/R, and the half-power bandwidth is f_0/Q. Marconi bought the patent in 1912. This example measures the bandwidth of a tuned circuit (~engineeringkit.electrical_engineering.SeriesRLC) and shows how much tuning rejects a neighbouring station.">
+
+.. only:: html
+
+  .. image:: /api/gallery/electrical_engineering/ac_circuits/images/thumb/sphx_glr_plot_03_lodge_resonance_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/electrical_engineering/ac_circuits/plot_03_lodge_resonance`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Lodge's syntonic tuning: series resonance</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/electrical_engineering/ac_circuits/plot_01_stanley_transformer
+   /api/gallery/electrical_engineering/ac_circuits/plot_02_steinmetz_phasors
+   /api/gallery/electrical_engineering/ac_circuits/plot_03_lodge_resonance
+

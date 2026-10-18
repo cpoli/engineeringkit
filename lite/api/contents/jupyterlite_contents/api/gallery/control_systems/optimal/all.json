@@ -1,0 +1,57 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-10-18T12:25:15.923792Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-18T12:25:13.333875Z",
+      "mimetype": null,
+      "name": "plot_01_kalman_lqr.ipynb",
+      "path": "jupyterlite_contents/api/gallery/control_systems/optimal/plot_01_kalman_lqr.ipynb",
+      "size": 3892,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-18T12:25:15.923990Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-18T12:25:13.333994Z",
+      "mimetype": null,
+      "name": "plot_02_kalman_bucy_filter.ipynb",
+      "path": "jupyterlite_contents/api/gallery/control_systems/optimal/plot_02_kalman_bucy_filter.ipynb",
+      "size": 4223,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-18T12:25:15.924172Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-18T12:25:13.334129Z",
+      "mimetype": null,
+      "name": "plot_03_doyle_lqg_margins.ipynb",
+      "path": "jupyterlite_contents/api/gallery/control_systems/optimal/plot_03_doyle_lqg_margins.ipynb",
+      "size": 5343,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2026-10-18T12:25:15.924172Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-10-18T12:25:15.924172Z",
+  "mimetype": null,
+  "name": "optimal",
+  "path": "jupyterlite_contents/api/gallery/control_systems/optimal",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

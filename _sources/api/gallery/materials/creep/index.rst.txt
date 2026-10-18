@@ -1,0 +1,68 @@
+
+
+.. _sphx_glr_api_gallery_materials_creep:
+
+Creep
+-----
+
+Steady creep and time-temperature parameters for rupture.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Steam turbines of the 1920s ran hot enough for their steel to stretch slowly under constant load. Frederick Norton&#x27;s The Creep of Steel at High Temperatures (1929) found that the steady creep rate rises as a power of stress, \dot\varepsilon = A\sigma^n, with n around 5. Its temperature dependence is thermally activated, e^{-Q/RT}, with an activation energy close to that of self-diffusion (Dorn, 1950s) (~engineeringkit.materials.arrhenius_creep_rate). The example recovers n and Q from simulated creep tests.">
+
+.. only:: html
+
+  .. image:: /api/gallery/materials/creep/images/thumb/sphx_glr_plot_01_norton_creep_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/materials/creep/plot_01_norton_creep`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Norton's power-law creep</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A boiler tube must last 100,000 hours, eleven years, but nobody can wait that long for a test. Frank Larson and James Miller (1952) observed that rupture times at different temperatures fall on one curve if plotted against P = T(C + \log_{10}t_r), with C \approx 20 (~engineeringkit.materials.larson_miller_parameter). A short test at a higher temperature then stands in for a long life at a lower one (~engineeringkit.materials.larson_miller_rupture_time). The parameter follows from an Arrhenius rupture time t_r = t_0 e^{Q(\sigma)/RT}: then C = -\log_{10}t_0 and P = Q(\sigma)/(2.303R) depends on stress alone.">
+
+.. only:: html
+
+  .. image:: /api/gallery/materials/creep/images/thumb/sphx_glr_plot_02_larson_miller_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/materials/creep/plot_02_larson_miller`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">The Larson-Miller parameter</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/materials/creep/plot_01_norton_creep
+   /api/gallery/materials/creep/plot_02_larson_miller
+

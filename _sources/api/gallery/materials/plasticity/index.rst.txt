@@ -1,0 +1,86 @@
+
+
+.. _sphx_glr_api_gallery_materials_plasticity:
+
+Plasticity
+----------
+
+Dislocations, strain hardening and grain-size strengthening.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Jacob Frenkel (1926) estimated the shear stress needed to slide one plane of a perfect crystal over the next as about G/2\pi (~engineeringkit.materials.ideal_shear_strength). Single crystals of copper and aluminium slip at stresses of order 1 MPa, thousands of times less. In 1934 Geoffrey Taylor, Egon Orowan and Michael Polanyi independently explained the gap with the dislocation, a line defect whose glide moves one row of atoms at a time. The lattice resists it only with the Peierls stress (Peierls 1940, Nabarro 1947), which falls exponentially as the slip planes get farther apart (~engineeringkit.materials.peierls_stress).">
+
+.. only:: html
+
+  .. image:: /api/gallery/materials/plasticity/images/thumb/sphx_glr_plot_01_dislocations_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/materials/plasticity/plot_01_dislocations`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Taylor, Orowan and Polanyi: dislocations</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Aluminium alloys have no sharp yield point: their stress-strain curves bend over smoothly, and aircraft designers of the Second World War needed them in a form they could compute with. Walter Ramberg and William Osgood (NACA, 1943) described the whole curve with three numbers, \varepsilon = \sigma/E + K(\sigma/E)^n, usually written today with the 0.2% offset yield strength, \varepsilon = \sigma/E + 0.002(\sigma/\sigma_y)^n (~engineeringkit.materials.ramberg_osgood_strain). The example plots the family and recovers the offset yield strength from a sampled curve.">
+
+.. only:: html
+
+  .. image:: /api/gallery/materials/plasticity/images/thumb/sphx_glr_plot_02_ramberg_osgood_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/materials/plasticity/plot_02_ramberg_osgood`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Ramberg and Osgood's stress-strain curve</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Eric Hall (1951) measured the lower yield stress of mild steels with different grain sizes, and Norman Petch (1953) the cleavage strength of iron. Both found the strength rising linearly with d^{-1/2}, \sigma_y = \sigma_0 + k\,d^{-1/2} (~engineeringkit.materials.hall_petch). Dislocations pile up against grain boundaries, and the stress concentrated at the head of a pile-up of length d grows as \sqrt d; slip crosses into the next grain when it reaches a fixed value. Grain refinement is the only strengthening mechanism that also makes steel tougher.">
+
+.. only:: html
+
+  .. image:: /api/gallery/materials/plasticity/images/thumb/sphx_glr_plot_03_hall_petch_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/materials/plasticity/plot_03_hall_petch`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Hall and Petch: grain-size strengthening</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/materials/plasticity/plot_01_dislocations
+   /api/gallery/materials/plasticity/plot_02_ramberg_osgood
+   /api/gallery/materials/plasticity/plot_03_hall_petch
+

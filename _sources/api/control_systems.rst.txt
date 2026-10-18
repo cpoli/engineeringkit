@@ -9,3 +9,9 @@ Classical stability, PID responses, state feedback, LQR and estimation.
    :members:
    :undoc-members:
    :show-inheritance:
+
+Visualizers
+-----------
+
+.. automodule:: engineeringkit.control_systems.visualizers
+   :members:

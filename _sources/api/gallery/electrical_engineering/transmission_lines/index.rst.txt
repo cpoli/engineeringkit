@@ -1,0 +1,68 @@
+
+
+.. _sphx_glr_api_gallery_electrical_engineering_transmission_lines:
+
+Transmission lines
+------------------
+
+Distributed lines, reflections and the Smith chart.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Kelvin&#x27;s cable theory ignored inductance. Oliver Heaviside, a self-taught former telegraph operator, kept all four line constants: series resistance R and inductance L, shunt conductance G and capacitance C per metre. In 1876 he wrote the telegrapher&#x27;s equations, whose sinusoidal waves decay and travel according to \gamma = \sqrt{(R + j\omega L)(G + j\omega C)} (~engineeringkit.electrical_engineering.propagation_constant). In 1887 he found that if R/L = G/C (~engineeringkit.electrical_engineering.distortionless_condition), every frequency is attenuated equally and travels at the same speed, so a signal arrives weaker but undistorted. Real cables have far too little inductance; Pupin&#x27;s and Campbell&#x27;s loading coils (1899-1900) added it and made long-distance telephony possible. This example compares a cable with and without enough inductance.">
+
+.. only:: html
+
+  .. image:: /api/gallery/electrical_engineering/transmission_lines/images/thumb/sphx_glr_plot_01_heaviside_telegrapher_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/electrical_engineering/transmission_lines/plot_01_heaviside_telegrapher`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Heaviside's telegrapher's equations and the distortionless line</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Phillip Hagar Smith, an engineer at Bell Labs, tired of evaluating the transmission-line equations with a slide rule. His 1939 chart plots the reflection coefficient \Gamma = (Z_L - Z_0)/(Z_L + Z_0) (~engineeringkit.electrical_engineering.reflection_coefficient) in the unit disc, overlaid with circles of constant normalised resistance and arcs of constant reactance. Moving along a lossless line just rotates \Gamma around the centre, at constant standing-wave ratio (~engineeringkit.electrical_engineering.standing_wave_ratio), so the input impedance (~engineeringkit.electrical_engineering.input_impedance) can be read off the grid. This example uses the chart to design a single-stub match, drawn with plot_smith_chart.">
+
+.. only:: html
+
+  .. image:: /api/gallery/electrical_engineering/transmission_lines/images/thumb/sphx_glr_plot_02_smith_chart_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/electrical_engineering/transmission_lines/plot_02_smith_chart`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Smith's chart</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/electrical_engineering/transmission_lines/plot_01_heaviside_telegrapher
+   /api/gallery/electrical_engineering/transmission_lines/plot_02_smith_chart
+

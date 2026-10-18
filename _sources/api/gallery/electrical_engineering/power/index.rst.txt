@@ -1,0 +1,104 @@
+
+
+.. _sphx_glr_api_gallery_electrical_engineering_power:
+
+Power
+-----
+
+Three-phase supply, reactive power, symmetrical components and load flow.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In May 1888 Nikola Tesla presented &quot;A new system of alternate current motors and transformers&quot; to the American Institute of Electrical Engineers. Currents displaced in phase produce a rotating magnetic field, which drives an induction motor with no commutator. Polyphase supply has a second advantage that Mikhail Dolivo-Dobrovolsky exploited with three phases in 1889-1891: a balanced three-phase load draws constant instantaneous power, \sqrt3 V_L I_L \cos\phi (~engineeringkit.electrical_engineering.three_phase_power), and the three return currents cancel, so three wires do the work of six. This example checks both, and draws the rotating field.">
+
+.. only:: html
+
+  .. image:: /api/gallery/electrical_engineering/power/images/thumb/sphx_glr_plot_01_tesla_three_phase_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/electrical_engineering/power/plot_01_tesla_three_phase`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Tesla's polyphase system</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="An unbalanced three-phase system, such as one with a fault to ground, couples all three phases and resisted hand calculation. Charles LeGeyt Fortescue of Westinghouse showed in 1918 that any three phasors are the sum of three balanced sets: a zero-sequence set (three equal phasors), a positive-sequence set (a-b-c rotation) and a negative-sequence set (a-c-b) (~engineeringkit.electrical_engineering.symmetrical_components). In a symmetrical network the three sequences do not interact, so each is solved as a single-phase circuit and the results recombined (~engineeringkit.electrical_engineering.phase_components). This example decomposes an unbalanced set and computes a single-line-to-ground fault the way protection engineers still do.">
+
+.. only:: html
+
+  .. image:: /api/gallery/electrical_engineering/power/images/thumb/sphx_glr_plot_02_fortescue_symmetrical_components_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/electrical_engineering/power/plot_02_fortescue_symmetrical_components`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Fortescue's symmetrical components</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="When a load&#x27;s current lags its voltage, part of the energy flows back and forth every half cycle and does no work. Constantin Budeanu of Bucharest gave this the name reactive power in 1927 and the unit &quot;var&quot; (volt-ampere reactive), adopted by the IEC in 1930. For sinusoids the power triangle holds: real power P = VI\cos\phi (~engineeringkit.electrical_engineering.real_power), reactive power Q = VI\sin\phi (~engineeringkit.electrical_engineering.reactive_power), apparent power S^2 = P^2 + Q^2, and the power factor P/S (~engineeringkit.electrical_engineering.power_factor). Budeanu extended Q to distorted waveforms as a sum over harmonics, which leaves a remainder he called the distortion power D. This example checks the power triangle from waveforms and computes D for a current with harmonics.">
+
+.. only:: html
+
+  .. image:: /api/gallery/electrical_engineering/power/images/thumb/sphx_glr_plot_03_budeanu_reactive_power_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/electrical_engineering/power/plot_03_budeanu_reactive_power`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Budeanu's reactive power and the power factor</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Until the 1950s, utilities computed the flow of power in their networks on AC network analysers, scale models of the grid built from resistors, inductors and capacitors. In 1956 J. B. Ward and H. W. Hale of American Gas and Electric published the first practical digital method. They wrote the network as its bus admittance matrix (~engineeringkit.electrical_engineering.admittance_matrix) and improved each bus voltage in turn from the power specified there, a Gauss-Seidel iteration (~engineeringkit.electrical_engineering.gauss_seidel_load_flow). The method is simple and needs little memory but converges slowly, which over-relaxation partly cures; Newton-Raphson methods replaced it in the 1960s. This example solves a five-bus network and checks the solution against a general-purpose nonlinear solver.">
+
+.. only:: html
+
+  .. image:: /api/gallery/electrical_engineering/power/images/thumb/sphx_glr_plot_04_ward_hale_load_flow_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/electrical_engineering/power/plot_04_ward_hale_load_flow`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Ward and Hale's digital load flow</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/electrical_engineering/power/plot_01_tesla_three_phase
+   /api/gallery/electrical_engineering/power/plot_02_fortescue_symmetrical_components
+   /api/gallery/electrical_engineering/power/plot_03_budeanu_reactive_power
+   /api/gallery/electrical_engineering/power/plot_04_ward_hale_load_flow
+

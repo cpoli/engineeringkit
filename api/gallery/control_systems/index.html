@@ -6,8 +6,16 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Examples" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://cpoli.github.io/engineeringkit/api/gallery/control_systems/index.html" />
+<meta property="og:site_name" content="engineeringkit" />
+<meta property="og:description" content="Domain hub · History · Examples · API reference This gallery walks through every public feature of engineeringkit.control_systems, one breakthrough per script: feedback and PID control, algebraic a..." />
+<meta property="og:image" content="https://cpoli.github.io/engineeringkit/_static/images/readme_hero.png" />
+<meta property="og:image:alt" content="engineeringkit" />
+<meta name="description" content="Domain hub · History · Examples · API reference This gallery walks through every public feature of engineeringkit.control_systems, one breakthrough per script: feedback and PID control, algebraic a..." />
 
-    <title>Examples &#8212; engineeringkit 0.1.0 documentation</title>
+    <title>Examples &#8212; engineeringkit</title>
   
   
   
@@ -30,6 +38,7 @@
 <link href="../../../_static/styles/pydata-sphinx-theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx_autodoc_typehints.css?v=057ac668" />
     <link rel="stylesheet" type="text/css" href="../../../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Vibur" />
     <link rel="stylesheet" type="text/css" href="../../../_static/jupyterlite_sphinx.css?v=f676e775" />
@@ -54,10 +63,11 @@
     <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'api/gallery/control_systems/index';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="canonical" href="https://cpoli.github.io/engineeringkit/api/gallery/control_systems/index.html" />
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Feedback" href="feedback/index.html" />
-    <link rel="prev" title="RLC current after a voltage step" href="../electrical_engineering/plot_electrical_engineering_models.html" />
+    <link rel="prev" title="Smith’s chart" href="../electrical_engineering/transmission_lines/plot_02_smith_chart.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="color-scheme" content="light dark"/>
   <meta name="docsearch:language" content="en"/>
@@ -327,28 +337,52 @@
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
   <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../structural_engineering/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../structural_engineering/plot_structural_engineering_benchmark.html">Buckling and effective length</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../structural_engineering/plot_structural_engineering_models.html">Beam deflection under a uniform load</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../structural_engineering/beams/index.html">Beams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../structural_engineering/energy/index.html">Energy methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../structural_engineering/frames/index.html">Frames</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../structural_engineering/members/index.html">Members</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../structural_engineering/plasticity/index.html">Plasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../structural_engineering/stability/index.html">Stability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../structural_engineering/stress/index.html">Stress</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../structural_engineering/trusses/index.html">Trusses</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../mechanical_engineering/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../mechanical_engineering/plot_mechanical_engineering_benchmark.html">Oscillator energy balance</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../mechanical_engineering/plot_mechanical_engineering_models.html">Damping and vibration histories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mechanical_engineering/dynamics/index.html">Dynamics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mechanical_engineering/machine_elements/index.html">Machine elements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mechanical_engineering/mechanisms/index.html">Mechanisms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mechanical_engineering/rotordynamics/index.html">Rotordynamics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mechanical_engineering/transmission/index.html">Transmission</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mechanical_engineering/vibration/index.html">Vibration</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../thermodynamics/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../thermodynamics/plot_thermodynamics_benchmark.html">Carnot engine and heat-pump limits</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../thermodynamics/plot_thermodynamics_models.html">Ideal power-cycle efficiency</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../thermodynamics/cycles/index.html">Cycles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../thermodynamics/exergy/index.html">Exergy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../thermodynamics/laws/index.html">Laws</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../thermodynamics/properties/index.html">Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../thermodynamics/psychrometrics/index.html">Psychrometrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../thermodynamics/refrigeration/index.html">Refrigeration</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../fluid_engineering/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../fluid_engineering/plot_fluid_engineering_benchmark.html">Poiseuille profile and volume flow</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../fluid_engineering/plot_fluid_engineering_models.html">Darcy friction across two flow regimes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fluid_engineering/hydrostatics/index.html">Hydrostatics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fluid_engineering/measurement/index.html">Measurement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fluid_engineering/networks/index.html">Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fluid_engineering/open_channel/index.html">Open channels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fluid_engineering/pipe_flow/index.html">Pipe flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fluid_engineering/pumps/index.html">Pumps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fluid_engineering/similarity/index.html">Similarity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fluid_engineering/transients/index.html">Transients</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../heat_transfer/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../heat_transfer/plot_heat_transfer_benchmark.html">Cooling and the lumped time constant</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../heat_transfer/plot_heat_transfer_models.html">Parallel and counterflow heat exchangers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../heat_transfer/conduction/index.html">Conduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../heat_transfer/convection/index.html">Convection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../heat_transfer/exchangers/index.html">Heat exchangers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../heat_transfer/phase_change/index.html">Phase change</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../heat_transfer/radiation/index.html">Radiation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../heat_transfer/transient/index.html">Transient conduction</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../aerodynamics/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -363,8 +397,12 @@
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../electrical_engineering/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../electrical_engineering/plot_electrical_engineering_benchmark.html">RC charge and energy accounting</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../electrical_engineering/plot_electrical_engineering_models.html">RLC current after a voltage step</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../electrical_engineering/ac_circuits/index.html">AC circuits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../electrical_engineering/dc_circuits/index.html">DC circuits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../electrical_engineering/networks/index.html">Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../electrical_engineering/power/index.html">Power</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../electrical_engineering/transients/index.html">Transients</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../electrical_engineering/transmission_lines/index.html">Transmission lines</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a aria-current="page" class="current reference internal" href="#">Examples</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -379,8 +417,11 @@
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../signal_processing/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../signal_processing/plot_signal_processing_benchmark.html">Aliasing before reconstruction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../signal_processing/plot_signal_processing_models.html">Sampling and a signal spectrum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../signal_processing/filters/index.html">Filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../signal_processing/fourier/index.html">Fourier analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../signal_processing/sampling/index.html">Sampling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../signal_processing/spectral/index.html">Spectral analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../signal_processing/wavelets/index.html">Wavelets</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../communications/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -395,13 +436,22 @@
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../materials/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../materials/plot_materials_benchmark.html">Crack size and fracture threshold</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../materials/plot_materials_models.html">Voigt and Reuss composite bounds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../materials/composites/index.html">Composites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../materials/creep/index.html">Creep</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../materials/elasticity/index.html">Elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../materials/fatigue/index.html">Fatigue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../materials/fracture/index.html">Fracture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../materials/plasticity/index.html">Plasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../materials/yield/index.html">Yield</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../reliability/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../reliability/plot_reliability_benchmark.html">Redundancy under independent failures</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../reliability/plot_reliability_models.html">Weibull survival and shape</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reliability/growth/index.html">Growth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reliability/lifetimes/index.html">Lifetimes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reliability/maintenance/index.html">Maintenance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reliability/risk/index.html">Risk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reliability/structural/index.html">Structural reliability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reliability/systems/index.html">Systems</a></li>
 </ul>
 </details></li>
 </ul>
@@ -440,7 +490,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../guides/control_systems.html">Control systems: matrix contracts and numerical stability</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../guides/signal_processing.html">Signal processing: sampled energy, spectra and quantization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../guides/communications.html">Communications: linear ratios, modulation phase and channel scope</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../guides/materials.html">Materials: elasticity, fracture and fatigue conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../guides/materials.html">Materials: elasticity, yield, fatigue, fracture and creep conventions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../guides/reliability.html">Reliability: distributions, independence and rate units</a></li>
 </ul>
 </div>
@@ -511,7 +561,7 @@
 <code class="docutils literal notranslate"><span class="pre">engineeringkit.control_systems</span></code>, one breakthrough per script: feedback
 and PID control, algebraic and Lyapunov stability tests, frequency-response
 design, transient specifications, the root locus, sampled-data control,
-state-space design and optimal control and estimation.</p>
+dead time, state-space design and optimal control and estimation.</p>
 <p><a class="reference internal" href="../../../guides/control_systems.html"><span class="doc">Units, assumptions and numerical validation</span></a>
 gives the validity limits. Each script is self-contained and can be run
 directly with <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">examples/control_systems/&lt;section&gt;/&lt;script&gt;.py</span></code>.</p>
@@ -520,12 +570,12 @@ directly with <code class="docutils literal notranslate"><span class="pre">pytho
 <ul class="simple">
 <li><p><strong>feedback</strong> – Watt’s governor, Minorsky’s PID, Black’s feedback amplifier and Ziegler-Nichols tuning.</p></li>
 <li><p><strong>stability</strong> – Maxwell’s characteristic roots, Routh’s array, Lyapunov’s direct method and Hurwitz’s determinants.</p></li>
-<li><p><strong>frequency</strong> – Nyquist’s criterion and Bode’s stability margins.</p></li>
-<li><p><strong>time_response</strong> – Hazen’s second-order servomechanism.</p></li>
+<li><p><strong>frequency</strong> – Nyquist’s criterion and Bode’s stability margins over every crossover.</p></li>
+<li><p><strong>time_response</strong> – Hazen’s second-order servomechanism and Smith’s predictor for dead time.</p></li>
 <li><p><strong>root_locus</strong> – Evans’s root locus.</p></li>
-<li><p><strong>sampled</strong> – Ragazzini and Zadeh’s zero-order-hold discretisation.</p></li>
+<li><p><strong>sampled</strong> – Ragazzini and Zadeh’s zero-order-hold discretisation and Jury’s stability test.</p></li>
 <li><p><strong>state_space</strong> – Kalman’s controllability, Luenberger’s observer and Wonham’s pole placement.</p></li>
-<li><p><strong>optimal</strong> – Bellman’s dynamic programming, Kalman’s LQR and the Kalman-Bucy filter.</p></li>
+<li><p><strong>optimal</strong> – Kalman’s LQR and its discrete form, the Kalman-Bucy filter and Doyle’s LQG counterexample.</p></li>
 </ul>
 <div id='sg-tag-list' class='sphx-glr-tag-list'></div><div class="sphx-glr-thumbnails"></div></section>
 <section id="feedback">
@@ -550,14 +600,23 @@ directly with <code class="docutils literal notranslate"><span class="pre">pytho
 <div id='sg-tag-list' class='sphx-glr-tag-list'></div><div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Long-distance telephone repeaters with feedback sometimes &quot;sang&quot;. Harry Nyquist (1932) showed how to predict this from the measured open-loop frequency response alone. Trace L(j\omega) for all frequencies (~engineeringkit.control_systems.nyquist): the closed loop has Z = N + P unstable poles, where N counts clockwise encirclements of -1 (~engineeringkit.control_systems.nyquist_encirclements) and P the unstable open-loop poles."><img alt="" src="../../../_images/sphx_glr_plot_01_nyquist_stability_criterion_thumb.png" />
 <p><a class="reference internal" href="frequency/plot_01_nyquist_stability_criterion.html"><span class="doc">Nyquist’s stability criterion</span></a></p>
   <div class="sphx-glr-thumbnail-title">Nyquist's stability criterion</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Hendrik Bode (1940, 1945) turned Nyquist&#x27;s criterion into design numbers read off a logarithmic plot of gain and phase (~engineeringkit.control_systems.bode). The gain margin is how much the loop gain can grow before the phase-crossover point reaches -1; the phase margin is how much extra lag the loop tolerates at the gain crossover (~engineeringkit.control_systems.stability_margins). For L = 2/(s(s+1)(s+2)) the phase crosses -180^\circ at \omega = \sqrt2, where |L| = 1/3, so the gain margin is 3."><img alt="" src="../../../_images/sphx_glr_plot_02_bode_stability_margins_thumb.png" />
+</div><div class="sphx-glr-thumbcontainer" tooltip="Hendrik Bode (1940, 1945) turned Nyquist&#x27;s criterion into design numbers read off a logarithmic plot of gain and phase (~engineeringkit.control_systems.bode). The gain margin is how much the loop gain can grow before the phase-crossover point reaches -1; the phase margin is how much extra lag the loop tolerates at the gain crossover (~engineeringkit.control_systems.stability_margins). For L = 2/(s(s+1)(s+2)) the phase crosses -180^\circ at \omega = \sqrt2, where |L| = 1/3, so the gain margin is 3. A loop can also cross -180^\circ more than once. Then the margin that matters is the crossover nearest instability, which need not be the first."><img alt="" src="../../../_images/sphx_glr_plot_02_bode_stability_margins_thumb.png" />
 <p><a class="reference internal" href="frequency/plot_02_bode_stability_margins.html"><span class="doc">Bode’s gain and phase margins</span></a></p>
   <div class="sphx-glr-thumbnail-title">Bode's gain and phase margins</div>
 </div></div></section>
 <section id="optimal-control-and-estimation">
 <h2>Optimal control and estimation<a class="headerlink" href="#optimal-control-and-estimation" title="Link to this heading">#</a></h2>
-<p>Dynamic programming, the linear-quadratic regulator and the Kalman-Bucy filter.</p>
-<div id='sg-tag-list' class='sphx-glr-tag-list'></div><div class="sphx-glr-thumbnails"></div></section>
+<p>The linear-quadratic regulator, the Kalman-Bucy filter and the robustness of their combination.</p>
+<div id='sg-tag-list' class='sphx-glr-tag-list'></div><div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Rudolf Kalman (1960) asked for the state feedback u = -Kx that minimises J = \int_0^\infty (x^\mathsf{T}Qx + u^\mathsf{T}Ru)\,dt. The answer is K = R^{-1}B^\mathsf{T}P, where P solves an algebraic Riccati equation, and the minimum cost from x_0 is x_0^\mathsf{T}Px_0 (~engineeringkit.control_systems.lqr). The weights replace pole locations as the designer&#x27;s knobs: a cheaper input (smaller R) buys a faster response."><img alt="" src="../../../_images/sphx_glr_plot_01_kalman_lqr_thumb.png" />
+<p><a class="reference internal" href="optimal/plot_01_kalman_lqr.html"><span class="doc">Kalman’s linear-quadratic regulator</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Kalman's linear-quadratic regulator</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="A state estimator must trade trust in the model against trust in the measurement. Rudolf Kalman and Richard Bucy (1961) found the gain that minimises the steady estimation error for a linear system driven by white process noise of spectral density Q and measured through white noise of density R. The error covariance solves the Riccati equation of the LQR transposed (~engineeringkit.control_systems.kalman_gain)."><img alt="" src="../../../_images/sphx_glr_plot_02_kalman_bucy_filter_thumb.png" />
+<p><a class="reference internal" href="optimal/plot_02_kalman_bucy_filter.html"><span class="doc">The Kalman-Bucy filter</span></a></p>
+  <div class="sphx-glr-thumbnail-title">The Kalman-Bucy filter</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="A full-state LQR loop is famously robust: its Nyquist plot never enters the unit disc around -1, so it tolerates a gain anywhere in [1/2, \infty) and a phase change of at least 60°. It seemed natural that an LQR gain fed by a Kalman filter (the LQG controller) would inherit these margins. John Doyle&#x27;s 1978 note, whose abstract reads in full &quot;There are none.&quot;, gave a counterexample. As the design weights grow the LQG loop&#x27;s margins shrink towards zero, even though each half is optimal."><img alt="" src="../../../_images/sphx_glr_plot_03_doyle_lqg_margins_thumb.png" />
+<p><a class="reference internal" href="optimal/plot_03_doyle_lqg_margins.html"><span class="doc">Doyle’s guaranteed margins for LQG: there are none</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Doyle's guaranteed margins for LQG: there are none</div>
+</div></div></section>
 <section id="root-locus">
 <h2>Root locus<a class="headerlink" href="#root-locus" title="Link to this heading">#</a></h2>
 <p>Closed-loop poles as the loop gain varies.</p>
@@ -567,10 +626,13 @@ directly with <code class="docutils literal notranslate"><span class="pre">pytho
 </div></div></section>
 <section id="sampled-data-control">
 <h2>Sampled-data control<a class="headerlink" href="#sampled-data-control" title="Link to this heading">#</a></h2>
-<p>Computer control with a zero-order hold.</p>
+<p>Computer control with a zero-order hold, and stability inside the unit circle.</p>
 <div id='sg-tag-list' class='sphx-glr-tag-list'></div><div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="When a digital computer closes the loop it reads the plant only at sampling instants and holds each command constant until the next. John Ragazzini and Lotfi Zadeh (1952) developed the z-transform analysis of such loops. For a zero-order hold the continuous model is replaced exactly by x_{k+1} = e^{AT}x_k + \int_0^T e^{A\tau}d\tau\,B\,u_k (~engineeringkit.control_systems.discretize_zoh). The naive Euler step x_{k+1} = (I + AT)x_k + BTu_k is only an approximation."><img alt="" src="../../../_images/sphx_glr_plot_01_ragazzini_zadeh_zero_order_hold_thumb.png" />
 <p><a class="reference internal" href="sampled/plot_01_ragazzini_zadeh_zero_order_hold.html"><span class="doc">Ragazzini and Zadeh’s sampled-data systems</span></a></p>
   <div class="sphx-glr-thumbnail-title">Ragazzini and Zadeh's sampled-data systems</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="A sampled loop is stable when every root of its characteristic polynomial in z lies inside the unit circle, not in the left half-plane, so Routh&#x27;s test does not apply directly. Eliahu Jury (1961) gave the discrete counterpart: a table that reduces the polynomial one degree at a time and checks |a_n| &lt; |a_0| at each step, with no roots computed (~engineeringkit.control_systems.jury_stable)."><img alt="" src="../../../_images/sphx_glr_plot_02_jury_stability_test_thumb.png" />
+<p><a class="reference internal" href="sampled/plot_02_jury_stability_test.html"><span class="doc">Jury’s stability test for sampled systems</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Jury's stability test for sampled systems</div>
 </div></div></section>
 <section id="stability">
 <h2>Stability<a class="headerlink" href="#stability" title="Link to this heading">#</a></h2>
@@ -591,13 +653,25 @@ directly with <code class="docutils literal notranslate"><span class="pre">pytho
 <section id="state-space">
 <h2>State space<a class="headerlink" href="#state-space" title="Link to this heading">#</a></h2>
 <p>Controllability, pole placement and observers.</p>
-<div id='sg-tag-list' class='sphx-glr-tag-list'></div><div class="sphx-glr-thumbnails"></div></section>
+<div id='sg-tag-list' class='sphx-glr-tag-list'></div><div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="A transfer function describes only the part of a system that the input reaches and the output sees. Rudolf Kalman (1960) split the state into these parts. The state of \dot x = Ax + Bu can be steered anywhere only if the controllability matrix [B, AB, \dots, A^{n-1}B] has full rank, and reconstructed from y = Cx only if the observability matrix [C; CA; \dots; CA^{n-1}] does (~engineeringkit.control_systems.is_controllable, is_observable). A mode that fails either test disappears from the transfer function in a pole-zero cancellation, but it is still there."><img alt="" src="../../../_images/sphx_glr_plot_01_kalman_controllability_observability_thumb.png" />
+<p><a class="reference internal" href="state_space/plot_01_kalman_controllability_observability.html"><span class="doc">Kalman’s controllability and observability</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Kalman's controllability and observability</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="State feedback needs every state, but sensors measure only some of them. David Luenberger (1964) built the missing states from a copy of the model driven by the same input and corrected by the output error, \dot{\hat x} = A\hat x + Bu + L(y - C\hat x). The estimation error e = x - \hat x then obeys \dot e = (A - LC)e whatever the input, and if (A, C) is observable the gain L places those error poles anywhere (~engineeringkit.control_systems.observer_gain)."><img alt="" src="../../../_images/sphx_glr_plot_02_luenberger_observer_thumb.png" />
+<p><a class="reference internal" href="state_space/plot_02_luenberger_observer.html"><span class="doc">Luenberger’s observer</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Luenberger's observer</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="For a single input, controllability lets state feedback u = -Kx place the poles of A - BK anywhere, and K is unique (Ackermann&#x27;s formula). Murray Wonham (1967) proved that the same holds with several inputs: the closed-loop poles can be assigned arbitrarily if and only if (A, B) is controllable, even when no single input could do it (~engineeringkit.control_systems.state_feedback_poles). A precompensator N then scales the reference so the output settles on it (~engineeringkit.control_systems.feedforward_gain)."><img alt="" src="../../../_images/sphx_glr_plot_03_wonham_pole_assignment_thumb.png" />
+<p><a class="reference internal" href="state_space/plot_03_wonham_pole_assignment.html"><span class="doc">Wonham’s pole assignment</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Wonham's pole assignment</div>
+</div></div></section>
 <section id="time-response">
 <h2>Time response<a class="headerlink" href="#time-response" title="Link to this heading">#</a></h2>
-<p>Transient specifications of second-order servomechanisms.</p>
+<p>Transient specifications of second-order servomechanisms, and dead time.</p>
 <div id='sg-tag-list' class='sphx-glr-tag-list'></div><div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Harold Hazen at MIT (1934) coined servomechanism and analysed position-following systems as second-order dynamics, \omega_n^2/(s^2 + 2\zeta\omega_n s + \omega_n^2). The damping ratio \zeta alone fixes the overshoot, and \zeta with the natural frequency \omega_n sets peak and settling times (~engineeringkit.control_systems.second_order_metrics). The simulated step and impulse responses (~engineeringkit.control_systems.step_response, impulse_response) confirm the formulas."><img alt="" src="../../../_images/sphx_glr_plot_01_hazen_servomechanism_thumb.png" />
 <p><a class="reference internal" href="time_response/plot_01_hazen_servomechanism.html"><span class="doc">Hazen’s theory of servomechanisms</span></a></p>
   <div class="sphx-glr-thumbnail-title">Hazen's theory of servomechanisms</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="A chemical plant often measures its output only after a transport delay \theta: the time for a fluid to reach the sensor. The delay adds phase lag \omega\theta at every frequency, so a controller tuned for the delay-free plant oscillates or goes unstable once the delay is added. Otto Smith (1957) put a model of the plant inside the controller. It feeds back the undelayed model output and corrects it by the mismatch between the measurement and the delayed model output. With a perfect model the loop behaves like the delay-free design, delayed by \theta (~engineeringkit.control_systems.smith_predictor)."><img alt="" src="../../../_images/sphx_glr_plot_02_smith_predictor_thumb.png" />
+<p><a class="reference internal" href="time_response/plot_02_smith_predictor.html"><span class="doc">Smith’s predictor for dead time</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Smith's predictor for dead time</div>
 </div></div><div class="toctree-wrapper compound">
 </div>
 <div class="sphx-glr-footer sphx-glr-footer-gallery docutils container">
@@ -623,12 +697,12 @@ directly with <code class="docutils literal notranslate"><span class="pre">pytho
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../electrical_engineering/plot_electrical_engineering_models.html"
+       href="../electrical_engineering/transmission_lines/plot_02_smith_chart.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">RLC current after a voltage step</p>
+        <p class="prev-next-title">Smith’s chart</p>
       </div>
     </a>
     <a class="right-next"

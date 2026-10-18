@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.000** total execution time for 0 files **from api/gallery/control_systems/state_space**:
+**00:00.322** total execution time for 3 files **from api/gallery/control_systems/state_space**:
 
 .. container::
 
@@ -32,6 +32,12 @@ Computation times
    * - Example
      - Time
      - Mem (MB)
-   * - N/A
-     - N/A
-     - N/A
+   * - :ref:`sphx_glr_api_gallery_control_systems_state_space_plot_01_kalman_controllability_observability.py` (``plot_01_kalman_controllability_observability.py``)
+     - 00:00.143
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_control_systems_state_space_plot_02_luenberger_observer.py` (``plot_02_luenberger_observer.py``)
+     - 00:00.104
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_control_systems_state_space_plot_03_wonham_pole_assignment.py` (``plot_03_wonham_pole_assignment.py``)
+     - 00:00.075
+     - 0.0

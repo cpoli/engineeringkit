@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.162** total execution time for 2 files **from api/gallery/signal_processing**:
+**00:00.000** total execution time for 0 files **from api/gallery/signal_processing**:
 
 .. container::
 
@@ -32,9 +32,6 @@ Computation times
    * - Example
      - Time
      - Mem (MB)
-   * - :ref:`sphx_glr_api_gallery_signal_processing_plot_signal_processing_benchmark.py` (``plot_signal_processing_benchmark.py``)
-     - 00:00.100
-     - 0.0
-   * - :ref:`sphx_glr_api_gallery_signal_processing_plot_signal_processing_models.py` (``plot_signal_processing_models.py``)
-     - 00:00.062
-     - 0.0
+   * - N/A
+     - N/A
+     - N/A

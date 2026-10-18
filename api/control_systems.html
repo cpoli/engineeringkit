@@ -6,8 +6,16 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="engineeringkit.control_systems" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://cpoli.github.io/engineeringkit/api/control_systems.html" />
+<meta property="og:site_name" content="engineeringkit" />
+<meta property="og:description" content="Domain hub · History · Examples · API reference Classical stability, PID responses, state feedback, LQR and estimation. engineeringkit.control_systems: feedback, stability, frequency response, stat..." />
+<meta property="og:image" content="https://cpoli.github.io/engineeringkit/_static/images/readme_hero.png" />
+<meta property="og:image:alt" content="engineeringkit" />
+<meta name="description" content="Domain hub · History · Examples · API reference Classical stability, PID responses, state feedback, LQR and estimation. engineeringkit.control_systems: feedback, stability, frequency response, stat..." />
 
-    <title>engineeringkit.control_systems &#8212; engineeringkit 0.1.0 documentation</title>
+    <title>engineeringkit.control_systems &#8212; engineeringkit</title>
   
   
   
@@ -30,6 +38,7 @@
 <link href="../_static/styles/pydata-sphinx-theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx_autodoc_typehints.css?v=057ac668" />
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Vibur" />
     <link rel="stylesheet" type="text/css" href="../_static/jupyterlite_sphinx.css?v=f676e775" />
@@ -55,6 +64,7 @@
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'api/control_systems';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="canonical" href="https://cpoli.github.io/engineeringkit/api/control_systems.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="engineeringkit.signal_processing" href="signal_processing.html" />
@@ -418,7 +428,8 @@
 Ziegler-Nichols tuning; Maxwell’s characteristic roots, the Routh and
 Hurwitz tests and Lyapunov’s direct method; Nyquist’s encirclement
 criterion, Bode plots and stability margins; Evans’s root locus; Hazen’s
-second-order servo specifications; zero-order-hold discretisation; Kalman’s
+second-order servo specifications; Padé dead-time approximation and Smith’s
+predictor; zero-order-hold discretisation and Jury’s test; Kalman’s
 controllability and observability, pole placement and Luenberger observers;
 and the LQR, discrete LQR and Kalman-Bucy Riccati designs. Models are
 continuous-time and SISO unless stated; SciPy supplies the LTI objects,
@@ -450,6 +461,18 @@ saturation or anti-windup. With <code class="docutils literal notranslate"><span
 <dt class="sig sig-object py" id="engineeringkit.control_systems.PID.closed_loop">
 <span class="sig-name descname"><span class="pre">closed_loop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plant</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/control_systems/systems/pid.html#PID.closed_loop"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.control_systems.PID.closed_loop" title="Link to this definition">#</a></dt>
 <dd><p>Unity-feedback closed loop <span class="math notranslate nohighlight">\(CG/(1 + CG)\)</span> from reference to output.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>plant</strong> (<em>scipy.signal.TransferFunction</em><em> or </em><em>tuple</em>) – Plant <span class="math notranslate nohighlight">\(G(s)\)</span>, as a transfer function or <code class="docutils literal notranslate"><span class="pre">(num,</span> <span class="pre">den)</span></code>
+polynomial coefficients in descending powers of <span class="math notranslate nohighlight">\(s\)</span>.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Closed-loop transfer function.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>scipy.signal.TransferFunction</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py attribute">
@@ -488,7 +511,21 @@ saturation or anti-windup. With <code class="docutils literal notranslate"><span
 <dl class="py method">
 <dt class="sig sig-object py" id="engineeringkit.control_systems.PID.simulate">
 <span class="sig-name descname"><span class="pre">simulate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plant</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/control_systems/systems/pid.html#PID.simulate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.control_systems.PID.simulate" title="Link to this definition">#</a></dt>
-<dd><p>Unit-step reference response of the closed loop, as a <a class="reference internal" href="#engineeringkit.control_systems.ResponseResult" title="engineeringkit.control_systems.ResponseResult"><code class="xref py py-class docutils literal notranslate"><span class="pre">ResponseResult</span></code></a>.</p>
+<dd><p>Unit-step reference response of the closed loop.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>plant</strong> (<em>scipy.signal.TransferFunction</em><em> or </em><em>tuple</em>) – Plant <span class="math notranslate nohighlight">\(G(s)\)</span>, as in <a class="reference internal" href="#engineeringkit.control_systems.PID.closed_loop" title="engineeringkit.control_systems.PID.closed_loop"><code class="xref py py-meth docutils literal notranslate"><span class="pre">closed_loop()</span></code></a>.</p></li>
+<li><p><strong>T</strong> (<em>array_like</em><em>, </em><em>optional</em>) – Sample times [s]; chosen by <code class="xref py py-func docutils literal notranslate"><span class="pre">scipy.signal.step()</span></code> if omitted.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Time [s] and output for a unit step in the reference.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#engineeringkit.control_systems.ResponseResult" title="engineeringkit.control_systems.ResponseResult">ResponseResult</a></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -576,6 +613,9 @@ saturation or anti-windup. With <code class="docutils literal notranslate"><span
     degree is below <code class="docutils literal notranslate"><span class="pre">min_degree</span></code>.</p>
 </dd>
 </dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/control_systems.html"><span class="doc">Control systems: matrix contracts and numerical stability</span></a>.</p>
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">as_polynomial</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
 <span class="go">array([1., 3., 2.])</span>
@@ -938,6 +978,45 @@ Wurzeln mit negativen reellen Theilen besitzt,” <em>Math. Ann.</em> 46 (1895)
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.control_systems.jury_stable">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.control_systems.</span></span><span class="sig-name descname"><span class="pre">jury_stable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coeffs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/control_systems/systems/sampled.html#jury_stable"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.control_systems.jury_stable" title="Link to this definition">#</a></dt>
+<dd><p>Whether every root of a polynomial in <span class="math notranslate nohighlight">\(z\)</span> lies strictly inside the unit circle.</p>
+<p>Jury’s table reduces <span class="math notranslate nohighlight">\(P(z) = a_0 z^n + a_1 z^{n-1} + \dots + a_n\)</span>
+one degree at a time. Each row is
+<span class="math notranslate nohighlight">\(a_0 P(z) - a_n z^n P(1/z)\)</span>, divided by <span class="math notranslate nohighlight">\(z\)</span>, and the
+polynomial is stable if and only if <span class="math notranslate nohighlight">\(|a_n| &lt; |a_0|\)</span> holds at every
+step down to degree zero.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>coeffs</strong> (<em>array_like</em>) – Real coefficients in descending powers of <span class="math notranslate nohighlight">\(z\)</span>, degree at least
+one.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if all roots satisfy <span class="math notranslate nohighlight">\(|z| &lt; 1\)</span>; roots on the unit
+circle count as unstable.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>This is the discrete counterpart of Routh’s test: no roots are
+computed. The quick necessary conditions <span class="math notranslate nohighlight">\(P(1) &gt; 0\)</span> and
+<span class="math notranslate nohighlight">\((-1)^n P(-1) &gt; 0\)</span> (for <span class="math notranslate nohighlight">\(a_0 &gt; 0\)</span>) follow from it. Each row
+is normalised to unit leading coefficient, and a relative tolerance of
+<span class="math notranslate nohighlight">\(10^{-12}\)</span> decides the boundary cases. See
+<a class="reference internal" href="../guides/control_systems.html"><span class="doc">Control systems: matrix contracts and numerical stability</span></a>.</p>
+<p class="rubric">References</p>
+<p>E. I. Jury and J. Blanchard, “A stability test for linear discrete
+systems in table form,” <em>Proc. IRE</em> 49 (1961) 1947-1948.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">jury_stable</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">]),</span> <span class="n">jury_stable</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span>
+<span class="go">(True, False)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.control_systems.kalman_gain">
 <span class="sig-prename descclassname"><span class="pre">engineeringkit.control_systems.</span></span><span class="sig-name descname"><span class="pre">kalman_gain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">C</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Q</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">R</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/control_systems/systems/optimal.html#kalman_gain"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.control_systems.kalman_gain" title="Link to this definition">#</a></dt>
 <dd><p>Steady-state Kalman-Bucy estimator gain for continuous-time measurements.</p>
@@ -1105,6 +1184,9 @@ converts to one (state space, zeros-poles-gain).</p>
 <dd class="field-even"><p><strong>ValueError</strong> – If the model is not single-input single-output.</p>
 </dd>
 </dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/control_systems.html"><span class="doc">Control systems: matrix contracts and numerical stability</span></a>.</p>
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">num_den</span><span class="p">(</span><span class="n">signal</span><span class="o">.</span><span class="n">TransferFunction</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">]))</span>
 <span class="go">(array([2., 2.]), array([1., 3., 2.]))</span>
@@ -1240,6 +1322,43 @@ Mil. Electron.</em> 8 (1964) 74-80.</p>
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">observer_gain</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]],</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]],</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">])</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
 <span class="go">[[3.0], [2.0]]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.control_systems.pade_delay">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.control_systems.</span></span><span class="sig-name descname"><span class="pre">pade_delay</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">delay</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/control_systems/systems/delay.html#pade_delay"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.control_systems.pade_delay" title="Link to this definition">#</a></dt>
+<dd><p>Diagonal Padé approximant of a time delay <span class="math notranslate nohighlight">\(e^{-s\theta}\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>delay</strong> (<em>float</em>) – Dead time <span class="math notranslate nohighlight">\(\theta\)</span> [s], positive.</p></li>
+<li><p><strong>order</strong> (<em>int</em><em>, </em><em>optional</em>) – Degree <span class="math notranslate nohighlight">\(n \ge 1\)</span> of numerator and denominator.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="math notranslate nohighlight">\(D(-s)/D(s)\)</span> with
+<span class="math notranslate nohighlight">\(D(s) = \sum_{k=0}^{n} \frac{(2n-k)!\,n!}{(2n)!\,k!\,(n-k)!}(s\theta)^k\)</span>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>scipy.signal.TransferFunction</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>The approximant is all-pass, <span class="math notranslate nohighlight">\(|D(-j\omega)/D(j\omega)| = 1\)</span>, and
+matches the Taylor series of <span class="math notranslate nohighlight">\(e^{-s\theta}\)</span> to order <span class="math notranslate nohighlight">\(2n\)</span>, so
+its phase is accurate for <span class="math notranslate nohighlight">\(\omega\theta\)</span> up to about <span class="math notranslate nohighlight">\(n\)</span>. It
+has <span class="math notranslate nohighlight">\(n\)</span> right-half-plane zeros, so its step response starts with an
+undershoot that the true delay does not have. See
+<a class="reference internal" href="../guides/control_systems.html"><span class="doc">Control systems: matrix contracts and numerical stability</span></a>.</p>
+<p class="rubric">References</p>
+<p>H. Padé, “Sur la représentation approchée d’une fonction par des fractions
+rationnelles,” <em>Ann. Sci. École Norm. Sup.</em> 9 (1892) 3-93.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">D</span> <span class="o">=</span> <span class="n">pade_delay</span><span class="p">(</span><span class="mf">2.0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">D</span><span class="o">.</span><span class="n">num</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span> <span class="n">D</span><span class="o">.</span><span class="n">den</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="go">([-1.0, 1.0], [1.0, 1.0])</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -1404,9 +1523,56 @@ envelope estimate, not the exact 2 % crossing. See
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.control_systems.smith_predictor">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.control_systems.</span></span><span class="sig-name descname"><span class="pre">smith_predictor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">controller</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plant</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delay</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/control_systems/systems/delay.html#smith_predictor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.control_systems.smith_predictor" title="Link to this definition">#</a></dt>
+<dd><p>Equivalent controller of a Smith predictor around a delayed plant.</p>
+<p>The plant is <span class="math notranslate nohighlight">\(G(s)e^{-s\theta}\)</span>. The predictor feeds back the
+output of a delay-free model <span class="math notranslate nohighlight">\(G\)</span> and corrects it by the difference
+between the measured output and the delayed model output. The result is
+the single controller</p>
+<div class="math notranslate nohighlight">
+\[C_{\mathrm{SP}} = \frac{C}{1 + C G\,(1 - e^{-s\theta})},\]</div>
+<p>which makes the closed loop <span class="math notranslate nohighlight">\(CGe^{-s\theta}/(1 + CG)\)</span>: the
+delay-free design, delayed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>controller</strong> (<em>scipy.signal.lti</em>) – Primary controller <span class="math notranslate nohighlight">\(C(s)\)</span>, designed for the delay-free plant.</p></li>
+<li><p><strong>plant</strong> (<em>scipy.signal.lti</em>) – Delay-free plant model <span class="math notranslate nohighlight">\(G(s)\)</span>.</p></li>
+<li><p><strong>delay</strong> (<em>float</em>) – Dead time <span class="math notranslate nohighlight">\(\theta\)</span> [s], positive.</p></li>
+<li><p><strong>order</strong> (<em>int</em><em>, </em><em>optional</em>) – Padé order used for the delay inside the predictor.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="math notranslate nohighlight">\(C_{\mathrm{SP}}(s)\)</span> with <span class="math notranslate nohighlight">\(e^{-s\theta}\)</span> replaced by
+<a class="reference internal" href="#engineeringkit.control_systems.pade_delay" title="engineeringkit.control_systems.pade_delay"><code class="xref py py-func docutils literal notranslate"><span class="pre">pade_delay()</span></code></a> of the given order.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>scipy.signal.TransferFunction</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>The predictor relies on a perfect model: mismatch in <span class="math notranslate nohighlight">\(G\)</span> or
+<span class="math notranslate nohighlight">\(\theta\)</span> reappears in the characteristic equation. It cannot
+stabilise an unstable plant, whose mode stays in the open loop. In a
+computer the delay is a buffer of past commands, not a Padé factor. See
+<a class="reference internal" href="../guides/control_systems.html"><span class="doc">Control systems: matrix contracts and numerical stability</span></a>.</p>
+<p class="rubric">References</p>
+<p>O. J. M. Smith, “Closer control of loops with dead time,” <em>Chem. Eng.
+Prog.</em> 53 (1957) 217-219.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit.control_systems</span><span class="w"> </span><span class="kn">import</span> <span class="n">transfer_function</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Csp</span> <span class="o">=</span> <span class="n">smith_predictor</span><span class="p">(</span><span class="n">transfer_function</span><span class="p">([</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="n">transfer_function</span><span class="p">([</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]),</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Csp</span><span class="o">.</span><span class="n">num</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span> <span class="n">Csp</span><span class="o">.</span><span class="n">den</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="go">([1.0, 3.0, 2.0], [1.0, 5.0, 2.0])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.control_systems.stability_margins">
 <span class="sig-prename descclassname"><span class="pre">engineeringkit.control_systems.</span></span><span class="sig-name descname"><span class="pre">stability_margins</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sys</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/control_systems/systems/frequency.html#stability_margins"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.control_systems.stability_margins" title="Link to this definition">#</a></dt>
-<dd><p>Gain and phase margins from the first crossovers of a loop’s frequency response.</p>
+<dd><p>Worst gain and phase margins over all crossovers of a loop’s frequency response.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -1416,19 +1582,38 @@ envelope estimate, not the exact 2 % crossing. See
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">gain_margin</span></code> [-] (<code class="docutils literal notranslate"><span class="pre">inf</span></code> without a phase crossover),
-<code class="docutils literal notranslate"><span class="pre">phase_margin_deg</span></code> [deg] (<code class="docutils literal notranslate"><span class="pre">nan</span></code> without a gain crossover),
-<code class="docutils literal notranslate"><span class="pre">gain_cross_frequency</span></code> and <code class="docutils literal notranslate"><span class="pre">phase_cross_frequency</span></code> [rad/s].</p>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">gain_margin</span></code> [-], the margin at the phase crossover nearest
+instability (<code class="docutils literal notranslate"><span class="pre">inf</span></code> without a phase crossover);
+<code class="docutils literal notranslate"><span class="pre">phase_margin_deg</span></code> [deg], the margin of smallest magnitude over
+the gain crossovers (<code class="docutils literal notranslate"><span class="pre">nan</span></code> without one); <code class="docutils literal notranslate"><span class="pre">gain_cross_frequency</span></code> and
+<code class="docutils literal notranslate"><span class="pre">phase_cross_frequency</span></code> [rad/s], the crossovers at which those worst
+margins are read (<code class="docutils literal notranslate"><span class="pre">nan</span></code> if absent); and the arrays
+<code class="docutils literal notranslate"><span class="pre">phase_cross_frequencies</span></code> [rad/s] with their <code class="docutils literal notranslate"><span class="pre">gain_margins</span></code> [-],
+and <code class="docutils literal notranslate"><span class="pre">gain_cross_frequencies</span></code> [rad/s] with their
+<code class="docutils literal notranslate"><span class="pre">phase_margins_deg</span></code> [deg], over every crossover in increasing
+frequency.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>dict</p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
-<p>Crossings are interpolated linearly in log-frequency between grid
-points. Only the first crossover of each kind is reported, so loops with
-multiple crossovers, time delays or negative gain need separate analysis.
-See <a class="reference internal" href="../guides/control_systems.html"><span class="doc">Control systems: matrix contracts and numerical stability</span></a>.</p>
+<p>A phase crossover is any frequency where the phase passes
+<span class="math notranslate nohighlight">\(-180^\circ + 360^\circ k\)</span>. Its gain margin
+<span class="math notranslate nohighlight">\(1/|L(j\omega)|\)</span> is below one when <em>reducing</em> the gain by that
+factor reaches instability, as in a conditionally stable loop; the worst
+gain margin is the one with the smallest <span class="math notranslate nohighlight">\(|\log \mathrm{GM}|\)</span>.
+Phase margins are wrapped into <span class="math notranslate nohighlight">\([-180^\circ, 180^\circ)\)</span>; a
+negative one means the plot crosses the unit circle on the far side of
+<span class="math notranslate nohighlight">\(-1\)</span>, and a phase <em>lead</em> of that size reaches instability. With one
+crossover and a stable open loop that signals an unstable closed loop,
+but an open-loop unstable loop that needs counter-clockwise encirclements
+can cross on both sides, so the worst phase margin is the one of
+smallest magnitude.
+Crossings are interpolated linearly in log-frequency between grid points,
+so a grid that misses a crossover misses its margin. Time delays need a
+rational approximation such as <a class="reference internal" href="#engineeringkit.control_systems.pade_delay" title="engineeringkit.control_systems.pade_delay"><code class="xref py py-func docutils literal notranslate"><span class="pre">pade_delay()</span></code></a>. See
+<a class="reference internal" href="../guides/control_systems.html"><span class="doc">Control systems: matrix contracts and numerical stability</span></a>.</p>
 <p class="rubric">References</p>
 <p>H. W. Bode, “Relations between attenuation and phase in feedback
 amplifier design,” <em>Bell Syst. Tech. J.</em> 19 (1940) 421-454.</p>
@@ -1495,6 +1680,9 @@ systems,” <em>IEEE Trans. Autom. Control</em> 12 (1967) 660-665.</p>
 <dd class="field-even"><p><strong>ValueError</strong> – If a matrix is nonfinite, empty or has an inconsistent shape.</p>
 </dd>
 </dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/control_systems.html"><span class="doc">Control systems: matrix contracts and numerical stability</span></a>.</p>
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span> <span class="o">=</span> <span class="n">state_matrices</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">]],</span> <span class="n">B</span><span class="o">=</span><span class="p">[[</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">]])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">B</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">C</span>
@@ -1618,6 +1806,9 @@ be identically zero.</p></li>
 <dd class="field-even"><p><strong>ValueError</strong> – If the matrix has the wrong shape, is not symmetric, or is indefinite.</p>
 </dd>
 </dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/control_systems.html"><span class="doc">Control systems: matrix contracts and numerical stability</span></a>.</p>
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">weight_matrix</span><span class="p">([[</span><span class="mf">2.0</span><span class="p">]],</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">"R"</span><span class="p">,</span> <span class="n">strict</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="go">array([[2.]])</span>
@@ -1713,6 +1904,90 @@ controllers,” <em>Trans. ASME</em> 64 (1942) 759-768.</p>
 </div>
 </dd></dl>
 
+<section id="module-engineeringkit.control_systems.visualizers">
+<span id="visualizers"></span><h2>Visualizers<a class="headerlink" href="#module-engineeringkit.control_systems.visualizers" title="Link to this heading">#</a></h2>
+<p>Matplotlib visualizers for engineeringkit.control_systems.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.control_systems.visualizers.plot_bode">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.control_systems.visualizers.</span></span><span class="sig-name descname"><span class="pre">plot_bode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sys</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/control_systems/visualizers/plots.html#plot_bode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.control_systems.visualizers.plot_bode" title="Link to this definition">#</a></dt>
+<dd><p>Bode magnitude and phase plots on a shared logarithmic frequency axis.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sys</strong> (<em>scipy.signal.lti</em>) – Continuous-time model.</p></li>
+<li><p><strong>w</strong> (<em>array_like</em><em>, </em><em>optional</em>) – Angular frequencies [rad/s].</p></li>
+<li><p><strong>axes</strong> (<em>sequence</em><em> of </em><em>two matplotlib.axes.Axes</em><em>, </em><em>optional</em>) – Magnitude and phase axes; a new figure is created if omitted.</p></li>
+<li><p><strong>label</strong> (<em>str</em><em>, </em><em>optional</em>) – Legend label.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">(magnitude_axes,</span> <span class="pre">phase_axes)</span></code>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple of matplotlib.axes.Axes</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.control_systems.visualizers.plot_nyquist">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.control_systems.visualizers.</span></span><span class="sig-name descname"><span class="pre">plot_nyquist</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sys</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/control_systems/visualizers/plots.html#plot_nyquist"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.control_systems.visualizers.plot_nyquist" title="Link to this definition">#</a></dt>
+<dd><p>Nyquist plot of a loop for positive and negative frequencies, marking -1.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sys</strong> (<em>scipy.signal.lti</em>) – SISO open-loop model.</p></li>
+<li><p><strong>w</strong> (<em>array_like</em><em>, </em><em>optional</em>) – Positive angular frequencies [rad/s]; defaults to a log grid from
+<span class="math notranslate nohighlight">\(10^{-3}\)</span> to <span class="math notranslate nohighlight">\(10^3\)</span>.</p></li>
+<li><p><strong>ax</strong> (<em>matplotlib.axes.Axes</em><em>, </em><em>optional</em>) – Axes to draw on; a new figure is created if omitted.</p></li>
+<li><p><strong>label</strong> (<em>str</em><em>, </em><em>optional</em>) – Legend label.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>matplotlib.axes.Axes</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.control_systems.visualizers.plot_response">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.control_systems.visualizers.</span></span><span class="sig-name descname"><span class="pre">plot_response</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/control_systems/visualizers/plots.html#plot_response"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.control_systems.visualizers.plot_response" title="Link to this definition">#</a></dt>
+<dd><p>Plot a time response.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>t</strong> (<em>array_like</em>) – Matching time samples [s] and output values.</p></li>
+<li><p><strong>y</strong> (<em>array_like</em>) – Matching time samples [s] and output values.</p></li>
+<li><p><strong>ax</strong> (<em>matplotlib.axes.Axes</em><em>, </em><em>optional</em>) – Axes to draw on; a new figure is created if omitted.</p></li>
+<li><p><strong>label</strong> (<em>str</em><em>, </em><em>optional</em>) – Legend label.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>matplotlib.axes.Axes</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.control_systems.visualizers.plot_root_locus">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.control_systems.visualizers.</span></span><span class="sig-name descname"><span class="pre">plot_root_locus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">den</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gains</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/control_systems/visualizers/plots.html#plot_root_locus"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.control_systems.visualizers.plot_root_locus" title="Link to this definition">#</a></dt>
+<dd><p>Plot closed-loop root loci with open-loop poles (x) and zeros (o).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>num</strong> (<em>array_like</em>) – Strictly proper open-loop numerator and denominator.</p></li>
+<li><p><strong>den</strong> (<em>array_like</em>) – Strictly proper open-loop numerator and denominator.</p></li>
+<li><p><strong>gains</strong> (<em>array_like</em>) – Loop gains to evaluate.</p></li>
+<li><p><strong>ax</strong> (<em>matplotlib.axes.Axes</em><em>, </em><em>optional</em>) – Axes to draw on; a new figure is created if omitted.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>matplotlib.axes.Axes</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
 </section>
 
 
@@ -1790,6 +2065,7 @@ controllers,” <em>Trans. ASME</em> 64 (1942) 759-768.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.control_systems.impulse_response"><code class="docutils literal notranslate"><span class="pre">impulse_response()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.control_systems.is_controllable"><code class="docutils literal notranslate"><span class="pre">is_controllable()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.control_systems.is_observable"><code class="docutils literal notranslate"><span class="pre">is_observable()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.control_systems.jury_stable"><code class="docutils literal notranslate"><span class="pre">jury_stable()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.control_systems.kalman_gain"><code class="docutils literal notranslate"><span class="pre">kalman_gain()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.control_systems.lqr"><code class="docutils literal notranslate"><span class="pre">lqr()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.control_systems.lyapunov_equation"><code class="docutils literal notranslate"><span class="pre">lyapunov_equation()</span></code></a></li>
@@ -1799,11 +2075,13 @@ controllers,” <em>Trans. ASME</em> 64 (1942) 759-768.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.control_systems.nyquist_encirclements"><code class="docutils literal notranslate"><span class="pre">nyquist_encirclements()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.control_systems.observability_matrix"><code class="docutils literal notranslate"><span class="pre">observability_matrix()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.control_systems.observer_gain"><code class="docutils literal notranslate"><span class="pre">observer_gain()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.control_systems.pade_delay"><code class="docutils literal notranslate"><span class="pre">pade_delay()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.control_systems.poles"><code class="docutils literal notranslate"><span class="pre">poles()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.control_systems.root_locus"><code class="docutils literal notranslate"><span class="pre">root_locus()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.control_systems.routh_first_column"><code class="docutils literal notranslate"><span class="pre">routh_first_column()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.control_systems.routh_stable"><code class="docutils literal notranslate"><span class="pre">routh_stable()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.control_systems.second_order_metrics"><code class="docutils literal notranslate"><span class="pre">second_order_metrics()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.control_systems.smith_predictor"><code class="docutils literal notranslate"><span class="pre">smith_predictor()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.control_systems.stability_margins"><code class="docutils literal notranslate"><span class="pre">stability_margins()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.control_systems.state_feedback_poles"><code class="docutils literal notranslate"><span class="pre">state_feedback_poles()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.control_systems.state_matrices"><code class="docutils literal notranslate"><span class="pre">state_matrices()</span></code></a></li>
@@ -1813,6 +2091,13 @@ controllers,” <em>Trans. ASME</em> 64 (1942) 759-768.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.control_systems.weight_matrix"><code class="docutils literal notranslate"><span class="pre">weight_matrix()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.control_systems.zeros"><code class="docutils literal notranslate"><span class="pre">zeros()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.control_systems.ziegler_nichols"><code class="docutils literal notranslate"><span class="pre">ziegler_nichols()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-engineeringkit.control_systems.visualizers">Visualizers</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.control_systems.visualizers.plot_bode"><code class="docutils literal notranslate"><span class="pre">plot_bode()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.control_systems.visualizers.plot_nyquist"><code class="docutils literal notranslate"><span class="pre">plot_nyquist()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.control_systems.visualizers.plot_response"><code class="docutils literal notranslate"><span class="pre">plot_response()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.control_systems.visualizers.plot_root_locus"><code class="docutils literal notranslate"><span class="pre">plot_root_locus()</span></code></a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

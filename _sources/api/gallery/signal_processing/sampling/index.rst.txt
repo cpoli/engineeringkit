@@ -1,0 +1,68 @@
+
+
+.. _sphx_glr_api_gallery_signal_processing_sampling:
+
+Sampling
+--------
+
+What is kept and what is lost when a signal is sampled and quantized.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Pulse-code modulation, worked out at Bell Laboratories during the Second World War, rounds every sample to one of 2^N levels (~engineeringkit.signal_processing.quantize). W. R. Bennett asked what that rounding does to the signal. For a signal that is busy compared with the step q (~engineeringkit.signal_processing.quantization_step), the error is spread evenly over [-q/2, q/2], so it behaves like added white noise of power q^2/12. For a full-scale sine this gives the rule every ADC data sheet quotes, \mathrm{SNR} = 6.02N + 1.76 dB: each extra bit buys 6 dB.">
+
+.. only:: html
+
+  .. image:: /api/gallery/signal_processing/sampling/images/thumb/sphx_glr_plot_01_bennett_quantization_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/signal_processing/sampling/plot_01_bennett_quantization`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Bennett's quantization noise</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Claude Shannon&#x27;s 1949 paper Communication in the presence of noise opens with a theorem: a signal with no frequencies above B is completely determined by samples taken every 1/(2B) seconds. Whittaker (1915), Nyquist (1928) and Kotelnikov (1933) had come close, but Shannon stated it plainly and gave the reconstruction, a sum of sinc pulses centred on the samples (~engineeringkit.signal_processing.sinc_reconstruct). A frequency above the Nyquist frequency f_s/2 (~engineeringkit.signal_processing.nyquist_frequency) produces exactly the same samples as one below it, its alias (~engineeringkit.signal_processing.alias_frequency), and no processing after the sampler can tell them apart.">
+
+.. only:: html
+
+  .. image:: /api/gallery/signal_processing/sampling/images/thumb/sphx_glr_plot_02_shannon_sampling_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/signal_processing/sampling/plot_02_shannon_sampling`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Shannon's sampling theorem and aliasing</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/signal_processing/sampling/plot_01_bennett_quantization
+   /api/gallery/signal_processing/sampling/plot_02_shannon_sampling
+

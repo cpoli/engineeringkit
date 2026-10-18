@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>engineeringkit.mechanical_engineering.systems.vibration &#8212; engineeringkit</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx_autodoc_typehints.css?v=057ac668" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/plot_directive.css" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Vibur" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/jupyterlite_sphinx.css?v=f676e775" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery.css?v=c83e6b79" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/engineeringkit.css?v=62935cec" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../../../_static/scripts/fontawesome.js?digest=18bd87630a240e9c25be"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be" />
+
+    <script src="../../../../_static/documentation_options.js?v=38b66d78"></script>
+    <script src="../../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../../_static/sg-tags.js?v=d80f6fa4"></script>
+    <script src="../../../../_static/jupyterlite_sphinx.js?v=96e329c5"></script>
+    <script src="../../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/engineeringkit/mechanical_engineering/systems/vibration';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="canonical" href="https://cpoli.github.io/engineeringkit/_modules/engineeringkit/mechanical_engineering/systems/vibration.html" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="color-scheme" content="light dark"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../../../_static/searchtools.js"></script>
+    <script src="../../../../_static/language_data.js"></script>
+    <script src="../../../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../_static/engineeringkit_logo_transparent.png" class="logo__image only-light" alt="engineeringkit logo"/>
+    <img src="../../../../_static/engineeringkit_logo_transparent.png" class="logo__image only-dark pst-js-only" alt="engineeringkit logo"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../subpackages/index.html">
+    Subpackages
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../history/index.html">
+    History
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../api/index.html">
+    API
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../subpackages/index.html">
+    Subpackages
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../history/index.html">
+    History
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../api/index.html">
+    API
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">engineeringkit.mechanical_engineering.systems.vibration</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for engineeringkit.mechanical_engineering.systems.vibration</h1><div class="highlight"><pre>
+<span></span><span class="sa">r</span><span class="sd">"""Vibration: the damped oscillator, the tuned absorber and torsional chains.</span>
+
+<span class="sd">Rayleigh's *Theory of Sound* set out the free and forced vibration of linear</span>
+<span class="sd">systems with natural frequency :math:`\omega_n = \sqrt{k/m}` and damping</span>
+<span class="sd">ratio :math:`\zeta = c/2\sqrt{km}`. Frahm hung a small tuned oscillator on a</span>
+<span class="sd">vibrating body to cancel its motion, and Den Hartog chose the absorber's</span>
+<span class="sd">tuning and damping to flatten the response. Holzer found the torsional</span>
+<span class="sd">frequencies of a shaft line by marching a trial twist from disk to disk.</span>
+<span class="sd">"""</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit._validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">finite</span> <span class="k">as</span> <span class="n">_finite</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit._validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">integer</span> <span class="k">as</span> <span class="n">_integer</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit._validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">nonnegative</span> <span class="k">as</span> <span class="n">_nonnegative</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit._validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">positive</span> <span class="k">as</span> <span class="n">_positive</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit._validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">vector</span> <span class="k">as</span> <span class="n">_vector</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit.integrators</span><span class="w"> </span><span class="kn">import</span> <span class="n">integrate_ode</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit.mechanical_engineering.core.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">HolzerResult</span><span class="p">,</span> <span class="n">SDOFResult</span><span class="p">,</span> <span class="n">TunedMassDamper</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit.mechanical_engineering.utils.roots</span><span class="w"> </span><span class="kn">import</span> <span class="n">bracketed_roots</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">"natural_frequency"</span><span class="p">,</span>
+    <span class="s2">"natural_frequency_hz"</span><span class="p">,</span>
+    <span class="s2">"damping_ratio"</span><span class="p">,</span>
+    <span class="s2">"damped_frequency"</span><span class="p">,</span>
+    <span class="s2">"transmissibility"</span><span class="p">,</span>
+    <span class="s2">"simulate_sdof"</span><span class="p">,</span>
+    <span class="s2">"tuned_mass_damper"</span><span class="p">,</span>
+    <span class="s2">"holzer_residual"</span><span class="p">,</span>
+    <span class="s2">"holzer_frequencies"</span><span class="p">,</span>
+<span class="p">]</span>
+
+
+<div class="viewcode-block" id="natural_frequency">
+<a class="viewcode-back" href="../../../../api/mechanical_engineering.html#engineeringkit.mechanical_engineering.natural_frequency">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">natural_frequency</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">m</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Undamped natural frequency :math:`\omega_n = \sqrt{k/m}`.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    k : float or array_like</span>
+<span class="sd">        Stiffness [N/m], positive.</span>
+<span class="sd">    m : float or array_like</span>
+<span class="sd">        Mass [kg], positive.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float or ndarray</span>
+<span class="sd">        Natural frequency [rad/s].</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Inputs are raw SI numbers with no dimensional metadata; see</span>
+<span class="sd">    :doc:`/guides/mechanical_engineering`.</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    J. W. Strutt, Baron Rayleigh, *The Theory of Sound*, vol. 1 (Macmillan,</span>
+<span class="sd">    London, 1877).</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; float(natural_frequency(100.0, 4.0))</span>
+<span class="sd">    5.0</span>
+<span class="sd">    """</span>
+    <span class="n">_finite</span><span class="p">(</span><span class="n">k</span><span class="o">=</span><span class="n">k</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="n">m</span><span class="p">)</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">k</span><span class="o">=</span><span class="n">k</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="n">m</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">k</span> <span class="o">/</span> <span class="n">m</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="natural_frequency_hz">
+<a class="viewcode-back" href="../../../../api/mechanical_engineering.html#engineeringkit.mechanical_engineering.natural_frequency_hz">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">natural_frequency_hz</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">m</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Undamped natural frequency in hertz, :math:`f_n = \sqrt{k/m}/2\pi`.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    k : float or array_like</span>
+<span class="sd">        Stiffness [N/m], positive.</span>
+<span class="sd">    m : float or array_like</span>
+<span class="sd">        Mass [kg], positive.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float or ndarray</span>
+<span class="sd">        Natural frequency [Hz].</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Inputs are raw SI numbers with no dimensional metadata; see</span>
+<span class="sd">    :doc:`/guides/mechanical_engineering`.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; round(float(natural_frequency_hz(4.0, 1.0)), 6)</span>
+<span class="sd">    0.31831</span>
+<span class="sd">    """</span>
+    <span class="k">return</span> <span class="n">natural_frequency</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">m</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="damping_ratio">
+<a class="viewcode-back" href="../../../../api/mechanical_engineering.html#engineeringkit.mechanical_engineering.damping_ratio">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">damping_ratio</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">m</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Damping ratio :math:`\zeta = c / (2\sqrt{km})`, the fraction of critical damping.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    c : float or array_like</span>
+<span class="sd">        Viscous damping coefficient [N s/m], nonnegative.</span>
+<span class="sd">    k : float or array_like</span>
+<span class="sd">        Stiffness [N/m], positive.</span>
+<span class="sd">    m : float or array_like</span>
+<span class="sd">        Mass [kg], positive.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float or ndarray</span>
+<span class="sd">        Damping ratio [-]; one is critical damping.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Inputs are raw SI numbers with no dimensional metadata; see</span>
+<span class="sd">    :doc:`/guides/mechanical_engineering`.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; float(damping_ratio(4.0, 4.0, 1.0))</span>
+<span class="sd">    1.0</span>
+<span class="sd">    """</span>
+    <span class="n">_finite</span><span class="p">(</span><span class="n">c</span><span class="o">=</span><span class="n">c</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="n">k</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="n">m</span><span class="p">)</span>
+    <span class="n">_nonnegative</span><span class="p">(</span><span class="n">c</span><span class="o">=</span><span class="n">c</span><span class="p">)</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">k</span><span class="o">=</span><span class="n">k</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="n">m</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">c</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">k</span> <span class="o">*</span> <span class="n">m</span><span class="p">))</span></div>
+
+
+
+<div class="viewcode-block" id="damped_frequency">
+<a class="viewcode-back" href="../../../../api/mechanical_engineering.html#engineeringkit.mechanical_engineering.damped_frequency">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">damped_frequency</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Damped natural frequency :math:`\omega_d = \omega_n\sqrt{1 - \zeta^2}`.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    k : float or array_like</span>
+<span class="sd">        Stiffness [N/m], positive.</span>
+<span class="sd">    m : float or array_like</span>
+<span class="sd">        Mass [kg], positive.</span>
+<span class="sd">    c : float or array_like</span>
+<span class="sd">        Viscous damping coefficient [N s/m], nonnegative.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float or ndarray</span>
+<span class="sd">        Frequency of the decaying oscillation [rad/s]; zero at or above</span>
+<span class="sd">        critical damping, where the motion does not oscillate.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Inputs are raw SI numbers with no dimensional metadata; see</span>
+<span class="sd">    :doc:`/guides/mechanical_engineering`.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; round(float(damped_frequency(4.0, 1.0, 0.4)), 6)</span>
+<span class="sd">    1.989975</span>
+<span class="sd">    """</span>
+    <span class="n">wn</span> <span class="o">=</span> <span class="n">natural_frequency</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">m</span><span class="p">)</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="n">damping_ratio</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">m</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">wn</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">z</span> <span class="o">*</span> <span class="n">z</span><span class="p">))</span></div>
+
+
+
+<div class="viewcode-block" id="transmissibility">
+<a class="viewcode-back" href="../../../../api/mechanical_engineering.html#engineeringkit.mechanical_engineering.transmissibility">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">transmissibility</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">zeta</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Force (or base-motion) transmissibility of a damped linear isolator.</span>
+
+<span class="sd">    .. math:: T = \sqrt{\frac{1 + (2\zeta r)^2}{(1 - r^2)^2 + (2\zeta r)^2}}</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    r : float or array_like</span>
+<span class="sd">        Excitation frequency over natural frequency [-], nonnegative.</span>
+<span class="sd">    zeta : float or array_like</span>
+<span class="sd">        Damping ratio [-], nonnegative.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float or ndarray</span>
+<span class="sd">        Transmitted over applied amplitude [-]; below one only for</span>
+<span class="sd">        :math:`r &gt; \sqrt 2`, and infinite at undamped resonance.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Inputs are raw SI numbers with no dimensional metadata; see</span>
+<span class="sd">    :doc:`/guides/mechanical_engineering`.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; round(float(transmissibility(np.sqrt(2), 0.1)), 12)</span>
+<span class="sd">    1.0</span>
+<span class="sd">    """</span>
+    <span class="n">_nonnegative</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="n">r</span><span class="p">,</span> <span class="n">zeta</span><span class="o">=</span><span class="n">zeta</span><span class="p">)</span>
+    <span class="k">with</span> <span class="n">np</span><span class="o">.</span><span class="n">errstate</span><span class="p">(</span><span class="n">divide</span><span class="o">=</span><span class="s2">"ignore"</span><span class="p">,</span> <span class="n">invalid</span><span class="o">=</span><span class="s2">"ignore"</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">zeta</span> <span class="o">*</span> <span class="n">r</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">r</span> <span class="o">*</span> <span class="n">r</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">zeta</span> <span class="o">*</span> <span class="n">r</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">))</span></div>
+
+
+
+<div class="viewcode-block" id="simulate_sdof">
+<a class="viewcode-back" href="../../../../api/mechanical_engineering.html#engineeringkit.mechanical_engineering.simulate_sdof">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">simulate_sdof</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">x0</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">v0</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">force</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Integrate :math:`m\ddot x + c\dot x + kx = F(t)` for a passive linear oscillator.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    m : float</span>
+<span class="sd">        Mass [kg], positive.</span>
+<span class="sd">    c : float</span>
+<span class="sd">        Viscous damping [N s/m], nonnegative.</span>
+<span class="sd">    k : float</span>
+<span class="sd">        Stiffness [N/m], nonnegative.</span>
+<span class="sd">    x0 : float, optional</span>
+<span class="sd">        Initial displacement [m].</span>
+<span class="sd">    v0 : float, optional</span>
+<span class="sd">        Initial velocity [m/s].</span>
+<span class="sd">    t : array_like, optional</span>
+<span class="sd">        Strictly increasing output times [s]; defaults to 1001 samples on</span>
+<span class="sd">        [0, 10] s.</span>
+<span class="sd">    force : callable, optional</span>
+<span class="sd">        ``force(time [s]) -&gt; force [N]``; omit for free vibration.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    SDOFResult</span>
+<span class="sd">        Time [s], displacement [m] and velocity [m/s].</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Constant coefficients and small linear displacements are assumed.</span>
+<span class="sd">    Inputs are raw SI numbers with no dimensional metadata; see</span>
+<span class="sd">    :doc:`/guides/mechanical_engineering`.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; result = simulate_sdof(1.0, 0.0, 4.0, x0=0.1, t=np.linspace(0, np.pi, 3))</span>
+<span class="sd">    &gt;&gt;&gt; np.round(result.displacement, 6).tolist()</span>
+<span class="sd">    [0.1, -0.1, 0.1]</span>
+<span class="sd">    """</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isfinite</span><span class="p">([</span><span class="n">m</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">v0</span><span class="p">]))</span> <span class="ow">or</span> <span class="n">m</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">c</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"mass must be positive; damping/stiffness nonnegative; inputs finite"</span><span class="p">)</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1001</span><span class="p">)</span> <span class="k">if</span> <span class="n">t</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">rhs</span><span class="p">(</span><span class="n">tt</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="n">f</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">force</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">force</span><span class="p">(</span><span class="n">tt</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="p">(</span><span class="n">f</span> <span class="o">-</span> <span class="n">c</span> <span class="o">*</span> <span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">k</span> <span class="o">*</span> <span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">/</span> <span class="n">m</span><span class="p">]</span>
+
+    <span class="n">result</span> <span class="o">=</span> <span class="n">integrate_ode</span><span class="p">(</span><span class="n">rhs</span><span class="p">,</span> <span class="p">[</span><span class="n">x0</span><span class="p">,</span> <span class="n">v0</span><span class="p">],</span> <span class="n">t</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">SDOFResult</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">result</span><span class="o">.</span><span class="n">history</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">result</span><span class="o">.</span><span class="n">history</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span></div>
+
+
+
+<div class="viewcode-block" id="tuned_mass_damper">
+<a class="viewcode-back" href="../../../../api/mechanical_engineering.html#engineeringkit.mechanical_engineering.tuned_mass_damper">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">tuned_mass_damper</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">mass_ratio</span><span class="p">,</span> <span class="n">frequency_ratio</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">damping_ratio</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TunedMassDamper</span><span class="p">:</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Design a dynamic vibration absorber for a mass-spring system.</span>
+
+<span class="sd">    With ``frequency_ratio`` and ``damping_ratio`` omitted, Den Hartog's</span>
+<span class="sd">    optimum tuning is used:</span>
+
+<span class="sd">    .. math:: f = \frac{1}{1 + \mu}, \qquad</span>
+<span class="sd">              \zeta = \sqrt{\frac{3\mu}{8(1 + \mu)^3}}</span>
+
+<span class="sd">    which makes the two fixed points of the response curve equal in height,</span>
+<span class="sd">    :math:`\sqrt{1 + 2/\mu}` times the static deflection, and puts the</span>
+<span class="sd">    peaks near them.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    m : float</span>
+<span class="sd">        Primary mass :math:`m_1` [kg], positive.</span>
+<span class="sd">    k : float</span>
+<span class="sd">        Primary stiffness :math:`k_1` [N/m], positive.</span>
+<span class="sd">    mass_ratio : float</span>
+<span class="sd">        :math:`\mu = m_2/m_1` [-], positive.</span>
+<span class="sd">    frequency_ratio : float, optional</span>
+<span class="sd">        Absorber frequency :math:`\sqrt{k_2/m_2}` over :math:`\omega_1` [-],</span>
+<span class="sd">        positive. Frahm's undamped absorber uses 1, tuned to the forcing.</span>
+<span class="sd">    damping_ratio : float, optional</span>
+<span class="sd">        :math:`c_2/(2 m_2 \omega_1)` [-], nonnegative.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    TunedMassDamper</span>
+<span class="sd">        Absorber mass, stiffness and damping, with ``amplification(r)`` for</span>
+<span class="sd">        the primary mass's frequency response.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Inputs are raw SI numbers with no dimensional metadata; see</span>
+<span class="sd">    :doc:`/guides/mechanical_engineering`.</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    H. Frahm, "Device for damping vibrations of bodies," U.S. Patent 989,958</span>
+<span class="sd">    (filed 1909, issued 1911); J. Ormondroyd and J. P. Den Hartog, "The</span>
+<span class="sd">    theory of the dynamic vibration absorber," *Trans. ASME* 50 (1928)</span>
+<span class="sd">    APM-50-7, 9-22.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; tmd = tuned_mass_damper(100.0, 1e5, 0.05)</span>
+<span class="sd">    &gt;&gt;&gt; round(tmd.frequency_ratio, 6), round(tmd.damping_ratio, 6)</span>
+<span class="sd">    (0.952381, 0.127267)</span>
+<span class="sd">    """</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">m</span><span class="o">=</span><span class="n">m</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="n">k</span><span class="p">,</span> <span class="n">mass_ratio</span><span class="o">=</span><span class="n">mass_ratio</span><span class="p">)</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">mass_ratio</span><span class="p">)</span> <span class="k">if</span> <span class="n">frequency_ratio</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">frequency_ratio</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">3</span> <span class="o">*</span> <span class="n">mass_ratio</span> <span class="o">/</span> <span class="p">(</span><span class="mi">8</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">mass_ratio</span><span class="p">)</span> <span class="o">**</span> <span class="mi">3</span><span class="p">))</span> <span class="k">if</span> <span class="n">damping_ratio</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">damping_ratio</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">frequency_ratio</span><span class="o">=</span><span class="n">f</span><span class="p">)</span>
+    <span class="n">_nonnegative</span><span class="p">(</span><span class="n">damping_ratio</span><span class="o">=</span><span class="n">z</span><span class="p">)</span>
+    <span class="n">w1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">k</span> <span class="o">/</span> <span class="n">m</span><span class="p">)</span>
+    <span class="n">m2</span> <span class="o">=</span> <span class="n">mass_ratio</span> <span class="o">*</span> <span class="n">m</span>
+    <span class="k">return</span> <span class="n">TunedMassDamper</span><span class="p">(</span>
+        <span class="n">primary_mass</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="n">m</span><span class="p">),</span>
+        <span class="n">primary_stiffness</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="n">k</span><span class="p">),</span>
+        <span class="n">absorber_mass</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="n">m2</span><span class="p">),</span>
+        <span class="n">absorber_stiffness</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="n">m2</span> <span class="o">*</span> <span class="p">(</span><span class="n">f</span> <span class="o">*</span> <span class="n">w1</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">),</span>
+        <span class="n">absorber_damping</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">m2</span> <span class="o">*</span> <span class="n">w1</span> <span class="o">*</span> <span class="n">z</span><span class="p">),</span>
+        <span class="n">mass_ratio</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="n">mass_ratio</span><span class="p">),</span>
+        <span class="n">frequency_ratio</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="n">f</span><span class="p">),</span>
+        <span class="n">damping_ratio</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="n">z</span><span class="p">),</span>
+    <span class="p">)</span></div>
+
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_chain</span><span class="p">(</span><span class="n">inertias</span><span class="p">,</span> <span class="n">stiffnesses</span><span class="p">):</span>
+    <span class="n">J</span> <span class="o">=</span> <span class="n">_vector</span><span class="p">(</span><span class="s2">"inertias"</span><span class="p">,</span> <span class="n">inertias</span><span class="p">,</span> <span class="n">min_length</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">K</span> <span class="o">=</span> <span class="n">_vector</span><span class="p">(</span><span class="s2">"stiffnesses"</span><span class="p">,</span> <span class="n">stiffnesses</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">K</span><span class="o">.</span><span class="n">size</span> <span class="o">!=</span> <span class="n">J</span><span class="o">.</span><span class="n">size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"one shaft stiffness is required between each pair of disks"</span><span class="p">)</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">inertias</span><span class="o">=</span><span class="n">J</span><span class="p">,</span> <span class="n">stiffnesses</span><span class="o">=</span><span class="n">K</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">J</span><span class="p">,</span> <span class="n">K</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_holzer_march</span><span class="p">(</span><span class="n">omega</span><span class="p">,</span> <span class="n">J</span><span class="p">,</span> <span class="n">K</span><span class="p">):</span>
+    <span class="n">w2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">omega</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)[</span><span class="o">...</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">**</span> <span class="mi">2</span>
+    <span class="n">twist</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">w2</span><span class="o">.</span><span class="n">shape</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">J</span><span class="o">.</span><span class="n">size</span><span class="p">,))</span>
+    <span class="n">torque</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">w2</span><span class="o">.</span><span class="n">shape</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">J</span><span class="o">.</span><span class="n">size</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">i</span><span class="p">:</span>
+            <span class="n">twist</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">twist</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">torque</span> <span class="o">/</span> <span class="n">K</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+        <span class="n">torque</span> <span class="o">=</span> <span class="n">torque</span> <span class="o">+</span> <span class="n">J</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">w2</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">twist</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">twist</span><span class="p">,</span> <span class="n">torque</span>
+
+
+<div class="viewcode-block" id="holzer_residual">
+<a class="viewcode-back" href="../../../../api/mechanical_engineering.html#engineeringkit.mechanical_engineering.holzer_residual">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">holzer_residual</span><span class="p">(</span><span class="n">omega</span><span class="p">,</span> <span class="n">inertias</span><span class="p">,</span> <span class="n">stiffnesses</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Holzer's residual torque beyond the last disk of a free-free shaft.</span>
+
+<span class="sd">    Start with unit twist at disk 1 and no torque; at each disk add its</span>
+<span class="sd">    inertia torque :math:`J_i\omega^2\theta_i`, then twist the next shaft</span>
+<span class="sd">    by the accumulated torque over its stiffness. ``omega`` is a natural</span>
+<span class="sd">    frequency when the torque left over at the free end is zero.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    omega : float or array_like</span>
+<span class="sd">        Trial frequency [rad/s].</span>
+<span class="sd">    inertias : array_like</span>
+<span class="sd">        Disk polar moments of inertia [kg m^2], positive, at least two.</span>
+<span class="sd">    stiffnesses : array_like</span>
+<span class="sd">        Torsional stiffness of each shaft between disks [N m/rad], positive,</span>
+<span class="sd">        one fewer than ``inertias``.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float or ndarray</span>
+<span class="sd">        Residual torque per unit twist of disk 1 [N m/rad].</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Inputs are raw SI numbers with no dimensional metadata; see</span>
+<span class="sd">    :doc:`/guides/mechanical_engineering`.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; round(abs(holzer_residual(np.sqrt(2.0), [1.0, 1.0], [1.0])), 12)</span>
+<span class="sd">    0.0</span>
+<span class="sd">    """</span>
+    <span class="n">_finite</span><span class="p">(</span><span class="n">omega</span><span class="o">=</span><span class="n">omega</span><span class="p">)</span>
+    <span class="n">J</span><span class="p">,</span> <span class="n">K</span> <span class="o">=</span> <span class="n">_chain</span><span class="p">(</span><span class="n">inertias</span><span class="p">,</span> <span class="n">stiffnesses</span><span class="p">)</span>
+    <span class="n">torque</span> <span class="o">=</span> <span class="n">_holzer_march</span><span class="p">(</span><span class="n">omega</span><span class="p">,</span> <span class="n">J</span><span class="p">,</span> <span class="n">K</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">torque</span><span class="p">)</span> <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">ndim</span><span class="p">(</span><span class="n">omega</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">torque</span></div>
+
+
+
+<div class="viewcode-block" id="holzer_frequencies">
+<a class="viewcode-back" href="../../../../api/mechanical_engineering.html#engineeringkit.mechanical_engineering.holzer_frequencies">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">holzer_frequencies</span><span class="p">(</span><span class="n">inertias</span><span class="p">,</span> <span class="n">stiffnesses</span><span class="p">,</span> <span class="n">omega_max</span><span class="p">,</span> <span class="n">n_grid</span><span class="o">=</span><span class="mi">4000</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">HolzerResult</span><span class="p">:</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Torsional natural frequencies of a free-free shaft by Holzer's method.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    inertias : array_like</span>
+<span class="sd">        Disk polar moments of inertia [kg m^2], positive, at least two.</span>
+<span class="sd">    stiffnesses : array_like</span>
+<span class="sd">        Shaft torsional stiffnesses [N m/rad], positive, one fewer than</span>
+<span class="sd">        ``inertias``.</span>
+<span class="sd">    omega_max : float</span>
+<span class="sd">        Upper end of the frequency search [rad/s], positive.</span>
+<span class="sd">    n_grid : int, optional</span>
+<span class="sd">        Trial frequencies scanned for sign changes of the residual torque,</span>
+<span class="sd">        at least 10; closely spaced modes need a finer grid.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    HolzerResult</span>
+<span class="sd">        Nonzero natural frequencies below ``omega_max`` [rad/s] and each</span>
+<span class="sd">        mode's disk twists, scaled so the largest is one. The zero-frequency</span>
+<span class="sd">        rigid-body rotation is excluded.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Inputs are raw SI numbers with no dimensional metadata; see</span>
+<span class="sd">    :doc:`/guides/mechanical_engineering`.</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    H. Holzer, *Die Berechnung der Drehschwingungen* (Springer, Berlin,</span>
+<span class="sd">    1921).</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; result = holzer_frequencies([1.0, 1.0], [1.0], 5.0)</span>
+<span class="sd">    &gt;&gt;&gt; np.round(result.frequencies ** 2, 9).tolist()</span>
+<span class="sd">    [2.0]</span>
+<span class="sd">    """</span>
+    <span class="n">J</span><span class="p">,</span> <span class="n">K</span> <span class="o">=</span> <span class="n">_chain</span><span class="p">(</span><span class="n">inertias</span><span class="p">,</span> <span class="n">stiffnesses</span><span class="p">)</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">omega_max</span><span class="o">=</span><span class="n">omega_max</span><span class="p">)</span>
+    <span class="n">_integer</span><span class="p">(</span><span class="s2">"n_grid"</span><span class="p">,</span> <span class="n">n_grid</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+    <span class="n">grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">omega_max</span><span class="p">,</span> <span class="n">n_grid</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">1</span><span class="p">:]</span>
+    <span class="n">frequencies</span> <span class="o">=</span> <span class="n">bracketed_roots</span><span class="p">(</span><span class="k">lambda</span> <span class="n">w</span><span class="p">:</span> <span class="n">_holzer_march</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">J</span><span class="p">,</span> <span class="n">K</span><span class="p">)[</span><span class="mi">1</span><span class="p">],</span> <span class="n">grid</span><span class="p">)</span>
+    <span class="n">twist</span> <span class="o">=</span> <span class="n">_holzer_march</span><span class="p">(</span><span class="n">frequencies</span><span class="p">,</span> <span class="n">J</span><span class="p">,</span> <span class="n">K</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">frequencies</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="n">J</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+    <span class="n">shapes</span> <span class="o">=</span> <span class="n">twist</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">twist</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="k">if</span> <span class="n">frequencies</span><span class="o">.</span><span class="n">size</span> <span class="k">else</span> <span class="n">twist</span>
+    <span class="k">return</span> <span class="n">HolzerResult</span><span class="p">(</span><span class="n">frequencies</span><span class="o">=</span><span class="n">frequencies</span><span class="p">,</span> <span class="n">mode_shapes</span><span class="o">=</span><span class="n">shapes</span><span class="p">)</span></div>
+
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../../_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be"></script>
+<script defer src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.23.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

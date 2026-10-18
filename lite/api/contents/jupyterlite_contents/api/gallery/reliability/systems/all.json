@@ -1,0 +1,71 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-10-18T12:25:15.948618Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-18T12:25:13.348028Z",
+      "mimetype": null,
+      "name": "plot_01_von_neumann_redundancy.ipynb",
+      "path": "jupyterlite_contents/api/gallery/reliability/systems/plot_01_von_neumann_redundancy.ipynb",
+      "size": 3651,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-18T12:25:15.949005Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-18T12:25:13.348251Z",
+      "mimetype": null,
+      "name": "plot_03_k_out_of_n.ipynb",
+      "path": "jupyterlite_contents/api/gallery/reliability/systems/plot_03_k_out_of_n.ipynb",
+      "size": 3537,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-18T12:25:15.948822Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-18T12:25:13.348144Z",
+      "mimetype": null,
+      "name": "plot_02_agree_series_systems.ipynb",
+      "path": "jupyterlite_contents/api/gallery/reliability/systems/plot_02_agree_series_systems.ipynb",
+      "size": 4261,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-18T12:25:15.949175Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-18T12:25:13.348358Z",
+      "mimetype": null,
+      "name": "plot_04_birnbaum_importance.ipynb",
+      "path": "jupyterlite_contents/api/gallery/reliability/systems/plot_04_birnbaum_importance.ipynb",
+      "size": 3582,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2026-10-18T12:25:15.949175Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-10-18T12:25:15.949175Z",
+  "mimetype": null,
+  "name": "systems",
+  "path": "jupyterlite_contents/api/gallery/reliability/systems",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

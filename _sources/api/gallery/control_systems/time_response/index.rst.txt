@@ -5,7 +5,7 @@
 Time response
 -------------
 
-Transient specifications of second-order servomechanisms.
+Transient specifications of second-order servomechanisms, and dead time.
 
 
 .. raw:: html
@@ -36,6 +36,23 @@ Transient specifications of second-order servomechanisms.
     </div>
 
 
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A chemical plant often measures its output only after a transport delay \theta: the time for a fluid to reach the sensor. The delay adds phase lag \omega\theta at every frequency, so a controller tuned for the delay-free plant oscillates or goes unstable once the delay is added. Otto Smith (1957) put a model of the plant inside the controller. It feeds back the undelayed model output and corrects it by the mismatch between the measurement and the delayed model output. With a perfect model the loop behaves like the delay-free design, delayed by \theta (~engineeringkit.control_systems.smith_predictor).">
+
+.. only:: html
+
+  .. image:: /api/gallery/control_systems/time_response/images/thumb/sphx_glr_plot_02_smith_predictor_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/control_systems/time_response/plot_02_smith_predictor`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Smith's predictor for dead time</div>
+    </div>
+
+
 .. thumbnail-parent-div-close
 
 .. raw:: html
@@ -47,4 +64,5 @@ Transient specifications of second-order servomechanisms.
    :hidden:
 
    /api/gallery/control_systems/time_response/plot_01_hazen_servomechanism
+   /api/gallery/control_systems/time_response/plot_02_smith_predictor
 

@@ -1,0 +1,57 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-10-18T12:25:15.940745Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-18T12:25:13.343762Z",
+      "mimetype": null,
+      "name": "plot_03_paris_law.ipynb",
+      "path": "jupyterlite_contents/api/gallery/materials/fracture/plot_03_paris_law.ipynb",
+      "size": 4705,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-18T12:25:15.940339Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-18T12:25:13.343517Z",
+      "mimetype": null,
+      "name": "plot_01_griffith_fracture.ipynb",
+      "path": "jupyterlite_contents/api/gallery/materials/fracture/plot_01_griffith_fracture.ipynb",
+      "size": 4028,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-18T12:25:15.940559Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-18T12:25:13.343640Z",
+      "mimetype": null,
+      "name": "plot_02_irwin_stress_intensity.ipynb",
+      "path": "jupyterlite_contents/api/gallery/materials/fracture/plot_02_irwin_stress_intensity.ipynb",
+      "size": 4247,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2026-10-18T12:25:15.940559Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-10-18T12:25:15.940559Z",
+  "mimetype": null,
+  "name": "fracture",
+  "path": "jupyterlite_contents/api/gallery/materials/fracture",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

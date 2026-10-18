@@ -1,0 +1,43 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-10-18T12:25:15.950849Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-18T12:25:13.349506Z",
+      "mimetype": null,
+      "name": "plot_02_cooley_tukey_fft.ipynb",
+      "path": "jupyterlite_contents/api/gallery/signal_processing/fourier/plot_02_cooley_tukey_fft.ipynb",
+      "size": 4756,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-18T12:25:15.950646Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-18T12:25:13.349378Z",
+      "mimetype": null,
+      "name": "plot_01_gibbs_phenomenon.ipynb",
+      "path": "jupyterlite_contents/api/gallery/signal_processing/fourier/plot_01_gibbs_phenomenon.ipynb",
+      "size": 4714,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2026-10-18T12:25:15.950849Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-10-18T12:25:15.950849Z",
+  "mimetype": null,
+  "name": "fourier",
+  "path": "jupyterlite_contents/api/gallery/signal_processing/fourier",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

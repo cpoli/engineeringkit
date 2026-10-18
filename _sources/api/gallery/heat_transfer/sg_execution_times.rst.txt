@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.149** total execution time for 2 files **from api/gallery/heat_transfer**:
+**00:00.000** total execution time for 0 files **from api/gallery/heat_transfer**:
 
 .. container::
 
@@ -32,9 +32,6 @@ Computation times
    * - Example
      - Time
      - Mem (MB)
-   * - :ref:`sphx_glr_api_gallery_heat_transfer_plot_heat_transfer_models.py` (``plot_heat_transfer_models.py``)
-     - 00:00.089
-     - 0.0
-   * - :ref:`sphx_glr_api_gallery_heat_transfer_plot_heat_transfer_benchmark.py` (``plot_heat_transfer_benchmark.py``)
-     - 00:00.060
-     - 0.0
+   * - N/A
+     - N/A
+     - N/A

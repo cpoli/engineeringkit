@@ -1,0 +1,68 @@
+
+
+.. _sphx_glr_api_gallery_mechanical_engineering_transmission:
+
+Transmission
+------------
+
+Gear trains and belt drives.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Two gears turn at a constant speed ratio only if the common normal at their point of contact always passes through one fixed point on the line of centres, the pitch point. Leonhard Euler (1765) showed that the involute of a circle, the curve traced by the end of a string unwound from it, meets this condition. Its normal is always tangent to the base circle, so the contact normal of two involutes is the fixed line tangent to both base circles. The ratio is then the ratio of base radii, that is of tooth counts (~engineeringkit.mechanical_engineering.gear_ratio), and it does not change if the centres are pulled apart. The example checks both properties and the power balance of a gear train (~engineeringkit.mechanical_engineering.gear_output_speed, gear_output_torque).">
+
+.. only:: html
+
+  .. image:: /api/gallery/mechanical_engineering/transmission/images/thumb/sphx_glr_plot_01_euler_involute_gear_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/mechanical_engineering/transmission/plot_01_euler_involute_gear`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Euler's involute gear tooth</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A sailor holds a heavy load with a few turns of rope round a bollard. Leonhard Euler (1762, published 1769) explained why: on each small arc d\theta of contact the rope presses on the drum with force T\,d\theta, friction can resist up to \mu T\,d\theta, so tension can grow by dT = \mu T\,d\theta and T_1/T_2 = e^{\mu\theta}. Johann Albert Eytelwein (1808) brought the result to engineers, for whom it sets the power a belt drive can transmit (~engineeringkit.mechanical_engineering.belt_tension_ratio, belt_speed). The example builds the exponential from small arcs, then sizes a flat and a V-belt.">
+
+.. only:: html
+
+  .. image:: /api/gallery/mechanical_engineering/transmission/images/thumb/sphx_glr_plot_02_capstan_equation_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/mechanical_engineering/transmission/plot_02_capstan_equation`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">The Euler-Eytelwein belt-friction law</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/mechanical_engineering/transmission/plot_01_euler_involute_gear
+   /api/gallery/mechanical_engineering/transmission/plot_02_capstan_equation
+

@@ -2,11 +2,25 @@
   "content": [
     {
       "content": null,
-      "created": "2026-10-14T04:23:30.299460Z",
+      "created": "2026-10-18T12:25:15.926809Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
-      "last_modified": "2026-10-14T04:23:26.986033Z",
+      "last_modified": "2026-10-18T12:25:13.335598Z",
+      "mimetype": null,
+      "name": "plot_02_smith_predictor.ipynb",
+      "path": "jupyterlite_contents/api/gallery/control_systems/time_response/plot_02_smith_predictor.ipynb",
+      "size": 6579,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-18T12:25:15.926615Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-18T12:25:13.335424Z",
       "mimetype": null,
       "name": "plot_01_hazen_servomechanism.ipynb",
       "path": "jupyterlite_contents/api/gallery/control_systems/time_response/plot_01_hazen_servomechanism.ipynb",
@@ -15,11 +29,11 @@
       "writable": true
     }
   ],
-  "created": "2026-10-14T04:23:30.299078Z",
+  "created": "2026-10-18T12:25:15.926809Z",
   "format": "json",
   "hash": null,
   "hash_algorithm": null,
-  "last_modified": "2026-10-14T04:23:30.299078Z",
+  "last_modified": "2026-10-18T12:25:15.926809Z",
   "mimetype": null,
   "name": "time_response",
   "path": "jupyterlite_contents/api/gallery/control_systems/time_response",

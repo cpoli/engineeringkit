@@ -1,0 +1,57 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-10-18T12:25:15.937516Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-18T12:25:13.341936Z",
+      "mimetype": null,
+      "name": "plot_01_biot_number.ipynb",
+      "path": "jupyterlite_contents/api/gallery/heat_transfer/transient/plot_01_biot_number.ipynb",
+      "size": 4535,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-18T12:25:15.937909Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-18T12:25:13.342186Z",
+      "mimetype": null,
+      "name": "plot_03_heisler_charts.ipynb",
+      "path": "jupyterlite_contents/api/gallery/heat_transfer/transient/plot_03_heisler_charts.ipynb",
+      "size": 4810,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-18T12:25:15.937728Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-18T12:25:13.342061Z",
+      "mimetype": null,
+      "name": "plot_02_kelvin_age_of_earth.ipynb",
+      "path": "jupyterlite_contents/api/gallery/heat_transfer/transient/plot_02_kelvin_age_of_earth.ipynb",
+      "size": 4353,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2026-10-18T12:25:15.937909Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-10-18T12:25:15.937909Z",
+  "mimetype": null,
+  "name": "transient",
+  "path": "jupyterlite_contents/api/gallery/heat_transfer/transient",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

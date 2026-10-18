@@ -1,0 +1,104 @@
+
+
+.. _sphx_glr_api_gallery_mechanical_engineering_machine_elements:
+
+Machine elements
+----------------
+
+Power screws, journal bearings and rolling bearings.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Charles-Augustin de Coulomb&#x27;s prize memoir Théorie des machines simples (1781, published 1785) measured sliding friction and found it proportional to the normal load and nearly independent of contact area and speed: F = \mu N. A screw thread is an inclined plane wrapped round a cylinder. Unwrapping one turn gives a slope of lead angle \tan\lambda = L/(\pi d_m), and Coulomb&#x27;s law on that slope gives the torque to raise a load, T = \tfrac12 W d_m\tan(\phi + \lambda) with \tan\phi = \mu (~engineeringkit.mechanical_engineering.screw_torque_raise). The example solves the force balance on the unwrapped thread directly and shows why a self-locking screw is always less than 50% efficient.">
+
+.. only:: html
+
+  .. image:: /api/gallery/mechanical_engineering/machine_elements/images/thumb/sphx_glr_plot_01_coulomb_power_screw_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/mechanical_engineering/machine_elements/plot_01_coulomb_power_screw`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Coulomb's friction and the power screw</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Railway axle bearings of the 1880s ran on oil, and their friction did not behave like Coulomb&#x27;s: it grew with speed and with the oil&#x27;s viscosity, and it fell as the load rose. Nikolai Petroff (1883) explained this by treating the oil film as a thin layer sheared between the journal and its sleeve. With the journal centred, the shear stress is \mu\omega r/c all round, so the friction torque is T = 2\pi\mu\omega r^3 L/c (~engineeringkit.mechanical_engineering.petroff_friction_torque) and the friction coefficient follows f = 2\pi^2 (\mu N/P)(r/c). The example checks Petroff&#x27;s thin-film torque against the exact flow between concentric cylinders.">
+
+.. only:: html
+
+  .. image:: /api/gallery/mechanical_engineering/machine_elements/images/thumb/sphx_glr_plot_02_petroff_bearing_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/mechanical_engineering/machine_elements/plot_02_petroff_bearing`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Petroff's law of bearing friction</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Beauchamp Tower (1883) drilled an oil hole in the cap of a test bearing and found the oil pushing the plug out: the film carried the load on a pressure far above atmospheric. Osborne Reynolds (1886) explained it. A journal running off-centre drags oil into a converging wedge, and in a thin film the pressure obeys">
+
+.. only:: html
+
+  .. image:: /api/gallery/mechanical_engineering/machine_elements/images/thumb/sphx_glr_plot_03_reynolds_sommerfeld_lubrication_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/mechanical_engineering/machine_elements/plot_03_reynolds_sommerfeld_lubrication`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Reynolds and Sommerfeld: hydrodynamic lubrication</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Identical ball bearings run under identical loads fail at very different times, because fatigue cracks start at randomly placed weak points below the raceway. Gustaf Lundberg and Arvid Palmgren (1947) of SKF treated the lives as Weibull-distributed, with a slope of about 10/9 for ball bearings. They defined the rating life L_{10}, which 90% of bearings reach, and showed that it varies as (C/P)^p with the basic load rating C and the applied load P. The exponent is p = 3 for balls and 10/3 for rollers (~engineeringkit.mechanical_engineering.bearing_l10_life). The example draws a simulated batch of bearings and checks both statements.">
+
+.. only:: html
+
+  .. image:: /api/gallery/mechanical_engineering/machine_elements/images/thumb/sphx_glr_plot_04_lundberg_palmgren_l10_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/mechanical_engineering/machine_elements/plot_04_lundberg_palmgren_l10`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Lundberg and Palmgren's rolling-bearing life</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/mechanical_engineering/machine_elements/plot_01_coulomb_power_screw
+   /api/gallery/mechanical_engineering/machine_elements/plot_02_petroff_bearing
+   /api/gallery/mechanical_engineering/machine_elements/plot_03_reynolds_sommerfeld_lubrication
+   /api/gallery/mechanical_engineering/machine_elements/plot_04_lundberg_palmgren_l10
+
