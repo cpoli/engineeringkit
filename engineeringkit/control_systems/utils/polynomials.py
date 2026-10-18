@@ -38,6 +38,11 @@ def as_polynomial(coeffs, name="coeffs", min_degree=0):
         If the coefficients are not a finite real vector, are all zero, or the
         degree is below ``min_degree``.
 
+    Notes
+    -----
+    Inputs are raw SI numbers with no dimensional metadata; see
+    :doc:`/guides/control_systems`.
+
     Examples
     --------
     >>> as_polynomial([0, 1, 3, 2])
@@ -73,6 +78,11 @@ def num_den(sys):
     ------
     ValueError
         If the model is not single-input single-output.
+
+    Notes
+    -----
+    Inputs are raw SI numbers with no dimensional metadata; see
+    :doc:`/guides/control_systems`.
 
     Examples
     --------

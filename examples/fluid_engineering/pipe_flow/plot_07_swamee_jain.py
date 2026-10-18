@@ -1,0 +1,74 @@
+r"""
+Swamee and Jain's explicit friction factor
+==========================================
+
+Colebrook's equation needs iteration, which was a nuisance on the first
+programmable calculators. In 1976 Prabhata Swamee and Akalank Jain fitted
+explicit formulas for all three of Moody's pipe problems. Their friction
+factor,
+
+.. math::
+
+    f = \frac{0.25}{\left[\log_{10}\left(\frac{\varepsilon/D}{3.7} + \frac{5.74}{Re^{0.9}}\right)\right]^2},
+
+(:func:`~engineeringkit.fluid_engineering.swamee_jain_friction_factor`)
+stays close to Colebrook's over the range of engineering pipes. This
+example maps the error and checks their explicit diameter formula against
+an iterative solution.
+"""
+
+# %%
+import matplotlib.pyplot as plt
+import numpy as np
+from scipy import optimize
+
+from engineeringkit.fluid_engineering import (
+    G,
+    colebrook_friction_factor,
+    darcy_head_loss,
+    swamee_jain_friction_factor,
+)
+
+# %%
+# Error against Colebrook
+# -----------------------
+
+Re = np.geomspace(5e3, 1e8, 60)
+rel = np.geomspace(1e-6, 0.05, 50)
+RE, REL = np.meshgrid(Re, rel)
+error = swamee_jain_friction_factor(RE, REL) / colebrook_friction_factor(RE, REL) - 1
+
+fig, ax = plt.subplots(figsize=(6.5, 4.2))
+mesh = ax.pcolormesh(Re, rel, 100 * error, shading="auto", cmap="RdBu_r", vmin=-3, vmax=3)
+ax.set(xscale="log", yscale="log", xlabel="Reynolds number", ylabel="relative roughness", title="Swamee-Jain error [%]")
+fig.colorbar(mesh)
+fig.tight_layout()
+print(f"largest error {100 * np.abs(error).max():.2f}%; median {100 * np.median(np.abs(error)):.2f}%")
+
+# %%
+# The explicit diameter
+# ---------------------
+#
+# For a flow :math:`Q` over a length :math:`L` with head loss :math:`h_f`,
+#
+# .. math::
+#
+#     D = 0.66\left[\varepsilon^{1.25}\left(\frac{LQ^2}{gh_f}\right)^{4.75}
+#         + \nu Q^{9.4}\left(\frac{L}{gh_f}\right)^{5.2}\right]^{0.04}.
+
+nu, eps, Q, L, h_f = 1.0e-6, 0.045e-3, 0.05, 1000.0, 10.0
+D_sj = 0.66 * (eps**1.25 * (L * Q**2 / (G * h_f)) ** 4.75 + nu * Q**9.4 * (L / (G * h_f)) ** 5.2) ** 0.04
+
+
+def loss(D):
+    v = Q / (np.pi * D**2 / 4)
+    return darcy_head_loss(colebrook_friction_factor(v * D / nu, eps / D), L, D, v)
+
+
+D_exact = optimize.brentq(lambda D: loss(D) - h_f, 0.05, 1.0)
+print(f"explicit D = {1e3 * D_sj:.1f} mm, iterative D = {1e3 * D_exact:.1f} mm")
+
+assert np.abs(error).max() < 0.03
+assert abs(D_sj / D_exact - 1) < 0.02
+
+plt.show()

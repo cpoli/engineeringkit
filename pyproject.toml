@@ -34,8 +34,8 @@ Issues="https://github.com/cpoli/engineeringkit/issues"
 Changelog="https://github.com/cpoli/engineeringkit/blob/main/CHANGELOG.md"
 [project.optional-dependencies]
 test=["pytest>=7","pytest-cov"]
-docs=["sphinx-design>=0.6","sphinx-gallery>=0.19","sphinx-autodoc-typehints>=2", "sphinx>=7","pydata-sphinx-theme>=0.15","myst-parser>=2","jupyterlite-sphinx>=0.17","jupyterlite-pyodide-kernel>=0.4"]
-dev=["sphinx-design>=0.6","sphinx-gallery>=0.19","sphinx-autodoc-typehints>=2", "pytest>=7","pytest-cov","sphinx>=7","pydata-sphinx-theme>=0.15","jupyterlite-sphinx>=0.17","jupyterlite-pyodide-kernel>=0.4","ruff>=0.6","mypy>=1.10","build>=1.2"]
+docs=["sphinx-design>=0.6","sphinx-gallery>=0.19","sphinx-autodoc-typehints>=2", "sphinx>=7","pydata-sphinx-theme>=0.15","myst-parser>=2","jupyterlite-sphinx>=0.17","jupyterlite-pyodide-kernel>=0.4","sphinx-sitemap>=2.6","sphinxext-opengraph>=0.9"]
+dev=["sphinx-design>=0.6","sphinx-sitemap>=2.6","sphinxext-opengraph>=0.9","sphinx-gallery>=0.19","sphinx-autodoc-typehints>=2", "pytest>=7","pytest-cov","sphinx>=7","pydata-sphinx-theme>=0.15","jupyterlite-sphinx>=0.17","jupyterlite-pyodide-kernel>=0.4","ruff>=0.6","mypy>=1.10","build>=1.2"]
 [tool.setuptools.packages.find]
 include=["engineeringkit*"]
 [tool.pytest.ini_options]
@@ -81,33 +81,9 @@ warn_unreachable=true
 [[tool.mypy.overrides]]
 # Tests are checked at the signature level only: their bodies pass
 # deliberately invalid arguments and poke at matplotlib internals.
-# The sibling test_*.py modules are listed until they move into tests/.
 module=[
     "engineeringkit.tests.*",
     "engineeringkit.*.tests.*",
-    "engineeringkit.heat_transfer.test_benchmarks",
-    "engineeringkit.heat_transfer.test_complete_api",
-    "engineeringkit.heat_transfer.test_heat_transfer",
-    "engineeringkit.heat_transfer.test_limits",
-    "engineeringkit.integrators.test_complete_api",
-    "engineeringkit.integrators.test_integrators",
-    "engineeringkit.materials.test_benchmarks",
-    "engineeringkit.materials.test_complete_api",
-    "engineeringkit.materials.test_materials",
-    "engineeringkit.mechanical_engineering.test_benchmarks",
-    "engineeringkit.mechanical_engineering.test_complete_api",
-    "engineeringkit.mechanical_engineering.test_dynamics",
-    "engineeringkit.mechanical_engineering.test_mechanical_engineering",
-    "engineeringkit.reliability.test_benchmarks",
-    "engineeringkit.reliability.test_complete_api",
-    "engineeringkit.reliability.test_reliability",
-    "engineeringkit.signal_processing.test_benchmarks",
-    "engineeringkit.signal_processing.test_complete_api",
-    "engineeringkit.signal_processing.test_quantization",
-    "engineeringkit.signal_processing.test_signal_processing",
-    "engineeringkit.units.test_units",
-    "engineeringkit.visualizers.test_invalid_plots",
-    "engineeringkit.visualizers.test_visualizers",
 ]
 check_untyped_defs=false
 strict_equality=false

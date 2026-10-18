@@ -1,0 +1,70 @@
+r"""
+Luenberger's observer
+=====================
+
+State feedback needs every state, but sensors measure only some of them.
+David Luenberger (1964) built the missing states from a copy of the model
+driven by the same input and corrected by the output error,
+:math:`\dot{\hat x} = A\hat x + Bu + L(y - C\hat x)`. The estimation error
+:math:`e = x - \hat x` then obeys :math:`\dot e = (A - LC)e` whatever the
+input, and if :math:`(A, C)` is observable the gain :math:`L` places those
+error poles anywhere (:func:`~engineeringkit.control_systems.observer_gain`).
+
+A lightly damped mass on a spring is measured by its position only; the
+observer recovers the velocity.
+"""
+
+# %%
+import matplotlib.pyplot as plt
+import numpy as np
+from scipy import linalg
+from scipy.integrate import solve_ivp
+
+from engineeringkit.control_systems import is_observable, observer_gain
+
+A = np.array([[0.0, 1.0], [-4.0, -0.2]])  # natural frequency 2 rad/s, damping ratio 0.05
+B = np.array([[0.0], [1.0]])
+C = np.array([[1.0, 0.0]])
+assert is_observable(A, C)
+error_poles = [-3.0, -4.0]
+L = observer_gain(A, C, error_poles)
+print("observer gain L =", L.ravel().round(4).tolist())
+assert np.allclose(np.sort(np.linalg.eigvals(A - L @ C).real), [-4, -3])
+
+
+def u(t):
+    return np.sin(1.3 * t)
+
+
+def rhs(t, z):
+    x, xhat = z[:2], z[2:]
+    y = C @ x
+    return np.concatenate((A @ x + B[:, 0] * u(t), A @ xhat + B[:, 0] * u(t) + L @ (y - C @ xhat)))
+
+
+x0, xhat0 = np.array([1.0, 0.5]), np.zeros(2)
+t = np.linspace(0, 6, 601)
+sol = solve_ivp(rhs, (0, 6), np.concatenate((x0, xhat0)), t_eval=t, rtol=1e-10, atol=1e-12)
+x, xhat = sol.y[:2], sol.y[2:]
+
+# %%
+# The error follows the placed poles exactly
+# ------------------------------------------
+
+predicted = np.array([linalg.expm((A - L @ C) * tk) @ (x0 - xhat0) for tk in t]).T
+assert np.allclose(x - xhat, predicted, atol=1e-7)
+# Velocity error falls by e^-3 per second or faster once the transient settles.
+print(f"velocity error at t = 0, 2, 4 s: {np.abs(x[1] - xhat[1])[[0, 200, 400]].round(5).tolist()}")
+assert np.abs(x[1] - xhat[1])[400] < 1e-4
+
+fig, (ax1, ax2) = plt.subplots(2, 1, sharex=True, figsize=(7, 6))
+ax1.plot(t, x[0], "k-", label="position (measured)")
+ax1.plot(t, xhat[0], "C0--", label="estimate")
+ax1.legend()
+ax2.plot(t, x[1], "k-", label="velocity (not measured)")
+ax2.plot(t, xhat[1], "C0--", label="estimate")
+ax2.set(xlabel="time [s]")
+ax2.legend()
+ax1.set(title=f"Observer error poles {error_poles}")
+
+plt.show()

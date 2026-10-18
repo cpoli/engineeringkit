@@ -44,6 +44,11 @@ def isentropic_factor(M, gamma=1.4):
     float or ndarray
         :math:`T_0/T` [-].
 
+    Notes
+    -----
+    Inputs are raw SI numbers with no dimensional metadata; see
+    :doc:`/guides/aerodynamics`.
+
     Examples
     --------
     >>> float(isentropic_factor(1.0))

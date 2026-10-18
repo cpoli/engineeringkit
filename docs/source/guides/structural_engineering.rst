@@ -35,12 +35,42 @@ Trusses
 Nodes have shape (n,2); member indices start at zero. DOFs are x0,y0,x1,y1,...
 and fixed DOFs have zero prescribed displacement. Members are pin-jointed,
 axial-only, and use a shared area and modulus. Member force is positive in
-tension. Singular reduced stiffness produces a ValueError identifying an
-unstable/insufficiently constrained model. Near-mechanisms can still be poorly
-conditioned; a solvable matrix does not guarantee a useful physical model.
-The single-bar benchmark checks displacement, force and reaction balance.
+tension. ``truss_determinacy`` returns Maxwell's count m + r - 2j; it is
+necessary but not sufficient for stability. ``method_of_joints`` requires a
+count of zero and solves joint by joint from statics, raising a ValueError if
+every remaining joint has more than two independent unknowns.
+``PlanarTruss.solve`` refuses a negative count, raises a ValueError when the
+reduced stiffness K_ff is singular to working precision, and otherwise
+returns cond(K_ff) in the result and issues a RuntimeWarning above
+``cond_limit`` (1e12 by default): a near-mechanism gives a matrix that is
+invertible in floating point but physically meaningless.
 
-Mohr circle uses (center, radius, sigma_max, sigma_min), all Pa. Castigliano's
-helper simply returns a derivative computed by the caller; it is not a
-symbolic or numerical strain-energy solver. Maxwell-Betti compares two supplied
-displacements; it does not establish linearity of an arbitrary model.
+Continuous beams and frames
+---------------------------
+
+``three_moment_equation`` assumes simply supported ends, one modulus and a
+uniform load per span; support moments are sagging positive. ``influence_line``
+is for a simply supported span and a unit downward load. ``moment_distribution``
+assumes no joint translation (no sway) and uses Hardy Cross's sign
+convention: member-end moments are clockwise positive. ``PlanarFrame`` has
+three DOFs per node (u, v, theta), counterclockwise rotations and moments,
+Euler-Bernoulli members with axial stiffness, and uniform member loads along
+the local -y axis converted to fixed-end nodal loads. Its end moments are
+counterclockwise positive, the negative of Cross's. The tests check the
+three-moment equation, moment distribution and the frame solver against one
+another, the frame against cantilever and fixed-beam formulas, and the truss
+solvers against each other.
+
+Stress, energy, stability and plasticity
+----------------------------------------
+
+Mohr circle uses (center, radius, sigma_max, sigma_min), all Pa; rotations in
+``stress_transformation`` are counterclockwise. ``castigliano_deflection``
+either returns a derivative dU/dP computed by the caller or integrates
+M (dM/dP)/(EI) along a beam with Simpson's rule; only bending energy is
+included. Maxwell-Betti compares two supplied displacements; it does not
+establish linearity of an arbitrary model. ``tangent_modulus_load`` accepts a
+tangent modulus Et(sigma) that is positive at zero stress and nonincreasing,
+and solves sigma = pi^2 Et(sigma)/(KL/r)^2 by Brent's method.
+``plastic_collapse_load`` is rigid-plastic: no strain hardening, instability,
+or reduction of Mp by shear or axial force.

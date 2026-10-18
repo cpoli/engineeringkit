@@ -15,7 +15,7 @@ to reach 90% of the supply voltage? Check the answer
 :math:`t = RC\ln 10` against the charging curve, and find the fraction of
 the energy drawn from the supply that ends up stored in the capacitor.
 
-*Builds on:* :doc:`/api/gallery/electrical_engineering/index`.
+*Builds on:* :doc:`/api/gallery/electrical_engineering/transients/plot_01_kelvin_rc_cable`.
 
 .. dropdown:: Solution
 
@@ -51,7 +51,7 @@ A series RLC circuit has :math:`R = 10\ \Omega`, :math:`L = 10` mH and
 half-power bandwidth numerically, from the frequencies where
 :math:`|Z| = \sqrt2 R`, and compare with :math:`f_0/Q`.
 
-*Builds on:* :doc:`/api/gallery/electrical_engineering/index`.
+*Builds on:* :doc:`/api/gallery/electrical_engineering/ac_circuits/plot_03_lodge_resonance`.
 
 .. dropdown:: Solution
 
@@ -91,7 +91,7 @@ A 230 V, 50 Hz workshop draws 5 kW at a lagging power factor of 0.7.
 What capacitor in parallel raises the power factor to 0.95, and by how
 much does it reduce the supply current?
 
-*Builds on:* :doc:`/api/gallery/electrical_engineering/index`.
+*Builds on:* :doc:`/api/gallery/electrical_engineering/power/plot_03_budeanu_reactive_power`.
 
 .. dropdown:: Solution
 

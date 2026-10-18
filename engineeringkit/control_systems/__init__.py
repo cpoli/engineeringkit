@@ -4,7 +4,8 @@ Black's feedback amplifier and Minorsky's PID controller with
 Ziegler-Nichols tuning; Maxwell's characteristic roots, the Routh and
 Hurwitz tests and Lyapunov's direct method; Nyquist's encirclement
 criterion, Bode plots and stability margins; Evans's root locus; Hazen's
-second-order servo specifications; zero-order-hold discretisation; Kalman's
+second-order servo specifications; Padé dead-time approximation and Smith's
+predictor; zero-order-hold discretisation and Jury's test; Kalman's
 controllability and observability, pole placement and Luenberger observers;
 and the LQR, discrete LQR and Kalman-Bucy Riccati designs. Models are
 continuous-time and SISO unless stated; SciPy supplies the LTI objects,
@@ -13,11 +14,12 @@ Riccati/Lyapunov solvers, pole placement and step responses.
 
 from engineeringkit import __version__
 from engineeringkit.control_systems.core.base import ResponseResult
+from engineeringkit.control_systems.systems.delay import pade_delay, smith_predictor
 from engineeringkit.control_systems.systems.frequency import bode, nyquist, nyquist_encirclements, stability_margins
 from engineeringkit.control_systems.systems.optimal import dlqr, kalman_gain, lqr
 from engineeringkit.control_systems.systems.pid import PID, ziegler_nichols
 from engineeringkit.control_systems.systems.root_locus import root_locus
-from engineeringkit.control_systems.systems.sampled import discretize_zoh
+from engineeringkit.control_systems.systems.sampled import discretize_zoh, jury_stable
 from engineeringkit.control_systems.systems.second_order import second_order_metrics
 from engineeringkit.control_systems.systems.stability import (
     hurwitz_determinants,
@@ -69,6 +71,8 @@ __all__ = [
     "lyapunov_stable",
     "root_locus",
     "second_order_metrics",
+    "pade_delay",
+    "smith_predictor",
     "PID",
     "ziegler_nichols",
     "state_space",
@@ -80,6 +84,7 @@ __all__ = [
     "observer_gain",
     "feedforward_gain",
     "discretize_zoh",
+    "jury_stable",
     "lqr",
     "dlqr",
     "kalman_gain",

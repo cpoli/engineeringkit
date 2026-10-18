@@ -16,7 +16,7 @@ spring with a 0.4 N s/m damper, released from 0.1 m. Estimate the damping
 ratio from the logarithmic decrement of the simulated response, and
 compare it with :math:`c / (2\sqrt{km})`.
 
-*Builds on:* :doc:`/api/gallery/mechanical_engineering/index`.
+*Builds on:* :doc:`/api/gallery/mechanical_engineering/vibration/plot_01_rayleigh_free_vibration`.
 
 .. dropdown:: Solution
 
@@ -51,7 +51,7 @@ rubber mounts (damping ratio 0.05) so that only 10% of its unbalanced force
 reaches the floor. How far do the mounts deflect under the machine's
 weight?
 
-*Builds on:* :doc:`/api/gallery/mechanical_engineering/index`.
+*Builds on:* :doc:`/api/gallery/mechanical_engineering/rotordynamics/plot_01_jeffcott_rotor`.
 
 .. dropdown:: Solution
 
@@ -93,7 +93,8 @@ A motor delivers 10 N m at 1450 rpm into a two-stage gearbox with a
 torque. The output shaft's bearing has a dynamic load rating of 30 kN and
 carries 4 kN; find its :math:`L_{10}` life in hours.
 
-*Builds on:* :doc:`/api/gallery/mechanical_engineering/index`.
+*Builds on:* :doc:`/api/gallery/mechanical_engineering/transmission/plot_01_euler_involute_gear` and
+:doc:`/api/gallery/mechanical_engineering/machine_elements/plot_04_lundberg_palmgren_l10`.
 
 .. dropdown:: Solution
 

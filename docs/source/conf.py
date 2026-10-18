@@ -20,6 +20,8 @@ extensions = [
     "sphinx_design",
     "matplotlib.sphinxext.plot_directive",
     "jupyterlite_sphinx",
+    "sphinx_sitemap",
+    "sphinxext.opengraph",
 ]
 napoleon_google_docstring = False
 napoleon_numpy_docstring = True
@@ -29,6 +31,29 @@ templates_path = ["_templates"]
 html_static_path = ["_static"]
 html_css_files = ["engineeringkit.css"]
 html_theme = "pydata_sphinx_theme"
+
+# Search-engine metadata: sphinx-sitemap writes sitemap.xml with absolute
+# URLs from html_baseurl, and sphinxext-opengraph adds a <meta
+# name="description"> plus og:* link-preview tags from each page's text.
+# html_baseurl also gives every page a <link rel="canonical">.
+html_baseurl = "https://cpoli.github.io/engineeringkit/"
+html_title = project
+sitemap_url_scheme = "{link}"
+sitemap_excludes = [
+    "search.html",
+    "genindex.html",
+    "py-modindex.html",
+    "*sg_execution_times.html",
+    "_modules/*",
+    # Include-only fragments (card grids, nav strips), not standalone pages.
+    "_generated/grid_*",
+    "_generated/vars.html",
+    "_generated/nav/*",
+]
+ogp_site_url = html_baseurl
+ogp_site_name = project
+ogp_image = html_baseurl + "_static/images/readme_hero.png"
+ogp_social_cards = {"enable": False}
 html_logo = "_static/images/engineeringkit_logo_transparent.png"
 html_theme_options = {
     "navbar_end": ["theme-switcher", "navbar-icon-links"],
@@ -45,18 +70,22 @@ SUBPACKAGES = [
     {
         "name": "structural_engineering",
         "category": "Structures and Machines",
-        "blurb": "Elasticity, beams, columns, stress transformations and planar trusses.",
+        "blurb": "Axial and torsional members, beams, columns, Mohr's circle, energy methods, trusses, plastic collapse and frames.",
     },
     {
         "name": "mechanical_engineering",
         "category": "Structures and Machines",
         "blurb": "Rigid-body motion, gears, mechanisms and inspectable vibration histories.",
     },
-    {"name": "thermodynamics", "category": "Energy and Flow", "blurb": "Ideal gases, heat/work accounting, ideal cycles and exergy."},
+    {
+        "name": "thermodynamics",
+        "category": "Energy and Flow",
+        "blurb": "Ideal and real gases, the two laws, engine and refrigeration cycles, exergy, steam properties and psychrometrics.",
+    },
     {
         "name": "fluid_engineering",
         "category": "Energy and Flow",
-        "blurb": "Fluid statics, pipe flows, similarity, flow measurement and pumps.",
+        "blurb": "Hydrostatics, flow measurement, pipe friction, similarity, open channels, water hammer, pumps and networks.",
     },
     {"name": "heat_transfer", "category": "Energy and Flow", "blurb": "Conduction, convection, radiation, fins and heat exchangers."},
     {"name": "aerodynamics", "category": "Energy and Flow", "blurb": "Airfoil and wing baselines, drag polars and compressible flow."},
@@ -73,7 +102,7 @@ SUBPACKAGES = [
     {
         "name": "signal_processing",
         "category": "Circuits, Signals and Control",
-        "blurb": "Sampling, Fourier transforms, spectra, filtering and quantization.",
+        "blurb": "Sampling and quantization, the FFT, spectral estimation, digital, optimal and adaptive filters, and wavelets.",
     },
     {
         "name": "communications",
@@ -83,12 +112,12 @@ SUBPACKAGES = [
     {
         "name": "materials",
         "category": "Materials and Reliability",
-        "blurb": "Elastic constants, yielding, fracture, fatigue, creep and composites.",
+        "blurb": "Elastic constants, yield criteria, composites, fatigue, fracture, creep and dislocation plasticity.",
     },
     {
         "name": "reliability",
         "category": "Materials and Reliability",
-        "blurb": "Lifetime distributions, independent systems, availability and maintenance.",
+        "blurb": "Lifetime distributions, redundancy, structural reliability, fault and event trees, availability and replacement.",
     },
 ]
 

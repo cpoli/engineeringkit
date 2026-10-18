@@ -1,4 +1,4 @@
 Optimal control and estimation
 ------------------------------
 
-Dynamic programming, the linear-quadratic regulator and the Kalman-Bucy filter.
+The linear-quadratic regulator, the Kalman-Bucy filter and the robustness of their combination.

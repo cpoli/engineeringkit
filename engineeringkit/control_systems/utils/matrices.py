@@ -34,6 +34,11 @@ def state_matrices(A, B=None, C=None):
     ValueError
         If a matrix is nonfinite, empty or has an inconsistent shape.
 
+    Notes
+    -----
+    Inputs are raw SI numbers with no dimensional metadata; see
+    :doc:`/guides/control_systems`.
+
     Examples
     --------
     >>> A, B, C = state_matrices([[0, 1], [-2, -3]], B=[[0], [1]])
@@ -78,6 +83,11 @@ def weight_matrix(matrix, size, name, strict=False):
     ------
     ValueError
         If the matrix has the wrong shape, is not symmetric, or is indefinite.
+
+    Notes
+    -----
+    Inputs are raw SI numbers with no dimensional metadata; see
+    :doc:`/guides/control_systems`.
 
     Examples
     --------

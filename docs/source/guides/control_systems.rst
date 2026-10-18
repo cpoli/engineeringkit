@@ -39,9 +39,25 @@ proper open-loop model, and row order follows gains; roots within a row are
 not branch-tracked. Routh uses an auxiliary-polynomial derivative for zero
 rows, and a positive epsilon for zero pivots. Strict stability also excludes
 imaginary-axis poles using a relative root tolerance. Near multiple/marginal
-roots need separate analysis. Stability margins are grid estimates using the
-first detected crossover; they do not certify stability for multiple crossovers,
-negative gains, time delays or a frequency grid that misses crossings.
+roots need separate analysis. Stability margins are grid estimates read at every
+crossover: gain margins at each phase crossing of -180+360k deg, phase margins
+(wrapped into [-180, 180) deg) at each unity-gain crossing. The scalar
+gain_margin is the one nearest instability on a log scale (it is below 1 for
+the lower limit of a conditionally stable loop), phase_margin_deg the one of
+smallest magnitude; the arrays list all of them. A grid that misses a crossing
+misses its margin, negative loop gains are not handled, and time delays must be
+replaced by pade_delay first.
+
+Dead time and sampled loops
+---------------------------
+
+pade_delay(theta, n) returns the diagonal (n, n) Padé approximant of
+exp(-s*theta) [theta in s]: all-pass, with n right-half-plane zeros, and with
+accurate phase for omega*theta up to about n. smith_predictor(C, G, theta, n)
+returns C/(1+C*G*(1-D)) with D the Padé factor; it assumes a perfect model and
+cannot stabilise an unstable plant. jury_stable takes a polynomial in z
+(descending powers) and tests abs(z) < 1 for every root without computing them;
+roots on the unit circle count as unstable, with a 1e-12 relative tolerance.
 
 PID derivative action is ideal, with no roll-off, saturation or anti-windup.
 When ki=0 no integrator is included. Second-order metrics require 0<zeta<1;

@@ -63,7 +63,19 @@ class PID:
         return signal.TransferFunction(cnum, cden)
 
     def closed_loop(self, plant):
-        """Unity-feedback closed loop :math:`CG/(1 + CG)` from reference to output."""
+        """Unity-feedback closed loop :math:`CG/(1 + CG)` from reference to output.
+
+        Parameters
+        ----------
+        plant : scipy.signal.TransferFunction or tuple
+            Plant :math:`G(s)`, as a transfer function or ``(num, den)``
+            polynomial coefficients in descending powers of :math:`s`.
+
+        Returns
+        -------
+        scipy.signal.TransferFunction
+            Closed-loop transfer function.
+        """
         cnum, cden = self._polynomials()
         pnum, pden = num_den(plant)
         ol_num = np.polymul(cnum, pnum)
@@ -71,7 +83,20 @@ class PID:
         return signal.TransferFunction(ol_num, np.polyadd(ol_den, ol_num))
 
     def simulate(self, plant, T=None):
-        """Unit-step reference response of the closed loop, as a :class:`ResponseResult`."""
+        """Unit-step reference response of the closed loop.
+
+        Parameters
+        ----------
+        plant : scipy.signal.TransferFunction or tuple
+            Plant :math:`G(s)`, as in :meth:`closed_loop`.
+        T : array_like, optional
+            Sample times [s]; chosen by :func:`scipy.signal.step` if omitted.
+
+        Returns
+        -------
+        ResponseResult
+            Time [s] and output for a unit step in the reference.
+        """
         t, y = signal.step(self.closed_loop(plant), T=T)
         return ResponseResult(t, y)
 

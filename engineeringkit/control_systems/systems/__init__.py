@@ -1,10 +1,11 @@
 """Concrete control models: transfer functions, frequency response, stability, state space, optimal control and PID."""
 
+from engineeringkit.control_systems.systems.delay import pade_delay, smith_predictor
 from engineeringkit.control_systems.systems.frequency import bode, nyquist, nyquist_encirclements, stability_margins
 from engineeringkit.control_systems.systems.optimal import dlqr, kalman_gain, lqr
 from engineeringkit.control_systems.systems.pid import PID, ziegler_nichols
 from engineeringkit.control_systems.systems.root_locus import root_locus
-from engineeringkit.control_systems.systems.sampled import discretize_zoh
+from engineeringkit.control_systems.systems.sampled import discretize_zoh, jury_stable
 from engineeringkit.control_systems.systems.second_order import second_order_metrics
 from engineeringkit.control_systems.systems.stability import (
     hurwitz_determinants,
@@ -52,6 +53,8 @@ __all__ = [
     "lyapunov_stable",
     "root_locus",
     "second_order_metrics",
+    "pade_delay",
+    "smith_predictor",
     "PID",
     "ziegler_nichols",
     "state_space",
@@ -63,6 +66,7 @@ __all__ = [
     "observer_gain",
     "feedforward_gain",
     "discretize_zoh",
+    "jury_stable",
     "lqr",
     "dlqr",
     "kalman_gain",

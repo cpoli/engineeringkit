@@ -1,6 +1,6 @@
 # engineeringkit
 
-[![PyPI version](https://badgen.net/pypi/v/engineeringkit)](https://pypi.org/project/engineeringkit/) [![Python versions](https://badgen.net/pypi/python/engineeringkit)](https://pypi.org/project/engineeringkit/) [![License](https://badgen.net/github/license/cpoli/engineeringkit)](https://github.com/cpoli/engineeringkit/blob/main/LICENSE) [![CI](https://github.com/cpoli/engineeringkit/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/cpoli/engineeringkit/actions/workflows/ci.yml) [![Docs](https://badgen.net/badge/docs/cpoli.github.io%2Fengineeringkit/blue)](https://cpoli.github.io/engineeringkit/) [![Ruff](https://badgen.net/badge/code%20style/ruff/purple)](https://github.com/astral-sh/ruff)
+[![PyPI version](https://badgen.net/pypi/v/engineeringkit)](https://pypi.org/project/engineeringkit/) [![Python versions](https://badgen.net/pypi/python/engineeringkit)](https://pypi.org/project/engineeringkit/) [![License](https://img.shields.io/github/license/cpoli/engineeringkit)](https://github.com/cpoli/engineeringkit/blob/main/LICENSE) [![CI](https://github.com/cpoli/engineeringkit/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/cpoli/engineeringkit/actions/workflows/ci.yml) [![Docs](https://badgen.net/badge/docs/cpoli.github.io%2Fengineeringkit/blue)](https://cpoli.github.io/engineeringkit/) [![Ruff](https://badgen.net/badge/code%20style/ruff/purple)](https://github.com/astral-sh/ruff)
 
 **Engineering concepts made computable → inspectable → visualizable → understandable.**
 

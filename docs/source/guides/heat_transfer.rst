@@ -33,6 +33,56 @@ NTU/(1+NTU). Stable expm1 expressions preserve tiny NTU, and log1p preserves
 near-equal terminal temperature differences in LMTD. Temperature crossing is
 excluded by requiring both terminal differences positive.
 
+Transient conduction and numerics
+---------------------------------
+
+plane_wall_transient takes dimensionless inputs: Fo = alpha*t/L^2 and
+Bi = h*L/k on the half-thickness L, and x/L measured from the midplane.
+The default 100 series terms are accurate for Fo above about 1e-3; near
+Fo = 0 the truncated series oscillates, so pass more terms. terms=1 is
+Heisler's one-term chart, within 2% at the midplane for Fo > 0.2. Bi is a
+scalar; the eigenvalues of zeta*tan(zeta) = Bi are bracketed exactly
+(utils.plane_wall_eigenvalues).
+
+conduction_1d uses evenly spaced nodes, fixed surface temperatures or
+adiabatic faces (None), and constant properties. The explicit scheme is
+stable only for r = alpha*dt/dx^2 <= 1/2; it is not refused above that so
+the instability can be studied, and result.mesh_fourier reports r.
+Crank-Nicolson is unconditionally stable but rings for a few steps after a
+discontinuous initial or boundary condition when r is large.
+
+Convection correlations
+-----------------------
+
+dittus_boelter_nusselt is for fully developed turbulent tube flow,
+Re above about 1e4 and 0.6 < Pr < 160, with typical error 25%; it is not
+checked. churchill_chu_nusselt is for a vertical plate with properties at
+the film temperature; laminar=True selects the more accurate laminar form
+for Ra below about 1e9. rayleigh_number takes the magnitude of the
+temperature difference.
+
+Radiation and view factors
+--------------------------
+
+All radiation temperatures are absolute. planck_spectral_emissive_power
+returns W/(m^2 m) per metre of wavelength (multiply by 1e-6 for per
+micrometre) and is written to underflow, not overflow, at short wavelength.
+radiation_heat_rate treats a small gray surface in large isothermal
+surroundings. The view factors assume diffuse surfaces: aligned, directly
+opposed rectangles and coaxial parallel disks.
+
+Phase change
+------------
+
+neumann_stefan_front is the one-phase Stefan problem: the original phase
+stays at the melting point and equal densities are assumed. Ste =
+cp*dT/latent must be positive. nusselt_film_condensation is laminar film
+condensation on a vertical wall (film Reynolds number below about 1800;
+ripples above about 30 raise h by 10-20%); pass Rohsenow's
+h_fg + 0.68*cp*(Tsat - Ts) to include film subcooling.
+zuber_critical_heat_flux uses Zuber's C = pi/24 by default; 0.149 fits
+large flat heaters. Both require rho_l > rho_v.
+
 .. code-block:: python
 
     from engineeringkit.heat_transfer import composite_wall
@@ -41,5 +91,8 @@ excluded by requiring both terminal differences positive.
     fig, ax = result.plot()
 
 Tests check interface energy balance, cylindrical thin-wall limit, equal-
-temperature radiation, cooling endpoints and exchanger limiting cases. Fin
+temperature radiation, cooling endpoints and exchanger limiting cases, the
+plane-wall eigenvalue equation and fixed-surface limit, energy conservation
+of insulated finite-difference conduction, Planck's integral, view-factor
+limits and the Neumann front equation. Fin
 formulas assume a straight constant-section fin with an adiabatic tip.

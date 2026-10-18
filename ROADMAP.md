@@ -7,15 +7,13 @@ element code. It is whether each domain covers the canonical topics of an
 undergraduate course in that field, tells their history, and checks that
 every example still shows the right engineering.
 
-All twelve domains exist and are tested (0.1.0, 465 tests, 100% statement
-coverage), but only two have been rebuilt to the current standard:
-`aerodynamics` and `communications` have the `core/systems/utils/visualizers`
+All twelve domains exist, are tested (100% statement coverage) and have
+been rebuilt to the current standard: the `core/systems/utils/visualizers`
 layout, a dated history page of 15+ breakthroughs and one gallery example
-per breakthrough. `control_systems` has the layout and 13 examples, but its
-history page has not been rewritten. The other nine still have three undated
-history sections and two generic examples each. Rebuilding them is the
-phase checklist below. Items 1 to 4 are the work that is not tied to a
-single domain.
+per breakthrough, and the post-rebuild cleanup is done, so the phase
+checklist below is complete. Items 1 to 4 are the work that is not tied
+to a single domain; of these, only the first release (item 1) is still
+open.
 
 The project conventions apply to everything here: SI inputs validated in
 `_validation.py`, NumPy-style docstrings with units and the guide Notes
@@ -36,30 +34,29 @@ at the new example it uses (until then they link the domain's gallery).
 Tick the box when ruff, mypy, pytest, coverage and the `-W` docs build are green.
 
 - [x] 1. Twelve domains, validation, benchmarks, guides, 100% coverage (0.1.0)
-- [ ] 2. Domain rebuilds, one per session
+- [x] 2. Domain rebuilds, one per session
   - [x] `aerodynamics` (21 breakthroughs, 21 examples)
   - [x] `communications` (17 breakthroughs, 17 examples)
-  - [ ] `control_systems`: layout and 13 examples done; history page and
-        the remaining examples to write
-  - [ ] `electrical_engineering`
-  - [ ] `fluid_engineering`
-  - [ ] `heat_transfer`
-  - [ ] `materials`
-  - [ ] `mechanical_engineering`
-  - [ ] `reliability`
-  - [ ] `signal_processing`
-  - [ ] `structural_engineering`
-  - [ ] `thermodynamics`
-- [ ] 3. Cleanup once every domain is rebuilt
-  - [ ] Delete the per-domain `plot_<domain>_models.py` and
+  - [x] `control_systems` (21 breakthroughs, 21 examples)
+  - [x] `electrical_engineering` (16 breakthroughs, 16 examples)
+  - [x] `fluid_engineering` (17 breakthroughs, 17 examples)
+  - [x] `heat_transfer` (17 breakthroughs, 17 examples)
+  - [x] `materials` (18 breakthroughs, 18 examples)
+  - [x] `mechanical_engineering` (16 breakthroughs, 16 examples)
+  - [x] `reliability` (17 breakthroughs, 17 examples)
+  - [x] `signal_processing` (17 breakthroughs, 17 examples)
+  - [x] `structural_engineering` (17 breakthroughs, 17 examples)
+  - [x] `thermodynamics` (19 breakthroughs, 19 examples)
+- [x] 3. Cleanup once every domain is rebuilt
+  - [x] Delete the per-domain `plot_<domain>_models.py` and
         `plot_<domain>_benchmark.py` examples, `examples/all_domains.py`,
         `examples/phase1_gallery.py`, `gallery/integrators.png` and
         `engineeringkit/tests/test_phase1.py` if nothing else uses them
-  - [ ] Move the remaining sibling `test_*.py` files into `tests/` packages
-  - [ ] Update the Documentation and domain-layout paragraphs of CLAUDE.md
+  - [x] Move the remaining sibling `test_*.py` files into `tests/` packages
+  - [x] Update the Documentation and domain-layout paragraphs of CLAUDE.md
         and AGENTS.md (they still describe single-module domains and
         `plot_<domain>_models.py`)
-  - [ ] Rewrite `docs/source/limitations.rst` around what is still open
+  - [x] Rewrite `docs/source/limitations.rst` around what is still open
 - [x] 4. Course material (item 4): four tutorials, twelve exercise sets,
       the quickstart notebook and JupyterLite
 
@@ -76,11 +73,8 @@ and the `pypi` environment exists. Nothing has been released yet.
 **Still to do.**
 - Add the repository as a trusted publisher on PyPI (pending publisher
   `engineeringkit`, workflow `release.yml`, environment `pypi`).
-- CI is red until the domain rebuilds pass `test_history_conventions.py`
-  and `test_package.py` (14 tests). Decide whether the first release
-  waits for those or the tests skip unrebuilt domains.
-- Release: date the `## [0.1.0]` CHANGELOG section, add `date-released`
-  to `CITATION.cff`, and push the tag `v0.1.0`.
+- Release: the `## [0.1.0]` CHANGELOG section and `date-released` in
+  `CITATION.cff` are dated 2026-10-18; push the tag `v0.1.0`.
 - After the first release, enable Zenodo and put that release's own
   **version DOI** (never the concept DOI) in `CITATION.cff` and the README
   badge (`https://zenodo.org/badge/DOI/<version-doi>.svg`).
@@ -101,31 +95,34 @@ Rebuilt domains must keep it clean.
 misleading number. Each fits the domain rebuild named in brackets, and
 should be done there unless it is needed sooner.
 
-- **High-order IIR filters** [`signal_processing`]. `butterworth_lowpass`
-  and `butterworth_highpass` return `(b, a)` polynomials, which lose
-  precision above about order 8. Add an `output="sos"` option and make
-  `filter_signal` accept second-order sections (the Jackson 1970 entry).
+- **High-order IIR filters** [`signal_processing`]. Done:
+  `butterworth_lowpass` and `butterworth_highpass` take `output="sos"`, and
+  `filter_signal` and `frequency_response` accept the sections with
+  `a=None` (the Jackson 1970 entry).
 - **Stability margins with several crossovers** [`control_systems`].
-  `stability_margins` reads the *first* gain and phase crossovers. Return
-  the worst margin over all crossovers, and report which crossover it is,
-  so conditionally stable loops come out right.
-- **Truss conditioning** [`structural_engineering`]. `PlanarTruss.solve`
-  catches `LinAlgError` only for exactly singular stiffness. Report
-  `cond(K_ff)` in the result, warn above a threshold, and check Maxwell's
-  count `m + r = 2j` before solving (the Maxwell 1864 entry).
-- **Real fluids** [`thermodynamics`]. Every cycle uses ideal-gas or
-  cold-air-standard relations. Add van der Waals, saturation via
-  Clausius-Clapeyron and Antoine, and a small IAPWS-IF97 subset (regions
-  1, 2 and 4), so the Rankine cycle can be computed with steam properties.
-  CoolProp stays out of scope (no new dependencies).
-- **Docstrings and vectorization**. Result classes and the
-  multidimensional helpers do not all have full NumPy-style parameter
-  docstrings. Scalar parameters such as `gamma` or Weibull `beta` are not
-  vectorized the same way everywhere. Fix both in each domain as it is
-  rebuilt.
-- **Castigliano**. `castigliano_deflection` takes a strain-energy
-  derivative the caller has already computed. The Castigliano entry
-  should integrate `M dM/dP / EI` along a beam itself.
+  Done: `stability_margins` reads every crossover, returns the worst gain
+  and phase margins with the frequencies they are read at, and lists all
+  of them.
+- **Truss conditioning** [`structural_engineering`]. Done:
+  `PlanarTruss.solve` refuses a negative Maxwell count, raises on a
+  singular `K_ff`, returns `cond(K_ff)` in the result and warns above
+  `cond_limit`; `PlanarFrame` does the same.
+- **Real fluids** [`thermodynamics`]. Done: van der Waals with its
+  critical point and Joule-Thomson coefficient, Clausius-Clapeyron and
+  Antoine vapour pressures, and IAPWS-IF97 regions 1, 2 and 4
+  (`steam_properties`, inverted for entropy and enthalpy), so the Rankine
+  cycle is computed with steam properties. Region 3 near the critical
+  point followed (2026-10-18), so supercritical states and the full dome
+  are covered; region 5 above 1073.15 K is not. CoolProp stays out of
+  scope (no new dependencies).
+- **Docstrings and vectorization**. Done (2026-10-18): every public
+  function and result-class method documents its parameters NumPy-style
+  (dataclass fields as attribute docstrings), and the thermodynamics
+  `gamma` relations accept arrays like the aerodynamics ones and the
+  Weibull functions.
+- **Castigliano**. Done: `castigliano_deflection` integrates
+  `M dM/dP / EI` along a beam with Simpson's rule; a single number is
+  still returned unchanged.
 
 ## 4. Course material
 
@@ -171,23 +168,23 @@ tutorials and a quickstart notebook.
 
 ## Where engineeringkit stands
 
-465 tests, 100% production statement coverage. The other numbers are
+725 tests, 100% production statement coverage. The other numbers are
 from the history pages and `examples/`.
 
 | Domain | Breakthroughs | Gallery examples | Target |
 |---|---:|---:|---:|
 | `aerodynamics` | 21 | 21 | done |
 | `communications` | 17 | 17 | done |
-| `control_systems` | 3 (old format) | 13 | 20 |
-| `electrical_engineering` | 3 (old format) | 2 | 16 |
-| `fluid_engineering` | 3 (old format) | 2 | 17 |
-| `heat_transfer` | 3 (old format) | 2 | 17 |
-| `materials` | 3 (old format) | 2 | 17 |
-| `mechanical_engineering` | 3 (old format) | 2 | 16 |
-| `reliability` | 3 (old format) | 2 | 17 |
-| `signal_processing` | 3 (old format) | 2 | 17 |
-| `structural_engineering` | 3 (old format) | 2 | 17 |
-| `thermodynamics` | 3 (old format) | 2 | 18 |
+| `control_systems` | 21 | 21 | done |
+| `electrical_engineering` | 16 | 16 | done |
+| `fluid_engineering` | 17 | 17 | done |
+| `heat_transfer` | 17 | 17 | done |
+| `materials` | 18 | 18 | done |
+| `mechanical_engineering` | 16 | 16 | done |
+| `reliability` | 17 | 17 | done |
+| `signal_processing` | 17 | 17 | done |
+| `structural_engineering` | 17 | 17 | done |
+| `thermodynamics` | 19 | 19 | done |
 
 ## Planned breakthroughs
 
@@ -200,7 +197,11 @@ against the primary reference while the entry is written.
 
 ### control_systems
 
-Entries 1-13 already have examples; their history entries are to be written.
+Done, all 21 entries. Beyond the plan, `stability_margins` also returns
+arrays over every crossover, and the guide covers dead time and Jury's
+test. The Bode example gained a conditionally stable loop. The previously
+untested `discretize_zoh`, `dlqr`, `nyquist_encirclements`,
+`hurwitz_determinants`, `observer_gain` and the visualizers now have tests.
 
 1. 1788 -- Watt's centrifugal governor: `feedback`, `step_response` [`feedback/plot_01_watt_centrifugal_governor.py`]
 2. 1868 -- Maxwell's *On Governors*: `poles` [`stability/plot_01_maxwell_on_governors.py`]
@@ -226,6 +227,12 @@ Entries 1-13 already have examples; their history entries are to be written.
 
 ### electrical_engineering
 
+Done. Jacobi (c. 1840) is placed before Wheatstone on the history page.
+Beyond the plan, the rebuild added `propagation_constant`,
+`standing_wave_ratio`, `phase_components`, `admittance_matrix`, `phasor`,
+`polar` and the `plot_phasors`/`plot_smith_chart` visualizers. No primary
+source was found for Jacobi's theorem, so that entry cites a textbook.
+
 1. 1827 -- Ohm's law: `ohms_law`, `series_resistance`, `parallel_resistance` [`dc_circuits/plot_01_ohm_law.py`]
 2. 1843 -- Wheatstone's bridge: `wheatstone_balanced` [`dc_circuits/plot_02_wheatstone_bridge.py`]
 3. 1845 -- Kirchhoff's circuit laws and nodal analysis: **new** `nodal_analysis` [`dc_circuits/plot_03_kirchhoff_nodal_analysis.py`]
@@ -244,6 +251,20 @@ Entries 1-13 already have examples; their history entries are to be written.
 16. 1956 -- Ward and Hale's digital load flow: **new** `gauss_seidel_load_flow` [`power/plot_04_ward_hale_load_flow.py`]
 
 ### fluid_engineering
+
+Done, all 17 entries, with Hardy Cross (1936) placed before Colebrook
+(1939) as planned. Manning's paper was read in December 1889 and printed
+in 1891; Joukowsky's was read in 1898 and printed in 1900; both entries
+keep the earlier date and cite the printed version. No volume or page
+numbers could be confirmed for Thoma's 1924 paper, so that entry cites
+it by title and year only. Pump affinity laws were not added; the
+specific speed stays without an entry. Beyond the plan, the rebuild added
+`hydrostatic_force_plane`, `center_of_pressure_depth`,
+`poiseuille_velocity`, `pipe_resistance`, `smooth_pipe_friction_factor`,
+`hydraulic_radius`, `manning_flow`, `pipe_wave_speed`,
+`critical_closure_time`, `npsh_available`, `thoma_sigma`, the `PiGroups`
+and `NetworkResult` result classes and the `plot_moody_diagram` and
+`plot_grade_lines` visualizers.
 
 1. c. 250 BC -- Archimedes's principle: `buoyancy_force` [`hydrostatics/plot_01_archimedes_buoyancy.py`]
 2. 1586 -- Stevin's hydrostatic paradox: `hydrostatic_pressure`, `pressure_head` [`hydrostatics/plot_02_stevin_hydrostatic_paradox.py`]
@@ -281,13 +302,22 @@ Pump affinity laws and specific speed (`pump_specific_speed`, `pump_hydraulic_po
 12. 1930 -- Dittus and Boelter: turbulent pipe convection: **new** `dittus_boelter_nusselt` [`convection/plot_02_dittus_boelter.py`]
 13. 1934 -- Nukiyama's boiling curve and Zuber's critical heat flux (1958): **new** `zuber_critical_heat_flux` [`phase_change/plot_03_nukiyama_boiling_curve.py`]
 14. 1947 -- Heisler's transient conduction charts: **new** `plane_wall_transient` (one-term and series), `fourier_number` [`transient/plot_03_heisler_charts.py`]
-15. 1947 -- Crank and Nicolson: numerical conduction: **new** `conduction_1d` (explicit and Crank-Nicolson) [`conduction/plot_03_crank_nicolson.py`]
+15. 1947 -- Crank and Nicolson: numerical conduction: **new** `conduction_1d` (explicit, implicit and Crank-Nicolson) [`conduction/plot_03_crank_nicolson.py`]
 16. 1955 -- Kays and London: effectiveness-NTU: `exchanger_effectiveness_parallel`, `exchanger_effectiveness_counterflow`, `log_mean_temperature_difference` [`exchangers/plot_01_kays_london_ntu.py`]
 17. 1975 -- Churchill and Chu: natural convection over all Rayleigh numbers: **new** `churchill_chu_nusselt` [`convection/plot_03_churchill_chu.py`]
 
 The critical insulation radius (`critical_insulation_radius_*`) and `overall_u` are used in examples 3 and 16 rather than given an entry.
 
 ### materials
+
+Done, all 18 entries. Beyond the plan, the rebuild added
+`strain_life_amplitude`, `crack_growth_life` with the `CrackGrowthResult`
+result class, `larson_miller_rupture_time`,
+`StressStrainCurve.offset_yield_strength` and `.summary()`,
+`utils.power_law_fit` (used to fit Basquin, Paris, Norton and creep data
+in the examples) and the `plot_stress_strain`, `plot_yield_surfaces`,
+`plot_sn_curve` and `plot_crack_growth` visualizers. Every function now
+accepts arrays.
 
 1. 1807 -- Young's modulus: `normal_stress`, `normal_strain`, `hooke_stress`, `StressStrainCurve` [`elasticity/plot_01_young_modulus.py`]
 2. 1838 -- Duhamel's thermal stress: `thermal_strain`, `constrained_thermal_stress` [`elasticity/plot_02_duhamel_thermal_stress.py`]
@@ -312,6 +342,18 @@ The critical insulation radius (`critical_insulation_radius_*`) and `overall_u` 
 
 ### mechanical_engineering
 
+Done. Entry 13 (vibration isolation) was dropped: no primary source could
+be dated. It is replaced by 1886-1904 Reynolds and Sommerfeld:
+hydrodynamic lubrication (**new** `sommerfeld_number`,
+`long_bearing_eccentricity`, `machine_elements/plot_03_reynolds_sommerfeld_lubrication.py`),
+so the Lundberg-Palmgren example became `machine_elements/plot_04`.
+`transmissibility` is used in the Jeffcott example for the force reaching
+the bearings. Beyond the plan, the rebuild added `fourbar_output_angle`,
+`freudenstein_link_lengths`, `holzer_residual`, the `TunedMassDamper`,
+`JeffcottResult` and `HolzerResult` result classes, and the
+`plot_frequency_response`, `plot_mode_shapes` and `plot_linkage`
+visualizers.
+
 1. 1673 -- Huygens and Steiner: moments of inertia and the parallel-axis theorem: `disk_inertia`, `solid_sphere_inertia`, `parallel_axis` [`dynamics/plot_01_huygens_moment_of_inertia.py`]
 2. 1765 -- Euler's involute gear tooth: `gear_ratio`, `gear_output_speed`, `gear_output_torque` [`transmission/plot_01_euler_involute_gear.py`]
 3. 1769 -- Euler and Eytelwein: belt friction: **new** `belt_tension_ratio`, `belt_speed` [`transmission/plot_02_capstan_equation.py`]
@@ -332,6 +374,14 @@ The critical insulation radius (`critical_insulation_radius_*`) and `overall_u` 
 Item 13 has no single originator; date it from a primary source (Soderberg's 1924 isolator work is a candidate) or drop it. `flywheel_energy`, `angular_momentum`, `centripetal_force` and `natural_frequency_hz` are used inside other examples.
 
 ### reliability
+
+Done, all 17 entries. Epstein and Sobel is dated 1953 (their *JASA* paper)
+and Watson's fault tree 1961 (the Bell Labs study). Beyond the plan, the
+rebuild added `mtbf_confidence_bounds`, `markov_state_probabilities`,
+`age_replacement_cost_rate`, `safety_integrity_level`, the normal-index
+conversions in `utils`, the `KaplanMeierResult`, `HasoferLindResult` and
+`EventTreeResult` classes and the `plot_survival` and `plot_hazard`
+visualizers. `safety_integrity_pfd` now accepts arrays.
 
 1. 1693 -- Halley's life table and the hazard rate: **new** `life_table_hazard` [`lifetimes/plot_01_halley_life_table.py`]
 2. 1837 -- Poisson's distribution of rare failures: `poisson_failures_probability`, `expected_failures` [`lifetimes/plot_02_poisson_failures.py`]
@@ -355,6 +405,11 @@ Item 13 has no single originator; date it from a primary source (Soderberg's 192
 
 ### signal_processing
 
+Done, all 17 entries. Beyond the plan, the rebuild added `radix2_fft` (for
+the Cooley-Tukey operation count), `kaiser_order`,
+`inverse_haar_transform`, the `STFTResult` and `LMSResult` classes and the
+`plot_magnitude_response` and `plot_pole_zero` visualizers.
+
 1. 1898 -- Schuster's periodogram: `dft`, `idft`, `power_spectral_density` [`spectral/plot_01_schuster_periodogram.py`]
 2. 1899 -- Gibbs's phenomenon: **new** `fourier_partial_sum` [`fourier/plot_01_gibbs_phenomenon.py`]
 3. 1910 -- Haar's wavelet: **new** `haar_transform` [`wavelets/plot_01_haar_wavelet.py`]
@@ -377,6 +432,16 @@ Item 13 has no single originator; date it from a primary source (Soderberg's 192
 
 ### structural_engineering
 
+Done, all 17 entries. Entry 17 is kept and credited to Livesley (1956),
+who programmed the stiffness method for rigid-jointed frames. Kazinczy's
+1914 paper is cited by journal and year only; no page numbers could be
+confirmed. The models existed before the examples: the rebuild added their
+analytical tests (three-moment equation, moment distribution and the frame
+solver against one another, the method of joints against direct
+stiffness, the mechanism work minimum, Engesser's residual) and fixed the
+Poisson example's check, which used a relative tolerance where the
+volume change is nearly zero.
+
 1. 1638 -- Galileo's cantilever: `rectangular_section_modulus`, `rectangular_second_moment` [`beams/plot_01_galileo_cantilever.py`]
 2. 1678 -- Hooke's *Ut tensio, sic vis*: axial members: `axial_deformation`, `strain_energy_axial` [`members/plot_01_hooke_axial.py`]
 3. 1744 -- Euler's column buckling: `euler_buckling_load`, `radius_of_gyration`, `slenderness_ratio` [`stability/plot_01_euler_buckling.py`]
@@ -398,6 +463,12 @@ Item 13 has no single originator; date it from a primary source (Soderberg's 192
 Entry 17 is a candidate for dropping if 16 carries the stiffness story on its own. `hooke_stress`, `thermal_strain` and `parallel_axis` duplicate `materials` and `mechanical_engineering` and are not given entries here.
 
 ### thermodynamics
+
+Done, all 19 entries. Beyond the plan, the domain gained
+`van_der_waals_critical_point`, `saturation_pressure`,
+`saturation_temperature`, the `SteamState` result and the
+`plot_pv_diagram`, `plot_ts_diagram` and `plot_saturation_dome`
+visualizers.
 
 1. 1824 -- Carnot's *Réflexions*: `carnot_efficiency`, `heat_engine_work` [`cycles/plot_01_carnot_efficiency.py`]
 2. 1834 -- Clapeyron's ideal gas law: `ideal_gas_pressure`, `ideal_gas_temperature` [`properties/plot_01_clapeyron_ideal_gas.py`]
@@ -443,6 +514,14 @@ own gallery example in eight topic sections.
 **`communications` rebuilt.** Same layout. 17 breakthroughs, from Hertz's
 radio waves to OFDM, each with its own example in eight topic sections.
 
+**`electrical_engineering` rebuilt.** Same layout. 16 breakthroughs, from
+Ohm's law to Ward and Hale's digital load flow, each with its own example
+in six topic sections. New models: modified nodal analysis, the lossy-line
+propagation constant and Heaviside's distortionless condition, reflection
+coefficient, VSWR and input impedance (with a Smith chart plot),
+symmetrical components, the bus admittance matrix and Gauss-Seidel load
+flow.
+
 **Course material.** Four tutorials that each follow one problem across
 two or three domains (a beam from load to fatigue life, a feedback loop in
 time and frequency, a power plant from cycle to cooling tower, a radio link
@@ -450,10 +529,66 @@ from antenna to bit errors), twelve exercise sets with worked solutions in
 drop-downs, and a quickstart notebook for Colab and JupyterLite. Every
 printed number is checked by the test suite.
 
-**`control_systems` partly rebuilt.** It has the new layout (`systems/`
-split into transfer, frequency, stability, root locus, PID, state space,
-optimal and sampled modules) and 13 examples. The history page is still
-to be written; see the phase checklist.
+**`control_systems` rebuilt.** Same layout. 21 breakthroughs, from Watt's
+governor to Doyle's LQG counterexample, each with its own example in eight
+topic sections. New models: the Padé delay, Smith's predictor and Jury's
+test, and stability margins over every crossover.
+
+**`heat_transfer` rebuilt.** Same layout. 17 breakthroughs, from Newton's
+law of cooling to Churchill and Chu's natural-convection correlation, each
+with its own example in six topic sections. New models: finite-difference
+conduction (explicit, implicit, Crank-Nicolson), Heisler's plane-wall
+series, the Dittus-Boelter and Churchill-Chu correlations, Planck's
+spectrum and two view factors, Neumann's Stefan-problem front, Nusselt
+film condensation and Zuber's critical heat flux.
+
+**`fluid_engineering` rebuilt.** Same layout. 17 breakthroughs, from
+Archimedes's principle to Swamee and Jain's explicit friction factor, each
+with its own example in eight topic sections (hydrostatics, measurement,
+pipe flow, similarity, open channels, transients, pumps, networks). New
+models: plane-surface hydrostatic force and centre of pressure, the
+Poiseuille profile, smooth and Nikuradse fully rough friction, Buckingham's
+Pi theorem by exact row reduction, Manning's formula, Korteweg's wave
+speed, NPSH and Thoma's sigma, and Hardy Cross network balancing.
+
+**`mechanical_engineering` rebuilt.** Same layout. 16 breakthroughs, from
+Huygens's centre of oscillation to Denavit and Hartenberg's link
+parameters, each with its own example in six topic sections (dynamics,
+transmission, machine elements, mechanisms, vibration, rotordynamics).
+
+**`reliability` rebuilt.** Same layout. 17 breakthroughs, from Halley's
+life table to IEC 61508's safety integrity levels, each with its own
+example in six topic sections (lifetimes, systems, structural, risk,
+maintenance, growth). New models: life-table hazards, Epstein-Sobel MTBF
+bounds, the Kaplan-Meier estimator, stress-strength interference, the
+Hasofer-Lind index, fault trees with repeated events, event trees, SIL
+bands, Markov availability and Barlow-Proschan age replacement.
+
+**`signal_processing` rebuilt.** Same layout. 17 breakthroughs, from
+Schuster's periodogram to Jackson's second-order sections, each with its
+own example in five topic sections (spectral, fourier, wavelets, filters,
+sampling). New models: a hand-written radix-2 FFT, Fourier partial sums,
+the Haar transform, Welch's estimate, the STFT, Goertzel's algorithm,
+Kaiser's FIR formulas, the FIR Wiener filter, the LMS filter and
+Butterworth filters as second-order sections.
+
+**`thermodynamics` rebuilt.** Same layout. 19 breakthroughs, from Carnot's
+*Réflexions* to IAPWS-IF97, each with its own example in six topic sections
+(laws, properties, cycles, refrigeration, exergy, psychrometrics). New
+models: van der Waals's equation and critical point, the Joule-Thomson
+coefficient, Clausius-Clapeyron and Antoine vapour pressures, IAPWS-IF97
+water and steam (regions 1, 2 and 4), the Curzon-Ahlborn efficiency, and
+Carrier's humidity ratio, relative humidity and dew point.
+
+**`structural_engineering` rebuilt.** Same layout. 17 breakthroughs, from
+Galileo's cantilever to Livesley's plane frames, each with its own example
+in eight topic sections (beams, members, stability, stress, energy,
+trusses, plasticity, frames). New models: the three-moment equation,
+influence lines, Castigliano integration along a beam, Maxwell's count,
+the method of joints, truss and frame conditioning diagnostics, the plastic
+section modulus and collapse loads, Engesser's tangent-modulus load, plane
+stress transformation, moment distribution and the plane-frame stiffness
+method.
 
 ### 0.1.0
 

@@ -148,18 +148,21 @@ def nyquist_encirclements(sys, w=None):
     return int(round(-(phase[-1] - phase[0]) / (2 * np.pi)))
 
 
-def _crossing(w, value, target):
-    """Log-frequency of the first crossing of ``value`` through ``target``, by linear interpolation."""
-    i = np.flatnonzero(np.diff(np.sign(value - target)) != 0)
-    if not i.size:
-        return np.nan, None
-    i = i[0]
+def _crossings(w, value, period=None):
+    """Log-frequencies where ``value`` crosses zero, or any multiple of ``period``.
+
+    Returns the interpolated frequencies (linear in log-frequency between
+    grid points) and the index of the grid segment holding each crossing.
+    """
+    k = np.floor(value / period) if period else (value >= 0).astype(float)
+    i = np.flatnonzero(np.diff(k) != 0)
+    target = np.maximum(k[i], k[i + 1]) * period if period else np.zeros(i.size)
     frac = (target - value[i]) / (value[i + 1] - value[i])
-    return float(np.exp(np.log(w[i]) + frac * (np.log(w[i + 1]) - np.log(w[i])))), i
+    return np.exp(np.log(w[i]) + frac * (np.log(w[i + 1]) - np.log(w[i]))), i, frac
 
 
 def stability_margins(sys, w=None):
-    """Gain and phase margins from the first crossovers of a loop's frequency response.
+    r"""Worst gain and phase margins over all crossovers of a loop's frequency response.
 
     Parameters
     ----------
@@ -172,16 +175,35 @@ def stability_margins(sys, w=None):
     Returns
     -------
     dict
-        ``gain_margin`` [-] (``inf`` without a phase crossover),
-        ``phase_margin_deg`` [deg] (``nan`` without a gain crossover),
-        ``gain_cross_frequency`` and ``phase_cross_frequency`` [rad/s].
+        ``gain_margin`` [-], the margin at the phase crossover nearest
+        instability (``inf`` without a phase crossover);
+        ``phase_margin_deg`` [deg], the margin of smallest magnitude over
+        the gain crossovers (``nan`` without one); ``gain_cross_frequency`` and
+        ``phase_cross_frequency`` [rad/s], the crossovers at which those worst
+        margins are read (``nan`` if absent); and the arrays
+        ``phase_cross_frequencies`` [rad/s] with their ``gain_margins`` [-],
+        and ``gain_cross_frequencies`` [rad/s] with their
+        ``phase_margins_deg`` [deg], over every crossover in increasing
+        frequency.
 
     Notes
     -----
-    Crossings are interpolated linearly in log-frequency between grid
-    points. Only the first crossover of each kind is reported, so loops with
-    multiple crossovers, time delays or negative gain need separate analysis.
-    See :doc:`/guides/control_systems`.
+    A phase crossover is any frequency where the phase passes
+    :math:`-180^\circ + 360^\circ k`. Its gain margin
+    :math:`1/|L(j\omega)|` is below one when *reducing* the gain by that
+    factor reaches instability, as in a conditionally stable loop; the worst
+    gain margin is the one with the smallest :math:`|\log \mathrm{GM}|`.
+    Phase margins are wrapped into :math:`[-180^\circ, 180^\circ)`; a
+    negative one means the plot crosses the unit circle on the far side of
+    :math:`-1`, and a phase *lead* of that size reaches instability. With one
+    crossover and a stable open loop that signals an unstable closed loop,
+    but an open-loop unstable loop that needs counter-clockwise encirclements
+    can cross on both sides, so the worst phase margin is the one of
+    smallest magnitude.
+    Crossings are interpolated linearly in log-frequency between grid points,
+    so a grid that misses a crossover misses its margin. Time delays need a
+    rational approximation such as :func:`pade_delay`. See
+    :doc:`/guides/control_systems`.
 
     References
     ----------
@@ -195,13 +217,24 @@ def stability_margins(sys, w=None):
     >>> round(m["gain_margin"], 2), round(m["phase_cross_frequency"], 3)
     (3.0, 1.414)
     """
-    w = np.logspace(-4, 4, 20000) if w is None else np.asarray(w, float)
+    w = np.logspace(-4, 4, 20000) if w is None else np.sort(np.asarray(w, float))
     _positive(w=w)
     h = nyquist(sys, w)
-    mag = np.abs(h)
+    log_mag = np.log(np.abs(h))
     phase = np.unwrap(np.angle(h)) * 180 / np.pi
-    wg, ig = _crossing(w, np.log(mag), 0.0)
-    wp, ip = _crossing(w, phase, -180.0)
-    pm = np.nan if ig is None else 180 + float(np.interp(np.log(wg), np.log(w[ig : ig + 2]), phase[ig : ig + 2]))
-    gm = np.inf if ip is None else 1 / float(np.exp(np.interp(np.log(wp), np.log(w[ip : ip + 2]), np.log(mag[ip : ip + 2]))))
-    return {"gain_margin": float(gm), "phase_margin_deg": float(pm), "gain_cross_frequency": float(wg), "phase_cross_frequency": float(wp)}
+    wg, ig, fg = _crossings(w, log_mag)
+    wp, ip, fp = _crossings(w, phase + 180, 360.0)
+    pm = (phase[ig] + fg * (phase[ig + 1] - phase[ig]) + 360) % 360 - 180
+    gm = np.exp(-(log_mag[ip] + fp * (log_mag[ip + 1] - log_mag[ip])))
+    jg = int(np.argmin(np.abs(pm))) if pm.size else None
+    jp = int(np.argmin(np.abs(np.log(gm)))) if gm.size else None
+    return {
+        "gain_margin": np.inf if jp is None else float(gm[jp]),
+        "phase_margin_deg": np.nan if jg is None else float(pm[jg]),
+        "gain_cross_frequency": np.nan if jg is None else float(wg[jg]),
+        "phase_cross_frequency": np.nan if jp is None else float(wp[jp]),
+        "gain_margins": gm,
+        "phase_cross_frequencies": wp,
+        "phase_margins_deg": pm,
+        "gain_cross_frequencies": wg,
+    }

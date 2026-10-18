@@ -1,0 +1,79 @@
+r"""
+Butterworth's maximally flat filter
+===================================
+
+Stephen Butterworth, a British physicist designing filters for valve
+amplifiers, asked in 1930 for a response "ideal" in the passband. His
+answer, :math:`|H|^2 = 1/(1 + (\omega/\omega_c)^{2n})`, has every derivative
+up to order :math:`2n-1` zero at DC, so it is as flat there as an order-
+:math:`n` filter can be. Each added order steepens the roll-off by 20 dB per
+decade, and the gain at the cutoff is always :math:`1/\sqrt2` (-3 dB).
+Digital versions come from the bilinear transform, which maps the analogue
+frequency axis onto the unit circle through
+:math:`\omega = \tan(\pi f/f_s)`
+(:func:`~engineeringkit.signal_processing.butterworth_lowpass`,
+:func:`~engineeringkit.signal_processing.butterworth_highpass`).
+"""
+
+# %%
+import matplotlib.pyplot as plt
+import numpy as np
+
+from engineeringkit.signal_processing import butterworth_highpass, butterworth_lowpass, frequency_response
+from engineeringkit.signal_processing.visualizers import plot_magnitude_response
+
+# %%
+# The digital response is Butterworth's formula, warped
+# -----------------------------------------------------
+
+fs, fc = 1000.0, 100.0
+f = np.linspace(0, 499, 500)
+warp = np.tan(np.pi * f / fs) / np.tan(np.pi * fc / fs)
+fig, axes = plt.subplots(1, 2, figsize=(10, 3.8))
+for order in (1, 2, 4, 8):
+    b, a = butterworth_lowpass(order, fc, fs)
+    _, H = frequency_response(b, a, worN=f, fs=fs)
+    assert np.allclose(abs(H) ** 2, 1 / (1 + warp ** (2 * order)))
+    _, Hc = frequency_response(b, a, worN=[fc], fs=fs)
+    assert np.isclose(abs(Hc[0]), 1 / np.sqrt(2))
+    plot_magnitude_response(b, a, fs=fs, ax=axes[0], label=f"n = {order}")
+axes[0].set(ylim=(-80, 3), title=f"Low-pass, $f_c$ = {fc:.0f} Hz")
+print("|H|^2 = 1 / (1 + (tan(pi f/fs) / tan(pi fc/fs))^(2n)) for n = 1, 2, 4, 8; -3 dB at fc for every order")
+
+# %%
+# Maximally flat
+# --------------
+#
+# The loss :math:`1/|H|^2 - 1` is exactly :math:`u^{2n}` in the warped
+# frequency :math:`u = \tan(\pi f/f_s)/\tan(\pi f_c/f_s)`, so near DC
+# the response departs from 1 as slowly as an order-:math:`n` filter allows.
+
+f_low = np.array([5.0, 10.0, 20.0])
+u = np.tan(np.pi * f_low / fs) / np.tan(np.pi * fc / fs)
+for order in (2, 4):
+    b, a = butterworth_lowpass(order, fc, fs)
+    _, H = frequency_response(b, a, worN=f_low, fs=fs)
+    slope = np.polyfit(np.log(u), np.log(1 / abs(H) ** 2 - 1), 1)[0]
+    print(f"n = {order}: passband loss grows as u^{slope:.3f}")
+    assert abs(slope - 2 * order) < 1e-3
+
+# %%
+# Low-pass and high-pass split a signal
+# -------------------------------------
+#
+# A first-order low-pass and high-pass at the same cutoff are power
+# complementary: :math:`|H_{LP}|^2 + |H_{HP}|^2 = 1`.
+
+b_lp, a_lp = butterworth_lowpass(1, fc, fs)
+b_hp, a_hp = butterworth_highpass(1, fc, fs)
+_, H_lp = frequency_response(b_lp, a_lp, worN=f, fs=fs)
+_, H_hp = frequency_response(b_hp, a_hp, worN=f, fs=fs)
+assert np.allclose(abs(H_lp) ** 2 + abs(H_hp) ** 2, 1)
+axes[1].plot(f, abs(H_lp) ** 2, label="low-pass")
+axes[1].plot(f, abs(H_hp) ** 2, label="high-pass")
+axes[1].plot(f, abs(H_lp) ** 2 + abs(H_hp) ** 2, "k--", label="sum")
+axes[1].set(xlabel="frequency [Hz]", ylabel="$|H|^2$", title="First order: power complementary")
+axes[1].legend()
+fig.tight_layout()
+
+plt.show()

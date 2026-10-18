@@ -14,7 +14,8 @@ Tones at 300 Hz, 700 Hz and 1300 Hz are each sampled at 1 kHz for one
 second. Predict the frequency at which each appears in the sampled data,
 then confirm it from the peak of a windowed spectrum.
 
-*Builds on:* :doc:`/api/gallery/signal_processing/index`.
+*Builds on:* :doc:`/api/gallery/signal_processing/sampling/plot_02_shannon_sampling` and
+:doc:`/api/gallery/signal_processing/spectral/plot_04_blackman_tukey_windows`.
 
 .. dropdown:: Solution
 
@@ -47,7 +48,7 @@ An ADC spans -1 V to 1 V. Quantize a full-scale sine wave with 8, 12 and
 16 bits, and measure the signal-to-quantization-noise ratio. Compare with
 the rule :math:`6.02N + 1.76` dB.
 
-*Builds on:* :doc:`/api/gallery/signal_processing/index`.
+*Builds on:* :doc:`/api/gallery/signal_processing/sampling/plot_01_bennett_quantization`.
 
 .. dropdown:: Solution
 
@@ -83,7 +84,8 @@ attenuation of each at 200 Hz, and the group delay of each at 10 Hz and
 90 Hz. Which one would you use to filter a heartbeat recording, where the
 shape of the waveform matters?
 
-*Builds on:* :doc:`/api/gallery/signal_processing/index`.
+*Builds on:* :doc:`/api/gallery/signal_processing/filters/plot_05_kaiser_fir` and
+:doc:`/api/gallery/signal_processing/filters/plot_01_butterworth`.
 
 .. dropdown:: Solution
 

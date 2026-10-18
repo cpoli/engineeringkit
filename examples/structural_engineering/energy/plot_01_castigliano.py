@@ -1,0 +1,94 @@
+r"""
+Castigliano's theorem
+=====================
+
+In his 1873 engineering thesis at Turin, extended into a book in 1879,
+Alberto Castigliano showed that the partial derivative of the strain
+energy with respect to a load is the displacement at that load, in its
+direction: :math:`\delta = \partial U/\partial P`. For a beam in bending,
+
+.. math::
+
+    \delta = \int_0^L \frac{M}{EI}\,\frac{\partial M}{\partial P}\,dx,
+
+and when no load acts at the wanted point a *dummy* load is placed there
+and set to zero after differentiating
+(:func:`~engineeringkit.structural_engineering.castigliano_deflection`).
+The example finds the tip deflection of a tapered cantilever, where the
+closed-form answer is awkward, and checks it by integrating the curvature
+:math:`M/EI` twice. It then uses a dummy load for the midspan deflection
+of a uniformly loaded beam.
+"""
+
+# %%
+import matplotlib.pyplot as plt
+import numpy as np
+from scipy.integrate import cumulative_trapezoid
+
+from engineeringkit.structural_engineering import (
+    SimplySupportedBeam,
+    castigliano_deflection,
+    rectangular_second_moment,
+    strain_energy_bending_constant_moment,
+)
+
+# %%
+# A tapered cantilever
+# --------------------
+#
+# The depth falls linearly from 300 mm at the wall to 100 mm at the tip.
+# A tip load :math:`P` gives :math:`M = -P(L - x)` and
+# :math:`\partial M/\partial P = -(L - x)`.
+
+E, L, P, b = 70e9, 2.0, 4e3, 0.05
+x = np.linspace(0, L, 401)
+depth = 0.3 - 0.2 * x / L
+I = rectangular_second_moment(b, depth)
+M = -P * (L - x)
+tip = castigliano_deflection(x=x, moment=M, dmoment_dP=-(L - x), E=E, I=I)
+
+slope = cumulative_trapezoid(M / (E * I), x=x, initial=0)
+deflection = cumulative_trapezoid(slope, x=x, initial=0)
+print(f"tip deflection by Castigliano {1e3 * tip:.3f} mm, by integrating the curvature {-1e3 * deflection[-1]:.3f} mm")
+assert np.isclose(tip, -deflection[-1], rtol=1e-5)
+uniform = P * L**3 / (3 * E * rectangular_second_moment(b, 0.3))
+print(f"a uniform 300 mm beam would deflect {1e3 * uniform:.3f} mm")
+
+# %%
+# Strain energy is the work of the load
+# -------------------------------------
+#
+# Over a short piece of beam the moment is nearly constant, so the energy
+# sums :math:`M^2\,dx/(2EI)`; it equals :math:`P\delta/2`.
+
+mid = 0.5 * (x[1:] + x[:-1])
+depth_mid = 0.3 - 0.2 * mid / L
+U = np.sum(strain_energy_bending_constant_moment(-P * (L - mid), np.diff(x), E, rectangular_second_moment(b, depth_mid)))
+print(f"strain energy {U:.4f} J, P delta / 2 = {P * tip / 2:.4f} J")
+assert np.isclose(U, P * tip / 2, rtol=1e-4)
+
+# %%
+# A dummy load at midspan
+# -----------------------
+
+Ls, w, Is = 6.0, 5e3, 8e-5
+xs = np.linspace(0, Ls, 401)
+Ms = w * xs * (Ls - xs) / 2
+dummy = np.where(xs <= Ls / 2, xs / 2, (Ls - xs) / 2)  # moment from a unit load at midspan
+mid_defl = castigliano_deflection(x=xs, moment=Ms, dmoment_dP=dummy, E=200e9, I=Is)
+exact = SimplySupportedBeam(Ls, 200e9, Is).solve_uniform_load(w, n=401).deflection[200]
+print(f"midspan deflection {1e3 * mid_defl:.3f} mm, beam solution {-1e3 * exact:.3f} mm")
+assert np.isclose(mid_defl, -exact)
+
+fig, axes = plt.subplots(1, 2, figsize=(10, 3.5))
+axes[0].plot(x, 1e3 * deflection)
+axes[0].plot(L, -1e3 * tip, "o", label="Castigliano")
+axes[0].set(xlabel="x [m]", ylabel="deflection [mm]", title="Tapered cantilever")
+axes[0].legend()
+axes[1].plot(xs, Ms / 1e3, label="M [kN m]")
+axes[1].plot(xs, dummy, label="dM/dP [m]")
+axes[1].set(xlabel="x [m]", title="Real and dummy-load moments")
+axes[1].legend()
+fig.tight_layout()
+
+plt.show()

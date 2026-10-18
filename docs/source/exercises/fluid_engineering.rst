@@ -16,7 +16,7 @@ Find the head loss per 100 m at 2 m/s with the implicit Colebrook
 equation. Then find the largest difference between Colebrook and the
 explicit Swamee-Jain formula over velocities from 0.1 to 5 m/s.
 
-*Builds on:* :doc:`/api/gallery/fluid_engineering/index` (the Moody diagram).
+*Builds on:* :doc:`/api/gallery/fluid_engineering/pipe_flow/plot_07_swamee_jain`.
 
 .. dropdown:: Solution
 
@@ -57,7 +57,7 @@ A venturi meter with a 150 mm inlet and a 75 mm throat carries water
 between inlet and throat. Find the flow rate and both velocities, and check
 that they satisfy continuity and Bernoulli's equation.
 
-*Builds on:* :doc:`/api/gallery/fluid_engineering/index`.
+*Builds on:* :doc:`/api/gallery/fluid_engineering/measurement/plot_02_venturi_meter`.
 
 .. dropdown:: Solution
 
@@ -91,7 +91,7 @@ Joukowsky pressure rise if a valve at the end closes instantly, compare it
 with the static pressure, and find the closure time below which the full
 rise occurs.
 
-*Builds on:* :doc:`/api/gallery/fluid_engineering/index`.
+*Builds on:* :doc:`/api/gallery/fluid_engineering/transients/plot_01_joukowsky_water_hammer`.
 
 .. dropdown:: Solution
 

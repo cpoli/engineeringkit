@@ -4,9 +4,28 @@ import numpy as np
 
 
 def plot_history(t, history, labels=None, ax=None):
-    """Plot scalar/vector histories; return (figure, axes). Time is in seconds.
+    """Plot scalar or vector state histories against time.
 
-    State labels should include units, for example ``x [m]``.
+    Parameters
+    ----------
+    t : array_like
+        Sample times [s], one-dimensional.
+    history : array_like
+        States, shape ``(len(t),)`` or ``(len(t), states)``.
+    labels : sequence of str, optional
+        One label per state, including its unit (e.g. ``"x [m]"``).
+    ax : matplotlib.axes.Axes, optional
+        Axes to draw on; a new figure is created if omitted.
+
+    Returns
+    -------
+    tuple
+        ``(fig, ax)``.
+
+    Notes
+    -----
+    Inputs are raw SI numbers with no dimensional metadata; see
+    :doc:`/numerical_methods`.
     """
     import matplotlib.pyplot as plt
 
@@ -29,10 +48,29 @@ def plot_history(t, history, labels=None, ax=None):
 
 
 def animate_displacement(t, displacement, *, interval=30):
-    """Animate 1D displacement [m]; return (figure, FuncAnimation).
+    """Animate a mass moving along a line.
 
-    Input samples play at interval milliseconds/frame, independently of physical
-    time. Retain the animation until displaying or saving it.
+    Parameters
+    ----------
+    t : array_like
+        Sample times [s], one-dimensional.
+    displacement : array_like
+        Displacement at each time [m], same shape as ``t``.
+    interval : float, optional
+        Delay between frames [ms], positive. Samples play at this rate,
+        independently of physical time.
+
+    Returns
+    -------
+    tuple
+        ``(fig, animation)``, the animation a
+        :class:`matplotlib.animation.FuncAnimation`. Keep a reference to it
+        until it is shown or saved.
+
+    Notes
+    -----
+    Inputs are raw SI numbers with no dimensional metadata; see
+    :doc:`/numerical_methods`.
     """
     import matplotlib.pyplot as plt
     from matplotlib.animation import FuncAnimation
