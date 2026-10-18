@@ -1,6 +1,6 @@
 r"""
-Coffin and Manson: low-cycle fatigue
-====================================
+Coffin and Manson: low-cycle fatigue (1954)
+===========================================
 
 Nuclear plant and jet-engine parts heated and cooled a few thousand times
 fail by cycles of plastic strain, where Basquin's stress-life law is

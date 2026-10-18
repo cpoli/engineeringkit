@@ -1,6 +1,6 @@
 r"""
-Ernst Mach's shock photographs and the Mach cone
-================================================
+Ernst Mach's shock photographs and the Mach cone (1887)
+=======================================================
 
 In 1887 Ernst Mach and Peter Salcher photographed a supersonic bullet and saw
 a conical wave trailing from its nose. A source moving faster than sound

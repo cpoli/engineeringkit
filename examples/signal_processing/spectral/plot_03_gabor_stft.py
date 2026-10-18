@@ -1,6 +1,6 @@
 r"""
-Gabor's time-frequency atoms
-============================
+Gabor's time-frequency atoms (1946)
+===================================
 
 A Fourier spectrum says which frequencies a signal contains but not when.
 Dennis Gabor (1946) described signals instead by "atoms": Gaussian-windowed

@@ -1,6 +1,6 @@
 r"""
-Stanley's transformer
-=====================
+Stanley's transformer (1886)
+============================
 
 In March 1886 William Stanley, working for George Westinghouse, lit the
 shops of Great Barrington, Massachusetts, from a 500 V alternator through

@@ -1,6 +1,6 @@
 r"""
-De Laval's converging-diverging nozzle
-======================================
+De Laval's converging-diverging nozzle (c. 1888)
+================================================
 
 Gustaf de Laval's 1888 steam-turbine nozzle first converged and then
 diverged, and accelerated steam beyond the speed of sound. The quasi-one-

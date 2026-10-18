@@ -1,6 +1,6 @@
 r"""
-Diesel's compression-ignition cycle
-===================================
+Diesel's compression-ignition cycle (1893)
+==========================================
 
 Rudolf Diesel's *Theorie und Konstruktion eines rationellen Wärmemotors*
 (1893) set out to approach Carnot's efficiency by compressing air alone so

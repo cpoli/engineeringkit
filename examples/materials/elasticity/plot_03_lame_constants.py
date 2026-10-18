@@ -1,6 +1,6 @@
 r"""
-Lamé's elastic constants
-========================
+Lamé's elastic constants (1852)
+===============================
 
 Early elasticity theories built from molecular forces predicted a single
 elastic constant for an isotropic solid, with Poisson's ratio fixed at 1/4.

@@ -1,6 +1,6 @@
 r"""
-Kaplan and Meier's product-limit estimator
-==========================================
+Kaplan and Meier's product-limit estimator (1958)
+=================================================
 
 Field data are incomplete: some units are still working when the data are
 collected, others were removed for reasons other than failure. Dropping

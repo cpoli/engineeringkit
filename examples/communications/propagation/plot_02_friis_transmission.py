@@ -1,6 +1,6 @@
 r"""
-The Friis transmission formula
-==============================
+The Friis transmission formula (1946)
+=====================================
 
 Harald Friis (1946) wrote the received power between two antennas in free
 space as :math:`P_r = P_t G_t G_r (\lambda/4\pi d)^2`

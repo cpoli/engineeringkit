@@ -1,6 +1,6 @@
 r"""
-Newton, Laplace and the speed of sound
-======================================
+Newton, Laplace and the speed of sound (1687-1816)
+==================================================
 
 Newton's *Principia* (1687) predicted the speed of sound assuming the
 compressions are isothermal, :math:`a = \sqrt{p/\rho} = \sqrt{RT}`, about 15%

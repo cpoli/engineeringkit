@@ -1,6 +1,6 @@
 r"""
-Oswald's efficiency factor and the parabolic drag polar
-=======================================================
+Oswald's efficiency factor and the parabolic drag polar (1933)
+==============================================================
 
 W. Bailey Oswald's NACA Report 408 (1933) folded every source of
 lift-dependent drag of a whole aeroplane into one *efficiency factor*, so its

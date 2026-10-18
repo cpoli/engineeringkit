@@ -1,6 +1,6 @@
 r"""
-Carnot's *Réflexions*: no engine beats the reversible one
-=========================================================
+Carnot's *Réflexions*: no engine beats the reversible one (1824)
+================================================================
 
 Sadi Carnot (1824) argued that a heat engine's work comes from heat falling
 from a hot body to a cold one, as a water wheel's comes from falling water,

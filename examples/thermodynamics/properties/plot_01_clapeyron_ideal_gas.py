@@ -1,6 +1,6 @@
 r"""
-Clapeyron's ideal gas law
-=========================
+Clapeyron's ideal gas law (1834)
+================================
 
 Boyle (1662) and Mariotte found that at fixed temperature a gas's pressure
 times its volume stays constant. Gay-Lussac (1802) found that at fixed

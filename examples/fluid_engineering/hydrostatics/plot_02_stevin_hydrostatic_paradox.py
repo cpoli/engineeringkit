@@ -1,6 +1,6 @@
 r"""
-Stevin's hydrostatic paradox
-============================
+Stevin's hydrostatic paradox (1586)
+===================================
 
 In *De Beghinselen des Waterwichts* (1586) Simon Stevin showed that the
 force of water on the bottom of a vessel depends only on the depth and the

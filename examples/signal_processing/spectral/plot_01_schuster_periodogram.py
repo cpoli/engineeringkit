@@ -1,6 +1,6 @@
 r"""
-Schuster's periodogram
-======================
+Schuster's periodogram (1898)
+=============================
 
 Was there a 26-day period in the weather, linked to the Sun's rotation?
 Arthur Schuster (1898) answered such questions with the *periodogram*: the

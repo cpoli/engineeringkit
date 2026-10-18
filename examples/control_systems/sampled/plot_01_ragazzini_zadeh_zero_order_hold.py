@@ -1,6 +1,6 @@
 r"""
-Ragazzini and Zadeh's sampled-data systems
-==========================================
+Ragazzini and Zadeh's sampled-data systems (1952)
+=================================================
 
 When a digital computer closes the loop it reads the plant only at sampling
 instants and holds each command constant until the next. John Ragazzini and

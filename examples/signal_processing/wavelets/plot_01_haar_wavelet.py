@@ -1,6 +1,6 @@
 r"""
-Haar's wavelet
-==============
+Haar's wavelet (1910)
+=====================
 
 In his 1909 dissertation, published in 1910, Alfréd Haar built an
 orthonormal basis from a single step function: the difference between the

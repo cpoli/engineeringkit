@@ -1,6 +1,6 @@
 r"""
-Evans's root locus
-==================
+Evans's root locus (1948)
+=========================
 
 Walter Evans at North American Aviation (1948) showed how to sketch the
 paths of the closed-loop poles as a single gain :math:`K` rises from zero,

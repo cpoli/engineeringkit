@@ -1,6 +1,6 @@
 r"""
-Halley's life table and the hazard rate
-=======================================
+Halley's life table and the hazard rate (1693)
+==============================================
 
 In 1693 Edmond Halley used five years of births and burials from Breslau to
 tabulate how many of 1000 one-year-olds were still alive at each later age.

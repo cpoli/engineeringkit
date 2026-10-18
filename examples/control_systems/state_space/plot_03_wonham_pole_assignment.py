@@ -1,6 +1,6 @@
 r"""
-Wonham's pole assignment
-========================
+Wonham's pole assignment (1967)
+===============================
 
 For a single input, controllability lets state feedback :math:`u = -Kx`
 place the poles of :math:`A - BK` anywhere, and :math:`K` is unique

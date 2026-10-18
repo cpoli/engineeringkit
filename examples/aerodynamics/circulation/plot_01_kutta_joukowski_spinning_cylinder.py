@@ -1,6 +1,6 @@
 r"""
-The Kutta-Joukowski theorem on a spinning cylinder
-==================================================
+The Kutta-Joukowski theorem on a spinning cylinder (1902-1906)
+==============================================================
 
 Martin Kutta (1902) and Nikolai Joukowski (1906) showed that the lift per unit
 span on any two-dimensional body in a steady inviscid stream is

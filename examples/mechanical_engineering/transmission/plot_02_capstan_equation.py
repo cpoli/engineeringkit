@@ -1,6 +1,6 @@
 r"""
-The Euler-Eytelwein belt-friction law
-=====================================
+The Euler-Eytelwein belt-friction law (1769)
+============================================
 
 A sailor holds a heavy load with a few turns of rope round a bollard.
 Leonhard Euler (1762, published 1769) explained why: on each small arc

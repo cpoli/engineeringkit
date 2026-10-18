@@ -1,6 +1,6 @@
 r"""
-Cayley's separation of lift and drag in level flight
-====================================================
+Cayley's separation of lift and drag in level flight (1809)
+===========================================================
 
 George Cayley's *On Aerial Navigation* (1809-1810) proposed the modern
 aeroplane by separating the problem: a fixed wing supports the weight (lift),

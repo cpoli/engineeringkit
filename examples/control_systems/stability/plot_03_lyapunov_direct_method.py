@@ -1,6 +1,6 @@
 r"""
-Lyapunov's direct method
-========================
+Lyapunov's direct method (1892)
+===============================
 
 Aleksandr Lyapunov's doctoral thesis (1892) proved stability without
 solving the equations of motion. Find an energy-like function

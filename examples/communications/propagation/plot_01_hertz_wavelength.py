@@ -1,6 +1,6 @@
 r"""
-Hertz's electromagnetic waves and their wavelength
-==================================================
+Hertz's electromagnetic waves and their wavelength (1887-1888)
+==============================================================
 
 Maxwell's equations (1865) predicted electromagnetic waves travelling at the
 speed of light. Heinrich Hertz confirmed them in 1887-1888: a spark gap drove
