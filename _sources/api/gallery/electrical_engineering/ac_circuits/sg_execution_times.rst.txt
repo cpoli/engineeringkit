@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.463** total execution time for 3 files **from api/gallery/electrical_engineering/ac_circuits**:
+**00:00.427** total execution time for 3 files **from api/gallery/electrical_engineering/ac_circuits**:
 
 .. container::
 
@@ -33,11 +33,11 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_electrical_engineering_ac_circuits_plot_02_steinmetz_phasors.py` (``plot_02_steinmetz_phasors.py``)
-     - 00:00.313
+     - 00:00.294
      - 0.0
    * - :ref:`sphx_glr_api_gallery_electrical_engineering_ac_circuits_plot_01_stanley_transformer.py` (``plot_01_stanley_transformer.py``)
-     - 00:00.078
+     - 00:00.069
      - 0.0
    * - :ref:`sphx_glr_api_gallery_electrical_engineering_ac_circuits_plot_03_lodge_resonance.py` (``plot_03_lodge_resonance.py``)
-     - 00:00.072
+     - 00:00.065
      - 0.0

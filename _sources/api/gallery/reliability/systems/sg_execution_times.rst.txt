@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.642** total execution time for 4 files **from api/gallery/reliability/systems**:
+**00:00.605** total execution time for 4 files **from api/gallery/reliability/systems**:
 
 .. container::
 
@@ -33,14 +33,14 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_reliability_systems_plot_02_agree_series_systems.py` (``plot_02_agree_series_systems.py``)
-     - 00:00.318
+     - 00:00.301
      - 0.0
    * - :ref:`sphx_glr_api_gallery_reliability_systems_plot_03_k_out_of_n.py` (``plot_03_k_out_of_n.py``)
-     - 00:00.146
+     - 00:00.138
      - 0.0
    * - :ref:`sphx_glr_api_gallery_reliability_systems_plot_01_von_neumann_redundancy.py` (``plot_01_von_neumann_redundancy.py``)
-     - 00:00.118
+     - 00:00.111
      - 0.0
    * - :ref:`sphx_glr_api_gallery_reliability_systems_plot_04_birnbaum_importance.py` (``plot_04_birnbaum_importance.py``)
-     - 00:00.059
+     - 00:00.055
      - 0.0

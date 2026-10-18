@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.780** total execution time for 6 files **from api/gallery/signal_processing/spectral**:
+**00:00.759** total execution time for 6 files **from api/gallery/signal_processing/spectral**:
 
 .. container::
 
@@ -33,20 +33,20 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_signal_processing_spectral_plot_02_wiener_khinchin.py` (``plot_02_wiener_khinchin.py``)
-     - 00:00.230
+     - 00:00.217
      - 0.0
    * - :ref:`sphx_glr_api_gallery_signal_processing_spectral_plot_06_welch_psd.py` (``plot_06_welch_psd.py``)
-     - 00:00.166
+     - 00:00.158
      - 0.0
    * - :ref:`sphx_glr_api_gallery_signal_processing_spectral_plot_03_gabor_stft.py` (``plot_03_gabor_stft.py``)
-     - 00:00.137
+     - 00:00.140
      - 0.0
    * - :ref:`sphx_glr_api_gallery_signal_processing_spectral_plot_01_schuster_periodogram.py` (``plot_01_schuster_periodogram.py``)
-     - 00:00.103
+     - 00:00.099
      - 0.0
    * - :ref:`sphx_glr_api_gallery_signal_processing_spectral_plot_04_blackman_tukey_windows.py` (``plot_04_blackman_tukey_windows.py``)
-     - 00:00.093
+     - 00:00.094
      - 0.0
    * - :ref:`sphx_glr_api_gallery_signal_processing_spectral_plot_05_goertzel.py` (``plot_05_goertzel.py``)
-     - 00:00.050
+     - 00:00.051
      - 0.0

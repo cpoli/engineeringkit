@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.477** total execution time for 4 files **from api/gallery/control_systems/stability**:
+**00:00.454** total execution time for 4 files **from api/gallery/control_systems/stability**:
 
 .. container::
 
@@ -32,15 +32,15 @@ Computation times
    * - Example
      - Time
      - Mem (MB)
-   * - :ref:`sphx_glr_api_gallery_control_systems_stability_plot_01_maxwell_on_governors.py` (``plot_01_maxwell_on_governors.py``)
-     - 00:00.154
-     - 0.0
    * - :ref:`sphx_glr_api_gallery_control_systems_stability_plot_03_lyapunov_direct_method.py` (``plot_03_lyapunov_direct_method.py``)
-     - 00:00.139
+     - 00:00.136
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_control_systems_stability_plot_01_maxwell_on_governors.py` (``plot_01_maxwell_on_governors.py``)
+     - 00:00.135
      - 0.0
    * - :ref:`sphx_glr_api_gallery_control_systems_stability_plot_04_hurwitz_determinants.py` (``plot_04_hurwitz_determinants.py``)
-     - 00:00.124
+     - 00:00.123
      - 0.0
    * - :ref:`sphx_glr_api_gallery_control_systems_stability_plot_02_routh_stability_criterion.py` (``plot_02_routh_stability_criterion.py``)
-     - 00:00.060
+     - 00:00.059
      - 0.0

@@ -97,7 +97,7 @@ attenuations from 30 to 90 dB. The cutoff is placed mid-transition.
     A = 70 dB:  88 taps, beta =  6.76, stopband  68.9 dB, passband ripple 2.7e-04
     A = 90 dB: 116 taps, beta =  8.96, stopband  89.4 dB, passband ripple 3.8e-05
 
-    <matplotlib.legend.Legend object at 0x7f1808d36c90>
+    <matplotlib.legend.Legend object at 0x7f53c5bfb980>
 
 
 

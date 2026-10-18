@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.474** total execution time for 3 files **from api/gallery/materials/fracture**:
+**00:00.460** total execution time for 3 files **from api/gallery/materials/fracture**:
 
 .. container::
 
@@ -33,11 +33,11 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_materials_fracture_plot_01_griffith_fracture.py` (``plot_01_griffith_fracture.py``)
-     - 00:00.193
+     - 00:00.191
      - 0.0
    * - :ref:`sphx_glr_api_gallery_materials_fracture_plot_03_paris_law.py` (``plot_03_paris_law.py``)
-     - 00:00.164
+     - 00:00.156
      - 0.0
    * - :ref:`sphx_glr_api_gallery_materials_fracture_plot_02_irwin_stress_intensity.py` (``plot_02_irwin_stress_intensity.py``)
-     - 00:00.116
+     - 00:00.113
      - 0.0

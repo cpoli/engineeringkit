@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.386** total execution time for 4 files **from api/gallery/materials/fatigue**:
+**00:00.383** total execution time for 4 files **from api/gallery/materials/fatigue**:
 
 .. container::
 
@@ -33,13 +33,13 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_materials_fatigue_plot_04_coffin_manson.py` (``plot_04_coffin_manson.py``)
-     - 00:00.161
+     - 00:00.156
      - 0.0
    * - :ref:`sphx_glr_api_gallery_materials_fatigue_plot_02_basquin_sn_curve.py` (``plot_02_basquin_sn_curve.py``)
-     - 00:00.110
+     - 00:00.111
      - 0.0
    * - :ref:`sphx_glr_api_gallery_materials_fatigue_plot_01_goodman_diagram.py` (``plot_01_goodman_diagram.py``)
-     - 00:00.065
+     - 00:00.066
      - 0.0
    * - :ref:`sphx_glr_api_gallery_materials_fatigue_plot_03_palmgren_miner.py` (``plot_03_palmgren_miner.py``)
      - 00:00.050

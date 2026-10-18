@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.140** total execution time for 1 file **from api/gallery/reliability/growth**:
+**00:00.134** total execution time for 1 file **from api/gallery/reliability/growth**:
 
 .. container::
 
@@ -33,5 +33,5 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_reliability_growth_plot_01_duane_growth.py` (``plot_01_duane_growth.py``)
-     - 00:00.140
+     - 00:00.134
      - 0.0

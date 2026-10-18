@@ -91,7 +91,7 @@ Coherent demodulation and phase error
     phase error  45 deg: recovered gain +0.708 (cos phi = +0.707)
     phase error  90 deg: recovered gain -0.000 (cos phi = +0.000)
 
-    <matplotlib.legend.Legend object at 0x7f1808d35c40>
+    <matplotlib.legend.Legend object at 0x7f53c62a9250>
 
 
 
@@ -123,7 +123,7 @@ No carrier line in the spectrum
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.091 seconds)
+   **Total running time of the script:** (0 minutes 0.088 seconds)
 
 
 .. _sphx_glr_download_api_gallery_communications_modulation_plot_02_carson_suppressed_carrier.py:

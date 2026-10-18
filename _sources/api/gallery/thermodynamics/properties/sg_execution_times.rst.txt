@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.898** total execution time for 6 files **from api/gallery/thermodynamics/properties**:
+**00:00.875** total execution time for 6 files **from api/gallery/thermodynamics/properties**:
 
 .. container::
 
@@ -33,20 +33,20 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_thermodynamics_properties_plot_06_iapws_if97.py` (``plot_06_iapws_if97.py``)
-     - 00:00.380
+     - 00:00.373
      - 0.0
    * - :ref:`sphx_glr_api_gallery_thermodynamics_properties_plot_02_clausius_clapeyron.py` (``plot_02_clausius_clapeyron.py``)
-     - 00:00.160
+     - 00:00.158
      - 0.0
    * - :ref:`sphx_glr_api_gallery_thermodynamics_properties_plot_05_antoine_equation.py` (``plot_05_antoine_equation.py``)
-     - 00:00.105
-     - 0.0
-   * - :ref:`sphx_glr_api_gallery_thermodynamics_properties_plot_01_clapeyron_ideal_gas.py` (``plot_01_clapeyron_ideal_gas.py``)
-     - 00:00.089
+     - 00:00.103
      - 0.0
    * - :ref:`sphx_glr_api_gallery_thermodynamics_properties_plot_03_joule_thomson.py` (``plot_03_joule_thomson.py``)
-     - 00:00.087
+     - 00:00.086
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_thermodynamics_properties_plot_01_clapeyron_ideal_gas.py` (``plot_01_clapeyron_ideal_gas.py``)
+     - 00:00.083
      - 0.0
    * - :ref:`sphx_glr_api_gallery_thermodynamics_properties_plot_04_van_der_waals.py` (``plot_04_van_der_waals.py``)
-     - 00:00.076
+     - 00:00.073
      - 0.0
