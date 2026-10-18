@@ -12,8 +12,8 @@ been rebuilt to the current standard: the `core/systems/utils/visualizers`
 layout, a dated history page of 15+ breakthroughs and one gallery example
 per breakthrough, and the post-rebuild cleanup is done, so the phase
 checklist below is complete. Items 1 to 4 are the work that is not tied
-to a single domain; of these, only the first release (item 1) is still
-open.
+to a single domain; all four are done, apart from a later conda-forge
+recipe.
 
 The project conventions apply to everything here: SI inputs validated in
 `_validation.py`, NumPy-style docstrings with units and the guide Notes
@@ -65,19 +65,13 @@ Tick the box when ruff, mypy, pytest, coverage and the `-W` docs build are green
 **Why.** engineeringkit cannot be cited or installed from PyPI, and the
 hosted docs do not exist. The sibling kits all have this already.
 
-**Now.** The repository is https://github.com/cpoli/engineeringkit, with
-`CITATION.cff`, `release.yml`, `docs.yml` and a 3.10-3.14 Linux/macOS CI
-matrix. Pages serves `gh-pages` at https://cpoli.github.io/engineeringkit/,
-and the `pypi` environment exists. Nothing has been released yet.
+**Done** (2026-10-18). 0.1.0 is on PyPI (trusted publishing from
+`release.yml`), with a GitHub Release, docs at
+https://cpoli.github.io/engineeringkit/ and the Zenodo version DOI
+10.5281/zenodo.23452015 in `CITATION.cff` and the README badge. Zenodo
+concept record 23452014: add each later release's own version DOI by hand.
 
 **Still to do.**
-- Add the repository as a trusted publisher on PyPI (pending publisher
-  `engineeringkit`, workflow `release.yml`, environment `pypi`).
-- Release: the `## [0.1.0]` CHANGELOG section and `date-released` in
-  `CITATION.cff` are dated 2026-10-18; push the tag `v0.1.0`.
-- After the first release, enable Zenodo and put that release's own
-  **version DOI** (never the concept DOI) in `CITATION.cff` and the README
-  badge (`https://zenodo.org/badge/DOI/<version-doi>.svg`).
 - A conda-forge `recipe.yaml` later, with only `version` in `context` and
   `name: engineeringkit` and the PyPI source URL written out.
 
