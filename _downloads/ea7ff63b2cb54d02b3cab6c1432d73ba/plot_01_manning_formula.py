@@ -1,6 +1,6 @@
 r"""
-Manning's open-channel formula (1889)
-=====================================
+Manning's open-channel formula
+==============================
 
 Robert Manning, chief engineer of the Irish Board of Works, compared the
 open-channel formulas of his day against the best measurements in 1889 and

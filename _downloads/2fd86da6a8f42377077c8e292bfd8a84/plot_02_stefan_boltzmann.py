@@ -1,6 +1,6 @@
 r"""
-Stefan and Boltzmann: emission grows as T⁴ (1879-1884)
-======================================================
+Stefan and Boltzmann: emission grows as T⁴
+==========================================
 
 In 1879 Josef Stefan reread John Tyndall's measurements of a glowing
 platinum wire: at 1200 °C it radiated 11.7 times as much as at 525 °C. The

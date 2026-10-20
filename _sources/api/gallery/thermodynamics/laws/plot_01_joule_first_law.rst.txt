@@ -18,8 +18,8 @@
 .. _sphx_glr_api_gallery_thermodynamics_laws_plot_01_joule_first_law.py:
 
 
-Joule and the first law (1843-1850)
-===================================
+Joule and the first law
+=======================
 
 James Prescott Joule spent the 1840s showing that a given amount of work,
 however it is done, always produces the same amount of heat. In his best
@@ -164,7 +164,7 @@ and :math:`c_p - c_v = R`.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.047 seconds)
+   **Total running time of the script:** (0 minutes 0.106 seconds)
 
 
 .. _sphx_glr_download_api_gallery_thermodynamics_laws_plot_01_joule_first_law.py:

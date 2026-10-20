@@ -34,11 +34,12 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../_static/styles/theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
-<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+  <link href="../../../_static/styles/theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/plot_directive.css?v=7f9a90b1" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx_autodoc_typehints.css?v=057ac668" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Vibur" />
     <link rel="stylesheet" type="text/css" href="../../../_static/jupyterlite_sphinx.css?v=f676e775" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css?v=c83e6b79" />
@@ -49,10 +50,10 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/engineeringkit.css?v=62935cec" />
   
   <!-- So that users can add custom icons -->
-  <script defer src="../../../_static/scripts/fontawesome.js?digest=64cc4de3f052d77215f0"></script>
+  <script defer src="../../../_static/scripts/fontawesome.js?digest=18bd87630a240e9c25be"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0" />
-<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0" />
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be" />
 
     <script src="../../../_static/documentation_options.js?v=38b66d78"></script>
     <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
@@ -68,6 +69,7 @@
     <link rel="next" title="Beams" href="beams/index.html" />
     <link rel="prev" title="Examples" href="../../../examples/index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="color-scheme" content="light dark"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
   
@@ -579,84 +581,84 @@ run directly with <code class="docutils literal notranslate"><span class="pre">p
 <h2>Beams<a class="headerlink" href="#beams" title="Link to this heading">#</a></h2>
 <p>Bending stress, continuous beams and moving loads.</p>
 <div id='sg-tag-list' class='sphx-glr-tag-list'></div><div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="In the Two New Sciences (1638) Galileo asked how strong a cantilever is, and answered that its breaking moment grows with the width b and the square of the depth h, so a plank on edge is stronger than one laid flat by the ratio h/b. He assumed the whole section pulls with the same stress and pivots about its bottom edge, which gives M = \sigma bh^2/2. Linear elasticity (Navier, 1826) puts the pivot at the centroid with a linear stress profile, M = \sigma bh^2/6 (~engineeringkit.structural_engineering.rectangular_section_modulus): Galileo&#x27;s scaling law was right, his constant three times too large."><img alt="" src="../../../_images/sphx_glr_plot_01_galileo_cantilever_thumb.png" />
-<p><a class="reference internal" href="beams/plot_01_galileo_cantilever.html"><span class="doc">Galileo’s cantilever (1638)</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Galileo's cantilever (1638)</div>
+<p><a class="reference internal" href="beams/plot_01_galileo_cantilever.html"><span class="doc">Galileo’s cantilever</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Galileo's cantilever</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="Navier&#x27;s 1826 lectures at the École des ponts et chaussées put beam theory in its modern form: plane sections stay plane, the neutral axis passes through the centroid, the stress is \sigma = My/I (~engineeringkit.structural_engineering.bending_stress) and the curvature is y&#x27;&#x27; = M/(EI). The example loads a steel beam (~engineeringkit.structural_engineering.SimplySupportedBeam), checks the midspan deflection 5wL^4/(384EI), and checks that the stress profile carries no net force and exactly the applied moment."><img alt="" src="../../../_images/sphx_glr_plot_02_navier_beam_thumb.png" />
-<p><a class="reference internal" href="beams/plot_02_navier_beam.html"><span class="doc">Navier’s beam theory (1826)</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Navier's beam theory (1826)</div>
+<p><a class="reference internal" href="beams/plot_02_navier_beam.html"><span class="doc">Navier’s beam theory</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Navier's beam theory</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="A beam continuous over several supports is statically indeterminate: the support moments cannot be found from equilibrium alone. Émile Clapeyron met the problem rebuilding the Asnières railway bridge over the Seine and in 1857 published one equation per interior support, linking each support moment to its two neighbours (~engineeringkit.structural_engineering.three_moment_equation). The example checks the textbook coefficients for equal spans, then builds the moment diagram of an unequal three-span beam and checks by double integration that the beam really does not move at the interior supports."><img alt="" src="../../../_images/sphx_glr_plot_03_clapeyron_three_moment_thumb.png" />
-<p><a class="reference internal" href="beams/plot_03_clapeyron_three_moment.html"><span class="doc">Clapeyron’s three-moment equation (1857)</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Clapeyron's three-moment equation (1857)</div>
+<p><a class="reference internal" href="beams/plot_03_clapeyron_three_moment.html"><span class="doc">Clapeyron’s three-moment equation</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Clapeyron's three-moment equation</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="A railway bridge must be checked for a train in every position. Emil Winkler (1867-1868), and Otto Mohr independently (1868), plotted the value of a response, such as the moment at one section, against the position of a unit load: the influence line (~engineeringkit.structural_engineering.influence_line). The response to any train is then the sum of the axle loads times the ordinates under them, and the worst position can be read off the plot. The example finds the worst position of a four-axle locomotive on a 20 m span and checks it against a brute-force superposition of point-load solutions."><img alt="" src="../../../_images/sphx_glr_plot_04_winkler_influence_lines_thumb.png" />
-<p><a class="reference internal" href="beams/plot_04_winkler_influence_lines.html"><span class="doc">Winkler’s influence lines (1867)</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Winkler's influence lines (1867)</div>
+<p><a class="reference internal" href="beams/plot_04_winkler_influence_lines.html"><span class="doc">Winkler’s influence lines</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Winkler's influence lines</div>
 </div></div></section>
 <section id="energy-methods">
 <h2>Energy methods<a class="headerlink" href="#energy-methods" title="Link to this heading">#</a></h2>
 <p>Deflections from strain energy.</p>
 <div id='sg-tag-list' class='sphx-glr-tag-list'></div><div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="In his 1873 engineering thesis at Turin, extended into a book in 1879, Alberto Castigliano showed that the partial derivative of the strain energy with respect to a load is the displacement at that load, in its direction: \delta = \partial U/\partial P. For a beam in bending,"><img alt="" src="../../../_images/sphx_glr_plot_01_castigliano_thumb.png" />
-<p><a class="reference internal" href="energy/plot_01_castigliano.html"><span class="doc">Castigliano’s theorem (1879)</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Castigliano's theorem (1879)</div>
+<p><a class="reference internal" href="energy/plot_01_castigliano.html"><span class="doc">Castigliano’s theorem</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Castigliano's theorem</div>
 </div></div></section>
 <section id="frames">
 <h2>Frames<a class="headerlink" href="#frames" title="Link to this heading">#</a></h2>
 <p>Rigid-jointed continuous beams and frames.</p>
 <div id='sg-tag-list' class='sphx-glr-tag-list'></div><div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Continuous beams and building frames of the 1920s led to large systems of simultaneous equations that no engineer wanted to solve by hand. In 1930 Hardy Cross proposed relaxation instead. Lock every joint against rotation and apply the fixed-end moments. Then release one joint at a time: its unbalanced moment is shared among the members meeting there in proportion to their stiffness 4EI/L, and half of each share is carried over to the far end of the member. Repeat until the joints balance (~engineeringkit.structural_engineering.moment_distribution). The method fitted on a sheet of paper and was used for forty years. The example balances a three-span beam built in at its left end, checks the result against the plane-frame stiffness solution and plots how fast the unbalance dies away."><img alt="" src="../../../_images/sphx_glr_plot_01_hardy_cross_moment_distribution_thumb.png" />
-<p><a class="reference internal" href="frames/plot_01_hardy_cross_moment_distribution.html"><span class="doc">Hardy Cross’s moment distribution (1930)</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Hardy Cross's moment distribution (1930)</div>
+<p><a class="reference internal" href="frames/plot_01_hardy_cross_moment_distribution.html"><span class="doc">Hardy Cross’s moment distribution</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Hardy Cross's moment distribution</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="Moment distribution assumes the joints do not move sideways. A portal frame under wind does sway, and hand methods needed an extra correction for every storey. In 1956 R. K. Livesley programmed the stiffness method for rigid-jointed frames on the Manchester Mark I. Each member gets a 6x6 matrix with axial and bending terms, and the sway comes out with the rotations (~engineeringkit.structural_engineering.PlanarFrame). The example sways a fixed-base portal frame and checks the stiffness result against its two limits, an infinitely stiff beam and an infinitely flexible one, then draws the deflected shape under wind and gravity."><img alt="" src="../../../_images/sphx_glr_plot_02_planar_frame_thumb.png" />
-<p><a class="reference internal" href="frames/plot_02_planar_frame.html"><span class="doc">Livesley’s plane frames by direct stiffness (1956)</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Livesley's plane frames by direct stiffness (1956)</div>
+<p><a class="reference internal" href="frames/plot_02_planar_frame.html"><span class="doc">Livesley’s plane frames by direct stiffness</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Livesley's plane frames by direct stiffness</div>
 </div></div></section>
 <section id="members">
 <h2>Members<a class="headerlink" href="#members" title="Link to this heading">#</a></h2>
 <p>Axial bars and twisted shafts.</p>
 <div id='sg-tag-list' class='sphx-glr-tag-list'></div><div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="In 1676 Robert Hooke published an anagram, ceiiinosssttuu, and in 1678 its solution, ut tensio, sic vis: &quot;as the extension, so the force&quot;. Springs, wires and wooden rods all stretched in proportion to the weight hung on them. Written for a bar of length L, area A and modulus E (Young&#x27;s, 1807), the extension is \delta = PL/(AE) (~engineeringkit.structural_engineering.axial_deformation) and the stored energy is the triangle under the load-extension line, U = P\delta/2 = P^2L/(2AE) (~engineeringkit.structural_engineering.strain_energy_axial). The example repeats Hooke&#x27;s experiment on a steel wire and checks both."><img alt="" src="../../../_images/sphx_glr_plot_01_hooke_axial_thumb.png" />
-<p><a class="reference internal" href="members/plot_01_hooke_axial.html"><span class="doc">Hooke’s law: ut tensio, sic vis (1678)</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Hooke's law: ut tensio, sic vis (1678)</div>
+<p><a class="reference internal" href="members/plot_01_hooke_axial.html"><span class="doc">Hooke’s law: ut tensio, sic vis</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Hooke's law: ut tensio, sic vis</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="Charles-Augustin Coulomb (1784) hung a weight on a thin wire, twisted it and timed the oscillations. The restoring torque was proportional to the angle of twist, to the fourth power of the wire&#x27;s diameter and inversely to its length, which in modern form is \phi = TL/(GJ) with J = \pi d^4/32 (~engineeringkit.structural_engineering.torsion_angle). The same torsion balance later weighed the electric force and, in Cavendish&#x27;s hands, the Earth. The example simulates Coulomb&#x27;s pendulum and recovers the shear modulus from the period, then shows the shear stress across the wire (~engineeringkit.structural_engineering.torsion_shear_stress)."><img alt="" src="../../../_images/sphx_glr_plot_02_coulomb_torsion_thumb.png" />
-<p><a class="reference internal" href="members/plot_02_coulomb_torsion.html"><span class="doc">Coulomb’s torsion (1784)</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Coulomb's torsion (1784)</div>
+<p><a class="reference internal" href="members/plot_02_coulomb_torsion.html"><span class="doc">Coulomb’s torsion</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Coulomb's torsion</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="A bar stretched along its axis gets thinner. Siméon Denis Poisson&#x27;s 1829 molecular theory of elasticity predicted that the lateral strain is always one quarter of the axial strain. Measurements soon showed that the ratio \nu depends on the material: about 0.3 for steel, nearly 0.5 for rubber and nearly zero for cork, which is why cork seals a wine bottle without jamming in the neck. The lateral strain is -\nu\varepsilon (~engineeringkit.structural_engineering.poisson_lateral_strain), so the volume changes by (1 - 2\nu)\varepsilon to first order: an incompressible material has \nu = 1/2."><img alt="" src="../../../_images/sphx_glr_plot_03_poisson_ratio_thumb.png" />
-<p><a class="reference internal" href="members/plot_03_poisson_ratio.html"><span class="doc">Poisson’s ratio (1829)</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Poisson's ratio (1829)</div>
+<p><a class="reference internal" href="members/plot_03_poisson_ratio.html"><span class="doc">Poisson’s ratio</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Poisson's ratio</div>
 </div></div></section>
 <section id="plasticity">
 <h2>Plasticity<a class="headerlink" href="#plasticity" title="Link to this heading">#</a></h2>
 <p>Plastic hinges and collapse loads.</p>
 <div id='sg-tag-list' class='sphx-glr-tag-list'></div><div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="In 1914 Gábor Kazinczy loaded steel beams built into concrete walls in Budapest. They carried far more than the elastic theory allowed: when the most stressed section yielded through its whole depth it went on turning at a constant plastic moment M_p = \sigma_yZ_p (a plastic hinge), and the load moved to other sections until enough hinges had formed to make a mechanism. For a rectangle Z_p = bh^2/4, 1.5 times the elastic modulus (~engineeringkit.structural_engineering.plastic_section_modulus). The collapse load follows from the work equation of the mechanism (~engineeringkit.structural_engineering.plastic_collapse_load). The example follows a built-in beam under a uniform load from first yield, through hinges at the walls, to collapse with a third hinge at midspan."><img alt="" src="../../../_images/sphx_glr_plot_01_kazinczy_plastic_hinge_thumb.png" />
-<p><a class="reference internal" href="plasticity/plot_01_kazinczy_plastic_hinge.html"><span class="doc">Kazinczy’s plastic hinge (1914)</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Kazinczy's plastic hinge (1914)</div>
+<p><a class="reference internal" href="plasticity/plot_01_kazinczy_plastic_hinge.html"><span class="doc">Kazinczy’s plastic hinge</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Kazinczy's plastic hinge</div>
 </div></div></section>
 <section id="stability">
 <h2>Stability<a class="headerlink" href="#stability" title="Link to this heading">#</a></h2>
 <p>Elastic and inelastic column buckling.</p>
 <div id='sg-tag-list' class='sphx-glr-tag-list'></div><div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="In an appendix on elastic curves to his Methodus inveniendi (1744), Leonhard Euler found the load at which a straight, pin-ended column can stay in equilibrium bent as well as straight: P_{cr} = \pi^2EI/L^2. Other end conditions change the length of the half sine wave, which is what the effective-length factor K expresses (~engineeringkit.structural_engineering.euler_buckling_load). Dividing by the area gives the Euler stress \pi^2E/(KL/r)^2, a function of the slenderness alone (~engineeringkit.structural_engineering.slenderness_ratio, radius_of_gyration). The example recovers Euler&#x27;s load as the smallest eigenvalue of the finite-difference column equation EIy&#x27;&#x27; + Py = 0, then plots the Euler hyperbola against the yield stress."><img alt="" src="../../../_images/sphx_glr_plot_01_euler_buckling_thumb.png" />
-<p><a class="reference internal" href="stability/plot_01_euler_buckling.html"><span class="doc">Euler’s column buckling (1744)</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Euler's column buckling (1744)</div>
+<p><a class="reference internal" href="stability/plot_01_euler_buckling.html"><span class="doc">Euler’s column buckling</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Euler's column buckling</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="Tests on real columns of intermediate length failed well below Euler&#x27;s load. Friedrich Engesser (1889) argued that once the stress passes the proportional limit, a column bends against the material&#x27;s tangent modulus E_t = d\sigma/d\varepsilon and not against E, so P_t = \pi^2E_tI/(KL)^2. Since E_t depends on the stress it creates, the buckling stress solves \sigma = \pi^2E_t(\sigma)/(KL/r)^2 (~engineeringkit.structural_engineering.tangent_modulus_load). Engesser later proposed a &quot;double-modulus&quot; load, and Shanley (1947) showed that the tangent-modulus load is the one at which a real column starts to bend. The example builds the column curve of an aluminium alloy with a Ramberg-Osgood stress-strain law and checks the computed stresses against the defining equation."><img alt="" src="../../../_images/sphx_glr_plot_02_engesser_tangent_modulus_thumb.png" />
-<p><a class="reference internal" href="stability/plot_02_engesser_tangent_modulus.html"><span class="doc">Engesser’s tangent-modulus load (1889)</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Engesser's tangent-modulus load (1889)</div>
+<p><a class="reference internal" href="stability/plot_02_engesser_tangent_modulus.html"><span class="doc">Engesser’s tangent-modulus load</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Engesser's tangent-modulus load</div>
 </div></div></section>
 <section id="stress">
 <h2>Stress<a class="headerlink" href="#stress" title="Link to this heading">#</a></h2>
 <p>Plane stress transformation.</p>
 <div id='sg-tag-list' class='sphx-glr-tag-list'></div><div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Otto Mohr (1882) showed that the normal and shear stresses on every plane through a point, plotted against each other, fall on a single circle. Its centre is the mean normal stress, its radius the largest in-plane shear stress, and its ends on the axis are the principal stresses (~engineeringkit.structural_engineering.mohr_circle). Turning the element by \theta moves the point by 2\theta around the circle (~engineeringkit.structural_engineering.stress_transformation). The example traces the circle by rotating an element, checks that the principal stresses are the eigenvalues of the stress tensor, and finds the plane of maximum shear."><img alt="" src="../../../_images/sphx_glr_plot_01_mohr_circle_thumb.png" />
-<p><a class="reference internal" href="stress/plot_01_mohr_circle.html"><span class="doc">Mohr’s circle (1882)</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Mohr's circle (1882)</div>
+<p><a class="reference internal" href="stress/plot_01_mohr_circle.html"><span class="doc">Mohr’s circle</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Mohr's circle</div>
 </div></div></section>
 <section id="trusses">
 <h2>Trusses<a class="headerlink" href="#trusses" title="Link to this heading">#</a></h2>
 <p>Pin-jointed trusses by statics and by stiffness.</p>
 <div id='sg-tag-list' class='sphx-glr-tag-list'></div><div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="American railway bridges of the 1840s were built from rules of thumb, and some fell down. Squire Whipple, in A Work on Bridge Building (1847), showed that the force in every member of a pin-jointed truss follows from statics alone. Each joint is in equilibrium, so its two equations, \sum F_x = 0 and \sum F_y = 0, give the forces in two members. Start at a support and work across the truss, two unknowns at a time (~engineeringkit.structural_engineering.method_of_joints). The example solves a six-panel Pratt truss under a train of panel loads and checks the chord forces against the method of sections: at any vertical cut, the chord force is the bending moment divided by the truss depth."><img alt="" src="../../../_images/sphx_glr_plot_01_whipple_method_of_joints_thumb.png" />
-<p><a class="reference internal" href="trusses/plot_01_whipple_method_of_joints.html"><span class="doc">Whipple’s method of joints (1847)</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Whipple's method of joints (1847)</div>
+<p><a class="reference internal" href="trusses/plot_01_whipple_method_of_joints.html"><span class="doc">Whipple’s method of joints</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Whipple's method of joints</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="James Clerk Maxwell&#x27;s short 1864 paper &quot;On the calculation of the equilibrium and stiffness of frames&quot; made two contributions. First, a counting rule: a plane frame of j joints needs 2j - 3 bars to be stiff, or, counting the r support reactions, m + r = 2j for a statically determinate truss (~engineeringkit.structural_engineering.truss_determinacy). The count is necessary but not sufficient, since bars can be placed where they are not needed. Second, the reciprocal theorem: the deflection at joint i caused by a unit load at joint j equals the deflection at j caused by a unit load at i (~engineeringkit.structural_engineering.maxwell_betti_reciprocity). Betti generalised it in 1872. The example counts four trusses, shows one that passes the count and is still a mechanism, and checks reciprocity on a statically indeterminate truss."><img alt="" src="../../../_images/sphx_glr_plot_02_maxwell_rigidity_thumb.png" />
-<p><a class="reference internal" href="trusses/plot_02_maxwell_rigidity.html"><span class="doc">Maxwell’s rigidity count and reciprocal theorem (1864)</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Maxwell's rigidity count and reciprocal theorem (1864)</div>
+<p><a class="reference internal" href="trusses/plot_02_maxwell_rigidity.html"><span class="doc">Maxwell’s rigidity count and reciprocal theorem</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Maxwell's rigidity count and reciprocal theorem</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="At Boeing in the early 1950s, M. J. Turner, R. W. Clough, H. C. Martin and L. J. Topp needed the stiffness of swept jet wings, which hand methods could not give. Their 1956 paper wrote down a stiffness matrix for each element, added the matrices into one global matrix K according to which joints each element connects, and solved K_{ff}u_f = F_f on a computer. This is the direct stiffness method, the seed of the finite element method (~engineeringkit.structural_engineering.PlanarTruss). It handles statically indeterminate trusses as easily as determinate ones, but it fails without warning near a mechanism. The solver therefore reports \operatorname{cond}(K_{ff}) and warns when it is large. The example checks a redundant bridge truss against Clapeyron&#x27;s energy theorem, then flattens a joint until the warning fires."><img alt="" src="../../../_images/sphx_glr_plot_03_direct_stiffness_thumb.png" />
-<p><a class="reference internal" href="trusses/plot_03_direct_stiffness.html"><span class="doc">Turner, Clough, Martin and Topp: the direct stiffness method (1956)</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Turner, Clough, Martin and Topp: the direct stiffness method (1956)</div>
+<p><a class="reference internal" href="trusses/plot_03_direct_stiffness.html"><span class="doc">Turner, Clough, Martin and Topp: the direct stiffness method</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Turner, Clough, Martin and Topp: the direct stiffness method</div>
 </div></div><div class="toctree-wrapper compound">
 </div>
 <div class="sphx-glr-footer sphx-glr-footer-gallery docutils container">
@@ -752,8 +754,8 @@ run directly with <code class="docutils literal notranslate"><span class="pre">p
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0"></script>
-<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0"></script>
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -763,7 +765,7 @@ run directly with <code class="docutils literal notranslate"><span class="pre">p
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.1.
   </p>
 </div>
       
@@ -776,7 +778,7 @@ run directly with <code class="docutils literal notranslate"><span class="pre">p
         <div class="footer-item">
 <p class="theme-version">
   <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.22.0.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.23.0.
 </p></div>
       
     </div>

@@ -1,6 +1,6 @@
 r"""
-Friis's noise formula for cascaded amplifiers (1944)
-====================================================
+Friis's noise formula for cascaded amplifiers
+=============================================
 
 Harald Friis (1944) defined a receiver's *noise factor* :math:`F` as the
 ratio of input to output signal-to-noise ratio and showed that in a chain of

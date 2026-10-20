@@ -1,6 +1,6 @@
 r"""
-The Shannon-Hartley capacity of a noisy band-limited channel (1949)
-===================================================================
+The Shannon-Hartley capacity of a noisy band-limited channel
+============================================================
 
 In "Communication in the presence of noise" (1949) Shannon proved that a
 channel of bandwidth :math:`B` with white Gaussian noise and signal-to-noise

@@ -1,6 +1,6 @@
 r"""
-Hardy Cross's moment distribution (1930)
-========================================
+Hardy Cross's moment distribution
+=================================
 
 Continuous beams and building frames of the 1920s led to large systems of
 simultaneous equations that no engineer wanted to solve by hand. In 1930

@@ -18,8 +18,8 @@
 .. _sphx_glr_api_gallery_aerodynamics_compressible_plot_04_prandtl_glauert.py:
 
 
-The Prandtl-Glauert compressibility correction (1928)
-=====================================================
+The Prandtl-Glauert compressibility correction
+==============================================
 
 Hermann Glauert (1928), building on remarks by Prandtl, showed that the
 linearised subsonic potential equation is Laplace's equation in stretched
@@ -122,7 +122,7 @@ The same factor multiplies the lift-curve slope:
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.040 seconds)
+   **Total running time of the script:** (0 minutes 0.156 seconds)
 
 
 .. _sphx_glr_download_api_gallery_aerodynamics_compressible_plot_04_prandtl_glauert.py:

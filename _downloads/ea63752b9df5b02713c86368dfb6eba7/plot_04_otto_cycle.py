@@ -1,6 +1,6 @@
 r"""
-Otto's four-stroke cycle (1876)
-===============================
+Otto's four-stroke cycle
+========================
 
 Nicolaus Otto's 1876 engine compressed its charge before igniting it, a
 principle Alphonse Beau de Rochas had described in 1862. Its four strokes

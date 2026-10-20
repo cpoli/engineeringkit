@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.051** total execution time for 2 files **from api/gallery/fluid_engineering/measurement**:
+**00:00.187** total execution time for 2 files **from api/gallery/fluid_engineering/measurement**:
 
 .. container::
 
@@ -33,8 +33,8 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_fluid_engineering_measurement_plot_01_pitot_tube.py` (``plot_01_pitot_tube.py``)
-     - 00:00.026
+     - 00:00.098
      - 0.0
    * - :ref:`sphx_glr_api_gallery_fluid_engineering_measurement_plot_02_venturi_meter.py` (``plot_02_venturi_meter.py``)
-     - 00:00.025
+     - 00:00.089
      - 0.0

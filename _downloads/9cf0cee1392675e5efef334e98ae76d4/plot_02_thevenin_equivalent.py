@@ -1,6 +1,6 @@
 r"""
-Thévenin's equivalent circuit (1883)
-====================================
+Thévenin's equivalent circuit
+=============================
 
 Léon Charles Thévenin, an engineer of the French telegraph service, showed
 in 1883 that any linear network seen from two terminals behaves like a

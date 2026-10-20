@@ -18,8 +18,8 @@
 .. _sphx_glr_api_gallery_signal_processing_filters_plot_06_second_order_sections.py:
 
 
-Jackson's cascaded second-order sections (1970)
-===============================================
+Jackson's cascaded second-order sections
+========================================
 
 A digital filter can be computed from its transfer function
 :math:`B(z)/A(z)` in one "direct form", but the roots of a high-degree
@@ -107,7 +107,7 @@ unstable. Each section's quadratic keeps its own two poles accurately.
 
  .. code-block:: none
 
-    largest pole radius: direct form 1.0502, sections 0.9918
+    largest pole radius: direct form 1.0389, sections 0.9918
 
 
 
@@ -141,8 +141,8 @@ Response and step response
 
  .. code-block:: none
 
-    gain at DC and at fc: sections [1.     0.7071], direct form [0.0237 0.0303]
-    step response after 3 s: sections 1.000000, direct form 6.392e+35
+    gain at DC and at fc: sections [1.     0.7071], direct form [0.0443 0.0284]
+    step response after 3 s: sections 1.000000, direct form -9.598e+22
 
 
 
@@ -193,7 +193,7 @@ Low orders are safe either way
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.080 seconds)
+   **Total running time of the script:** (0 minutes 0.333 seconds)
 
 
 .. _sphx_glr_download_api_gallery_signal_processing_filters_plot_06_second_order_sections.py:

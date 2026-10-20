@@ -1,6 +1,6 @@
 r"""
-Watt's centrifugal governor and proportional droop (1788)
-=========================================================
+Watt's centrifugal governor and proportional droop
+==================================================
 
 James Watt's flyball governor (1788) closed the steam valve as the engine
 sped up: the throttle moved *in proportion* to the speed error. Model the

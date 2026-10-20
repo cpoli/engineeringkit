@@ -1,6 +1,6 @@
 r"""
-Epstein and Sobel's exponential life testing (1953)
-===================================================
+Epstein and Sobel's exponential life testing
+============================================
 
 How long must a test run, and with how many units, to demonstrate an MTBF?
 Epstein and Sobel (1953) showed that for exponential lives the *total time

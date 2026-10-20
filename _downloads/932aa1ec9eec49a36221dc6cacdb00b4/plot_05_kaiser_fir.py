@@ -1,6 +1,6 @@
 r"""
-Kaiser's window method for FIR design (1966)
-============================================
+Kaiser's window method for FIR design
+=====================================
 
 An ideal low-pass filter has an infinitely long sinc impulse response.
 Truncating it gives a finite (FIR) filter whose response ripples near the

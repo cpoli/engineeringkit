@@ -18,8 +18,8 @@
 .. _sphx_glr_api_gallery_signal_processing_filters_plot_02_hurewicz_z_transform.py:
 
 
-Hurewicz's z-transform (1947)
-=============================
+Hurewicz's z-transform
+======================
 
 Radar fire-control systems of the Second World War sampled their targets,
 and the MIT Radiation Laboratory needed a theory of feedback loops that
@@ -194,7 +194,7 @@ zeros on the unit circle null the frequencies :math:`kf_s/M`.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.073 seconds)
+   **Total running time of the script:** (0 minutes 0.296 seconds)
 
 
 .. _sphx_glr_download_api_gallery_signal_processing_filters_plot_02_hurewicz_z_transform.py:

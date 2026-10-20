@@ -18,8 +18,8 @@
 .. _sphx_glr_api_gallery_control_systems_stability_plot_04_hurwitz_determinants.py:
 
 
-Hurwitz's determinant test (1895)
-=================================
+Hurwitz's determinant test
+==========================
 
 Aurel Stodola, designing turbine regulators in Zürich, asked Adolf Hurwitz
 for a practical stability condition. Hurwitz (1895), unaware of Routh's
@@ -102,7 +102,7 @@ so the rightmost pair reaches the imaginary axis at :math:`K = 4`.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.065 seconds)
+   **Total running time of the script:** (0 minutes 0.265 seconds)
 
 
 .. _sphx_glr_download_api_gallery_control_systems_stability_plot_04_hurwitz_determinants.py:

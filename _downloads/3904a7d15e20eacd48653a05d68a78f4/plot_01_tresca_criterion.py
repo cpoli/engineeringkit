@@ -1,6 +1,6 @@
 r"""
-Tresca's maximum-shear yield criterion (1864)
-=============================================
+Tresca's maximum-shear yield criterion
+======================================
 
 Henri Tresca (1864) punched and extruded lead, copper and iron through dies
 at the Conservatoire des Arts et Métiers and found that metals flow like a

@@ -1,6 +1,6 @@
 r"""
-Rayleigh's *Theory of Sound*: free vibration (1877)
-===================================================
+Rayleigh's *Theory of Sound*: free vibration
+============================================
 
 Lord Rayleigh's *The Theory of Sound* (1877) treated every vibrating system,
 from strings to bells, as a set of linear oscillators. The simplest is a

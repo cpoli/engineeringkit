@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.059** total execution time for 1 file **from api/gallery/structural_engineering/stress**:
+**00:00.240** total execution time for 1 file **from api/gallery/structural_engineering/stress**:
 
 .. container::
 
@@ -33,5 +33,5 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_structural_engineering_stress_plot_01_mohr_circle.py` (``plot_01_mohr_circle.py``)
-     - 00:00.059
+     - 00:00.240
      - 0.0

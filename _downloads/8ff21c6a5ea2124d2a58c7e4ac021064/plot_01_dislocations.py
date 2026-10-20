@@ -1,6 +1,6 @@
 r"""
-Taylor, Orowan and Polanyi: dislocations (1934)
-===============================================
+Taylor, Orowan and Polanyi: dislocations
+========================================
 
 Jacob Frenkel (1926) estimated the shear stress needed to slide one plane of
 a perfect crystal over the next as about :math:`G/2\pi`

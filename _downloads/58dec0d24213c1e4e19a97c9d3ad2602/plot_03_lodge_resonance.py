@@ -1,6 +1,6 @@
 r"""
-Lodge's syntonic tuning: series resonance (1897)
-================================================
+Lodge's syntonic tuning: series resonance
+=========================================
 
 Early spark transmitters splattered energy over a wide band, so every
 receiver heard every transmitter. Oliver Lodge's 1897 patent on "syntonic"

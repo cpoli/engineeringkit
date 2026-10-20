@@ -1,6 +1,6 @@
 r"""
-Kazinczy's plastic hinge (1914)
-===============================
+Kazinczy's plastic hinge
+========================
 
 In 1914 Gábor Kazinczy loaded steel beams built into concrete walls in
 Budapest. They carried far more than the elastic theory allowed: when the

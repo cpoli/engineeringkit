@@ -1,6 +1,6 @@
 r"""
-Reuleaux's kinematics of machinery: the slider-crank (1875)
-===========================================================
+Reuleaux's kinematics of machinery: the slider-crank
+====================================================
 
 Franz Reuleaux's *Theoretische Kinematik* (1875) treated every machine as a
 *kinematic chain* of rigid links joined by pairs (turning, sliding, screw),

@@ -1,6 +1,6 @@
 r"""
-Maxwell's "On Governors": stability from characteristic roots (1868)
-====================================================================
+Maxwell's "On Governors": stability from characteristic roots
+=============================================================
 
 Governors fitted with integral action to remove droop sometimes "hunted",
 oscillating with growing amplitude. James Clerk Maxwell (1868) linearised

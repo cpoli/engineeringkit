@@ -1,6 +1,6 @@
 r"""
-Hooke's law: ut tensio, sic vis (1678)
-======================================
+Hooke's law: ut tensio, sic vis
+===============================
 
 In 1676 Robert Hooke published an anagram, *ceiiinosssttuu*, and in 1678 its
 solution, *ut tensio, sic vis*: "as the extension, so the force". Springs,

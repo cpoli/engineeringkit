@@ -18,8 +18,8 @@
 .. _sphx_glr_api_gallery_mechanical_engineering_transmission_plot_01_euler_involute_gear.py:
 
 
-Euler's involute gear tooth (1765)
-==================================
+Euler's involute gear tooth
+===========================
 
 Two gears turn at a constant speed ratio only if the common normal at
 their point of contact always passes through one fixed point on the line of
@@ -183,7 +183,7 @@ efficient meshes the output power is :math:`0.98^2` of the input.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.035 seconds)
+   **Total running time of the script:** (0 minutes 0.127 seconds)
 
 
 .. _sphx_glr_download_api_gallery_mechanical_engineering_transmission_plot_01_euler_involute_gear.py:

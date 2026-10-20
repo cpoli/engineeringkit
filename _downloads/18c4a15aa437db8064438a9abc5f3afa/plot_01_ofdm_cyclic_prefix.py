@@ -1,6 +1,6 @@
 r"""
-OFDM: many subcarriers from one inverse DFT (1966-1971)
-=======================================================
+OFDM: many subcarriers from one inverse DFT
+===========================================
 
 Robert Chang (1966) showed that subcarriers whose spectra overlap remain
 orthogonal if they are spaced by the symbol rate. Stephen Weinstein and Paul

@@ -1,6 +1,6 @@
 r"""
-Turbulent skin friction and the one-fifth-power law (1927)
-==========================================================
+Turbulent skin friction and the one-fifth-power law
+===================================================
 
 Prandtl (1927) carried Blasius's empirical pipe-friction law over to the
 turbulent flat plate, with a :math:`u \propto y^{1/7}` velocity profile. The

@@ -1,6 +1,6 @@
 r"""
-Saint-Venant and Wantzel: isentropic stagnation states (1839)
-=============================================================
+Saint-Venant and Wantzel: isentropic stagnation states
+======================================================
 
 Adhémar Barré de Saint-Venant and Pierre Wantzel's 1839 experiments on air
 escaping from a reservoir gave the first correct compressible-flow formula:

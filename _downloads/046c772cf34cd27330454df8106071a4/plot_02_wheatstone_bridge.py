@@ -1,6 +1,6 @@
 r"""
-Wheatstone's bridge (1843)
-==========================
+Wheatstone's bridge
+===================
 
 Samuel Hunter Christie described the circuit in 1833, and Charles
 Wheatstone made it the standard way to measure resistance in his 1843

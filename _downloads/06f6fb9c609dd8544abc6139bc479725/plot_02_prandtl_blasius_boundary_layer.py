@@ -1,6 +1,6 @@
 r"""
-Prandtl's boundary layer and the Blasius solution (1904-1908)
-=============================================================
+Prandtl's boundary layer and the Blasius solution
+=================================================
 
 At the 1904 Heidelberg congress Ludwig Prandtl proposed that viscosity
 matters only in a thin *boundary layer* next to a surface. His student Heinrich

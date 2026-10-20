@@ -1,6 +1,6 @@
 r"""
-Freudenstein's equation for four-bar synthesis (1954)
-=====================================================
+Freudenstein's equation for four-bar synthesis
+==============================================
 
 Before computers, linkages that generate a prescribed function were
 designed by graphical construction. Ferdinand Freudenstein (1954) wrote the

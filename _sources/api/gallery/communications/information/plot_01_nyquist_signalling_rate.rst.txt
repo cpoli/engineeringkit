@@ -18,8 +18,8 @@
 .. _sphx_glr_api_gallery_communications_information_plot_01_nyquist_signalling_rate.py:
 
 
-Nyquist's signalling rate: 2B pulses per second (1928)
-======================================================
+Nyquist's signalling rate: 2B pulses per second
+===============================================
 
 Harry Nyquist's "Certain topics in telegraph transmission theory" (1928)
 showed that a channel of bandwidth :math:`B` can carry at most :math:`2B`
@@ -104,7 +104,7 @@ Sinc pulses at the Nyquist rate
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.042 seconds)
+   **Total running time of the script:** (0 minutes 0.160 seconds)
 
 
 .. _sphx_glr_download_api_gallery_communications_information_plot_01_nyquist_signalling_rate.py:

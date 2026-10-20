@@ -1,6 +1,6 @@
 r"""
-Jeffcott's rotor and the critical speed (1919)
-==============================================
+Jeffcott's rotor and the critical speed
+=======================================
 
 Rankine (1869) had argued that a shaft could not run stably above its
 whirling speed, yet de Laval's steam turbines of the 1880s and 1890s did

@@ -1,6 +1,6 @@
 r"""
-Ziegler and Nichols tune a PID from the edge of instability (1942)
-==================================================================
+Ziegler and Nichols tune a PID from the edge of instability
+===========================================================
 
 John Ziegler and Nathaniel Nichols of Taylor Instruments (1942) gave plant
 engineers a recipe: turn up a proportional gain until the loop oscillates

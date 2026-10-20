@@ -1,6 +1,6 @@
 r"""
-Nyquist's signalling rate: 2B pulses per second (1928)
-======================================================
+Nyquist's signalling rate: 2B pulses per second
+===============================================
 
 Harry Nyquist's "Certain topics in telegraph transmission theory" (1928)
 showed that a channel of bandwidth :math:`B` can carry at most :math:`2B`

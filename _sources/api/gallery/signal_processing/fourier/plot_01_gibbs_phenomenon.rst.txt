@@ -18,8 +18,8 @@
 .. _sphx_glr_api_gallery_signal_processing_fourier_plot_01_gibbs_phenomenon.py:
 
 
-Gibbs's phenomenon (1899)
-=========================
+Gibbs's phenomenon
+==================
 
 Albert Michelson's harmonic analyser (1898) summed 80 Fourier terms
 mechanically, and its curves for a square wave overshot at every jump.
@@ -99,7 +99,7 @@ The square wave of period 1 and amplitude :math:`\pm 1` has
     K = 125: peak 1.17900 at t = 0.00398 s
     K = 625: peak 1.17898 at t = 0.00080 s
 
-    <matplotlib.legend.Legend object at 0x111108a50>
+    <matplotlib.legend.Legend object at 0x7fbaf008cc80>
 
 
 
@@ -172,7 +172,7 @@ series converge in energy even where they never converge uniformly.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.431 seconds)
+   **Total running time of the script:** (0 minutes 1.690 seconds)
 
 
 .. _sphx_glr_download_api_gallery_signal_processing_fourier_plot_01_gibbs_phenomenon.py:

@@ -1,6 +1,6 @@
 r"""
-Jackson's cascaded second-order sections (1970)
-===============================================
+Jackson's cascaded second-order sections
+========================================
 
 A digital filter can be computed from its transfer function
 :math:`B(z)/A(z)` in one "direct form", but the roots of a high-degree

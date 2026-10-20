@@ -1,6 +1,6 @@
 r"""
-Swamee and Jain's explicit friction factor (1976)
-=================================================
+Swamee and Jain's explicit friction factor
+==========================================
 
 Colebrook's equation needs iteration, which was a nuisance on the first
 programmable calculators. In 1976 Prabhata Swamee and Akalank Jain fitted

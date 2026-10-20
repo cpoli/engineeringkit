@@ -1,6 +1,6 @@
 r"""
-Winkler's influence lines (1867)
-================================
+Winkler's influence lines
+=========================
 
 A railway bridge must be checked for a train in every position. Emil
 Winkler (1867-1868), and Otto Mohr independently (1868), plotted the value

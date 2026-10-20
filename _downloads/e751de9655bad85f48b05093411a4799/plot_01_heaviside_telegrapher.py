@@ -1,6 +1,6 @@
 r"""
-Heaviside's telegrapher's equations and the distortionless line (1876-1887)
-===========================================================================
+Heaviside's telegrapher's equations and the distortionless line
+===============================================================
 
 Kelvin's cable theory ignored inductance. Oliver Heaviside, a self-taught
 former telegraph operator, kept all four line constants: series resistance

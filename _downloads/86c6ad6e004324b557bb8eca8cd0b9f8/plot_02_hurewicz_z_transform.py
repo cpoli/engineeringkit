@@ -1,6 +1,6 @@
 r"""
-Hurewicz's z-transform (1947)
-=============================
+Hurewicz's z-transform
+======================
 
 Radar fire-control systems of the Second World War sampled their targets,
 and the MIT Radiation Laboratory needed a theory of feedback loops that

@@ -1,6 +1,6 @@
 r"""
-Coulomb's friction and the power screw (1785)
-=============================================
+Coulomb's friction and the power screw
+======================================
 
 Charles-Augustin de Coulomb's prize memoir *Théorie des machines simples*
 (1781, published 1785) measured sliding friction and found it proportional

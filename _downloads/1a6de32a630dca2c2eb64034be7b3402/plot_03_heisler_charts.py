@@ -1,6 +1,6 @@
 r"""
-Heisler's transient conduction charts (1947)
-============================================
+Heisler's transient conduction charts
+=====================================
 
 Separation of variables gives the cooling of a plane wall as a Fourier
 series whose eigenvalues solve :math:`\zeta\tan\zeta = Bi`. Before

@@ -1,6 +1,6 @@
 r"""
-Moody's diagram (1944)
-======================
+Moody's diagram
+===============
 
 Lewis Moody, a Princeton professor of hydraulics, plotted Colebrook's
 equation for the roughness of commercial pipes in 1944, together with the

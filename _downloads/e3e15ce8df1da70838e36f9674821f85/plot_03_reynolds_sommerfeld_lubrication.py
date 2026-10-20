@@ -1,6 +1,6 @@
 r"""
-Reynolds and Sommerfeld: hydrodynamic lubrication (1886-1904)
-=============================================================
+Reynolds and Sommerfeld: hydrodynamic lubrication
+=================================================
 
 Beauchamp Tower (1883) drilled an oil hole in the cap of a test bearing and
 found the oil pushing the plug out: the film carried the load on a pressure

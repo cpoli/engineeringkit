@@ -18,8 +18,8 @@
 .. _sphx_glr_api_gallery_reliability_lifetimes_plot_02_poisson_failures.py:
 
 
-Poisson's law of rare failures (1837)
-=====================================
+Poisson's law of rare failures
+==============================
 
 Poisson (1837) derived the distribution of the number of rare events among
 many trials, :math:`P(k) = (\lambda T)^k e^{-\lambda T}/k!`
@@ -133,7 +133,7 @@ probability under 1%.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.070 seconds)
+   **Total running time of the script:** (0 minutes 0.244 seconds)
 
 
 .. _sphx_glr_download_api_gallery_reliability_lifetimes_plot_02_poisson_failures.py:

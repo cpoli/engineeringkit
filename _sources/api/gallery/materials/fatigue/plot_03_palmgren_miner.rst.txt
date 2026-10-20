@@ -18,8 +18,8 @@
 .. _sphx_glr_api_gallery_materials_fatigue_plot_03_palmgren_miner.py:
 
 
-Palmgren and Miner's cumulative damage (1945)
-=============================================
+Palmgren and Miner's cumulative damage
+======================================
 
 Real loads vary in amplitude. Arvid Palmgren (1924), estimating the lives of
 ball bearings, assumed that each cycle at amplitude :math:`\sigma_i` uses up
@@ -136,7 +136,7 @@ although tests show high-low is usually worse.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.026 seconds)
+   **Total running time of the script:** (0 minutes 0.099 seconds)
 
 
 .. _sphx_glr_download_api_gallery_materials_fatigue_plot_03_palmgren_miner.py:

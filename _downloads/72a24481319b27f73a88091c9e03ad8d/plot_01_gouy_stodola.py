@@ -1,6 +1,6 @@
 r"""
-Gouy and Stodola: lost work (1889-1905)
-=======================================
+Gouy and Stodola: lost work
+===========================
 
 Georges Gouy (1889) asked how much work a system can deliver when the only
 other body available is the environment at :math:`T_0`. He showed that every

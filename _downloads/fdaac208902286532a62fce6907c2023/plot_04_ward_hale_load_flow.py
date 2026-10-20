@@ -1,6 +1,6 @@
 r"""
-Ward and Hale's digital load flow (1956)
-========================================
+Ward and Hale's digital load flow
+=================================
 
 Until the 1950s, utilities computed the flow of power in their networks on
 AC network analysers, scale models of the grid built from resistors,

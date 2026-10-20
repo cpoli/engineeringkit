@@ -1,6 +1,6 @@
 r"""
-Steinmetz's phasors and complex impedance (1893)
-================================================
+Steinmetz's phasors and complex impedance
+=========================================
 
 AC circuits obey linear differential equations, and before 1893 engineers
 solved them with trigonometry and graphical constructions. At the

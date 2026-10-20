@@ -1,6 +1,6 @@
 r"""
-Kalman's controllability and observability (1960)
-=================================================
+Kalman's controllability and observability
+==========================================
 
 A transfer function describes only the part of a system that the input
 reaches and the output sees. Rudolf Kalman (1960) split the state into

@@ -18,8 +18,8 @@
 .. _sphx_glr_api_gallery_control_systems_frequency_plot_01_nyquist_stability_criterion.py:
 
 
-Nyquist's stability criterion (1932)
-====================================
+Nyquist's stability criterion
+=============================
 
 Long-distance telephone repeaters with feedback sometimes "sang". Harry
 Nyquist (1932) showed how to predict this from the measured open-loop
@@ -129,7 +129,7 @@ counter-clockwise encirclement (:math:`N = -1`) gives :math:`Z = 0`.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.061 seconds)
+   **Total running time of the script:** (0 minutes 0.219 seconds)
 
 
 .. _sphx_glr_download_api_gallery_control_systems_frequency_plot_01_nyquist_stability_criterion.py:

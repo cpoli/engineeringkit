@@ -18,8 +18,8 @@
 .. _sphx_glr_api_gallery_structural_engineering_beams_plot_03_clapeyron_three_moment.py:
 
 
-Clapeyron's three-moment equation (1857)
-========================================
+Clapeyron's three-moment equation
+=================================
 
 A beam continuous over several supports is statically indeterminate: the
 support moments cannot be found from equilibrium alone. Émile Clapeyron
@@ -169,7 +169,7 @@ the interior supports must also come out zero.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.040 seconds)
+   **Total running time of the script:** (0 minutes 0.155 seconds)
 
 
 .. _sphx_glr_download_api_gallery_structural_engineering_beams_plot_03_clapeyron_three_moment.py:

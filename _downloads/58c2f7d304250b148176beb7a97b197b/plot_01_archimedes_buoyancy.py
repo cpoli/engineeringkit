@@ -1,6 +1,6 @@
 r"""
-Archimedes's principle (c. 250 BC)
-==================================
+Archimedes's principle
+======================
 
 In *On Floating Bodies* (c. 250 BC) Archimedes proved that a body immersed
 in a fluid is pushed up by the weight of the fluid it displaces,

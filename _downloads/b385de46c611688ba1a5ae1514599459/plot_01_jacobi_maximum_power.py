@@ -1,6 +1,6 @@
 r"""
-Jacobi's maximum power theorem (c. 1840)
-========================================
+Jacobi's maximum power theorem
+==============================
 
 Around 1840 Moritz von Jacobi, building battery-powered electric motors in
 St Petersburg (one drove a boat on the Neva), asked what load draws the

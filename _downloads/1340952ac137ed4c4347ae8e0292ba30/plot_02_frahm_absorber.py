@@ -1,6 +1,6 @@
 r"""
-Frahm's vibration absorber and Den Hartog's tuning (1909)
-=========================================================
+Frahm's vibration absorber and Den Hartog's tuning
+==================================================
 
 Hermann Frahm (patent filed 1909) stopped ships' hulls and machines from
 vibrating at their running speed by attaching a small spring-mass system

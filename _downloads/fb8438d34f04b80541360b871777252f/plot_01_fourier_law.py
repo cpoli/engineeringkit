@@ -1,6 +1,6 @@
 r"""
-Fourier's *Théorie analytique de la chaleur* (1822)
-===================================================
+Fourier's *Théorie analytique de la chaleur*
+============================================
 
 Joseph Fourier's 1822 treatise made the heat flux proportional to the
 temperature gradient, :math:`q = -k\,\mathrm{d}T/\mathrm{d}x`, derived the

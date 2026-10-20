@@ -1,6 +1,6 @@
 r"""
-Goertzel's algorithm (1958)
-===========================
+Goertzel's algorithm
+====================
 
 Gerald Goertzel (1958) evaluated a single term of a Fourier series with a
 second-order recursion that needs one real multiplication per sample

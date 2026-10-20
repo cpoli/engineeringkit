@@ -1,6 +1,6 @@
 r"""
-Basquin's S-N law (1910)
-========================
+Basquin's S-N law
+=================
 
 August Wöhler's railway-axle tests of the 1860s showed that steel breaks
 under repeated stresses far below its static strength, and that below an

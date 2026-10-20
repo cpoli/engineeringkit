@@ -1,6 +1,6 @@
 r"""
-Poisson's ratio (1829)
-======================
+Poisson's ratio
+===============
 
 A bar stretched along its axis gets thinner. Siméon Denis Poisson's 1829
 molecular theory of elasticity predicted that the lateral strain is always

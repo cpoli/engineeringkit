@@ -1,6 +1,6 @@
 r"""
-Hasofer and Lind's reliability index (1974)
-===========================================
+Hasofer and Lind's reliability index
+====================================
 
 Cornell's 1969 index, mean over standard deviation of the safety margin
 :math:`g`, has a flaw: it changes when the same failure condition is

@@ -1,6 +1,6 @@
 r"""
-Kalman's linear-quadratic regulator (1960)
-==========================================
+Kalman's linear-quadratic regulator
+===================================
 
 Rudolf Kalman (1960) asked for the state feedback :math:`u = -Kx` that
 minimises :math:`J = \int_0^\infty (x^\mathsf{T}Qx + u^\mathsf{T}Ru)\,dt`.

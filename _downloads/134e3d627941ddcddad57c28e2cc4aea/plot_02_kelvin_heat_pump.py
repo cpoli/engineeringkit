@@ -1,6 +1,6 @@
 r"""
-Kelvin's heat pump (1852)
-=========================
+Kelvin's heat pump
+==================
 
 In 1852 William Thomson, later Lord Kelvin, pointed out that the second law
 cuts both ways. A refrigerator run backwards would warm a building with

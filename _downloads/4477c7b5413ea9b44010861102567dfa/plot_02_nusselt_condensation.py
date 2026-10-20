@@ -1,6 +1,6 @@
 r"""
-Nusselt's film condensation (1916)
-==================================
+Nusselt's film condensation
+===========================
 
 Steam condensing on the cold tubes of a power-station condenser forms a
 liquid film that drains under gravity, and the film itself is the main

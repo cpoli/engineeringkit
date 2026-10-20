@@ -1,6 +1,6 @@
 r"""
-Poisson's law of rare failures (1837)
-=====================================
+Poisson's law of rare failures
+==============================
 
 Poisson (1837) derived the distribution of the number of rare events among
 many trials, :math:`P(k) = (\lambda T)^k e^{-\lambda T}/k!`

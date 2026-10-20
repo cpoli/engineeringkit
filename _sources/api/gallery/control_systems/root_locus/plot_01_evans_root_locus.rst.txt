@@ -18,8 +18,8 @@
 .. _sphx_glr_api_gallery_control_systems_root_locus_plot_01_evans_root_locus.py:
 
 
-Evans's root locus (1948)
-=========================
+Evans's root locus
+==================
 
 Walter Evans at North American Aviation (1948) showed how to sketch the
 paths of the closed-loop poles as a single gain :math:`K` rises from zero,
@@ -89,7 +89,7 @@ Break-away point and imaginary-axis crossing
 
  .. code-block:: none
 
-    break-away at s = -0.8453 for K = 3.0792: roots [-0.845-0.j -0.845+0.j]
+    break-away at s = -0.8453 for K = 3.0792: roots [-0.845+0.j -0.845+0.j]
     K = 48 roots: [-6.+0.j        0.+2.828427j  0.-2.828427j]
 
 
@@ -98,7 +98,7 @@ Break-away point and imaginary-axis crossing
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.037 seconds)
+   **Total running time of the script:** (0 minutes 0.151 seconds)
 
 
 .. _sphx_glr_download_api_gallery_control_systems_root_locus_plot_01_evans_root_locus.py:

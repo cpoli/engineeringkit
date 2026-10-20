@@ -1,6 +1,6 @@
 r"""
-Clausius's inequality and entropy (1854-1865)
-=============================================
+Clausius's inequality and entropy
+=================================
 
 Rudolf Clausius (1854) showed that around any cycle the heat received,
 each part divided by the temperature at which it crosses the boundary,

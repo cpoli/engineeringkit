@@ -1,6 +1,6 @@
 r"""
-Curzon and Ahlborn: efficiency at maximum power (1975)
-======================================================
+Curzon and Ahlborn: efficiency at maximum power
+===============================================
 
 A Carnot engine reaches its efficiency only by running infinitely slowly,
 so it delivers no power. Frank Curzon and Boye Ahlborn (1975), after Novikov

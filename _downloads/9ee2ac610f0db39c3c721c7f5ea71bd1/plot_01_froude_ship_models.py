@@ -1,6 +1,6 @@
 r"""
-Froude's ship models (1868)
-===========================
+Froude's ship models
+====================
 
 In 1868 William Froude proposed to the Admiralty that a ship's resistance
 could be predicted from towing a small model, if the model ran at the

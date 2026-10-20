@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.175** total execution time for 3 files **from api/gallery/heat_transfer/convection**:
+**00:00.680** total execution time for 3 files **from api/gallery/heat_transfer/convection**:
 
 .. container::
 
@@ -33,11 +33,11 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_heat_transfer_convection_plot_03_churchill_chu.py` (``plot_03_churchill_chu.py``)
-     - 00:00.067
+     - 00:00.242
      - 0.0
    * - :ref:`sphx_glr_api_gallery_heat_transfer_convection_plot_01_newton_cooling.py` (``plot_01_newton_cooling.py``)
-     - 00:00.055
+     - 00:00.229
      - 0.0
    * - :ref:`sphx_glr_api_gallery_heat_transfer_convection_plot_02_dittus_boelter.py` (``plot_02_dittus_boelter.py``)
-     - 00:00.052
+     - 00:00.210
      - 0.0

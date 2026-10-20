@@ -1,6 +1,6 @@
 r"""
-IAPWS-IF97: the properties of water and steam (1997)
-====================================================
+IAPWS-IF97: the properties of water and steam
+=============================================
 
 Steam tables have been the working data of power engineering since Callendar
 and Mollier's tables of the early 1900s. In 1997 the International

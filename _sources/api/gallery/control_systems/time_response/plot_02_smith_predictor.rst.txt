@@ -18,8 +18,8 @@
 .. _sphx_glr_api_gallery_control_systems_time_response_plot_02_smith_predictor.py:
 
 
-Smith's predictor for dead time (1957)
-======================================
+Smith's predictor for dead time
+===============================
 
 A chemical plant often measures its output only after a transport delay
 :math:`\theta`: the time for a fluid to reach the sensor. The delay adds
@@ -214,7 +214,7 @@ cancel against zeros.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.063 seconds)
+   **Total running time of the script:** (0 minutes 0.254 seconds)
 
 
 .. _sphx_glr_download_api_gallery_control_systems_time_response_plot_02_smith_predictor.py:

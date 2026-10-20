@@ -18,8 +18,8 @@
 .. _sphx_glr_api_gallery_aerodynamics_boundary_layer_plot_02_prandtl_blasius_boundary_layer.py:
 
 
-Prandtl's boundary layer and the Blasius solution (1904-1908)
-=============================================================
+Prandtl's boundary layer and the Blasius solution
+=================================================
 
 At the 1904 Heidelberg congress Ludwig Prandtl proposed that viscosity
 matters only in a thin *boundary layer* next to a surface. His student Heinrich
@@ -130,7 +130,7 @@ Growth of the layer on a 1 m plate
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.080 seconds)
+   **Total running time of the script:** (0 minutes 0.315 seconds)
 
 
 .. _sphx_glr_download_api_gallery_aerodynamics_boundary_layer_plot_02_prandtl_blasius_boundary_layer.py:

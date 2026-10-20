@@ -1,6 +1,6 @@
 r"""
-The Breguet range equation (c. 1920)
-====================================
+The Breguet range equation
+==========================
 
 Louis Breguet's range formula (1923) follows from three facts: thrust equals
 drag, drag equals weight divided by :math:`L/D`, and fuel flow is the

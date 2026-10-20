@@ -1,6 +1,6 @@
 r"""
-Van der Waals's equation of state (1873)
-========================================
+Van der Waals's equation of state
+=================================
 
 In 1869 Thomas Andrews showed that carbon dioxide above 31 °C cannot be
 liquefied by any pressure, and below it liquefies at a sharp pressure. In his

@@ -1,6 +1,6 @@
 r"""
-Rankine-Hugoniot jump conditions across a normal shock (1870-1889)
-==================================================================
+Rankine-Hugoniot jump conditions across a normal shock
+======================================================
 
 W. J. Macquorn Rankine (1870) and Pierre-Henri Hugoniot (1887-1889) derived
 the jump in state across a shock from conservation of mass, momentum and

@@ -1,6 +1,6 @@
 r"""
-Kirchhoff's law of thermal radiation (1859)
-===========================================
+Kirchhoff's law of thermal radiation
+====================================
 
 In 1859 Gustav Kirchhoff, explaining the dark lines that Fraunhofer had
 seen in the solar spectrum, proved from the second law that at every

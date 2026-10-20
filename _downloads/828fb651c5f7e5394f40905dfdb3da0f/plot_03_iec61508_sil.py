@@ -1,6 +1,6 @@
 r"""
-IEC 61508 and safety integrity levels (1998)
-============================================
+IEC 61508 and safety integrity levels
+=====================================
 
 Programmable electronics took over process trips, railway signalling and
 machine guards in the 1980s, and nobody could say how safe a software-based

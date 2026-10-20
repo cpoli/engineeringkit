@@ -1,6 +1,6 @@
 r"""
-Clapeyron's three-moment equation (1857)
-========================================
+Clapeyron's three-moment equation
+=================================
 
 A beam continuous over several supports is statically indeterminate: the
 support moments cannot be found from equilibrium alone. Émile Clapeyron

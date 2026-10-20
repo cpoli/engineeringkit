@@ -1,6 +1,6 @@
 r"""
-Reynolds's dye experiment (1883)
-================================
+Reynolds's dye experiment
+=========================
 
 In 1883 Osborne Reynolds ran water from a tank through glass tubes and fed
 a thin streak of dye into the entrance. At low speed the streak stayed a

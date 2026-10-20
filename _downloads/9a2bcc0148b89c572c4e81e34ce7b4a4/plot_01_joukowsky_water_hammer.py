@@ -1,6 +1,6 @@
 r"""
-Joukowsky's water hammer (1898)
-===============================
+Joukowsky's water hammer
+========================
 
 Burst mains in Moscow's new water system led Nikolai Joukowsky to a series
 of experiments in 1897, with pipes up to 760 m long. He reported in 1898

@@ -18,8 +18,8 @@
 .. _sphx_glr_api_gallery_reliability_structural_plot_01_freudenthal_interference.py:
 
 
-Freudenthal's stress-strength interference (1947)
-=================================================
+Freudenthal's stress-strength interference
+==========================================
 
 Alfred Freudenthal (1947) argued that a safety factor, the ratio of mean
 strength to mean load, says nothing about safety on its own: two designs
@@ -121,7 +121,7 @@ The probability of failure differs by orders of magnitude.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.069 seconds)
+   **Total running time of the script:** (0 minutes 0.264 seconds)
 
 
 .. _sphx_glr_download_api_gallery_reliability_structural_plot_01_freudenthal_interference.py:

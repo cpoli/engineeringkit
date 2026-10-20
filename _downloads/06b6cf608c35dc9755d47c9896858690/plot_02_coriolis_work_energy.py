@@ -1,6 +1,6 @@
 r"""
-Coriolis's work and kinetic energy (1829)
-=========================================
+Coriolis's work and kinetic energy
+==================================
 
 In *Du calcul de l'effet des machines* (1829) Gaspard-Gustave Coriolis
 named the product of force and distance *travail*, work, and defined the

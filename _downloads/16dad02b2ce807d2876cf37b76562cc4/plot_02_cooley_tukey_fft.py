@@ -1,6 +1,6 @@
 r"""
-Cooley and Tukey's fast Fourier transform (1965)
-================================================
+Cooley and Tukey's fast Fourier transform
+=========================================
 
 A direct DFT of :math:`N` samples needs :math:`N^2` complex
 multiplications. James Cooley and John Tukey (1965) split it into the DFTs

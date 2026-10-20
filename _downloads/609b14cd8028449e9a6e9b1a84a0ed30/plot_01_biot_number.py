@@ -1,6 +1,6 @@
 r"""
-Biot's heated bar and the Biot number (1804)
-============================================
+Biot's heated bar and the Biot number
+=====================================
 
 In 1804 Jean-Baptiste Biot heated one end of iron bars and read thermometers
 set along them. He saw that the temperature profile is set by a contest

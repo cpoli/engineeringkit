@@ -1,6 +1,6 @@
 r"""
-Freudenthal's stress-strength interference (1947)
-=================================================
+Freudenthal's stress-strength interference
+==========================================
 
 Alfred Freudenthal (1947) argued that a safety factor, the ratio of mean
 strength to mean load, says nothing about safety on its own: two designs

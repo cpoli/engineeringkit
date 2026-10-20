@@ -1,6 +1,6 @@
 r"""
-Minorsky's PID controller for ship steering (1922)
-==================================================
+Minorsky's PID controller for ship steering
+===========================================
 
 Nicolas Minorsky (1922) watched helmsmen on the battleship *New Mexico* and
 noticed they reacted to the heading error, to how fast it was changing, and

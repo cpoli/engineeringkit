@@ -1,6 +1,6 @@
 r"""
-Ohm's law (1827)
-================
+Ohm's law
+=========
 
 In 1826 Georg Simon Ohm drove current from a thermocouple, a steady source,
 through brass wires of different lengths :math:`x` and read the current on

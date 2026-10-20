@@ -1,6 +1,6 @@
 r"""
-Hall and Petch: grain-size strengthening (1951-1953)
-====================================================
+Hall and Petch: grain-size strengthening
+========================================
 
 Eric Hall (1951) measured the lower yield stress of mild steels with
 different grain sizes, and Norman Petch (1953) the cleavage strength of

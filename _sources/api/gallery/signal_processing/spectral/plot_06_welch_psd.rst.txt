@@ -18,8 +18,8 @@
 .. _sphx_glr_api_gallery_signal_processing_spectral_plot_06_welch_psd.py:
 
 
-Welch's averaged periodogram (1967)
-===================================
+Welch's averaged periodogram
+============================
 
 The periodogram of noise does not settle down as the record grows. At
 every frequency its standard deviation equals its mean, whatever the
@@ -152,7 +152,7 @@ A tone in noise
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.092 seconds)
+   **Total running time of the script:** (0 minutes 0.280 seconds)
 
 
 .. _sphx_glr_download_api_gallery_signal_processing_spectral_plot_06_welch_psd.py:

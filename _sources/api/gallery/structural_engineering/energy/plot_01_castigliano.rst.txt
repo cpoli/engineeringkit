@@ -18,8 +18,8 @@
 .. _sphx_glr_api_gallery_structural_engineering_energy_plot_01_castigliano.py:
 
 
-Castigliano's theorem (1879)
-============================
+Castigliano's theorem
+=====================
 
 In his 1873 engineering thesis at Turin, extended into a book in 1879,
 Alberto Castigliano showed that the partial derivative of the strain
@@ -186,7 +186,7 @@ A dummy load at midspan
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.052 seconds)
+   **Total running time of the script:** (0 minutes 0.204 seconds)
 
 
 .. _sphx_glr_download_api_gallery_structural_engineering_energy_plot_01_castigliano.py:

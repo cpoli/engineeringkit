@@ -1,6 +1,6 @@
 r"""
-Bode's gain and phase margins (1940)
-====================================
+Bode's gain and phase margins
+=============================
 
 Hendrik Bode (1940, 1945) turned Nyquist's criterion into design numbers
 read off a logarithmic plot of gain and phase

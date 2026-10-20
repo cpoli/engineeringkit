@@ -1,6 +1,6 @@
 r"""
-Coulomb's torsion (1784)
-========================
+Coulomb's torsion
+=================
 
 Charles-Augustin Coulomb (1784) hung a weight on a thin wire, twisted it and
 timed the oscillations. The restoring torque was proportional to the angle

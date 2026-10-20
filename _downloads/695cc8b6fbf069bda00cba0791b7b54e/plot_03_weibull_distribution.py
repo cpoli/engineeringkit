@@ -1,6 +1,6 @@
 r"""
-Weibull's distribution and the Weibull plot (1951)
-==================================================
+Weibull's distribution and the Weibull plot
+===========================================
 
 Waloddi Weibull (1951) proposed :math:`R(t) = e^{-(t/\eta)^\beta}`
 (:func:`~engineeringkit.reliability.weibull_reliability`) for anything from

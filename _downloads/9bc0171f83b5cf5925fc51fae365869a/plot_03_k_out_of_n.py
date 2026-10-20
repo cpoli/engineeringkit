@@ -1,6 +1,6 @@
 r"""
-Birnbaum, Esary and Saunders's k-out-of-n systems (1961)
-========================================================
+Birnbaum, Esary and Saunders's k-out-of-n systems
+=================================================
 
 Birnbaum, Esary and Saunders (1961) put system reliability on a general
 footing: a *structure function* says which combinations of working

@@ -1,6 +1,6 @@
 r"""
-Duane's reliability growth (1964)
-=================================
+Duane's reliability growth
+==========================
 
 James Duane, at General Electric's Motor and Generator Department, plotted
 the failure records of five development programmes, from hydraulic

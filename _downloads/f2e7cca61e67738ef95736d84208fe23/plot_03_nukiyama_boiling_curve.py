@@ -1,6 +1,6 @@
 r"""
-Nukiyama's boiling curve and Zuber's critical heat flux (1934)
-==============================================================
+Nukiyama's boiling curve and Zuber's critical heat flux
+=======================================================
 
 In 1934 Shiro Nukiyama boiled water at atmospheric pressure on electrically
 heated wires. Raising the power, he found that the heat flux reached a

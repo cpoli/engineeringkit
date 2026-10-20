@@ -1,6 +1,6 @@
 r"""
-Antoine's vapour-pressure equation (1888)
-=========================================
+Antoine's vapour-pressure equation
+==================================
 
 The integrated Clausius-Clapeyron relation makes :math:`\log p` linear in
 :math:`1/T`. Measured vapour pressures bend away from that line because the

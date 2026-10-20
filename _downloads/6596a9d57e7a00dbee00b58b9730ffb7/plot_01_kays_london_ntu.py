@@ -1,6 +1,6 @@
 r"""
-Kays and London: the effectiveness-NTU method (1955)
-====================================================
+Kays and London: the effectiveness-NTU method
+=============================================
 
 The log-mean temperature difference sizes an exchanger when all four end
 temperatures are known (:func:`~engineeringkit.heat_transfer.log_mean_temperature_difference`,

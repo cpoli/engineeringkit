@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.544** total execution time for 7 files **from api/gallery/fluid_engineering/pipe_flow**:
+**00:02.134** total execution time for 7 files **from api/gallery/fluid_engineering/pipe_flow**:
 
 .. container::
 
@@ -33,23 +33,23 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_fluid_engineering_pipe_flow_plot_07_swamee_jain.py` (``plot_07_swamee_jain.py``)
-     - 00:00.112
-     - 0.0
-   * - :ref:`sphx_glr_api_gallery_fluid_engineering_pipe_flow_plot_06_moody_diagram.py` (``plot_06_moody_diagram.py``)
-     - 00:00.096
+     - 00:00.443
      - 0.0
    * - :ref:`sphx_glr_api_gallery_fluid_engineering_pipe_flow_plot_03_reynolds_transition.py` (``plot_03_reynolds_transition.py``)
-     - 00:00.092
+     - 00:00.370
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_fluid_engineering_pipe_flow_plot_06_moody_diagram.py` (``plot_06_moody_diagram.py``)
+     - 00:00.367
      - 0.0
    * - :ref:`sphx_glr_api_gallery_fluid_engineering_pipe_flow_plot_05_colebrook_equation.py` (``plot_05_colebrook_equation.py``)
-     - 00:00.080
+     - 00:00.318
      - 0.0
    * - :ref:`sphx_glr_api_gallery_fluid_engineering_pipe_flow_plot_04_nikuradse_roughness.py` (``plot_04_nikuradse_roughness.py``)
-     - 00:00.071
+     - 00:00.270
      - 0.0
    * - :ref:`sphx_glr_api_gallery_fluid_engineering_pipe_flow_plot_01_hagen_poiseuille.py` (``plot_01_hagen_poiseuille.py``)
-     - 00:00.062
+     - 00:00.243
      - 0.0
    * - :ref:`sphx_glr_api_gallery_fluid_engineering_pipe_flow_plot_02_darcy_weisbach.py` (``plot_02_darcy_weisbach.py``)
-     - 00:00.032
+     - 00:00.123
      - 0.0

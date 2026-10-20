@@ -1,6 +1,6 @@
 r"""
-Bernoulli's dynamic pressure and the pitot-static airspeed (1738)
-=================================================================
+Bernoulli's dynamic pressure and the pitot-static airspeed
+==========================================================
 
 Daniel Bernoulli's *Hydrodynamica* (1738) traded pressure for speed along a
 streamline: :math:`p + \tfrac12\rho V^2` is constant. A pitot tube brings the

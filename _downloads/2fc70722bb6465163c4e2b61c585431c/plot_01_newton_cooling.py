@@ -1,6 +1,6 @@
 r"""
-Newton's law of cooling (1701)
-==============================
+Newton's law of cooling
+=======================
 
 In 1701 Newton published, anonymously, a temperature scale reaching far
 beyond the melting point of tin. He heated a block of iron red hot, set it

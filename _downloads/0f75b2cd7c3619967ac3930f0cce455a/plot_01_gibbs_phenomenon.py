@@ -1,6 +1,6 @@
 r"""
-Gibbs's phenomenon (1899)
-=========================
+Gibbs's phenomenon
+==================
 
 Albert Michelson's harmonic analyser (1898) summed 80 Fourier terms
 mechanically, and its curves for a square wave overshot at every jump.

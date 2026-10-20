@@ -1,6 +1,6 @@
 r"""
-Reynolds' dimensionless number and wind-tunnel similarity (1883)
-================================================================
+Reynolds' dimensionless number and wind-tunnel similarity
+=========================================================
 
 Osborne Reynolds' dye experiments (1883) showed that pipe flow turns
 turbulent when :math:`\rho V D/\mu` exceeds a critical value, whatever the

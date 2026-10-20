@@ -18,8 +18,8 @@
 .. _sphx_glr_api_gallery_signal_processing_spectral_plot_05_goertzel.py:
 
 
-Goertzel's algorithm (1958)
-===========================
+Goertzel's algorithm
+====================
 
 Gerald Goertzel (1958) evaluated a single term of a Fourier series with a
 second-order recursion that needs one real multiplication per sample
@@ -165,7 +165,7 @@ to compute every bin when only eight are needed.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.029 seconds)
+   **Total running time of the script:** (0 minutes 0.096 seconds)
 
 
 .. _sphx_glr_download_api_gallery_signal_processing_spectral_plot_05_goertzel.py:

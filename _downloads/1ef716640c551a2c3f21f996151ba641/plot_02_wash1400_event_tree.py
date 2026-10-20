@@ -1,6 +1,6 @@
 r"""
-WASH-1400: event trees (1975)
-=============================
+WASH-1400: event trees
+======================
 
 The Reactor Safety Study (WASH-1400, 1975), led by Norman Rasmussen, was
 the first attempt to put a number on the risk of a nuclear power plant. Its

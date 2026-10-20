@@ -1,6 +1,6 @@
 r"""
-The NACA four-digit airfoil family (1933)
-=========================================
+The NACA four-digit airfoil family
+==================================
 
 In NACA Report 460 (1933) Eastman Jacobs and colleagues tested 78 related
 sections in the variable-density tunnel. Each is defined by a single

@@ -1,6 +1,6 @@
 r"""
-Mohr's circle (1882)
-====================
+Mohr's circle
+=============
 
 Otto Mohr (1882) showed that the normal and shear stresses on every plane
 through a point, plotted against each other, fall on a single circle. Its

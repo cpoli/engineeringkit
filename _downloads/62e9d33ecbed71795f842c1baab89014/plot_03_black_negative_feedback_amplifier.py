@@ -1,6 +1,6 @@
 r"""
-Black's negative-feedback amplifier (1927)
-==========================================
+Black's negative-feedback amplifier
+===================================
 
 Harold Black (1927), commuting on the Lackawanna ferry, sketched an
 amplifier that fed a fraction :math:`\beta` of its output back *out of

@@ -1,6 +1,6 @@
 r"""
-Johnson-Nyquist thermal noise (1928)
-====================================
+Johnson-Nyquist thermal noise
+=============================
 
 In 1926-1928 John B. Johnson at Bell Labs measured a random voltage across
 every resistor, proportional to its resistance and absolute temperature and

@@ -34,11 +34,12 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../_static/styles/theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
-<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+  <link href="../../../_static/styles/theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/plot_directive.css?v=7f9a90b1" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx_autodoc_typehints.css?v=057ac668" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Vibur" />
     <link rel="stylesheet" type="text/css" href="../../../_static/jupyterlite_sphinx.css?v=f676e775" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css?v=c83e6b79" />
@@ -49,10 +50,10 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/engineeringkit.css?v=62935cec" />
   
   <!-- So that users can add custom icons -->
-  <script defer src="../../../_static/scripts/fontawesome.js?digest=64cc4de3f052d77215f0"></script>
+  <script defer src="../../../_static/scripts/fontawesome.js?digest=18bd87630a240e9c25be"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0" />
-<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0" />
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be" />
 
     <script src="../../../_static/documentation_options.js?v=38b66d78"></script>
     <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
@@ -66,8 +67,9 @@
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Dynamics" href="dynamics/index.html" />
-    <link rel="prev" title="Turner, Clough, Martin and Topp: the direct stiffness method (1956)" href="../structural_engineering/trusses/plot_03_direct_stiffness.html" />
+    <link rel="prev" title="Turner, Clough, Martin and Topp: the direct stiffness method" href="../structural_engineering/trusses/plot_03_direct_stiffness.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="color-scheme" content="light dark"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
   
@@ -577,73 +579,73 @@ run directly with <code class="docutils literal notranslate"><span class="pre">p
 <h2>Dynamics<a class="headerlink" href="#dynamics" title="Link to this heading">#</a></h2>
 <p>Moments of inertia, work, kinetic energy and power.</p>
 <div id='sg-tag-list' class='sphx-glr-tag-list'></div><div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Christiaan Huygens (1673) asked how long a simple pendulum must be to swing in step with a rigid body pivoted at a point. His answer, the length L = I_O/(m d) to the centre of oscillation, needs the body&#x27;s moment of inertia about the pivot, which Jakob Steiner later wrote in general as I_O = I_G + m d^2 (~engineeringkit.mechanical_engineering.parallel_axis). The example checks the theorem by summing r^2\,dm over a disk, recovers Huygens&#x27;s rule that pivot and centre of oscillation can be swapped without changing the period, and finds the correction he applied to a clock&#x27;s spherical bob."><img alt="" src="../../../_images/sphx_glr_plot_01_huygens_moment_of_inertia_thumb.png" />
-<p><a class="reference internal" href="dynamics/plot_01_huygens_moment_of_inertia.html"><span class="doc">Huygens’s compound pendulum and the parallel-axis theorem (1673)</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Huygens's compound pendulum and the parallel-axis theorem (1673)</div>
+<p><a class="reference internal" href="dynamics/plot_01_huygens_moment_of_inertia.html"><span class="doc">Huygens’s compound pendulum and the parallel-axis theorem</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Huygens's compound pendulum and the parallel-axis theorem</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="In Du calcul de l&#x27;effet des machines (1829) Gaspard-Gustave Coriolis named the product of force and distance travail, work, and defined the kinetic energy as \tfrac12 m v^2 so that the work done on a body equals its gain in kinetic energy, with no stray factor of two (~engineeringkit.mechanical_engineering.work_constant_force, kinetic_energy). The same accounting runs a punch press: a flywheel stores \tfrac12 I\omega^2 (~engineeringkit.mechanical_engineering.rotational_energy) and gives up flywheel_energy as it slows. The example checks the work-energy theorem against integrated equations of motion."><img alt="" src="../../../_images/sphx_glr_plot_02_coriolis_work_energy_thumb.png" />
-<p><a class="reference internal" href="dynamics/plot_02_coriolis_work_energy.html"><span class="doc">Coriolis’s work and kinetic energy (1829)</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Coriolis's work and kinetic energy (1829)</div>
+<p><a class="reference internal" href="dynamics/plot_02_coriolis_work_energy.html"><span class="doc">Coriolis’s work and kinetic energy</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Coriolis's work and kinetic energy</div>
 </div></div></section>
 <section id="machine-elements">
 <h2>Machine elements<a class="headerlink" href="#machine-elements" title="Link to this heading">#</a></h2>
 <p>Power screws, journal bearings and rolling bearings.</p>
 <div id='sg-tag-list' class='sphx-glr-tag-list'></div><div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Charles-Augustin de Coulomb&#x27;s prize memoir Théorie des machines simples (1781, published 1785) measured sliding friction and found it proportional to the normal load and nearly independent of contact area and speed: F = \mu N. A screw thread is an inclined plane wrapped round a cylinder. Unwrapping one turn gives a slope of lead angle \tan\lambda = L/(\pi d_m), and Coulomb&#x27;s law on that slope gives the torque to raise a load, T = \tfrac12 W d_m\tan(\phi + \lambda) with \tan\phi = \mu (~engineeringkit.mechanical_engineering.screw_torque_raise). The example solves the force balance on the unwrapped thread directly and shows why a self-locking screw is always less than 50% efficient."><img alt="" src="../../../_images/sphx_glr_plot_01_coulomb_power_screw_thumb.png" />
-<p><a class="reference internal" href="machine_elements/plot_01_coulomb_power_screw.html"><span class="doc">Coulomb’s friction and the power screw (1785)</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Coulomb's friction and the power screw (1785)</div>
+<p><a class="reference internal" href="machine_elements/plot_01_coulomb_power_screw.html"><span class="doc">Coulomb’s friction and the power screw</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Coulomb's friction and the power screw</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="Railway axle bearings of the 1880s ran on oil, and their friction did not behave like Coulomb&#x27;s: it grew with speed and with the oil&#x27;s viscosity, and it fell as the load rose. Nikolai Petroff (1883) explained this by treating the oil film as a thin layer sheared between the journal and its sleeve. With the journal centred, the shear stress is \mu\omega r/c all round, so the friction torque is T = 2\pi\mu\omega r^3 L/c (~engineeringkit.mechanical_engineering.petroff_friction_torque) and the friction coefficient follows f = 2\pi^2 (\mu N/P)(r/c). The example checks Petroff&#x27;s thin-film torque against the exact flow between concentric cylinders."><img alt="" src="../../../_images/sphx_glr_plot_02_petroff_bearing_thumb.png" />
-<p><a class="reference internal" href="machine_elements/plot_02_petroff_bearing.html"><span class="doc">Petroff’s law of bearing friction (1883)</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Petroff's law of bearing friction (1883)</div>
+<p><a class="reference internal" href="machine_elements/plot_02_petroff_bearing.html"><span class="doc">Petroff’s law of bearing friction</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Petroff's law of bearing friction</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="Beauchamp Tower (1883) drilled an oil hole in the cap of a test bearing and found the oil pushing the plug out: the film carried the load on a pressure far above atmospheric. Osborne Reynolds (1886) explained it. A journal running off-centre drags oil into a converging wedge, and in a thin film the pressure obeys"><img alt="" src="../../../_images/sphx_glr_plot_03_reynolds_sommerfeld_lubrication_thumb.png" />
-<p><a class="reference internal" href="machine_elements/plot_03_reynolds_sommerfeld_lubrication.html"><span class="doc">Reynolds and Sommerfeld: hydrodynamic lubrication (1886-1904)</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Reynolds and Sommerfeld: hydrodynamic lubrication (1886-1904)</div>
+<p><a class="reference internal" href="machine_elements/plot_03_reynolds_sommerfeld_lubrication.html"><span class="doc">Reynolds and Sommerfeld: hydrodynamic lubrication</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Reynolds and Sommerfeld: hydrodynamic lubrication</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="Identical ball bearings run under identical loads fail at very different times, because fatigue cracks start at randomly placed weak points below the raceway. Gustaf Lundberg and Arvid Palmgren (1947) of SKF treated the lives as Weibull-distributed, with a slope of about 10/9 for ball bearings. They defined the rating life L_{10}, which 90% of bearings reach, and showed that it varies as (C/P)^p with the basic load rating C and the applied load P. The exponent is p = 3 for balls and 10/3 for rollers (~engineeringkit.mechanical_engineering.bearing_l10_life). The example draws a simulated batch of bearings and checks both statements."><img alt="" src="../../../_images/sphx_glr_plot_04_lundberg_palmgren_l10_thumb.png" />
-<p><a class="reference internal" href="machine_elements/plot_04_lundberg_palmgren_l10.html"><span class="doc">Lundberg and Palmgren’s rolling-bearing life (1947)</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Lundberg and Palmgren's rolling-bearing life (1947)</div>
+<p><a class="reference internal" href="machine_elements/plot_04_lundberg_palmgren_l10.html"><span class="doc">Lundberg and Palmgren’s rolling-bearing life</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Lundberg and Palmgren's rolling-bearing life</div>
 </div></div></section>
 <section id="mechanisms">
 <h2>Mechanisms<a class="headerlink" href="#mechanisms" title="Link to this heading">#</a></h2>
 <p>Slider-cranks, four-bar linkages and serial robot arms.</p>
 <div id='sg-tag-list' class='sphx-glr-tag-list'></div><div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Franz Reuleaux&#x27;s Theoretische Kinematik (1875) treated every machine as a kinematic chain of rigid links joined by pairs (turning, sliding, screw), with one link held fixed. Fixing different links of the same chain gives different machines, which he called inversions. Grounding the cylinder of the slider-crank chain gives the piston engine, grounding the crank gives the Whitworth quick-return, and grounding the rod gives the oscillating cylinder. For the engine, the piston position x = r\cos\theta + \sqrt{l^2 - r^2\sin^2\theta} (~engineeringkit.mechanical_engineering.slider_crank_displacement) is not harmonic. Its acceleration at top dead centre is r\omega^2(1 + r/l) but only r\omega^2(1 - r/l) at bottom dead centre, which is the source of an engine&#x27;s second-order shaking force."><img alt="" src="../../../_images/sphx_glr_plot_01_reuleaux_slider_crank_thumb.png" />
-<p><a class="reference internal" href="mechanisms/plot_01_reuleaux_slider_crank.html"><span class="doc">Reuleaux’s kinematics of machinery: the slider-crank (1875)</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Reuleaux's kinematics of machinery: the slider-crank (1875)</div>
+<p><a class="reference internal" href="mechanisms/plot_01_reuleaux_slider_crank.html"><span class="doc">Reuleaux’s kinematics of machinery: the slider-crank</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Reuleaux's kinematics of machinery: the slider-crank</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="Franz Grashof (1883) gave the rule that decides whether any link of a four-bar chain can turn a full circle. With s and l the shortest and longest links and p, q the others, the shortest link rotates fully relative to its neighbours if and only if s + l \le p + q (~engineeringkit.mechanical_engineering.fourbar_grashof). Which link is grounded then decides the machine. Grounding a neighbour of the shortest link gives a crank-rocker, grounding the shortest gives a double crank, and grounding the link opposite it gives a double rocker. The example checks all four inversions of a Grashof chain, and of a non-Grashof chain, by trying to assemble each one at every input angle (~engineeringkit.mechanical_engineering.fourbar_output_angle)."><img alt="" src="../../../_images/sphx_glr_plot_02_grashof_condition_thumb.png" />
-<p><a class="reference internal" href="mechanisms/plot_02_grashof_condition.html"><span class="doc">Grashof’s condition for four-bar linkages (1883)</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Grashof's condition for four-bar linkages (1883)</div>
+<p><a class="reference internal" href="mechanisms/plot_02_grashof_condition.html"><span class="doc">Grashof’s condition for four-bar linkages</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Grashof's condition for four-bar linkages</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="Before computers, linkages that generate a prescribed function were designed by graphical construction. Ferdinand Freudenstein (1954) wrote the four-bar&#x27;s loop closure as"><img alt="" src="../../../_images/sphx_glr_plot_03_freudenstein_equation_thumb.png" />
-<p><a class="reference internal" href="mechanisms/plot_03_freudenstein_equation.html"><span class="doc">Freudenstein’s equation for four-bar synthesis (1954)</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Freudenstein's equation for four-bar synthesis (1954)</div>
+<p><a class="reference internal" href="mechanisms/plot_03_freudenstein_equation.html"><span class="doc">Freudenstein’s equation for four-bar synthesis</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Freudenstein's equation for four-bar synthesis</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="Jacques Denavit and Richard Hartenberg (1955) proposed a notation for any chain of links joined by lower pairs. Each link frame is placed so that going to the next takes only four numbers: a rotation \theta and a shift d along the joint axis z, then a shift a and a twist \alpha along the common normal x. The step is a single 4 by 4 homogeneous matrix (~engineeringkit.mechanical_engineering.dh_transform), and the pose of a robot&#x27;s hand is the product of one such matrix per joint (~engineeringkit.mechanical_engineering.forward_kinematics). The example checks the product against hand-derived trigonometry for a planar arm and a spatial articulated arm."><img alt="" src="../../../_images/sphx_glr_plot_04_denavit_hartenberg_thumb.png" />
-<p><a class="reference internal" href="mechanisms/plot_04_denavit_hartenberg.html"><span class="doc">Denavit and Hartenberg’s link parameters (1955)</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Denavit and Hartenberg's link parameters (1955)</div>
+<p><a class="reference internal" href="mechanisms/plot_04_denavit_hartenberg.html"><span class="doc">Denavit and Hartenberg’s link parameters</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Denavit and Hartenberg's link parameters</div>
 </div></div></section>
 <section id="rotordynamics">
 <h2>Rotordynamics<a class="headerlink" href="#rotordynamics" title="Link to this heading">#</a></h2>
 <p>Unbalanced rotors and critical speeds.</p>
 <div id='sg-tag-list' class='sphx-glr-tag-list'></div><div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Rankine (1869) had argued that a shaft could not run stably above its whirling speed, yet de Laval&#x27;s steam turbines of the 1880s and 1890s did exactly that. Henry Jeffcott (1919) explained why with the simplest model: a disk whose centre of mass sits a small distance e from a flexible massless shaft. The shaft centre whirls in step with the spin at radius e r^2/\sqrt{(1 - r^2)^2 + (2\zeta r)^2}, with r the speed over the critical speed \sqrt{k/m} (~engineeringkit.mechanical_engineering.jeffcott_response). Through resonance the whirl swings round by half a turn. Far above it the heavy side of the disk faces inward and the disk spins about its own centre of mass, so the whirl radius settles at e. The force that reaches the bearings is the unbalance force (~engineeringkit.mechanical_engineering.rotating_unbalance_force) times the transmissibility (~engineeringkit.mechanical_engineering.transmissibility)."><img alt="" src="../../../_images/sphx_glr_plot_01_jeffcott_rotor_thumb.png" />
-<p><a class="reference internal" href="rotordynamics/plot_01_jeffcott_rotor.html"><span class="doc">Jeffcott’s rotor and the critical speed (1919)</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Jeffcott's rotor and the critical speed (1919)</div>
+<p><a class="reference internal" href="rotordynamics/plot_01_jeffcott_rotor.html"><span class="doc">Jeffcott’s rotor and the critical speed</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Jeffcott's rotor and the critical speed</div>
 </div></div></section>
 <section id="transmission">
 <h2>Transmission<a class="headerlink" href="#transmission" title="Link to this heading">#</a></h2>
 <p>Gear trains and belt drives.</p>
 <div id='sg-tag-list' class='sphx-glr-tag-list'></div><div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Two gears turn at a constant speed ratio only if the common normal at their point of contact always passes through one fixed point on the line of centres, the pitch point. Leonhard Euler (1765) showed that the involute of a circle, the curve traced by the end of a string unwound from it, meets this condition. Its normal is always tangent to the base circle, so the contact normal of two involutes is the fixed line tangent to both base circles. The ratio is then the ratio of base radii, that is of tooth counts (~engineeringkit.mechanical_engineering.gear_ratio), and it does not change if the centres are pulled apart. The example checks both properties and the power balance of a gear train (~engineeringkit.mechanical_engineering.gear_output_speed, gear_output_torque)."><img alt="" src="../../../_images/sphx_glr_plot_01_euler_involute_gear_thumb.png" />
-<p><a class="reference internal" href="transmission/plot_01_euler_involute_gear.html"><span class="doc">Euler’s involute gear tooth (1765)</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Euler's involute gear tooth (1765)</div>
+<p><a class="reference internal" href="transmission/plot_01_euler_involute_gear.html"><span class="doc">Euler’s involute gear tooth</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Euler's involute gear tooth</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="A sailor holds a heavy load with a few turns of rope round a bollard. Leonhard Euler (1762, published 1769) explained why: on each small arc d\theta of contact the rope presses on the drum with force T\,d\theta, friction can resist up to \mu T\,d\theta, so tension can grow by dT = \mu T\,d\theta and T_1/T_2 = e^{\mu\theta}. Johann Albert Eytelwein (1808) brought the result to engineers, for whom it sets the power a belt drive can transmit (~engineeringkit.mechanical_engineering.belt_tension_ratio, belt_speed). The example builds the exponential from small arcs, then sizes a flat and a V-belt."><img alt="" src="../../../_images/sphx_glr_plot_02_capstan_equation_thumb.png" />
-<p><a class="reference internal" href="transmission/plot_02_capstan_equation.html"><span class="doc">The Euler-Eytelwein belt-friction law (1769)</span></a></p>
-  <div class="sphx-glr-thumbnail-title">The Euler-Eytelwein belt-friction law (1769)</div>
+<p><a class="reference internal" href="transmission/plot_02_capstan_equation.html"><span class="doc">The Euler-Eytelwein belt-friction law</span></a></p>
+  <div class="sphx-glr-thumbnail-title">The Euler-Eytelwein belt-friction law</div>
 </div></div></section>
 <section id="vibration">
 <h2>Vibration<a class="headerlink" href="#vibration" title="Link to this heading">#</a></h2>
 <p>Free vibration, vibration absorbers and torsional modes.</p>
 <div id='sg-tag-list' class='sphx-glr-tag-list'></div><div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Lord Rayleigh&#x27;s The Theory of Sound (1877) treated every vibrating system, from strings to bells, as a set of linear oscillators. The simplest is a mass on a spring with a dashpot, m\ddot x + c\dot x + kx = 0. It rings at \omega_n = \sqrt{k/m} (~engineeringkit.mechanical_engineering.natural_frequency), and damping lowers the frequency to \omega_n\sqrt{1 - \zeta^2} (~engineeringkit.mechanical_engineering.damped_frequency, damping_ratio). Rayleigh also showed how to estimate a frequency from energy alone: equate the peak kinetic and potential energies for an assumed shape. With a linear stretch profile, a spring&#x27;s own mass m_s adds m_s/3 to the moving mass. The example checks the simulated response (~engineeringkit.mechanical_engineering.simulate_sdof) and Rayleigh&#x27;s correction against the exact solution."><img alt="" src="../../../_images/sphx_glr_plot_01_rayleigh_free_vibration_thumb.png" />
-<p><a class="reference internal" href="vibration/plot_01_rayleigh_free_vibration.html"><span class="doc">Rayleigh’s Theory of Sound: free vibration (1877)</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Rayleigh's Theory of Sound: free vibration (1877)</div>
+<p><a class="reference internal" href="vibration/plot_01_rayleigh_free_vibration.html"><span class="doc">Rayleigh’s Theory of Sound: free vibration</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Rayleigh's Theory of Sound: free vibration</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="Hermann Frahm (patent filed 1909) stopped ships&#x27; hulls and machines from vibrating at their running speed by attaching a small spring-mass system tuned to that speed. At the tuned frequency the absorber swings so that its spring force cancels the applied force, and the machine stands still. The cure works at one frequency only: the system now has two resonances, one on each side. Jacob Pieter Den Hartog and John Ormondroyd (1928) added damping to the absorber. Every response curve then passes through two fixed points, whatever the damping, and the best design tunes the absorber to make them equal and puts the peaks there (~engineeringkit.mechanical_engineering.tuned_mass_damper). This is the tuned mass damper of tall buildings."><img alt="" src="../../../_images/sphx_glr_plot_02_frahm_absorber_thumb.png" />
-<p><a class="reference internal" href="vibration/plot_02_frahm_absorber.html"><span class="doc">Frahm’s vibration absorber and Den Hartog’s tuning (1909)</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Frahm's vibration absorber and Den Hartog's tuning (1909)</div>
+<p><a class="reference internal" href="vibration/plot_02_frahm_absorber.html"><span class="doc">Frahm’s vibration absorber and Den Hartog’s tuning</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Frahm's vibration absorber and Den Hartog's tuning</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="Diesel engines, ship propellers and generators share long shafts that can twist resonantly, and a crankshaft that does so breaks. Heinrich Holzer (1921) found their natural frequencies with a table instead of a determinant. Guess a frequency, give the first disk unit twist, and march along the shaft. Each disk adds an inertia torque J_i\omega^2\theta_i, and each shaft twists by the accumulated torque over its stiffness. At a natural frequency the torque left over beyond the free end is zero (~engineeringkit.mechanical_engineering.holzer_residual, holzer_frequencies). The example checks Holzer&#x27;s frequencies against the eigenvalues of the stiffness and inertia matrices."><img alt="" src="../../../_images/sphx_glr_plot_03_holzer_torsional_thumb.png" />
-<p><a class="reference internal" href="vibration/plot_03_holzer_torsional.html"><span class="doc">Holzer’s method for torsional vibration (1921)</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Holzer's method for torsional vibration (1921)</div>
+<p><a class="reference internal" href="vibration/plot_03_holzer_torsional.html"><span class="doc">Holzer’s method for torsional vibration</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Holzer's method for torsional vibration</div>
 </div></div><div class="toctree-wrapper compound">
 </div>
 <div class="sphx-glr-footer sphx-glr-footer-gallery docutils container">
@@ -674,7 +676,7 @@ run directly with <code class="docutils literal notranslate"><span class="pre">p
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Turner, Clough, Martin and Topp: the direct stiffness method (1956)</p>
+        <p class="prev-next-title">Turner, Clough, Martin and Topp: the direct stiffness method</p>
       </div>
     </a>
     <a class="right-next"
@@ -737,8 +739,8 @@ run directly with <code class="docutils literal notranslate"><span class="pre">p
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0"></script>
-<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0"></script>
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -748,7 +750,7 @@ run directly with <code class="docutils literal notranslate"><span class="pre">p
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.1.
   </p>
 </div>
       
@@ -761,7 +763,7 @@ run directly with <code class="docutils literal notranslate"><span class="pre">p
         <div class="footer-item">
 <p class="theme-version">
   <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.22.0.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.23.0.
 </p></div>
       
     </div>

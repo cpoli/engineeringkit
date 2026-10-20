@@ -1,6 +1,6 @@
 r"""
-Kirchhoff's circuit laws and nodal analysis (1845)
-==================================================
+Kirchhoff's circuit laws and nodal analysis
+===========================================
 
 In 1845, as a student in Königsberg, Gustav Kirchhoff stated the two laws
 that make any network of conductors solvable: the currents meeting at a

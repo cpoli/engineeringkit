@@ -1,6 +1,6 @@
 r"""
-Smith's chart (1939)
-====================
+Smith's chart
+=============
 
 Phillip Hagar Smith, an engineer at Bell Labs, tired of evaluating the
 transmission-line equations with a slide rule. His 1939 chart plots the

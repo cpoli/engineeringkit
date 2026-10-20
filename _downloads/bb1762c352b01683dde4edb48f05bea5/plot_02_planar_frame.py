@@ -1,6 +1,6 @@
 r"""
-Livesley's plane frames by direct stiffness (1956)
-==================================================
+Livesley's plane frames by direct stiffness
+===========================================
 
 Moment distribution assumes the joints do not move sideways. A portal
 frame under wind does sway, and hand methods needed an extra correction

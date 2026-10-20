@@ -1,6 +1,6 @@
 r"""
-Kotel'nikov's optimum receiver: BPSK in white Gaussian noise (1947)
-===================================================================
+Kotel'nikov's optimum receiver: BPSK in white Gaussian noise
+============================================================
 
 Vladimir Kotel'nikov's 1947 thesis, *The Theory of Optimum Noise Immunity*,
 asked which receiver makes the fewest errors when known signals are buried in

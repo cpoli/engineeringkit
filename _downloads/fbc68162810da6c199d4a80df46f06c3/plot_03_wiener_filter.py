@@ -1,6 +1,6 @@
 r"""
-Wiener's optimal filter (1949)
-==============================
+Wiener's optimal filter
+=======================
 
 Asked during the war to predict the path of an aircraft from noisy radar
 data, Norbert Wiener posed filtering as an optimization: find the linear

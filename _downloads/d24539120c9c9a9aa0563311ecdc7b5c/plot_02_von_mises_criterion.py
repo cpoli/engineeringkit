@@ -1,6 +1,6 @@
 r"""
-Von Mises's yield criterion (1913)
-==================================
+Von Mises's yield criterion
+===========================
 
 Tresca's hexagon has corners, which make the equations of plasticity
 awkward. Richard von Mises (1913) proposed a smooth surface through the

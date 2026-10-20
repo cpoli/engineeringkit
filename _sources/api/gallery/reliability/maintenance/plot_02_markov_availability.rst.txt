@@ -18,8 +18,8 @@
 .. _sphx_glr_api_gallery_reliability_maintenance_plot_02_markov_availability.py:
 
 
-Markov models of repairable systems (1965)
-==========================================
+Markov models of repairable systems
+===================================
 
 A repairable unit fails and is mended over and over, so the question is not
 whether it survives but what fraction of time it is up. If failures and
@@ -152,7 +152,7 @@ A second crew would add a repair rate of :math:`2\mu` out of state 2.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.095 seconds)
+   **Total running time of the script:** (0 minutes 0.416 seconds)
 
 
 .. _sphx_glr_download_api_gallery_reliability_maintenance_plot_02_markov_availability.py:

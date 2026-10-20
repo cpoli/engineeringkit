@@ -1,6 +1,6 @@
 r"""
-Voigt and Reuss: bounds on a composite's stiffness (1889-1929)
-==============================================================
+Voigt and Reuss: bounds on a composite's stiffness
+==================================================
 
 How stiff is a mixture of two phases? Woldemar Voigt (1889) averaged the
 elastic constants of the crystals in a polycrystal on the assumption that

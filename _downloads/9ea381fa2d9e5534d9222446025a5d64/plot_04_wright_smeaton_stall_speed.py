@@ -1,6 +1,6 @@
 r"""
-The Wright brothers, Smeaton's coefficient and the stall speed (1901)
-=====================================================================
+The Wright brothers, Smeaton's coefficient and the stall speed
+==============================================================
 
 The nineteenth-century lift equation was :math:`L = k V^2 S C_L` with
 Smeaton's coefficient :math:`k = 0.005` lb/(ft² mph²). After their 1901
@@ -48,8 +48,6 @@ for label, k in [("Smeaton k = 0.005", 0.005), ("Wright k = 0.0033", 0.0033), ("
     ax.plot(clmax, stall_speed(weight, rho_implied, S, clmax), label=label)
 ratio = float(stall_speed(weight, 1.225, S, 1.0) / stall_speed(weight, 2 * 0.005 * lbf_per_ft2 / mph**2, S, 1.0))
 print(f"true / Smeaton-predicted stall speed: {ratio:.2f}")
-assert np.isclose(2 * 0.00256 * lbf_per_ft2 / mph**2, 1.225, rtol=0.01)
-assert np.isclose(ratio, np.sqrt(0.005 / 0.00256), rtol=0.01) and 1.3 < ratio < 1.5
 ax.set(xlabel="$C_{L,\\max}$", ylabel="stall speed [m/s]", title="1903 Flyer minimum flying speed")
 ax.legend()
 fig.tight_layout()

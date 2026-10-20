@@ -18,8 +18,8 @@
 .. _sphx_glr_api_gallery_communications_noise_plot_02_friis_cascaded_noise.py:
 
 
-Friis's noise formula for cascaded amplifiers (1944)
-====================================================
+Friis's noise formula for cascaded amplifiers
+=============================================
 
 Harald Friis (1944) defined a receiver's *noise factor* :math:`F` as the
 ratio of input to output signal-to-noise ratio and showed that in a chain of
@@ -127,7 +127,7 @@ Put the low-noise amplifier first
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.025 seconds)
+   **Total running time of the script:** (0 minutes 0.095 seconds)
 
 
 .. _sphx_glr_download_api_gallery_communications_noise_plot_02_friis_cascaded_noise.py:

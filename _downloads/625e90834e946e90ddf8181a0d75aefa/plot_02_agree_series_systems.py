@@ -1,6 +1,6 @@
 r"""
-The AGREE report: series systems and MTBF (1957)
-================================================
+The AGREE report: series systems and MTBF
+=========================================
 
 In the early 1950s, most of the US Navy's electronics was out of action at
 any given time, largely because of vacuum-tube failures. The Advisory Group

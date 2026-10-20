@@ -1,6 +1,6 @@
 r"""
-Fessenden's amplitude modulation (1906)
-=======================================
+Fessenden's amplitude modulation
+================================
 
 On Christmas Eve 1906 Reginald Fessenden is said to have broadcast voice and
 music from Brant Rock, Massachusetts, by varying the amplitude of a

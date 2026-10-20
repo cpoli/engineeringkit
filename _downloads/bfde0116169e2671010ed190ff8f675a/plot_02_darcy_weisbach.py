@@ -1,6 +1,6 @@
 r"""
-Weisbach and Darcy: head loss in pipes (1845-1857)
-==================================================
+Weisbach and Darcy: head loss in pipes
+======================================
 
 Julius Weisbach wrote the friction loss in a pipe in 1845 as
 :math:`h_f = f\,(L/D)\,v^2/(2g)`, with a coefficient that he fitted to

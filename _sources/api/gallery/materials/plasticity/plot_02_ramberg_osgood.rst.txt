@@ -18,8 +18,8 @@
 .. _sphx_glr_api_gallery_materials_plasticity_plot_02_ramberg_osgood.py:
 
 
-Ramberg and Osgood's stress-strain curve (1943)
-===============================================
+Ramberg and Osgood's stress-strain curve
+========================================
 
 Aluminium alloys have no sharp yield point: their stress-strain curves bend
 over smoothly, and aircraft designers of the Second World War needed them
@@ -127,7 +127,7 @@ and more hardening after it.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.038 seconds)
+   **Total running time of the script:** (0 minutes 0.148 seconds)
 
 
 .. _sphx_glr_download_api_gallery_materials_plasticity_plot_02_ramberg_osgood.py:

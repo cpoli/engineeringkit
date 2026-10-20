@@ -18,8 +18,8 @@
 .. _sphx_glr_api_gallery_aerodynamics_compressible_plot_05_rankine_hugoniot_normal_shock.py:
 
 
-Rankine-Hugoniot jump conditions across a normal shock (1870-1889)
-==================================================================
+Rankine-Hugoniot jump conditions across a normal shock
+======================================================
 
 W. J. Macquorn Rankine (1870) and Pierre-Henri Hugoniot (1887-1889) derived
 the jump in state across a shock from conservation of mass, momentum and
@@ -138,7 +138,7 @@ Entropy rises and stagnation pressure falls
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.072 seconds)
+   **Total running time of the script:** (0 minutes 0.260 seconds)
 
 
 .. _sphx_glr_download_api_gallery_aerodynamics_compressible_plot_05_rankine_hugoniot_normal_shock.py:

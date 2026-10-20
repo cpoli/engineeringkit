@@ -1,6 +1,6 @@
 r"""
-Von Neumann's reliable machines from unreliable parts (1956)
-============================================================
+Von Neumann's reliable machines from unreliable parts
+=====================================================
 
 John von Neumann's 1956 lectures asked how a computer, or a brain, can
 work when every component is unreliable. Two answers came out. Active

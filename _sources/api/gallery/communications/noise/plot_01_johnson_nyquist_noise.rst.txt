@@ -18,8 +18,8 @@
 .. _sphx_glr_api_gallery_communications_noise_plot_01_johnson_nyquist_noise.py:
 
 
-Johnson-Nyquist thermal noise (1928)
-====================================
+Johnson-Nyquist thermal noise
+=============================
 
 In 1926-1928 John B. Johnson at Bell Labs measured a random voltage across
 every resistor, proportional to its resistance and absolute temperature and
@@ -129,7 +129,7 @@ delivered to a matched load is :math:`kTB`.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.078 seconds)
+   **Total running time of the script:** (0 minutes 0.308 seconds)
 
 
 .. _sphx_glr_download_api_gallery_communications_noise_plot_01_johnson_nyquist_noise.py:

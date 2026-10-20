@@ -1,6 +1,6 @@
 r"""
-Watson's fault tree (1961)
-==========================
+Watson's fault tree
+===================
 
 In 1961 the US Air Force asked Bell Telephone Laboratories whether the
 Minuteman launch-control system could fire a missile without a valid order.

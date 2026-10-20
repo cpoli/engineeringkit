@@ -1,6 +1,6 @@
 r"""
-Bennett's quantization noise (1948)
-===================================
+Bennett's quantization noise
+============================
 
 Pulse-code modulation, worked out at Bell Laboratories during the Second
 World War, rounds every sample to one of :math:`2^N` levels

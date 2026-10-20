@@ -1,6 +1,6 @@
 r"""
-The Clausius-Clapeyron relation (1834-1850)
-===========================================
+The Clausius-Clapeyron relation
+===============================
 
 Clapeyron (1834) applied Carnot's reasoning to a small cycle of boiling and
 condensing and found that the slope of the vapour-pressure curve is fixed

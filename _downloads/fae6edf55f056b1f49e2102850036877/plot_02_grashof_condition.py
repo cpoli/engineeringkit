@@ -1,6 +1,6 @@
 r"""
-Grashof's condition for four-bar linkages (1883)
-================================================
+Grashof's condition for four-bar linkages
+=========================================
 
 Franz Grashof (1883) gave the rule that decides whether any link of a
 four-bar chain can turn a full circle. With :math:`s` and :math:`l` the

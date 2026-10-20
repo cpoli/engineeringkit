@@ -18,8 +18,8 @@
 .. _sphx_glr_api_gallery_communications_detection_plot_01_kotelnikov_bpsk_detection.py:
 
 
-Kotel'nikov's optimum receiver: BPSK in white Gaussian noise (1947)
-===================================================================
+Kotel'nikov's optimum receiver: BPSK in white Gaussian noise
+============================================================
 
 Vladimir Kotel'nikov's 1947 thesis, *The Theory of Optimum Noise Immunity*,
 asked which receiver makes the fewest errors when known signals are buried in
@@ -106,7 +106,7 @@ Monte Carlo against theory
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.065 seconds)
+   **Total running time of the script:** (0 minutes 0.232 seconds)
 
 
 .. _sphx_glr_download_api_gallery_communications_detection_plot_01_kotelnikov_bpsk_detection.py:

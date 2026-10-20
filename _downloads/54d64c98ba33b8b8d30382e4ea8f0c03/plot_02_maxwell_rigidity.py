@@ -1,6 +1,6 @@
 r"""
-Maxwell's rigidity count and reciprocal theorem (1864)
-======================================================
+Maxwell's rigidity count and reciprocal theorem
+===============================================
 
 James Clerk Maxwell's short 1864 paper "On the calculation of the
 equilibrium and stiffness of frames" made two contributions. First, a

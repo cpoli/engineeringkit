@@ -1,6 +1,6 @@
 r"""
-Castigliano's theorem (1879)
-============================
+Castigliano's theorem
+=====================
 
 In his 1873 engineering thesis at Turin, extended into a book in 1879,
 Alberto Castigliano showed that the partial derivative of the strain

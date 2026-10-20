@@ -1,6 +1,6 @@
 r"""
-Norton's equivalent circuit (1926)
-==================================
+Norton's equivalent circuit
+===========================
 
 In 1926 Edward Lawry Norton at Bell Labs, and independently Hans Ferdinand
 Mayer at Siemens, gave the dual of Thévenin's theorem: a linear two-terminal

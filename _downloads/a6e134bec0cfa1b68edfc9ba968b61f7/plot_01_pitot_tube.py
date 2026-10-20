@@ -1,6 +1,6 @@
 r"""
-Pitot's tube (1732)
-===================
+Pitot's tube
+============
 
 In 1732 Henri Pitot lowered a glass tube bent at a right angle into the
 Seine, its mouth facing upstream, and watched the water inside rise above

@@ -1,6 +1,6 @@
 r"""
-Lundberg and Palmgren's rolling-bearing life (1947)
-===================================================
+Lundberg and Palmgren's rolling-bearing life
+============================================
 
 Identical ball bearings run under identical loads fail at very different
 times, because fatigue cracks start at randomly placed weak points below

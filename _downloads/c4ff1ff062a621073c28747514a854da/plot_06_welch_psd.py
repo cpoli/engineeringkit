@@ -1,6 +1,6 @@
 r"""
-Welch's averaged periodogram (1967)
-===================================
+Welch's averaged periodogram
+============================
 
 The periodogram of noise does not settle down as the record grows. At
 every frequency its standard deviation equals its mean, whatever the

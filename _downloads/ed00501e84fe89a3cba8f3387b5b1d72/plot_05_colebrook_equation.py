@@ -1,6 +1,6 @@
 r"""
-Colebrook's turbulent friction factor (1939)
-============================================
+Colebrook's turbulent friction factor
+=====================================
 
 Commercial pipes do not behave like Nikuradse's sand: their roughness is
 uneven, and friction leaves the smooth law gradually rather than with

@@ -18,8 +18,8 @@
 .. _sphx_glr_api_gallery_mechanical_engineering_vibration_plot_01_rayleigh_free_vibration.py:
 
 
-Rayleigh's *Theory of Sound*: free vibration (1877)
-===================================================
+Rayleigh's *Theory of Sound*: free vibration
+============================================
 
 Lord Rayleigh's *The Theory of Sound* (1877) treated every vibrating system,
 from strings to bells, as a set of linear oscillators. The simplest is a
@@ -100,7 +100,7 @@ the simulated response and compare with the damped frequency.
     zeta = 0.200: measured 19.5964 rad/s, omega_d = 19.5959 rad/s
     undamped: 20.0 rad/s = 3.183 Hz
 
-    <matplotlib.legend.Legend object at 0x111256710>
+    <matplotlib.legend.Legend object at 0x7fbaf059f170>
 
 
 
@@ -150,7 +150,7 @@ the exact fundamental :math:`\omega = \beta\sqrt{k/m_s}` with
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.127 seconds)
+   **Total running time of the script:** (0 minutes 0.473 seconds)
 
 
 .. _sphx_glr_download_api_gallery_mechanical_engineering_vibration_plot_01_rayleigh_free_vibration.py:

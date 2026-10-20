@@ -1,6 +1,6 @@
 r"""
-Euler's involute gear tooth (1765)
-==================================
+Euler's involute gear tooth
+===========================
 
 Two gears turn at a constant speed ratio only if the common normal at
 their point of contact always passes through one fixed point on the line of

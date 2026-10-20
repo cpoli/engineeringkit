@@ -1,6 +1,6 @@
 r"""
-Rankine's steam cycle (1859)
-============================
+Rankine's steam cycle
+=====================
 
 William Rankine's *Manual of the Steam Engine* (1859) analysed the steam
 engine as a cycle of four steady-flow steps: a pump raises condensed water

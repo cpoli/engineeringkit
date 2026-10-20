@@ -18,8 +18,8 @@
 .. _sphx_glr_api_gallery_control_systems_state_space_plot_03_wonham_pole_assignment.py:
 
 
-Wonham's pole assignment (1967)
-===============================
+Wonham's pole assignment
+========================
 
 For a single input, controllability lets state feedback :math:`u = -Kx`
 place the poles of :math:`A - BK` anywhere, and :math:`K` is unique
@@ -130,7 +130,7 @@ theorem promises any pole set, here a complex pair.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.029 seconds)
+   **Total running time of the script:** (0 minutes 0.136 seconds)
 
 
 .. _sphx_glr_download_api_gallery_control_systems_state_space_plot_03_wonham_pole_assignment.py:

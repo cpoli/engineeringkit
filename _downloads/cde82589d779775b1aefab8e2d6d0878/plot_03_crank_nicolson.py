@@ -1,6 +1,6 @@
 r"""
-Crank and Nicolson: numerical conduction (1947)
-===============================================
+Crank and Nicolson: numerical conduction
+========================================
 
 In 1947 John Crank and Phyllis Nicolson, solving heat-conduction problems
 with heat generation on desk calculators, needed a finite-difference scheme

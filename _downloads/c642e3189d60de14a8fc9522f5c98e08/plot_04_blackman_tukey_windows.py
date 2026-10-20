@@ -1,6 +1,6 @@
 r"""
-Blackman and Tukey's spectral windows (1958)
-============================================
+Blackman and Tukey's spectral windows
+=====================================
 
 Ralph Blackman and John Tukey's *The Measurement of Power Spectra* (1958)
 turned spectral estimation into an engineering procedure for the

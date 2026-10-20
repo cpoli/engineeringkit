@@ -18,8 +18,8 @@
 .. _sphx_glr_api_gallery_aerodynamics_airfoils_plot_02_thin_airfoil_theory.py:
 
 
-Thin-airfoil theory: lift slope 2π and the camber shift (1922-1926)
-===================================================================
+Thin-airfoil theory: lift slope 2π and the camber shift
+=======================================================
 
 Max Munk (1922) and Hermann Glauert (1926) replaced a thin section by a vortex
 sheet on its camber line. Satisfying flow tangency gives a lift slope of
@@ -123,7 +123,7 @@ Parallel lift lines
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.057 seconds)
+   **Total running time of the script:** (0 minutes 0.222 seconds)
 
 
 .. _sphx_glr_download_api_gallery_aerodynamics_airfoils_plot_02_thin_airfoil_theory.py:

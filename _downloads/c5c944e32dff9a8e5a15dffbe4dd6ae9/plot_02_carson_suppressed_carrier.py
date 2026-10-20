@@ -1,6 +1,6 @@
 r"""
-Carson's suppressed-carrier modulation (1915)
-=============================================
+Carson's suppressed-carrier modulation
+======================================
 
 In 1915 John Renshaw Carson of AT&T showed that the carrier in AM carries no
 information. Multiplying the message by the carrier alone,

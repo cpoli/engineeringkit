@@ -1,6 +1,6 @@
 r"""
-Nikuradse's sand-roughened pipes (1933)
-=======================================
+Nikuradse's sand-roughened pipes
+================================
 
 Johann Nikuradse, in Prandtl's laboratory at Göttingen, glued graded sand
 to the inside of brass pipes and measured friction over six roughnesses,

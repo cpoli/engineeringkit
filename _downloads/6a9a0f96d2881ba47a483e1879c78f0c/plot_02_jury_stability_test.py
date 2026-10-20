@@ -1,6 +1,6 @@
 r"""
-Jury's stability test for sampled systems (1961)
-================================================
+Jury's stability test for sampled systems
+=========================================
 
 A sampled loop is stable when every root of its characteristic polynomial in
 :math:`z` lies inside the unit circle, not in the left half-plane, so Routh's

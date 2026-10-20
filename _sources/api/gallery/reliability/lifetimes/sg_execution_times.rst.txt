@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.281** total execution time for 5 files **from api/gallery/reliability/lifetimes**:
+**00:01.083** total execution time for 5 files **from api/gallery/reliability/lifetimes**:
 
 .. container::
 
@@ -33,17 +33,17 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_reliability_lifetimes_plot_04_epstein_sobel_life_testing.py` (``plot_04_epstein_sobel_life_testing.py``)
-     - 00:00.071
-     - 0.0
-   * - :ref:`sphx_glr_api_gallery_reliability_lifetimes_plot_02_poisson_failures.py` (``plot_02_poisson_failures.py``)
-     - 00:00.070
+     - 00:00.287
      - 0.0
    * - :ref:`sphx_glr_api_gallery_reliability_lifetimes_plot_03_weibull_distribution.py` (``plot_03_weibull_distribution.py``)
-     - 00:00.067
+     - 00:00.268
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_reliability_lifetimes_plot_02_poisson_failures.py` (``plot_02_poisson_failures.py``)
+     - 00:00.244
      - 0.0
    * - :ref:`sphx_glr_api_gallery_reliability_lifetimes_plot_01_halley_life_table.py` (``plot_01_halley_life_table.py``)
-     - 00:00.041
+     - 00:00.163
      - 0.0
    * - :ref:`sphx_glr_api_gallery_reliability_lifetimes_plot_05_kaplan_meier.py` (``plot_05_kaplan_meier.py``)
-     - 00:00.032
+     - 00:00.121
      - 0.0

@@ -10,10 +10,10 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://cpoli.github.io/engineeringkit/api/gallery/signal_processing/filters/index.html" />
 <meta property="og:site_name" content="engineeringkit" />
-<meta property="og:description" content="Designing, analysing and implementing digital filters, from fixed designs to adaptive ones. Butterworth’s maximally flat filter (1930) Hurewicz’s z-transform (1947) Wiener’s optimal filter (1949) W..." />
+<meta property="og:description" content="Designing, analysing and implementing digital filters, from fixed designs to adaptive ones. Butterworth’s maximally flat filter Hurewicz’s z-transform Wiener’s optimal filter Widrow and Hoff’s LMS ..." />
 <meta property="og:image" content="https://cpoli.github.io/engineeringkit/_static/images/readme_hero.png" />
 <meta property="og:image:alt" content="engineeringkit" />
-<meta name="description" content="Designing, analysing and implementing digital filters, from fixed designs to adaptive ones. Butterworth’s maximally flat filter (1930) Hurewicz’s z-transform (1947) Wiener’s optimal filter (1949) W..." />
+<meta name="description" content="Designing, analysing and implementing digital filters, from fixed designs to adaptive ones. Butterworth’s maximally flat filter Hurewicz’s z-transform Wiener’s optimal filter Widrow and Hoff’s LMS ..." />
 
     <title>Filters &#8212; engineeringkit</title>
   
@@ -34,11 +34,12 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../../_static/styles/theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
-<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+  <link href="../../../../_static/styles/theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=8f2a1f02" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/plot_directive.css?v=7f9a90b1" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx_autodoc_typehints.css?v=057ac668" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Vibur" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/jupyterlite_sphinx.css?v=f676e775" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery.css?v=c83e6b79" />
@@ -49,10 +50,10 @@
     <link rel="stylesheet" type="text/css" href="../../../../_static/engineeringkit.css?v=62935cec" />
   
   <!-- So that users can add custom icons -->
-  <script defer src="../../../../_static/scripts/fontawesome.js?digest=64cc4de3f052d77215f0"></script>
+  <script defer src="../../../../_static/scripts/fontawesome.js?digest=18bd87630a240e9c25be"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0" />
-<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0" />
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be" />
 
     <script src="../../../../_static/documentation_options.js?v=38b66d78"></script>
     <script src="../../../../_static/doctools.js?v=fd6eb6e6"></script>
@@ -65,9 +66,10 @@
     <link rel="canonical" href="https://cpoli.github.io/engineeringkit/api/gallery/signal_processing/filters/index.html" />
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
-    <link rel="next" title="Butterworth’s maximally flat filter (1930)" href="plot_01_butterworth.html" />
+    <link rel="next" title="Butterworth’s maximally flat filter" href="plot_01_butterworth.html" />
     <link rel="prev" title="Examples" href="../index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="color-scheme" content="light dark"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
   
@@ -557,23 +559,23 @@
 <span id="sphx-glr-api-gallery-signal-processing-filters"></span><h1>Filters<a class="headerlink" href="#filters" title="Link to this heading">#</a></h1>
 <p>Designing, analysing and implementing digital filters, from fixed designs to adaptive ones.</p>
 <div id='sg-tag-list' class='sphx-glr-tag-list'></div><div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Stephen Butterworth, a British physicist designing filters for valve amplifiers, asked in 1930 for a response &quot;ideal&quot; in the passband. His answer, |H|^2 = 1/(1 + (\omega/\omega_c)^{2n}), has every derivative up to order 2n-1 zero at DC, so it is as flat there as an order- n filter can be. Each added order steepens the roll-off by 20 dB per decade, and the gain at the cutoff is always 1/\sqrt2 (-3 dB). Digital versions come from the bilinear transform, which maps the analogue frequency axis onto the unit circle through \omega = \tan(\pi f/f_s) (~engineeringkit.signal_processing.butterworth_lowpass, butterworth_highpass)."><img alt="" src="../../../../_images/sphx_glr_plot_01_butterworth_thumb.png" />
-<p><a class="reference internal" href="plot_01_butterworth.html"><span class="doc">Butterworth’s maximally flat filter (1930)</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Butterworth's maximally flat filter (1930)</div>
+<p><a class="reference internal" href="plot_01_butterworth.html"><span class="doc">Butterworth’s maximally flat filter</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Butterworth's maximally flat filter</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="Radar fire-control systems of the Second World War sampled their targets, and the MIT Radiation Laboratory needed a theory of feedback loops that saw data only at instants nT. In the Laboratory&#x27;s 1947 volume Theory of Servomechanisms, the topologist Witold Hurewicz described a sampled sequence by the generating function X(z) = \sum_n x_n z^{-n}, which Ragazzini and Zadeh named the z-transform in 1952. A difference equation becomes the rational function H(z) = B(z)/A(z). Its poles must lie inside the unit circle for stability, and on the circle z = e^{j2\pi f/f_s} it gives the frequency response (~engineeringkit.signal_processing.frequency_response, filter_signal)."><img alt="" src="../../../../_images/sphx_glr_plot_02_hurewicz_z_transform_thumb.png" />
-<p><a class="reference internal" href="plot_02_hurewicz_z_transform.html"><span class="doc">Hurewicz’s z-transform (1947)</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Hurewicz's z-transform (1947)</div>
+<p><a class="reference internal" href="plot_02_hurewicz_z_transform.html"><span class="doc">Hurewicz’s z-transform</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Hurewicz's z-transform</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="Asked during the war to predict the path of an aircraft from noisy radar data, Norbert Wiener posed filtering as an optimization: find the linear filter that makes the mean squared error between its output and the wanted signal as small as possible. His 1942 report, bound in yellow and known to engineers as the &quot;yellow peril&quot; for its mathematics, was published in 1949. Norman Levinson (1947) recast it for discrete FIR filters, where the answer is the solution of the normal equations Rw = p (~engineeringkit.signal_processing.wiener_filter). The example recovers a slowly varying signal from additive white noise."><img alt="" src="../../../../_images/sphx_glr_plot_03_wiener_filter_thumb.png" />
-<p><a class="reference internal" href="plot_03_wiener_filter.html"><span class="doc">Wiener’s optimal filter (1949)</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Wiener's optimal filter (1949)</div>
+<p><a class="reference internal" href="plot_03_wiener_filter.html"><span class="doc">Wiener’s optimal filter</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Wiener's optimal filter</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="At Stanford in 1959, Bernard Widrow and his student Ted Hoff looked for a way to train an adaptive linear neuron, ADALINE, without knowing the statistics that the Wiener solution needs. Their least-mean-squares rule nudges the weights after every sample against the gradient of the instantaneous squared error: w \leftarrow w + \mu e_n u_n (~engineeringkit.signal_processing.lms_filter). It needs only 2L multiplications per sample, converges on average to the Wiener filter, and follows it if the system changes. Echo cancellers, channel equalizers and noise-cancelling headphones run on it."><img alt="" src="../../../../_images/sphx_glr_plot_04_widrow_hoff_lms_thumb.png" />
-<p><a class="reference internal" href="plot_04_widrow_hoff_lms.html"><span class="doc">Widrow and Hoff’s LMS adaptive filter (1960)</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Widrow and Hoff's LMS adaptive filter (1960)</div>
+<p><a class="reference internal" href="plot_04_widrow_hoff_lms.html"><span class="doc">Widrow and Hoff’s LMS adaptive filter</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Widrow and Hoff's LMS adaptive filter</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="An ideal low-pass filter has an infinitely long sinc impulse response. Truncating it gives a finite (FIR) filter whose response ripples near the band edge. Tapering the truncated response with a window trades ripple for a wider transition band. James Kaiser of Bell Labs (1966) used the prolate-spheroidal-like I_0-Bessel window, whose single parameter \beta sets that trade continuously. He later (1974) gave empirical formulas for the length and \beta that meet a required stopband attenuation and transition width (~engineeringkit.signal_processing.kaiser_order, fir_lowpass)."><img alt="" src="../../../../_images/sphx_glr_plot_05_kaiser_fir_thumb.png" />
-<p><a class="reference internal" href="plot_05_kaiser_fir.html"><span class="doc">Kaiser’s window method for FIR design (1966)</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Kaiser's window method for FIR design (1966)</div>
+<p><a class="reference internal" href="plot_05_kaiser_fir.html"><span class="doc">Kaiser’s window method for FIR design</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Kaiser's window method for FIR design</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="A digital filter can be computed from its transfer function B(z)/A(z) in one &quot;direct form&quot;, but the roots of a high-degree polynomial are extremely sensitive to rounding in its coefficients. When the poles crowd near z = 1, as they do for a narrow low-pass filter, double precision is not enough. Kaiser warned of this in 1965, and Leland Jackson (1970) analysed how roundoff noise and overflow depend on how a filter is split into a cascade of second-order sections, each holding one pair of poles. Cascades of &quot;biquads&quot; have been the standard realization ever since (~engineeringkit.signal_processing.butterworth_lowpass with output=&quot;sos&quot;, filter_signal)."><img alt="" src="../../../../_images/sphx_glr_plot_06_second_order_sections_thumb.png" />
-<p><a class="reference internal" href="plot_06_second_order_sections.html"><span class="doc">Jackson’s cascaded second-order sections (1970)</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Jackson's cascaded second-order sections (1970)</div>
+<p><a class="reference internal" href="plot_06_second_order_sections.html"><span class="doc">Jackson’s cascaded second-order sections</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Jackson's cascaded second-order sections</div>
 </div></div><div class="toctree-wrapper compound">
 </div>
 </section>
@@ -602,7 +604,7 @@
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Butterworth’s maximally flat filter (1930)</p>
+        <p class="prev-next-title">Butterworth’s maximally flat filter</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -639,8 +641,8 @@
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../../../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0"></script>
-<script defer src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0"></script>
+  <script defer src="../../../../_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be"></script>
+<script defer src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -650,7 +652,7 @@
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.1.
   </p>
 </div>
       
@@ -663,7 +665,7 @@
         <div class="footer-item">
 <p class="theme-version">
   <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.22.0.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.23.0.
 </p></div>
       
     </div>

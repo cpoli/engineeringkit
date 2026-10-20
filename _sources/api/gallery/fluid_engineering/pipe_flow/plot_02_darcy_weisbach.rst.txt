@@ -18,8 +18,8 @@
 .. _sphx_glr_api_gallery_fluid_engineering_pipe_flow_plot_02_darcy_weisbach.py:
 
 
-Weisbach and Darcy: head loss in pipes (1845-1857)
-==================================================
+Weisbach and Darcy: head loss in pipes
+======================================
 
 Julius Weisbach wrote the friction loss in a pipe in 1845 as
 :math:`h_f = f\,(L/D)\,v^2/(2g)`, with a coefficient that he fitted to
@@ -174,7 +174,7 @@ to friction and fittings.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.032 seconds)
+   **Total running time of the script:** (0 minutes 0.123 seconds)
 
 
 .. _sphx_glr_download_api_gallery_fluid_engineering_pipe_flow_plot_02_darcy_weisbach.py:

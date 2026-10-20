@@ -1,6 +1,6 @@
 r"""
-Doyle's guaranteed margins for LQG: there are none (1978)
-=========================================================
+Doyle's guaranteed margins for LQG: there are none
+==================================================
 
 A full-state LQR loop is famously robust: its Nyquist plot never enters the
 unit disc around :math:`-1`, so it tolerates a gain anywhere in
