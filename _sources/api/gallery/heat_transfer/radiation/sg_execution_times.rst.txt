@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:01.260** total execution time for 4 files **from api/gallery/heat_transfer/radiation**:
+**00:01.230** total execution time for 4 files **from api/gallery/heat_transfer/radiation**:
 
 .. container::
 
@@ -33,14 +33,14 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_heat_transfer_radiation_plot_02_stefan_boltzmann.py` (``plot_02_stefan_boltzmann.py``)
-     - 00:00.370
+     - 00:00.360
      - 0.0
    * - :ref:`sphx_glr_api_gallery_heat_transfer_radiation_plot_03_wien_displacement.py` (``plot_03_wien_displacement.py``)
-     - 00:00.352
+     - 00:00.344
      - 0.0
    * - :ref:`sphx_glr_api_gallery_heat_transfer_radiation_plot_04_nusselt_view_factor.py` (``plot_04_nusselt_view_factor.py``)
-     - 00:00.336
+     - 00:00.325
      - 0.0
    * - :ref:`sphx_glr_api_gallery_heat_transfer_radiation_plot_01_kirchhoff_emissivity.py` (``plot_01_kirchhoff_emissivity.py``)
-     - 00:00.202
+     - 00:00.201
      - 0.0

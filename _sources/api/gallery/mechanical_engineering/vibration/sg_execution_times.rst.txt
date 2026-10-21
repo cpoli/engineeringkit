@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:01.076** total execution time for 3 files **from api/gallery/mechanical_engineering/vibration**:
+**00:01.071** total execution time for 3 files **from api/gallery/mechanical_engineering/vibration**:
 
 .. container::
 
@@ -33,11 +33,11 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_mechanical_engineering_vibration_plot_01_rayleigh_free_vibration.py` (``plot_01_rayleigh_free_vibration.py``)
-     - 00:00.473
+     - 00:00.471
      - 0.0
    * - :ref:`sphx_glr_api_gallery_mechanical_engineering_vibration_plot_02_frahm_absorber.py` (``plot_02_frahm_absorber.py``)
      - 00:00.376
      - 0.0
    * - :ref:`sphx_glr_api_gallery_mechanical_engineering_vibration_plot_03_holzer_torsional.py` (``plot_03_holzer_torsional.py``)
-     - 00:00.226
+     - 00:00.223
      - 0.0

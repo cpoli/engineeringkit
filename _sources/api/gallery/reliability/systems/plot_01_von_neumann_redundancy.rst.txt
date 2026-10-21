@@ -80,7 +80,7 @@ Each copy fails at :math:`10^{-3}` per hour (time unit: hours).
  .. code-block:: none
 
 
-    <matplotlib.legend.Legend object at 0x7fbaf63f22a0>
+    <matplotlib.legend.Legend object at 0x7f16adb0aed0>
 
 
 
@@ -134,7 +134,7 @@ Each level of the hierarchy is a 2-out-of-3 vote on the level below.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.211 seconds)
+   **Total running time of the script:** (0 minutes 0.208 seconds)
 
 
 .. _sphx_glr_download_api_gallery_reliability_systems_plot_01_von_neumann_redundancy.py:

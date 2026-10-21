@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.670** total execution time for 3 files **from api/gallery/structural_engineering/trusses**:
+**00:00.657** total execution time for 3 files **from api/gallery/structural_engineering/trusses**:
 
 .. container::
 
@@ -33,11 +33,11 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_structural_engineering_trusses_plot_03_direct_stiffness.py` (``plot_03_direct_stiffness.py``)
-     - 00:00.374
+     - 00:00.366
      - 0.0
    * - :ref:`sphx_glr_api_gallery_structural_engineering_trusses_plot_02_maxwell_rigidity.py` (``plot_02_maxwell_rigidity.py``)
-     - 00:00.150
+     - 00:00.148
      - 0.0
    * - :ref:`sphx_glr_api_gallery_structural_engineering_trusses_plot_01_whipple_method_of_joints.py` (``plot_01_whipple_method_of_joints.py``)
-     - 00:00.146
+     - 00:00.143
      - 0.0

@@ -151,7 +151,7 @@ A larger step learns faster but leaves more excess error.
     mu = 0.010: misalignment after 500 samples 2.9e-05, final MSE 9.20e-05
     mu = 0.050: misalignment after 500 samples 2.8e-05, final MSE 1.11e-04
 
-    <matplotlib.legend.Legend object at 0x7fbaf059f890>
+    <matplotlib.legend.Legend object at 0x7f16addc1d00>
 
 
 
@@ -187,7 +187,7 @@ relearns it.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.472 seconds)
+   **Total running time of the script:** (0 minutes 0.465 seconds)
 
 
 .. _sphx_glr_download_api_gallery_signal_processing_filters_plot_04_widrow_hoff_lms.py:

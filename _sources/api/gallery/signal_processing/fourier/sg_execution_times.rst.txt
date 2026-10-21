@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:02.107** total execution time for 2 files **from api/gallery/signal_processing/fourier**:
+**00:02.102** total execution time for 2 files **from api/gallery/signal_processing/fourier**:
 
 .. container::
 
@@ -36,5 +36,5 @@ Computation times
      - 00:01.690
      - 0.0
    * - :ref:`sphx_glr_api_gallery_signal_processing_fourier_plot_02_cooley_tukey_fft.py` (``plot_02_cooley_tukey_fft.py``)
-     - 00:00.418
+     - 00:00.412
      - 0.0
