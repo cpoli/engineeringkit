@@ -18,8 +18,8 @@
 .. _sphx_glr_api_gallery_electrical_engineering_ac_circuits_plot_02_steinmetz_phasors.py:
 
 
-Steinmetz's phasors and complex impedance
-=========================================
+Steinmetz's phasors and complex impedance (1893)
+================================================
 
 AC circuits obey linear differential equations, and before 1893 engineers
 solved them with trigonometry and graphical constructions. At the
@@ -149,7 +149,7 @@ compare the steady state with :math:`|I|\cos(\omega t + \arg I)`.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.594 seconds)
+   **Total running time of the script:** (0 minutes 0.278 seconds)
 
 
 .. _sphx_glr_download_api_gallery_electrical_engineering_ac_circuits_plot_02_steinmetz_phasors.py:

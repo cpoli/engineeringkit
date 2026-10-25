@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.757** total execution time for 3 files **from api/gallery/heat_transfer/conduction**:
+**00:00.383** total execution time for 3 files **from api/gallery/heat_transfer/conduction**:
 
 .. container::
 
@@ -33,11 +33,11 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_heat_transfer_conduction_plot_03_crank_nicolson.py` (``plot_03_crank_nicolson.py``)
-     - 00:00.391
+     - 00:00.197
      - 0.0
    * - :ref:`sphx_glr_api_gallery_heat_transfer_conduction_plot_02_fin_efficiency.py` (``plot_02_fin_efficiency.py``)
-     - 00:00.219
+     - 00:00.109
      - 0.0
    * - :ref:`sphx_glr_api_gallery_heat_transfer_conduction_plot_01_fourier_law.py` (``plot_01_fourier_law.py``)
-     - 00:00.147
+     - 00:00.076
      - 0.0

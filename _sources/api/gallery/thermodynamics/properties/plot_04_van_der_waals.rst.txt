@@ -18,8 +18,8 @@
 .. _sphx_glr_api_gallery_thermodynamics_properties_plot_04_van_der_waals.py:
 
 
-Van der Waals's equation of state
-=================================
+Van der Waals's equation of state (1873)
+========================================
 
 In 1869 Thomas Andrews showed that carbon dioxide above 31 °C cannot be
 liquefied by any pressure, and below it liquefies at a sharp pressure. In his
@@ -197,7 +197,7 @@ is why engineering equations of state refine van der Waals's attraction term.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.143 seconds)
+   **Total running time of the script:** (0 minutes 0.070 seconds)
 
 
 .. _sphx_glr_download_api_gallery_thermodynamics_properties_plot_04_van_der_waals.py:

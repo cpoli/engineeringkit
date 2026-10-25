@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.282** total execution time for 2 files **from api/gallery/mechanical_engineering/transmission**:
+**00:00.141** total execution time for 2 files **from api/gallery/mechanical_engineering/transmission**:
 
 .. container::
 
@@ -33,8 +33,8 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_mechanical_engineering_transmission_plot_02_capstan_equation.py` (``plot_02_capstan_equation.py``)
-     - 00:00.156
+     - 00:00.076
      - 0.0
    * - :ref:`sphx_glr_api_gallery_mechanical_engineering_transmission_plot_01_euler_involute_gear.py` (``plot_01_euler_involute_gear.py``)
-     - 00:00.127
+     - 00:00.065
      - 0.0

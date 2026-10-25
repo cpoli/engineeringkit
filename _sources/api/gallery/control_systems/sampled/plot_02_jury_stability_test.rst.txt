@@ -18,8 +18,8 @@
 .. _sphx_glr_api_gallery_control_systems_sampled_plot_02_jury_stability_test.py:
 
 
-Jury's stability test for sampled systems
-=========================================
+Jury's stability test for sampled systems (1961)
+================================================
 
 A sampled loop is stable when every root of its characteristic polynomial in
 :math:`z` lies inside the unit circle, not in the left half-plane, so Routh's
@@ -146,7 +146,7 @@ falls as :math:`T` grows, and grows without bound as :math:`T \to 0`.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.949 seconds)
+   **Total running time of the script:** (0 minutes 0.354 seconds)
 
 
 .. _sphx_glr_download_api_gallery_control_systems_sampled_plot_02_jury_stability_test.py:

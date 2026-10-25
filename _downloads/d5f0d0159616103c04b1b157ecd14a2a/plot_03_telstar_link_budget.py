@@ -1,6 +1,6 @@
 r"""
-The Telstar satellite link budget
-=================================
+The Telstar satellite link budget (1962)
+========================================
 
 Telstar 1 (1962) relayed the first live transatlantic television. Engineers
 planned such links with a *link budget*: transmitter power, antenna gains,

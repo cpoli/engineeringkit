@@ -1,6 +1,6 @@
 r"""
-Engesser's tangent-modulus load
-===============================
+Engesser's tangent-modulus load (1889)
+======================================
 
 Tests on real columns of intermediate length failed well below Euler's
 load. Friedrich Engesser (1889) argued that once the stress passes the

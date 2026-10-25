@@ -18,8 +18,8 @@
 .. _sphx_glr_api_gallery_aerodynamics_wings_plot_02_induced_drag_elliptic_loading.py:
 
 
-Induced drag and the optimality of elliptic loading
-===================================================
+Induced drag and the optimality of elliptic loading (1918-1921)
+===============================================================
 
 Prandtl and Max Munk (1918-1919) showed that the trailing vortices carry away
 kinetic energy at a rate that appears as an *induced* drag,
@@ -89,7 +89,7 @@ content beyond the ellipse adds drag.
     fuller tips (A3 = -0.1)      e = 0.9709, C_Di = 0.01025
     peaky centre (A3 = +0.15)    e = 0.9350, C_Di = 0.01064
 
-    <matplotlib.legend.Legend object at 0x7f16addb50d0>
+    <matplotlib.legend.Legend object at 0x7fc1b3e7c3e0>
 
 
 
@@ -121,7 +121,7 @@ Induced drag grows with the square of lift
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.178 seconds)
+   **Total running time of the script:** (0 minutes 0.095 seconds)
 
 
 .. _sphx_glr_download_api_gallery_aerodynamics_wings_plot_02_induced_drag_elliptic_loading.py:

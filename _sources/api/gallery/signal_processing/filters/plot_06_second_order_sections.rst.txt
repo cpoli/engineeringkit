@@ -18,8 +18,8 @@
 .. _sphx_glr_api_gallery_signal_processing_filters_plot_06_second_order_sections.py:
 
 
-Jackson's cascaded second-order sections
-========================================
+Jackson's cascaded second-order sections (1970)
+===============================================
 
 A digital filter can be computed from its transfer function
 :math:`B(z)/A(z)` in one "direct form", but the roots of a high-degree
@@ -193,7 +193,7 @@ Low orders are safe either way
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.332 seconds)
+   **Total running time of the script:** (0 minutes 0.158 seconds)
 
 
 .. _sphx_glr_download_api_gallery_signal_processing_filters_plot_06_second_order_sections.py:

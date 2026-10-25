@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:01.717** total execution time for 6 files **from api/gallery/signal_processing/filters**:
+**00:00.888** total execution time for 6 files **from api/gallery/signal_processing/filters**:
 
 .. container::
 
@@ -33,20 +33,20 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_signal_processing_filters_plot_04_widrow_hoff_lms.py` (``plot_04_widrow_hoff_lms.py``)
-     - 00:00.465
+     - 00:00.249
      - 0.0
    * - :ref:`sphx_glr_api_gallery_signal_processing_filters_plot_06_second_order_sections.py` (``plot_06_second_order_sections.py``)
-     - 00:00.332
+     - 00:00.158
      - 0.0
    * - :ref:`sphx_glr_api_gallery_signal_processing_filters_plot_02_hurewicz_z_transform.py` (``plot_02_hurewicz_z_transform.py``)
-     - 00:00.291
+     - 00:00.144
      - 0.0
    * - :ref:`sphx_glr_api_gallery_signal_processing_filters_plot_03_wiener_filter.py` (``plot_03_wiener_filter.py``)
-     - 00:00.255
+     - 00:00.135
      - 0.0
    * - :ref:`sphx_glr_api_gallery_signal_processing_filters_plot_01_butterworth.py` (``plot_01_butterworth.py``)
-     - 00:00.192
+     - 00:00.102
      - 0.0
    * - :ref:`sphx_glr_api_gallery_signal_processing_filters_plot_05_kaiser_fir.py` (``plot_05_kaiser_fir.py``)
-     - 00:00.182
+     - 00:00.100
      - 0.0

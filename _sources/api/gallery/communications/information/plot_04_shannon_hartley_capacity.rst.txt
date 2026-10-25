@@ -18,8 +18,8 @@
 .. _sphx_glr_api_gallery_communications_information_plot_04_shannon_hartley_capacity.py:
 
 
-The Shannon-Hartley capacity of a noisy band-limited channel
-============================================================
+The Shannon-Hartley capacity of a noisy band-limited channel (1949)
+===================================================================
 
 In "Communication in the presence of noise" (1949) Shannon proved that a
 channel of bandwidth :math:`B` with white Gaussian noise and signal-to-noise
@@ -123,7 +123,7 @@ On the boundary :math:`\eta = \log_2(1 + \eta E_b/N_0)`, so
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.261 seconds)
+   **Total running time of the script:** (0 minutes 0.128 seconds)
 
 
 .. _sphx_glr_download_api_gallery_communications_information_plot_04_shannon_hartley_capacity.py:

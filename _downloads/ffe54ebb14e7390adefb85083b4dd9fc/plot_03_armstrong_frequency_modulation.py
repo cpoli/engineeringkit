@@ -1,6 +1,6 @@
 r"""
-Armstrong's wideband FM and Carson's bandwidth rule
-===================================================
+Armstrong's wideband FM and Carson's bandwidth rule (1933-1936)
+===============================================================
 
 Edwin Howard Armstrong (1933-1936) demonstrated that frequency modulation
 with a deviation much larger than the message bandwidth trades bandwidth for

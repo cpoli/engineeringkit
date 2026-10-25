@@ -18,8 +18,8 @@
 .. _sphx_glr_api_gallery_materials_fracture_plot_02_irwin_stress_intensity.py:
 
 
-Irwin's stress intensity factor
-===============================
+Irwin's stress intensity factor (1957)
+======================================
 
 Griffith's balance worked for glass but predicted absurdly low strengths for
 steel, whose cracks blunt by plastic flow. George Irwin, at the US Naval
@@ -136,7 +136,7 @@ are assessed with elastic-plastic methods (the J-integral, CTOD).
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.210 seconds)
+   **Total running time of the script:** (0 minutes 0.105 seconds)
 
 
 .. _sphx_glr_download_api_gallery_materials_fracture_plot_02_irwin_stress_intensity.py:

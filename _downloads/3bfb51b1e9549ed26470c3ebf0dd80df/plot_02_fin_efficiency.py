@@ -1,6 +1,6 @@
 r"""
-Harper and Brown's fin efficiency
-=================================
+Harper and Brown's fin efficiency (1922)
+========================================
 
 Air-cooled aero engines of the First World War shed their heat through
 cylinder fins, and in 1922 D. R. Harper and W. B. Brown of the Bureau of

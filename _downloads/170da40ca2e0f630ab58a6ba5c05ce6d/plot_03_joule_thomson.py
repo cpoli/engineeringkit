@@ -1,6 +1,6 @@
 r"""
-The Joule-Thomson effect
-========================
+The Joule-Thomson effect (1852)
+===============================
 
 Joule's free expansion of 1845 showed no temperature change, which was too
 coarse a test of whether a gas has internal energy apart from its

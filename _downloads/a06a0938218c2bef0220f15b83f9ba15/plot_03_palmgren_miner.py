@@ -1,6 +1,6 @@
 r"""
-Palmgren and Miner's cumulative damage
-======================================
+Palmgren and Miner's cumulative damage (1945)
+=============================================
 
 Real loads vary in amplitude. Arvid Palmgren (1924), estimating the lives of
 ball bearings, assumed that each cycle at amplitude :math:`\sigma_i` uses up

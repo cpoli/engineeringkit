@@ -1,6 +1,6 @@
 r"""
-Turner, Clough, Martin and Topp: the direct stiffness method
-============================================================
+Turner, Clough, Martin and Topp: the direct stiffness method (1956)
+===================================================================
 
 At Boeing in the early 1950s, M. J. Turner, R. W. Clough, H. C. Martin and
 L. J. Topp needed the stiffness of swept jet wings, which hand methods

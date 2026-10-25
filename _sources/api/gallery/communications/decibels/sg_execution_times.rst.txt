@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.088** total execution time for 1 file **from api/gallery/communications/decibels**:
+**00:00.045** total execution time for 1 file **from api/gallery/communications/decibels**:
 
 .. container::
 
@@ -33,5 +33,5 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_communications_decibels_plot_01_bell_decibel.py` (``plot_01_bell_decibel.py``)
-     - 00:00.088
+     - 00:00.045
      - 0.0

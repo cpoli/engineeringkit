@@ -1,6 +1,6 @@
 r"""
-Dittus and Boelter: turbulent pipe convection
-=============================================
+Dittus and Boelter: turbulent pipe convection (1930)
+====================================================
 
 At Berkeley in 1930 Frank Dittus and Llewellyn Boelter correlated tests on
 automobile radiator tubes with a power law in the Reynolds and Prandtl

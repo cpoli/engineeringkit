@@ -1,6 +1,6 @@
 r"""
-Churchill and Chu: natural convection over all Rayleigh numbers
-===============================================================
+Churchill and Chu: natural convection over all Rayleigh numbers (1975)
+======================================================================
 
 Free convection on a vertical plate was long described piecewise: a
 laminar :math:`Ra^{1/4}` law, a turbulent :math:`Ra^{1/3}` law, and a gap

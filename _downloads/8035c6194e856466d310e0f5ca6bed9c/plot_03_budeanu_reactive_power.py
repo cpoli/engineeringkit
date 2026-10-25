@@ -1,6 +1,6 @@
 r"""
-Budeanu's reactive power and the power factor
-=============================================
+Budeanu's reactive power and the power factor (1927)
+====================================================
 
 When a load's current lags its voltage, part of the energy flows back and
 forth every half cycle and does no work. Constantin Budeanu of Bucharest

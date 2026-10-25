@@ -1,6 +1,6 @@
 r"""
-Petroff's law of bearing friction
-=================================
+Petroff's law of bearing friction (1883)
+========================================
 
 Railway axle bearings of the 1880s ran on oil, and their friction did not
 behave like Coulomb's: it grew with speed and with the oil's viscosity, and

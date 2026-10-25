@@ -1,6 +1,6 @@
 r"""
-Kelvin's telegraph cable and the RC time constant
-=================================================
+Kelvin's telegraph cable and the RC time constant (1855)
+========================================================
 
 Before the first transatlantic cable was laid, William Thomson (later Lord
 Kelvin) analysed how a signal spreads along a submarine cable. In 1855 he

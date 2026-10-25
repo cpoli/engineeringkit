@@ -1,6 +1,6 @@
 r"""
-Butterworth's maximally flat filter
-===================================
+Butterworth's maximally flat filter (1930)
+==========================================
 
 Stephen Butterworth, a British physicist designing filters for valve
 amplifiers, asked in 1930 for a response "ideal" in the passband. His

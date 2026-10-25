@@ -18,8 +18,8 @@
 .. _sphx_glr_api_gallery_reliability_structural_plot_02_hasofer_lind.py:
 
 
-Hasofer and Lind's reliability index
-====================================
+Hasofer and Lind's reliability index (1974)
+===========================================
 
 Cornell's 1969 index, mean over standard deviation of the safety margin
 :math:`g`, has a flaw: it changes when the same failure condition is
@@ -144,7 +144,7 @@ The design point and a Monte Carlo check
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.178 seconds)
+   **Total running time of the script:** (0 minutes 0.103 seconds)
 
 
 .. _sphx_glr_download_api_gallery_reliability_structural_plot_02_hasofer_lind.py:

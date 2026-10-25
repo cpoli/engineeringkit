@@ -18,8 +18,8 @@
 .. _sphx_glr_api_gallery_reliability_systems_plot_01_von_neumann_redundancy.py:
 
 
-Von Neumann's reliable machines from unreliable parts
-=====================================================
+Von Neumann's reliable machines from unreliable parts (1956)
+============================================================
 
 John von Neumann's 1956 lectures asked how a computer, or a brain, can
 work when every component is unreliable. Two answers came out. Active
@@ -80,7 +80,7 @@ Each copy fails at :math:`10^{-3}` per hour (time unit: hours).
  .. code-block:: none
 
 
-    <matplotlib.legend.Legend object at 0x7f16adb0aed0>
+    <matplotlib.legend.Legend object at 0x7fc1b96d8920>
 
 
 
@@ -134,7 +134,7 @@ Each level of the hierarchy is a 2-out-of-3 vote on the level below.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.208 seconds)
+   **Total running time of the script:** (0 minutes 0.121 seconds)
 
 
 .. _sphx_glr_download_api_gallery_reliability_systems_plot_01_von_neumann_redundancy.py:

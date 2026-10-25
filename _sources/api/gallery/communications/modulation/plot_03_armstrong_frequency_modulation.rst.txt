@@ -18,8 +18,8 @@
 .. _sphx_glr_api_gallery_communications_modulation_plot_03_armstrong_frequency_modulation.py:
 
 
-Armstrong's wideband FM and Carson's bandwidth rule
-===================================================
+Armstrong's wideband FM and Carson's bandwidth rule (1933-1936)
+===============================================================
 
 Edwin Howard Armstrong (1933-1936) demonstrated that frequency modulation
 with a deviation much larger than the message bandwidth trades bandwidth for
@@ -95,7 +95,7 @@ Bessel sidebands of a tone-modulated carrier
     beta = 0.5: Carson bandwidth 3 kHz holds 99.8% of the power
     beta = 5.0: Carson bandwidth 12 kHz holds 99.4% of the power
 
-    <matplotlib.legend.Legend object at 0x7f16afefa4e0>
+    <matplotlib.legend.Legend object at 0x7fc1b3e15460>
 
 
 
@@ -129,7 +129,7 @@ spaced 200 kHz apart.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.207 seconds)
+   **Total running time of the script:** (0 minutes 0.115 seconds)
 
 
 .. _sphx_glr_download_api_gallery_communications_modulation_plot_03_armstrong_frequency_modulation.py:

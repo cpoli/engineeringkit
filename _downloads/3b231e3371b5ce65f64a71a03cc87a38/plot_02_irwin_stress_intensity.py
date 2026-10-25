@@ -1,6 +1,6 @@
 r"""
-Irwin's stress intensity factor
-===============================
+Irwin's stress intensity factor (1957)
+======================================
 
 Griffith's balance worked for glass but predicted absurdly low strengths for
 steel, whose cracks blunt by plastic flow. George Irwin, at the US Naval

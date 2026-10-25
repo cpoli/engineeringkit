@@ -1,6 +1,6 @@
 r"""
-Holzer's method for torsional vibration
-=======================================
+Holzer's method for torsional vibration (1921)
+==============================================
 
 Diesel engines, ship propellers and generators share long shafts that
 can twist resonantly, and a crankshaft that does so breaks. Heinrich Holzer

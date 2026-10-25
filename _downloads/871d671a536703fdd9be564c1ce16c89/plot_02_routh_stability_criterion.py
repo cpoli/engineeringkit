@@ -1,6 +1,6 @@
 r"""
-Routh's stability criterion
-===========================
+Routh's stability criterion (1877)
+==================================
 
 Maxwell could not state a test for polynomials above fourth order. Edward
 Routh's Adams Prize essay (1877) solved the problem with a table built from

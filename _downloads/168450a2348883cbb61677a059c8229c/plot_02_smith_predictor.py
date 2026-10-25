@@ -1,6 +1,6 @@
 r"""
-Smith's predictor for dead time
-===============================
+Smith's predictor for dead time (1957)
+======================================
 
 A chemical plant often measures its output only after a transport delay
 :math:`\theta`: the time for a fluid to reach the sensor. The delay adds

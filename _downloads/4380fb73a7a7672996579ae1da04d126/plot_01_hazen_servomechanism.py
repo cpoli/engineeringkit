@@ -1,6 +1,6 @@
 r"""
-Hazen's theory of servomechanisms
-=================================
+Hazen's theory of servomechanisms (1934)
+========================================
 
 Harold Hazen at MIT (1934) coined *servomechanism* and analysed
 position-following systems as second-order dynamics,

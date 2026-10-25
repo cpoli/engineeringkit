@@ -1,6 +1,6 @@
 r"""
-Hurwitz's determinant test
-==========================
+Hurwitz's determinant test (1895)
+=================================
 
 Aurel Stodola, designing turbine regulators in Zürich, asked Adolf Hurwitz
 for a practical stability condition. Hurwitz (1895), unaware of Routh's

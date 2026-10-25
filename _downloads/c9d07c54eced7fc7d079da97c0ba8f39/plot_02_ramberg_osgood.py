@@ -1,6 +1,6 @@
 r"""
-Ramberg and Osgood's stress-strain curve
-========================================
+Ramberg and Osgood's stress-strain curve (1943)
+===============================================
 
 Aluminium alloys have no sharp yield point: their stress-strain curves bend
 over smoothly, and aircraft designers of the Second World War needed them

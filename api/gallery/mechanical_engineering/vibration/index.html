@@ -10,10 +10,10 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://cpoli.github.io/engineeringkit/api/gallery/mechanical_engineering/vibration/index.html" />
 <meta property="og:site_name" content="engineeringkit" />
-<meta property="og:description" content="Free vibration, vibration absorbers and torsional modes. Rayleigh’s Theory of Sound: free vibration Frahm’s vibration absorber and Den Hartog’s tuning Holzer’s method for torsional vibration" />
+<meta property="og:description" content="Free vibration, vibration absorbers and torsional modes. Rayleigh’s Theory of Sound: free vibration (1877) Frahm’s vibration absorber and Den Hartog’s tuning (1909) Holzer’s method for torsional vi..." />
 <meta property="og:image" content="https://cpoli.github.io/engineeringkit/_static/images/readme_hero.png" />
 <meta property="og:image:alt" content="engineeringkit" />
-<meta name="description" content="Free vibration, vibration absorbers and torsional modes. Rayleigh’s Theory of Sound: free vibration Frahm’s vibration absorber and Den Hartog’s tuning Holzer’s method for torsional vibration" />
+<meta name="description" content="Free vibration, vibration absorbers and torsional modes. Rayleigh’s Theory of Sound: free vibration (1877) Frahm’s vibration absorber and Den Hartog’s tuning (1909) Holzer’s method for torsional vi..." />
 
     <title>Vibration &#8212; engineeringkit</title>
   
@@ -66,8 +66,8 @@
     <link rel="canonical" href="https://cpoli.github.io/engineeringkit/api/gallery/mechanical_engineering/vibration/index.html" />
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
-    <link rel="next" title="Rayleigh’s Theory of Sound: free vibration" href="plot_01_rayleigh_free_vibration.html" />
-    <link rel="prev" title="The Euler-Eytelwein belt-friction law" href="../transmission/plot_02_capstan_equation.html" />
+    <link rel="next" title="Rayleigh’s Theory of Sound: free vibration (1877)" href="plot_01_rayleigh_free_vibration.html" />
+    <link rel="prev" title="The Euler-Eytelwein belt-friction law (1769)" href="../transmission/plot_02_capstan_equation.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="color-scheme" content="light dark"/>
   <meta name="docsearch:language" content="en"/>
@@ -559,14 +559,14 @@
 <span id="sphx-glr-api-gallery-mechanical-engineering-vibration"></span><h1>Vibration<a class="headerlink" href="#vibration" title="Link to this heading">#</a></h1>
 <p>Free vibration, vibration absorbers and torsional modes.</p>
 <div id='sg-tag-list' class='sphx-glr-tag-list'></div><div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Lord Rayleigh&#x27;s The Theory of Sound (1877) treated every vibrating system, from strings to bells, as a set of linear oscillators. The simplest is a mass on a spring with a dashpot, m\ddot x + c\dot x + kx = 0. It rings at \omega_n = \sqrt{k/m} (~engineeringkit.mechanical_engineering.natural_frequency), and damping lowers the frequency to \omega_n\sqrt{1 - \zeta^2} (~engineeringkit.mechanical_engineering.damped_frequency, damping_ratio). Rayleigh also showed how to estimate a frequency from energy alone: equate the peak kinetic and potential energies for an assumed shape. With a linear stretch profile, a spring&#x27;s own mass m_s adds m_s/3 to the moving mass. The example checks the simulated response (~engineeringkit.mechanical_engineering.simulate_sdof) and Rayleigh&#x27;s correction against the exact solution."><img alt="" src="../../../../_images/sphx_glr_plot_01_rayleigh_free_vibration_thumb.png" />
-<p><a class="reference internal" href="plot_01_rayleigh_free_vibration.html"><span class="doc">Rayleigh’s Theory of Sound: free vibration</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Rayleigh's Theory of Sound: free vibration</div>
+<p><a class="reference internal" href="plot_01_rayleigh_free_vibration.html"><span class="doc">Rayleigh’s Theory of Sound: free vibration (1877)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Rayleigh's Theory of Sound: free vibration (1877)</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="Hermann Frahm (patent filed 1909) stopped ships&#x27; hulls and machines from vibrating at their running speed by attaching a small spring-mass system tuned to that speed. At the tuned frequency the absorber swings so that its spring force cancels the applied force, and the machine stands still. The cure works at one frequency only: the system now has two resonances, one on each side. Jacob Pieter Den Hartog and John Ormondroyd (1928) added damping to the absorber. Every response curve then passes through two fixed points, whatever the damping, and the best design tunes the absorber to make them equal and puts the peaks there (~engineeringkit.mechanical_engineering.tuned_mass_damper). This is the tuned mass damper of tall buildings."><img alt="" src="../../../../_images/sphx_glr_plot_02_frahm_absorber_thumb.png" />
-<p><a class="reference internal" href="plot_02_frahm_absorber.html"><span class="doc">Frahm’s vibration absorber and Den Hartog’s tuning</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Frahm's vibration absorber and Den Hartog's tuning</div>
+<p><a class="reference internal" href="plot_02_frahm_absorber.html"><span class="doc">Frahm’s vibration absorber and Den Hartog’s tuning (1909)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Frahm's vibration absorber and Den Hartog's tuning (1909)</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="Diesel engines, ship propellers and generators share long shafts that can twist resonantly, and a crankshaft that does so breaks. Heinrich Holzer (1921) found their natural frequencies with a table instead of a determinant. Guess a frequency, give the first disk unit twist, and march along the shaft. Each disk adds an inertia torque J_i\omega^2\theta_i, and each shaft twists by the accumulated torque over its stiffness. At a natural frequency the torque left over beyond the free end is zero (~engineeringkit.mechanical_engineering.holzer_residual, holzer_frequencies). The example checks Holzer&#x27;s frequencies against the eigenvalues of the stiffness and inertia matrices."><img alt="" src="../../../../_images/sphx_glr_plot_03_holzer_torsional_thumb.png" />
-<p><a class="reference internal" href="plot_03_holzer_torsional.html"><span class="doc">Holzer’s method for torsional vibration</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Holzer's method for torsional vibration</div>
+<p><a class="reference internal" href="plot_03_holzer_torsional.html"><span class="doc">Holzer’s method for torsional vibration (1921)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Holzer's method for torsional vibration (1921)</div>
 </div></div><div class="toctree-wrapper compound">
 </div>
 </section>
@@ -587,7 +587,7 @@
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">The Euler-Eytelwein belt-friction law</p>
+        <p class="prev-next-title">The Euler-Eytelwein belt-friction law (1769)</p>
       </div>
     </a>
     <a class="right-next"
@@ -595,7 +595,7 @@
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Rayleigh’s <em>Theory of Sound</em>: free vibration</p>
+        <p class="prev-next-title">Rayleigh’s <em>Theory of Sound</em>: free vibration (1877)</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

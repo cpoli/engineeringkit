@@ -18,8 +18,8 @@
 .. _sphx_glr_api_gallery_mechanical_engineering_dynamics_plot_01_huygens_moment_of_inertia.py:
 
 
-Huygens's compound pendulum and the parallel-axis theorem
-=========================================================
+Huygens's compound pendulum and the parallel-axis theorem (1673)
+================================================================
 
 Christiaan Huygens (1673) asked how long a simple pendulum must be to swing
 in step with a rigid body pivoted at a point. His answer, the length
@@ -219,7 +219,7 @@ a simple pendulum of length :math:`\ell + \tfrac25 a^2/\ell`.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.322 seconds)
+   **Total running time of the script:** (0 minutes 0.163 seconds)
 
 
 .. _sphx_glr_download_api_gallery_mechanical_engineering_dynamics_plot_01_huygens_moment_of_inertia.py:

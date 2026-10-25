@@ -18,8 +18,8 @@
 .. _sphx_glr_api_gallery_reliability_systems_plot_04_birnbaum_importance.py:
 
 
-Birnbaum's component importance
-===============================
+Birnbaum's component importance (1969)
+======================================
 
 Which component should be improved first? Birnbaum (1969) defined a
 component's importance as the rate at which system reliability changes with
@@ -129,7 +129,7 @@ Remove 0.02 of unreliability from one component at a time.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.106 seconds)
+   **Total running time of the script:** (0 minutes 0.052 seconds)
 
 
 .. _sphx_glr_download_api_gallery_reliability_systems_plot_04_birnbaum_importance.py:

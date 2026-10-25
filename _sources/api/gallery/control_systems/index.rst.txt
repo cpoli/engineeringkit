@@ -75,7 +75,7 @@ Governors, feedback amplifiers and PID control.
 
 .. raw:: html
 
-      <div class="sphx-glr-thumbnail-title">Watt's centrifugal governor and proportional droop</div>
+      <div class="sphx-glr-thumbnail-title">Watt's centrifugal governor and proportional droop (1788)</div>
     </div>
 
 
@@ -92,7 +92,7 @@ Governors, feedback amplifiers and PID control.
 
 .. raw:: html
 
-      <div class="sphx-glr-thumbnail-title">Minorsky's PID controller for ship steering</div>
+      <div class="sphx-glr-thumbnail-title">Minorsky's PID controller for ship steering (1922)</div>
     </div>
 
 
@@ -109,7 +109,7 @@ Governors, feedback amplifiers and PID control.
 
 .. raw:: html
 
-      <div class="sphx-glr-thumbnail-title">Black's negative-feedback amplifier</div>
+      <div class="sphx-glr-thumbnail-title">Black's negative-feedback amplifier (1927)</div>
     </div>
 
 
@@ -126,7 +126,7 @@ Governors, feedback amplifiers and PID control.
 
 .. raw:: html
 
-      <div class="sphx-glr-thumbnail-title">Ziegler and Nichols tune a PID from the edge of instability</div>
+      <div class="sphx-glr-thumbnail-title">Ziegler and Nichols tune a PID from the edge of instability (1942)</div>
     </div>
 
 
@@ -166,7 +166,7 @@ The Nyquist criterion, Bode plots and stability margins.
 
 .. raw:: html
 
-      <div class="sphx-glr-thumbnail-title">Nyquist's stability criterion</div>
+      <div class="sphx-glr-thumbnail-title">Nyquist's stability criterion (1932)</div>
     </div>
 
 
@@ -183,7 +183,7 @@ The Nyquist criterion, Bode plots and stability margins.
 
 .. raw:: html
 
-      <div class="sphx-glr-thumbnail-title">Bode's gain and phase margins</div>
+      <div class="sphx-glr-thumbnail-title">Bode's gain and phase margins (1940)</div>
     </div>
 
 
@@ -223,7 +223,7 @@ The linear-quadratic regulator, the Kalman-Bucy filter and the robustness of the
 
 .. raw:: html
 
-      <div class="sphx-glr-thumbnail-title">Kalman's linear-quadratic regulator</div>
+      <div class="sphx-glr-thumbnail-title">Kalman's linear-quadratic regulator (1960)</div>
     </div>
 
 
@@ -240,7 +240,7 @@ The linear-quadratic regulator, the Kalman-Bucy filter and the robustness of the
 
 .. raw:: html
 
-      <div class="sphx-glr-thumbnail-title">The Kalman-Bucy filter</div>
+      <div class="sphx-glr-thumbnail-title">The Kalman-Bucy filter (1961)</div>
     </div>
 
 
@@ -257,7 +257,7 @@ The linear-quadratic regulator, the Kalman-Bucy filter and the robustness of the
 
 .. raw:: html
 
-      <div class="sphx-glr-thumbnail-title">Doyle's guaranteed margins for LQG: there are none</div>
+      <div class="sphx-glr-thumbnail-title">Doyle's guaranteed margins for LQG: there are none (1978)</div>
     </div>
 
 
@@ -297,7 +297,7 @@ Closed-loop poles as the loop gain varies.
 
 .. raw:: html
 
-      <div class="sphx-glr-thumbnail-title">Evans's root locus</div>
+      <div class="sphx-glr-thumbnail-title">Evans's root locus (1948)</div>
     </div>
 
 
@@ -337,7 +337,7 @@ Computer control with a zero-order hold, and stability inside the unit circle.
 
 .. raw:: html
 
-      <div class="sphx-glr-thumbnail-title">Ragazzini and Zadeh's sampled-data systems</div>
+      <div class="sphx-glr-thumbnail-title">Ragazzini and Zadeh's sampled-data systems (1952)</div>
     </div>
 
 
@@ -354,7 +354,7 @@ Computer control with a zero-order hold, and stability inside the unit circle.
 
 .. raw:: html
 
-      <div class="sphx-glr-thumbnail-title">Jury's stability test for sampled systems</div>
+      <div class="sphx-glr-thumbnail-title">Jury's stability test for sampled systems (1961)</div>
     </div>
 
 
@@ -394,7 +394,7 @@ Characteristic roots, the Routh and Hurwitz tests and Lyapunov functions.
 
 .. raw:: html
 
-      <div class="sphx-glr-thumbnail-title">Maxwell's "On Governors": stability from characteristic roots</div>
+      <div class="sphx-glr-thumbnail-title">Maxwell's "On Governors": stability from characteristic roots (1868)</div>
     </div>
 
 
@@ -411,7 +411,7 @@ Characteristic roots, the Routh and Hurwitz tests and Lyapunov functions.
 
 .. raw:: html
 
-      <div class="sphx-glr-thumbnail-title">Routh's stability criterion</div>
+      <div class="sphx-glr-thumbnail-title">Routh's stability criterion (1877)</div>
     </div>
 
 
@@ -428,7 +428,7 @@ Characteristic roots, the Routh and Hurwitz tests and Lyapunov functions.
 
 .. raw:: html
 
-      <div class="sphx-glr-thumbnail-title">Lyapunov's direct method</div>
+      <div class="sphx-glr-thumbnail-title">Lyapunov's direct method (1892)</div>
     </div>
 
 
@@ -445,7 +445,7 @@ Characteristic roots, the Routh and Hurwitz tests and Lyapunov functions.
 
 .. raw:: html
 
-      <div class="sphx-glr-thumbnail-title">Hurwitz's determinant test</div>
+      <div class="sphx-glr-thumbnail-title">Hurwitz's determinant test (1895)</div>
     </div>
 
 
@@ -485,7 +485,7 @@ Controllability, pole placement and observers.
 
 .. raw:: html
 
-      <div class="sphx-glr-thumbnail-title">Kalman's controllability and observability</div>
+      <div class="sphx-glr-thumbnail-title">Kalman's controllability and observability (1960)</div>
     </div>
 
 
@@ -502,7 +502,7 @@ Controllability, pole placement and observers.
 
 .. raw:: html
 
-      <div class="sphx-glr-thumbnail-title">Luenberger's observer</div>
+      <div class="sphx-glr-thumbnail-title">Luenberger's observer (1964)</div>
     </div>
 
 
@@ -519,7 +519,7 @@ Controllability, pole placement and observers.
 
 .. raw:: html
 
-      <div class="sphx-glr-thumbnail-title">Wonham's pole assignment</div>
+      <div class="sphx-glr-thumbnail-title">Wonham's pole assignment (1967)</div>
     </div>
 
 
@@ -559,7 +559,7 @@ Transient specifications of second-order servomechanisms, and dead time.
 
 .. raw:: html
 
-      <div class="sphx-glr-thumbnail-title">Hazen's theory of servomechanisms</div>
+      <div class="sphx-glr-thumbnail-title">Hazen's theory of servomechanisms (1934)</div>
     </div>
 
 
@@ -576,7 +576,7 @@ Transient specifications of second-order servomechanisms, and dead time.
 
 .. raw:: html
 
-      <div class="sphx-glr-thumbnail-title">Smith's predictor for dead time</div>
+      <div class="sphx-glr-thumbnail-title">Smith's predictor for dead time (1957)</div>
     </div>
 
 

@@ -18,8 +18,8 @@
 .. _sphx_glr_api_gallery_control_systems_state_space_plot_02_luenberger_observer.py:
 
 
-Luenberger's observer
-=====================
+Luenberger's observer (1964)
+============================
 
 State feedback needs every state, but sensors measure only some of them.
 David Luenberger (1964) built the missing states from a copy of the model
@@ -129,7 +129,7 @@ The error follows the placed poles exactly
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.194 seconds)
+   **Total running time of the script:** (0 minutes 0.099 seconds)
 
 
 .. _sphx_glr_download_api_gallery_control_systems_state_space_plot_02_luenberger_observer.py:

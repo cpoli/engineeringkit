@@ -1,6 +1,6 @@
 r"""
-Induced drag and the optimality of elliptic loading
-===================================================
+Induced drag and the optimality of elliptic loading (1918-1921)
+===============================================================
 
 Prandtl and Max Munk (1918-1919) showed that the trailing vortices carry away
 kinetic energy at a rate that appears as an *induced* drag,

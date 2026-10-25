@@ -1,6 +1,6 @@
 r"""
-Hartley's law: information grows with the logarithm of the levels
-=================================================================
+Hartley's law: information grows with the logarithm of the levels (1928)
+========================================================================
 
 Ralph Hartley (1928) argued that a message selected from :math:`M`
 distinguishable symbols carries :math:`\log M` units of information, so a

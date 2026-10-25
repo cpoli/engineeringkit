@@ -1,6 +1,6 @@
 r"""
-Paris's crack-growth law
-========================
+Paris's crack-growth law (1963)
+===============================
 
 Fracture mechanics tells how long a crack can be; fatigue makes it grow
 there. Paul Paris, after measuring cracks in aluminium aircraft panels,

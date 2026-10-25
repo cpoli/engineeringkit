@@ -474,8 +474,8 @@ decomposition of the record.</p>
 with application to a supposed 26 day period of meteorological phenomena,”
 <em>Terr. Magn.</em> 3 (1898) 13-41.</p>
 <div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Was there a 26-day period in the weather, linked to the Sun&#x27;s rotation? Arthur Schuster (1898) answered such questions with the periodogram: the squared magnitude of the record&#x27;s Fourier coefficients, |X_k|^2/N, plotted against period (~engineeringkit.signal_processing.dft, power_spectral_density). A true periodicity stands out as a peak that grows with the record length, while the noise level does not. Schuster also worked out how high a peak pure noise is likely to throw up. The example hides a weak sine in noise several times stronger and finds it."><img alt="" src="../_images/sphx_glr_plot_01_schuster_periodogram_thumb.png" />
-<p><a class="reference internal" href="../api/gallery/signal_processing/spectral/plot_01_schuster_periodogram.html"><span class="doc">Schuster’s periodogram</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Schuster's periodogram</div>
+<p><a class="reference internal" href="../api/gallery/signal_processing/spectral/plot_01_schuster_periodogram.html"><span class="doc">Schuster’s periodogram (1898)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Schuster's periodogram (1898)</div>
 </div></div></section>
 <section id="gibbs-s-phenomenon">
 <h2><a class="toc-backref" href="#id2" role="doc-backlink">1899 – Gibbs’s Phenomenon</a><a class="headerlink" href="#gibbs-s-phenomenon" title="Link to this heading">#</a></h2>
@@ -494,8 +494,8 @@ and shows that the mean squared error still falls as <span class="math notransla
 59 (1899) 606; H. Wilbraham, “On a certain periodic function,” <em>Cambridge
 Dublin Math. J.</em> 3 (1848) 198-201.</p>
 <div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Albert Michelson&#x27;s harmonic analyser (1898) summed 80 Fourier terms mechanically, and its curves for a square wave overshot at every jump. Michelson suspected the machine. Josiah Willard Gibbs (1899) showed in Nature that the mathematics itself overshoots: near a discontinuity the partial sums (~engineeringkit.signal_processing.fourier_partial_sum) rise about 9% of the jump above it, however many terms are kept. The overshoot only narrows toward the jump. Henry Wilbraham had found the same effect in 1848, unnoticed."><img alt="" src="../_images/sphx_glr_plot_01_gibbs_phenomenon_thumb.png" />
-<p><a class="reference internal" href="../api/gallery/signal_processing/fourier/plot_01_gibbs_phenomenon.html"><span class="doc">Gibbs’s phenomenon</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Gibbs's phenomenon</div>
+<p><a class="reference internal" href="../api/gallery/signal_processing/fourier/plot_01_gibbs_phenomenon.html"><span class="doc">Gibbs’s phenomenon (1899)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Gibbs's phenomenon (1899)</div>
 </div></div></section>
 <section id="haar-s-wavelet">
 <h2><a class="toc-backref" href="#id3" role="doc-backlink">1910 – Haar’s Wavelet</a><a class="headerlink" href="#haar-s-wavelet" title="Link to this heading">#</a></h2>
@@ -514,8 +514,8 @@ piecewise signal better than a Fourier basis does.</p>
 <p><em>References:</em> A. Haar, “Zur Theorie der orthogonalen Funktionensysteme,”
 <em>Math. Ann.</em> 69 (1910) 331-371.</p>
 <div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="In his 1909 dissertation, published in 1910, Alfréd Haar built an orthonormal basis from a single step function: the difference between the two halves of an interval, shrunk and shifted to every scale and position (~engineeringkit.signal_processing.haar_transform). It was the first wavelet, though the word came 70 years later. Each Haar function lives on a short interval, so a jump in a signal touches only a few coefficients at each scale. A sine, by contrast, extends over all time and smears a jump over every coefficient. The transform keeps the signal&#x27;s energy and is inverted exactly (~engineeringkit.signal_processing.inverse_haar_transform)."><img alt="" src="../_images/sphx_glr_plot_01_haar_wavelet_thumb.png" />
-<p><a class="reference internal" href="../api/gallery/signal_processing/wavelets/plot_01_haar_wavelet.html"><span class="doc">Haar’s wavelet</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Haar's wavelet</div>
+<p><a class="reference internal" href="../api/gallery/signal_processing/wavelets/plot_01_haar_wavelet.html"><span class="doc">Haar’s wavelet (1910)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Haar's wavelet (1910)</div>
 </div></div></section>
 <section id="butterworth-s-maximally-flat-filter">
 <h2><a class="toc-backref" href="#id4" role="doc-backlink">1930 – Butterworth’s Maximally Flat Filter</a><a class="headerlink" href="#butterworth-s-maximally-flat-filter" title="Link to this heading">#</a></h2>
@@ -534,8 +534,8 @@ complementarity of a low-pass and high-pass pair.</p>
 <p><em>References:</em> S. Butterworth, “On the theory of filter amplifiers,”
 <em>Wireless Engineer</em> 7 (1930) 536-541.</p>
 <div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Stephen Butterworth, a British physicist designing filters for valve amplifiers, asked in 1930 for a response &quot;ideal&quot; in the passband. His answer, |H|^2 = 1/(1 + (\omega/\omega_c)^{2n}), has every derivative up to order 2n-1 zero at DC, so it is as flat there as an order- n filter can be. Each added order steepens the roll-off by 20 dB per decade, and the gain at the cutoff is always 1/\sqrt2 (-3 dB). Digital versions come from the bilinear transform, which maps the analogue frequency axis onto the unit circle through \omega = \tan(\pi f/f_s) (~engineeringkit.signal_processing.butterworth_lowpass, butterworth_highpass)."><img alt="" src="../_images/sphx_glr_plot_01_butterworth_thumb.png" />
-<p><a class="reference internal" href="../api/gallery/signal_processing/filters/plot_01_butterworth.html"><span class="doc">Butterworth’s maximally flat filter</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Butterworth's maximally flat filter</div>
+<p><a class="reference internal" href="../api/gallery/signal_processing/filters/plot_01_butterworth.html"><span class="doc">Butterworth’s maximally flat filter (1930)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Butterworth's maximally flat filter (1930)</div>
 </div></div></section>
 <section id="the-wiener-khinchin-theorem">
 <h2><a class="toc-backref" href="#id5" role="doc-backlink">1934 – The Wiener-Khinchin Theorem</a><a class="headerlink" href="#the-wiener-khinchin-theorem" title="Link to this heading">#</a></h2>
@@ -554,8 +554,8 @@ spectrum of an autoregressive process with its theoretical spectrum.</p>
 (1930) 117-258; A. Khintchine, “Korrelationstheorie der stationären
 stochastischen Prozesse,” <em>Math. Ann.</em> 109 (1934) 604-615.</p>
 <div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Norbert Wiener (1930) and Aleksandr Khinchin (1934) showed that the power spectrum of a stationary random process is the Fourier transform of its autocorrelation function. A random signal has no Fourier transform of its own, but its correlation does, and that gives its spectrum a precise meaning. For a finite record the discrete version is exact: the DFT of the biased sample autocorrelation equals the periodogram (~engineeringkit.signal_processing.correlation, power_spectral_density)."><img alt="" src="../_images/sphx_glr_plot_02_wiener_khinchin_thumb.png" />
-<p><a class="reference internal" href="../api/gallery/signal_processing/spectral/plot_02_wiener_khinchin.html"><span class="doc">The Wiener-Khinchin theorem</span></a></p>
-  <div class="sphx-glr-thumbnail-title">The Wiener-Khinchin theorem</div>
+<p><a class="reference internal" href="../api/gallery/signal_processing/spectral/plot_02_wiener_khinchin.html"><span class="doc">The Wiener-Khinchin theorem (1934)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">The Wiener-Khinchin theorem (1934)</div>
 </div></div></section>
 <section id="gabor-s-time-frequency-atoms">
 <h2><a class="toc-backref" href="#id6" role="doc-backlink">1946 – Gabor’s Time-Frequency Atoms</a><a class="headerlink" href="#gabor-s-time-frequency-atoms" title="Link to this heading">#</a></h2>
@@ -573,8 +573,8 @@ chirp with a click using short and long windows.</p>
 <p><em>References:</em> D. Gabor, “Theory of communication,” <em>J. IEE</em> 93, part III
 (1946) 429-457.</p>
 <div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="A Fourier spectrum says which frequencies a signal contains but not when. Dennis Gabor (1946) described signals instead by &quot;atoms&quot;: Gaussian-windowed sinusoids, each occupying a cell of the time-frequency plane. Sliding a window along the signal and taking a DFT of each frame gives the short-time Fourier transform (~engineeringkit.signal_processing.stft). The cells cannot be made arbitrarily small. For RMS widths \sigma_t and \sigma_f of a window&#x27;s energy in time and frequency, \sigma_t\sigma_f \ge 1/(4\pi), and only the Gaussian reaches the bound."><img alt="" src="../_images/sphx_glr_plot_03_gabor_stft_thumb.png" />
-<p><a class="reference internal" href="../api/gallery/signal_processing/spectral/plot_03_gabor_stft.html"><span class="doc">Gabor’s time-frequency atoms</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Gabor's time-frequency atoms</div>
+<p><a class="reference internal" href="../api/gallery/signal_processing/spectral/plot_03_gabor_stft.html"><span class="doc">Gabor’s time-frequency atoms (1946)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Gabor's time-frequency atoms (1946)</div>
 </div></div></section>
 <section id="hurewicz-s-z-transform">
 <h2><a class="toc-backref" href="#id7" role="doc-backlink">1947 – Hurewicz’s z-Transform</a><a class="headerlink" href="#hurewicz-s-z-transform" title="Link to this heading">#</a></h2>
@@ -597,8 +597,8 @@ Servomechanisms</em> (McGraw-Hill, New York, 1947); J. R. Ragazzini and L. A.
 Zadeh, “The analysis of sampled-data systems,” <em>Trans. AIEE</em> 71, part II
 (1952) 225-234.</p>
 <div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Radar fire-control systems of the Second World War sampled their targets, and the MIT Radiation Laboratory needed a theory of feedback loops that saw data only at instants nT. In the Laboratory&#x27;s 1947 volume Theory of Servomechanisms, the topologist Witold Hurewicz described a sampled sequence by the generating function X(z) = \sum_n x_n z^{-n}, which Ragazzini and Zadeh named the z-transform in 1952. A difference equation becomes the rational function H(z) = B(z)/A(z). Its poles must lie inside the unit circle for stability, and on the circle z = e^{j2\pi f/f_s} it gives the frequency response (~engineeringkit.signal_processing.frequency_response, filter_signal)."><img alt="" src="../_images/sphx_glr_plot_02_hurewicz_z_transform_thumb.png" />
-<p><a class="reference internal" href="../api/gallery/signal_processing/filters/plot_02_hurewicz_z_transform.html"><span class="doc">Hurewicz’s z-transform</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Hurewicz's z-transform</div>
+<p><a class="reference internal" href="../api/gallery/signal_processing/filters/plot_02_hurewicz_z_transform.html"><span class="doc">Hurewicz’s z-transform (1947)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Hurewicz's z-transform (1947)</div>
 </div></div></section>
 <section id="bennett-s-quantization-noise">
 <h2><a class="toc-backref" href="#id8" role="doc-backlink">1948 – Bennett’s Quantization Noise</a><a class="headerlink" href="#bennett-s-quantization-noise" title="Link to this heading">#</a></h2>
@@ -618,8 +618,8 @@ a slow ramp.</p>
 <p><em>References:</em> W. R. Bennett, “Spectra of quantized signals,” <em>Bell Syst.
 Tech. J.</em> 27 (1948) 446-472.</p>
 <div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Pulse-code modulation, worked out at Bell Laboratories during the Second World War, rounds every sample to one of 2^N levels (~engineeringkit.signal_processing.quantize). W. R. Bennett asked what that rounding does to the signal. For a signal that is busy compared with the step q (~engineeringkit.signal_processing.quantization_step), the error is spread evenly over [-q/2, q/2], so it behaves like added white noise of power q^2/12. For a full-scale sine this gives the rule every ADC data sheet quotes, \mathrm{SNR} = 6.02N + 1.76 dB: each extra bit buys 6 dB."><img alt="" src="../_images/sphx_glr_plot_01_bennett_quantization_thumb.png" />
-<p><a class="reference internal" href="../api/gallery/signal_processing/sampling/plot_01_bennett_quantization.html"><span class="doc">Bennett’s quantization noise</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Bennett's quantization noise</div>
+<p><a class="reference internal" href="../api/gallery/signal_processing/sampling/plot_01_bennett_quantization.html"><span class="doc">Bennett’s quantization noise (1948)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Bennett's quantization noise (1948)</div>
 </div></div></section>
 <section id="shannon-s-sampling-theorem">
 <h2><a class="toc-backref" href="#id9" role="doc-backlink">1949 – Shannon’s Sampling Theorem</a><a class="headerlink" href="#shannon-s-sampling-theorem" title="Link to this heading">#</a></h2>
@@ -642,8 +642,8 @@ coming back at 30 Hz.</p>
 represented by the expansions of the interpolation-theory,” <em>Proc. R. Soc.
 Edinburgh</em> 35 (1915) 181-194.</p>
 <div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Claude Shannon&#x27;s 1949 paper Communication in the presence of noise opens with a theorem: a signal with no frequencies above B is completely determined by samples taken every 1/(2B) seconds. Whittaker (1915), Nyquist (1928) and Kotelnikov (1933) had come close, but Shannon stated it plainly and gave the reconstruction, a sum of sinc pulses centred on the samples (~engineeringkit.signal_processing.sinc_reconstruct). A frequency above the Nyquist frequency f_s/2 (~engineeringkit.signal_processing.nyquist_frequency) produces exactly the same samples as one below it, its alias (~engineeringkit.signal_processing.alias_frequency), and no processing after the sampler can tell them apart."><img alt="" src="../_images/sphx_glr_plot_02_shannon_sampling_thumb.png" />
-<p><a class="reference internal" href="../api/gallery/signal_processing/sampling/plot_02_shannon_sampling.html"><span class="doc">Shannon’s sampling theorem and aliasing</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Shannon's sampling theorem and aliasing</div>
+<p><a class="reference internal" href="../api/gallery/signal_processing/sampling/plot_02_shannon_sampling.html"><span class="doc">Shannon’s sampling theorem and aliasing (1949)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Shannon's sampling theorem and aliasing (1949)</div>
 </div></div></section>
 <section id="wiener-s-optimal-filter">
 <h2><a class="toc-backref" href="#id10" role="doc-backlink">1949 – Wiener’s Optimal Filter</a><a class="headerlink" href="#wiener-s-optimal-filter" title="Link to this heading">#</a></h2>
@@ -664,8 +664,8 @@ Stationary Time Series</em> (MIT Press and Wiley, 1949); N. Levinson, “The
 Wiener RMS (root mean square) error criterion in filter design and
 prediction,” <em>J. Math. Phys.</em> 25 (1947) 261-278.</p>
 <div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Asked during the war to predict the path of an aircraft from noisy radar data, Norbert Wiener posed filtering as an optimization: find the linear filter that makes the mean squared error between its output and the wanted signal as small as possible. His 1942 report, bound in yellow and known to engineers as the &quot;yellow peril&quot; for its mathematics, was published in 1949. Norman Levinson (1947) recast it for discrete FIR filters, where the answer is the solution of the normal equations Rw = p (~engineeringkit.signal_processing.wiener_filter). The example recovers a slowly varying signal from additive white noise."><img alt="" src="../_images/sphx_glr_plot_03_wiener_filter_thumb.png" />
-<p><a class="reference internal" href="../api/gallery/signal_processing/filters/plot_03_wiener_filter.html"><span class="doc">Wiener’s optimal filter</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Wiener's optimal filter</div>
+<p><a class="reference internal" href="../api/gallery/signal_processing/filters/plot_03_wiener_filter.html"><span class="doc">Wiener’s optimal filter (1949)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Wiener's optimal filter (1949)</div>
 </div></div></section>
 <section id="blackman-and-tukey-s-spectral-windows">
 <h2><a class="toc-backref" href="#id11" role="doc-backlink">1958 – Blackman and Tukey’s Spectral Windows</a><a class="headerlink" href="#blackman-and-tukey-s-spectral-windows" title="Link to this heading">#</a></h2>
@@ -683,8 +683,8 @@ a neighbour that the rectangular window hides.</p>
 spectra from the point of view of communications engineering,” <em>Bell Syst.
 Tech. J.</em> 37 (1958) 185-282 and 485-569.</p>
 <div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Ralph Blackman and John Tukey&#x27;s The Measurement of Power Spectra (1958) turned spectral estimation into an engineering procedure for the telephone and seismic data of the Bell System. Cutting a finite record out of a signal multiplies it by a rectangular window. In frequency, every tone is then smeared by that window&#x27;s transform, whose sidelobes fall only slowly, so a strong tone can hide a weak one nearby. Their book named the tapered windows of Julius von Hann and Richard Hamming that trade a wider main lobe for far lower sidelobes (~engineeringkit.signal_processing.windowed_spectrum)."><img alt="" src="../_images/sphx_glr_plot_04_blackman_tukey_windows_thumb.png" />
-<p><a class="reference internal" href="../api/gallery/signal_processing/spectral/plot_04_blackman_tukey_windows.html"><span class="doc">Blackman and Tukey’s spectral windows</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Blackman and Tukey's spectral windows</div>
+<p><a class="reference internal" href="../api/gallery/signal_processing/spectral/plot_04_blackman_tukey_windows.html"><span class="doc">Blackman and Tukey’s spectral windows (1958)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Blackman and Tukey's spectral windows (1958)</div>
 </div></div></section>
 <section id="goertzel-s-algorithm">
 <h2><a class="toc-backref" href="#id12" role="doc-backlink">1958 – Goertzel’s Algorithm</a><a class="headerlink" href="#goertzel-s-algorithm" title="Link to this heading">#</a></h2>
@@ -700,8 +700,8 @@ its cost with an FFT.</p>
 <p><em>References:</em> G. Goertzel, “An algorithm for the evaluation of finite
 trigonometric series,” <em>Amer. Math. Monthly</em> 65 (1958) 34-35.</p>
 <div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Gerald Goertzel (1958) evaluated a single term of a Fourier series with a second-order recursion that needs one real multiplication per sample (~engineeringkit.signal_processing.goertzel). When only a handful of frequencies matter, it is cheaper than a full FFT and needs no buffer of samples. Its classic use is the touch-tone (DTMF) telephone keypad, where each key sends two tones, one from a low group and one from a high group, and the receiver has to measure only eight frequencies."><img alt="" src="../_images/sphx_glr_plot_05_goertzel_thumb.png" />
-<p><a class="reference internal" href="../api/gallery/signal_processing/spectral/plot_05_goertzel.html"><span class="doc">Goertzel’s algorithm</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Goertzel's algorithm</div>
+<p><a class="reference internal" href="../api/gallery/signal_processing/spectral/plot_05_goertzel.html"><span class="doc">Goertzel’s algorithm (1958)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Goertzel's algorithm (1958)</div>
 </div></div></section>
 <section id="widrow-and-hoff-s-lms-adaptive-filter">
 <h2><a class="toc-backref" href="#id13" role="doc-backlink">1960 – Widrow and Hoff’s LMS Adaptive Filter</a><a class="headerlink" href="#widrow-and-hoff-s-lms-adaptive-filter" title="Link to this heading">#</a></h2>
@@ -720,8 +720,8 @@ Wiener solution, and tracks a sudden change.</p>
 <p><em>References:</em> B. Widrow and M. E. Hoff, “Adaptive switching circuits,”
 <em>IRE WESCON Convention Record</em>, part 4 (1960) 96-104.</p>
 <div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="At Stanford in 1959, Bernard Widrow and his student Ted Hoff looked for a way to train an adaptive linear neuron, ADALINE, without knowing the statistics that the Wiener solution needs. Their least-mean-squares rule nudges the weights after every sample against the gradient of the instantaneous squared error: w \leftarrow w + \mu e_n u_n (~engineeringkit.signal_processing.lms_filter). It needs only 2L multiplications per sample, converges on average to the Wiener filter, and follows it if the system changes. Echo cancellers, channel equalizers and noise-cancelling headphones run on it."><img alt="" src="../_images/sphx_glr_plot_04_widrow_hoff_lms_thumb.png" />
-<p><a class="reference internal" href="../api/gallery/signal_processing/filters/plot_04_widrow_hoff_lms.html"><span class="doc">Widrow and Hoff’s LMS adaptive filter</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Widrow and Hoff's LMS adaptive filter</div>
+<p><a class="reference internal" href="../api/gallery/signal_processing/filters/plot_04_widrow_hoff_lms.html"><span class="doc">Widrow and Hoff’s LMS adaptive filter (1960)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Widrow and Hoff's LMS adaptive filter (1960)</div>
 </div></div></section>
 <section id="cooley-and-tukey-s-fast-fourier-transform">
 <h2><a class="toc-backref" href="#id14" role="doc-backlink">1965 – Cooley and Tukey’s Fast Fourier Transform</a><a class="headerlink" href="#cooley-and-tukey-s-fast-fourier-transform" title="Link to this heading">#</a></h2>
@@ -743,8 +743,8 @@ calculation of complex Fourier series,” <em>Math. Comp.</em> 19 (1965) 297-301
 M. T. Heideman, D. H. Johnson and C. S. Burrus, “Gauss and the history of
 the fast Fourier transform,” <em>IEEE ASSP Mag.</em> 1 (1984) 14-21.</p>
 <div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="A direct DFT of N samples needs N^2 complex multiplications. James Cooley and John Tukey (1965) split it into the DFTs of the even- and odd-numbered samples, combined by &quot;butterflies&quot; E_k \pm W^k O_k, and repeated the split down to single samples (~engineeringkit.signal_processing.radix2_fft). The cost falls to (N/2)\log_2 N. Gauss had used the same idea in 1805 to interpolate asteroid orbits. In 1965 it made spectral analysis on a computer routine, and it is what dft (NumPy&#x27;s FFT) does."><img alt="" src="../_images/sphx_glr_plot_02_cooley_tukey_fft_thumb.png" />
-<p><a class="reference internal" href="../api/gallery/signal_processing/fourier/plot_02_cooley_tukey_fft.html"><span class="doc">Cooley and Tukey’s fast Fourier transform</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Cooley and Tukey's fast Fourier transform</div>
+<p><a class="reference internal" href="../api/gallery/signal_processing/fourier/plot_02_cooley_tukey_fft.html"><span class="doc">Cooley and Tukey’s fast Fourier transform (1965)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Cooley and Tukey's fast Fourier transform (1965)</div>
 </div></div></section>
 <section id="kaiser-s-window-method-for-fir-design">
 <h2><a class="toc-backref" href="#id15" role="doc-backlink">1966 – Kaiser’s Window Method for FIR Design</a><a class="headerlink" href="#kaiser-s-window-method-for-fir-design" title="Link to this heading">#</a></h2>
@@ -766,8 +766,8 @@ F. Kaiser (eds.), <em>System Analysis by Digital Computer</em> (Wiley, New York,
 I0-sinh window function,” <em>Proc. IEEE Int. Symp. Circuits Syst.</em> (1974)
 20-23.</p>
 <div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="An ideal low-pass filter has an infinitely long sinc impulse response. Truncating it gives a finite (FIR) filter whose response ripples near the band edge. Tapering the truncated response with a window trades ripple for a wider transition band. James Kaiser of Bell Labs (1966) used the prolate-spheroidal-like I_0-Bessel window, whose single parameter \beta sets that trade continuously. He later (1974) gave empirical formulas for the length and \beta that meet a required stopband attenuation and transition width (~engineeringkit.signal_processing.kaiser_order, fir_lowpass)."><img alt="" src="../_images/sphx_glr_plot_05_kaiser_fir_thumb.png" />
-<p><a class="reference internal" href="../api/gallery/signal_processing/filters/plot_05_kaiser_fir.html"><span class="doc">Kaiser’s window method for FIR design</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Kaiser's window method for FIR design</div>
+<p><a class="reference internal" href="../api/gallery/signal_processing/filters/plot_05_kaiser_fir.html"><span class="doc">Kaiser’s window method for FIR design (1966)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Kaiser's window method for FIR design (1966)</div>
 </div></div></section>
 <section id="welch-s-averaged-periodogram">
 <h2><a class="toc-backref" href="#id16" role="doc-backlink">1967 – Welch’s Averaged Periodogram</a><a class="headerlink" href="#welch-s-averaged-periodogram" title="Link to this heading">#</a></h2>
@@ -786,8 +786,8 @@ estimation of power spectra: a method based on time averaging over short,
 modified periodograms,” <em>IEEE Trans. Audio Electroacoust.</em> 15 (1967)
 70-73.</p>
 <div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="The periodogram of noise does not settle down as the record grows. At every frequency its standard deviation equals its mean, whatever the length. Peter Welch (1967) cut the record into overlapping segments, windowed each, and averaged their periodograms, computed with the new FFT (~engineeringkit.signal_processing.welch_psd). Averaging K nearly independent segments divides the variance by about K; the price is a coarser resolution, f_s/L for segments of L samples."><img alt="" src="../_images/sphx_glr_plot_06_welch_psd_thumb.png" />
-<p><a class="reference internal" href="../api/gallery/signal_processing/spectral/plot_06_welch_psd.html"><span class="doc">Welch’s averaged periodogram</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Welch's averaged periodogram</div>
+<p><a class="reference internal" href="../api/gallery/signal_processing/spectral/plot_06_welch_psd.html"><span class="doc">Welch’s averaged periodogram (1967)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Welch's averaged periodogram (1967)</div>
 </div></div></section>
 <section id="jackson-s-cascaded-second-order-sections">
 <h2><a class="toc-backref" href="#id17" role="doc-backlink">1970 – Jackson’s Cascaded Second-Order Sections</a><a class="headerlink" href="#jackson-s-cascaded-second-order-sections" title="Link to this heading">#</a></h2>
@@ -807,8 +807,8 @@ one polynomial and works as six sections.</p>
 dynamic range in digital filters,” <em>Bell Syst. Tech. J.</em> 49 (1970)
 159-184.</p>
 <div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="A digital filter can be computed from its transfer function B(z)/A(z) in one &quot;direct form&quot;, but the roots of a high-degree polynomial are extremely sensitive to rounding in its coefficients. When the poles crowd near z = 1, as they do for a narrow low-pass filter, double precision is not enough. Kaiser warned of this in 1965, and Leland Jackson (1970) analysed how roundoff noise and overflow depend on how a filter is split into a cascade of second-order sections, each holding one pair of poles. Cascades of &quot;biquads&quot; have been the standard realization ever since (~engineeringkit.signal_processing.butterworth_lowpass with output=&quot;sos&quot;, filter_signal)."><img alt="" src="../_images/sphx_glr_plot_06_second_order_sections_thumb.png" />
-<p><a class="reference internal" href="../api/gallery/signal_processing/filters/plot_06_second_order_sections.html"><span class="doc">Jackson’s cascaded second-order sections</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Jackson's cascaded second-order sections</div>
+<p><a class="reference internal" href="../api/gallery/signal_processing/filters/plot_06_second_order_sections.html"><span class="doc">Jackson’s cascaded second-order sections (1970)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Jackson's cascaded second-order sections (1970)</div>
 </div></div></section>
 <section id="see-also">
 <h2><a class="toc-backref" href="#id18" role="doc-backlink">See Also</a><a class="headerlink" href="#see-also" title="Link to this heading">#</a></h2>

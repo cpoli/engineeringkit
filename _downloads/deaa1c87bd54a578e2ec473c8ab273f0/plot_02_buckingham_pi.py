@@ -1,6 +1,6 @@
 r"""
-Buckingham's Pi theorem
-=======================
+Buckingham's Pi theorem (1914)
+==============================
 
 Edgar Buckingham, at the US Bureau of Standards, published in 1914 the
 theorem that turned dimensional analysis into a method: a physical

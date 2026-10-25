@@ -1,6 +1,6 @@
 r"""
-Birnbaum's component importance
-===============================
+Birnbaum's component importance (1969)
+======================================
 
 Which component should be improved first? Birnbaum (1969) defined a
 component's importance as the rate at which system reliability changes with

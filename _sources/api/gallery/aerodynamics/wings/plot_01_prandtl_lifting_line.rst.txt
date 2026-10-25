@@ -18,8 +18,8 @@
 .. _sphx_glr_api_gallery_aerodynamics_wings_plot_01_prandtl_lifting_line.py:
 
 
-Prandtl's lifting-line theory and the finite-wing lift slope
-============================================================
+Prandtl's lifting-line theory and the finite-wing lift slope (1918)
+===================================================================
 
 Ludwig Prandtl's *Tragflügeltheorie* (1918) modelled a wing as a bound vortex
 of varying strength shedding a sheet of trailing vortices. The downwash they
@@ -133,7 +133,7 @@ Slope approaches 2π only as the span becomes infinite
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.210 seconds)
+   **Total running time of the script:** (0 minutes 0.103 seconds)
 
 
 .. _sphx_glr_download_api_gallery_aerodynamics_wings_plot_01_prandtl_lifting_line.py:

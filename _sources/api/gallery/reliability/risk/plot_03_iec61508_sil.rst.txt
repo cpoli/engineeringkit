@@ -18,8 +18,8 @@
 .. _sphx_glr_api_gallery_reliability_risk_plot_03_iec61508_sil.py:
 
 
-IEC 61508 and safety integrity levels
-=====================================
+IEC 61508 and safety integrity levels (1998)
+============================================
 
 Programmable electronics took over process trips, railway signalling and
 machine guards in the 1980s, and nobody could say how safe a software-based
@@ -166,7 +166,7 @@ The sawtooth and the SIL bands
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.378 seconds)
+   **Total running time of the script:** (0 minutes 0.183 seconds)
 
 
 .. _sphx_glr_download_api_gallery_reliability_risk_plot_03_iec61508_sil.py:

@@ -1,6 +1,6 @@
 r"""
-Fortescue's symmetrical components
-==================================
+Fortescue's symmetrical components (1918)
+=========================================
 
 An unbalanced three-phase system, such as one with a fault to ground,
 couples all three phases and resisted hand calculation. Charles LeGeyt

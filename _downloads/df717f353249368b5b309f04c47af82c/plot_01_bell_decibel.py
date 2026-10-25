@@ -1,6 +1,6 @@
 r"""
-The decibel: the Bell System's transmission unit
-================================================
+The decibel: the Bell System's transmission unit (1924-1929)
+============================================================
 
 Early telephone engineers measured loss in "miles of standard cable", a unit
 that depended on frequency. In 1924 the Bell System replaced it with the

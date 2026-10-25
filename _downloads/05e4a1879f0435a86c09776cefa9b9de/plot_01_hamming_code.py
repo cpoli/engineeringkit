@@ -1,6 +1,6 @@
 r"""
-Hamming's single-error-correcting code
-======================================
+Hamming's single-error-correcting code (1950)
+=============================================
 
 Frustrated by weekend computer runs aborted by a single bad relay, Richard
 Hamming (1950) designed codes that *correct* errors rather than merely
