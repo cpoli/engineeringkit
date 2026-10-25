@@ -1,6 +1,6 @@
 r"""
-Hagen and Poiseuille: laminar pipe flow
-=======================================
+Hagen and Poiseuille: laminar pipe flow (1839-1840)
+===================================================
 
 Gotthilf Hagen in 1839, timing water through brass tubes, and Jean Léonard
 Marie Poiseuille in 1840, studying blood flow in glass capillaries, found

@@ -1,6 +1,6 @@
 r"""
-Euler's column buckling
-=======================
+Euler's column buckling (1744)
+==============================
 
 In an appendix on elastic curves to his *Methodus inveniendi* (1744),
 Leonhard Euler found the load at which a straight, pin-ended column can

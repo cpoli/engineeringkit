@@ -1,6 +1,6 @@
 r"""
-Stefan's problem: a moving freezing front
-=========================================
+Stefan's problem: a moving freezing front (1891)
+================================================
 
 In 1891 Josef Stefan asked how fast sea ice thickens in the polar winter.
 The ice conducts heat from the freezing water below to the cold air above,

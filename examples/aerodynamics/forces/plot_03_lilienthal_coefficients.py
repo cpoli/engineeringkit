@@ -1,6 +1,6 @@
 r"""
-Lilienthal's lift and drag coefficients and the polar diagram
-=============================================================
+Lilienthal's lift and drag coefficients and the polar diagram (1889)
+====================================================================
 
 Otto Lilienthal's *Der Vogelflug als Grundlage der Fliegekunst* (1889)
 tabulated the forces on cambered wings measured on a whirling arm, reduced to

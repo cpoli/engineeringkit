@@ -1,6 +1,6 @@
 r"""
-Prandtl's lifting-line theory and the finite-wing lift slope
-============================================================
+Prandtl's lifting-line theory and the finite-wing lift slope (1918)
+===================================================================
 
 Ludwig Prandtl's *Tragflügeltheorie* (1918) modelled a wing as a bound vortex
 of varying strength shedding a sheet of trailing vortices. The downwash they

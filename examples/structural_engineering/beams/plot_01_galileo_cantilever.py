@@ -1,6 +1,6 @@
 r"""
-Galileo's cantilever
-====================
+Galileo's cantilever (1638)
+===========================
 
 In the *Two New Sciences* (1638) Galileo asked how strong a cantilever is,
 and answered that its breaking moment grows with the width :math:`b` and the

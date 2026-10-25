@@ -1,6 +1,6 @@
 r"""
-Goodman's mean-stress diagram
-=============================
+Goodman's mean-stress diagram (1899)
+====================================
 
 Wöhler's endurance tests reversed the stress fully, but most machine parts
 carry a steady stress with an alternating one on top. John Goodman's

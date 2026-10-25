@@ -1,6 +1,6 @@
 r"""
-Young's modulus
-===============
+Young's modulus (1807)
+======================
 
 Thomas Young's *Lectures on Natural Philosophy* (1807) gave a single number
 for the stiffness of a material, its "modulus of elasticity". Young expressed

@@ -1,6 +1,6 @@
 r"""
-Venturi's tube
-==============
+Venturi's tube (1797)
+=====================
 
 Giovanni Battista Venturi reported in 1797 that water flowing through a
 contraction drops in pressure at the narrowest point and recovers most of

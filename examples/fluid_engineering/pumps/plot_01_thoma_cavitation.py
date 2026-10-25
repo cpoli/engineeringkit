@@ -1,6 +1,6 @@
 r"""
-Thoma's cavitation parameter
-============================
+Thoma's cavitation parameter (1924)
+===================================
 
 Water turbines of the 1910s and 1920s ran faster and lower than before,
 and their runners were eaten away by cavitation. Dieter Thoma, at Munich,

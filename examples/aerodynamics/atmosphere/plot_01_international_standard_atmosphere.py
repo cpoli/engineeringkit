@@ -1,6 +1,6 @@
 r"""
-The International Standard Atmosphere
-=====================================
+The International Standard Atmosphere (1919-1952)
+=================================================
 
 Aircraft performance depends on air density, which changes with weather.
 Albert Toussaint proposed a reference atmosphere in 1919, and ICAO adopted

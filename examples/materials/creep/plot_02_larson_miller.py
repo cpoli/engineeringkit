@@ -1,6 +1,6 @@
 r"""
-The Larson-Miller parameter
-===========================
+The Larson-Miller parameter (1952)
+==================================
 
 A boiler tube must last 100,000 hours, eleven years, but nobody can wait
 that long for a test. Frank Larson and James Miller (1952) observed that

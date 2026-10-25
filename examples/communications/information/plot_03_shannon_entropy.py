@@ -1,6 +1,6 @@
 r"""
-Shannon's entropy and the binary symmetric channel
-==================================================
+Shannon's entropy and the binary symmetric channel (1948)
+=========================================================
 
 Claude Shannon's "A mathematical theory of communication" (1948) measured
 information by entropy, :math:`H = -\sum p\log_2 p`. For a binary source

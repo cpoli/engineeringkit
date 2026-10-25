@@ -1,6 +1,6 @@
 r"""
-Shannon's sampling theorem and aliasing
-=======================================
+Shannon's sampling theorem and aliasing (1949)
+==============================================
 
 Claude Shannon's 1949 paper *Communication in the presence of noise*
 opens with a theorem: a signal with no frequencies above :math:`B` is

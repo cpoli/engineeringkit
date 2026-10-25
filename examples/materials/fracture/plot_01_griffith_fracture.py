@@ -1,6 +1,6 @@
 r"""
-Griffith's theory of brittle fracture
-=====================================
+Griffith's theory of brittle fracture (1920)
+============================================
 
 Glass should be as strong as its atomic bonds, about :math:`E/10`, yet it
 breaks at a few hundredths of that. Alan Arnold Griffith (paper read in

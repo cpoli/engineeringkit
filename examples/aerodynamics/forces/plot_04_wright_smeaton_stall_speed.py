@@ -1,6 +1,6 @@
 r"""
-The Wright brothers, Smeaton's coefficient and the stall speed
-==============================================================
+The Wright brothers, Smeaton's coefficient and the stall speed (1901)
+=====================================================================
 
 The nineteenth-century lift equation was :math:`L = k V^2 S C_L` with
 Smeaton's coefficient :math:`k = 0.005` lb/(ft² mph²). After their 1901

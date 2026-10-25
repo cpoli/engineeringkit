@@ -1,6 +1,6 @@
 r"""
-Navier's beam theory
-====================
+Navier's beam theory (1826)
+===========================
 
 Navier's 1826 lectures at the École des ponts et chaussées put beam theory
 in its modern form: plane sections stay plane, the neutral axis passes

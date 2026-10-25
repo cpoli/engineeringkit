@@ -1,6 +1,6 @@
 r"""
-Nyquist's stability criterion
-=============================
+Nyquist's stability criterion (1932)
+====================================
 
 Long-distance telephone repeaters with feedback sometimes "sang". Harry
 Nyquist (1932) showed how to predict this from the measured open-loop

@@ -1,6 +1,6 @@
 r"""
-Nusselt's unit-sphere view factor
-=================================
+Nusselt's unit-sphere view factor (1928)
+========================================
 
 How much of the radiation leaving one diffuse surface lands on another? The
 view factor is a fourfold integral of :math:`\cos\theta_1\cos\theta_2/\pi r^2`.

@@ -1,6 +1,6 @@
 r"""
-Denavit and Hartenberg's link parameters
-========================================
+Denavit and Hartenberg's link parameters (1955)
+===============================================
 
 Jacques Denavit and Richard Hartenberg (1955) proposed a notation for any
 chain of links joined by lower pairs. Each link frame is placed so that

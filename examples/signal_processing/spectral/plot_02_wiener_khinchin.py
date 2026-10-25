@@ -1,6 +1,6 @@
 r"""
-The Wiener-Khinchin theorem
-===========================
+The Wiener-Khinchin theorem (1934)
+==================================
 
 Norbert Wiener (1930) and Aleksandr Khinchin (1934) showed that the power
 spectrum of a stationary random process is the Fourier transform of its

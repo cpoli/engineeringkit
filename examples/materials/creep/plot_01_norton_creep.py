@@ -1,6 +1,6 @@
 r"""
-Norton's power-law creep
-========================
+Norton's power-law creep (1929)
+===============================
 
 Steam turbines of the 1920s ran hot enough for their steel to stretch slowly
 under constant load. Frederick Norton's *The Creep of Steel at High
