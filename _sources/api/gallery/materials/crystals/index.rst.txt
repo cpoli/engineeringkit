@@ -1,0 +1,50 @@
+
+
+.. _sphx_glr_api_gallery_materials_crystals:
+
+Crystals
+--------
+
+Unit cells, packing, theoretical density and X-ray diffraction.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Laue showed in 1912 that crystals diffract X-rays. William Lawrence Bragg, a research student at Cambridge, read the spots as reflections from planes of atoms: waves reflected by neighbouring planes a distance d apart reinforce when their path difference is a whole number of wavelengths,">
+
+.. only:: html
+
+  .. image:: /api/gallery/materials/crystals/images/thumb/sphx_glr_plot_01_bragg_diffraction_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/materials/crystals/plot_01_bragg_diffraction`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">The Braggs' law of X-ray diffraction (1913)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/materials/crystals/plot_01_bragg_diffraction
+

@@ -10,10 +10,10 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://cpoli.github.io/engineeringkit/api/heat_transfer.html" />
 <meta property="og:site_name" content="engineeringkit" />
-<meta property="og:description" content="Domain hub · History · Examples · API reference Fourier’s law and thermal resistances (plane, cylindrical and spherical walls, composite walls, critical insulation radius); Harper-Brown fins; finit..." />
+<meta property="og:description" content="Domain hub · History · Examples · API reference Fourier’s law and thermal resistances (plane, cylindrical and spherical walls, composite walls, critical insulation radius); Harper-Brown fins with a..." />
 <meta property="og:image" content="https://cpoli.github.io/engineeringkit/_static/images/readme_hero.png" />
 <meta property="og:image:alt" content="engineeringkit" />
-<meta name="description" content="Domain hub · History · Examples · API reference Fourier’s law and thermal resistances (plane, cylindrical and spherical walls, composite walls, critical insulation radius); Harper-Brown fins; finit..." />
+<meta name="description" content="Domain hub · History · Examples · API reference Fourier’s law and thermal resistances (plane, cylindrical and spherical walls, composite walls, critical insulation radius); Harper-Brown fins with a..." />
 
     <title>engineeringkit.heat_transfer &#8212; engineeringkit</title>
   
@@ -55,7 +55,7 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be" />
 
-    <script src="../_static/documentation_options.js?v=38b66d78"></script>
+    <script src="../_static/documentation_options.js?v=95e61db4"></script>
     <script src="../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/sg-tags.js?v=d80f6fa4"></script>
@@ -222,6 +222,21 @@
   </ul>
 </div></div>
       
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://cpoli.github.io/" title="Charles Poli" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-user fa-lg" aria-hidden="true"></i><span class="visually-hidden">Charles Poli</span></a>
+        </li>
+</ul></div>
+      
     </div>
     
   </div>
@@ -319,6 +334,21 @@
     <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
   </ul>
 </div></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://cpoli.github.io/" title="Charles Poli" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-user fa-lg" aria-hidden="true"></i><span class="visually-hidden">Charles Poli</span></a>
+        </li>
+</ul></div>
         
       </div>
     
@@ -424,26 +454,128 @@
 <p><a class="reference internal" href="../_generated/subpackages/heat_transfer.html"><span class="doc">Domain hub</span></a> · <a class="reference internal" href="../history/heat_transfer_breakthroughs.html"><span class="doc">History</span></a> · <a class="reference internal" href="gallery/heat_transfer/index.html"><span class="doc">Examples</span></a> · <a class="reference internal" href="#"><span class="doc">API reference</span></a></p>
 </div>
 <p>Fourier’s law and thermal resistances (plane, cylindrical and spherical
-walls, composite walls, critical insulation radius); Harper-Brown fins;
-finite-difference conduction by the explicit, implicit and Crank-Nicolson
-schemes (<code class="docutils literal notranslate"><span class="pre">scipy.linalg.solve_banded</span></code>); Newton cooling, lumped and
-semi-infinite transients (<code class="docutils literal notranslate"><span class="pre">scipy.special.erf</span></code>) and Heisler’s plane-wall
-series; the Dittus-Boelter and Churchill-Chu correlations; Planck,
-Stefan-Boltzmann and Wien blackbody laws, gray-surface exchange and view
-factors; Neumann’s solution of the Stefan problem, Nusselt film
-condensation and Zuber’s critical heat flux; and LMTD and
-effectiveness-NTU heat exchangers.</p>
+walls, composite walls, critical insulation radius); Harper-Brown fins with
+adiabatic and convecting tips; finite-difference conduction by the explicit,
+implicit and Crank-Nicolson schemes (<code class="docutils literal notranslate"><span class="pre">scipy.linalg.solve_banded</span></code>) and
+steady 2-D conduction (<code class="docutils literal notranslate"><span class="pre">scipy.sparse</span></code>); conduction shape factors; Newton
+cooling, lumped and semi-infinite transients (<code class="docutils literal notranslate"><span class="pre">scipy.special.erf</span></code>) and
+Heisler’s plane-wall, cylinder and sphere series; flat plates (Pohlhausen),
+cylinders (Churchill-Bernstein) and tube banks (Žukauskas) in forced flow,
+laminar tube flow and the entry length (Graetz, Hausen), the Dittus-Boelter
+and Churchill-Chu correlations and the Chilton-Colburn analogy; Planck,
+Stefan-Boltzmann and Wien blackbody laws, gray-surface exchange, view
+factors and Oppenheim’s radiation network with shields; Neumann’s solution
+of the Stefan problem, Nusselt film condensation, Rohsenow’s nucleate
+boiling and Zuber’s critical heat flux; and LMTD and effectiveness-NTU heat
+exchangers in parallel, counter, cross and shell-and-tube flow with the
+LMTD correction factor.</p>
 <p id="module-engineeringkit.heat_transfer">engineeringkit.heat_transfer: conduction, convection, radiation, phase change and heat exchangers.</p>
 <p>Fourier’s law and thermal-resistance networks, with composite walls, radial
-shells, critical insulation and Harper-Brown fins; finite-difference
-conduction (explicit, implicit, Crank-Nicolson); Newton cooling, lumped and
-semi-infinite transients and Heisler’s plane-wall series; Dittus-Boelter
-and Churchill-Chu convection correlations; blackbody laws (Planck,
-Stefan-Boltzmann, Wien), gray-surface exchange and view factors; Neumann’s
-solution of the Stefan problem, Nusselt film condensation and Zuber’s
-critical heat flux; and LMTD and effectiveness-NTU exchangers. Models are
-hand-written closed forms; SciPy supplies erf, root bracketing and the
-banded solver.</p>
+shells, critical insulation and Harper-Brown fins (adiabatic or convecting
+tip); finite-difference conduction (explicit, implicit, Crank-Nicolson, and
+steady 2-D) and conduction shape factors; Newton cooling, lumped and
+semi-infinite transients and Heisler’s plane-wall, cylinder and sphere
+series; forced convection over flat plates, cylinders and tube banks and in
+laminar tubes, Dittus-Boelter and Churchill-Chu, and the Chilton-Colburn
+analogy; blackbody laws (Planck, Stefan-Boltzmann, Wien), view factors and
+Oppenheim’s gray-surface network with shields; Neumann’s solution of the
+Stefan problem, Nusselt film condensation, Rohsenow’s nucleate boiling and
+Zuber’s critical heat flux; and LMTD and effectiveness-NTU exchangers in
+every common arrangement, with the LMTD correction factor. Models are
+hand-written closed forms; SciPy supplies erf, Bessel functions, root
+bracketing and the banded and sparse solvers.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="engineeringkit.heat_transfer.Conduction2DResult">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">engineeringkit.heat_transfer.</span></span><span class="sig-name descname"><span class="pre">Conduction2DResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">heat_rates</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/heat_transfer/core/base.html#Conduction2DResult"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.heat_transfer.Conduction2DResult" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Output of <a class="reference internal" href="#engineeringkit.heat_transfer.conduction_2d" title="engineeringkit.heat_transfer.conduction_2d"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.heat_transfer.conduction_2d()</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>ndarray</em>)</p></li>
+<li><p><strong>y</strong> (<em>ndarray</em>)</p></li>
+<li><p><strong>T</strong> (<em>ndarray</em>)</p></li>
+<li><p><strong>heat_rates</strong> (<em>dict</em>)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="engineeringkit.heat_transfer.Conduction2DResult.T">
+<span class="sig-name descname"><span class="pre">T</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></span><a class="headerlink" href="#engineeringkit.heat_transfer.Conduction2DResult.T" title="Link to this definition">#</a></dt>
+<dd><p>Temperatures [K], shape <code class="docutils literal notranslate"><span class="pre">(ny,</span> <span class="pre">nx)</span></code>; <code class="docutils literal notranslate"><span class="pre">T[j,</span> <span class="pre">i]</span></code> is at <code class="docutils literal notranslate"><span class="pre">(x[i],</span> <span class="pre">y[j])</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="engineeringkit.heat_transfer.Conduction2DResult.heat_rates">
+<span class="sig-name descname"><span class="pre">heat_rates</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span></span><a class="headerlink" href="#engineeringkit.heat_transfer.Conduction2DResult.heat_rates" title="Link to this definition">#</a></dt>
+<dd><p>Heat rate per unit depth entering through each edge [W/m], keyed <code class="docutils literal notranslate"><span class="pre">&quot;left&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;right&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;bottom&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;top&quot;</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="engineeringkit.heat_transfer.Conduction2DResult.plot">
+<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">levels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/heat_transfer/core/base.html#Conduction2DResult.plot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.heat_transfer.Conduction2DResult.plot" title="Link to this definition">#</a></dt>
+<dd><p>Draw filled isotherms with a colour bar; return <code class="docutils literal notranslate"><span class="pre">(fig,</span> <span class="pre">ax)</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ax</strong> (<em>matplotlib.axes.Axes</em><em>, </em><em>optional</em>) – Axes to draw on; a new figure is created if omitted.</p></li>
+<li><p><strong>levels</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of contour levels.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">(fig,</span> <span class="pre">ax)</span></code>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="engineeringkit.heat_transfer.Conduction2DResult.summary">
+<span class="sig-name descname"><span class="pre">summary</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/heat_transfer/core/base.html#Conduction2DResult.summary"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.heat_transfer.Conduction2DResult.summary" title="Link to this definition">#</a></dt>
+<dd><p>Grid size, temperature range, edge heat rates [W/m] and their sum (zero to round-off).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="engineeringkit.heat_transfer.Conduction2DResult.x">
+<span class="sig-name descname"><span class="pre">x</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></span><a class="headerlink" href="#engineeringkit.heat_transfer.Conduction2DResult.x" title="Link to this definition">#</a></dt>
+<dd><p>Node positions along x [m], shape <code class="docutils literal notranslate"><span class="pre">(nx,)</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="engineeringkit.heat_transfer.Conduction2DResult.y">
+<span class="sig-name descname"><span class="pre">y</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></span><a class="headerlink" href="#engineeringkit.heat_transfer.Conduction2DResult.y" title="Link to this definition">#</a></dt>
+<dd><p>Node positions along y [m], shape <code class="docutils literal notranslate"><span class="pre">(ny,)</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 <dl class="py class">
 <dt class="sig sig-object py" id="engineeringkit.heat_transfer.ConductionResult">
 <span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">engineeringkit.heat_transfer.</span></span><span class="sig-name descname"><span class="pre">ConductionResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mesh_fourier</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/heat_transfer/core/base.html#ConductionResult"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.heat_transfer.ConductionResult" title="Link to this definition">#</a></dt>
@@ -539,6 +671,72 @@ banded solver.</p>
 <dt class="sig sig-object py" id="engineeringkit.heat_transfer.ConductionResult.x">
 <span class="sig-name descname"><span class="pre">x</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></span><a class="headerlink" href="#engineeringkit.heat_transfer.ConductionResult.x" title="Link to this definition">#</a></dt>
 <dd><p>Node positions [m], shape <code class="docutils literal notranslate"><span class="pre">(n,)</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="engineeringkit.heat_transfer.EnclosureResult">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">engineeringkit.heat_transfer.</span></span><span class="sig-name descname"><span class="pre">EnclosureResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">radiosity</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">heat_rate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">temperature</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/heat_transfer/core/base.html#EnclosureResult"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.heat_transfer.EnclosureResult" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Output of <a class="reference internal" href="#engineeringkit.heat_transfer.radiation_enclosure" title="engineeringkit.heat_transfer.radiation_enclosure"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.heat_transfer.radiation_enclosure()</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>radiosity</strong> (<em>ndarray</em>)</p></li>
+<li><p><strong>heat_rate</strong> (<em>ndarray</em>)</p></li>
+<li><p><strong>temperature</strong> (<em>ndarray</em>)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="engineeringkit.heat_transfer.EnclosureResult.heat_rate">
+<span class="sig-name descname"><span class="pre">heat_rate</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></span><a class="headerlink" href="#engineeringkit.heat_transfer.EnclosureResult.heat_rate" title="Link to this definition">#</a></dt>
+<dd><p>Net radiation leaving each surface [W]; the entries sum to zero.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="engineeringkit.heat_transfer.EnclosureResult.plot">
+<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/heat_transfer/core/base.html#EnclosureResult.plot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.heat_transfer.EnclosureResult.plot" title="Link to this definition">#</a></dt>
+<dd><p>Draw the net heat rate leaving each surface as bars; return <code class="docutils literal notranslate"><span class="pre">(fig,</span> <span class="pre">ax)</span></code>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="engineeringkit.heat_transfer.EnclosureResult.radiosity">
+<span class="sig-name descname"><span class="pre">radiosity</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></span><a class="headerlink" href="#engineeringkit.heat_transfer.EnclosureResult.radiosity" title="Link to this definition">#</a></dt>
+<dd><p>Radiosity <span class="math notranslate nohighlight">\(J_i\)</span> of each surface [W/m^2].</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="engineeringkit.heat_transfer.EnclosureResult.summary">
+<span class="sig-name descname"><span class="pre">summary</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/heat_transfer/core/base.html#EnclosureResult.summary"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.heat_transfer.EnclosureResult.summary" title="Link to this definition">#</a></dt>
+<dd><p>Net heat rate per surface [W], temperatures [K] and the enclosure’s imbalance [W].</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="engineeringkit.heat_transfer.EnclosureResult.temperature">
+<span class="sig-name descname"><span class="pre">temperature</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></span><a class="headerlink" href="#engineeringkit.heat_transfer.EnclosureResult.temperature" title="Link to this definition">#</a></dt>
+<dd><p>Temperature of each surface [K], given or, for reradiating surfaces, solved.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>ndarray</p>
@@ -660,6 +858,86 @@ Hauptsatz der Wärmetheorie,” <em>Sitzungsber. Preuss. Akad. Wiss. Berlin</em>
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">blackbody_peak_wavelength</span><span class="p">(</span><span class="mf">5772.0</span><span class="p">))</span> <span class="o">*</span> <span class="mf">1e9</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="go">502.0</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.heat_transfer.chilton_colburn_mass_transfer">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.heat_transfer.</span></span><span class="sig-name descname"><span class="pre">chilton_colburn_mass_transfer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rho</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Le</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/heat_transfer/systems/forced_convection.html#chilton_colburn_mass_transfer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.heat_transfer.chilton_colburn_mass_transfer" title="Link to this definition">#</a></dt>
+<dd><p>Mass transfer coefficient from a heat transfer coefficient by the Chilton-Colburn analogy.</p>
+<p>Equal Colburn factors <span class="math notranslate nohighlight">\(j_H = St\,Pr^{2/3}\)</span> and
+<span class="math notranslate nohighlight">\(j_m = St_m Sc^{2/3}\)</span> give</p>
+<div class="math notranslate nohighlight">
+\[\frac{h}{h_m} = \rho\,c_p\,Le^{2/3}.\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>h</strong> (<em>float</em><em> or </em><em>array_like</em>) – Heat transfer coefficient [W/(m^2 K)], nonnegative.</p></li>
+<li><p><strong>rho</strong> (<em>float</em><em> or </em><em>array_like</em>) – Density of the fluid [kg/m^3], positive.</p></li>
+<li><p><strong>cp</strong> (<em>float</em><em> or </em><em>array_like</em>) – Specific heat of the fluid [J/(kg K)], positive.</p></li>
+<li><p><strong>Le</strong> (<em>float</em><em> or </em><em>array_like</em>) – Lewis number <span class="math notranslate nohighlight">\(\alpha/D_{AB}\)</span> [-], positive (see <a class="reference internal" href="#engineeringkit.heat_transfer.lewis_number" title="engineeringkit.heat_transfer.lewis_number"><code class="xref py py-func docutils literal notranslate"><span class="pre">lewis_number()</span></code></a>).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Mass transfer coefficient <span class="math notranslate nohighlight">\(h_m\)</span> [m/s]; the species flux is
+<span class="math notranslate nohighlight">\(h_m(\rho_{A,s} - \rho_{A,\infty})\)</span> [kg/(m^2 s)].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/heat_transfer.html"><span class="doc">Heat transfer: absolute temperatures and resistance accounting</span></a>. Exact between correlations of the form
+<span class="math notranslate nohighlight">\(Nu \propto Re^m Pr^{1/3}\)</span> and <span class="math notranslate nohighlight">\(Sh \propto Re^m Sc^{1/3}\)</span>
+(laminar flat plate); a good approximation for turbulent flow with
+<span class="math notranslate nohighlight">\(0.6 &lt; Pr, Sc &lt; 60\)</span>. Low mass transfer rates are assumed.</p>
+<p class="rubric">References</p>
+<p>T. H. Chilton and A. P. Colburn, “Mass transfer (absorption)
+coefficients: prediction from data on heat transfer and fluid friction,”
+<em>Ind. Eng. Chem.</em> 26 (1934) 1183-1187.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">chilton_colburn_mass_transfer</span><span class="p">(</span><span class="mf">20.0</span><span class="p">,</span> <span class="mf">1.16</span><span class="p">,</span> <span class="mf">1007.0</span><span class="p">,</span> <span class="mf">0.85</span><span class="p">))</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="go">19.08</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.heat_transfer.churchill_bernstein_nusselt">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.heat_transfer.</span></span><span class="sig-name descname"><span class="pre">churchill_bernstein_nusselt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Re</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Pr</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/heat_transfer/systems/forced_convection.html#churchill_bernstein_nusselt"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.heat_transfer.churchill_bernstein_nusselt" title="Link to this definition">#</a></dt>
+<dd><p>Churchill-Bernstein average Nusselt number for a circular cylinder in crossflow.</p>
+<div class="math notranslate nohighlight">
+\[\bar{Nu}_D = 0.3 + \frac{0.62\,Re_D^{1/2}Pr^{1/3}}{[1 + (0.4/Pr)^{2/3}]^{1/4}}
+\left[1 + \left(\frac{Re_D}{282\,000}\right)^{5/8}\right]^{4/5}\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Re</strong> (<em>float</em><em> or </em><em>array_like</em>) – Reynolds number <span class="math notranslate nohighlight">\(VD/\nu\)</span> on the diameter [-], nonnegative.</p></li>
+<li><p><strong>Pr</strong> (<em>float</em><em> or </em><em>array_like</em>) – Prandtl number [-], positive.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Average Nusselt number <span class="math notranslate nohighlight">\(\bar hD/k\)</span> [-].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/heat_transfer.html"><span class="doc">Heat transfer: absolute temperatures and resistance accounting</span></a>. Meant for <span class="math notranslate nohighlight">\(Re\,Pr \gtrsim 0.2\)</span>;
+properties at the film temperature. One blended expression covers the
+whole range, from creeping flow to the drag crisis; the authors present it
+as a slight underestimate of most data.</p>
+<p class="rubric">References</p>
+<p>S. W. Churchill and M. Bernstein, “A correlating equation for forced
+convection from gases and liquids to a circular cylinder in crossflow,”
+<em>J. Heat Transfer</em> 99 (1977) 300-306.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">churchill_bernstein_nusselt</span><span class="p">(</span><span class="mf">6071.0</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">)),</span> <span class="mi">1</span><span class="p">)</span>
+<span class="go">40.6</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -787,6 +1065,56 @@ type,” <em>Proc. Cambridge Phil. Soc.</em> 43 (1947) 50-67.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">conduction_1d</span><span class="p">([</span><span class="mf">300.0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">11</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">1e-5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">T_left</span><span class="o">=</span><span class="mf">400.0</span><span class="p">,</span> <span class="n">T_right</span><span class="o">=</span><span class="mf">400.0</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">T</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()),</span> <span class="mi">1</span><span class="p">)</span>
 <span class="go">352.6</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.heat_transfer.conduction_2d">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.heat_transfer.</span></span><span class="sig-name descname"><span class="pre">conduction_2d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">width</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ny</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T_left</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T_right</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T_bottom</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T_top</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/heat_transfer/systems/multidimensional.html#conduction_2d"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.heat_transfer.conduction_2d" title="Link to this definition">#</a></dt>
+<dd><p>Steady two-dimensional conduction in a rectangle with fixed edge temperatures, by finite differences.</p>
+<p>The interior nodes satisfy the five-point form of Laplace’s equation,</p>
+<div class="math notranslate nohighlight">
+\[\frac{T_{i+1,j} - 2T_{i,j} + T_{i-1,j}}{\Delta x^2}
++ \frac{T_{i,j+1} - 2T_{i,j} + T_{i,j-1}}{\Delta y^2} = 0,\]</div>
+<p>solved as one sparse linear system. The heat entering through each edge
+is summed from the conduction between each edge node and its interior
+neighbour, so the four edge heat rates add up to zero to round-off.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>width</strong> (<em>float</em>) – Sides of the rectangle along <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> [m], positive.</p></li>
+<li><p><strong>height</strong> (<em>float</em>) – Sides of the rectangle along <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> [m], positive.</p></li>
+<li><p><strong>nx</strong> (<em>int</em>) – Number of nodes along <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span>, edges included; at least three.</p></li>
+<li><p><strong>ny</strong> (<em>int</em>) – Number of nodes along <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span>, edges included; at least three.</p></li>
+<li><p><strong>T_left</strong> (<em>float</em>) – Temperatures of the edges <span class="math notranslate nohighlight">\(x = 0\)</span>, <span class="math notranslate nohighlight">\(x = ` ``width`\)</span>,
+<span class="math notranslate nohighlight">\(y = 0\)</span> and <span class="math notranslate nohighlight">\(y = ` ``height`\)</span> [K], nonnegative.</p></li>
+<li><p><strong>T_right</strong> (<em>float</em>) – Temperatures of the edges <span class="math notranslate nohighlight">\(x = 0\)</span>, <span class="math notranslate nohighlight">\(x = ` ``width`\)</span>,
+<span class="math notranslate nohighlight">\(y = 0\)</span> and <span class="math notranslate nohighlight">\(y = ` ``height`\)</span> [K], nonnegative.</p></li>
+<li><p><strong>T_bottom</strong> (<em>float</em>) – Temperatures of the edges <span class="math notranslate nohighlight">\(x = 0\)</span>, <span class="math notranslate nohighlight">\(x = ` ``width`\)</span>,
+<span class="math notranslate nohighlight">\(y = 0\)</span> and <span class="math notranslate nohighlight">\(y = ` ``height`\)</span> [K], nonnegative.</p></li>
+<li><p><strong>T_top</strong> (<em>float</em>) – Temperatures of the edges <span class="math notranslate nohighlight">\(x = 0\)</span>, <span class="math notranslate nohighlight">\(x = ` ``width`\)</span>,
+<span class="math notranslate nohighlight">\(y = 0\)</span> and <span class="math notranslate nohighlight">\(y = ` ``height`\)</span> [K], nonnegative.</p></li>
+<li><p><strong>k</strong> (<em>float</em><em>, </em><em>optional</em>) – Thermal conductivity [W/(m K)], positive.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Node coordinates, the temperature field (rows along <span class="math notranslate nohighlight">\(y\)</span>) and
+the heat rate per unit depth entering through each edge.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#engineeringkit.heat_transfer.Conduction2DResult" title="engineeringkit.heat_transfer.Conduction2DResult">Conduction2DResult</a></p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/heat_transfer.html"><span class="doc">Heat transfer: absolute temperatures and resistance accounting</span></a>. Constant conductivity, no generation. The
+corner nodes belong to two edges and take the mean of their temperatures;
+they enter no equation. The error falls as <span class="math notranslate nohighlight">\(\Delta x^2\)</span>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">conduction_2d</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mi">41</span><span class="p">,</span> <span class="mi">41</span><span class="p">,</span> <span class="mf">300.0</span><span class="p">,</span> <span class="mf">300.0</span><span class="p">,</span> <span class="mf">300.0</span><span class="p">,</span> <span class="mf">400.0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">T</span><span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">]),</span> <span class="mi">2</span><span class="p">)</span>
+<span class="go">325.0</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -940,6 +1268,45 @@ because the convective area grows faster than the conduction resistance.</p>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.heat_transfer.cylinder_transient">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.heat_transfer.</span></span><span class="sig-name descname"><span class="pre">cylinder_transient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Fo</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Bi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r_star</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">terms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/heat_transfer/systems/transient.html#cylinder_transient"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.heat_transfer.cylinder_transient" title="Link to this definition">#</a></dt>
+<dd><p>Dimensionless temperature of a long cylinder cooled by convection (Heisler’s charts).</p>
+<div class="math notranslate nohighlight">
+\[\theta^* = \sum_{n=1}^{N} C_n e^{-\zeta_n^2 Fo} J_0(\zeta_n r^*),
+\qquad C_n = \frac{2}{\zeta_n}\frac{J_1(\zeta_n)}{J_0^2(\zeta_n) + J_1^2(\zeta_n)},\]</div>
+<p>with <span class="math notranslate nohighlight">\(\zeta_n J_1(\zeta_n)/J_0(\zeta_n) = Bi\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Fo</strong> (<em>float</em><em> or </em><em>array_like</em>) – Fourier number <span class="math notranslate nohighlight">\(\alpha t/r_o^2\)</span> on the outer radius [-], nonnegative.</p></li>
+<li><p><strong>Bi</strong> (<em>float</em>) – Biot number <span class="math notranslate nohighlight">\(hr_o/k\)</span> on the outer radius [-], positive.</p></li>
+<li><p><strong>r_star</strong> (<em>float</em><em> or </em><em>array_like</em><em>, </em><em>optional</em>) – Radial position <span class="math notranslate nohighlight">\(r/r_o\)</span> [-], in [0, 1]; 0 is the axis.</p></li>
+<li><p><strong>terms</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of series terms <span class="math notranslate nohighlight">\(N\)</span>, at least one; <code class="docutils literal notranslate"><span class="pre">terms=1</span></code> is
+Heisler’s one-term chart, good for <span class="math notranslate nohighlight">\(Fo &gt; 0.2\)</span>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="math notranslate nohighlight">\(\theta^* = (T - T_\infty)/(T_i - T_\infty)\)</span> [-], broadcast over <code class="docutils literal notranslate"><span class="pre">Fo</span></code> and <code class="docutils literal notranslate"><span class="pre">r_star</span></code>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/heat_transfer.html"><span class="doc">Heat transfer: absolute temperatures and resistance accounting</span></a>. The cylinder is infinitely long (no end
+losses); near <span class="math notranslate nohighlight">\(Fo = 0\)</span> use more terms.</p>
+<p class="rubric">References</p>
+<p>M. P. Heisler, “Temperature charts for induction and constant-temperature
+heating,” <em>Trans. ASME</em> 69 (1947) 227-236.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">cylinder_transient</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)),</span> <span class="mi">4</span><span class="p">)</span>
+<span class="go">0.5486</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.heat_transfer.dittus_boelter_nusselt">
 <span class="sig-prename descclassname"><span class="pre">engineeringkit.heat_transfer.</span></span><span class="sig-name descname"><span class="pre">dittus_boelter_nusselt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Re</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Pr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">heating</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/heat_transfer/systems/convection.html#dittus_boelter_nusselt"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.heat_transfer.dittus_boelter_nusselt" title="Link to this definition">#</a></dt>
 <dd><p>Dittus-Boelter correlation for fully developed turbulent tube flow, <span class="math notranslate nohighlight">\(Nu = 0.023\,Re^{0.8} Pr^{n}\)</span>.</p>
@@ -973,6 +1340,38 @@ from?”, <em>Int. J. Heat Mass Transfer</em> 41 (1998) 809-810.</p>
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">dittus_boelter_nusselt</span><span class="p">(</span><span class="mf">1e5</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">)),</span> <span class="mi">1</span><span class="p">)</span>
 <span class="go">199.4</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.heat_transfer.entry_length">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.heat_transfer.</span></span><span class="sig-name descname"><span class="pre">entry_length</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Re</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">D</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Pr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/heat_transfer/systems/forced_convection.html#entry_length"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.heat_transfer.entry_length" title="Link to this definition">#</a></dt>
+<dd><p>Entry length of tube flow: laminar <span class="math notranslate nohighlight">\(0.05\,Re_D\,Pr\,D\)</span>, turbulent <span class="math notranslate nohighlight">\(10D\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Re</strong> (<em>float</em><em> or </em><em>array_like</em>) – Reynolds number on the diameter [-], positive; laminar below 2300.</p></li>
+<li><p><strong>D</strong> (<em>float</em><em> or </em><em>array_like</em>) – Tube diameter [m], positive.</p></li>
+<li><p><strong>Pr</strong> (<em>float</em><em> or </em><em>array_like</em><em>, </em><em>optional</em>) – Prandtl number [-], positive. The default 1 gives the hydrodynamic
+entry length; the fluid’s Prandtl number gives the thermal one.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Distance from the inlet to fully developed conditions [m].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/heat_transfer.html"><span class="doc">Heat transfer: absolute temperatures and resistance accounting</span></a>. The turbulent value is a rule of thumb;
+turbulent profiles develop within 10 to 60 diameters, almost
+independently of the Prandtl number.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">float</span><span class="p">(</span><span class="n">entry_length</span><span class="p">(</span><span class="mf">1000.0</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">7.0</span><span class="p">))</span>
+<span class="go">3.5</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -1016,6 +1415,50 @@ from?”, <em>Int. J. Heat Mass Transfer</em> 41 (1998) 809-810.</p>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.heat_transfer.exchanger_effectiveness_crossflow">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.heat_transfer.</span></span><span class="sig-name descname"><span class="pre">exchanger_effectiveness_crossflow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">NTU</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Cr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mixed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'none'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/heat_transfer/systems/exchangers.html#exchanger_effectiveness_crossflow"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.heat_transfer.exchanger_effectiveness_crossflow" title="Link to this definition">#</a></dt>
+<dd><p>Effectiveness of a single-pass crossflow exchanger.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\varepsilon &amp;= 1 - \exp\left[\frac{NTU^{0.22}}{C_r}\left(e^{-C_r NTU^{0.78}} - 1\right)\right]
+&amp;&amp; \text{both fluids unmixed (approximate)},\\
+\varepsilon &amp;= \frac{1}{C_r}\left\{1 - \exp\left[-C_r\left(1 - e^{-NTU}\right)\right]\right\}
+&amp;&amp; C_{max} \text{ mixed}, C_{min} \text{ unmixed},\\
+\varepsilon &amp;= 1 - \exp\left[-\frac{1 - e^{-C_r NTU}}{C_r}\right]
+&amp;&amp; C_{min} \text{ mixed}, C_{max} \text{ unmixed}.\end{split}\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>NTU</strong> (<em>float</em><em> or </em><em>array_like</em>) – Number of transfer units <span class="math notranslate nohighlight">\(UA/C_{min}\)</span> [-], nonnegative.</p></li>
+<li><p><strong>Cr</strong> (<em>float</em>) – Capacity ratio <span class="math notranslate nohighlight">\(C_{min}/C_{max}\)</span> [-], in [0, 1].</p></li>
+<li><p><strong>mixed</strong> (<em>{&quot;none&quot;</em><em>, </em><em>&quot;cmax&quot;</em><em>, </em><em>&quot;cmin&quot;}</em><em>, </em><em>optional</em>) – Which stream is mixed across the flow passage: neither (finned
+tubes, plate-fin cores), the one with the larger capacity rate, or
+the one with the smaller.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Effectiveness [-]; every arrangement reduces to <span class="math notranslate nohighlight">\(1 - e^{-NTU}\)</span>
+at <span class="math notranslate nohighlight">\(C_r = 0\)</span>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/heat_transfer.html"><span class="doc">Heat transfer: absolute temperatures and resistance accounting</span></a>. The unmixed-unmixed expression is the usual
+fit to the exact series solution; it is within 4% of it for
+<span class="math notranslate nohighlight">\(NTU \le 5\)</span>, and within about 1% for <span class="math notranslate nohighlight">\(2 \le NTU \le 5\)</span>.</p>
+<p class="rubric">References</p>
+<p>W. M. Kays and A. L. London, <em>Compact Heat Exchangers</em> (1955); F. P.
+Incropera et al., <em>Fundamentals of Heat and Mass Transfer</em>, Table 11.3.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">exchanger_effectiveness_crossflow</span><span class="p">(</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)),</span> <span class="mi">4</span><span class="p">)</span>
+<span class="go">0.7388</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.heat_transfer.exchanger_effectiveness_parallel">
 <span class="sig-prename descclassname"><span class="pre">engineeringkit.heat_transfer.</span></span><span class="sig-name descname"><span class="pre">exchanger_effectiveness_parallel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">NTU</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Cr</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/heat_transfer/systems/exchangers.html#exchanger_effectiveness_parallel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.heat_transfer.exchanger_effectiveness_parallel" title="Link to this definition">#</a></dt>
 <dd><p>Effectiveness of a parallel-flow exchanger, <span class="math notranslate nohighlight">\(\varepsilon = [1 - e^{-NTU(1+C_r)}]/(1 + C_r)\)</span>.</p>
@@ -1047,6 +1490,48 @@ it never exceeds <span class="math notranslate nohighlight">\(1/(1 + C_r)\)</spa
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">exchanger_effectiveness_parallel</span><span class="p">(</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)),</span> <span class="mi">4</span><span class="p">)</span>
 <span class="go">0.6335</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.heat_transfer.exchanger_effectiveness_shell_tube">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.heat_transfer.</span></span><span class="sig-name descname"><span class="pre">exchanger_effectiveness_shell_tube</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">NTU</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Cr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shells</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/heat_transfer/systems/exchangers.html#exchanger_effectiveness_shell_tube"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.heat_transfer.exchanger_effectiveness_shell_tube" title="Link to this definition">#</a></dt>
+<dd><p>Effectiveness of a shell-and-tube exchanger with <code class="docutils literal notranslate"><span class="pre">shells</span></code> shell passes and 2, 4, … tube passes each.</p>
+<p>One shell pass, with <span class="math notranslate nohighlight">\(\Gamma = \sqrt{1 + C_r^2}\)</span> and <span class="math notranslate nohighlight">\(N_1 = NTU/n\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\varepsilon_1 = 2\left\{1 + C_r + \Gamma\,\frac{1 + e^{-N_1\Gamma}}{1 - e^{-N_1\Gamma}}\right\}^{-1},\]</div>
+<p>and <span class="math notranslate nohighlight">\(n\)</span> shells in counterflow series combine as</p>
+<div class="math notranslate nohighlight">
+\[\varepsilon = \frac{[(1 - \varepsilon_1 C_r)/(1 - \varepsilon_1)]^n - 1}
+                    {[(1 - \varepsilon_1 C_r)/(1 - \varepsilon_1)]^n - C_r},
+\qquad \varepsilon = \frac{n\varepsilon_1}{1 + (n - 1)\varepsilon_1} \text{ at } C_r = 1.\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>NTU</strong> (<em>float</em><em> or </em><em>array_like</em>) – Total number of transfer units <span class="math notranslate nohighlight">\(UA/C_{min}\)</span> [-], nonnegative.</p></li>
+<li><p><strong>Cr</strong> (<em>float</em>) – Capacity ratio <span class="math notranslate nohighlight">\(C_{min}/C_{max}\)</span> [-], in [0, 1].</p></li>
+<li><p><strong>shells</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of shell passes <span class="math notranslate nohighlight">\(n\)</span>, at least one.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Effectiveness [-]; between parallel flow and counterflow, tending to
+counterflow as <code class="docutils literal notranslate"><span class="pre">shells</span></code> grows.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/heat_transfer.html"><span class="doc">Heat transfer: absolute temperatures and resistance accounting</span></a>. The number of tube passes per shell does
+not matter once it is even; mixing across each pass is assumed.</p>
+<p class="rubric">References</p>
+<p>W. M. Kays and A. L. London, <em>Compact Heat Exchangers</em> (1955); F. P.
+Incropera et al., <em>Fundamentals of Heat and Mass Transfer</em>, Table 11.3.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">exchanger_effectiveness_shell_tube</span><span class="p">(</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)),</span> <span class="mi">4</span><span class="p">)</span>
+<span class="go">0.6931</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -1118,6 +1603,51 @@ conduction in the fins of air-cooled engines,” NACA Report 158 (1922).</p>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.heat_transfer.fin_heat_rate_convective_tip">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.heat_transfer.</span></span><span class="sig-name descname"><span class="pre">fin_heat_rate_convective_tip</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">P</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ac</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">L</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Tb</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Tinf</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h_tip</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/heat_transfer/systems/conduction.html#fin_heat_rate_convective_tip"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.heat_transfer.fin_heat_rate_convective_tip" title="Link to this definition">#</a></dt>
+<dd><p>Heat rate of a straight fin whose tip also loses heat by convection.</p>
+<div class="math notranslate nohighlight">
+\[\dot Q = \sqrt{hPkA_c}\,(T_b - T_\infty)\,
+\frac{\sinh mL + (h_{tip}/mk)\cosh mL}{\cosh mL + (h_{tip}/mk)\sinh mL}\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>h</strong> (<em>float</em>) – Convection coefficient on the fin sides [W/(m^2 K)], positive.</p></li>
+<li><p><strong>P</strong> (<em>float</em>) – Fin perimeter [m], positive.</p></li>
+<li><p><strong>k</strong> (<em>float</em>) – Fin conductivity [W/(m K)], positive.</p></li>
+<li><p><strong>Ac</strong> (<em>float</em>) – Cross-sectional area [m^2], positive.</p></li>
+<li><p><strong>L</strong> (<em>float</em><em> or </em><em>array_like</em>) – Fin length [m], nonnegative.</p></li>
+<li><p><strong>Tb</strong> (<em>float</em>) – Base temperature [K].</p></li>
+<li><p><strong>Tinf</strong> (<em>float</em>) – Surrounding fluid temperature [K].</p></li>
+<li><p><strong>h_tip</strong> (<em>float</em><em>, </em><em>optional</em>) – Convection coefficient on the tip face [W/(m^2 K)], nonnegative;
+<code class="docutils literal notranslate"><span class="pre">None</span></code> takes it equal to <code class="docutils literal notranslate"><span class="pre">h</span></code>. Zero gives the adiabatic tip.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Heat rate leaving the base [W]. At <code class="docutils literal notranslate"><span class="pre">L</span> <span class="pre">=</span> <span class="pre">0</span></code> it is the bare
+<span class="math notranslate nohighlight">\(h_{tip}A_c(T_b - T_\infty)\)</span>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/heat_transfer.html"><span class="doc">Heat transfer: absolute temperatures and resistance accounting</span></a>. The adiabatic formula
+(<a class="reference internal" href="#engineeringkit.heat_transfer.fin_heat_rate_adiabatic" title="engineeringkit.heat_transfer.fin_heat_rate_adiabatic"><code class="xref py py-func docutils literal notranslate"><span class="pre">fin_heat_rate_adiabatic()</span></code></a>) with Harper and Brown’s corrected
+length <span class="math notranslate nohighlight">\(L + A_c/P\)</span> approximates this one closely when
+<span class="math notranslate nohighlight">\(hA_c/(kP) \lesssim 0.0625\)</span>.</p>
+<p class="rubric">References</p>
+<p>D. R. Harper and W. B. Brown, “Mathematical equations for heat
+conduction in the fins of air-cooled engines,” NACA Report 158 (1922).</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">fin_heat_rate_convective_tip</span><span class="p">(</span><span class="mf">25.0</span><span class="p">,</span> <span class="mf">0.04</span><span class="p">,</span> <span class="mf">200.0</span><span class="p">,</span> <span class="mf">5e-5</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">400.0</span><span class="p">,</span> <span class="mf">300.0</span><span class="p">)),</span> <span class="mi">3</span><span class="p">)</span>
+<span class="go">7.668</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.heat_transfer.fin_parameter">
 <span class="sig-prename descclassname"><span class="pre">engineeringkit.heat_transfer.</span></span><span class="sig-name descname"><span class="pre">fin_parameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">P</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ac</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/heat_transfer/systems/conduction.html#fin_parameter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.heat_transfer.fin_parameter" title="Link to this definition">#</a></dt>
 <dd><p>Fin parameter <span class="math notranslate nohighlight">\(m = \sqrt{hP/(kA_c)}\)</span>.</p>
@@ -1143,6 +1673,53 @@ conduction in the fins of air-cooled engines,” NACA Report 158 (1922).</p>
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">float</span><span class="p">(</span><span class="n">fin_parameter</span><span class="p">(</span><span class="mf">25.0</span><span class="p">,</span> <span class="mf">0.04</span><span class="p">,</span> <span class="mf">200.0</span><span class="p">,</span> <span class="mf">5e-5</span><span class="p">))</span>
 <span class="go">10.0</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.heat_transfer.flat_plate_nusselt">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.heat_transfer.</span></span><span class="sig-name descname"><span class="pre">flat_plate_nusselt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Re</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Pr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Re_c</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">500000.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">local</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/heat_transfer/systems/forced_convection.html#flat_plate_nusselt"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.heat_transfer.flat_plate_nusselt" title="Link to this definition">#</a></dt>
+<dd><p>Nusselt number of a flat plate in parallel flow, laminar, turbulent or mixed.</p>
+<p>Laminar (Pohlhausen): <span class="math notranslate nohighlight">\(Nu_x = 0.332\,Re_x^{1/2}Pr^{1/3}\)</span> locally and
+<span class="math notranslate nohighlight">\(\bar{Nu}_L = 0.664\,Re_L^{1/2}Pr^{1/3}\)</span> on average. Turbulent:
+<span class="math notranslate nohighlight">\(Nu_x = 0.0296\,Re_x^{4/5}Pr^{1/3}\)</span>. Transition at <code class="docutils literal notranslate"><span class="pre">Re_c</span></code> makes
+the average over a plate with both regimes</p>
+<div class="math notranslate nohighlight">
+\[\bar{Nu}_L = \left[0.037\,(Re_L^{4/5} - Re_c^{4/5}) + 0.664\,Re_c^{1/2}\right] Pr^{1/3}.\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Re</strong> (<em>float</em><em> or </em><em>array_like</em>) – Reynolds number <span class="math notranslate nohighlight">\(u_\infty x/\nu\)</span> on the distance from the leading
+edge (the plate length for the average) [-], nonnegative.</p></li>
+<li><p><strong>Pr</strong> (<em>float</em><em> or </em><em>array_like</em>) – Prandtl number [-], positive; the <span class="math notranslate nohighlight">\(Pr^{1/3}\)</span> laws are meant for
+<span class="math notranslate nohighlight">\(0.6 \lesssim Pr \lesssim 60\)</span>.</p></li>
+<li><p><strong>Re_c</strong> (<em>float</em><em>, </em><em>optional</em>) – Transition Reynolds number [-], nonnegative; 0 makes the boundary layer
+turbulent from the leading edge and <code class="docutils literal notranslate"><span class="pre">numpy.inf</span></code> keeps it laminar.</p></li>
+<li><p><strong>local</strong> (<em>bool</em><em>, </em><em>optional</em>) – Return the local <span class="math notranslate nohighlight">\(Nu_x = h_x x/k\)</span> instead of the average <span class="math notranslate nohighlight">\(\bar h L/k\)</span>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Nusselt number [-].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/heat_transfer.html"><span class="doc">Heat transfer: absolute temperatures and resistance accounting</span></a>. Isothermal plate, properties at the film
+temperature. A uniform heat flux raises the laminar coefficient 0.332
+to 0.453.</p>
+<p class="rubric">References</p>
+<p>E. Pohlhausen, “Der Wärmeaustausch zwischen festen Körpern und
+Flüssigkeiten mit kleiner Reibung und kleiner Wärmeleitung,” <em>Z. Angew.
+Math. Mech.</em> 1 (1921) 115-121.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">flat_plate_nusselt</span><span class="p">(</span><span class="mf">1e5</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">)),</span> <span class="mi">1</span><span class="p">)</span>
+<span class="go">186.4</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">flat_plate_nusselt</span><span class="p">(</span><span class="mf">1e6</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">)),</span> <span class="mi">1</span><span class="p">)</span>
+<span class="go">1299.2</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -1211,6 +1788,44 @@ conduction in the fins of air-cooled engines,” NACA Report 158 (1922).</p>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.heat_transfer.hausen_nusselt">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.heat_transfer.</span></span><span class="sig-name descname"><span class="pre">hausen_nusselt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Re</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Pr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">D</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">L</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/heat_transfer/systems/forced_convection.html#hausen_nusselt"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.heat_transfer.hausen_nusselt" title="Link to this definition">#</a></dt>
+<dd><p>Hausen’s average Nusselt number for laminar thermal entry flow in an isothermal tube.</p>
+<div class="math notranslate nohighlight">
+\[\bar{Nu}_D = 3.66 + \frac{0.0668\,Gz_D}{1 + 0.04\,Gz_D^{2/3}},
+\qquad Gz_D = \frac{D}{L}\,Re_D\,Pr.\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Re</strong> (<em>float</em><em> or </em><em>array_like</em>) – Reynolds number on the diameter [-], positive; laminar (below 2300).</p></li>
+<li><p><strong>Pr</strong> (<em>float</em><em> or </em><em>array_like</em>) – Prandtl number [-], positive.</p></li>
+<li><p><strong>D</strong> (<em>float</em><em> or </em><em>array_like</em>) – Tube diameter [m], positive.</p></li>
+<li><p><strong>L</strong> (<em>float</em><em> or </em><em>array_like</em>) – Heated length from the inlet [m], positive.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Nusselt number averaged over the length <span class="math notranslate nohighlight">\(L\)</span> [-]; tends to
+Graetz’s 3.66 as <span class="math notranslate nohighlight">\(L\)</span> grows.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/heat_transfer.html"><span class="doc">Heat transfer: absolute temperatures and resistance accounting</span></a>. The velocity profile is fully developed at
+the start of heating (the “thermal entry” or Graetz problem), which also
+fits oils and other high-Prandtl fluids whose flow develops much faster
+than their temperature. Taken from Incropera et al.; Hausen’s original
+paper (1943) could not be checked.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">hausen_nusselt</span><span class="p">(</span><span class="mf">1000.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)),</span> <span class="mi">3</span><span class="p">)</span>
+<span class="go">5.825</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.heat_transfer.heat_exchanger_rate">
 <span class="sig-prename descclassname"><span class="pre">engineeringkit.heat_transfer.</span></span><span class="sig-name descname"><span class="pre">heat_exchanger_rate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">U</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dt_lm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">F</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/heat_transfer/systems/exchangers.html#heat_exchanger_rate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.heat_transfer.heat_exchanger_rate" title="Link to this definition">#</a></dt>
 <dd><p>Heat-exchanger duty from the LMTD method, <span class="math notranslate nohighlight">\(\dot Q = UAF\,\Delta T_{lm}\)</span>.</p>
@@ -1236,6 +1851,115 @@ conduction in the fins of air-cooled engines,” NACA Report 158 (1922).</p>
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">heat_exchanger_rate</span><span class="p">(</span><span class="mf">500.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">36.41</span><span class="p">)</span>
 <span class="go">36410.0</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.heat_transfer.laminar_tube_nusselt">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.heat_transfer.</span></span><span class="sig-name descname"><span class="pre">laminar_tube_nusselt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">boundary</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'flux'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/heat_transfer/systems/forced_convection.html#laminar_tube_nusselt"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.heat_transfer.laminar_tube_nusselt" title="Link to this definition">#</a></dt>
+<dd><p>Nusselt number of fully developed laminar flow in a circular tube.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>boundary</strong> (<em>{&quot;flux&quot;</em><em>, </em><em>&quot;temperature&quot;}</em><em>, </em><em>optional</em>) – Uniform wall heat flux (<span class="math notranslate nohighlight">\(Nu_D = 48/11 \approx 4.364\)</span>) or
+uniform wall temperature (<span class="math notranslate nohighlight">\(Nu_D = 3.657\)</span>, Graetz’s limit).</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Nusselt number <span class="math notranslate nohighlight">\(hD/k\)</span> [-], based on the mean (bulk) temperature.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/heat_transfer.html"><span class="doc">Heat transfer: absolute temperatures and resistance accounting</span></a>. Valid for <span class="math notranslate nohighlight">\(Re_D \lesssim 2300\)</span> beyond
+the thermal entry length (<a class="reference internal" href="#engineeringkit.heat_transfer.entry_length" title="engineeringkit.heat_transfer.entry_length"><code class="xref py py-func docutils literal notranslate"><span class="pre">entry_length()</span></code></a>). The uniform-flux value
+follows in closed form from the parabolic profile; the uniform-temperature
+value is twice the square of the first eigenvalue of Graetz’s problem
+(scaled by the radius) and has no closed form.</p>
+<p class="rubric">References</p>
+<p>L. Graetz, “Über die Wärmeleitungsfähigkeit von Flüssigkeiten,” <em>Ann.
+Phys. Chem.</em> 18 (1883) 79-94.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="n">laminar_tube_nusselt</span><span class="p">(</span><span class="s2">"flux"</span><span class="p">),</span> <span class="mi">3</span><span class="p">)</span>
+<span class="go">4.364</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.heat_transfer.lewis_number">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.heat_transfer.</span></span><span class="sig-name descname"><span class="pre">lewis_number</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alpha</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">D_AB</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/heat_transfer/systems/forced_convection.html#lewis_number"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.heat_transfer.lewis_number" title="Link to this definition">#</a></dt>
+<dd><p>Lewis number <span class="math notranslate nohighlight">\(Le = \alpha/D_{AB} = Sc/Pr\)</span>, heat over mass diffusivity.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>alpha</strong> (<em>float</em><em> or </em><em>array_like</em>) – Thermal diffusivity [m^2/s], positive.</p></li>
+<li><p><strong>D_AB</strong> (<em>float</em><em> or </em><em>array_like</em>) – Binary mass diffusivity of species A in B [m^2/s], positive.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Lewis number [-]; about 0.85 for water vapour in air.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/heat_transfer.html"><span class="doc">Heat transfer: absolute temperatures and resistance accounting</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">lewis_number</span><span class="p">(</span><span class="mf">2.2e-5</span><span class="p">,</span> <span class="mf">2.6e-5</span><span class="p">)),</span> <span class="mi">3</span><span class="p">)</span>
+<span class="go">0.846</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.heat_transfer.lmtd_correction_factor">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.heat_transfer.</span></span><span class="sig-name descname"><span class="pre">lmtd_correction_factor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">P</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">R</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shells</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/heat_transfer/systems/exchangers.html#lmtd_correction_factor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.heat_transfer.lmtd_correction_factor" title="Link to this definition">#</a></dt>
+<dd><p>LMTD correction factor <span class="math notranslate nohighlight">\(F\)</span> of a shell-and-tube exchanger (Bowman, Mueller and Nagle).</p>
+<p>With the temperature effectiveness of the tube fluid <span class="math notranslate nohighlight">\(P = (t_o - t_i)/(T_i - t_i)\)</span>
+and the capacity ratio <span class="math notranslate nohighlight">\(R = (T_i - T_o)/(t_o - t_i) = C_t/C_s\)</span>, one
+shell pass gives</p>
+<div class="math notranslate nohighlight">
+\[F = \frac{\sqrt{R^2 + 1}}{R - 1}\,
+    \frac{\ln[(1 - P)/(1 - PR)]}
+         {\ln\dfrac{2 - P(R + 1 - \sqrt{R^2 + 1})}{2 - P(R + 1 + \sqrt{R^2 + 1})}}.\]</div>
+<p>For <span class="math notranslate nohighlight">\(n\)</span> shells, <span class="math notranslate nohighlight">\(P\)</span> is first replaced by the per-shell value
+<span class="math notranslate nohighlight">\(P_1 = (1 - X)/(R - X)\)</span> with <span class="math notranslate nohighlight">\(X = [(1 - PR)/(1 - P)]^{1/n}\)</span>
+(<span class="math notranslate nohighlight">\(P_1 = P/[n - P(n - 1)]\)</span> at <span class="math notranslate nohighlight">\(R = 1\)</span>).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>P</strong> (<em>float</em>) – Temperature effectiveness of the tube-side fluid [-], in [0, 1).</p></li>
+<li><p><strong>R</strong> (<em>float</em>) – Ratio of tube-side to shell-side capacity rates [-], positive.</p></li>
+<li><p><strong>shells</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of shell passes, at least one; each with an even number of tube passes.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Correction factor [-] in (0, 1], so that <span class="math notranslate nohighlight">\(\dot Q = UAF\,\Delta T_{lm,cf}\)</span>
+with the counterflow LMTD. Designs below about 0.75 are usually rejected.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If <code class="docutils literal notranslate"><span class="pre">P</span></code> is at or beyond the largest value the arrangement can reach
+    for this <code class="docutils literal notranslate"><span class="pre">R</span></code>, where <span class="math notranslate nohighlight">\(F\)</span> falls to zero (a temperature cross).</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/heat_transfer.html"><span class="doc">Heat transfer: absolute temperatures and resistance accounting</span></a>. <span class="math notranslate nohighlight">\(F\)</span> is symmetric in the two
+streams: <span class="math notranslate nohighlight">\(F(P, R) = F(PR, 1/R)\)</span>.</p>
+<p class="rubric">References</p>
+<p>R. A. Bowman, A. C. Mueller and W. M. Nagle, “Mean temperature
+difference in design,” <em>Trans. ASME</em> 62 (1940) 283-294.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">lmtd_correction_factor</span><span class="p">(</span><span class="mf">0.4</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">)),</span> <span class="mi">4</span><span class="p">)</span>
+<span class="go">0.8033</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -1336,6 +2060,8 @@ quasi-steady <span class="math notranslate nohighlight">\(\sqrt{2\,Ste\,\alpha t
 </dd>
 </dl>
 <p class="rubric">Notes</p>
+<p><code class="docutils literal notranslate"><span class="pre">Ste</span></code> is scalar-only, since the front coefficient is a root found for
+one Stefan number; <code class="docutils literal notranslate"><span class="pre">t</span></code> and <code class="docutils literal notranslate"><span class="pre">alpha</span></code> broadcast.</p>
 <p>Inputs are raw SI numbers with no dimensional metadata; see
 <a class="reference internal" href="../guides/heat_transfer.html"><span class="doc">Heat transfer: absolute temperatures and resistance accounting</span></a>. Densities of the two phases are taken
 equal, and the original phase does not conduct.</p>
@@ -1514,6 +2240,8 @@ for <span class="math notranslate nohighlight">\(Fo &gt; 0.2\)</span> (about 3% 
 </dd>
 </dl>
 <p class="rubric">Notes</p>
+<p><code class="docutils literal notranslate"><span class="pre">Bi</span></code> is scalar-only, since the eigenvalues are roots found for one Biot
+number; <code class="docutils literal notranslate"><span class="pre">Fo</span></code> and <code class="docutils literal notranslate"><span class="pre">x_star</span></code> broadcast.</p>
 <p>Inputs are raw SI numbers with no dimensional metadata; see
 <a class="reference internal" href="../guides/heat_transfer.html"><span class="doc">Heat transfer: absolute temperatures and resistance accounting</span></a>. Near <span class="math notranslate nohighlight">\(Fo = 0\)</span> the truncated series
 oscillates about the initial value; use more terms there.</p>
@@ -1560,6 +2288,63 @@ heating,” <em>Trans. ASME</em> 69 (1947) 227-236.</p>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.heat_transfer.radiation_enclosure">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.heat_transfer.</span></span><span class="sig-name descname"><span class="pre">radiation_enclosure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">T</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epsilon</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">F</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reradiating</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5.670374419e-08</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/heat_transfer/systems/radiation.html#radiation_enclosure"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.heat_transfer.radiation_enclosure" title="Link to this definition">#</a></dt>
+<dd><p>Net radiation exchange in an enclosure of diffuse gray surfaces (Oppenheim’s network).</p>
+<p>Each surface’s radiosity <span class="math notranslate nohighlight">\(J_i\)</span> is linked to its blackbody emissive
+power by the surface resistance <span class="math notranslate nohighlight">\((1 - \varepsilon_i)/(\varepsilon_iA_i)\)</span>
+and to every other radiosity by the space resistance <span class="math notranslate nohighlight">\(1/(A_iF_{ij})\)</span>.
+The node equations reduce to</p>
+<div class="math notranslate nohighlight">
+\[J_i - (1 - \varepsilon_i)\sum_j F_{ij}J_j = \varepsilon_i\sigma T_i^4,\]</div>
+<p>with <span class="math notranslate nohighlight">\(\varepsilon_i\)</span> replaced by 0 for a reradiating (insulated)
+surface, and the net radiation leaving surface <span class="math notranslate nohighlight">\(i\)</span> is
+<span class="math notranslate nohighlight">\(\dot Q_i = A_i(J_i - \sum_j F_{ij}J_j)\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>T</strong> (<em>array_like</em>) – Absolute temperature of each surface [K], nonnegative; ignored for
+reradiating surfaces. <code class="docutils literal notranslate"><span class="pre">n</span></code> surfaces, at least two.</p></li>
+<li><p><strong>epsilon</strong> (<em>array_like</em>) – Emissivity of each surface [-], in [0, 1]; 1 is black.</p></li>
+<li><p><strong>A</strong> (<em>array_like</em>) – Area of each surface [m^2], positive.</p></li>
+<li><p><strong>F</strong> (<em>array_like</em>) – View-factor matrix [-], shape <code class="docutils literal notranslate"><span class="pre">(n,</span> <span class="pre">n)</span></code>; <code class="docutils literal notranslate"><span class="pre">F[i,</span> <span class="pre">j]</span></code> is <span class="math notranslate nohighlight">\(F_{ij}\)</span>.
+Each row must sum to one (the enclosure is closed) and
+<span class="math notranslate nohighlight">\(A_iF_{ij} = A_jF_{ji}\)</span> must hold, both to 1e-6.</p></li>
+<li><p><strong>reradiating</strong> (<em>array_like</em><em> of </em><em>bool</em><em>, </em><em>optional</em>) – Surfaces that are insulated (net radiation zero); their temperature
+is solved for.</p></li>
+<li><p><strong>sigma</strong> (<em>float</em><em>, </em><em>optional</em>) – Stefan-Boltzmann constant [W/(m^2 K^4)].</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Radiosities [W/m^2], net heat rates [W] summing to zero, and the
+temperatures [K] with the reradiating ones filled in.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#engineeringkit.heat_transfer.EnclosureResult" title="engineeringkit.heat_transfer.EnclosureResult">EnclosureResult</a></p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If the shapes disagree, a view factor lies outside [0, 1], or the
+    summation or reciprocity rule fails.</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/heat_transfer.html"><span class="doc">Heat transfer: absolute temperatures and resistance accounting</span></a>. Each surface is isothermal, diffuse and
+gray with uniform radiosity; the medium between them does not
+participate.</p>
+<p class="rubric">References</p>
+<p>A. K. Oppenheim, “Radiation analysis by the network method,” <em>Trans.
+ASME</em> 78 (1956) 725-735.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">F</span> <span class="o">=</span> <span class="p">[[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">]]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">radiation_enclosure</span><span class="p">([</span><span class="mf">500.0</span><span class="p">,</span> <span class="mf">300.0</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">],</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">],</span> <span class="n">F</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">heat_rate</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="mi">1</span><span class="p">)</span>
+<span class="go">2350.2</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.heat_transfer.radiation_heat_rate">
 <span class="sig-prename descclassname"><span class="pre">engineeringkit.heat_transfer.</span></span><span class="sig-name descname"><span class="pre">radiation_heat_rate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">epsilon</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ts</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Tsur</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5.670374419e-08</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/heat_transfer/systems/radiation.html#radiation_heat_rate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.heat_transfer.radiation_heat_rate" title="Link to this definition">#</a></dt>
 <dd><p>Net radiation from a small gray surface to large surroundings, <span class="math notranslate nohighlight">\(\dot Q = \varepsilon\sigma A(T_s^4 - T_{sur}^4)\)</span>.</p>
@@ -1596,6 +2381,52 @@ Chem.</em> 109 (1860) 275-301.</p>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.heat_transfer.radiation_shield_heat_flux">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.heat_transfer.</span></span><span class="sig-name descname"><span class="pre">radiation_shield_heat_flux</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">T1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shields</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5.670374419e-08</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/heat_transfer/systems/radiation.html#radiation_shield_heat_flux"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.heat_transfer.radiation_shield_heat_flux" title="Link to this definition">#</a></dt>
+<dd><p>Radiation flux between large parallel plates separated by thin radiation shields.</p>
+<p>Each gap adds a resistance <span class="math notranslate nohighlight">\(1/\varepsilon_a + 1/\varepsilon_b - 1\)</span>
+per unit area, so with shields whose faces have emissivities
+<span class="math notranslate nohighlight">\(\varepsilon_{k,a}\)</span> and <span class="math notranslate nohighlight">\(\varepsilon_{k,b}\)</span></p>
+<div class="math notranslate nohighlight">
+\[q'' = \frac{\sigma(T_1^4 - T_2^4)}{\dfrac{1}{\varepsilon_1} + \dfrac{1}{\varepsilon_2} - 1
+      + \sum_k\left(\dfrac{1}{\varepsilon_{k,a}} + \dfrac{1}{\varepsilon_{k,b}} - 1\right)}.\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>T1</strong> (<em>float</em><em> or </em><em>array_like</em>) – Absolute temperatures of the two plates [K], nonnegative.</p></li>
+<li><p><strong>T2</strong> (<em>float</em><em> or </em><em>array_like</em>) – Absolute temperatures of the two plates [K], nonnegative.</p></li>
+<li><p><strong>eps1</strong> (<em>float</em>) – Plate emissivities [-], in (0, 1].</p></li>
+<li><p><strong>eps2</strong> (<em>float</em>) – Plate emissivities [-], in (0, 1].</p></li>
+<li><p><strong>shields</strong> (<em>sequence</em><em> of </em><em>float</em><em> or </em><em>(</em><em>float</em><em>, </em><em>float</em><em>)</em><em>, </em><em>optional</em>) – One entry per shield: a single emissivity for both faces, or the pair
+<code class="docutils literal notranslate"><span class="pre">(eps_a,</span> <span class="pre">eps_b)</span></code> of the faces towards plate 1 and plate 2, each in
+(0, 1]. Empty means no shield.</p></li>
+<li><p><strong>sigma</strong> (<em>float</em><em>, </em><em>optional</em>) – Stefan-Boltzmann constant [W/(m^2 K^4)].</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Net heat flux from plate 1 to plate 2 [W/m^2]. <span class="math notranslate nohighlight">\(N\)</span> shields with
+the plates’ emissivity divide it by <span class="math notranslate nohighlight">\(N + 1\)</span>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/heat_transfer.html"><span class="doc">Heat transfer: absolute temperatures and resistance accounting</span></a>. Shields are thin, conduct well across their
+thickness and fill the gap (all view factors one). Shield temperatures
+follow from the flux, one resistance at a time.</p>
+<p class="rubric">References</p>
+<p>A. K. Oppenheim, “Radiation analysis by the network method,” <em>Trans.
+ASME</em> 78 (1956) 725-735.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">radiation_shield_heat_flux</span><span class="p">(</span><span class="mf">500.0</span><span class="p">,</span> <span class="mf">300.0</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="p">[</span><span class="mf">0.05</span><span class="p">])),</span> <span class="mi">1</span><span class="p">)</span>
+<span class="go">76.2</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.heat_transfer.rayleigh_number">
 <span class="sig-prename descclassname"><span class="pre">engineeringkit.heat_transfer.</span></span><span class="sig-name descname"><span class="pre">rayleigh_number</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">beta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">L</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nu</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">g</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">9.80665</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/heat_transfer/systems/convection.html#rayleigh_number"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.heat_transfer.rayleigh_number" title="Link to this definition">#</a></dt>
 <dd><p>Rayleigh number <span class="math notranslate nohighlight">\(Ra = g\beta\,\Delta T L^3/(\nu\alpha)\)</span> for natural convection.</p>
@@ -1623,6 +2454,56 @@ Chem.</em> 109 (1860) 275-301.</p>
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="nb">float</span><span class="p">(</span><span class="n">rayleigh_number</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w"> </span><span class="mf">20.0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span><span class="w"> </span><span class="mf">1.6e-5</span><span class="p">,</span><span class="w"> </span><span class="mf">2.2e-5</span><span class="p">))</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2">"</span>
 <span class="go">'2.322e+08'</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.heat_transfer.rohsenow_boiling_heat_flux">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.heat_transfer.</span></span><span class="sig-name descname"><span class="pre">rohsenow_boiling_heat_flux</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mu_l</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h_fg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rho_l</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rho_v</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cp_l</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Pr_l</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dT_excess</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">C_sf</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.013</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">g</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">9.80665</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/heat_transfer/systems/phase_change.html#rohsenow_boiling_heat_flux"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.heat_transfer.rohsenow_boiling_heat_flux" title="Link to this definition">#</a></dt>
+<dd><p>Rohsenow’s heat flux in nucleate pool boiling.</p>
+<div class="math notranslate nohighlight">
+\[q''_s = \mu_l h_{fg}\left[\frac{g(\rho_l - \rho_v)}{\sigma}\right]^{1/2}
+\left(\frac{c_{p,l}\,\Delta T_e}{C_{s,f}\,h_{fg}\,Pr_l^{\,n}}\right)^3\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mu_l</strong> (<em>float</em>) – Liquid dynamic viscosity [Pa s], positive.</p></li>
+<li><p><strong>h_fg</strong> (<em>float</em>) – Latent heat of vaporisation [J/kg], positive.</p></li>
+<li><p><strong>rho_l</strong> (<em>float</em>) – Liquid and vapour densities [kg/m^3], with <code class="docutils literal notranslate"><span class="pre">rho_l</span> <span class="pre">&gt;</span> <span class="pre">rho_v</span> <span class="pre">&gt;=</span> <span class="pre">0</span></code>.</p></li>
+<li><p><strong>rho_v</strong> (<em>float</em>) – Liquid and vapour densities [kg/m^3], with <code class="docutils literal notranslate"><span class="pre">rho_l</span> <span class="pre">&gt;</span> <span class="pre">rho_v</span> <span class="pre">&gt;=</span> <span class="pre">0</span></code>.</p></li>
+<li><p><strong>sigma</strong> (<em>float</em>) – Surface tension [N/m], positive.</p></li>
+<li><p><strong>cp_l</strong> (<em>float</em>) – Liquid specific heat [J/(kg K)], positive.</p></li>
+<li><p><strong>Pr_l</strong> (<em>float</em>) – Liquid Prandtl number [-], positive.</p></li>
+<li><p><strong>dT_excess</strong> (<em>float</em><em> or </em><em>array_like</em>) – Excess temperature <span class="math notranslate nohighlight">\(T_s - T_{sat}\)</span> [K], nonnegative.</p></li>
+<li><p><strong>C_sf</strong> (<em>float</em><em>, </em><em>optional</em>) – Surface-fluid constant [-], positive; 0.013 for water on polished
+copper or stainless steel, 0.0060 on brass.</p></li>
+<li><p><strong>n</strong> (<em>float</em><em>, </em><em>optional</em>) – Prandtl exponent [-], positive: 1.0 for water, 1.7 for other liquids.</p></li>
+<li><p><strong>g</strong> (<em>float</em><em>, </em><em>optional</em>) – Gravitational acceleration [m/s^2], positive.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Heat flux from the heater to the liquid [W/m^2]; it grows as
+<span class="math notranslate nohighlight">\(\Delta T_e^3\)</span>, up to the critical flux of
+<a class="reference internal" href="#engineeringkit.heat_transfer.zuber_critical_heat_flux" title="engineeringkit.heat_transfer.zuber_critical_heat_flux"><code class="xref py py-func docutils literal notranslate"><span class="pre">zuber_critical_heat_flux()</span></code></a>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/heat_transfer.html"><span class="doc">Heat transfer: absolute temperatures and resistance accounting</span></a>. Saturated pool boiling in the nucleate
+regime, liquid properties at saturation. Errors of up to 100% in the
+flux (about 25% in <span class="math notranslate nohighlight">\(\Delta T_e\)</span> for a given flux) are common;
+most of the uncertainty is in <span class="math notranslate nohighlight">\(C_{s,f}\)</span>.</p>
+<p class="rubric">References</p>
+<p>W. M. Rohsenow, “A method of correlating heat-transfer data for surface
+boiling of liquids,” <em>Trans. ASME</em> 74 (1952) 969-976 (MIT Heat Transfer
+Laboratory report 5, 1951).</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">rohsenow_boiling_heat_flux</span><span class="p">(</span><span class="mf">279e-6</span><span class="p">,</span> <span class="mf">2.257e6</span><span class="p">,</span> <span class="mf">957.9</span><span class="p">,</span> <span class="mf">0.5955</span><span class="p">,</span> <span class="mf">58.9e-3</span><span class="p">,</span> <span class="mf">4217.0</span><span class="p">,</span> <span class="mf">1.76</span><span class="p">,</span> <span class="mf">18.0</span><span class="p">))</span> <span class="o">/</span> <span class="mf">1e3</span><span class="p">)</span>
+<span class="go">798</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -1665,6 +2546,132 @@ Edinburgh</em> 23 (1864) 157-169 (read 1862).</p>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.heat_transfer.shape_factor_buried_cylinder">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.heat_transfer.</span></span><span class="sig-name descname"><span class="pre">shape_factor_buried_cylinder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">D</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">L</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/heat_transfer/systems/multidimensional.html#shape_factor_buried_cylinder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.heat_transfer.shape_factor_buried_cylinder" title="Link to this definition">#</a></dt>
+<dd><p>Conduction shape factor of a long isothermal cylinder buried in a semi-infinite medium, <span class="math notranslate nohighlight">\(S = 2\pi L/\cosh^{-1}(2z/D)\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>D</strong> (<em>float</em><em> or </em><em>array_like</em>) – Cylinder diameter [m], positive.</p></li>
+<li><p><strong>z</strong> (<em>float</em><em> or </em><em>array_like</em>) – Depth of the axis below the isothermal surface [m], greater than <code class="docutils literal notranslate"><span class="pre">D/2</span></code>.</p></li>
+<li><p><strong>L</strong> (<em>float</em><em> or </em><em>array_like</em><em>, </em><em>optional</em>) – Length [m], positive and much larger than <code class="docutils literal notranslate"><span class="pre">D</span></code>; the default 1 gives
+the shape factor per metre.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Shape factor [m]; for <span class="math notranslate nohighlight">\(z \gg D\)</span> it tends to <span class="math notranslate nohighlight">\(2\pi L/\ln(4z/D)\)</span>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/heat_transfer.html"><span class="doc">Heat transfer: absolute temperatures and resistance accounting</span></a>. Exact in two dimensions (method of images).</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">shape_factor_buried_cylinder</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)),</span> <span class="mi">4</span><span class="p">)</span>
+<span class="go">3.045</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.heat_transfer.shape_factor_buried_sphere">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.heat_transfer.</span></span><span class="sig-name descname"><span class="pre">shape_factor_buried_sphere</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">D</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/heat_transfer/systems/multidimensional.html#shape_factor_buried_sphere"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.heat_transfer.shape_factor_buried_sphere" title="Link to this definition">#</a></dt>
+<dd><p>Conduction shape factor of an isothermal sphere buried in a semi-infinite medium, <span class="math notranslate nohighlight">\(S = 2\pi D/(1 - D/4z)\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>D</strong> (<em>float</em><em> or </em><em>array_like</em>) – Sphere diameter [m], positive.</p></li>
+<li><p><strong>z</strong> (<em>float</em><em> or </em><em>array_like</em>) – Depth of the centre below the isothermal surface [m], greater than <code class="docutils literal notranslate"><span class="pre">D/2</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Shape factor [m]: <span class="math notranslate nohighlight">\(\dot Q = Sk(T_1 - T_2)\)</span>. Tends to the
+isolated sphere’s <span class="math notranslate nohighlight">\(2\pi D\)</span> as the depth grows.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/heat_transfer.html"><span class="doc">Heat transfer: absolute temperatures and resistance accounting</span></a>. From the method of images; exact as
+<span class="math notranslate nohighlight">\(z \to \infty\)</span>, approximate near the surface.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">shape_factor_buried_sphere</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)),</span> <span class="mi">4</span><span class="p">)</span>
+<span class="go">8.3776</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.heat_transfer.shape_factor_eccentric_cylinders">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.heat_transfer.</span></span><span class="sig-name descname"><span class="pre">shape_factor_eccentric_cylinders</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">d</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">D</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">L</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/heat_transfer/systems/multidimensional.html#shape_factor_eccentric_cylinders"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.heat_transfer.shape_factor_eccentric_cylinders" title="Link to this definition">#</a></dt>
+<dd><p>Conduction shape factor between a cylinder and an enclosing eccentric cylinder.</p>
+<div class="math notranslate nohighlight">
+\[S = \frac{2\pi L}{\cosh^{-1}\left[(D^2 + d^2 - 4z^2)/(2Dd)\right]}\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>d</strong> (<em>float</em><em> or </em><em>array_like</em>) – Inner diameter [m], positive.</p></li>
+<li><p><strong>D</strong> (<em>float</em><em> or </em><em>array_like</em>) – Outer diameter [m], greater than <code class="docutils literal notranslate"><span class="pre">d</span> <span class="pre">+</span> <span class="pre">2z</span></code>.</p></li>
+<li><p><strong>z</strong> (<em>float</em><em> or </em><em>array_like</em>) – Offset between the two axes [m], nonnegative.</p></li>
+<li><p><strong>L</strong> (<em>float</em><em> or </em><em>array_like</em><em>, </em><em>optional</em>) – Length [m], positive; the default 1 gives the shape factor per metre.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Shape factor [m]; at <span class="math notranslate nohighlight">\(z = 0\)</span> it is the concentric
+<span class="math notranslate nohighlight">\(2\pi L/\ln(D/d)\)</span> of <a class="reference internal" href="#engineeringkit.heat_transfer.cylinder_resistance" title="engineeringkit.heat_transfer.cylinder_resistance"><code class="xref py py-func docutils literal notranslate"><span class="pre">cylinder_resistance()</span></code></a>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/heat_transfer.html"><span class="doc">Heat transfer: absolute temperatures and resistance accounting</span></a>. Exact (bipolar coordinates).</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">shape_factor_eccentric_cylinders</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">)),</span> <span class="mi">4</span><span class="p">)</span>
+<span class="go">6.5285</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.heat_transfer.shape_factor_parallel_cylinders">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.heat_transfer.</span></span><span class="sig-name descname"><span class="pre">shape_factor_parallel_cylinders</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">D1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">D2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">L</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/heat_transfer/systems/multidimensional.html#shape_factor_parallel_cylinders"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.heat_transfer.shape_factor_parallel_cylinders" title="Link to this definition">#</a></dt>
+<dd><p>Conduction shape factor between two long parallel cylinders in an infinite medium.</p>
+<div class="math notranslate nohighlight">
+\[S = \frac{2\pi L}{\cosh^{-1}\left[(4w^2 - D_1^2 - D_2^2)/(2D_1D_2)\right]}\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>D1</strong> (<em>float</em><em> or </em><em>array_like</em>) – Diameters [m], positive.</p></li>
+<li><p><strong>D2</strong> (<em>float</em><em> or </em><em>array_like</em>) – Diameters [m], positive.</p></li>
+<li><p><strong>w</strong> (<em>float</em><em> or </em><em>array_like</em>) – Distance between the axes [m], greater than <code class="docutils literal notranslate"><span class="pre">(D1</span> <span class="pre">+</span> <span class="pre">D2)/2</span></code>.</p></li>
+<li><p><strong>L</strong> (<em>float</em><em> or </em><em>array_like</em><em>, </em><em>optional</em>) – Length [m], positive; the default 1 gives the shape factor per metre.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Shape factor [m]. For equal cylinders the midplane is isothermal, so
+it is half that of one cylinder buried at depth <span class="math notranslate nohighlight">\(w/2\)</span>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/heat_transfer.html"><span class="doc">Heat transfer: absolute temperatures and resistance accounting</span></a>. Exact in two dimensions.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">shape_factor_parallel_cylinders</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">)),</span> <span class="mi">4</span><span class="p">)</span>
+<span class="go">1.5225</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.heat_transfer.sphere_resistance">
 <span class="sig-prename descclassname"><span class="pre">engineeringkit.heat_transfer.</span></span><span class="sig-name descname"><span class="pre">sphere_resistance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/heat_transfer/systems/conduction.html#sphere_resistance"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.heat_transfer.sphere_resistance" title="Link to this definition">#</a></dt>
 <dd><p>Radial conduction resistance of a spherical shell, <span class="math notranslate nohighlight">\(R = (1/r_1 - 1/r_2)/(4\pi k)\)</span>.</p>
@@ -1689,6 +2696,45 @@ Edinburgh</em> 23 (1864) 157-169 (read 1862).</p>
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">sphere_resistance</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)),</span> <span class="mi">6</span><span class="p">)</span>
 <span class="go">0.039789</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.heat_transfer.sphere_transient">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.heat_transfer.</span></span><span class="sig-name descname"><span class="pre">sphere_transient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Fo</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Bi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r_star</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">terms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/heat_transfer/systems/transient.html#sphere_transient"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.heat_transfer.sphere_transient" title="Link to this definition">#</a></dt>
+<dd><p>Dimensionless temperature of a sphere cooled by convection (Heisler’s charts).</p>
+<div class="math notranslate nohighlight">
+\[\theta^* = \sum_{n=1}^{N} C_n e^{-\zeta_n^2 Fo}\,\frac{\sin(\zeta_n r^*)}{\zeta_n r^*},
+\qquad C_n = \frac{4(\sin\zeta_n - \zeta_n\cos\zeta_n)}{2\zeta_n - \sin 2\zeta_n},\]</div>
+<p>with <span class="math notranslate nohighlight">\(1 - \zeta_n\cot\zeta_n = Bi\)</span>; at the centre
+<span class="math notranslate nohighlight">\(\sin(\zeta r^*)/(\zeta r^*) = 1\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Fo</strong> (<em>float</em><em> or </em><em>array_like</em>) – Fourier number <span class="math notranslate nohighlight">\(\alpha t/r_o^2\)</span> on the outer radius [-], nonnegative.</p></li>
+<li><p><strong>Bi</strong> (<em>float</em>) – Biot number <span class="math notranslate nohighlight">\(hr_o/k\)</span> on the outer radius [-], positive.</p></li>
+<li><p><strong>r_star</strong> (<em>float</em><em> or </em><em>array_like</em><em>, </em><em>optional</em>) – Radial position <span class="math notranslate nohighlight">\(r/r_o\)</span> [-], in [0, 1]; 0 is the centre.</p></li>
+<li><p><strong>terms</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of series terms <span class="math notranslate nohighlight">\(N\)</span>, at least one; <code class="docutils literal notranslate"><span class="pre">terms=1</span></code> is
+Heisler’s one-term chart, good for <span class="math notranslate nohighlight">\(Fo &gt; 0.2\)</span>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="math notranslate nohighlight">\(\theta^* = (T - T_\infty)/(T_i - T_\infty)\)</span> [-], broadcast over <code class="docutils literal notranslate"><span class="pre">Fo</span></code> and <code class="docutils literal notranslate"><span class="pre">r_star</span></code>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/heat_transfer.html"><span class="doc">Heat transfer: absolute temperatures and resistance accounting</span></a>. Near <span class="math notranslate nohighlight">\(Fo = 0\)</span> use more terms.</p>
+<p class="rubric">References</p>
+<p>M. P. Heisler, “Temperature charts for induction and constant-temperature
+heating,” <em>Trans. ASME</em> 69 (1947) 227-236.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">sphere_transient</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)),</span> <span class="mi">4</span><span class="p">)</span>
+<span class="go">0.3708</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -1751,6 +2797,84 @@ L. Boltzmann, “Ableitung des Stefan’schen Gesetzes,” <em>Ann. Phys. Chem.<
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">stefan_number</span><span class="p">(</span><span class="mf">2100.0</span><span class="p">,</span> <span class="mf">20.0</span><span class="p">,</span> <span class="mf">334e3</span><span class="p">)),</span> <span class="mi">4</span><span class="p">)</span>
 <span class="go">0.1257</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.heat_transfer.tube_bank_max_velocity">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.heat_transfer.</span></span><span class="sig-name descname"><span class="pre">tube_bank_max_velocity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">V</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">D</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ST</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">SL</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arrangement</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'aligned'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/heat_transfer/systems/forced_convection.html#tube_bank_max_velocity"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.heat_transfer.tube_bank_max_velocity" title="Link to this definition">#</a></dt>
+<dd><p>Maximum velocity between the tubes of a bank, on which Žukauskas’s Reynolds number is based.</p>
+<p>Aligned: <span class="math notranslate nohighlight">\(V_{max} = S_T V/(S_T - D)\)</span>. Staggered: the same, unless
+the diagonal gap <span class="math notranslate nohighlight">\(S_D - D\)</span> with <span class="math notranslate nohighlight">\(S_D = [S_L^2 + (S_T/2)^2]^{1/2}\)</span>
+is narrower than <span class="math notranslate nohighlight">\((S_T - D)/2\)</span>, in which case
+<span class="math notranslate nohighlight">\(V_{max} = S_T V/[2(S_D - D)]\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>V</strong> (<em>float</em><em> or </em><em>array_like</em>) – Upstream (approach) velocity [m/s], nonnegative.</p></li>
+<li><p><strong>D</strong> (<em>float</em>) – Tube outer diameter [m], positive.</p></li>
+<li><p><strong>ST</strong> (<em>float</em>) – Transverse pitch, normal to the flow [m], greater than <code class="docutils literal notranslate"><span class="pre">D</span></code>.</p></li>
+<li><p><strong>SL</strong> (<em>float</em>) – Longitudinal pitch, along the flow [m], positive.</p></li>
+<li><p><strong>arrangement</strong> (<em>{&quot;aligned&quot;</em><em>, </em><em>&quot;staggered&quot;}</em><em>, </em><em>optional</em>) – Tube layout.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Maximum velocity [m/s].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/heat_transfer.html"><span class="doc">Heat transfer: absolute temperatures and resistance accounting</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">tube_bank_max_velocity</span><span class="p">(</span><span class="mf">6.0</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.015</span><span class="p">,</span> <span class="mf">0.015</span><span class="p">)),</span> <span class="mi">6</span><span class="p">)</span>
+<span class="go">18.0</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.heat_transfer.two_surface_radiation">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.heat_transfer.</span></span><span class="sig-name descname"><span class="pre">two_surface_radiation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">T1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">F12</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5.670374419e-08</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/heat_transfer/systems/radiation.html#two_surface_radiation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.heat_transfer.two_surface_radiation" title="Link to this definition">#</a></dt>
+<dd><p>Net radiation exchange in a two-surface gray enclosure.</p>
+<div class="math notranslate nohighlight">
+\[\dot Q_{12} = \frac{\sigma(T_1^4 - T_2^4)}
+{\dfrac{1 - \varepsilon_1}{\varepsilon_1A_1} + \dfrac{1}{A_1F_{12}} + \dfrac{1 - \varepsilon_2}{\varepsilon_2A_2}}\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>T1</strong> (<em>float</em><em> or </em><em>array_like</em>) – Absolute temperatures of the two surfaces [K], nonnegative.</p></li>
+<li><p><strong>T2</strong> (<em>float</em><em> or </em><em>array_like</em>) – Absolute temperatures of the two surfaces [K], nonnegative.</p></li>
+<li><p><strong>eps1</strong> (<em>float</em>) – Emissivities [-], in (0, 1].</p></li>
+<li><p><strong>eps2</strong> (<em>float</em>) – Emissivities [-], in (0, 1].</p></li>
+<li><p><strong>A1</strong> (<em>float</em>) – Areas [m^2], positive.</p></li>
+<li><p><strong>A2</strong> (<em>float</em>) – Areas [m^2], positive.</p></li>
+<li><p><strong>F12</strong> (<em>float</em><em>, </em><em>optional</em>) – View factor from surface 1 to surface 2 [-], in (0, 1].</p></li>
+<li><p><strong>sigma</strong> (<em>float</em><em>, </em><em>optional</em>) – Stefan-Boltzmann constant [W/(m^2 K^4)].</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Net heat rate from surface 1 to surface 2 [W].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/heat_transfer.html"><span class="doc">Heat transfer: absolute temperatures and resistance accounting</span></a>. Diffuse gray surfaces, each isothermal
+with uniform radiosity. Large parallel plates have <span class="math notranslate nohighlight">\(A_1 = A_2\)</span> and
+<span class="math notranslate nohighlight">\(F_{12} = 1\)</span>; a convex body inside a large enclosure
+(<span class="math notranslate nohighlight">\(A_1/A_2 \to 0\)</span>) recovers <a class="reference internal" href="#engineeringkit.heat_transfer.radiation_heat_rate" title="engineeringkit.heat_transfer.radiation_heat_rate"><code class="xref py py-func docutils literal notranslate"><span class="pre">radiation_heat_rate()</span></code></a>.</p>
+<p class="rubric">References</p>
+<p>A. K. Oppenheim, “Radiation analysis by the network method,” <em>Trans.
+ASME</em> 78 (1956) 725-735.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">two_surface_radiation</span><span class="p">(</span><span class="mf">500.0</span><span class="p">,</span> <span class="mf">300.0</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)),</span> <span class="mi">1</span><span class="p">)</span>
+<span class="go">2056.5</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -1830,6 +2954,40 @@ Radiation Heat Transfer Configuration Factors</em>, case C-11.</p>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.heat_transfer.view_factor_reciprocity">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.heat_transfer.</span></span><span class="sig-name descname"><span class="pre">view_factor_reciprocity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">F_ij</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A_i</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A_j</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/heat_transfer/systems/radiation.html#view_factor_reciprocity"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.heat_transfer.view_factor_reciprocity" title="Link to this definition">#</a></dt>
+<dd><p>View factor <span class="math notranslate nohighlight">\(F_{ji}\)</span> from its reverse by reciprocity, <span class="math notranslate nohighlight">\(A_iF_{ij} = A_jF_{ji}\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>F_ij</strong> (<em>float</em><em> or </em><em>array_like</em>) – View factor from surface <span class="math notranslate nohighlight">\(i\)</span> to surface <span class="math notranslate nohighlight">\(j\)</span> [-], in [0, 1].</p></li>
+<li><p><strong>A_i</strong> (<em>float</em><em> or </em><em>array_like</em>) – Areas of the two surfaces [m^2], positive.</p></li>
+<li><p><strong>A_j</strong> (<em>float</em><em> or </em><em>array_like</em>) – Areas of the two surfaces [m^2], positive.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>View factor <span class="math notranslate nohighlight">\(F_{ji}\)</span> [-].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If the result exceeds one, which no pair of real surfaces allows.</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/heat_transfer.html"><span class="doc">Heat transfer: absolute temperatures and resistance accounting</span></a>. With the summation rule
+<span class="math notranslate nohighlight">\(\sum_j F_{ij} = 1\)</span> over an enclosure, reciprocity gives every view
+factor of a two- or three-surface enclosure from its areas.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">float</span><span class="p">(</span><span class="n">view_factor_reciprocity</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">))</span>
+<span class="go">0.25</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.heat_transfer.zuber_critical_heat_flux">
 <span class="sig-prename descclassname"><span class="pre">engineeringkit.heat_transfer.</span></span><span class="sig-name descname"><span class="pre">zuber_critical_heat_flux</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rho_l</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rho_v</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h_fg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">g</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">9.80665</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">C</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1308996938995747</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/heat_transfer/systems/phase_change.html#zuber_critical_heat_flux"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.heat_transfer.zuber_critical_heat_flux" title="Link to this definition">#</a></dt>
 <dd><p>Zuber’s critical (maximum) heat flux in saturated pool boiling.</p>
@@ -1871,9 +3029,90 @@ transfer,” <em>Trans. ASME</em> 80 (1958) 711-720.</p>
 </div>
 </dd></dl>
 
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.heat_transfer.zukauskas_nusselt">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.heat_transfer.</span></span><span class="sig-name descname"><span class="pre">zukauskas_nusselt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Re</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Pr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ST</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">SL</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arrangement</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'aligned'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rows</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Pr_s</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/heat_transfer/systems/forced_convection.html#zukauskas_nusselt"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.heat_transfer.zukauskas_nusselt" title="Link to this definition">#</a></dt>
+<dd><p>Žukauskas’s average Nusselt number for a bank of tubes in crossflow.</p>
+<div class="math notranslate nohighlight">
+\[\bar{Nu}_D = C_2\,C\,Re_{D,max}^{m}\,Pr^{0.36}\,(Pr/Pr_s)^{1/4},\]</div>
+<p>with <span class="math notranslate nohighlight">\(C\)</span> and <span class="math notranslate nohighlight">\(m\)</span> from Žukauskas’s table for the layout and
+Reynolds range, and <span class="math notranslate nohighlight">\(C_2\)</span> the correction for fewer than 20 rows.
+In the staggered range <span class="math notranslate nohighlight">\(10^3 &lt; Re &lt; 2\times10^5\)</span>, <span class="math notranslate nohighlight">\(C =
+0.35\,(S_T/S_L)^{1/5}\)</span> for <span class="math notranslate nohighlight">\(S_T/S_L &lt; 2\)</span> and 0.40 above.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Re</strong> (<em>float</em><em> or </em><em>array_like</em>) – Reynolds number <span class="math notranslate nohighlight">\(V_{max}D/\nu\)</span> on the maximum velocity (see
+<a class="reference internal" href="#engineeringkit.heat_transfer.tube_bank_max_velocity" title="engineeringkit.heat_transfer.tube_bank_max_velocity"><code class="xref py py-func docutils literal notranslate"><span class="pre">tube_bank_max_velocity()</span></code></a>) [-], in [10, 2e6].</p></li>
+<li><p><strong>Pr</strong> (<em>float</em><em> or </em><em>array_like</em>) – Prandtl number at the mean fluid temperature [-], positive; meant for
+<span class="math notranslate nohighlight">\(0.7 \lesssim Pr \lesssim 500\)</span>.</p></li>
+<li><p><strong>ST</strong> (<em>float</em>) – Transverse and longitudinal pitches [m], positive.</p></li>
+<li><p><strong>SL</strong> (<em>float</em>) – Transverse and longitudinal pitches [m], positive.</p></li>
+<li><p><strong>arrangement</strong> (<em>{&quot;aligned&quot;</em><em>, </em><em>&quot;staggered&quot;}</em><em>, </em><em>optional</em>) – Tube layout.</p></li>
+<li><p><strong>rows</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of tube rows along the flow, at least one; 20 or more needs no correction.</p></li>
+<li><p><strong>Pr_s</strong> (<em>float</em><em> or </em><em>array_like</em><em>, </em><em>optional</em>) – Prandtl number at the tube surface temperature [-], positive; <code class="docutils literal notranslate"><span class="pre">None</span></code>
+takes it equal to <code class="docutils literal notranslate"><span class="pre">Pr</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Average Nusselt number <span class="math notranslate nohighlight">\(\bar hD/k\)</span> over the bank [-].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/heat_transfer.html"><span class="doc">Heat transfer: absolute temperatures and resistance accounting</span></a>. Properties except <span class="math notranslate nohighlight">\(Pr_s\)</span> at the
+arithmetic mean of the inlet and outlet fluid temperatures. Between 100
+and 1000 the table values 0.52 and 0.71 with <span class="math notranslate nohighlight">\(m = 0.5\)</span> are
+Žukauskas’s; Incropera et al. suggest the single-cylinder correlation
+there. Aligned banks with <span class="math notranslate nohighlight">\(S_T/S_L &lt; 0.7\)</span> transfer heat poorly and
+are not covered by the correlation. The row correction is interpolated
+linearly between the tabulated row counts.</p>
+<p class="rubric">References</p>
+<p>A. Žukauskas, “Heat transfer from tubes in crossflow,” <em>Adv. Heat
+Transfer</em> 8 (1972) 93-160.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">zukauskas_nusselt</span><span class="p">(</span><span class="mf">13943.0</span><span class="p">,</span> <span class="mf">0.71</span><span class="p">,</span> <span class="mf">0.0313</span><span class="p">,</span> <span class="mf">0.0343</span><span class="p">,</span> <span class="s2">"staggered"</span><span class="p">,</span> <span class="n">rows</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">Pr_s</span><span class="o">=</span><span class="mf">0.70</span><span class="p">)),</span> <span class="mi">1</span><span class="p">)</span>
+<span class="go">88.8</span>
+</pre></div>
+</div>
+</dd></dl>
+
 <section id="module-engineeringkit.heat_transfer.utils">
 <span id="utilities"></span><h2>Utilities<a class="headerlink" href="#module-engineeringkit.heat_transfer.utils" title="Link to this heading">#</a></h2>
 <p>Supporting numerics for engineeringkit.heat_transfer’s systems/ modules.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.heat_transfer.utils.cylinder_eigenvalues">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.heat_transfer.utils.</span></span><span class="sig-name descname"><span class="pre">cylinder_eigenvalues</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Bi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">terms</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/heat_transfer/utils/eigenvalues.html#cylinder_eigenvalues"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.heat_transfer.utils.cylinder_eigenvalues" title="Link to this definition">#</a></dt>
+<dd><p>First <code class="docutils literal notranslate"><span class="pre">terms</span></code> positive roots of <span class="math notranslate nohighlight">\(\zeta J_1(\zeta) = Bi\,J_0(\zeta)\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Bi</strong> (<em>float</em>) – Biot number <span class="math notranslate nohighlight">\(hr_o/k\)</span> [-] on the outer radius, positive.</p></li>
+<li><p><strong>terms</strong> (<em>int</em>) – Number of eigenvalues, at least one.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Eigenvalues <span class="math notranslate nohighlight">\(\zeta_1 &lt; \zeta_2 &lt; \cdots\)</span> [-]; <span class="math notranslate nohighlight">\(\zeta_n\)</span>
+lies between the <span class="math notranslate nohighlight">\((n-1)\)</span>-th zero of <span class="math notranslate nohighlight">\(J_1\)</span> (0 for
+<span class="math notranslate nohighlight">\(n = 1\)</span>) and the <span class="math notranslate nohighlight">\(n\)</span>-th zero of <span class="math notranslate nohighlight">\(J_0\)</span>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/heat_transfer.html"><span class="doc">Heat transfer: absolute temperatures and resistance accounting</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">cylinder_eigenvalues</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]),</span> <span class="mi">4</span><span class="p">)</span>
+<span class="go">1.2558</span>
+</pre></div>
+</div>
+</dd></dl>
+
 <dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.heat_transfer.utils.plane_wall_eigenvalues">
 <span class="sig-prename descclassname"><span class="pre">engineeringkit.heat_transfer.utils.</span></span><span class="sig-name descname"><span class="pre">plane_wall_eigenvalues</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Bi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">terms</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/heat_transfer/utils/eigenvalues.html#plane_wall_eigenvalues"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.heat_transfer.utils.plane_wall_eigenvalues" title="Link to this definition">#</a></dt>
@@ -1899,6 +3138,37 @@ lies in <span class="math notranslate nohighlight">\(((n-1)\pi, (n-1)\pi + \pi/2
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">plane_wall_eigenvalues</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]),</span> <span class="mi">4</span><span class="p">)</span>
 <span class="go">0.8603</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.heat_transfer.utils.sphere_eigenvalues">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.heat_transfer.utils.</span></span><span class="sig-name descname"><span class="pre">sphere_eigenvalues</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Bi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">terms</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/heat_transfer/utils/eigenvalues.html#sphere_eigenvalues"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.heat_transfer.utils.sphere_eigenvalues" title="Link to this definition">#</a></dt>
+<dd><p>First <code class="docutils literal notranslate"><span class="pre">terms</span></code> positive roots of <span class="math notranslate nohighlight">\(1 - \zeta\cot\zeta = Bi\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Bi</strong> (<em>float</em>) – Biot number <span class="math notranslate nohighlight">\(hr_o/k\)</span> [-] on the outer radius, positive.</p></li>
+<li><p><strong>terms</strong> (<em>int</em>) – Number of eigenvalues, at least one.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Eigenvalues <span class="math notranslate nohighlight">\(\zeta_1 &lt; \zeta_2 &lt; \cdots\)</span> [-]; <span class="math notranslate nohighlight">\(\zeta_n\)</span>
+lies in <span class="math notranslate nohighlight">\(((n-1)\pi, n\pi)\)</span>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/heat_transfer.html"><span class="doc">Heat transfer: absolute temperatures and resistance accounting</span></a>. Solved as
+<span class="math notranslate nohighlight">\(\zeta\cos\zeta + (Bi - 1)\sin\zeta = 0\)</span>, which is positive
+just above zero (where it behaves as <span class="math notranslate nohighlight">\(Bi\,\zeta\)</span>).</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">sphere_eigenvalues</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]),</span> <span class="mi">4</span><span class="p">)</span>
+<span class="go">1.5708</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -1994,6 +3264,15 @@ lies in <span class="math notranslate nohighlight">\(((n-1)\pi, (n-1)\pi + \pi/2
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.heat_transfer.Conduction2DResult"><code class="docutils literal notranslate"><span class="pre">Conduction2DResult</span></code></a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.heat_transfer.Conduction2DResult.T"><code class="docutils literal notranslate"><span class="pre">Conduction2DResult.T</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.heat_transfer.Conduction2DResult.heat_rates"><code class="docutils literal notranslate"><span class="pre">Conduction2DResult.heat_rates</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.heat_transfer.Conduction2DResult.plot"><code class="docutils literal notranslate"><span class="pre">Conduction2DResult.plot()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.heat_transfer.Conduction2DResult.summary"><code class="docutils literal notranslate"><span class="pre">Conduction2DResult.summary()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.heat_transfer.Conduction2DResult.x"><code class="docutils literal notranslate"><span class="pre">Conduction2DResult.x</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.heat_transfer.Conduction2DResult.y"><code class="docutils literal notranslate"><span class="pre">Conduction2DResult.y</span></code></a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.heat_transfer.ConductionResult"><code class="docutils literal notranslate"><span class="pre">ConductionResult</span></code></a><ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.heat_transfer.ConductionResult.T"><code class="docutils literal notranslate"><span class="pre">ConductionResult.T</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.heat_transfer.ConductionResult.mesh_fourier"><code class="docutils literal notranslate"><span class="pre">ConductionResult.mesh_fourier</span></code></a></li>
@@ -2002,6 +3281,14 @@ lies in <span class="math notranslate nohighlight">\(((n-1)\pi, (n-1)\pi + \pi/2
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.heat_transfer.ConductionResult.summary"><code class="docutils literal notranslate"><span class="pre">ConductionResult.summary()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.heat_transfer.ConductionResult.t"><code class="docutils literal notranslate"><span class="pre">ConductionResult.t</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.heat_transfer.ConductionResult.x"><code class="docutils literal notranslate"><span class="pre">ConductionResult.x</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.heat_transfer.EnclosureResult"><code class="docutils literal notranslate"><span class="pre">EnclosureResult</span></code></a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.heat_transfer.EnclosureResult.heat_rate"><code class="docutils literal notranslate"><span class="pre">EnclosureResult.heat_rate</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.heat_transfer.EnclosureResult.plot"><code class="docutils literal notranslate"><span class="pre">EnclosureResult.plot()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.heat_transfer.EnclosureResult.radiosity"><code class="docutils literal notranslate"><span class="pre">EnclosureResult.radiosity</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.heat_transfer.EnclosureResult.summary"><code class="docutils literal notranslate"><span class="pre">EnclosureResult.summary()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.heat_transfer.EnclosureResult.temperature"><code class="docutils literal notranslate"><span class="pre">EnclosureResult.temperature</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.heat_transfer.WallResult"><code class="docutils literal notranslate"><span class="pre">WallResult</span></code></a><ul class="pst-show_toc_level nav section-nav flex-column">
@@ -2013,23 +3300,36 @@ lies in <span class="math notranslate nohighlight">\(((n-1)\pi, (n-1)\pi + \pi/2
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.heat_transfer.biot_number"><code class="docutils literal notranslate"><span class="pre">biot_number()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.heat_transfer.blackbody_peak_wavelength"><code class="docutils literal notranslate"><span class="pre">blackbody_peak_wavelength()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.heat_transfer.chilton_colburn_mass_transfer"><code class="docutils literal notranslate"><span class="pre">chilton_colburn_mass_transfer()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.heat_transfer.churchill_bernstein_nusselt"><code class="docutils literal notranslate"><span class="pre">churchill_bernstein_nusselt()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.heat_transfer.churchill_chu_nusselt"><code class="docutils literal notranslate"><span class="pre">churchill_chu_nusselt()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.heat_transfer.composite_wall"><code class="docutils literal notranslate"><span class="pre">composite_wall()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.heat_transfer.conduction_1d"><code class="docutils literal notranslate"><span class="pre">conduction_1d()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.heat_transfer.conduction_2d"><code class="docutils literal notranslate"><span class="pre">conduction_2d()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.heat_transfer.convection_heat_rate"><code class="docutils literal notranslate"><span class="pre">convection_heat_rate()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.heat_transfer.convection_resistance"><code class="docutils literal notranslate"><span class="pre">convection_resistance()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.heat_transfer.critical_insulation_radius_cylinder"><code class="docutils literal notranslate"><span class="pre">critical_insulation_radius_cylinder()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.heat_transfer.critical_insulation_radius_sphere"><code class="docutils literal notranslate"><span class="pre">critical_insulation_radius_sphere()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.heat_transfer.cylinder_resistance"><code class="docutils literal notranslate"><span class="pre">cylinder_resistance()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.heat_transfer.cylinder_transient"><code class="docutils literal notranslate"><span class="pre">cylinder_transient()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.heat_transfer.dittus_boelter_nusselt"><code class="docutils literal notranslate"><span class="pre">dittus_boelter_nusselt()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.heat_transfer.entry_length"><code class="docutils literal notranslate"><span class="pre">entry_length()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.heat_transfer.exchanger_effectiveness_counterflow"><code class="docutils literal notranslate"><span class="pre">exchanger_effectiveness_counterflow()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.heat_transfer.exchanger_effectiveness_crossflow"><code class="docutils literal notranslate"><span class="pre">exchanger_effectiveness_crossflow()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.heat_transfer.exchanger_effectiveness_parallel"><code class="docutils literal notranslate"><span class="pre">exchanger_effectiveness_parallel()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.heat_transfer.exchanger_effectiveness_shell_tube"><code class="docutils literal notranslate"><span class="pre">exchanger_effectiveness_shell_tube()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.heat_transfer.fin_efficiency_adiabatic"><code class="docutils literal notranslate"><span class="pre">fin_efficiency_adiabatic()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.heat_transfer.fin_heat_rate_adiabatic"><code class="docutils literal notranslate"><span class="pre">fin_heat_rate_adiabatic()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.heat_transfer.fin_heat_rate_convective_tip"><code class="docutils literal notranslate"><span class="pre">fin_heat_rate_convective_tip()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.heat_transfer.fin_parameter"><code class="docutils literal notranslate"><span class="pre">fin_parameter()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.heat_transfer.flat_plate_nusselt"><code class="docutils literal notranslate"><span class="pre">flat_plate_nusselt()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.heat_transfer.fourier_heat_rate"><code class="docutils literal notranslate"><span class="pre">fourier_heat_rate()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.heat_transfer.fourier_number"><code class="docutils literal notranslate"><span class="pre">fourier_number()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.heat_transfer.hausen_nusselt"><code class="docutils literal notranslate"><span class="pre">hausen_nusselt()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.heat_transfer.heat_exchanger_rate"><code class="docutils literal notranslate"><span class="pre">heat_exchanger_rate()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.heat_transfer.laminar_tube_nusselt"><code class="docutils literal notranslate"><span class="pre">laminar_tube_nusselt()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.heat_transfer.lewis_number"><code class="docutils literal notranslate"><span class="pre">lewis_number()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.heat_transfer.lmtd_correction_factor"><code class="docutils literal notranslate"><span class="pre">lmtd_correction_factor()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.heat_transfer.log_mean_temperature_difference"><code class="docutils literal notranslate"><span class="pre">log_mean_temperature_difference()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.heat_transfer.lumped_temperature"><code class="docutils literal notranslate"><span class="pre">lumped_temperature()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.heat_transfer.neumann_stefan_front"><code class="docutils literal notranslate"><span class="pre">neumann_stefan_front()</span></code></a></li>
@@ -2039,17 +3339,31 @@ lies in <span class="math notranslate nohighlight">\(((n-1)\pi, (n-1)\pi + \pi/2
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.heat_transfer.plane_wall_resistance"><code class="docutils literal notranslate"><span class="pre">plane_wall_resistance()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.heat_transfer.plane_wall_transient"><code class="docutils literal notranslate"><span class="pre">plane_wall_transient()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.heat_transfer.radiation_coefficient"><code class="docutils literal notranslate"><span class="pre">radiation_coefficient()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.heat_transfer.radiation_enclosure"><code class="docutils literal notranslate"><span class="pre">radiation_enclosure()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.heat_transfer.radiation_heat_rate"><code class="docutils literal notranslate"><span class="pre">radiation_heat_rate()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.heat_transfer.radiation_shield_heat_flux"><code class="docutils literal notranslate"><span class="pre">radiation_shield_heat_flux()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.heat_transfer.rayleigh_number"><code class="docutils literal notranslate"><span class="pre">rayleigh_number()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.heat_transfer.rohsenow_boiling_heat_flux"><code class="docutils literal notranslate"><span class="pre">rohsenow_boiling_heat_flux()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.heat_transfer.semi_infinite_temperature"><code class="docutils literal notranslate"><span class="pre">semi_infinite_temperature()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.heat_transfer.shape_factor_buried_cylinder"><code class="docutils literal notranslate"><span class="pre">shape_factor_buried_cylinder()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.heat_transfer.shape_factor_buried_sphere"><code class="docutils literal notranslate"><span class="pre">shape_factor_buried_sphere()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.heat_transfer.shape_factor_eccentric_cylinders"><code class="docutils literal notranslate"><span class="pre">shape_factor_eccentric_cylinders()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.heat_transfer.shape_factor_parallel_cylinders"><code class="docutils literal notranslate"><span class="pre">shape_factor_parallel_cylinders()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.heat_transfer.sphere_resistance"><code class="docutils literal notranslate"><span class="pre">sphere_resistance()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.heat_transfer.sphere_transient"><code class="docutils literal notranslate"><span class="pre">sphere_transient()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.heat_transfer.stefan_boltzmann_emissive_power"><code class="docutils literal notranslate"><span class="pre">stefan_boltzmann_emissive_power()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.heat_transfer.stefan_number"><code class="docutils literal notranslate"><span class="pre">stefan_number()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.heat_transfer.tube_bank_max_velocity"><code class="docutils literal notranslate"><span class="pre">tube_bank_max_velocity()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.heat_transfer.two_surface_radiation"><code class="docutils literal notranslate"><span class="pre">two_surface_radiation()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.heat_transfer.view_factor_coaxial_disks"><code class="docutils literal notranslate"><span class="pre">view_factor_coaxial_disks()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.heat_transfer.view_factor_parallel_plates"><code class="docutils literal notranslate"><span class="pre">view_factor_parallel_plates()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.heat_transfer.view_factor_reciprocity"><code class="docutils literal notranslate"><span class="pre">view_factor_reciprocity()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.heat_transfer.zuber_critical_heat_flux"><code class="docutils literal notranslate"><span class="pre">zuber_critical_heat_flux()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.heat_transfer.zukauskas_nusselt"><code class="docutils literal notranslate"><span class="pre">zukauskas_nusselt()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-engineeringkit.heat_transfer.utils">Utilities</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.heat_transfer.utils.cylinder_eigenvalues"><code class="docutils literal notranslate"><span class="pre">cylinder_eigenvalues()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.heat_transfer.utils.plane_wall_eigenvalues"><code class="docutils literal notranslate"><span class="pre">plane_wall_eigenvalues()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.heat_transfer.utils.sphere_eigenvalues"><code class="docutils literal notranslate"><span class="pre">sphere_eigenvalues()</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-engineeringkit.heat_transfer.visualizers">Visualizers</a><ul class="pst-show_toc_level nav section-nav flex-column">

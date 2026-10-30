@@ -36,6 +36,23 @@ Deflections from strain energy.
     </div>
 
 
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="To find how far one joint of a truss moves, Otto Mohr (1874) applied the principle of virtual work with an imaginary unit load at that joint. The internal forces n it produces, working through the real member extensions NL/(AE), must equal the work of the unit load through the wanted displacement:">
+
+.. only:: html
+
+  .. image:: /api/gallery/structural_engineering/energy/images/thumb/sphx_glr_plot_02_mohr_unit_load_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/structural_engineering/energy/plot_02_mohr_unit_load`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Mohr's unit-load method (1874)</div>
+    </div>
+
+
 .. thumbnail-parent-div-close
 
 .. raw:: html
@@ -47,4 +64,5 @@ Deflections from strain energy.
    :hidden:
 
    /api/gallery/structural_engineering/energy/plot_01_castigliano
+   /api/gallery/structural_engineering/energy/plot_02_mohr_unit_load
 

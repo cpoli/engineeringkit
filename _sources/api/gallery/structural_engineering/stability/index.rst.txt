@@ -53,6 +53,40 @@ Elastic and inelastic column buckling.
     </div>
 
 
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="No column is loaded exactly on its axis. Thomas Young (1807) analysed a column loaded at an eccentricity e: the load bends it, the bending adds to the eccentricity, and the peak stress follows the secant formula (~engineeringkit.structural_engineering.secant_formula_stress),">
+
+.. only:: html
+
+  .. image:: /api/gallery/structural_engineering/stability/images/thumb/sphx_glr_plot_03_young_secant_formula_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/structural_engineering/stability/plot_03_young_secant_formula`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Young's eccentric column (1807)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Euler&#x27;s hyperbola overestimates the strength of stocky columns, which yield or buckle inelastically, and tests scattered below it. J. B. Johnson and his co-authors, in The Theory and Practice of Modern Framed Structures (1893), fitted a parabola that starts at the yield stress and meets Euler&#x27;s curve tangentially at half of it (~engineeringkit.structural_engineering.johnson_critical_stress), at the transition slenderness C_c = \sqrt{2\pi^2E/\sigma_y}. The AISC column formula used the same parabola for decades. End conditions enter through the effective length KL (~engineeringkit.structural_engineering.effective_length_factor). The example draws the design curve and checks that the two branches meet with the same slope.">
+
+.. only:: html
+
+  .. image:: /api/gallery/structural_engineering/stability/images/thumb/sphx_glr_plot_04_johnson_parabola_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/structural_engineering/stability/plot_04_johnson_parabola`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Johnson's parabola (1893)</div>
+    </div>
+
+
 .. thumbnail-parent-div-close
 
 .. raw:: html
@@ -65,4 +99,6 @@ Elastic and inelastic column buckling.
 
    /api/gallery/structural_engineering/stability/plot_01_euler_buckling
    /api/gallery/structural_engineering/stability/plot_02_engesser_tangent_modulus
+   /api/gallery/structural_engineering/stability/plot_03_young_secant_formula
+   /api/gallery/structural_engineering/stability/plot_04_johnson_parabola
 

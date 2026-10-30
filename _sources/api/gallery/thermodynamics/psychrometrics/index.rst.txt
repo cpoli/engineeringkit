@@ -5,7 +5,7 @@
 Psychrometrics
 --------------
 
-Moist air: humidity, relative humidity and dew point.
+Moist air: humidity, relative humidity and dew point, and the air-conditioning processes.
 
 
 .. raw:: html
@@ -36,6 +36,23 @@ Moist air: humidity, relative humidity and dew point.
     </div>
 
 
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Carrier&#x27;s chart turned air conditioning into a sequence of processes drawn as lines on it, each a balance of dry air, water and enthalpy (~engineeringkit.thermodynamics.moist_air_enthalpy). Mixing two streams lands on the straight line between them (~engineeringkit.thermodynamics.adiabatic_mixing). A cooling coil below the dew point dehumidifies (~engineeringkit.thermodynamics.cooling_coil). Evaporation into air cools it toward the adiabatic saturation temperature (~engineeringkit.thermodynamics.adiabatic_saturation_temperature), as in a cooling tower (~engineeringkit.thermodynamics.cooling_tower).">
+
+.. only:: html
+
+  .. image:: /api/gallery/thermodynamics/psychrometrics/images/thumb/sphx_glr_plot_02_carrier_air_conditioning_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/thermodynamics/psychrometrics/plot_02_carrier_air_conditioning`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Carrier's air-conditioning processes (1911)</div>
+    </div>
+
+
 .. thumbnail-parent-div-close
 
 .. raw:: html
@@ -47,4 +64,5 @@ Moist air: humidity, relative humidity and dew point.
    :hidden:
 
    /api/gallery/thermodynamics/psychrometrics/plot_01_carrier_psychrometrics
+   /api/gallery/thermodynamics/psychrometrics/plot_02_carrier_air_conditioning
 

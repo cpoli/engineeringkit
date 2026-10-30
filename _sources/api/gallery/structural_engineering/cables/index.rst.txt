@@ -1,0 +1,68 @@
+
+
+.. _sphx_glr_api_gallery_structural_engineering_cables:
+
+Cables and arches
+-----------------
+
+Hanging cables and the arches that are their inverted shapes.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Robert Hooke hid his solution to the shape of an arch in a Latin anagram at the end of A Description of Helioscopes (1675); decoded after his death, it read ut pendet continuum flexile, sic stabit contiguum rigidum inversum: as hangs the flexible line, so but inverted will stand the rigid arch. A hanging cable can only pull, so it takes the shape of its loads&#x27; moment diagram; turned upside down, the same shape is an arch that only pushes. Christopher Wren used the idea for the dome of St Paul&#x27;s. For a three-hinged arch (~engineeringkit.structural_engineering.three_hinged_arch) the moment is the simple-beam moment less the thrust times the rise, M = M_0 - Hy, and on a parabolic arch under a load uniform along the span it vanishes everywhere. The example checks this, then moves the load off the crown to show the bending that an arch of the wrong shape must carry.">
+
+.. only:: html
+
+  .. image:: /api/gallery/structural_engineering/cables/images/thumb/sphx_glr_plot_01_hooke_inverted_chain_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/structural_engineering/cables/plot_01_hooke_inverted_chain`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Hooke's inverted chain (1675)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Galileo thought a hanging chain was a parabola. In 1690 Jacob Bernoulli challenged the readers of Acta Eruditorum to find its true shape, and the next year three solutions appeared there, by his brother Johann, by Leibniz and by Huygens: the curve y = a(\cosh(x/a) - 1), with a = H/w the ratio of the horizontal tension to the weight per unit length (~engineeringkit.structural_engineering.catenary_cable). A cable carrying a deck uniform along the span instead hangs in a parabola (~engineeringkit.structural_engineering.parabolic_cable), which is why suspension bridges are designed with parabolic cables. The example compares the two shapes and shows where the parabola is a good enough approximation for a cable under its own weight.">
+
+.. only:: html
+
+  .. image:: /api/gallery/structural_engineering/cables/images/thumb/sphx_glr_plot_02_catenary_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/structural_engineering/cables/plot_02_catenary`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">The catenary (1691)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/structural_engineering/cables/plot_01_hooke_inverted_chain
+   /api/gallery/structural_engineering/cables/plot_02_catenary
+

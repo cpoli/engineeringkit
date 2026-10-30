@@ -1,0 +1,50 @@
+
+
+.. _sphx_glr_api_gallery_thermodynamics_combustion:
+
+Combustion
+----------
+
+Burning fuel in air: stoichiometry, heating values and flame temperatures.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Germain Henri Hess, a chemist in St Petersburg, measured the heat released by reactions carried out in different steps. In 1840 he found that the total heat depends only on the initial and final states, not on the route. A heat of reaction is then the difference between the enthalpies of formation of the products and of the reactants. Combined with Lavoisier&#x27;s conservation of mass (~engineeringkit.thermodynamics.combustion_products, stoichiometric_air_fuel_ratio), that gives a fuel&#x27;s heating value (~engineeringkit.thermodynamics.heating_value). Burning the fuel adiabatically with NIST&#x27;s product enthalpies gives the flame temperature (~engineeringkit.thermodynamics.adiabatic_flame_temperature).">
+
+.. only:: html
+
+  .. image:: /api/gallery/thermodynamics/combustion/images/thumb/sphx_glr_plot_01_hess_heat_of_combustion_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/thermodynamics/combustion/plot_01_hess_heat_of_combustion`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Hess's law and the heat of combustion (1840)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/thermodynamics/combustion/plot_01_hess_heat_of_combustion
+

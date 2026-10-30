@@ -5,7 +5,7 @@
 Heat exchangers
 ---------------
 
-The LMTD and effectiveness-NTU methods.
+The LMTD and effectiveness-NTU methods and the LMTD correction factor.
 
 
 .. raw:: html
@@ -36,6 +36,23 @@ The LMTD and effectiveness-NTU methods.
     </div>
 
 
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="The log-mean temperature difference is exact only for pure counterflow or parallel flow. In a shell-and-tube exchanger the tube fluid passes back and forth while the shell fluid crosses it, and in a crossflow core neither stream sees a single temperature. R. A. Bowman, A. C. Mueller and W. M. Nagle, collecting the analyses of the 1930s, presented the correction as one factor F on the counterflow LMTD, charted against the effectiveness P of one stream and the capacity ratio R (~engineeringkit.heat_transfer.lmtd_correction_factor). The effectiveness-NTU forms of the same arrangements (~engineeringkit.heat_transfer.exchanger_effectiveness_shell_tube, exchanger_effectiveness_crossflow) carry the same information. This example redraws the chart, checks the two methods against each other and rates a two-shell oil cooler.">
+
+.. only:: html
+
+  .. image:: /api/gallery/heat_transfer/exchangers/images/thumb/sphx_glr_plot_02_bowman_correction_factor_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/heat_transfer/exchangers/plot_02_bowman_correction_factor`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Bowman, Mueller and Nagle: the LMTD correction factor (1940)</div>
+    </div>
+
+
 .. thumbnail-parent-div-close
 
 .. raw:: html
@@ -47,4 +64,5 @@ The LMTD and effectiveness-NTU methods.
    :hidden:
 
    /api/gallery/heat_transfer/exchangers/plot_01_kays_london_ntu
+   /api/gallery/heat_transfer/exchangers/plot_02_bowman_correction_factor
 

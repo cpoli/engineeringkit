@@ -46,7 +46,7 @@
   <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be" />
 <link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be" />
 
-    <script src="../../../../_static/documentation_options.js?v=38b66d78"></script>
+    <script src="../../../../_static/documentation_options.js?v=95e61db4"></script>
     <script src="../../../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../../../_static/sg-tags.js?v=d80f6fa4"></script>
@@ -210,6 +210,21 @@
   </ul>
 </div></div>
       
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://cpoli.github.io/" title="Charles Poli" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-user fa-lg" aria-hidden="true"></i><span class="visually-hidden">Charles Poli</span></a>
+        </li>
+</ul></div>
+      
     </div>
     
   </div>
@@ -306,6 +321,21 @@
   </ul>
 </div></div>
         
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://cpoli.github.io/" title="Charles Poli" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-user fa-lg" aria-hidden="true"></i><span class="visually-hidden">Charles Poli</span></a>
+        </li>
+</ul></div>
+        
       </div>
     
   </div>
@@ -366,9 +396,13 @@
                 <article class="bd-article">
                   
   <h1>Source code for engineeringkit.fluid_engineering.systems.pumps</h1><div class="highlight"><pre>
-<span></span><span class="sa">r</span><span class="sd">"""Pumps and cavitation: hydraulic power, specific speed and Thoma's parameter.</span>
+<span></span><span class="sa">r</span><span class="sd">"""Pumps: Euler's head, pump and system curves, the affinity laws and cavitation.</span>
 
-<span class="sd">A pump adds head :math:`H` to a flow :math:`Q`, so the power given to the</span>
+<span class="sd">Euler (1754) found the head a rotor gives the fluid from the change in its</span>
+<span class="sd">angular momentum, :math:`H = (u_2 V_{t2} - u_1 V_{t1})/g`. A real pump's</span>
+<span class="sd">head falls with flow along its curve, the system needs a head that rises</span>
+<span class="sd">with flow, and the pump runs where the two cross. The affinity laws scale</span>
+<span class="sd">a curve to another speed or impeller diameter. A pump adds head :math:`H` to a flow :math:`Q`, so the power given to the</span>
 <span class="sd">fluid is :math:`\rho g Q H`. Where the local pressure falls to the vapour</span>
 <span class="sd">pressure the liquid boils and the collapsing bubbles pit the blades. Thoma</span>
 <span class="sd">(1924) found that turbines of one design all start to cavitate at the same</span>
@@ -381,9 +415,11 @@
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit._validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">finite</span> <span class="k">as</span> <span class="n">_finite</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit._validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">integer</span> <span class="k">as</span> <span class="n">_integer</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit._validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">interval</span> <span class="k">as</span> <span class="n">_interval</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit._validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">nonnegative</span> <span class="k">as</span> <span class="n">_nonnegative</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit._validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">positive</span> <span class="k">as</span> <span class="n">_positive</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit.fluid_engineering.core.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">OperatingPoint</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit.fluid_engineering.utils.constants</span><span class="w"> </span><span class="kn">import</span> <span class="n">STANDARD_GRAVITY</span> <span class="k">as</span> <span class="n">G</span>
 
 <span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
@@ -393,6 +429,11 @@
     <span class="s2">"cavitation_number"</span><span class="p">,</span>
     <span class="s2">"npsh_available"</span><span class="p">,</span>
     <span class="s2">"thoma_sigma"</span><span class="p">,</span>
+    <span class="s2">"euler_turbomachine_head"</span><span class="p">,</span>
+    <span class="s2">"pump_curve_head"</span><span class="p">,</span>
+    <span class="s2">"system_curve_head"</span><span class="p">,</span>
+    <span class="s2">"pump_operating_point"</span><span class="p">,</span>
+    <span class="s2">"affinity_laws"</span><span class="p">,</span>
 <span class="p">]</span>
 
 
@@ -639,6 +680,265 @@
     <span class="n">_finite</span><span class="p">(</span><span class="n">npsh</span><span class="o">=</span><span class="n">npsh</span><span class="p">,</span> <span class="n">head</span><span class="o">=</span><span class="n">head</span><span class="p">)</span>
     <span class="n">_positive</span><span class="p">(</span><span class="n">head</span><span class="o">=</span><span class="n">head</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">npsh</span> <span class="o">/</span> <span class="n">head</span></div>
+
+
+
+<div class="viewcode-block" id="euler_turbomachine_head">
+<a class="viewcode-back" href="../../../../api/fluid_engineering.html#engineeringkit.fluid_engineering.euler_turbomachine_head">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">euler_turbomachine_head</span><span class="p">(</span><span class="n">u2</span><span class="p">,</span> <span class="n">v_t2</span><span class="p">,</span> <span class="n">u1</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">v_t1</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">g</span><span class="o">=</span><span class="n">G</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Ideal head of a rotor from Euler's turbomachine equation.</span>
+
+<span class="sd">    .. math::</span>
+
+<span class="sd">        H = \frac{u_2 V_{t2} - u_1 V_{t1}}{g}</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    u2 : float or array_like</span>
+<span class="sd">        Blade speed at the outlet, :math:`\omega r_2` [m/s].</span>
+<span class="sd">    v_t2 : float or array_like</span>
+<span class="sd">        Tangential (swirl) component of the absolute velocity at the</span>
+<span class="sd">        outlet [m/s].</span>
+<span class="sd">    u1 : float or array_like, optional</span>
+<span class="sd">        Blade speed at the inlet [m/s].</span>
+<span class="sd">    v_t1 : float or array_like, optional</span>
+<span class="sd">        Swirl velocity at the inlet [m/s]; zero for a pump without inlet</span>
+<span class="sd">        guide vanes.</span>
+<span class="sd">    g : float or array_like, optional</span>
+<span class="sd">        Gravitational acceleration [m/s^2], positive.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float or ndarray</span>
+<span class="sd">        Ideal head [m]: positive for a pump, negative for a turbine (which</span>
+<span class="sd">        takes head from the fluid).</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Inputs are raw SI numbers with no dimensional metadata; see</span>
+<span class="sd">    :doc:`/guides/fluid_engineering`. For a radial impeller with outlet</span>
+<span class="sd">    blade angle :math:`\beta_2` and width :math:`b_2`,</span>
+<span class="sd">    :math:`V_{t2} = u_2 - Q\cot\beta_2/(2\pi r_2 b_2)`, so the ideal head</span>
+<span class="sd">    falls linearly with flow for backward-curved blades. Real pumps lose</span>
+<span class="sd">    more to slip, friction and shock.</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    L. Euler, "Théorie plus complette des machines qui sont mises en</span>
+<span class="sd">    mouvement par la réaction de l'eau," *Mém. Acad. Sci. Berlin* 10</span>
+<span class="sd">    (1754, publ. 1756) 227-295 (Eneström E222).</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; euler_turbomachine_head(20.0, 10.0, g=10.0)</span>
+<span class="sd">    20.0</span>
+<span class="sd">    """</span>
+    <span class="n">_finite</span><span class="p">(</span><span class="n">u2</span><span class="o">=</span><span class="n">u2</span><span class="p">,</span> <span class="n">v_t2</span><span class="o">=</span><span class="n">v_t2</span><span class="p">,</span> <span class="n">u1</span><span class="o">=</span><span class="n">u1</span><span class="p">,</span> <span class="n">v_t1</span><span class="o">=</span><span class="n">v_t1</span><span class="p">,</span> <span class="n">g</span><span class="o">=</span><span class="n">g</span><span class="p">)</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">g</span><span class="o">=</span><span class="n">g</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">u2</span> <span class="o">*</span> <span class="n">v_t2</span> <span class="o">-</span> <span class="n">u1</span> <span class="o">*</span> <span class="n">v_t1</span><span class="p">)</span> <span class="o">/</span> <span class="n">g</span></div>
+
+
+
+<div class="viewcode-block" id="pump_curve_head">
+<a class="viewcode-back" href="../../../../api/fluid_engineering.html#engineeringkit.fluid_engineering.pump_curve_head">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">pump_curve_head</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span> <span class="n">shutoff_head</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mf">0.0</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Head of a pump on a quadratic curve, :math:`H = H_0 + bQ - aQ^2`.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    Q : float or array_like</span>
+<span class="sd">        Volume flow [m^3/s], nonnegative.</span>
+<span class="sd">    shutoff_head : float or array_like</span>
+<span class="sd">        Head at zero flow :math:`H_0` [m], positive.</span>
+<span class="sd">    a : float or array_like</span>
+<span class="sd">        Quadratic coefficient [s^2/m^5], nonnegative.</span>
+<span class="sd">    b : float or array_like, optional</span>
+<span class="sd">        Linear coefficient [s/m^2]; a small positive value gives the</span>
+<span class="sd">        rising-then-falling curve of some radial pumps.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float or ndarray</span>
+<span class="sd">        Pump head [m]; negative beyond the flow at which the pump runs out.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Inputs are raw SI numbers with no dimensional metadata; see</span>
+<span class="sd">    :doc:`/guides/fluid_engineering`. Fit ``shutoff_head``, ``a`` and</span>
+<span class="sd">    ``b`` to three points of a manufacturer's curve.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; pump_curve_head(0.1, 40.0, 1000.0)</span>
+<span class="sd">    30.0</span>
+<span class="sd">    """</span>
+    <span class="n">_finite</span><span class="p">(</span><span class="n">Q</span><span class="o">=</span><span class="n">Q</span><span class="p">,</span> <span class="n">shutoff_head</span><span class="o">=</span><span class="n">shutoff_head</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="n">b</span><span class="p">)</span>
+    <span class="n">_nonnegative</span><span class="p">(</span><span class="n">Q</span><span class="o">=</span><span class="n">Q</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="n">a</span><span class="p">)</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">shutoff_head</span><span class="o">=</span><span class="n">shutoff_head</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">shutoff_head</span> <span class="o">+</span> <span class="n">b</span> <span class="o">*</span> <span class="n">Q</span> <span class="o">-</span> <span class="n">a</span> <span class="o">*</span> <span class="n">Q</span> <span class="o">*</span> <span class="n">Q</span></div>
+
+
+
+<div class="viewcode-block" id="system_curve_head">
+<a class="viewcode-back" href="../../../../api/fluid_engineering.html#engineeringkit.fluid_engineering.system_curve_head">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">system_curve_head</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span> <span class="n">static_head</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Head a piping system needs, :math:`H = H_s + kQ^2`.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    Q : float or array_like</span>
+<span class="sd">        Volume flow [m^3/s], nonnegative.</span>
+<span class="sd">    static_head : float or array_like</span>
+<span class="sd">        Static lift, outlet minus inlet surface elevation plus any</span>
+<span class="sd">        pressure difference as head [m]; may be negative.</span>
+<span class="sd">    k : float or array_like</span>
+<span class="sd">        Loss coefficient [s^2/m^5], nonnegative: the sum of</span>
+<span class="sd">        :func:`pipe_resistance` over the pipes in series plus the minor</span>
+<span class="sd">        losses as :math:`K/(2gA^2)`.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float or ndarray</span>
+<span class="sd">        Required head [m].</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Inputs are raw SI numbers with no dimensional metadata; see</span>
+<span class="sd">    :doc:`/guides/fluid_engineering`. Holding ``k`` fixed treats the</span>
+<span class="sd">    friction factor as constant, which is exact for fully rough flow.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; system_curve_head(0.1, 10.0, 1000.0)</span>
+<span class="sd">    20.0</span>
+<span class="sd">    """</span>
+    <span class="n">_finite</span><span class="p">(</span><span class="n">Q</span><span class="o">=</span><span class="n">Q</span><span class="p">,</span> <span class="n">static_head</span><span class="o">=</span><span class="n">static_head</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="n">k</span><span class="p">)</span>
+    <span class="n">_nonnegative</span><span class="p">(</span><span class="n">Q</span><span class="o">=</span><span class="n">Q</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="n">k</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">static_head</span> <span class="o">+</span> <span class="n">k</span> <span class="o">*</span> <span class="n">Q</span> <span class="o">*</span> <span class="n">Q</span></div>
+
+
+
+<div class="viewcode-block" id="pump_operating_point">
+<a class="viewcode-back" href="../../../../api/fluid_engineering.html#engineeringkit.fluid_engineering.pump_operating_point">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">pump_operating_point</span><span class="p">(</span><span class="n">shutoff_head</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">static_head</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">series</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">parallel</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Flow and head where identical pumps meet a system curve.</span>
+
+<span class="sd">    With :math:`n_s` pumps in series and :math:`n_p` such strings in</span>
+<span class="sd">    parallel, the combined curve is</span>
+<span class="sd">    :math:`H = n_s\,(H_0 + bQ/n_p - a(Q/n_p)^2)`. Setting it equal to</span>
+<span class="sd">    :math:`H_s + kQ^2` gives a quadratic in :math:`Q` with one positive</span>
+<span class="sd">    root.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    shutoff_head : float</span>
+<span class="sd">        Shut-off head of one pump [m], positive.</span>
+<span class="sd">    a : float</span>
+<span class="sd">        Quadratic coefficient of one pump [s^2/m^5], nonnegative.</span>
+<span class="sd">    static_head : float</span>
+<span class="sd">        Static lift of the system [m]; must be below the combined</span>
+<span class="sd">        shut-off head.</span>
+<span class="sd">    k : float</span>
+<span class="sd">        System loss coefficient [s^2/m^5], nonnegative; ``a`` and ``k``</span>
+<span class="sd">        must not both be zero.</span>
+<span class="sd">    b : float, optional</span>
+<span class="sd">        Linear coefficient of one pump [s/m^2].</span>
+<span class="sd">    series : int, optional</span>
+<span class="sd">        Pumps in series, at least 1.</span>
+<span class="sd">    parallel : int, optional</span>
+<span class="sd">        Strings in parallel, at least 1.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    OperatingPoint</span>
+<span class="sd">        Flow [m^3/s] and head [m] at the crossing, with both curves.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Inputs are raw SI numbers with no dimensional metadata; see</span>
+<span class="sd">    :doc:`/guides/fluid_engineering`. Series pumps add head at a given</span>
+<span class="sd">    flow; parallel pumps add flow at a given head. Which gains more depends</span>
+<span class="sd">    on how steep the system curve is.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; pump_operating_point(40.0, 1000.0, 10.0, 2000.0).summary()["flow_m3_s"]</span>
+<span class="sd">    0.1</span>
+<span class="sd">    """</span>
+    <span class="n">_finite</span><span class="p">(</span><span class="n">shutoff_head</span><span class="o">=</span><span class="n">shutoff_head</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="n">a</span><span class="p">,</span> <span class="n">static_head</span><span class="o">=</span><span class="n">static_head</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="n">k</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="n">b</span><span class="p">)</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">shutoff_head</span><span class="o">=</span><span class="n">shutoff_head</span><span class="p">)</span>
+    <span class="n">_nonnegative</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="n">a</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="n">k</span><span class="p">)</span>
+    <span class="n">_integer</span><span class="p">(</span><span class="s2">"series"</span><span class="p">,</span> <span class="n">series</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">_integer</span><span class="p">(</span><span class="s2">"parallel"</span><span class="p">,</span> <span class="n">parallel</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="n">series</span> <span class="o">*</span> <span class="n">a</span> <span class="o">/</span> <span class="n">parallel</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">k</span>
+    <span class="n">B</span> <span class="o">=</span> <span class="n">series</span> <span class="o">*</span> <span class="n">b</span> <span class="o">/</span> <span class="n">parallel</span>
+    <span class="n">C</span> <span class="o">=</span> <span class="n">static_head</span> <span class="o">-</span> <span class="n">series</span> <span class="o">*</span> <span class="n">shutoff_head</span>
+    <span class="k">if</span> <span class="n">A</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"a and k must not both be zero"</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">C</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"static_head must be below the combined shut-off head"</span><span class="p">)</span>
+    <span class="n">Q</span> <span class="o">=</span> <span class="p">(</span><span class="n">B</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">B</span> <span class="o">*</span> <span class="n">B</span> <span class="o">-</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">A</span> <span class="o">*</span> <span class="n">C</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">A</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">OperatingPoint</span><span class="p">(</span>
+        <span class="n">flow</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="n">Q</span><span class="p">),</span>
+        <span class="n">head</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="n">static_head</span> <span class="o">+</span> <span class="n">k</span> <span class="o">*</span> <span class="n">Q</span> <span class="o">*</span> <span class="n">Q</span><span class="p">),</span>
+        <span class="n">shutoff_head</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="n">shutoff_head</span><span class="p">),</span>
+        <span class="n">a</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="n">a</span><span class="p">),</span>
+        <span class="n">b</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="n">b</span><span class="p">),</span>
+        <span class="n">static_head</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="n">static_head</span><span class="p">),</span>
+        <span class="n">k</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="n">k</span><span class="p">),</span>
+        <span class="n">series</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">series</span><span class="p">),</span>
+        <span class="n">parallel</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">parallel</span><span class="p">),</span>
+    <span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="affinity_laws">
+<a class="viewcode-back" href="../../../../api/fluid_engineering.html#engineeringkit.fluid_engineering.affinity_laws">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">affinity_laws</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span> <span class="n">head</span><span class="p">,</span> <span class="n">power</span><span class="p">,</span> <span class="n">speed_ratio</span><span class="p">,</span> <span class="n">diameter_ratio</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Scale a pump's flow, head and power to a new speed or impeller size.</span>
+
+<span class="sd">    .. math::</span>
+
+<span class="sd">        \frac{Q_2}{Q_1} = \frac{N_2}{N_1}\left(\frac{D_2}{D_1}\right)^3,\quad</span>
+<span class="sd">        \frac{H_2}{H_1} = \left(\frac{N_2}{N_1}\right)^2\left(\frac{D_2}{D_1}\right)^2,\quad</span>
+<span class="sd">        \frac{P_2}{P_1} = \left(\frac{N_2}{N_1}\right)^3\left(\frac{D_2}{D_1}\right)^5</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    Q : float or array_like</span>
+<span class="sd">        Volume flow at the original condition [m^3/s], nonnegative.</span>
+<span class="sd">    head : float or array_like</span>
+<span class="sd">        Head at the original condition [m].</span>
+<span class="sd">    power : float or array_like</span>
+<span class="sd">        Shaft power at the original condition [W], nonnegative.</span>
+<span class="sd">    speed_ratio : float or array_like</span>
+<span class="sd">        :math:`N_2/N_1` [-], positive.</span>
+<span class="sd">    diameter_ratio : float or array_like, optional</span>
+<span class="sd">        :math:`D_2/D_1` [-], positive.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    tuple of float or ndarray</span>
+<span class="sd">        ``(Q2, head2, power2)`` in m^3/s, m and W.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Inputs are raw SI numbers with no dimensional metadata; see</span>
+<span class="sd">    :doc:`/guides/fluid_engineering`. The laws hold between geometrically</span>
+<span class="sd">    similar pumps at equal flow coefficient :math:`Q/(ND^3)`, so a point</span>
+<span class="sd">    on one curve maps to a point of equal efficiency on the other.</span>
+<span class="sd">    Trimming an impeller is not exact geometric similarity.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; affinity_laws(0.1, 30.0, 40e3, 2.0)</span>
+<span class="sd">    (0.2, 120.0, 320000.0)</span>
+<span class="sd">    """</span>
+    <span class="n">_finite</span><span class="p">(</span><span class="n">Q</span><span class="o">=</span><span class="n">Q</span><span class="p">,</span> <span class="n">head</span><span class="o">=</span><span class="n">head</span><span class="p">,</span> <span class="n">power</span><span class="o">=</span><span class="n">power</span><span class="p">,</span> <span class="n">speed_ratio</span><span class="o">=</span><span class="n">speed_ratio</span><span class="p">,</span> <span class="n">diameter_ratio</span><span class="o">=</span><span class="n">diameter_ratio</span><span class="p">)</span>
+    <span class="n">_nonnegative</span><span class="p">(</span><span class="n">Q</span><span class="o">=</span><span class="n">Q</span><span class="p">,</span> <span class="n">power</span><span class="o">=</span><span class="n">power</span><span class="p">)</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">speed_ratio</span><span class="o">=</span><span class="n">speed_ratio</span><span class="p">,</span> <span class="n">diameter_ratio</span><span class="o">=</span><span class="n">diameter_ratio</span><span class="p">)</span>
+    <span class="n">n</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="n">speed_ratio</span><span class="p">,</span> <span class="n">diameter_ratio</span>
+    <span class="k">return</span> <span class="n">Q</span> <span class="o">*</span> <span class="n">n</span> <span class="o">*</span> <span class="n">d</span><span class="o">**</span><span class="mi">3</span><span class="p">,</span> <span class="n">head</span> <span class="o">*</span> <span class="n">n</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">d</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">power</span> <span class="o">*</span> <span class="n">n</span><span class="o">**</span><span class="mi">3</span> <span class="o">*</span> <span class="n">d</span><span class="o">**</span><span class="mi">5</span></div>
 
 </pre></div>
 

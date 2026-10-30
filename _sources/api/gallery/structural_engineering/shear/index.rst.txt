@@ -1,0 +1,68 @@
+
+
+.. _sphx_glr_api_gallery_structural_engineering_shear:
+
+Shear and sections
+------------------
+
+Transverse shear stress, built-up and transformed sections, unsymmetrical bending and the shear centre.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Building timber railway bridges in Russia, Dmitrii Ivanovich Jourawski saw large oak beams split along their length at mid-depth, where the bending stress is zero. Balancing the change of bending force on the part of the section above a cut, he found the shear stress on it, \tau = VQ/(It) (~engineeringkit.structural_engineering.transverse_shear_stress), and the force per unit length the keys or bolts of a built-up beam must carry, q = VQ/I (~engineeringkit.structural_engineering.shear_flow). The example draws the shear stress in a rectangle and an I-beam, checks that it adds up to the shear force, and spaces the bolts of a flitch beam, timber with a steel plate, using its transformed section (~engineeringkit.structural_engineering.composite_section).">
+
+.. only:: html
+
+  .. image:: /api/gallery/structural_engineering/shear/images/thumb/sphx_glr_plot_01_jourawski_shear_stress_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/structural_engineering/shear/plot_01_jourawski_shear_stress`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Jourawski's shear stress (1856)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Carl von Bach&#x27;s tests on channel beams at Stuttgart showed them twisting under loads applied through the web, and bending sideways under loads in the plane of the web. Robert Maillart (1921) explained both. In a section without two axes of symmetry the neutral axis is not perpendicular to the plane of the loads unless the loads act along a principal axis (~engineeringkit.structural_engineering.unsymmetrical_bending_stress, neutral_axis_angle); and the shear flows in the flanges of a channel form a couple, so the load must pass through a point outside the web, the shear centre (~engineeringkit.structural_engineering.channel_shear_center), to bend the beam without twisting it. The example computes both for a channel and an angle, built from rectangles by channel_section and angle_section.">
+
+.. only:: html
+
+  .. image:: /api/gallery/structural_engineering/shear/images/thumb/sphx_glr_plot_02_maillart_shear_center_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/structural_engineering/shear/plot_02_maillart_shear_center`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Maillart's shear centre (1921)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/structural_engineering/shear/plot_01_jourawski_shear_stress
+   /api/gallery/structural_engineering/shear/plot_02_maillart_shear_center
+

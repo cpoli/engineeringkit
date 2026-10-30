@@ -5,7 +5,7 @@
 Sampled-data control
 --------------------
 
-Computer control with a zero-order hold, and stability inside the unit circle.
+Computer control with a zero-order hold or Tustin's transform, and stability inside the unit circle.
 
 
 .. raw:: html
@@ -53,6 +53,23 @@ Computer control with a zero-order hold, and stability inside the unit circle.
     </div>
 
 
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Arnold Tustin, analysing servomechanisms at Metropolitan-Vickers, turned continuous dynamics into recurrences on sampled values by substituting s \to (2/T)(z - 1)/(z + 1), which integrates by the trapezoidal rule (~engineeringkit.control_systems.discretize_tustin). The whole left half-plane maps into the unit disc, so a stable model stays stable, but the frequency axis is compressed: a continuous frequency \omega appears at (2/T)\arctan(\omega T/2). A sharp resonance near the Nyquist frequency moves. Prewarping, substituting \omega_0/\tan(\omega_0T/2) for 2/T, puts it back exactly at \omega_0.">
+
+.. only:: html
+
+  .. image:: /api/gallery/control_systems/sampled/images/thumb/sphx_glr_plot_03_tustin_bilinear_transform_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/control_systems/sampled/plot_03_tustin_bilinear_transform`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Tustin's bilinear transform (1947)</div>
+    </div>
+
+
 .. thumbnail-parent-div-close
 
 .. raw:: html
@@ -65,4 +82,5 @@ Computer control with a zero-order hold, and stability inside the unit circle.
 
    /api/gallery/control_systems/sampled/plot_01_ragazzini_zadeh_zero_order_hold
    /api/gallery/control_systems/sampled/plot_02_jury_stability_test
+   /api/gallery/control_systems/sampled/plot_03_tustin_bilinear_transform
 

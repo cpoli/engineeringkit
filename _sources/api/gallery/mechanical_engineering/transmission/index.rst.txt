@@ -5,7 +5,7 @@
 Transmission
 ------------
 
-Gear trains and belt drives.
+Gear trains, gear-tooth strength and belt drives.
 
 
 .. raw:: html
@@ -53,6 +53,23 @@ Gear trains and belt drives.
     </div>
 
 
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Wilfred Lewis, of William Sellers and Co. in Philadelphia, gave the first rational strength calculation for gear teeth in a talk to the Engineers&#x27; Club of Philadelphia on 15 October 1892. He treated the tooth as a cantilever with the whole load at its tip and noticed that a parabola drawn from the load point, tangent to the tooth flanks at the root, is a beam of uniform strength. The root section where they touch is therefore the weakest, and the stress there is \sigma = W_t/(F m Y) (~engineeringkit.mechanical_engineering.lewis_bending_stress), with a form factor Y that depends only on the tooth shape and so on the number of teeth (~engineeringkit.mechanical_engineering.lewis_form_factor). Carl Barth&#x27;s factor raises the stress for the dynamic load at speed (~engineeringkit.mechanical_engineering.barth_velocity_factor). The AGMA bending equation still starts from Lewis&#x27;s.">
+
+.. only:: html
+
+  .. image:: /api/gallery/mechanical_engineering/transmission/images/thumb/sphx_glr_plot_03_lewis_gear_tooth_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/mechanical_engineering/transmission/plot_03_lewis_gear_tooth`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Lewis's gear-tooth bending formula (1892)</div>
+    </div>
+
+
 .. thumbnail-parent-div-close
 
 .. raw:: html
@@ -65,4 +82,5 @@ Gear trains and belt drives.
 
    /api/gallery/mechanical_engineering/transmission/plot_01_euler_involute_gear
    /api/gallery/mechanical_engineering/transmission/plot_02_capstan_equation
+   /api/gallery/mechanical_engineering/transmission/plot_03_lewis_gear_tooth
 

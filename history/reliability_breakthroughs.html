@@ -55,7 +55,7 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be" />
 
-    <script src="../_static/documentation_options.js?v=38b66d78"></script>
+    <script src="../_static/documentation_options.js?v=95e61db4"></script>
     <script src="../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/sg-tags.js?v=d80f6fa4"></script>
@@ -222,6 +222,21 @@
   </ul>
 </div></div>
       
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://cpoli.github.io/" title="Charles Poli" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-user fa-lg" aria-hidden="true"></i><span class="visually-hidden">Charles Poli</span></a>
+        </li>
+</ul></div>
+      
     </div>
     
   </div>
@@ -319,6 +334,21 @@
     <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
   </ul>
 </div></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://cpoli.github.io/" title="Charles Poli" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-user fa-lg" aria-hidden="true"></i><span class="visually-hidden">Charles Poli</span></a>
+        </li>
+</ul></div>
         
       </div>
     
@@ -426,9 +456,10 @@ insurance: the first life tables were estimates of a hazard rate. Poisson
 supplied the law of rare events, and after the Second World War aircraft
 structures, vacuum-tube electronics and missiles turned these ideas into a
 discipline. Engineers learned to fit lifetime distributions to censored
-test data, to combine components into series, parallel and voting systems,
-to trace accidents through fault and event trees, and to schedule repair
-and replacement. The entries trace the ideas behind
+test data, to accelerate tests with heat and voltage, to combine components
+into series, parallel, voting and general networks, to list failure modes
+and trace accidents through fault and event trees, to sample what they
+could not linearise, and to schedule repair and replacement. The entries trace the ideas behind
 <a class="reference internal" href="../api/reliability.html#module-engineeringkit.reliability" title="engineeringkit.reliability"><code class="xref py py-mod docutils literal notranslate"><span class="pre">engineeringkit.reliability</span></code></a>. Each links to the implementing function
 and to a gallery example devoted to it.</p>
 <nav class="contents local" id="timeline">
@@ -436,22 +467,31 @@ and to a gallery example devoted to it.</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#halley-s-life-table-and-the-hazard-rate" id="id1">1693 – Halley’s Life Table and the Hazard Rate</a></p></li>
 <li><p><a class="reference internal" href="#poisson-s-law-of-rare-events" id="id2">1837 – Poisson’s Law of Rare Events</a></p></li>
-<li><p><a class="reference internal" href="#freudenthal-s-stress-strength-interference" id="id3">1947 – Freudenthal’s Stress-Strength Interference</a></p></li>
-<li><p><a class="reference internal" href="#weibull-s-distribution" id="id4">1951 – Weibull’s Distribution</a></p></li>
-<li><p><a class="reference internal" href="#epstein-and-sobel-s-exponential-life-testing" id="id5">1953 – Epstein and Sobel’s Exponential Life Testing</a></p></li>
-<li><p><a class="reference internal" href="#von-neumann-s-redundancy" id="id6">1956 – Von Neumann’s Redundancy</a></p></li>
-<li><p><a class="reference internal" href="#the-agree-report-series-systems-and-mtbf" id="id7">1957 – The AGREE Report: Series Systems and MTBF</a></p></li>
-<li><p><a class="reference internal" href="#kaplan-and-meier-s-product-limit-estimator" id="id8">1958 – Kaplan and Meier’s Product-Limit Estimator</a></p></li>
-<li><p><a class="reference internal" href="#birnbaum-esary-and-saunders-s-k-out-of-n-systems" id="id9">1961 – Birnbaum, Esary and Saunders’s k-out-of-n Systems</a></p></li>
-<li><p><a class="reference internal" href="#watson-s-fault-tree" id="id10">1961 – Watson’s Fault Tree</a></p></li>
-<li><p><a class="reference internal" href="#duane-s-reliability-growth" id="id11">1964 – Duane’s Reliability Growth</a></p></li>
-<li><p><a class="reference internal" href="#barlow-and-proschan-s-age-replacement" id="id12">1965 – Barlow and Proschan’s Age Replacement</a></p></li>
-<li><p><a class="reference internal" href="#markov-models-of-repairable-systems" id="id13">1965 – Markov Models of Repairable Systems</a></p></li>
-<li><p><a class="reference internal" href="#birnbaum-s-component-importance" id="id14">1969 – Birnbaum’s Component Importance</a></p></li>
-<li><p><a class="reference internal" href="#hasofer-and-lind-s-reliability-index" id="id15">1974 – Hasofer and Lind’s Reliability Index</a></p></li>
-<li><p><a class="reference internal" href="#wash-1400-event-trees" id="id16">1975 – WASH-1400: Event Trees</a></p></li>
-<li><p><a class="reference internal" href="#iec-61508-and-safety-integrity-levels" id="id17">1998 – IEC 61508 and Safety Integrity Levels</a></p></li>
-<li><p><a class="reference internal" href="#see-also" id="id18">See Also</a></p></li>
+<li><p><a class="reference internal" href="#mcalister-s-lognormal-law" id="id3">1879 – McAlister’s Lognormal Law</a></p></li>
+<li><p><a class="reference internal" href="#arrhenius-s-law-and-accelerated-life-testing" id="id4">1889 – Arrhenius’s Law and Accelerated Life Testing</a></p></li>
+<li><p><a class="reference internal" href="#eyring-s-activated-complex" id="id5">1935 – Eyring’s Activated Complex</a></p></li>
+<li><p><a class="reference internal" href="#freudenthal-s-stress-strength-interference" id="id6">1947 – Freudenthal’s Stress-Strength Interference</a></p></li>
+<li><p><a class="reference internal" href="#metropolis-and-ulam-s-monte-carlo-method" id="id7">1949 – Metropolis and Ulam’s Monte Carlo Method</a></p></li>
+<li><p><a class="reference internal" href="#mil-p-1629-failure-mode-and-effects-analysis" id="id8">1949 – MIL-P-1629: Failure Mode and Effects Analysis</a></p></li>
+<li><p><a class="reference internal" href="#weibull-s-distribution" id="id9">1951 – Weibull’s Distribution</a></p></li>
+<li><p><a class="reference internal" href="#johnson-s-median-ranks" id="id10">1951 – Johnson’s Median Ranks</a></p></li>
+<li><p><a class="reference internal" href="#epstein-and-sobel-s-exponential-life-testing" id="id11">1953 – Epstein and Sobel’s Exponential Life Testing</a></p></li>
+<li><p><a class="reference internal" href="#von-neumann-s-redundancy" id="id12">1956 – Von Neumann’s Redundancy</a></p></li>
+<li><p><a class="reference internal" href="#the-agree-report-series-systems-and-mtbf" id="id13">1957 – The AGREE Report: Series Systems and MTBF</a></p></li>
+<li><p><a class="reference internal" href="#kaplan-and-meier-s-product-limit-estimator" id="id14">1958 – Kaplan and Meier’s Product-Limit Estimator</a></p></li>
+<li><p><a class="reference internal" href="#birnbaum-esary-and-saunders-s-k-out-of-n-systems" id="id15">1961 – Birnbaum, Esary and Saunders’s k-out-of-n Systems</a></p></li>
+<li><p><a class="reference internal" href="#watson-s-fault-tree" id="id16">1961 – Watson’s Fault Tree</a></p></li>
+<li><p><a class="reference internal" href="#raiffa-and-schlaifer-s-conjugate-priors" id="id17">1961 – Raiffa and Schlaifer’s Conjugate Priors</a></p></li>
+<li><p><a class="reference internal" href="#esary-and-proschan-s-path-and-cut-bounds" id="id18">1963 – Esary and Proschan’s Path and Cut Bounds</a></p></li>
+<li><p><a class="reference internal" href="#duane-s-reliability-growth" id="id19">1964 – Duane’s Reliability Growth</a></p></li>
+<li><p><a class="reference internal" href="#barlow-and-proschan-s-age-replacement" id="id20">1965 – Barlow and Proschan’s Age Replacement</a></p></li>
+<li><p><a class="reference internal" href="#markov-models-of-repairable-systems" id="id21">1965 – Markov Models of Repairable Systems</a></p></li>
+<li><p><a class="reference internal" href="#cohen-s-maximum-likelihood-for-censored-weibull-data" id="id22">1965 – Cohen’s Maximum Likelihood for Censored Weibull Data</a></p></li>
+<li><p><a class="reference internal" href="#birnbaum-s-component-importance" id="id23">1969 – Birnbaum’s Component Importance</a></p></li>
+<li><p><a class="reference internal" href="#hasofer-and-lind-s-reliability-index" id="id24">1974 – Hasofer and Lind’s Reliability Index</a></p></li>
+<li><p><a class="reference internal" href="#wash-1400-event-trees" id="id25">1975 – WASH-1400: Event Trees</a></p></li>
+<li><p><a class="reference internal" href="#iec-61508-and-safety-integrity-levels" id="id26">1998 – IEC 61508 and Safety Integrity Levels</a></p></li>
+<li><p><a class="reference internal" href="#see-also" id="id27">See Also</a></p></li>
 </ul>
 </nav>
 <section id="halley-s-life-table-and-the-hazard-rate">
@@ -496,8 +536,79 @@ en matière criminelle et en matière civile</em> (Bachelier, Paris, 1837),
 <p><a class="reference internal" href="../api/gallery/reliability/lifetimes/plot_02_poisson_failures.html"><span class="doc">Poisson’s law of rare failures (1837)</span></a></p>
   <div class="sphx-glr-thumbnail-title">Poisson's law of rare failures (1837)</div>
 </div></div></section>
+<section id="mcalister-s-lognormal-law">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">1879 – McAlister’s Lognormal Law</a><a class="headerlink" href="#mcalister-s-lognormal-law" title="Link to this heading">#</a></h2>
+<p>Francis Galton asked when the geometric mean is the right average, and
+Donald McAlister, at his request, worked out the law of errors that makes
+it so: if a quantity is the product of many small independent factors, its
+logarithm is normally distributed. The <em>lognormal</em> distribution has a
+hazard that rises to a peak and then falls. In reliability it became the
+model for failure mechanisms that grow in multiplicative steps, such as
+fatigue cracks, corrosion and electromigration, and for repair times. The
+gamma distribution, the life of several exponential stages in sequence,
+completes the standard set of lifetime laws.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/reliability.html#engineeringkit.reliability.lognormal_reliability" title="engineeringkit.reliability.lognormal_reliability"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.reliability.lognormal_reliability()</span></code></a>,
+<a class="reference internal" href="../api/reliability.html#engineeringkit.reliability.lognormal_cdf" title="engineeringkit.reliability.lognormal_cdf"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.reliability.lognormal_cdf()</span></code></a>,
+<a class="reference internal" href="../api/reliability.html#engineeringkit.reliability.lognormal_hazard" title="engineeringkit.reliability.lognormal_hazard"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.reliability.lognormal_hazard()</span></code></a> and
+<a class="reference internal" href="../api/reliability.html#engineeringkit.reliability.lognormal_mttf" title="engineeringkit.reliability.lognormal_mttf"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.reliability.lognormal_mttf()</span></code></a>, with
+<a class="reference internal" href="../api/reliability.html#engineeringkit.reliability.gamma_reliability" title="engineeringkit.reliability.gamma_reliability"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.reliability.gamma_reliability()</span></code></a>,
+<a class="reference internal" href="../api/reliability.html#engineeringkit.reliability.gamma_cdf" title="engineeringkit.reliability.gamma_cdf"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.reliability.gamma_cdf()</span></code></a>,
+<a class="reference internal" href="../api/reliability.html#engineeringkit.reliability.gamma_hazard" title="engineeringkit.reliability.gamma_hazard"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.reliability.gamma_hazard()</span></code></a> and
+<a class="reference internal" href="../api/reliability.html#engineeringkit.reliability.gamma_mttf" title="engineeringkit.reliability.gamma_mttf"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.reliability.gamma_mttf()</span></code></a>. The example builds lives as
+products of random factors, checks that their logarithms are normal and
+compares the lognormal hazard with a Weibull one.</p>
+<p><em>References:</em> D. McAlister, “The law of the geometric mean,” <em>Proc. R.
+Soc. Lond.</em> 29 (1879) 367-376, which follows F. Galton, “The geometric
+mean, in vital and social statistics,” <em>ibid.</em> 365-367.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Francis Galton asked why the geometric mean of a set of observations is sometimes a better centre than the arithmetic one, and Donald McAlister (1879) answered with the law now called lognormal: if a quantity is the product of many small independent factors, its logarithm is a sum, and so is normally distributed. Fatigue cracks, corrosion pits and the electromigration of metal lines grow in such multiplicative steps, which is why the lognormal is the life model for these mechanisms (~engineeringkit.reliability.lognormal_reliability). Its hazard (~engineeringkit.reliability.lognormal_hazard) rises to a peak and then falls, unlike a Weibull hazard with \beta &gt; 1."><img alt="" src="../_images/sphx_glr_plot_06_mcalister_lognormal_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/reliability/lifetimes/plot_06_mcalister_lognormal.html"><span class="doc">McAlister’s lognormal law (1879)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">McAlister's lognormal law (1879)</div>
+</div></div></section>
+<section id="arrhenius-s-law-and-accelerated-life-testing">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">1889 – Arrhenius’s Law and Accelerated Life Testing</a><a class="headerlink" href="#arrhenius-s-law-and-accelerated-life-testing" title="Link to this heading">#</a></h2>
+<p>Svante Arrhenius measured how fast acids invert cane sugar and found the
+rate rising with temperature as <span class="math notranslate nohighlight">\(e^{-E_a/(k_B T)}\)</span>, where the
+activation energy <span class="math notranslate nohighlight">\(E_a\)</span> is the barrier a molecule must cross. Many
+failure mechanisms in electronics, such as diffusion, corrosion and the
+growth of intermetallic layers, are chemical reactions, so a part’s life
+scales as <span class="math notranslate nohighlight">\(e^{E_a/(k_B T)}\)</span>. Reliability engineers turned the law
+into the acceleration factor of a high-temperature test, which compresses
+years of service into weeks, and fit <span class="math notranslate nohighlight">\(E_a\)</span> from lives measured at
+several temperatures.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/reliability.html#engineeringkit.reliability.arrhenius_acceleration_factor" title="engineeringkit.reliability.arrhenius_acceleration_factor"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.reliability.arrhenius_acceleration_factor()</span></code></a>
+and <a class="reference internal" href="../api/reliability.html#engineeringkit.reliability.arrhenius_fit" title="engineeringkit.reliability.arrhenius_fit"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.reliability.arrhenius_fit()</span></code></a>. The example tests
+capacitors at three temperatures, fits a Weibull scale at each, recovers
+the activation energy and predicts the life at 55 °C.</p>
+<p><em>References:</em> S. Arrhenius, “Über die Reaktionsgeschwindigkeit bei der
+Inversion von Rohrzucker durch Säuren,” <em>Z. Phys. Chem.</em> 4 (1889)
+226-248; W. Nelson, <em>Accelerated Testing</em> (Wiley, New York, 1990), ch. 2.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Svante Arrhenius (1889), measuring how fast acid inverts cane sugar, found that reaction rates grow with temperature as e^{-E_a/(k_B T)}. Many failure mechanisms of electronics, such as diffusion, corrosion and intermetallic growth, are reactions, so a part&#x27;s life at temperature T scales as e^{E_a/(k_B T)}. A test at 125 °C then stands in for years at 55 °C, through the acceleration factor (~engineeringkit.reliability.arrhenius_acceleration_factor). Lives measured at several temperatures fix E_a (~engineeringkit.reliability.arrhenius_fit)."><img alt="" src="../_images/sphx_glr_plot_01_arrhenius_accelerated_life_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/reliability/acceleration/plot_01_arrhenius_accelerated_life.html"><span class="doc">Arrhenius’s law and accelerated life testing (1889)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Arrhenius's law and accelerated life testing (1889)</div>
+</div></div></section>
+<section id="eyring-s-activated-complex">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">1935 – Eyring’s Activated Complex</a><a class="headerlink" href="#eyring-s-activated-complex" title="Link to this heading">#</a></h2>
+<p>Henry Eyring derived reaction rates from statistical mechanics. Reactants
+pass through an <em>activated complex</em> at the top of the energy barrier, and
+the rate is <span class="math notranslate nohighlight">\((k_B T/h)\,e^{-\Delta G^\ddagger/(k_B T)}\)</span>, with a
+prefactor proportional to temperature that Arrhenius’s empirical law lacks.
+Applied to life testing, the theory gives <span class="math notranslate nohighlight">\(L \propto T^{-1}
+e^{E_a/(k_B T)}\)</span>. Its generalised form multiplies in a factor for each
+non-thermal stress, such as voltage or humidity, often as an inverse power
+law <span class="math notranslate nohighlight">\(L \propto V^{-n}\)</span>.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/reliability.html#engineeringkit.reliability.eyring_acceleration_factor" title="engineeringkit.reliability.eyring_acceleration_factor"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.reliability.eyring_acceleration_factor()</span></code></a>
+and <a class="reference internal" href="../api/reliability.html#engineeringkit.reliability.inverse_power_law_acceleration_factor" title="engineeringkit.reliability.inverse_power_law_acceleration_factor"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.reliability.inverse_power_law_acceleration_factor()</span></code></a>.
+The example shows that an Arrhenius fit to Eyring lives needs an activation
+energy larger by about <span class="math notranslate nohighlight">\(k_B T\)</span>, and combines temperature and voltage
+acceleration.</p>
+<p><em>References:</em> H. Eyring, “The activated complex in chemical reactions,”
+<em>J. Chem. Phys.</em> 3 (1935) 107-115.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Henry Eyring (1935) derived reaction rates from statistical mechanics: reactants pass through an activated complex, and the rate is (k_B T/h)\,e^{-\Delta G^\ddagger/(k_B T)}. The prefactor T is absent from Arrhenius&#x27;s empirical law. For life testing it means L \propto T^{-1}e^{E_a/(k_B T)}, and an acceleration factor T_t/T_u times the Arrhenius one (~engineeringkit.reliability.eyring_acceleration_factor). The model extends naturally to non-thermal stresses such as voltage, here represented by the inverse power law (~engineeringkit.reliability.inverse_power_law_acceleration_factor)."><img alt="" src="../_images/sphx_glr_plot_02_eyring_activated_complex_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/reliability/acceleration/plot_02_eyring_activated_complex.html"><span class="doc">Eyring’s activated complex (1935)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Eyring's activated complex (1935)</div>
+</div></div></section>
 <section id="freudenthal-s-stress-strength-interference">
-<h2><a class="toc-backref" href="#id3" role="doc-backlink">1947 – Freudenthal’s Stress-Strength Interference</a><a class="headerlink" href="#freudenthal-s-stress-strength-interference" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">1947 – Freudenthal’s Stress-Strength Interference</a><a class="headerlink" href="#freudenthal-s-stress-strength-interference" title="Link to this heading">#</a></h2>
 <p>Alfred Freudenthal argued that a structure’s safety factor, mean strength
 over mean load, cannot measure its safety: two designs with the same factor
 fail at very different rates if their loads and strengths scatter
@@ -515,8 +626,60 @@ with the same safety factor and different reliabilities.</p>
 <p><a class="reference internal" href="../api/gallery/reliability/structural/plot_01_freudenthal_interference.html"><span class="doc">Freudenthal’s stress-strength interference (1947)</span></a></p>
   <div class="sphx-glr-thumbnail-title">Freudenthal's stress-strength interference (1947)</div>
 </div></div></section>
+<section id="metropolis-and-ulam-s-monte-carlo-method">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">1949 – Metropolis and Ulam’s Monte Carlo Method</a><a class="headerlink" href="#metropolis-and-ulam-s-monte-carlo-method" title="Link to this heading">#</a></h2>
+<p>Stanislaw Ulam, playing solitaire while recovering from an illness,
+wondered whether it was easier to estimate the chance of winning by
+dealing many games than by combinatorics. At Los Alamos he and John von
+Neumann used the idea for neutron diffusion, and Nicholas Metropolis and
+Ulam described it in print as the <em>Monte Carlo method</em>. A structure’s
+failure probability is the fraction of sampled loads and resistances that
+fail. The estimate needs no linearisation, which makes it the check on
+first-order methods, but its relative error falls only as
+<span class="math notranslate nohighlight">\(1/\sqrt{N p_f}\)</span>. Importance sampling around the most likely failure
+point, a later refinement, removes most of that cost.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/reliability.html#engineeringkit.reliability.monte_carlo_failure_probability" title="engineeringkit.reliability.monte_carlo_failure_probability"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.reliability.monte_carlo_failure_probability()</span></code></a>,
+which returns a <a class="reference internal" href="../api/reliability.html#engineeringkit.reliability.MonteCarloResult" title="engineeringkit.reliability.MonteCarloResult"><code class="xref py py-class docutils literal notranslate"><span class="pre">MonteCarloResult</span></code></a>. The
+example estimates the failure probability of a tie with a curved limit
+state, compares it with the Hasofer-Lind result and shows how much faster
+importance sampling at the design point converges.</p>
+<p><em>References:</em> N. Metropolis and S. Ulam, “The Monte Carlo method,” <em>J.
+Amer. Statist. Assoc.</em> 44 (1949) 335-341; G. Harbitz, “An efficient
+sampling method for probability of failure calculation,” <em>Struct. Saf.</em> 3
+(1986) 109-115.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Stanislaw Ulam, recovering from an illness and playing solitaire, wondered whether it was quicker to estimate the chance of winning by dealing many games than by combinatorics. With Nicholas Metropolis (1949) he described the Monte Carlo method: estimate a probability or an integral by random sampling. For a structure the failure probability P(g(X) &lt; 0) is the fraction of sampled load and resistance pairs that fail (~engineeringkit.reliability.monte_carlo_failure_probability). It needs no linearisation, which makes it the check on the Hasofer-Lind index (~engineeringkit.reliability.hasofer_lind_index), but its relative error falls only as 1/\sqrt{N p_f}. Sampling around the Hasofer-Lind design point instead of the mean (importance sampling) puts half the samples in the failure domain."><img alt="" src="../_images/sphx_glr_plot_03_metropolis_ulam_monte_carlo_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/reliability/structural/plot_03_metropolis_ulam_monte_carlo.html"><span class="doc">Metropolis and Ulam’s Monte Carlo method (1949)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Metropolis and Ulam's Monte Carlo method (1949)</div>
+</div></div></section>
+<section id="mil-p-1629-failure-mode-and-effects-analysis">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">1949 – MIL-P-1629: Failure Mode and Effects Analysis</a><a class="headerlink" href="#mil-p-1629-failure-mode-and-effects-analysis" title="Link to this heading">#</a></h2>
+<p>The US military procedure MIL-P-1629, <em>Procedures for Performing a Failure
+Mode, Effects and Criticality Analysis</em>, dated 9 November 1949, asked
+designers to go through a system part by part, list each way the part
+could fail, trace the effect of each failure and classify it by its
+consequence for the mission and for personnel. NASA contractors used the
+method on Apollo, MIL-STD-1629A (1980) added the criticality number
+<span class="math notranslate nohighlight">\(C_m = \beta\alpha\lambda_p t\)</span>, and the automotive industry later
+ranked modes by a <em>risk priority number</em>, the product of severity,
+occurrence and detection scores from 1 to 10. Because the scores are
+ordinal, a severe mode needs attention whatever its product.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/reliability.html#engineeringkit.reliability.risk_priority_number" title="engineeringkit.reliability.risk_priority_number"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.reliability.risk_priority_number()</span></code></a>,
+<a class="reference internal" href="../api/reliability.html#engineeringkit.reliability.fmea_ranking" title="engineeringkit.reliability.fmea_ranking"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.reliability.fmea_ranking()</span></code></a>, which returns an
+<a class="reference internal" href="../api/reliability.html#engineeringkit.reliability.FMEAResult" title="engineeringkit.reliability.FMEAResult"><code class="xref py py-class docutils literal notranslate"><span class="pre">FMEAResult</span></code></a> with a Pareto chart, and
+<a class="reference internal" href="../api/reliability.html#engineeringkit.reliability.failure_mode_criticality" title="engineeringkit.reliability.failure_mode_criticality"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.reliability.failure_mode_criticality()</span></code></a>. The example
+ranks the failure modes of a pump and shows a mode that the RPN places last
+and severity places first.</p>
+<p><em>References:</em> U.S. Department of Defense, <em>Procedures for Performing a
+Failure Mode, Effects and Criticality Analysis</em> (MIL-P-1629, 9 November
+1949); MIL-STD-1629A (24 November 1980). The 1949 text could not be found;
+its date and title are taken from secondary sources and O’Connor and
+Kleyner, <em>Practical Reliability Engineering</em> (5th ed., Wiley, 2012), §7.3.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="The US military procedure MIL-P-1629, Procedures for Performing a Failure Mode, Effects and Criticality Analysis (9 November 1949), asked designers to go through a system part by part, list each way the part can fail, trace the effect of each failure and classify it by its consequence for the mission and for safety. NASA used the method on Apollo, and the automotive industry later made it routine, ranking each mode by a risk priority number, severity times occurrence times detection, each scored from 1 to 10 (~engineeringkit.reliability.risk_priority_number, fmea_ranking). Where failure rates are known the military standard&#x27;s criticality number C_m = \beta\alpha\lambda_p t (~engineeringkit.reliability.failure_mode_criticality) ranks modes by expected losses instead."><img alt="" src="../_images/sphx_glr_plot_04_mil_p_1629_fmea_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/reliability/risk/plot_04_mil_p_1629_fmea.html"><span class="doc">MIL-P-1629’s failure mode and effects analysis (1949)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">MIL-P-1629's failure mode and effects analysis (1949)</div>
+</div></div></section>
 <section id="weibull-s-distribution">
-<h2><a class="toc-backref" href="#id4" role="doc-backlink">1951 – Weibull’s Distribution</a><a class="headerlink" href="#weibull-s-distribution" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">1951 – Weibull’s Distribution</a><a class="headerlink" href="#weibull-s-distribution" title="Link to this heading">#</a></h2>
 <p>Waloddi Weibull proposed a distribution, <span class="math notranslate nohighlight">\(R(t) = e^{-(t/\eta)^\beta}\)</span>,
 for data as varied as the yield strength of steel, the size of fly ash and
 the fatigue life of bearings. Its shape parameter sets the hazard: falling
@@ -536,8 +699,37 @@ applicability,” <em>J. Appl. Mech.</em> 18 (1951) 293-297.</p>
 <p><a class="reference internal" href="../api/gallery/reliability/lifetimes/plot_03_weibull_distribution.html"><span class="doc">Weibull’s distribution and the Weibull plot (1951)</span></a></p>
   <div class="sphx-glr-thumbnail-title">Weibull's distribution and the Weibull plot (1951)</div>
 </div></div></section>
+<section id="johnson-s-median-ranks">
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">1951 – Johnson’s Median Ranks</a><a class="headerlink" href="#johnson-s-median-ranks" title="Link to this heading">#</a></h2>
+<p>Before a line can be drawn on Weibull paper, each failure needs a plotting
+position. Leonard Johnson, studying the fatigue of ball bearings at General
+Motors, noted that the fraction of the population failed at the
+<span class="math notranslate nohighlight">\(i\)</span>-th of <span class="math notranslate nohighlight">\(n\)</span> failures has a <span class="math notranslate nohighlight">\(\mathrm{Beta}(i, n-i+1)\)</span>
+distribution, and proposed its median, the <em>median rank</em>, as the position.
+Benard’s <span class="math notranslate nohighlight">\((i - 0.3)/(n + 0.4)\)</span> approximates it within a fraction of
+a percent. Johnson later gave <em>adjusted ranks</em> for censored samples: a
+unit removed before failing raises the order numbers of every later
+failure. Median-rank regression became the standard Weibull analysis in
+industry.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/reliability.html#engineeringkit.reliability.median_ranks" title="engineeringkit.reliability.median_ranks"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.reliability.median_ranks()</span></code></a>,
+<a class="reference internal" href="../api/reliability.html#engineeringkit.reliability.adjusted_ranks" title="engineeringkit.reliability.adjusted_ranks"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.reliability.adjusted_ranks()</span></code></a> and
+<a class="reference internal" href="../api/reliability.html#engineeringkit.reliability.weibull_rank_regression" title="engineeringkit.reliability.weibull_rank_regression"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.reliability.weibull_rank_regression()</span></code></a>, which returns
+a <a class="reference internal" href="../api/reliability.html#engineeringkit.reliability.WeibullFitResult" title="engineeringkit.reliability.WeibullFitResult"><code class="xref py py-class docutils literal notranslate"><span class="pre">WeibullFitResult</span></code></a> that draws the
+probability plot. The example checks the median ranks by simulation and
+fits a censored bearing test.</p>
+<p><em>References:</em> L. G. Johnson, “The median ranks of sample values in their
+population with an application to certain fatigue studies,” <em>Industrial
+Mathematics</em> 2 (1951) 1-9, and <em>The Statistical Treatment of Fatigue
+Experiments</em> (Elsevier, Amsterdam, 1964), ch. 3. The 1951 paper could not
+be found; its citation is the one given in later Weibull handbooks. A.
+Benard and E. C. Bos-Levenbach, “Het uitzetten van waarnemingen op
+waarschijnlijkheids-papier,” <em>Statistica Neerlandica</em> 7 (1953) 163-173.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Where should the i-th of n failures be plotted? The population fraction failed at the i-th smallest life is itself random, with a \mathrm{Beta}(i, n - i + 1) distribution. Leonard Johnson (1951), working on bearing fatigue at General Motors, proposed its median, the median rank, as the plotting position, and Benard&#x27;s (i - 0.3)/(n + 0.4) approximates it closely (~engineeringkit.reliability.median_ranks). For censored data Johnson&#x27;s adjusted order numbers (~engineeringkit.reliability.adjusted_ranks) let units removed early still move the later ranks. A least-squares line on Weibull axes then gives \beta and \eta (~engineeringkit.reliability.weibull_rank_regression)."><img alt="" src="../_images/sphx_glr_plot_01_johnson_median_ranks_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/reliability/life_data/plot_01_johnson_median_ranks.html"><span class="doc">Johnson’s median ranks (1951)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Johnson's median ranks (1951)</div>
+</div></div></section>
 <section id="epstein-and-sobel-s-exponential-life-testing">
-<h2><a class="toc-backref" href="#id5" role="doc-backlink">1953 – Epstein and Sobel’s Exponential Life Testing</a><a class="headerlink" href="#epstein-and-sobel-s-exponential-life-testing" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id11" role="doc-backlink">1953 – Epstein and Sobel’s Exponential Life Testing</a><a class="headerlink" href="#epstein-and-sobel-s-exponential-life-testing" title="Link to this heading">#</a></h2>
 <p>Benjamin Epstein and Milton Sobel worked out how to demonstrate a mean life
 from a test that is stopped before every unit has failed. For exponential
 lives the <em>total time on test</em>, summed over failed and surviving units,
@@ -559,7 +751,7 @@ Assoc.</em> 48 (1953) 486-502.</p>
   <div class="sphx-glr-thumbnail-title">Epstein and Sobel's exponential life testing (1953)</div>
 </div></div></section>
 <section id="von-neumann-s-redundancy">
-<h2><a class="toc-backref" href="#id6" role="doc-backlink">1956 – Von Neumann’s Redundancy</a><a class="headerlink" href="#von-neumann-s-redundancy" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id12" role="doc-backlink">1956 – Von Neumann’s Redundancy</a><a class="headerlink" href="#von-neumann-s-redundancy" title="Link to this heading">#</a></h2>
 <p>John von Neumann asked how a computer, or a brain, can work when each of
 its components is unreliable. Active parallel redundancy, <span class="math notranslate nohighlight">\(1 - (1 -
 r)^n\)</span>, survives if any copy survives. For logic, where a wrong output is as
@@ -579,7 +771,7 @@ McCarthy (eds.), <em>Automata Studies</em> (Princeton University Press, 1956)
   <div class="sphx-glr-thumbnail-title">Von Neumann's reliable machines from unreliable parts (1956)</div>
 </div></div></section>
 <section id="the-agree-report-series-systems-and-mtbf">
-<h2><a class="toc-backref" href="#id7" role="doc-backlink">1957 – The AGREE Report: Series Systems and MTBF</a><a class="headerlink" href="#the-agree-report-series-systems-and-mtbf" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id13" role="doc-backlink">1957 – The AGREE Report: Series Systems and MTBF</a><a class="headerlink" href="#the-agree-report-series-systems-and-mtbf" title="Link to this heading">#</a></h2>
 <p>In the early 1950s much of the US forces’ electronic equipment was out of
 service at any one time, mostly because of vacuum-tube failures. The
 Advisory Group on Reliability of Electronic Equipment (AGREE) recommended
@@ -601,7 +793,7 @@ Secretary of Defense, Washington, 4 June 1957).</p>
   <div class="sphx-glr-thumbnail-title">The AGREE report: series systems and MTBF (1957)</div>
 </div></div></section>
 <section id="kaplan-and-meier-s-product-limit-estimator">
-<h2><a class="toc-backref" href="#id8" role="doc-backlink">1958 – Kaplan and Meier’s Product-Limit Estimator</a><a class="headerlink" href="#kaplan-and-meier-s-product-limit-estimator" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id14" role="doc-backlink">1958 – Kaplan and Meier’s Product-Limit Estimator</a><a class="headerlink" href="#kaplan-and-meier-s-product-limit-estimator" title="Link to this heading">#</a></h2>
 <p>Field and clinical data are incomplete: some units are still working when
 the data are collected and others are withdrawn for reasons other than
 failure. Edward Kaplan and Paul Meier estimated the survival function by
@@ -620,7 +812,7 @@ incomplete observations,” <em>J. Amer. Statist. Assoc.</em> 53 (1958) 457-481.
   <div class="sphx-glr-thumbnail-title">Kaplan and Meier's product-limit estimator (1958)</div>
 </div></div></section>
 <section id="birnbaum-esary-and-saunders-s-k-out-of-n-systems">
-<h2><a class="toc-backref" href="#id9" role="doc-backlink">1961 – Birnbaum, Esary and Saunders’s k-out-of-n Systems</a><a class="headerlink" href="#birnbaum-esary-and-saunders-s-k-out-of-n-systems" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id15" role="doc-backlink">1961 – Birnbaum, Esary and Saunders’s k-out-of-n Systems</a><a class="headerlink" href="#birnbaum-esary-and-saunders-s-k-out-of-n-systems" title="Link to this heading">#</a></h2>
 <p>Zygmunt Birnbaum, James Esary and Sam Saunders put system reliability on a
 general footing. A <em>structure function</em> says which combinations of working
 components keep the system working, and for independent components the
@@ -639,7 +831,7 @@ computes the mean life of each architecture.</p>
   <div class="sphx-glr-thumbnail-title">Birnbaum, Esary and Saunders's k-out-of-n systems (1961)</div>
 </div></div></section>
 <section id="watson-s-fault-tree">
-<h2><a class="toc-backref" href="#id10" role="doc-backlink">1961 – Watson’s Fault Tree</a><a class="headerlink" href="#watson-s-fault-tree" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id16" role="doc-backlink">1961 – Watson’s Fault Tree</a><a class="headerlink" href="#watson-s-fault-tree" title="Link to this heading">#</a></h2>
 <p>The US Air Force asked Bell Telephone Laboratories whether the Minuteman
 launch-control system could launch a missile without a valid order. H. A.
 Watson answered with a new diagram that starts from the undesired top event
@@ -659,8 +851,56 @@ tree analysis,” <em>System Safety Symposium</em> (Seattle, 1965).</p>
 <p><a class="reference internal" href="../api/gallery/reliability/risk/plot_01_watson_fault_tree.html"><span class="doc">Watson’s fault tree (1961)</span></a></p>
   <div class="sphx-glr-thumbnail-title">Watson's fault tree (1961)</div>
 </div></div></section>
+<section id="raiffa-and-schlaifer-s-conjugate-priors">
+<h2><a class="toc-backref" href="#id17" role="doc-backlink">1961 – Raiffa and Schlaifer’s Conjugate Priors</a><a class="headerlink" href="#raiffa-and-schlaifer-s-conjugate-priors" title="Link to this heading">#</a></h2>
+<p>Howard Raiffa and Robert Schlaifer, at the Harvard Business School, built
+a practical Bayesian decision theory and catalogued the <em>conjugate</em>
+families, priors that a given likelihood maps into the same family. For
+failures arriving as a Poisson process the conjugate prior on the rate is
+the gamma distribution, and the update is two additions: <span class="math notranslate nohighlight">\(r\)</span>
+failures in time <span class="math notranslate nohighlight">\(T\)</span> turn <span class="math notranslate nohighlight">\(\mathrm{Gamma}(a, b)\)</span> into
+<span class="math notranslate nohighlight">\(\mathrm{Gamma}(a + r, b + T)\)</span>. Reliability engineers use it to
+combine handbook or similar-part data with short tests of a new design,
+and in nuclear and aerospace risk assessment to update generic failure
+rates with plant data.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/reliability.html#engineeringkit.reliability.bayesian_failure_rate" title="engineeringkit.reliability.bayesian_failure_rate"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.reliability.bayesian_failure_rate()</span></code></a>,
+which returns a <a class="reference internal" href="../api/reliability.html#engineeringkit.reliability.FailureRatePosterior" title="engineeringkit.reliability.FailureRatePosterior"><code class="xref py py-class docutils literal notranslate"><span class="pre">FailureRatePosterior</span></code></a>,
+and <a class="reference internal" href="../api/reliability.html#engineeringkit.reliability.gamma_prior_from_bounds" title="engineeringkit.reliability.gamma_prior_from_bounds"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.reliability.gamma_prior_from_bounds()</span></code></a>. The example
+sets a prior from an engineer’s median and upper bound, updates it with a
+short and a long test, and recovers the chi-square bounds with vague
+priors.</p>
+<p><em>References:</em> H. Raiffa and R. Schlaifer, <em>Applied Statistical Decision
+Theory</em> (Division of Research, Harvard Business School, Boston, 1961),
+ch. 3 and 7.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Howard Raiffa and Robert Schlaifer (1961) named and catalogued conjugate priors, families that a likelihood maps into themselves. For failures that arrive as a Poisson process the conjugate family is the gamma distribution: a \mathrm{Gamma}(a, b) prior on the rate \lambda and r failures in time T give a \mathrm{Gamma}(a + r, b + T) posterior (~engineeringkit.reliability.bayesian_failure_rate). Handbook or similar-part data set the prior (~engineeringkit.reliability.gamma_prior_from_bounds), so a short test of a new part is not read in isolation."><img alt="" src="../_images/sphx_glr_plot_03_raiffa_schlaifer_bayesian_failure_rate_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/reliability/life_data/plot_03_raiffa_schlaifer_bayesian_failure_rate.html"><span class="doc">Raiffa and Schlaifer’s conjugate prior for a failure rate (1961)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Raiffa and Schlaifer's conjugate prior for a failure rate (1961)</div>
+</div></div></section>
+<section id="esary-and-proschan-s-path-and-cut-bounds">
+<h2><a class="toc-backref" href="#id18" role="doc-backlink">1963 – Esary and Proschan’s Path and Cut Bounds</a><a class="headerlink" href="#esary-and-proschan-s-path-and-cut-bounds" title="Link to this heading">#</a></h2>
+<p>Most block diagrams are neither series nor parallel, the bridge network
+being the classic example. James Esary and Frank Proschan, at Boeing,
+described any coherent system by its <em>minimal path sets</em>, the smallest
+groups of components whose working keeps the system working, and its
+<em>minimal cut sets</em>, the smallest groups whose failure stops it. The system
+is a parallel arrangement of its paths and a series arrangement of its
+cuts, but paths and cuts share components. Treating them as independent
+gives a lower bound from the cuts and an upper bound from the paths, and
+the cut bound is close to exact when components are reliable.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/reliability.html#engineeringkit.reliability.minimal_path_sets" title="engineeringkit.reliability.minimal_path_sets"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.reliability.minimal_path_sets()</span></code></a>,
+<a class="reference internal" href="../api/reliability.html#engineeringkit.reliability.minimal_cut_sets" title="engineeringkit.reliability.minimal_cut_sets"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.reliability.minimal_cut_sets()</span></code></a>,
+<a class="reference internal" href="../api/reliability.html#engineeringkit.reliability.network_reliability" title="engineeringkit.reliability.network_reliability"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.reliability.network_reliability()</span></code></a> and
+<a class="reference internal" href="../api/reliability.html#engineeringkit.reliability.esary_proschan_bounds" title="engineeringkit.reliability.esary_proschan_bounds"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.reliability.esary_proschan_bounds()</span></code></a>. The example
+finds the paths and cuts of the bridge, checks its reliability polynomial
+and compares both bounds with the exact result.</p>
+<p><em>References:</em> J. D. Esary and F. Proschan, “Coherent structures of
+non-identical components,” <em>Technometrics</em> 5 (1963) 191-209.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Most block diagrams are neither series nor parallel; the classic example is the bridge. James Esary and Frank Proschan (1963) described any coherent system by its minimal path sets, the smallest groups of components whose working keeps it working (~engineeringkit.reliability.minimal_path_sets), and its minimal cut sets, the smallest groups whose failure stops it (~engineeringkit.reliability.minimal_cut_sets). The system is a parallel arrangement of its paths, or a series arrangement of its cuts. Treating the paths or the cuts as independent gives bounds on the exact reliability (~engineeringkit.reliability.esary_proschan_bounds, network_reliability), and the cut bound is very close for reliable components."><img alt="" src="../_images/sphx_glr_plot_05_esary_proschan_bounds_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/reliability/systems/plot_05_esary_proschan_bounds.html"><span class="doc">Esary and Proschan’s path and cut bounds (1963)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Esary and Proschan's path and cut bounds (1963)</div>
+</div></div></section>
 <section id="duane-s-reliability-growth">
-<h2><a class="toc-backref" href="#id11" role="doc-backlink">1964 – Duane’s Reliability Growth</a><a class="headerlink" href="#duane-s-reliability-growth" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id19" role="doc-backlink">1964 – Duane’s Reliability Growth</a><a class="headerlink" href="#duane-s-reliability-growth" title="Link to this heading">#</a></h2>
 <p>James Duane, at General Electric, plotted the failure records of several
 development programmes, from hydraulic devices to aircraft generators. On
 log-log paper the cumulative MTBF, total test time over total failures,
@@ -679,7 +919,7 @@ monitoring,” <em>IEEE Trans. Aerospace</em> 2 (1964) 563-566.</p>
   <div class="sphx-glr-thumbnail-title">Duane's reliability growth (1964)</div>
 </div></div></section>
 <section id="barlow-and-proschan-s-age-replacement">
-<h2><a class="toc-backref" href="#id12" role="doc-backlink">1965 – Barlow and Proschan’s Age Replacement</a><a class="headerlink" href="#barlow-and-proschan-s-age-replacement" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id20" role="doc-backlink">1965 – Barlow and Proschan’s Age Replacement</a><a class="headerlink" href="#barlow-and-proschan-s-age-replacement" title="Link to this heading">#</a></h2>
 <p>Richard Barlow and Frank Proschan’s <em>Mathematical Theory of Reliability</em>
 used renewal theory to decide when a part should be replaced before it
 fails. Under an age-replacement policy a part is replaced at failure or at
@@ -699,7 +939,7 @@ Reliability</em> (Wiley, New York, 1965), ch. 4.</p>
   <div class="sphx-glr-thumbnail-title">Barlow and Proschan's age replacement (1965)</div>
 </div></div></section>
 <section id="markov-models-of-repairable-systems">
-<h2><a class="toc-backref" href="#id13" role="doc-backlink">1965 – Markov Models of Repairable Systems</a><a class="headerlink" href="#markov-models-of-repairable-systems" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id21" role="doc-backlink">1965 – Markov Models of Repairable Systems</a><a class="headerlink" href="#markov-models-of-repairable-systems" title="Link to this heading">#</a></h2>
 <p>A unit that fails and is repaired at constant rates is a continuous-time
 Markov chain, and so is any system of such units. Barlow and Proschan gave
 the availability of a single unit, which decays from one to the steady
@@ -722,8 +962,31 @@ Reliability</em> (Wiley, New York, 1965), ch. 5.</p>
 <p><a class="reference internal" href="../api/gallery/reliability/maintenance/plot_02_markov_availability.html"><span class="doc">Markov models of repairable systems (1965)</span></a></p>
   <div class="sphx-glr-thumbnail-title">Markov models of repairable systems (1965)</div>
 </div></div></section>
+<section id="cohen-s-maximum-likelihood-for-censored-weibull-data">
+<h2><a class="toc-backref" href="#id22" role="doc-backlink">1965 – Cohen’s Maximum Likelihood for Censored Weibull Data</a><a class="headerlink" href="#cohen-s-maximum-likelihood-for-censored-weibull-data" title="Link to this heading">#</a></h2>
+<p>Rank regression uses a censored unit only through the ranks of later
+failures, and its estimates scatter widely when most units survive the
+test. A. Clifford Cohen, at the University of Georgia, wrote out the
+maximum-likelihood equations of the Weibull distribution for complete,
+singly censored and progressively censored samples. Each failure
+contributes its density and each survivor its reliability, so a unit
+still running when the test stops counts for the time it survived. The
+shape solves one equation in <span class="math notranslate nohighlight">\(\beta\)</span> alone, and Cohen also gave the
+asymptotic variances of the estimates. Opening his paper he named
+parameter estimation as the main obstacle to wider use of the Weibull
+distribution.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/reliability.html#engineeringkit.reliability.weibull_mle" title="engineeringkit.reliability.weibull_mle"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.reliability.weibull_mle()</span></code></a>. The
+example repeats a test in which most units survive and shows that the
+maximum-likelihood shape scatters less than the rank-regression one.</p>
+<p><em>References:</em> A. C. Cohen, “Maximum likelihood estimation in the Weibull
+distribution based on complete and on censored samples,” <em>Technometrics</em> 7
+(1965) 579-588.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="A rank-regression line uses a censored unit only through the ranks of later failures. A. Clifford Cohen (1965) wrote out the maximum-likelihood equations of the Weibull distribution for complete, singly censored and progressively censored samples. Every unit contributes: a failure through its density, a survivor through R(t). The shape solves one equation in \beta alone, and \eta follows (~engineeringkit.reliability.weibull_mle). The example repeats a heavily censored test many times and compares the scatter of the two estimators."><img alt="" src="../_images/sphx_glr_plot_02_cohen_censored_mle_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/reliability/life_data/plot_02_cohen_censored_mle.html"><span class="doc">Cohen’s maximum likelihood for censored Weibull data (1965)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Cohen's maximum likelihood for censored Weibull data (1965)</div>
+</div></div></section>
 <section id="birnbaum-s-component-importance">
-<h2><a class="toc-backref" href="#id14" role="doc-backlink">1969 – Birnbaum’s Component Importance</a><a class="headerlink" href="#birnbaum-s-component-importance" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id23" role="doc-backlink">1969 – Birnbaum’s Component Importance</a><a class="headerlink" href="#birnbaum-s-component-importance" title="Link to this heading">#</a></h2>
 <p>Which component should be improved first? Z. W. Birnbaum defined a
 component’s importance as the rate at which the system’s reliability
 changes with that component’s reliability,
@@ -742,7 +1005,7 @@ Analysis II</em> (Academic Press, New York, 1969) 581-592.</p>
   <div class="sphx-glr-thumbnail-title">Birnbaum's component importance (1969)</div>
 </div></div></section>
 <section id="hasofer-and-lind-s-reliability-index">
-<h2><a class="toc-backref" href="#id15" role="doc-backlink">1974 – Hasofer and Lind’s Reliability Index</a><a class="headerlink" href="#hasofer-and-lind-s-reliability-index" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id24" role="doc-backlink">1974 – Hasofer and Lind’s Reliability Index</a><a class="headerlink" href="#hasofer-and-lind-s-reliability-index" title="Link to this heading">#</a></h2>
 <p>C. Allin Cornell’s 1969 reliability index, the mean of the safety margin
 over its standard deviation, depends on how the failure condition is
 written. Abraham Hasofer and Niels Lind removed the ambiguity by
@@ -765,7 +1028,7 @@ second-moment code format,” <em>J. Eng. Mech. Div. ASCE</em> 100 (1974) 111-12
   <div class="sphx-glr-thumbnail-title">Hasofer and Lind's reliability index (1974)</div>
 </div></div></section>
 <section id="wash-1400-event-trees">
-<h2><a class="toc-backref" href="#id16" role="doc-backlink">1975 – WASH-1400: Event Trees</a><a class="headerlink" href="#wash-1400-event-trees" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id25" role="doc-backlink">1975 – WASH-1400: Event Trees</a><a class="headerlink" href="#wash-1400-event-trees" title="Link to this heading">#</a></h2>
 <p>The Reactor Safety Study, led by Norman Rasmussen for the US Nuclear
 Regulatory Commission, was the first attempt to put a number on the risk
 of a nuclear power plant. It worked forward from each initiating event,
@@ -788,7 +1051,7 @@ Assessment of Accident Risks in U.S. Commercial Nuclear Power Plants</em>
   <div class="sphx-glr-thumbnail-title">WASH-1400: event trees (1975)</div>
 </div></div></section>
 <section id="iec-61508-and-safety-integrity-levels">
-<h2><a class="toc-backref" href="#id17" role="doc-backlink">1998 – IEC 61508 and Safety Integrity Levels</a><a class="headerlink" href="#iec-61508-and-safety-integrity-levels" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id26" role="doc-backlink">1998 – IEC 61508 and Safety Integrity Levels</a><a class="headerlink" href="#iec-61508-and-safety-integrity-levels" title="Link to this heading">#</a></h2>
 <p>Programmable electronics took over process trips, railway signalling and
 machine guards, and there was no agreed way to say how safe a
 software-based protection system was. The International Electrotechnical
@@ -811,7 +1074,7 @@ annex B.</p>
   <div class="sphx-glr-thumbnail-title">IEC 61508 and safety integrity levels (1998)</div>
 </div></div></section>
 <section id="see-also">
-<h2><a class="toc-backref" href="#id18" role="doc-backlink">See Also</a><a class="headerlink" href="#see-also" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id27" role="doc-backlink">See Also</a><a class="headerlink" href="#see-also" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="../api/reliability.html"><span class="doc">engineeringkit.reliability</span></a></p></li>
 <li><p><a class="reference internal" href="../guides/reliability.html"><span class="doc">Reliability: distributions, independence and rate units</span></a></p></li>
@@ -870,17 +1133,26 @@ annex B.</p>
     <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#halley-s-life-table-and-the-hazard-rate">1693 – Halley’s Life Table and the Hazard Rate</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#poisson-s-law-of-rare-events">1837 – Poisson’s Law of Rare Events</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mcalister-s-lognormal-law">1879 – McAlister’s Lognormal Law</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arrhenius-s-law-and-accelerated-life-testing">1889 – Arrhenius’s Law and Accelerated Life Testing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eyring-s-activated-complex">1935 – Eyring’s Activated Complex</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#freudenthal-s-stress-strength-interference">1947 – Freudenthal’s Stress-Strength Interference</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metropolis-and-ulam-s-monte-carlo-method">1949 – Metropolis and Ulam’s Monte Carlo Method</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mil-p-1629-failure-mode-and-effects-analysis">1949 – MIL-P-1629: Failure Mode and Effects Analysis</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#weibull-s-distribution">1951 – Weibull’s Distribution</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#johnson-s-median-ranks">1951 – Johnson’s Median Ranks</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#epstein-and-sobel-s-exponential-life-testing">1953 – Epstein and Sobel’s Exponential Life Testing</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#von-neumann-s-redundancy">1956 – Von Neumann’s Redundancy</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-agree-report-series-systems-and-mtbf">1957 – The AGREE Report: Series Systems and MTBF</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kaplan-and-meier-s-product-limit-estimator">1958 – Kaplan and Meier’s Product-Limit Estimator</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#birnbaum-esary-and-saunders-s-k-out-of-n-systems">1961 – Birnbaum, Esary and Saunders’s k-out-of-n Systems</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#watson-s-fault-tree">1961 – Watson’s Fault Tree</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#raiffa-and-schlaifer-s-conjugate-priors">1961 – Raiffa and Schlaifer’s Conjugate Priors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#esary-and-proschan-s-path-and-cut-bounds">1963 – Esary and Proschan’s Path and Cut Bounds</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#duane-s-reliability-growth">1964 – Duane’s Reliability Growth</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#barlow-and-proschan-s-age-replacement">1965 – Barlow and Proschan’s Age Replacement</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#markov-models-of-repairable-systems">1965 – Markov Models of Repairable Systems</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cohen-s-maximum-likelihood-for-censored-weibull-data">1965 – Cohen’s Maximum Likelihood for Censored Weibull Data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#birnbaum-s-component-importance">1969 – Birnbaum’s Component Importance</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hasofer-and-lind-s-reliability-index">1974 – Hasofer and Lind’s Reliability Index</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wash-1400-event-trees">1975 – WASH-1400: Event Trees</a></li>

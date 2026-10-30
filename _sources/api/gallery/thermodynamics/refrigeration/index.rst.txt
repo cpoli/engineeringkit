@@ -53,6 +53,23 @@ Refrigerators and heat pumps, and their Carnot limits.
     </div>
 
 
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Perkins&#x27;s cycle of evaporation, compression, condensation and throttling is unchanged. The working fluid is: ether gave way to ammonia, then to the fluorocarbons, and R-134a ran most car air conditioners and domestic refrigerators from the 1990s. With its properties from the Peng-Robinson equation of state (~engineeringkit.thermodynamics.refrigerant_properties), vapor_compression_cycle solves the cycle state by state.">
+
+.. only:: html
+
+  .. image:: /api/gallery/thermodynamics/refrigeration/images/thumb/sphx_glr_plot_03_perkins_r134a_cycle_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/thermodynamics/refrigeration/plot_03_perkins_r134a_cycle`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Perkins's cycle on a modern refrigerant (1834)</div>
+    </div>
+
+
 .. thumbnail-parent-div-close
 
 .. raw:: html
@@ -65,4 +82,5 @@ Refrigerators and heat pumps, and their Carnot limits.
 
    /api/gallery/thermodynamics/refrigeration/plot_01_perkins_vapor_compression
    /api/gallery/thermodynamics/refrigeration/plot_02_kelvin_heat_pump
+   /api/gallery/thermodynamics/refrigeration/plot_03_perkins_r134a_cycle
 

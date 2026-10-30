@@ -7,7 +7,8 @@ Examples
 
 This gallery walks through every public feature of
 ``engineeringkit.signal_processing``, one breakthrough per script: Fourier
-series and the FFT, spectral estimation, sampling and quantization,
+series, the FFT, the DCT and the Hilbert transform, spectral estimation
+and autoregressive models, sampling, quantization and rate conversion,
 digital filter design, optimal and adaptive filters, and wavelets.
 
 :doc:`Units, assumptions and numerical validation </guides/signal_processing>`
@@ -17,11 +18,11 @@ directly with ``python examples/signal_processing/<section>/<script>.py``.
 Sections
 --------
 
-- **spectral** -- Schuster's periodogram, the Wiener-Khinchin theorem, Gabor's short-time transform, Blackman and Tukey's windows, Goertzel's algorithm and Welch's averaged periodogram.
-- **fourier** -- Gibbs's phenomenon and the Cooley-Tukey FFT.
+- **spectral** -- Schuster's periodogram, the Wiener-Khinchin theorem, Gabor's short-time transform, Blackman and Tukey's windows, Goertzel's algorithm, Welch's averaged periodogram, Yule's autoregressive model, Durbin's recursion and the cepstrum.
+- **fourier** -- Gibbs's phenomenon, the Cooley-Tukey FFT, Hilbert's transform and the analytic signal, Stockham's fast convolution and the DCT.
 - **wavelets** -- Haar's wavelet.
-- **filters** -- Butterworth's filter, Hurewicz's z-transform, Wiener's optimal filter, the LMS adaptive filter, Kaiser's FIR design and second-order sections.
-- **sampling** -- Bennett's quantization noise and Shannon's sampling theorem.
+- **filters** -- Butterworth's filter, Hurewicz's z-transform, Wiener's optimal filter, the LMS adaptive filter, Kaiser's FIR design, second-order sections, Chebyshev and elliptic filters, bilinear design with prewarping and Parks-McClellan equiripple design.
+- **sampling** -- Bennett's quantization noise, Shannon's sampling theorem and Schafer and Rabiner's interpolation and decimation.
 
 
 .. raw:: html
@@ -160,6 +161,74 @@ Designing, analysing and implementing digital filters, from fixed designs to ada
     </div>
 
 
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Pafnuty Chebyshev, studying Watt&#x27;s linkage, asked which polynomial of degree n stays closest to zero on an interval. The answer, T_n(x) = \cos(n \arccos x), swings between \pm 1 exactly n + 1 times there and grows faster than any other outside it. Filter designers in the 1930s put it into the squared gain, |H|^2 = 1/(1 + \varepsilon^2 T_n^2(\Omega/\Omega_p)): the passband error is spread evenly instead of being piled up at the band edge, as in Butterworth&#x27;s maximally flat filter, and the transition gets steeper for the same order (~engineeringkit.signal_processing.chebyshev1_lowpass, chebyshev2_lowpass).">
+
+.. only:: html
+
+  .. image:: /api/gallery/signal_processing/filters/images/thumb/sphx_glr_plot_07_chebyshev_equiripple_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/signal_processing/filters/plot_07_chebyshev_equiripple`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Chebyshev's equiripple approximation (1854)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Chebyshev filters ripple in one band and are monotonic in the other. Wilhelm Cauer, working on telephone filters in Göttingen and at MIT, spread the error over both bands with rational functions built from Jacobi&#x27;s elliptic functions, and placed zeros of transmission just past the band edge. His book Siebschaltungen (1931) set out the theory. For a given ripple and attenuation, the elliptic filter has the narrowest transition of any filter of its order (~engineeringkit.signal_processing.elliptic_lowpass, iir_order). The date and attribution follow the book&#x27;s 1931 VDI-Verlag edition as cited in Cauer&#x27;s Swiss patent CH166337.">
+
+.. only:: html
+
+  .. image:: /api/gallery/signal_processing/filters/images/thumb/sphx_glr_plot_08_cauer_elliptic_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/signal_processing/filters/plot_08_cauer_elliptic`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Cauer's elliptic filter (1931)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A century of analog filter design was ready-made, and Bell Labs wanted it for sampled data. Roger Golden and James Kaiser (1964) used the bilinear substitution s = K(1 - z^{-1})/(1 + z^{-1}), which maps the whole left half s-plane into the unit circle, so a stable analog filter stays stable and keeps its ripple pattern. The price is a warped frequency axis, \Omega = K\tan(\omega/2), which they offset by designing the analog prototype at the prewarped band edges (~engineeringkit.signal_processing.bilinear_transform, prewarp_frequency). The authors, title and date were checked against Bell Labs&#x27; publication record.">
+
+.. only:: html
+
+  .. image:: /api/gallery/signal_processing/filters/images/thumb/sphx_glr_plot_09_golden_kaiser_bilinear_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/signal_processing/filters/plot_09_golden_kaiser_bilinear`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Golden and Kaiser's bilinear design with prewarping (1964)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A window design is easy but wasteful: its largest ripple sits next to the band edge and the ripple dies away from it, so most of the band is better than it needs to be. Thomas Parks and his student James McClellan at Rice University posed linear-phase FIR design as Chebyshev approximation: minimize the largest weighted error over the passband and stopband. The alternation theorem says the optimum&#x27;s error peaks with alternating signs at least L + 2 times, and Remez&#x27;s exchange algorithm finds those frequencies (~engineeringkit.signal_processing.equiripple_lowpass, equiripple_order).">
+
+.. only:: html
+
+  .. image:: /api/gallery/signal_processing/filters/images/thumb/sphx_glr_plot_10_parks_mcclellan_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/signal_processing/filters/plot_10_parks_mcclellan`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Parks and McClellan's equiripple FIR filter (1972)</div>
+    </div>
+
+
 .. thumbnail-parent-div-close
 
 .. raw:: html
@@ -169,7 +238,7 @@ Designing, analysing and implementing digital filters, from fixed designs to ada
 Fourier analysis
 ----------------
 
-Fourier series and the fast Fourier transform.
+Fourier series, the fast Fourier transform and fast convolution, the Hilbert transform and the discrete cosine transform.
 
 
 .. raw:: html
@@ -217,6 +286,57 @@ Fourier series and the fast Fourier transform.
     </div>
 
 
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In his third communication on integral equations (1905), David Hilbert paired a function on the unit circle with its conjugate, the boundary values of the real and imaginary parts of one analytic function, through the singular kernel \cot\frac{s - t}{2}. In frequency terms the pairing shifts every component by -90°: \cos \to \sin. Dennis Gabor (1946) added the conjugate to a real signal as its imaginary part, z = x + j\mathcal{H}x, and called the result the analytic signal: it has no negative frequencies, its magnitude is the envelope and its phase advances at the instantaneous frequency (~engineeringkit.signal_processing.hilbert_transform, analytic_signal, envelope, instantaneous_frequency, hilbert_fir). The 1905 date and pages come from the Göttingen Nachrichten catalogue record; that the transform pair appears there follows F. W. King, Hilbert Transforms (Cambridge, 2009), a secondary source.">
+
+.. only:: html
+
+  .. image:: /api/gallery/signal_processing/fourier/images/thumb/sphx_glr_plot_03_hilbert_analytic_signal_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/signal_processing/fourier/plot_03_hilbert_analytic_signal`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Hilbert's conjugate functions and the analytic signal (1905)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="The FFT multiplies spectra cheaply, but the product of two DFTs is the circular convolution: the tail of the output wraps round onto its start. Thomas Stockham, at MIT&#x27;s Project MAC, showed at the 1966 Spring Joint Computer Conference how to get the linear convolution anyway, and fast: zero-pad both sequences to at least N_x + N_h - 1 samples, and, for a long record, cut it into blocks, convolve each through the FFT and add the overlapping tails, overlap-add (~engineeringkit.signal_processing.circular_convolution, overlap_add). Zero padding does not add resolution to a spectrum; it only samples the same spectrum more finely, which is the last section here.">
+
+.. only:: html
+
+  .. image:: /api/gallery/signal_processing/fourier/images/thumb/sphx_glr_plot_04_stockham_fast_convolution_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/signal_processing/fourier/plot_04_stockham_fast_convolution`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Stockham's high-speed convolution (1966)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="The best basis for compressing a random signal, the Karhunen-Loève transform, depends on the signal&#x27;s covariance and has no fast algorithm. Nasir Ahmed, T. Natarajan and K. R. Rao (1974) proposed a fixed basis of sampled cosines that comes very close to it for strongly correlated signals. Because the DCT implicitly extends the record by its mirror image, there is no jump at the ends and the coefficients of a smooth signal decay fast; the DFT&#x27;s periodic extension has a jump and leaks. The DCT became the core of JPEG, MPEG and MP3 (~engineeringkit.signal_processing.dct, idct).">
+
+.. only:: html
+
+  .. image:: /api/gallery/signal_processing/fourier/images/thumb/sphx_glr_plot_05_ahmed_natarajan_rao_dct_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/signal_processing/fourier/plot_05_ahmed_natarajan_rao_dct`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Ahmed, Natarajan and Rao's discrete cosine transform (1974)</div>
+    </div>
+
+
 .. thumbnail-parent-div-close
 
 .. raw:: html
@@ -226,7 +346,7 @@ Fourier series and the fast Fourier transform.
 Sampling
 --------
 
-What is kept and what is lost when a signal is sampled and quantized.
+What is kept and what is lost when a signal is sampled and quantized, and how its sampling rate is changed.
 
 
 .. raw:: html
@@ -271,6 +391,23 @@ What is kept and what is lost when a signal is sampled and quantized.
 .. raw:: html
 
       <div class="sphx-glr-thumbnail-title">Shannon's sampling theorem and aliasing (1949)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Changing a sampling rate used to mean converting back to analog and sampling again. Ronald Schafer and Lawrence Rabiner (1973), at Bell Labs, showed it is a digital filtering problem. To raise the rate by L, insert L - 1 zeros between samples, which leaves images of the spectrum, and remove them with a low-pass filter of gain L. To lower it by M, low-pass filter first so nothing aliases, then keep every M-th sample (~engineeringkit.signal_processing.upsample, interpolate, downsample, decimate). A windowed-sinc interpolator passes the original samples through unchanged.">
+
+.. only:: html
+
+  .. image:: /api/gallery/signal_processing/sampling/images/thumb/sphx_glr_plot_03_schafer_rabiner_interpolation_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/signal_processing/sampling/plot_03_schafer_rabiner_interpolation`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Schafer and Rabiner's digital interpolation (1973)</div>
     </div>
 
 
@@ -396,6 +533,57 @@ Estimating how a signal's power is spread over frequency, and how that spread ch
 .. raw:: html
 
       <div class="sphx-glr-thumbnail-title">Welch's averaged periodogram (1967)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Schuster&#x27;s periodogram looked for strict periodicities hidden in noise. George Udny Yule, studying Wolfer&#x27;s sunspot numbers, proposed another picture: a pendulum &quot;pelted with peas&quot;, a damped oscillator kept going by random shocks, x_n = -a_1 x_{n-1} - a_2 x_{n-2} + e_n. Its cycle wanders in phase and amplitude, as the sunspot cycle does, and it is fitted from the record&#x27;s correlations, not its Fourier coefficients. Gilbert Walker (1931) extended the equations to any order. The fitted model gives a smooth spectrum \sigma^2/|A(e^{j\omega})|^2 (~engineeringkit.signal_processing.yule_walker, ARModel).">
+
+.. only:: html
+
+  .. image:: /api/gallery/signal_processing/spectral/images/thumb/sphx_glr_plot_07_yule_autoregression_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/signal_processing/spectral/plot_07_yule_autoregression`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Yule's autoregressive model (1927)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="The Yule-Walker equations have a Toeplitz matrix, and Norman Levinson (1947) had solved such systems, for Wiener&#x27;s filter, by a recursion on the order. James Durbin (1960) recast it for fitting autoregressions: the order-m model is the order-(m-1) one plus a correction weighted by a reflection coefficient k_m. It costs p^2 operations instead of p^3, gives every order on the way, so the prediction error can be watched as the order grows, and |k_m| &lt; 1 certifies a stable model (~engineeringkit.signal_processing.levinson_durbin). Linear predictive coding of speech is built on it.">
+
+.. only:: html
+
+  .. image:: /api/gallery/signal_processing/spectral/images/thumb/sphx_glr_plot_08_levinson_durbin_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/signal_processing/spectral/plot_08_levinson_durbin`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Durbin's recursion for autoregressive fitting (1960)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Seismologists wanted to know how deep an earthquake was, from the delay between a wave and its echo off the surface. An echo multiplies the spectrum by 1 + \alpha e^{-j\omega d}: a ripple in the log spectrum whose &quot;frequency&quot; is the delay. Bruce Bogert, Michael Healy and John Tukey (1963) took the spectrum of the log spectrum and found the echo as a peak. They reversed letters to name the new domain: cepstrum, quefrency, liftering. Logarithms turn the convolution of a source and a filter into a sum, which is how pitch is separated from the vocal tract in speech (~engineeringkit.signal_processing.real_cepstrum).">
+
+.. only:: html
+
+  .. image:: /api/gallery/signal_processing/spectral/images/thumb/sphx_glr_plot_09_bogert_healy_tukey_cepstrum_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/signal_processing/spectral/plot_09_bogert_healy_tukey_cepstrum`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Bogert, Healy and Tukey's cepstrum (1963)</div>
     </div>
 
 

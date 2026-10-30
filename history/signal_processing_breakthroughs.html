@@ -55,7 +55,7 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be" />
 
-    <script src="../_static/documentation_options.js?v=38b66d78"></script>
+    <script src="../_static/documentation_options.js?v=95e61db4"></script>
     <script src="../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/sg-tags.js?v=d80f6fa4"></script>
@@ -222,6 +222,21 @@
   </ul>
 </div></div>
       
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://cpoli.github.io/" title="Charles Poli" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-user fa-lg" aria-hidden="true"></i><span class="visually-hidden">Charles Poli</span></a>
+        </li>
+</ul></div>
+      
     </div>
     
   </div>
@@ -319,6 +334,21 @@
     <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
   </ul>
 </div></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://cpoli.github.io/" title="Charles Poli" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-user fa-lg" aria-hidden="true"></i><span class="visually-hidden">Charles Poli</span></a>
+        </li>
+</ul></div>
         
       </div>
     
@@ -424,40 +454,80 @@ spaced 1/2W seconds apart.”
 <p>Signal processing grew out of the search for hidden periodicities in
 scientific records, and out of the telephone, radio and radar engineering
 of the first half of the twentieth century. Fourier series and the
-periodogram described signals by their frequencies. Analogue filter design
+periodogram described signals by their frequencies, and Chebyshev’s
+approximation theory and Hilbert’s conjugate functions supplied tools the
+field would need later. Analogue filter design
 and the theory of sampled servomechanisms prepared the ground for digital
 filters, while the war and its aftermath brought optimal filtering,
 quantization and the sampling theorem. In the 1960s cheap computation
-arrived: the fast Fourier transform, adaptive filters, window design and
-the cascaded sections that make recursive filters work in finite
-precision. The entries trace the ideas behind
+arrived: the fast Fourier transform and fast convolution, adaptive
+filters, autoregressive fitting, the cepstrum, digital filter design from
+analog prototypes, window and equiripple FIR design, and the cascaded
+sections that make recursive filters work in finite precision. The early
+1970s added multirate processing and the discrete cosine transform. The entries trace the ideas behind
 <a class="reference internal" href="../api/signal_processing.html#module-engineeringkit.signal_processing" title="engineeringkit.signal_processing"><code class="xref py py-mod docutils literal notranslate"><span class="pre">engineeringkit.signal_processing</span></code></a>. Each links to the implementing
 function and to a gallery example devoted to it.</p>
 <nav class="contents local" id="timeline">
 <p class="topic-title">Timeline</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#schuster-s-periodogram" id="id1">1898 – Schuster’s Periodogram</a></p></li>
-<li><p><a class="reference internal" href="#gibbs-s-phenomenon" id="id2">1899 – Gibbs’s Phenomenon</a></p></li>
-<li><p><a class="reference internal" href="#haar-s-wavelet" id="id3">1910 – Haar’s Wavelet</a></p></li>
-<li><p><a class="reference internal" href="#butterworth-s-maximally-flat-filter" id="id4">1930 – Butterworth’s Maximally Flat Filter</a></p></li>
-<li><p><a class="reference internal" href="#the-wiener-khinchin-theorem" id="id5">1934 – The Wiener-Khinchin Theorem</a></p></li>
-<li><p><a class="reference internal" href="#gabor-s-time-frequency-atoms" id="id6">1946 – Gabor’s Time-Frequency Atoms</a></p></li>
-<li><p><a class="reference internal" href="#hurewicz-s-z-transform" id="id7">1947 – Hurewicz’s z-Transform</a></p></li>
-<li><p><a class="reference internal" href="#bennett-s-quantization-noise" id="id8">1948 – Bennett’s Quantization Noise</a></p></li>
-<li><p><a class="reference internal" href="#shannon-s-sampling-theorem" id="id9">1949 – Shannon’s Sampling Theorem</a></p></li>
-<li><p><a class="reference internal" href="#wiener-s-optimal-filter" id="id10">1949 – Wiener’s Optimal Filter</a></p></li>
-<li><p><a class="reference internal" href="#blackman-and-tukey-s-spectral-windows" id="id11">1958 – Blackman and Tukey’s Spectral Windows</a></p></li>
-<li><p><a class="reference internal" href="#goertzel-s-algorithm" id="id12">1958 – Goertzel’s Algorithm</a></p></li>
-<li><p><a class="reference internal" href="#widrow-and-hoff-s-lms-adaptive-filter" id="id13">1960 – Widrow and Hoff’s LMS Adaptive Filter</a></p></li>
-<li><p><a class="reference internal" href="#cooley-and-tukey-s-fast-fourier-transform" id="id14">1965 – Cooley and Tukey’s Fast Fourier Transform</a></p></li>
-<li><p><a class="reference internal" href="#kaiser-s-window-method-for-fir-design" id="id15">1966 – Kaiser’s Window Method for FIR Design</a></p></li>
-<li><p><a class="reference internal" href="#welch-s-averaged-periodogram" id="id16">1967 – Welch’s Averaged Periodogram</a></p></li>
-<li><p><a class="reference internal" href="#jackson-s-cascaded-second-order-sections" id="id17">1970 – Jackson’s Cascaded Second-Order Sections</a></p></li>
-<li><p><a class="reference internal" href="#see-also" id="id18">See Also</a></p></li>
+<li><p><a class="reference internal" href="#chebyshev-s-equiripple-approximation" id="id1">1854 – Chebyshev’s Equiripple Approximation</a></p></li>
+<li><p><a class="reference internal" href="#schuster-s-periodogram" id="id2">1898 – Schuster’s Periodogram</a></p></li>
+<li><p><a class="reference internal" href="#gibbs-s-phenomenon" id="id3">1899 – Gibbs’s Phenomenon</a></p></li>
+<li><p><a class="reference internal" href="#hilbert-s-conjugate-functions" id="id4">1905 – Hilbert’s Conjugate Functions</a></p></li>
+<li><p><a class="reference internal" href="#haar-s-wavelet" id="id5">1910 – Haar’s Wavelet</a></p></li>
+<li><p><a class="reference internal" href="#yule-s-autoregressive-model" id="id6">1927 – Yule’s Autoregressive Model</a></p></li>
+<li><p><a class="reference internal" href="#butterworth-s-maximally-flat-filter" id="id7">1930 – Butterworth’s Maximally Flat Filter</a></p></li>
+<li><p><a class="reference internal" href="#cauer-s-elliptic-filter" id="id8">1931 – Cauer’s Elliptic Filter</a></p></li>
+<li><p><a class="reference internal" href="#the-wiener-khinchin-theorem" id="id9">1934 – The Wiener-Khinchin Theorem</a></p></li>
+<li><p><a class="reference internal" href="#gabor-s-time-frequency-atoms" id="id10">1946 – Gabor’s Time-Frequency Atoms</a></p></li>
+<li><p><a class="reference internal" href="#hurewicz-s-z-transform" id="id11">1947 – Hurewicz’s z-Transform</a></p></li>
+<li><p><a class="reference internal" href="#bennett-s-quantization-noise" id="id12">1948 – Bennett’s Quantization Noise</a></p></li>
+<li><p><a class="reference internal" href="#shannon-s-sampling-theorem" id="id13">1949 – Shannon’s Sampling Theorem</a></p></li>
+<li><p><a class="reference internal" href="#wiener-s-optimal-filter" id="id14">1949 – Wiener’s Optimal Filter</a></p></li>
+<li><p><a class="reference internal" href="#blackman-and-tukey-s-spectral-windows" id="id15">1958 – Blackman and Tukey’s Spectral Windows</a></p></li>
+<li><p><a class="reference internal" href="#goertzel-s-algorithm" id="id16">1958 – Goertzel’s Algorithm</a></p></li>
+<li><p><a class="reference internal" href="#widrow-and-hoff-s-lms-adaptive-filter" id="id17">1960 – Widrow and Hoff’s LMS Adaptive Filter</a></p></li>
+<li><p><a class="reference internal" href="#durbin-s-recursion-for-autoregressive-fitting" id="id18">1960 – Durbin’s Recursion for Autoregressive Fitting</a></p></li>
+<li><p><a class="reference internal" href="#bogert-healy-and-tukey-s-cepstrum" id="id19">1963 – Bogert, Healy and Tukey’s Cepstrum</a></p></li>
+<li><p><a class="reference internal" href="#golden-and-kaiser-s-bilinear-design-with-prewarping" id="id20">1964 – Golden and Kaiser’s Bilinear Design with Prewarping</a></p></li>
+<li><p><a class="reference internal" href="#cooley-and-tukey-s-fast-fourier-transform" id="id21">1965 – Cooley and Tukey’s Fast Fourier Transform</a></p></li>
+<li><p><a class="reference internal" href="#kaiser-s-window-method-for-fir-design" id="id22">1966 – Kaiser’s Window Method for FIR Design</a></p></li>
+<li><p><a class="reference internal" href="#stockham-s-high-speed-convolution" id="id23">1966 – Stockham’s High-Speed Convolution</a></p></li>
+<li><p><a class="reference internal" href="#welch-s-averaged-periodogram" id="id24">1967 – Welch’s Averaged Periodogram</a></p></li>
+<li><p><a class="reference internal" href="#jackson-s-cascaded-second-order-sections" id="id25">1970 – Jackson’s Cascaded Second-Order Sections</a></p></li>
+<li><p><a class="reference internal" href="#parks-and-mcclellan-s-equiripple-fir-filter" id="id26">1972 – Parks and McClellan’s Equiripple FIR Filter</a></p></li>
+<li><p><a class="reference internal" href="#schafer-and-rabiner-s-digital-interpolation" id="id27">1973 – Schafer and Rabiner’s Digital Interpolation</a></p></li>
+<li><p><a class="reference internal" href="#ahmed-natarajan-and-rao-s-discrete-cosine-transform" id="id28">1974 – Ahmed, Natarajan and Rao’s Discrete Cosine Transform</a></p></li>
+<li><p><a class="reference internal" href="#see-also" id="id29">See Also</a></p></li>
 </ul>
 </nav>
+<section id="chebyshev-s-equiripple-approximation">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">1854 – Chebyshev’s Equiripple Approximation</a><a class="headerlink" href="#chebyshev-s-equiripple-approximation" title="Link to this heading">#</a></h2>
+<p>Pafnuty Chebyshev, analysing the error of Watt’s parallel-motion linkage,
+asked which polynomial of degree <span class="math notranslate nohighlight">\(n\)</span> with leading coefficient 1 stays
+closest to zero on an interval. The answer is
+<span class="math notranslate nohighlight">\(T_n(x)/2^{n-1}\)</span> with <span class="math notranslate nohighlight">\(T_n(x) = \cos(n\arccos x)\)</span>, whose error
+reaches its maximum <span class="math notranslate nohighlight">\(n + 1\)</span> times with alternating sign; the
+alternation characterizes every best uniform approximation. Network
+theorists of the 1930s put <span class="math notranslate nohighlight">\(T_n\)</span> into the squared gain of a filter,
+<span class="math notranslate nohighlight">\(1/(1 + \varepsilon^2 T_n^2)\)</span>, spreading the passband error evenly
+and buying a steeper cutoff than Butterworth’s for the same order. The
+filter application is checked against Oppenheim and Schafer, a textbook.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/signal_processing.html#engineeringkit.signal_processing.chebyshev1_lowpass" title="engineeringkit.signal_processing.chebyshev1_lowpass"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.signal_processing.chebyshev1_lowpass()</span></code></a>,
+<a class="reference internal" href="../api/signal_processing.html#engineeringkit.signal_processing.chebyshev2_lowpass" title="engineeringkit.signal_processing.chebyshev2_lowpass"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.signal_processing.chebyshev2_lowpass()</span></code></a> and
+<a class="reference internal" href="../api/signal_processing.html#engineeringkit.signal_processing.iir_order" title="engineeringkit.signal_processing.iir_order"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.signal_processing.iir_order()</span></code></a>. The example checks the
+minimax property of <span class="math notranslate nohighlight">\(T_n\)</span>, the equiripple passband and the order
+saved against Butterworth.</p>
+<p><em>References:</em> P. L. Chebyshev, “Théorie des mécanismes connus sous le nom
+de parallélogrammes,” <em>Mém. Acad. Sci. St.-Pétersbourg, Savants étrangers</em>
+7 (1854) 539-568; A. V. Oppenheim and R. W. Schafer, <em>Discrete-Time Signal
+Processing</em>, 3rd ed. (Pearson, 2010), sec. 7.3.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Pafnuty Chebyshev, studying Watt&#x27;s linkage, asked which polynomial of degree n stays closest to zero on an interval. The answer, T_n(x) = \cos(n \arccos x), swings between \pm 1 exactly n + 1 times there and grows faster than any other outside it. Filter designers in the 1930s put it into the squared gain, |H|^2 = 1/(1 + \varepsilon^2 T_n^2(\Omega/\Omega_p)): the passband error is spread evenly instead of being piled up at the band edge, as in Butterworth&#x27;s maximally flat filter, and the transition gets steeper for the same order (~engineeringkit.signal_processing.chebyshev1_lowpass, chebyshev2_lowpass)."><img alt="" src="../_images/sphx_glr_plot_07_chebyshev_equiripple_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/signal_processing/filters/plot_07_chebyshev_equiripple.html"><span class="doc">Chebyshev’s equiripple approximation (1854)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Chebyshev's equiripple approximation (1854)</div>
+</div></div></section>
 <section id="schuster-s-periodogram">
-<h2><a class="toc-backref" href="#id1" role="doc-backlink">1898 – Schuster’s Periodogram</a><a class="headerlink" href="#schuster-s-periodogram" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">1898 – Schuster’s Periodogram</a><a class="headerlink" href="#schuster-s-periodogram" title="Link to this heading">#</a></h2>
 <p>Arthur Schuster wanted to know whether meteorological records hid a
 26-day period linked to the Sun’s rotation. He computed the squared
 magnitude of a record’s Fourier coefficients at each trial period, the
@@ -479,7 +549,7 @@ with application to a supposed 26 day period of meteorological phenomena,”
   <div class="sphx-glr-thumbnail-title">Schuster's periodogram (1898)</div>
 </div></div></section>
 <section id="gibbs-s-phenomenon">
-<h2><a class="toc-backref" href="#id2" role="doc-backlink">1899 – Gibbs’s Phenomenon</a><a class="headerlink" href="#gibbs-s-phenomenon" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">1899 – Gibbs’s Phenomenon</a><a class="headerlink" href="#gibbs-s-phenomenon" title="Link to this heading">#</a></h2>
 <p>Albert Michelson’s mechanical harmonic analyser summed 80 Fourier terms,
 and its square waves overshot at every jump. Michelson suspected the
 machine. Josiah Willard Gibbs showed in letters to <em>Nature</em> that the
@@ -498,8 +568,38 @@ Dublin Math. J.</em> 3 (1848) 198-201.</p>
 <p><a class="reference internal" href="../api/gallery/signal_processing/fourier/plot_01_gibbs_phenomenon.html"><span class="doc">Gibbs’s phenomenon (1899)</span></a></p>
   <div class="sphx-glr-thumbnail-title">Gibbs's phenomenon (1899)</div>
 </div></div></section>
+<section id="hilbert-s-conjugate-functions">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">1905 – Hilbert’s Conjugate Functions</a><a class="headerlink" href="#hilbert-s-conjugate-functions" title="Link to this heading">#</a></h2>
+<p>In the third of his communications on linear integral equations, David
+Hilbert paired a function on the unit circle with its conjugate, the
+boundary values of the real and imaginary parts of a single analytic
+function, through a singular integral with kernel
+<span class="math notranslate nohighlight">\(\cot\frac{s-t}{2}\)</span>; G. H. Hardy later named the pairing the Hilbert
+transform. On the frequency axis it multiplies by
+<span class="math notranslate nohighlight">\(-j\operatorname{sgn}\omega\)</span>, a -90° shift of every component.
+Gabor (1946) used it to build the analytic signal
+<span class="math notranslate nohighlight">\(x + j\mathcal{H}x\)</span>, whose magnitude is the envelope and whose phase
+gives the instantaneous frequency. The date and pages are from the
+Göttingen <em>Nachrichten</em> record; that the transform appears there is taken
+from King’s monograph, a secondary source.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/signal_processing.html#engineeringkit.signal_processing.hilbert_transform" title="engineeringkit.signal_processing.hilbert_transform"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.signal_processing.hilbert_transform()</span></code></a>,
+<a class="reference internal" href="../api/signal_processing.html#engineeringkit.signal_processing.analytic_signal" title="engineeringkit.signal_processing.analytic_signal"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.signal_processing.analytic_signal()</span></code></a>,
+<a class="reference internal" href="../api/signal_processing.html#engineeringkit.signal_processing.envelope" title="engineeringkit.signal_processing.envelope"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.signal_processing.envelope()</span></code></a>,
+<a class="reference internal" href="../api/signal_processing.html#engineeringkit.signal_processing.instantaneous_frequency" title="engineeringkit.signal_processing.instantaneous_frequency"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.signal_processing.instantaneous_frequency()</span></code></a> and
+<a class="reference internal" href="../api/signal_processing.html#engineeringkit.signal_processing.hilbert_fir" title="engineeringkit.signal_processing.hilbert_fir"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.signal_processing.hilbert_fir()</span></code></a>. The example checks
+the -90° shift, recovers the envelope and sweep of a modulated chirp and
+compares a 61-tap FIR transformer with the FFT method.</p>
+<p><em>References:</em> D. Hilbert, “Grundzüge einer allgemeinen Theorie der
+linearen Integralgleichungen (Dritte Mitteilung),” <em>Nachr. Ges. Wiss.
+Göttingen, Math.-Phys. Kl.</em> (1905) 307-338; F. W. King, <em>Hilbert
+Transforms</em>, vol. 1 (Cambridge University Press, 2009), ch. 1; D. Gabor,
+“Theory of communication,” <em>J. IEE</em> 93, part III (1946) 429-457.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="In his third communication on integral equations (1905), David Hilbert paired a function on the unit circle with its conjugate, the boundary values of the real and imaginary parts of one analytic function, through the singular kernel \cot\frac{s - t}{2}. In frequency terms the pairing shifts every component by -90°: \cos \to \sin. Dennis Gabor (1946) added the conjugate to a real signal as its imaginary part, z = x + j\mathcal{H}x, and called the result the analytic signal: it has no negative frequencies, its magnitude is the envelope and its phase advances at the instantaneous frequency (~engineeringkit.signal_processing.hilbert_transform, analytic_signal, envelope, instantaneous_frequency, hilbert_fir). The 1905 date and pages come from the Göttingen Nachrichten catalogue record; that the transform pair appears there follows F. W. King, Hilbert Transforms (Cambridge, 2009), a secondary source."><img alt="" src="../_images/sphx_glr_plot_03_hilbert_analytic_signal_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/signal_processing/fourier/plot_03_hilbert_analytic_signal.html"><span class="doc">Hilbert’s conjugate functions and the analytic signal (1905)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Hilbert's conjugate functions and the analytic signal (1905)</div>
+</div></div></section>
 <section id="haar-s-wavelet">
-<h2><a class="toc-backref" href="#id3" role="doc-backlink">1910 – Haar’s Wavelet</a><a class="headerlink" href="#haar-s-wavelet" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">1910 – Haar’s Wavelet</a><a class="headerlink" href="#haar-s-wavelet" title="Link to this heading">#</a></h2>
 <p>In his dissertation, Alfréd Haar built an orthonormal basis of
 square-integrable functions from a single step: the difference between the
 two halves of an interval, shrunk and shifted to every scale and position.
@@ -518,8 +618,33 @@ piecewise signal better than a Fourier basis does.</p>
 <p><a class="reference internal" href="../api/gallery/signal_processing/wavelets/plot_01_haar_wavelet.html"><span class="doc">Haar’s wavelet (1910)</span></a></p>
   <div class="sphx-glr-thumbnail-title">Haar's wavelet (1910)</div>
 </div></div></section>
+<section id="yule-s-autoregressive-model">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">1927 – Yule’s Autoregressive Model</a><a class="headerlink" href="#yule-s-autoregressive-model" title="Link to this heading">#</a></h2>
+<p>George Udny Yule doubted that Wolfer’s sunspot numbers hid a strict
+periodicity. He pictured instead a pendulum “pelted with peas”: a damped
+oscillator kept going by random shocks,
+<span class="math notranslate nohighlight">\(x_n = -a_1 x_{n-1} - a_2 x_{n-2} + e_n\)</span>, whose cycle drifts in
+phase and amplitude. He fitted the two coefficients from the record’s
+correlations and found a period of about ten years. Gilbert Walker (1931)
+wrote the equations for any order. Autoregression replaced the search for
+hidden sines with a model of the process, and its spectrum
+<span class="math notranslate nohighlight">\(\sigma^2/|A(e^{j\omega})|^2\)</span> is smooth where the periodogram is
+ragged.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/signal_processing.html#engineeringkit.signal_processing.yule_walker" title="engineeringkit.signal_processing.yule_walker"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.signal_processing.yule_walker()</span></code></a> and
+<a class="reference internal" href="../api/signal_processing.html#engineeringkit.signal_processing.ARModel" title="engineeringkit.signal_processing.ARModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">engineeringkit.signal_processing.ARModel</span></code></a>. The example fits a
+disturbed 11-year oscillator and compares the AR spectrum with the
+periodogram and the true spectrum.</p>
+<p><em>References:</em> G. U. Yule, “On a method of investigating periodicities in
+disturbed series, with special reference to Wolfer’s sunspot numbers,”
+<em>Phil. Trans. R. Soc. A</em> 226 (1927) 267-298, <a class="extlink-doi reference external" href="https://doi.org/10.1098/rsta.1927.0007">doi:10.1098/rsta.1927.0007</a>;
+G. Walker, “On periodicity in series of related terms,” <em>Proc. R. Soc. A</em>
+131 (1931) 518-532.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Schuster&#x27;s periodogram looked for strict periodicities hidden in noise. George Udny Yule, studying Wolfer&#x27;s sunspot numbers, proposed another picture: a pendulum &quot;pelted with peas&quot;, a damped oscillator kept going by random shocks, x_n = -a_1 x_{n-1} - a_2 x_{n-2} + e_n. Its cycle wanders in phase and amplitude, as the sunspot cycle does, and it is fitted from the record&#x27;s correlations, not its Fourier coefficients. Gilbert Walker (1931) extended the equations to any order. The fitted model gives a smooth spectrum \sigma^2/|A(e^{j\omega})|^2 (~engineeringkit.signal_processing.yule_walker, ARModel)."><img alt="" src="../_images/sphx_glr_plot_07_yule_autoregression_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/signal_processing/spectral/plot_07_yule_autoregression.html"><span class="doc">Yule’s autoregressive model (1927)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Yule's autoregressive model (1927)</div>
+</div></div></section>
 <section id="butterworth-s-maximally-flat-filter">
-<h2><a class="toc-backref" href="#id4" role="doc-backlink">1930 – Butterworth’s Maximally Flat Filter</a><a class="headerlink" href="#butterworth-s-maximally-flat-filter" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">1930 – Butterworth’s Maximally Flat Filter</a><a class="headerlink" href="#butterworth-s-maximally-flat-filter" title="Link to this heading">#</a></h2>
 <p>Stephen Butterworth, designing filters for valve amplifiers, asked for a
 response as flat as possible in the passband. His answer,
 <span class="math notranslate nohighlight">\(|H|^2 = 1/(1 + (\omega/\omega_c)^{2n})\)</span>, has its first
@@ -538,8 +663,30 @@ complementarity of a low-pass and high-pass pair.</p>
 <p><a class="reference internal" href="../api/gallery/signal_processing/filters/plot_01_butterworth.html"><span class="doc">Butterworth’s maximally flat filter (1930)</span></a></p>
   <div class="sphx-glr-thumbnail-title">Butterworth's maximally flat filter (1930)</div>
 </div></div></section>
+<section id="cauer-s-elliptic-filter">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">1931 – Cauer’s Elliptic Filter</a><a class="headerlink" href="#cauer-s-elliptic-filter" title="Link to this heading">#</a></h2>
+<p>Wilhelm Cauer, who had studied network synthesis in Göttingen and at MIT,
+asked for the filter with the narrowest transition band for a given order,
+passband ripple and stopband attenuation. His answer used rational
+functions built from Jacobi’s elliptic functions, which ripple evenly in
+both bands and put zeros of transmission on the frequency axis just past
+the band edge. <em>Siebschaltungen</em> (1931) set out the theory, and his patents
+of the 1930s covered the circuits. Elliptic filters need the lowest order
+of any classical design, at the cost of the most nonlinear phase. The date
+follows the book’s VDI-Verlag edition as cited in Cauer’s own Swiss patent.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/signal_processing.html#engineeringkit.signal_processing.elliptic_lowpass" title="engineeringkit.signal_processing.elliptic_lowpass"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.signal_processing.elliptic_lowpass()</span></code></a>
+and <a class="reference internal" href="../api/signal_processing.html#engineeringkit.signal_processing.iir_order" title="engineeringkit.signal_processing.iir_order"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.signal_processing.iir_order()</span></code></a>. The example meets
+one specification with Butterworth, Chebyshev and elliptic filters, and
+checks the elliptic ripple bounds and its zeros on the unit circle.</p>
+<p><em>References:</em> W. Cauer, <em>Siebschaltungen</em> (VDI-Verlag, Berlin, 1931);
+W. Cauer, Swiss patent CH 166 337, “Siebschaltung”; W. Cauer, <em>Synthesis
+of Linear Communication Networks</em> (McGraw-Hill, New York, 1958).</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Chebyshev filters ripple in one band and are monotonic in the other. Wilhelm Cauer, working on telephone filters in Göttingen and at MIT, spread the error over both bands with rational functions built from Jacobi&#x27;s elliptic functions, and placed zeros of transmission just past the band edge. His book Siebschaltungen (1931) set out the theory. For a given ripple and attenuation, the elliptic filter has the narrowest transition of any filter of its order (~engineeringkit.signal_processing.elliptic_lowpass, iir_order). The date and attribution follow the book&#x27;s 1931 VDI-Verlag edition as cited in Cauer&#x27;s Swiss patent CH166337."><img alt="" src="../_images/sphx_glr_plot_08_cauer_elliptic_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/signal_processing/filters/plot_08_cauer_elliptic.html"><span class="doc">Cauer’s elliptic filter (1931)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Cauer's elliptic filter (1931)</div>
+</div></div></section>
 <section id="the-wiener-khinchin-theorem">
-<h2><a class="toc-backref" href="#id5" role="doc-backlink">1934 – The Wiener-Khinchin Theorem</a><a class="headerlink" href="#the-wiener-khinchin-theorem" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">1934 – The Wiener-Khinchin Theorem</a><a class="headerlink" href="#the-wiener-khinchin-theorem" title="Link to this heading">#</a></h2>
 <p>A random signal has no Fourier transform of its own, so what is its
 spectrum? Norbert Wiener’s generalized harmonic analysis (1930) and
 Aleksandr Khinchin’s correlation theory of stationary processes (1934)
@@ -559,7 +706,7 @@ stochastischen Prozesse,” <em>Math. Ann.</em> 109 (1934) 604-615.</p>
   <div class="sphx-glr-thumbnail-title">The Wiener-Khinchin theorem (1934)</div>
 </div></div></section>
 <section id="gabor-s-time-frequency-atoms">
-<h2><a class="toc-backref" href="#id6" role="doc-backlink">1946 – Gabor’s Time-Frequency Atoms</a><a class="headerlink" href="#gabor-s-time-frequency-atoms" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">1946 – Gabor’s Time-Frequency Atoms</a><a class="headerlink" href="#gabor-s-time-frequency-atoms" title="Link to this heading">#</a></h2>
 <p>A Fourier spectrum says which frequencies a signal contains but not when.
 Dennis Gabor described signals by elementary “atoms”, Gaussian-windowed
 sinusoids that each occupy a cell of the time-frequency plane. Sliding a
@@ -578,7 +725,7 @@ chirp with a click using short and long windows.</p>
   <div class="sphx-glr-thumbnail-title">Gabor's time-frequency atoms (1946)</div>
 </div></div></section>
 <section id="hurewicz-s-z-transform">
-<h2><a class="toc-backref" href="#id7" role="doc-backlink">1947 – Hurewicz’s z-Transform</a><a class="headerlink" href="#hurewicz-s-z-transform" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id11" role="doc-backlink">1947 – Hurewicz’s z-Transform</a><a class="headerlink" href="#hurewicz-s-z-transform" title="Link to this heading">#</a></h2>
 <p>Radar fire-control systems sampled their targets, and the MIT Radiation
 Laboratory needed a theory of feedback loops that saw data only at
 discrete instants. In the Laboratory’s <em>Theory of Servomechanisms</em>, Witold
@@ -602,7 +749,7 @@ Zadeh, “The analysis of sampled-data systems,” <em>Trans. AIEE</em> 71, part
   <div class="sphx-glr-thumbnail-title">Hurewicz's z-transform (1947)</div>
 </div></div></section>
 <section id="bennett-s-quantization-noise">
-<h2><a class="toc-backref" href="#id8" role="doc-backlink">1948 – Bennett’s Quantization Noise</a><a class="headerlink" href="#bennett-s-quantization-noise" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id12" role="doc-backlink">1948 – Bennett’s Quantization Noise</a><a class="headerlink" href="#bennett-s-quantization-noise" title="Link to this heading">#</a></h2>
 <p>Pulse-code modulation, developed at Bell Laboratories during the war,
 rounds every sample to one of <span class="math notranslate nohighlight">\(2^N\)</span> levels. W. R. Bennett analysed
 the spectrum of the rounding error and showed that for a signal that is
@@ -623,7 +770,7 @@ Tech. J.</em> 27 (1948) 446-472.</p>
   <div class="sphx-glr-thumbnail-title">Bennett's quantization noise (1948)</div>
 </div></div></section>
 <section id="shannon-s-sampling-theorem">
-<h2><a class="toc-backref" href="#id9" role="doc-backlink">1949 – Shannon’s Sampling Theorem</a><a class="headerlink" href="#shannon-s-sampling-theorem" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id13" role="doc-backlink">1949 – Shannon’s Sampling Theorem</a><a class="headerlink" href="#shannon-s-sampling-theorem" title="Link to this heading">#</a></h2>
 <p>Claude Shannon’s paper on communication in the presence of noise opens
 with a theorem: a signal with no frequencies above <span class="math notranslate nohighlight">\(W\)</span> is completely
 determined by samples spaced <span class="math notranslate nohighlight">\(1/(2W)\)</span> apart, and it is rebuilt by a
@@ -647,7 +794,7 @@ Edinburgh</em> 35 (1915) 181-194.</p>
   <div class="sphx-glr-thumbnail-title">Shannon's sampling theorem and aliasing (1949)</div>
 </div></div></section>
 <section id="wiener-s-optimal-filter">
-<h2><a class="toc-backref" href="#id10" role="doc-backlink">1949 – Wiener’s Optimal Filter</a><a class="headerlink" href="#wiener-s-optimal-filter" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id14" role="doc-backlink">1949 – Wiener’s Optimal Filter</a><a class="headerlink" href="#wiener-s-optimal-filter" title="Link to this heading">#</a></h2>
 <p>Asked during the war to predict the path of an aircraft from noisy radar
 data, Norbert Wiener posed filtering as an optimization: find the linear
 filter that minimizes the mean squared error between its output and the
@@ -669,7 +816,7 @@ prediction,” <em>J. Math. Phys.</em> 25 (1947) 261-278.</p>
   <div class="sphx-glr-thumbnail-title">Wiener's optimal filter (1949)</div>
 </div></div></section>
 <section id="blackman-and-tukey-s-spectral-windows">
-<h2><a class="toc-backref" href="#id11" role="doc-backlink">1958 – Blackman and Tukey’s Spectral Windows</a><a class="headerlink" href="#blackman-and-tukey-s-spectral-windows" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id15" role="doc-backlink">1958 – Blackman and Tukey’s Spectral Windows</a><a class="headerlink" href="#blackman-and-tukey-s-spectral-windows" title="Link to this heading">#</a></h2>
 <p>Ralph Blackman and John Tukey’s <em>The Measurement of Power Spectra</em> turned
 spectral estimation into an engineering procedure for the telephone and
 seismic data of the Bell System. Cutting a finite record from a signal
@@ -688,7 +835,7 @@ Tech. J.</em> 37 (1958) 185-282 and 485-569.</p>
   <div class="sphx-glr-thumbnail-title">Blackman and Tukey's spectral windows (1958)</div>
 </div></div></section>
 <section id="goertzel-s-algorithm">
-<h2><a class="toc-backref" href="#id12" role="doc-backlink">1958 – Goertzel’s Algorithm</a><a class="headerlink" href="#goertzel-s-algorithm" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id16" role="doc-backlink">1958 – Goertzel’s Algorithm</a><a class="headerlink" href="#goertzel-s-algorithm" title="Link to this heading">#</a></h2>
 <p>Gerald Goertzel evaluated a single term of a finite trigonometric series
 with a second-order recursion that needs one real multiplication per
 sample. When only a few frequencies matter it is cheaper than a full FFT,
@@ -705,7 +852,7 @@ trigonometric series,” <em>Amer. Math. Monthly</em> 65 (1958) 34-35.</p>
   <div class="sphx-glr-thumbnail-title">Goertzel's algorithm (1958)</div>
 </div></div></section>
 <section id="widrow-and-hoff-s-lms-adaptive-filter">
-<h2><a class="toc-backref" href="#id13" role="doc-backlink">1960 – Widrow and Hoff’s LMS Adaptive Filter</a><a class="headerlink" href="#widrow-and-hoff-s-lms-adaptive-filter" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id17" role="doc-backlink">1960 – Widrow and Hoff’s LMS Adaptive Filter</a><a class="headerlink" href="#widrow-and-hoff-s-lms-adaptive-filter" title="Link to this heading">#</a></h2>
 <p>At Stanford, Bernard Widrow and his student Ted Hoff looked for a way to
 train an adaptive linear neuron without knowing the statistics the Wiener
 solution needs. Their least-mean-squares rule nudges the weights after
@@ -724,8 +871,76 @@ Wiener solution, and tracks a sudden change.</p>
 <p><a class="reference internal" href="../api/gallery/signal_processing/filters/plot_04_widrow_hoff_lms.html"><span class="doc">Widrow and Hoff’s LMS adaptive filter (1960)</span></a></p>
   <div class="sphx-glr-thumbnail-title">Widrow and Hoff's LMS adaptive filter (1960)</div>
 </div></div></section>
+<section id="durbin-s-recursion-for-autoregressive-fitting">
+<h2><a class="toc-backref" href="#id18" role="doc-backlink">1960 – Durbin’s Recursion for Autoregressive Fitting</a><a class="headerlink" href="#durbin-s-recursion-for-autoregressive-fitting" title="Link to this heading">#</a></h2>
+<p>The Yule-Walker equations have a Toeplitz matrix. Norman Levinson had
+solved such systems in 1947 by a recursion on the order, for Wiener’s
+filter, and James Durbin recast it for fitting autoregressions: the model
+of order <span class="math notranslate nohighlight">\(m\)</span> is that of order <span class="math notranslate nohighlight">\(m-1\)</span> plus a correction weighted
+by a reflection coefficient <span class="math notranslate nohighlight">\(k_m\)</span>, and the prediction error shrinks
+by <span class="math notranslate nohighlight">\(1 - k_m^2\)</span>. The recursion costs <span class="math notranslate nohighlight">\(p^2\)</span> operations instead of
+<span class="math notranslate nohighlight">\(p^3\)</span>, yields every lower order on the way, and <span class="math notranslate nohighlight">\(|k_m| &lt; 1\)</span>
+guarantees a stable model. Linear predictive coding of speech, and the
+lattice filters built from reflection coefficients, rest on it.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/signal_processing.html#engineeringkit.signal_processing.levinson_durbin" title="engineeringkit.signal_processing.levinson_durbin"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.signal_processing.levinson_durbin()</span></code></a>.
+The example checks the recursion against a direct Toeplitz solve, watches
+the prediction error flatten at the true order and compares the cost with
+elimination.</p>
+<p><em>References:</em> J. Durbin, “The fitting of time-series models,” <em>Rev. Int.
+Stat. Inst.</em> 28 (1960) 233-244, <a class="extlink-doi reference external" href="https://doi.org/10.2307/1401322">doi:10.2307/1401322</a>; N. Levinson, “The
+Wiener RMS (root mean square) error criterion in filter design and
+prediction,” <em>J. Math. Phys.</em> 25 (1947) 261-278.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="The Yule-Walker equations have a Toeplitz matrix, and Norman Levinson (1947) had solved such systems, for Wiener&#x27;s filter, by a recursion on the order. James Durbin (1960) recast it for fitting autoregressions: the order-m model is the order-(m-1) one plus a correction weighted by a reflection coefficient k_m. It costs p^2 operations instead of p^3, gives every order on the way, so the prediction error can be watched as the order grows, and |k_m| &lt; 1 certifies a stable model (~engineeringkit.signal_processing.levinson_durbin). Linear predictive coding of speech is built on it."><img alt="" src="../_images/sphx_glr_plot_08_levinson_durbin_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/signal_processing/spectral/plot_08_levinson_durbin.html"><span class="doc">Durbin’s recursion for autoregressive fitting (1960)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Durbin's recursion for autoregressive fitting (1960)</div>
+</div></div></section>
+<section id="bogert-healy-and-tukey-s-cepstrum">
+<h2><a class="toc-backref" href="#id19" role="doc-backlink">1963 – Bogert, Healy and Tukey’s Cepstrum</a><a class="headerlink" href="#bogert-healy-and-tukey-s-cepstrum" title="Link to this heading">#</a></h2>
+<p>To measure the depth of an earthquake, seismologists look for the echo of
+a wave off the Earth’s surface. An echo multiplies the spectrum by
+<span class="math notranslate nohighlight">\(1 + \alpha e^{-j\omega d}\)</span>, which puts a periodic ripple of
+“frequency” <span class="math notranslate nohighlight">\(d\)</span> into the log spectrum. Bruce Bogert, Michael Healy
+and John Tukey took the spectrum of the log spectrum and found the echo as
+a peak at its delay. Their paper’s title shows the vocabulary they coined
+by reversing letters: cepstrum, quefrency, alanysis, liftering. Taking
+logarithms turns a convolution into a sum, which later made the cepstrum
+the standard tool for separating pitch from the vocal tract in speech.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/signal_processing.html#engineeringkit.signal_processing.real_cepstrum" title="engineeringkit.signal_processing.real_cepstrum"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.signal_processing.real_cepstrum()</span></code></a>.
+The example finds a 37 ms echo at height <span class="math notranslate nohighlight">\(\alpha/2\)</span> and the pitch
+period of a pulse train through a resonance.</p>
+<p><em>References:</em> B. P. Bogert, M. J. R. Healy and J. W. Tukey, “The quefrency
+alanysis of time series for echoes: cepstrum, pseudo-autocovariance,
+cross-cepstrum and saphe cracking,” in M. Rosenblatt (ed.), <em>Proceedings
+of the Symposium on Time Series Analysis</em> (Wiley, New York, 1963) 209-243.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Seismologists wanted to know how deep an earthquake was, from the delay between a wave and its echo off the surface. An echo multiplies the spectrum by 1 + \alpha e^{-j\omega d}: a ripple in the log spectrum whose &quot;frequency&quot; is the delay. Bruce Bogert, Michael Healy and John Tukey (1963) took the spectrum of the log spectrum and found the echo as a peak. They reversed letters to name the new domain: cepstrum, quefrency, liftering. Logarithms turn the convolution of a source and a filter into a sum, which is how pitch is separated from the vocal tract in speech (~engineeringkit.signal_processing.real_cepstrum)."><img alt="" src="../_images/sphx_glr_plot_09_bogert_healy_tukey_cepstrum_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/signal_processing/spectral/plot_09_bogert_healy_tukey_cepstrum.html"><span class="doc">Bogert, Healy and Tukey’s cepstrum (1963)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Bogert, Healy and Tukey's cepstrum (1963)</div>
+</div></div></section>
+<section id="golden-and-kaiser-s-bilinear-design-with-prewarping">
+<h2><a class="toc-backref" href="#id20" role="doc-backlink">1964 – Golden and Kaiser’s Bilinear Design with Prewarping</a><a class="headerlink" href="#golden-and-kaiser-s-bilinear-design-with-prewarping" title="Link to this heading">#</a></h2>
+<p>Analog filter design had decades of tables and formulas behind it. Roger
+Golden and James Kaiser of Bell Laboratories carried them into sampled
+data with the bilinear substitution
+<span class="math notranslate nohighlight">\(s = K(1 - z^{-1})/(1 + z^{-1})\)</span>, which maps the left half
+<span class="math notranslate nohighlight">\(s\)</span>-plane into the unit circle, so stable analog filters stay stable
+and their equiripple or maximally flat character survives. The frequency
+axis is warped, <span class="math notranslate nohighlight">\(\Omega = K\tan(\omega/2)\)</span>, so they designed the
+analog prototype at prewarped band edges that the transform carries back
+to the intended ones. Tustin (1947) had used the same substitution for
+sampled control loops. Authors, title and date are checked against the
+Bell Labs publication record.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/signal_processing.html#engineeringkit.signal_processing.bilinear_transform" title="engineeringkit.signal_processing.bilinear_transform"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.signal_processing.bilinear_transform()</span></code></a>
+and <a class="reference internal" href="../api/signal_processing.html#engineeringkit.signal_processing.prewarp_frequency" title="engineeringkit.signal_processing.prewarp_frequency"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.signal_processing.prewarp_frequency()</span></code></a>. The example
+draws the warp, shows a 200 Hz edge landing at 179 Hz without prewarping
+and at 200 Hz with it, and recovers SciPy’s digital Butterworth.</p>
+<p><em>References:</em> R. M. Golden and J. F. Kaiser, “Design of wideband
+sampled-data filters,” <em>Bell Syst. Tech. J.</em> 43 (1964) 1533-1546.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="A century of analog filter design was ready-made, and Bell Labs wanted it for sampled data. Roger Golden and James Kaiser (1964) used the bilinear substitution s = K(1 - z^{-1})/(1 + z^{-1}), which maps the whole left half s-plane into the unit circle, so a stable analog filter stays stable and keeps its ripple pattern. The price is a warped frequency axis, \Omega = K\tan(\omega/2), which they offset by designing the analog prototype at the prewarped band edges (~engineeringkit.signal_processing.bilinear_transform, prewarp_frequency). The authors, title and date were checked against Bell Labs&#x27; publication record."><img alt="" src="../_images/sphx_glr_plot_09_golden_kaiser_bilinear_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/signal_processing/filters/plot_09_golden_kaiser_bilinear.html"><span class="doc">Golden and Kaiser’s bilinear design with prewarping (1964)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Golden and Kaiser's bilinear design with prewarping (1964)</div>
+</div></div></section>
 <section id="cooley-and-tukey-s-fast-fourier-transform">
-<h2><a class="toc-backref" href="#id14" role="doc-backlink">1965 – Cooley and Tukey’s Fast Fourier Transform</a><a class="headerlink" href="#cooley-and-tukey-s-fast-fourier-transform" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id21" role="doc-backlink">1965 – Cooley and Tukey’s Fast Fourier Transform</a><a class="headerlink" href="#cooley-and-tukey-s-fast-fourier-transform" title="Link to this heading">#</a></h2>
 <p>A direct discrete Fourier transform of <span class="math notranslate nohighlight">\(N\)</span> samples needs
 <span class="math notranslate nohighlight">\(N^2\)</span> complex multiplications. James Cooley and John Tukey split it
 into the transforms of the even and odd samples, combined by butterflies,
@@ -748,7 +963,7 @@ the fast Fourier transform,” <em>IEEE ASSP Mag.</em> 1 (1984) 14-21.</p>
   <div class="sphx-glr-thumbnail-title">Cooley and Tukey's fast Fourier transform (1965)</div>
 </div></div></section>
 <section id="kaiser-s-window-method-for-fir-design">
-<h2><a class="toc-backref" href="#id15" role="doc-backlink">1966 – Kaiser’s Window Method for FIR Design</a><a class="headerlink" href="#kaiser-s-window-method-for-fir-design" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id22" role="doc-backlink">1966 – Kaiser’s Window Method for FIR Design</a><a class="headerlink" href="#kaiser-s-window-method-for-fir-design" title="Link to this heading">#</a></h2>
 <p>An ideal low-pass filter has an infinitely long sinc impulse response.
 Truncating it leaves Gibbs ripples at the band edge, and tapering it with a
 window trades ripple for a wider transition band. James Kaiser of Bell
@@ -770,8 +985,31 @@ I0-sinh window function,” <em>Proc. IEEE Int. Symp. Circuits Syst.</em> (1974)
 <p><a class="reference internal" href="../api/gallery/signal_processing/filters/plot_05_kaiser_fir.html"><span class="doc">Kaiser’s window method for FIR design (1966)</span></a></p>
   <div class="sphx-glr-thumbnail-title">Kaiser's window method for FIR design (1966)</div>
 </div></div></section>
+<section id="stockham-s-high-speed-convolution">
+<h2><a class="toc-backref" href="#id23" role="doc-backlink">1966 – Stockham’s High-Speed Convolution</a><a class="headerlink" href="#stockham-s-high-speed-convolution" title="Link to this heading">#</a></h2>
+<p>Within a year of the Cooley-Tukey paper, Thomas Stockham of MIT’s Project
+MAC showed how to use the FFT for filtering. The product of two DFTs is a
+circular convolution, whose tail wraps round onto its start; zero-padding
+both sequences to <span class="math notranslate nohighlight">\(N_x + N_h - 1\)</span> samples makes it the linear
+convolution. A long record is cut into blocks, each convolved through the
+FFT, and the overlapping tails are added: overlap-add. The cost per output
+sample grows with the logarithm of the block length instead of the filter
+length, and fast convolution became the way long FIR filters, reverberation
+and correlation are computed.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/signal_processing.html#engineeringkit.signal_processing.circular_convolution" title="engineeringkit.signal_processing.circular_convolution"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.signal_processing.circular_convolution()</span></code></a>
+and <a class="reference internal" href="../api/signal_processing.html#engineeringkit.signal_processing.overlap_add" title="engineeringkit.signal_processing.overlap_add"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.signal_processing.overlap_add()</span></code></a>. The example shows
+time aliasing and its removal by padding, filters a million samples in
+blocks, and shows that zero padding a spectrum interpolates it without
+resolving two close tones.</p>
+<p><em>References:</em> T. G. Stockham Jr., “High-speed convolution and
+correlation,” <em>AFIPS Conf. Proc.</em> 28 (Spring Joint Computer Conference,
+1966) 229-233, <a class="extlink-doi reference external" href="https://doi.org/10.1145/1464182.1464209">doi:10.1145/1464182.1464209</a>.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="The FFT multiplies spectra cheaply, but the product of two DFTs is the circular convolution: the tail of the output wraps round onto its start. Thomas Stockham, at MIT&#x27;s Project MAC, showed at the 1966 Spring Joint Computer Conference how to get the linear convolution anyway, and fast: zero-pad both sequences to at least N_x + N_h - 1 samples, and, for a long record, cut it into blocks, convolve each through the FFT and add the overlapping tails, overlap-add (~engineeringkit.signal_processing.circular_convolution, overlap_add). Zero padding does not add resolution to a spectrum; it only samples the same spectrum more finely, which is the last section here."><img alt="" src="../_images/sphx_glr_plot_04_stockham_fast_convolution_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/signal_processing/fourier/plot_04_stockham_fast_convolution.html"><span class="doc">Stockham’s high-speed convolution (1966)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Stockham's high-speed convolution (1966)</div>
+</div></div></section>
 <section id="welch-s-averaged-periodogram">
-<h2><a class="toc-backref" href="#id16" role="doc-backlink">1967 – Welch’s Averaged Periodogram</a><a class="headerlink" href="#welch-s-averaged-periodogram" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id24" role="doc-backlink">1967 – Welch’s Averaged Periodogram</a><a class="headerlink" href="#welch-s-averaged-periodogram" title="Link to this heading">#</a></h2>
 <p>The periodogram of noise does not settle down as the record grows: at each
 frequency its standard deviation equals its mean. Peter Welch cut the
 record into overlapping segments, windowed each, and averaged their
@@ -791,7 +1029,7 @@ modified periodograms,” <em>IEEE Trans. Audio Electroacoust.</em> 15 (1967)
   <div class="sphx-glr-thumbnail-title">Welch's averaged periodogram (1967)</div>
 </div></div></section>
 <section id="jackson-s-cascaded-second-order-sections">
-<h2><a class="toc-backref" href="#id17" role="doc-backlink">1970 – Jackson’s Cascaded Second-Order Sections</a><a class="headerlink" href="#jackson-s-cascaded-second-order-sections" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id25" role="doc-backlink">1970 – Jackson’s Cascaded Second-Order Sections</a><a class="headerlink" href="#jackson-s-cascaded-second-order-sections" title="Link to this heading">#</a></h2>
 <p>A recursive filter can be computed directly from its transfer function, but
 the roots of a high-degree polynomial are very sensitive to rounding in its
 coefficients. When the poles crowd near <span class="math notranslate nohighlight">\(z = 1\)</span>, as they do in a
@@ -811,8 +1049,79 @@ dynamic range in digital filters,” <em>Bell Syst. Tech. J.</em> 49 (1970)
 <p><a class="reference internal" href="../api/gallery/signal_processing/filters/plot_06_second_order_sections.html"><span class="doc">Jackson’s cascaded second-order sections (1970)</span></a></p>
   <div class="sphx-glr-thumbnail-title">Jackson's cascaded second-order sections (1970)</div>
 </div></div></section>
+<section id="parks-and-mcclellan-s-equiripple-fir-filter">
+<h2><a class="toc-backref" href="#id26" role="doc-backlink">1972 – Parks and McClellan’s Equiripple FIR Filter</a><a class="headerlink" href="#parks-and-mcclellan-s-equiripple-fir-filter" title="Link to this heading">#</a></h2>
+<p>Window designs waste length: their worst ripple sits next to the band edge
+and dies away from it. Thomas Parks and his student James McClellan at
+Rice University posed linear-phase FIR design as Chebyshev approximation,
+minimizing the largest weighted error over the passband and stopband
+together. The alternation theorem characterizes the optimum, whose error
+peaks with alternating signs at least <span class="math notranslate nohighlight">\(L + 2\)</span> times, and Remez’s
+exchange algorithm finds those frequencies. Their Fortran program, published
+with Rabiner in 1973, made the design routine; it is still the default
+FIR design in most toolboxes.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/signal_processing.html#engineeringkit.signal_processing.equiripple_lowpass" title="engineeringkit.signal_processing.equiripple_lowpass"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.signal_processing.equiripple_lowpass()</span></code></a>
+and <a class="reference internal" href="../api/signal_processing.html#engineeringkit.signal_processing.equiripple_order" title="engineeringkit.signal_processing.equiripple_order"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.signal_processing.equiripple_order()</span></code></a>. The example
+beats a Kaiser window of the same length, counts the alternations and sets
+the ratio of the two deviations with the weight.</p>
+<p><em>References:</em> T. W. Parks and J. H. McClellan, “Chebyshev approximation
+for nonrecursive digital filters with linear phase,” <em>IEEE Trans. Circuit
+Theory</em> 19 (1972) 189-194, <a class="extlink-doi reference external" href="https://doi.org/10.1109/TCT.1972.1083419">doi:10.1109/TCT.1972.1083419</a>; J. H. McClellan,
+T. W. Parks and L. R. Rabiner, “A computer program for designing optimum
+FIR linear phase digital filters,” <em>IEEE Trans. Audio Electroacoust.</em> 21
+(1973) 506-526.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="A window design is easy but wasteful: its largest ripple sits next to the band edge and the ripple dies away from it, so most of the band is better than it needs to be. Thomas Parks and his student James McClellan at Rice University posed linear-phase FIR design as Chebyshev approximation: minimize the largest weighted error over the passband and stopband. The alternation theorem says the optimum&#x27;s error peaks with alternating signs at least L + 2 times, and Remez&#x27;s exchange algorithm finds those frequencies (~engineeringkit.signal_processing.equiripple_lowpass, equiripple_order)."><img alt="" src="../_images/sphx_glr_plot_10_parks_mcclellan_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/signal_processing/filters/plot_10_parks_mcclellan.html"><span class="doc">Parks and McClellan’s equiripple FIR filter (1972)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Parks and McClellan's equiripple FIR filter (1972)</div>
+</div></div></section>
+<section id="schafer-and-rabiner-s-digital-interpolation">
+<h2><a class="toc-backref" href="#id27" role="doc-backlink">1973 – Schafer and Rabiner’s Digital Interpolation</a><a class="headerlink" href="#schafer-and-rabiner-s-digital-interpolation" title="Link to this heading">#</a></h2>
+<p>Changing a sampling rate once meant converting to analog and resampling.
+Ronald Schafer and Lawrence Rabiner of Bell Laboratories treated it as
+digital filtering. Inserting <span class="math notranslate nohighlight">\(L - 1\)</span> zeros between samples raises
+the rate but leaves images of the spectrum, which a low-pass filter of
+gain <span class="math notranslate nohighlight">\(L\)</span> removes; lowering the rate by <span class="math notranslate nohighlight">\(M\)</span> needs a low-pass
+filter first, so that nothing aliases when samples are dropped. A
+windowed-sinc interpolator passes the original samples unchanged. The
+paper founded multirate signal processing, from sample-rate converters in
+audio to the filter banks of subband coders.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/signal_processing.html#engineeringkit.signal_processing.upsample" title="engineeringkit.signal_processing.upsample"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.signal_processing.upsample()</span></code></a>,
+<a class="reference internal" href="../api/signal_processing.html#engineeringkit.signal_processing.interpolate" title="engineeringkit.signal_processing.interpolate"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.signal_processing.interpolate()</span></code></a>,
+<a class="reference internal" href="../api/signal_processing.html#engineeringkit.signal_processing.downsample" title="engineeringkit.signal_processing.downsample"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.signal_processing.downsample()</span></code></a> and
+<a class="reference internal" href="../api/signal_processing.html#engineeringkit.signal_processing.decimate" title="engineeringkit.signal_processing.decimate"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.signal_processing.decimate()</span></code></a>. The example removes the
+images of a fourfold interpolation and shows a 230 Hz interferer folding
+onto 20 Hz unless the signal is decimated.</p>
+<p><em>References:</em> R. W. Schafer and L. R. Rabiner, “A digital signal
+processing approach to interpolation,” <em>Proc. IEEE</em> 61 (1973) 692-702,
+<a class="extlink-doi reference external" href="https://doi.org/10.1109/PROC.1973.9150">doi:10.1109/PROC.1973.9150</a>.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Changing a sampling rate used to mean converting back to analog and sampling again. Ronald Schafer and Lawrence Rabiner (1973), at Bell Labs, showed it is a digital filtering problem. To raise the rate by L, insert L - 1 zeros between samples, which leaves images of the spectrum, and remove them with a low-pass filter of gain L. To lower it by M, low-pass filter first so nothing aliases, then keep every M-th sample (~engineeringkit.signal_processing.upsample, interpolate, downsample, decimate). A windowed-sinc interpolator passes the original samples through unchanged."><img alt="" src="../_images/sphx_glr_plot_03_schafer_rabiner_interpolation_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/signal_processing/sampling/plot_03_schafer_rabiner_interpolation.html"><span class="doc">Schafer and Rabiner’s digital interpolation (1973)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Schafer and Rabiner's digital interpolation (1973)</div>
+</div></div></section>
+<section id="ahmed-natarajan-and-rao-s-discrete-cosine-transform">
+<h2><a class="toc-backref" href="#id28" role="doc-backlink">1974 – Ahmed, Natarajan and Rao’s Discrete Cosine Transform</a><a class="headerlink" href="#ahmed-natarajan-and-rao-s-discrete-cosine-transform" title="Link to this heading">#</a></h2>
+<p>The Karhunen-Loève transform packs the most energy of a random signal
+into the fewest coefficients, but its basis depends on the signal’s
+covariance and has no fast algorithm. Nasir Ahmed, T. Natarajan and
+K. R. Rao proposed a fixed basis of sampled cosines and showed that for a
+first-order Markov process it performs almost as well. The DCT implicitly
+extends the record by its mirror image, so a smooth signal has no jump at
+the ends and its coefficients decay fast, where the DFT’s periodic
+extension leaks. Blocks of 8 × 8 DCT coefficients became the core of JPEG
+and MPEG.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/signal_processing.html#engineeringkit.signal_processing.dct" title="engineeringkit.signal_processing.dct"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.signal_processing.dct()</span></code></a> and
+<a class="reference internal" href="../api/signal_processing.html#engineeringkit.signal_processing.idct" title="engineeringkit.signal_processing.idct"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.signal_processing.idct()</span></code></a>. The example checks
+orthonormality, compares the energy compaction of the DCT, DFT and KLT, and
+codes a smooth signal with 8 numbers.</p>
+<p><em>References:</em> N. Ahmed, T. Natarajan and K. R. Rao, “Discrete cosine
+transform,” <em>IEEE Trans. Comput.</em> C-23 (1974) 90-93,
+<a class="extlink-doi reference external" href="https://doi.org/10.1109/T-C.1974.223784">doi:10.1109/T-C.1974.223784</a>.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="The best basis for compressing a random signal, the Karhunen-Loève transform, depends on the signal&#x27;s covariance and has no fast algorithm. Nasir Ahmed, T. Natarajan and K. R. Rao (1974) proposed a fixed basis of sampled cosines that comes very close to it for strongly correlated signals. Because the DCT implicitly extends the record by its mirror image, there is no jump at the ends and the coefficients of a smooth signal decay fast; the DFT&#x27;s periodic extension has a jump and leaks. The DCT became the core of JPEG, MPEG and MP3 (~engineeringkit.signal_processing.dct, idct)."><img alt="" src="../_images/sphx_glr_plot_05_ahmed_natarajan_rao_dct_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/signal_processing/fourier/plot_05_ahmed_natarajan_rao_dct.html"><span class="doc">Ahmed, Natarajan and Rao’s discrete cosine transform (1974)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Ahmed, Natarajan and Rao's discrete cosine transform (1974)</div>
+</div></div></section>
 <section id="see-also">
-<h2><a class="toc-backref" href="#id18" role="doc-backlink">See Also</a><a class="headerlink" href="#see-also" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id29" role="doc-backlink">See Also</a><a class="headerlink" href="#see-also" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="../api/signal_processing.html"><span class="doc">engineeringkit.signal_processing</span></a></p></li>
 <li><p><a class="reference internal" href="../guides/signal_processing.html"><span class="doc">Signal processing: sampled energy, spectra and quantization</span></a></p></li>
@@ -869,10 +1178,14 @@ dynamic range in digital filters,” <em>Bell Syst. Tech. J.</em> 49 (1970)
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chebyshev-s-equiripple-approximation">1854 – Chebyshev’s Equiripple Approximation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#schuster-s-periodogram">1898 – Schuster’s Periodogram</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gibbs-s-phenomenon">1899 – Gibbs’s Phenomenon</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hilbert-s-conjugate-functions">1905 – Hilbert’s Conjugate Functions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#haar-s-wavelet">1910 – Haar’s Wavelet</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#yule-s-autoregressive-model">1927 – Yule’s Autoregressive Model</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#butterworth-s-maximally-flat-filter">1930 – Butterworth’s Maximally Flat Filter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cauer-s-elliptic-filter">1931 – Cauer’s Elliptic Filter</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-wiener-khinchin-theorem">1934 – The Wiener-Khinchin Theorem</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gabor-s-time-frequency-atoms">1946 – Gabor’s Time-Frequency Atoms</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hurewicz-s-z-transform">1947 – Hurewicz’s z-Transform</a></li>
@@ -882,10 +1195,17 @@ dynamic range in digital filters,” <em>Bell Syst. Tech. J.</em> 49 (1970)
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#blackman-and-tukey-s-spectral-windows">1958 – Blackman and Tukey’s Spectral Windows</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#goertzel-s-algorithm">1958 – Goertzel’s Algorithm</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#widrow-and-hoff-s-lms-adaptive-filter">1960 – Widrow and Hoff’s LMS Adaptive Filter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#durbin-s-recursion-for-autoregressive-fitting">1960 – Durbin’s Recursion for Autoregressive Fitting</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bogert-healy-and-tukey-s-cepstrum">1963 – Bogert, Healy and Tukey’s Cepstrum</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#golden-and-kaiser-s-bilinear-design-with-prewarping">1964 – Golden and Kaiser’s Bilinear Design with Prewarping</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cooley-and-tukey-s-fast-fourier-transform">1965 – Cooley and Tukey’s Fast Fourier Transform</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kaiser-s-window-method-for-fir-design">1966 – Kaiser’s Window Method for FIR Design</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stockham-s-high-speed-convolution">1966 – Stockham’s High-Speed Convolution</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#welch-s-averaged-periodogram">1967 – Welch’s Averaged Periodogram</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jackson-s-cascaded-second-order-sections">1970 – Jackson’s Cascaded Second-Order Sections</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parks-and-mcclellan-s-equiripple-fir-filter">1972 – Parks and McClellan’s Equiripple FIR Filter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#schafer-and-rabiner-s-digital-interpolation">1973 – Schafer and Rabiner’s Digital Interpolation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ahmed-natarajan-and-rao-s-discrete-cosine-transform">1974 – Ahmed, Natarajan and Rao’s Discrete Cosine Transform</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#see-also">See Also</a></li>
 </ul>
   </nav></div>

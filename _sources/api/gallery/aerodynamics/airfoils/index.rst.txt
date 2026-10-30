@@ -5,7 +5,7 @@
 Airfoils
 --------
 
-NACA four-digit section geometry and thin-airfoil theory.
+NACA four-digit section geometry, thin-airfoil lift and pitching moment, and the Hess-Smith panel method.
 
 
 .. raw:: html
@@ -53,6 +53,40 @@ NACA four-digit section geometry and thin-airfoil theory.
     </div>
 
 
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="At the Douglas Aircraft Company, John Hess and A. M. O. Smith replaced a body by straight surface panels, each with its own uniform source strength, and solved for the strengths that make the surface a streamline. Their 1967 review in Progress in Aerospace Sciences added a single vortex strength shared by every panel. With the Kutta condition at the trailing edge, that let the method carry lift. panel_method implements it. This example checks it against the exact flow round a circular cylinder, then shows what it adds to thin-airfoil theory: the leading-edge suction peak and the extra lift slope of a thick section.">
+
+.. only:: html
+
+  .. image:: /api/gallery/aerodynamics/airfoils/images/thumb/sphx_glr_plot_03_hess_smith_panel_method_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/aerodynamics/airfoils/plot_03_hess_smith_panel_method`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">The Hess-Smith panel method (1967)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Munk&#x27;s and Glauert&#x27;s thin-airfoil theory predicts more than lift. The pitching moment about the quarter chord, c_{m,c/4} = \tfrac{\pi}{4}(A_2 - A_1) (~engineeringkit.aerodynamics.naca4_moment_coefficient), depends only on the camber line and not on the angle of attack. The quarter chord is therefore the aerodynamic centre. A measured section&#x27;s centre sits at x_{ac}/c = \tfrac14 - m_0/a_0 (~engineeringkit.aerodynamics.aerodynamic_center), where m_0 is its residual moment slope. This example reproduces Anderson&#x27;s c_{m,c/4} = -0.053 for the NACA 2412 and finds the aerodynamic centre from panel-method moments.">
+
+.. only:: html
+
+  .. image:: /api/gallery/aerodynamics/airfoils/images/thumb/sphx_glr_plot_04_thin_airfoil_pitching_moment_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/aerodynamics/airfoils/plot_04_thin_airfoil_pitching_moment`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Thin-airfoil pitching moment and the aerodynamic centre (1922-1926)</div>
+    </div>
+
+
 .. thumbnail-parent-div-close
 
 .. raw:: html
@@ -65,4 +99,6 @@ NACA four-digit section geometry and thin-airfoil theory.
 
    /api/gallery/aerodynamics/airfoils/plot_01_naca_four_digit_sections
    /api/gallery/aerodynamics/airfoils/plot_02_thin_airfoil_theory
+   /api/gallery/aerodynamics/airfoils/plot_03_hess_smith_panel_method
+   /api/gallery/aerodynamics/airfoils/plot_04_thin_airfoil_pitching_moment
 

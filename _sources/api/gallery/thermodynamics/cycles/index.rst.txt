@@ -5,7 +5,7 @@
 Cycles
 ------
 
-Heat engines: Carnot's bound and the idealized cycles of real engines.
+Heat engines: Carnot's bound, the idealized cycles of real engines and power plants analysed state by state.
 
 
 .. raw:: html
@@ -121,6 +121,74 @@ Heat engines: Carnot's bound and the idealized cycles of real engines.
     </div>
 
 
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="The Reverend Robert Stirling patented a hot-air engine in 1816 whose novelty was the &quot;economiser&quot;, a mass of metal through which the working air passed on its way between the hot and cold spaces. Air cooling at constant volume left its heat in the regenerator, and the returning air picked it up again. Only the two isothermal heat exchanges then crossed the engine&#x27;s boundary, and the ideal cycle reaches Carnot&#x27;s efficiency. Without the regenerator it falls far short (~engineeringkit.thermodynamics.stirling_efficiency).">
+
+.. only:: html
+
+  .. image:: /api/gallery/thermodynamics/cycles/images/thumb/sphx_glr_plot_07_stirling_regenerator_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/thermodynamics/cycles/plot_07_stirling_regenerator`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Stirling's regenerator (1816)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Rankine&#x27;s pump, boiler, engine and condenser became the modern power station by three changes that raise the mean temperature at which heat is added. Superheating heats the steam beyond saturation. Reheating returns it to the boiler halfway through the expansion. Feedwater heating preheats the boiler water with steam bled from the turbine. Each also keeps the turbine exhaust dry. rankine_cycle analyses the plant state by state with IAPWS-IF97. The example reproduces Çengel and Boles&#x27;s three textbook plants at 15 MPa, 600 °C and 10 kPa.">
+
+.. only:: html
+
+  .. image:: /api/gallery/thermodynamics/cycles/images/thumb/sphx_glr_plot_08_rankine_reheat_regeneration_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/thermodynamics/cycles/plot_08_rankine_reheat_regeneration`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Rankine's cycle with reheat and feedwater heating (1859)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A simple gas turbine throws its hot exhaust away and spends much of its turbine work on the compressor. A regenerator heats the compressed air with the exhaust. Splitting the compression with intercoolers and the expansion with reheaters moves both towards isothermal processes. With many stages and a perfect regenerator the cycle becomes Ericsson&#x27;s, whose efficiency is Carnot&#x27;s (~engineeringkit.thermodynamics.brayton_cycle).">
+
+.. only:: html
+
+  .. image:: /api/gallery/thermodynamics/cycles/images/thumb/sphx_glr_plot_09_brayton_regeneration_intercooling_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/thermodynamics/cycles/plot_09_brayton_regeneration_intercooling`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Brayton's cycle with regeneration, intercooling and reheat (1872)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Diesel&#x27;s ideal engine burns its fuel at constant pressure. Real high-speed diesels burn part of the charge almost at once, at nearly constant volume, and the rest as the piston moves. The dual (limited-pressure) cycle models this with both heat additions (~engineeringkit.thermodynamics.dual_efficiency). It contains Otto&#x27;s cycle (no constant-pressure part) and Diesel&#x27;s (no constant-volume part) as its limits.">
+
+.. only:: html
+
+  .. image:: /api/gallery/thermodynamics/cycles/images/thumb/sphx_glr_plot_10_diesel_dual_cycle_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/thermodynamics/cycles/plot_10_diesel_dual_cycle`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Diesel's cycle and the dual cycle (1893)</div>
+    </div>
+
+
 .. thumbnail-parent-div-close
 
 .. raw:: html
@@ -137,4 +205,8 @@ Heat engines: Carnot's bound and the idealized cycles of real engines.
    /api/gallery/thermodynamics/cycles/plot_04_otto_cycle
    /api/gallery/thermodynamics/cycles/plot_05_diesel_cycle
    /api/gallery/thermodynamics/cycles/plot_06_curzon_ahlborn
+   /api/gallery/thermodynamics/cycles/plot_07_stirling_regenerator
+   /api/gallery/thermodynamics/cycles/plot_08_rankine_reheat_regeneration
+   /api/gallery/thermodynamics/cycles/plot_09_brayton_regeneration_intercooling
+   /api/gallery/thermodynamics/cycles/plot_10_diesel_dual_cycle
 

@@ -7,8 +7,9 @@ Examples
 
 This gallery walks through every public feature of
 ``engineeringkit.structural_engineering``, one breakthrough per script:
-axial and torsional members, beams, column buckling, stress transformation,
-energy methods, trusses, plastic collapse and frames.
+axial and torsional members, beams, column buckling and design, stress and
+strain at a point, shear and sections, pressure vessels, energy methods,
+trusses, plastic collapse, frames, cables and arches.
 
 :doc:`Units, assumptions and numerical validation </guides/structural_engineering>`
 gives the physical validity limits. Each script is self-contained and can be
@@ -17,14 +18,17 @@ run directly with ``python examples/structural_engineering/<section>/<script>.py
 Sections
 --------
 
-- **beams** -- Galileo's cantilever, Navier's bending theory, Clapeyron's three-moment equation and Winkler's influence lines.
-- **members** -- Hooke's law, Coulomb's torsion and Poisson's ratio.
-- **stability** -- Euler's column and Engesser's tangent-modulus load.
-- **stress** -- Mohr's circle.
-- **energy** -- Castigliano's theorem.
+- **beams** -- Galileo's cantilever, Navier's bending theory, Clapeyron's three-moment equation, Winkler's influence lines and Macaulay's singularity functions.
+- **cables** -- Hooke's inverted chain and the catenary.
+- **members** -- Hooke's law, Coulomb's torsion, Poisson's ratio and Bredt's thin-walled tubes.
+- **shear** -- Jourawski's shear stress and Maillart's shear centre.
+- **stability** -- Euler's column, Engesser's tangent-modulus load, Young's eccentric column and Johnson's parabola.
+- **stress** -- Mohr's circle and the bonded strain gauge.
+- **vessels** -- Lamé's thick-walled cylinder.
+- **energy** -- Castigliano's theorem and Mohr's unit-load method.
 - **trusses** -- Whipple's method of joints, Maxwell's count and reciprocal theorem, and the direct stiffness method.
 - **plasticity** -- Kazinczy's plastic hinges.
-- **frames** -- Hardy Cross's moment distribution and plane frames by direct stiffness.
+- **frames** -- Maney's slope-deflection, Hardy Cross's moment distribution and plane frames by direct stiffness.
 
 
 .. raw:: html
@@ -129,6 +133,80 @@ Bending stress, continuous beams and moving loads.
     </div>
 
 
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Integrating EIy&#x27;&#x27; = M for a beam with several loads used to mean a separate moment equation, and two constants of integration, for every stretch between loads, all joined by continuity conditions. William Herrick Macaulay (1919), following Clebsch (1862), wrote the moment once for the whole beam with brackets \langle x - a\rangle^n that vanish to the left of a, so only two constants remain. Beam adds the unknown reactions to those two constants and solves equilibrium and the support conditions together, so statically indeterminate beams need no special treatment. The example solves a propped cantilever under a point load, a couple and a triangular load, and checks it against the older method of superposition (~engineeringkit.structural_engineering.superpose_beam_results).">
+
+.. only:: html
+
+  .. image:: /api/gallery/structural_engineering/beams/images/thumb/sphx_glr_plot_05_macaulay_singularity_functions_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/structural_engineering/beams/plot_05_macaulay_singularity_functions`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Macaulay's singularity functions (1919)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+Cables and arches
+-----------------
+
+Hanging cables and the arches that are their inverted shapes.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Robert Hooke hid his solution to the shape of an arch in a Latin anagram at the end of A Description of Helioscopes (1675); decoded after his death, it read ut pendet continuum flexile, sic stabit contiguum rigidum inversum: as hangs the flexible line, so but inverted will stand the rigid arch. A hanging cable can only pull, so it takes the shape of its loads&#x27; moment diagram; turned upside down, the same shape is an arch that only pushes. Christopher Wren used the idea for the dome of St Paul&#x27;s. For a three-hinged arch (~engineeringkit.structural_engineering.three_hinged_arch) the moment is the simple-beam moment less the thrust times the rise, M = M_0 - Hy, and on a parabolic arch under a load uniform along the span it vanishes everywhere. The example checks this, then moves the load off the crown to show the bending that an arch of the wrong shape must carry.">
+
+.. only:: html
+
+  .. image:: /api/gallery/structural_engineering/cables/images/thumb/sphx_glr_plot_01_hooke_inverted_chain_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/structural_engineering/cables/plot_01_hooke_inverted_chain`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Hooke's inverted chain (1675)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Galileo thought a hanging chain was a parabola. In 1690 Jacob Bernoulli challenged the readers of Acta Eruditorum to find its true shape, and the next year three solutions appeared there, by his brother Johann, by Leibniz and by Huygens: the curve y = a(\cosh(x/a) - 1), with a = H/w the ratio of the horizontal tension to the weight per unit length (~engineeringkit.structural_engineering.catenary_cable). A cable carrying a deck uniform along the span instead hangs in a parabola (~engineeringkit.structural_engineering.parabolic_cable), which is why suspension bridges are designed with parabolic cables. The example compares the two shapes and shows where the parabola is a good enough approximation for a cable under its own weight.">
+
+.. only:: html
+
+  .. image:: /api/gallery/structural_engineering/cables/images/thumb/sphx_glr_plot_02_catenary_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/structural_engineering/cables/plot_02_catenary`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">The catenary (1691)</div>
+    </div>
+
+
 .. thumbnail-parent-div-close
 
 .. raw:: html
@@ -166,6 +244,23 @@ Deflections from strain energy.
 .. raw:: html
 
       <div class="sphx-glr-thumbnail-title">Castigliano's theorem (1879)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="To find how far one joint of a truss moves, Otto Mohr (1874) applied the principle of virtual work with an imaginary unit load at that joint. The internal forces n it produces, working through the real member extensions NL/(AE), must equal the work of the unit load through the wanted displacement:">
+
+.. only:: html
+
+  .. image:: /api/gallery/structural_engineering/energy/images/thumb/sphx_glr_plot_02_mohr_unit_load_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/structural_engineering/energy/plot_02_mohr_unit_load`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Mohr's unit-load method (1874)</div>
     </div>
 
 
@@ -223,6 +318,23 @@ Rigid-jointed continuous beams and frames.
 .. raw:: html
 
       <div class="sphx-glr-thumbnail-title">Livesley's plane frames by direct stiffness (1956)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="George A. Maney (1915), studying secondary stresses in rigid frames at the University of Minnesota, wrote each member-end moment in terms of the rotations of its two ends and the rotation of its chord:">
+
+.. only:: html
+
+  .. image:: /api/gallery/structural_engineering/frames/images/thumb/sphx_glr_plot_03_maney_slope_deflection_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/structural_engineering/frames/plot_03_maney_slope_deflection`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Maney's slope-deflection method (1915)</div>
     </div>
 
 
@@ -300,6 +412,23 @@ Axial bars and twisted shafts.
     </div>
 
 
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Coulomb&#x27;s \tau = Tr/J holds only for circular shafts. Rudolf Bredt (1896) showed that in any closed thin-walled tube the shear flow q = \tau t is the same all round the wall, q = T/(2A_m) with A_m the area enclosed by the wall&#x27;s centreline (~engineeringkit.structural_engineering.thin_walled_torsion_shear_stress), and that the twist is \phi = (TL/4A_m^2G)\oint ds/t (~engineeringkit.structural_engineering.thin_walled_torsion_angle). Aircraft fuselages, box girders and car chassis rails are designed with these two formulas. The example checks them against Coulomb for a circular tube, then cuts the tube along its length: the open section, with torsion constant st^3/3, is hundreds of times more flexible.">
+
+.. only:: html
+
+  .. image:: /api/gallery/structural_engineering/members/images/thumb/sphx_glr_plot_04_bredt_thin_walled_torsion_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/structural_engineering/members/plot_04_bredt_thin_walled_torsion`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Bredt's thin-walled torsion (1896)</div>
+    </div>
+
+
 .. thumbnail-parent-div-close
 
 .. raw:: html
@@ -337,6 +466,63 @@ Plastic hinges and collapse loads.
 .. raw:: html
 
       <div class="sphx-glr-thumbnail-title">Kazinczy's plastic hinge (1914)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+Shear and sections
+------------------
+
+Transverse shear stress, built-up and transformed sections, unsymmetrical bending and the shear centre.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Building timber railway bridges in Russia, Dmitrii Ivanovich Jourawski saw large oak beams split along their length at mid-depth, where the bending stress is zero. Balancing the change of bending force on the part of the section above a cut, he found the shear stress on it, \tau = VQ/(It) (~engineeringkit.structural_engineering.transverse_shear_stress), and the force per unit length the keys or bolts of a built-up beam must carry, q = VQ/I (~engineeringkit.structural_engineering.shear_flow). The example draws the shear stress in a rectangle and an I-beam, checks that it adds up to the shear force, and spaces the bolts of a flitch beam, timber with a steel plate, using its transformed section (~engineeringkit.structural_engineering.composite_section).">
+
+.. only:: html
+
+  .. image:: /api/gallery/structural_engineering/shear/images/thumb/sphx_glr_plot_01_jourawski_shear_stress_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/structural_engineering/shear/plot_01_jourawski_shear_stress`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Jourawski's shear stress (1856)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Carl von Bach&#x27;s tests on channel beams at Stuttgart showed them twisting under loads applied through the web, and bending sideways under loads in the plane of the web. Robert Maillart (1921) explained both. In a section without two axes of symmetry the neutral axis is not perpendicular to the plane of the loads unless the loads act along a principal axis (~engineeringkit.structural_engineering.unsymmetrical_bending_stress, neutral_axis_angle); and the shear flows in the flanges of a channel form a couple, so the load must pass through a point outside the web, the shear centre (~engineeringkit.structural_engineering.channel_shear_center), to bend the beam without twisting it. The example computes both for a channel and an angle, built from rectangles by channel_section and angle_section.">
+
+.. only:: html
+
+  .. image:: /api/gallery/structural_engineering/shear/images/thumb/sphx_glr_plot_02_maillart_shear_center_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/structural_engineering/shear/plot_02_maillart_shear_center`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Maillart's shear centre (1921)</div>
     </div>
 
 
@@ -397,6 +583,40 @@ Elastic and inelastic column buckling.
     </div>
 
 
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="No column is loaded exactly on its axis. Thomas Young (1807) analysed a column loaded at an eccentricity e: the load bends it, the bending adds to the eccentricity, and the peak stress follows the secant formula (~engineeringkit.structural_engineering.secant_formula_stress),">
+
+.. only:: html
+
+  .. image:: /api/gallery/structural_engineering/stability/images/thumb/sphx_glr_plot_03_young_secant_formula_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/structural_engineering/stability/plot_03_young_secant_formula`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Young's eccentric column (1807)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Euler&#x27;s hyperbola overestimates the strength of stocky columns, which yield or buckle inelastically, and tests scattered below it. J. B. Johnson and his co-authors, in The Theory and Practice of Modern Framed Structures (1893), fitted a parabola that starts at the yield stress and meets Euler&#x27;s curve tangentially at half of it (~engineeringkit.structural_engineering.johnson_critical_stress), at the transition slenderness C_c = \sqrt{2\pi^2E/\sigma_y}. The AISC column formula used the same parabola for decades. End conditions enter through the effective length KL (~engineeringkit.structural_engineering.effective_length_factor). The example draws the design curve and checks that the two branches meet with the same slope.">
+
+.. only:: html
+
+  .. image:: /api/gallery/structural_engineering/stability/images/thumb/sphx_glr_plot_04_johnson_parabola_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/structural_engineering/stability/plot_04_johnson_parabola`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Johnson's parabola (1893)</div>
+    </div>
+
+
 .. thumbnail-parent-div-close
 
 .. raw:: html
@@ -406,7 +626,7 @@ Elastic and inelastic column buckling.
 Stress
 ------
 
-Plane stress transformation.
+Plane stress transformation, three-dimensional principal stresses and strain-gauge rosettes.
 
 
 .. raw:: html
@@ -422,7 +642,7 @@ Plane stress transformation.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Otto Mohr (1882) showed that the normal and shear stresses on every plane through a point, plotted against each other, fall on a single circle. Its centre is the mean normal stress, its radius the largest in-plane shear stress, and its ends on the axis are the principal stresses (~engineeringkit.structural_engineering.mohr_circle). Turning the element by \theta moves the point by 2\theta around the circle (~engineeringkit.structural_engineering.stress_transformation). The example traces the circle by rotating an element, checks that the principal stresses are the eigenvalues of the stress tensor, and finds the plane of maximum shear.">
+    <div class="sphx-glr-thumbcontainer" tooltip="Otto Mohr (1882) showed that the normal and shear stresses on every plane through a point, plotted against each other, fall on a single circle. Its centre is the mean normal stress, its radius the largest in-plane shear stress, and its ends on the axis are the principal stresses (~engineeringkit.structural_engineering.mohr_circle). Turning the element by \theta moves the point by 2\theta around the circle (~engineeringkit.structural_engineering.stress_transformation). The same paper drew three circles for a three-dimensional state, through each pair of principal stresses (~engineeringkit.structural_engineering.principal_stresses_3d). The example traces the circle by rotating an element, checks that the principal stresses are the eigenvalues of the stress tensor, finds the plane of maximum shear, and shows that in a pressure vessel the largest shear stress acts out of the plane of the wall.">
 
 .. only:: html
 
@@ -434,6 +654,23 @@ Plane stress transformation.
 .. raw:: html
 
       <div class="sphx-glr-thumbnail-title">Mohr's circle (1882)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Stress cannot be measured, only strain. In 1936 Edward Simmons at Caltech, and in April 1938 Arthur Ruge at MIT, independently cemented fine resistance wire to a specimen, so that its resistance changed with the strain of the surface beneath; their names became the &quot;SR-4&quot; gauge. One gauge measures strain in one direction; a rosette of three at known angles gives the whole plane strain state (~engineeringkit.structural_engineering.strain_rosette), and Hooke&#x27;s law turns it into stress (~engineeringkit.structural_engineering.plane_stress_from_strains). The example simulates a rosette on a shaft under bending and torsion and recovers the torque from the three readings.">
+
+.. only:: html
+
+  .. image:: /api/gallery/structural_engineering/stress/images/thumb/sphx_glr_plot_02_strain_gauge_rosette_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/structural_engineering/stress/plot_02_strain_gauge_rosette`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Simmons and Ruge's bonded strain gauge (1938)</div>
     </div>
 
 
@@ -517,6 +754,46 @@ Pin-jointed trusses by statics and by stiffness.
 
     </div>
 
+Pressure vessels
+----------------
+
+Thin- and thick-walled cylinders under pressure.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="The hoop stress pr/t of a boiler shell (~engineeringkit.structural_engineering.thin_wall_vessel_stresses) assumes the stress is uniform through the wall. Gabriel Lamé and Émile Clapeyron, in their memoir on the equilibrium of elastic solids (written in Russia, published in Paris in 1833), solved the hollow cylinder exactly: \sigma_r = A - B/r^2 and \sigma_\theta = A + B/r^2 (~engineeringkit.structural_engineering.thick_wall_cylinder_stresses). The hoop stress is highest at the bore, and no thickness of wall can carry an internal pressure above the material&#x27;s strength. The example plots the stresses through a gun-barrel wall and finds the radius ratio at which the thin-wall formula is 5% low.">
+
+.. only:: html
+
+  .. image:: /api/gallery/structural_engineering/vessels/images/thumb/sphx_glr_plot_01_lame_thick_cylinder_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/structural_engineering/vessels/plot_01_lame_thick_cylinder`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Lamé's thick-walled cylinder (1833)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
 
 .. toctree::
    :hidden:
@@ -524,13 +801,16 @@ Pin-jointed trusses by statics and by stiffness.
 
 
    /api/gallery/structural_engineering/beams/index.rst
+   /api/gallery/structural_engineering/cables/index.rst
    /api/gallery/structural_engineering/energy/index.rst
    /api/gallery/structural_engineering/frames/index.rst
    /api/gallery/structural_engineering/members/index.rst
    /api/gallery/structural_engineering/plasticity/index.rst
+   /api/gallery/structural_engineering/shear/index.rst
    /api/gallery/structural_engineering/stability/index.rst
    /api/gallery/structural_engineering/stress/index.rst
    /api/gallery/structural_engineering/trusses/index.rst
+   /api/gallery/structural_engineering/vessels/index.rst
 
 
 .. only:: html

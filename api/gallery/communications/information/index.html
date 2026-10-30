@@ -10,10 +10,10 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://cpoli.github.io/engineeringkit/api/gallery/communications/information/index.html" />
 <meta property="og:site_name" content="engineeringkit" />
-<meta property="og:description" content="Signalling rate, entropy and channel capacity. Nyquist’s signalling rate: 2B pulses per second (1928) Hartley’s law: information grows with the logarithm of the levels (1928) Shannon’s entropy and ..." />
+<meta property="og:description" content="Signalling rate and pulse shaping, entropy, source coding and channel capacity. Nyquist’s signalling rate: 2B pulses per second (1928) Hartley’s law: information grows with the logarithm of the lev..." />
 <meta property="og:image" content="https://cpoli.github.io/engineeringkit/_static/images/readme_hero.png" />
 <meta property="og:image:alt" content="engineeringkit" />
-<meta name="description" content="Signalling rate, entropy and channel capacity. Nyquist’s signalling rate: 2B pulses per second (1928) Hartley’s law: information grows with the logarithm of the levels (1928) Shannon’s entropy and ..." />
+<meta name="description" content="Signalling rate and pulse shaping, entropy, source coding and channel capacity. Nyquist’s signalling rate: 2B pulses per second (1928) Hartley’s law: information grows with the logarithm of the lev..." />
 
     <title>Information and capacity &#8212; engineeringkit</title>
   
@@ -55,7 +55,7 @@
   <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be" />
 <link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be" />
 
-    <script src="../../../../_static/documentation_options.js?v=38b66d78"></script>
+    <script src="../../../../_static/documentation_options.js?v=95e61db4"></script>
     <script src="../../../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../../../_static/sg-tags.js?v=d80f6fa4"></script>
@@ -68,7 +68,7 @@
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
     <link rel="next" title="Nyquist’s signalling rate: 2B pulses per second (1928)" href="plot_01_nyquist_signalling_rate.html" />
-    <link rel="prev" title="Quadrature modulation: QPSK doubles the rate at the same error rate (1960)" href="../detection/plot_02_cahn_quadrature_qpsk.html" />
+    <link rel="prev" title="Kahn and Brennan’s diversity combining (1954-1959)" href="../fading/plot_02_diversity_combining.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="color-scheme" content="light dark"/>
   <meta name="docsearch:language" content="en"/>
@@ -221,6 +221,21 @@
   </ul>
 </div></div>
       
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://cpoli.github.io/" title="Charles Poli" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-user fa-lg" aria-hidden="true"></i><span class="visually-hidden">Charles Poli</span></a>
+        </li>
+</ul></div>
+      
     </div>
     
   </div>
@@ -319,6 +334,21 @@
   </ul>
 </div></div>
         
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://cpoli.github.io/" title="Charles Poli" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-user fa-lg" aria-hidden="true"></i><span class="visually-hidden">Charles Poli</span></a>
+        </li>
+</ul></div>
+        
       </div>
     
   </div>
@@ -339,13 +369,16 @@
   <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../structural_engineering/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../structural_engineering/beams/index.html">Beams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../structural_engineering/cables/index.html">Cables and arches</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../structural_engineering/energy/index.html">Energy methods</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../structural_engineering/frames/index.html">Frames</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../structural_engineering/members/index.html">Members</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../structural_engineering/plasticity/index.html">Plasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../structural_engineering/shear/index.html">Shear and sections</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../structural_engineering/stability/index.html">Stability</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../structural_engineering/stress/index.html">Stress</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../structural_engineering/trusses/index.html">Trusses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../structural_engineering/vessels/index.html">Pressure vessels</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../mechanical_engineering/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -358,6 +391,7 @@
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../thermodynamics/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../thermodynamics/combustion/index.html">Combustion</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../thermodynamics/cycles/index.html">Cycles</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../thermodynamics/exergy/index.html">Exergy</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../thermodynamics/laws/index.html">Laws</a></li>
@@ -367,14 +401,17 @@
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../fluid_engineering/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../fluid_engineering/drag/index.html">Drag</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../fluid_engineering/hydrostatics/index.html">Hydrostatics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../fluid_engineering/measurement/index.html">Measurement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../fluid_engineering/momentum/index.html">Momentum</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../fluid_engineering/networks/index.html">Networks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../fluid_engineering/open_channel/index.html">Open channels</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../fluid_engineering/pipe_flow/index.html">Pipe flow</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../fluid_engineering/pumps/index.html">Pumps</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../fluid_engineering/similarity/index.html">Similarity</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../fluid_engineering/transients/index.html">Transients</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../fluid_engineering/viscous/index.html">Viscous flow</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../heat_transfer/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -400,6 +437,8 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../electrical_engineering/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../electrical_engineering/ac_circuits/index.html">AC circuits</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../electrical_engineering/dc_circuits/index.html">DC circuits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../electrical_engineering/electronics/index.html">Electronics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../electrical_engineering/machines/index.html">Machines</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../electrical_engineering/networks/index.html">Networks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../electrical_engineering/power/index.html">Power</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../electrical_engineering/transients/index.html">Transients</a></li>
@@ -409,6 +448,7 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../control_systems/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../control_systems/feedback/index.html">Feedback</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../control_systems/frequency/index.html">Frequency response</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../control_systems/nonlinear/index.html">Nonlinear loops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../control_systems/optimal/index.html">Optimal control and estimation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../control_systems/root_locus/index.html">Root locus</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../control_systems/sampled/index.html">Sampled-data control</a></li>
@@ -426,9 +466,12 @@
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">Examples</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../antennas/index.html">Antennas</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../coding/index.html">Coding</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../decibels/index.html">Decibels</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../detection/index.html">Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../digitization/index.html">Digitization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fading/index.html">Fading</a></li>
 <li class="toctree-l2 current active"><a aria-current="page" class="current reference internal" href="#">Information and capacity</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../modulation/index.html">Modulation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../multiplexing/index.html">Multiplexing</a></li>
@@ -439,15 +482,21 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../materials/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../materials/composites/index.html">Composites</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../materials/creep/index.html">Creep</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../materials/crystals/index.html">Crystals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../materials/diffusion/index.html">Diffusion</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../materials/elasticity/index.html">Elasticity</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../materials/fatigue/index.html">Fatigue</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../materials/fracture/index.html">Fracture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../materials/hardness/index.html">Hardness</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../materials/phases/index.html">Phases</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../materials/plasticity/index.html">Plasticity</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../materials/yield/index.html">Yield</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../reliability/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../reliability/acceleration/index.html">Accelerated life testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../reliability/growth/index.html">Growth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reliability/life_data/index.html">Life data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../reliability/lifetimes/index.html">Lifetimes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../reliability/maintenance/index.html">Maintenance</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../reliability/risk/index.html">Risk</a></li>
@@ -491,7 +540,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../guides/control_systems.html">Control systems: matrix contracts and numerical stability</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../guides/signal_processing.html">Signal processing: sampled energy, spectra and quantization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../guides/communications.html">Communications: linear ratios, modulation phase and channel scope</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../guides/materials.html">Materials: elasticity, yield, fatigue, fracture and creep conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../guides/materials.html">Materials: structure, elasticity, yield, fatigue, fracture and creep conventions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../guides/reliability.html">Reliability: distributions, independence and rate units</a></li>
 </ul>
 </div>
@@ -558,7 +607,7 @@
                   
   <section id="information-and-capacity">
 <span id="sphx-glr-api-gallery-communications-information"></span><h1>Information and capacity<a class="headerlink" href="#information-and-capacity" title="Link to this heading">#</a></h1>
-<p>Signalling rate, entropy and channel capacity.</p>
+<p>Signalling rate and pulse shaping, entropy, source coding and channel capacity.</p>
 <div id='sg-tag-list' class='sphx-glr-tag-list'></div><div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Harry Nyquist&#x27;s &quot;Certain topics in telegraph transmission theory&quot; (1928) showed that a channel of bandwidth B can carry at most 2B independent pulses per second without intersymbol interference (~engineeringkit.communications.nyquist_symbol_rate). Sinc-shaped pulses spaced 1/2B apart are each zero at all the other sampling instants, so every pulse can be read without seeing its neighbours. Sending faster makes the pulses blur together."><img alt="" src="../../../../_images/sphx_glr_plot_01_nyquist_signalling_rate_thumb.png" />
 <p><a class="reference internal" href="plot_01_nyquist_signalling_rate.html"><span class="doc">Nyquist’s signalling rate: 2B pulses per second (1928)</span></a></p>
   <div class="sphx-glr-thumbnail-title">Nyquist's signalling rate: 2B pulses per second (1928)</div>
@@ -571,6 +620,12 @@
 </div><div class="sphx-glr-thumbcontainer" tooltip="In &quot;Communication in the presence of noise&quot; (1949) Shannon proved that a channel of bandwidth B with white Gaussian noise and signal-to-noise ratio S/N can carry C = B\log_2(1 + S/N) bits per second with arbitrarily small error (~engineeringkit.communications.shannon_capacity), and no more. Writing S/N = (E_b/N_0)(C/B) gives the minimum energy per bit for a given spectral efficiency. As bandwidth becomes unlimited the minimum tends to \ln 2, or -1.59 dB, the Shannon limit."><img alt="" src="../../../../_images/sphx_glr_plot_04_shannon_hartley_capacity_thumb.png" />
 <p><a class="reference internal" href="plot_04_shannon_hartley_capacity.html"><span class="doc">The Shannon-Hartley capacity of a noisy band-limited channel (1949)</span></a></p>
   <div class="sphx-glr-thumbnail-title">The Shannon-Hartley capacity of a noisy band-limited channel (1949)</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="The same 1928 paper that set the limit of 2B pulses per second also said which pulse shapes reach it without intersymbol interference: those whose spectrum, copied at every multiple of the symbol rate, adds up to a constant. The ideal sinc pulse meets the criterion with the least bandwidth but decays as 1/t, so any timing error lets many neighbours leak in. The raised-cosine family (~engineeringkit.communications.raised_cosine_pulse, raised_cosine_spectrum) spends an excess bandwidth \alpha/2T on a cosine roll-off that keeps the criterion and makes the tails fall as 1/t^3. Split into two root-raised-cosine filters (~engineeringkit.communications.root_raised_cosine_pulse), one at each end of the link, it also gives the receiver a matched filter."><img alt="" src="../../../../_images/sphx_glr_plot_05_nyquist_raised_cosine_thumb.png" />
+<p><a class="reference internal" href="plot_05_nyquist_raised_cosine.html"><span class="doc">Nyquist’s ISI criterion: raised-cosine pulses (1928)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Nyquist's ISI criterion: raised-cosine pulses (1928)</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="In Robert Fano&#x27;s information theory class at MIT, David Huffman was offered a term paper instead of a final exam: find the most efficient binary code. Shannon and Fano&#x27;s top-down splitting was good but not always optimal. Huffman worked bottom-up. He merged the two least likely symbols into one, and repeated until a single node remained. The resulting prefix code (~engineeringkit.communications.huffman_code) has the least average length of any symbol-by-symbol code, within one bit of the entropy (~engineeringkit.communications.entropy), and reaches it exactly when every probability is a power of one half."><img alt="" src="../../../../_images/sphx_glr_plot_06_huffman_code_thumb.png" />
+<p><a class="reference internal" href="plot_06_huffman_code.html"><span class="doc">Huffman’s minimum-redundancy code (1952)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Huffman's minimum-redundancy code (1952)</div>
 </div></div><div class="toctree-wrapper compound">
 </div>
 </section>
@@ -586,12 +641,12 @@
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../detection/plot_02_cahn_quadrature_qpsk.html"
+       href="../fading/plot_02_diversity_combining.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Quadrature modulation: QPSK doubles the rate at the same error rate (1960)</p>
+        <p class="prev-next-title">Kahn and Brennan’s diversity combining (1954-1959)</p>
       </div>
     </a>
     <a class="right-next"

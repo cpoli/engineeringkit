@@ -5,7 +5,7 @@
 Vibration
 ---------
 
-Free vibration, vibration absorbers and torsional modes.
+Free and forced vibration, normal modes, frequency bounds, vibration absorbers and torsional modes.
 
 
 .. raw:: html
@@ -70,6 +70,57 @@ Free vibration, vibration absorbers and torsional modes.
     </div>
 
 
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="The third chapter of Rayleigh&#x27;s Theory of Sound drives the damped oscillator with a harmonic force, m\ddot x + c\dot x + kx = F_0\cos\omega t. Once the free motion has died away the mass moves at the forcing frequency with amplitude (F_0/k)\,M, the static deflection times the magnification factor (~engineeringkit.mechanical_engineering.magnification_factor), and lags the force by a phase (~engineeringkit.mechanical_engineering.phase_angle) that passes through 90 degrees at \omega = \omega_n whatever the damping. Below resonance the spring carries the force, at resonance only damping limits the motion, and above it the mass&#x27;s inertia does. The example compares a simulated run-up of three forcing frequencies with the closed form.">
+
+.. only:: html
+
+  .. image:: /api/gallery/mechanical_engineering/vibration/images/thumb/sphx_glr_plot_04_rayleigh_forced_vibration_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/mechanical_engineering/vibration/plot_04_rayleigh_forced_vibration`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Rayleigh's Theory of Sound: forced vibration and resonance (1877)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Daniel Bernoulli argued in 1753 that a vibrating string sounds many simple vibrations at once, each with its own shape and frequency, and that any motion is their sum. For masses joined by springs the simple vibrations are the solutions of the eigenproblem K\phi = \omega^2 M\phi (~engineeringkit.mechanical_engineering.normal_modes). The modes are orthogonal through M and K, so the equations M\ddot x + Kx = 0 split into independent oscillators, one per mode (~engineeringkit.mechanical_engineering.modal_response), and a harmonic force excites each mode in proportion to its share of the force (~engineeringkit.mechanical_engineering.harmonic_response). The example builds a three-storey shear frame and checks both superpositions against direct solutions.">
+
+.. only:: html
+
+  .. image:: /api/gallery/mechanical_engineering/vibration/images/thumb/sphx_glr_plot_05_bernoulli_normal_modes_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/mechanical_engineering/vibration/plot_05_bernoulli_normal_modes`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Daniel Bernoulli's superposition of normal modes (1753)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Stanley Dunkerley measured the whirling speeds of shafts carrying pulleys at Owens College, Manchester, and found an empirical rule: the inverse squares of the critical speeds of each pulley alone, and of the bare shaft, add up to the inverse square of the critical speed of the whole, 1/\omega^2 \approx \sum_i 1/\omega_i^2 (~engineeringkit.mechanical_engineering.dunkerley_frequency). The sum is the trace of the flexibility-mass matrix, the sum of the inverse squares of every natural frequency, so it always underestimates the fundamental. Rayleigh&#x27;s quotient with the static deflection as the trial shape (~engineeringkit.mechanical_engineering.rayleigh_frequency) always overestimates it. The example brackets the first critical speed of a simply supported shaft with three disks.">
+
+.. only:: html
+
+  .. image:: /api/gallery/mechanical_engineering/vibration/images/thumb/sphx_glr_plot_06_dunkerley_whirling_shaft_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/mechanical_engineering/vibration/plot_06_dunkerley_whirling_shaft`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Dunkerley's whirling shafts and Rayleigh's bound (1894)</div>
+    </div>
+
+
 .. thumbnail-parent-div-close
 
 .. raw:: html
@@ -83,4 +134,7 @@ Free vibration, vibration absorbers and torsional modes.
    /api/gallery/mechanical_engineering/vibration/plot_01_rayleigh_free_vibration
    /api/gallery/mechanical_engineering/vibration/plot_02_frahm_absorber
    /api/gallery/mechanical_engineering/vibration/plot_03_holzer_torsional
+   /api/gallery/mechanical_engineering/vibration/plot_04_rayleigh_forced_vibration
+   /api/gallery/mechanical_engineering/vibration/plot_05_bernoulli_normal_modes
+   /api/gallery/mechanical_engineering/vibration/plot_06_dunkerley_whirling_shaft
 

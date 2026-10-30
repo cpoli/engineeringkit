@@ -47,6 +47,34 @@ due nuove scienze* (Elsevier, Leiden, 1638), second day.
 
 .. minigallery:: ../../examples/structural_engineering/beams/plot_01_galileo_cantilever.py
 
+1675 -- Hooke's Inverted Chain
+------------------------------
+
+At the end of *A Description of Helioscopes* Robert Hooke printed a Latin
+anagram for "the true mathematical and mechanical form of all manner of
+arches". Decoded after his death, it read *ut pendet continuum flexile,
+sic stabit contiguum rigidum inversum*: as hangs the flexible line, so but
+inverted will stand the rigid arch. A hanging chain can only pull, so it
+takes the shape in which its loads cause no bending. Turned upside down,
+the same shape is an arch that only pushes. A three-hinged arch is
+statically determinate, and its moment is the simple-beam moment less the
+thrust times the rise, :math:`M = M_0 - Hy`, which vanishes on the
+funicular shape.
+
+*Implementation:* :func:`engineeringkit.structural_engineering.three_hinged_arch`
+and :class:`engineeringkit.structural_engineering.ArchResult`. The example
+checks that a parabolic arch under a load uniform along the span carries
+no moment and the same force as the matching cable, and shows the bending
+a point load causes.
+
+*References:* R. Hooke, *A Description of Helioscopes, and Some Other
+Instruments* (John Martyn, London, 1676 [1675]), postscript; the solution
+was published in R. Waller (ed.), *The Posthumous Works of Robert Hooke*
+(1705). Dates checked against secondary accounts only.
+
+.. minigallery:: ../../examples/structural_engineering/cables/plot_01_hooke_inverted_chain.py
+
+
 1678 -- Hooke's *Ut tensio, sic vis*
 ------------------------------------
 
@@ -68,6 +96,31 @@ extension and the stored energy.
 (John Martyn, London, 1678).
 
 .. minigallery:: ../../examples/structural_engineering/members/plot_01_hooke_axial.py
+
+1691 -- The Catenary
+--------------------
+
+Galileo had guessed that a hanging chain is a parabola. In 1690 Jacob
+Bernoulli asked the readers of *Acta Eruditorum* for its true shape, and
+in 1691 three answers appeared there, by his brother Johann, by Leibniz and
+by Huygens: the *catenary* :math:`y = a(\cosh(x/a) - 1)`, where
+:math:`a = H/w` is the horizontal tension divided by the weight per unit
+length. The tension at a support is :math:`T = H + wf`. A cable that
+carries a deck uniform along the span, rather than its own weight, hangs
+in a parabola with :math:`H = wL^2/(8f)`, and for shallow cables the two
+curves are nearly the same.
+
+*Implementation:* :func:`engineeringkit.structural_engineering.catenary_cable`
+and :func:`engineeringkit.structural_engineering.parabolic_cable`. The
+example sizes a power-line conductor both ways and shows where the
+parabola stops being a good approximation.
+
+*References:* Joh. Bernoulli, G. W. Leibniz and C. Huygens, solutions of
+the catenary problem, *Acta Eruditorum* (1691). Checked against secondary
+accounts only.
+
+.. minigallery:: ../../examples/structural_engineering/cables/plot_02_catenary.py
+
 
 1744 -- Euler's Column Buckling
 -------------------------------
@@ -116,6 +169,30 @@ Roy. Sci.* (1784, published 1787) 229-269.
 
 .. minigallery:: ../../examples/structural_engineering/members/plot_02_coulomb_torsion.py
 
+1807 -- Young's Eccentric Column
+--------------------------------
+
+In his *Lectures on Natural Philosophy* Thomas Young analysed a column
+loaded off its axis. The load bends it, the bending increases the lever arm
+of the load, and the peak stress follows the *secant formula*,
+:math:`\sigma_\max = (P/A)[1 + (ec/r^2)\sec((KL/2r)\sqrt{P/EA})]`. Stress
+grows faster than load and becomes unbounded at the Euler load, so a
+column's factor of safety must be applied to the load. Solving the
+formula for the load at first yield gives a family of column curves, one
+for each eccentricity ratio :math:`ec/r^2`.
+
+*Implementation:* :func:`engineeringkit.structural_engineering.secant_formula_stress`
+and :func:`engineeringkit.structural_engineering.secant_formula_load`. The
+example shows the nonlinear rise of stress with load and draws the
+secant-formula column curves.
+
+*References:* T. Young, *A Course of Lectures on Natural Philosophy and the
+Mechanical Arts* (Joseph Johnson, London, 1807), vol. 2. The attribution
+follows the secondary literature; the lectures were not consulted.
+
+.. minigallery:: ../../examples/structural_engineering/stability/plot_03_young_secant_formula.py
+
+
 1826 -- Navier's Beam Theory
 ----------------------------
 
@@ -159,6 +236,31 @@ corps élastiques," *Mém. Acad. Roy. Sci. Inst. France* 8 (1829) 357-570.
 
 .. minigallery:: ../../examples/structural_engineering/members/plot_03_poisson_ratio.py
 
+1833 -- Lamé's Thick-Walled Cylinder
+------------------------------------
+
+Gabriel Lamé and Émile Clapeyron, engineers in the Russian service, sent the
+Paris Academy a memoir on the internal equilibrium of elastic solids,
+published in 1833. Among its applications is the hollow cylinder under
+internal and external pressure: :math:`\sigma_r = A - B/r^2` and
+:math:`\sigma_\theta = A + B/r^2`. The hoop stress is greatest at the bore.
+Adding thickness helps less and less, which drove the shrink-fitted and
+wire-wound gun barrels of the nineteenth century. For a thin wall the
+solution reduces to the boiler formula :math:`pr/t`.
+
+*Implementation:* :func:`engineeringkit.structural_engineering.thick_wall_cylinder_stresses`
+and :func:`engineeringkit.structural_engineering.thin_wall_vessel_stresses`.
+The example plots the stresses through a thick wall and finds the radius
+ratio, about 10, at which the thin-wall formula is 5% low.
+
+*References:* G. Lamé and É. Clapeyron, "Mémoire sur l'équilibre intérieur
+des corps solides homogènes," *Mémoires présentés par divers savans à
+l'Académie royale des sciences de l'Institut de France* 4 (1833) 465-562.
+The volume and page are from secondary bibliographies.
+
+.. minigallery:: ../../examples/structural_engineering/vessels/plot_01_lame_thick_cylinder.py
+
+
 1847 -- Whipple's Method of Joints
 ----------------------------------
 
@@ -179,6 +281,35 @@ against the method of sections, :math:`M/h`.
 Utica, 1847).
 
 .. minigallery:: ../../examples/structural_engineering/trusses/plot_01_whipple_method_of_joints.py
+
+1856 -- Jourawski's Shear Stress
+--------------------------------
+
+Building timber bridges for the St Petersburg-Moscow railway, Dmitrii
+Ivanovich Jourawski saw large beams split along their length at
+mid-depth, where the bending stress is zero. He balanced the change in
+bending force on the part of the section beyond a cut against the shear
+on the cut. That gave the shear flow :math:`q = VQ/I`, which the keys of a
+built-up beam must carry, and the shear stress :math:`\tau = VQ/(It)`. The
+analysis was done in 1855 and published in Paris the next year.
+Saint-Venant later found the exact solution, but Jourawski's formula is
+the one engineers use.
+
+*Implementation:* :func:`engineeringkit.structural_engineering.transverse_shear_stress`,
+:func:`engineeringkit.structural_engineering.shear_flow`,
+:func:`engineeringkit.structural_engineering.composite_section` and
+:meth:`engineeringkit.structural_engineering.SectionProperties.first_moment`.
+The example checks that the shear stress in a rectangle and an I-beam adds
+up to the shear force, and spaces the screws of a flitch beam from its
+transformed section.
+
+*References:* D. J. Jourawski, "Sur la résistance d'un corps prismatique et
+d'une pièce composée en bois ou en tôle de fer à une force perpendiculaire
+à leur longueur," *Annales des ponts et chaussées*, 3e série, 12 (1856)
+328-351.
+
+.. minigallery:: ../../examples/structural_engineering/shear/plot_01_jourawski_shear_stress.py
+
 
 1857 -- Clapeyron's Three-Moment Equation
 -----------------------------------------
@@ -251,6 +382,29 @@ Hannover* 14 (1868) 19-51.
 
 .. minigallery:: ../../examples/structural_engineering/beams/plot_04_winkler_influence_lines.py
 
+1874 -- Mohr's Unit-Load Method
+-------------------------------
+
+Otto Mohr applied the principle of virtual work to trusses. To find how
+far one joint moves, put an imaginary unit load there. Its member forces
+:math:`n`, working through the real extensions :math:`NL/(AE)`, equal the
+unit load times the displacement: :math:`\delta = \sum nNL/(AE)`. Both
+force systems come from statics, so a determinate truss needs no
+stiffness matrix. The same argument gives :math:`\int mM/(EI)\,dx` for
+beams, and, with the redundant forces as unknowns, the force method for
+indeterminate structures that Maxwell had begun ten years earlier.
+
+*Implementation:* :func:`engineeringkit.structural_engineering.unit_load_truss_deflection`
+and :func:`engineeringkit.structural_engineering.unit_load_beam_deflection`.
+The example finds the midspan deflection of a Warren truss member by
+member and checks it against the direct stiffness method.
+
+*References:* O. Mohr, "Beitrag zur Theorie des Fachwerks," *Zeitschrift
+des Architekten- und Ingenieur-Vereins zu Hannover* 20 (1874) 509-526.
+
+.. minigallery:: ../../examples/structural_engineering/energy/plot_02_mohr_unit_load.py
+
+
 1879 -- Castigliano's Theorem
 -----------------------------
 
@@ -285,13 +439,17 @@ stress, and its intersections with the axis are the principal stresses.
 Turning the element by :math:`\theta` moves the point by :math:`2\theta`
 around the circle. Culmann had drawn the stresses in a beam graphically in
 1866; Mohr's construction made the transformation one picture, and he
-used it to state his theory of failure.
+used it to state his theory of failure. For a three-dimensional state he
+drew three circles, one through each pair of principal stresses; the
+largest gives the absolute maximum shear :math:`(\sigma_1 - \sigma_3)/2`.
 
-*Implementation:* :func:`engineeringkit.structural_engineering.mohr_circle`
-and :func:`engineeringkit.structural_engineering.stress_transformation`.
+*Implementation:* :func:`engineeringkit.structural_engineering.mohr_circle`,
+:func:`engineeringkit.structural_engineering.stress_transformation` and
+:func:`engineeringkit.structural_engineering.principal_stresses_3d`.
 The example traces the circle by rotating an element, checks the principal
-stresses against the eigenvalues of the stress tensor, and finds the
-plane of maximum shear.
+stresses against the eigenvalues of the stress tensor, finds the plane of
+maximum shear, and draws the three circles for a tank wall, where the
+largest shear acts out of the plane.
 
 *References:* O. Mohr, "Über die Darstellung des Spannungszustandes und
 des Deformationszustandes eines Körperelementes," *Zivilingenieur* 28
@@ -323,6 +481,55 @@ F. R. Shanley, "Inelastic column theory," *J. Aeronaut. Sci.* 14 (1947)
 
 .. minigallery:: ../../examples/structural_engineering/stability/plot_02_engesser_tangent_modulus.py
 
+1893 -- Johnson's Parabola
+--------------------------
+
+Tests on real columns fell well below Euler's hyperbola at low
+slenderness, where columns yield or buckle inelastically. J. B. Johnson,
+C. W. Bryan and F. E. Turneaure fitted a parabola that starts at the yield
+stress and meets Euler's curve tangentially at half of it, at the
+transition slenderness :math:`C_c = \sqrt{2\pi^2E/\sigma_y}`. End conditions
+enter through the effective length :math:`KL`. With a factor of safety,
+the same curve was the American steel column formula for most of the
+twentieth century.
+
+*Implementation:* :func:`engineeringkit.structural_engineering.johnson_critical_stress`
+and :func:`engineeringkit.structural_engineering.effective_length_factor`.
+The example draws the design curve, checks that the two branches meet with
+the same slope, and compares four end conditions.
+
+*References:* J. B. Johnson, C. W. Bryan and F. E. Turneaure, *The Theory
+and Practice of Modern Framed Structures* (Wiley, New York, 1893). The
+date follows the secondary literature; the first edition was not
+consulted.
+
+.. minigallery:: ../../examples/structural_engineering/stability/plot_04_johnson_parabola.py
+
+
+1896 -- Bredt's Thin-Walled Torsion
+-----------------------------------
+
+Rudolf Bredt, an engineer with a crane-building firm, showed that in a
+closed thin-walled tube of any shape the shear flow :math:`q = \tau t` is
+the same all round the wall, :math:`q = T/(2A_m)`, where :math:`A_m` is
+the area enclosed by the wall's centreline. The twist follows as
+:math:`\phi = (TL/4A_m^2G)\oint ds/t`. A closed section is far stiffer in
+torsion than the same wall slit open: the ratio is :math:`3(r/t)^2` for
+a circular tube. Box girders, wing boxes and monocoque fuselages are
+designed with Bredt's two formulas.
+
+*Implementation:* :func:`engineeringkit.structural_engineering.thin_walled_torsion_shear_stress`
+and :func:`engineeringkit.structural_engineering.thin_walled_torsion_angle`.
+The example checks Bredt against Coulomb for a circular tube and compares
+it with the same tube slit along its length.
+
+*References:* R. Bredt, "Kritische Bemerkungen zur Drehungselastizität,"
+*Zeitschrift des Vereines deutscher Ingenieure* 40 (1896) 785ff. The page
+is from secondary bibliographies.
+
+.. minigallery:: ../../examples/structural_engineering/members/plot_04_bredt_thin_walled_torsion.py
+
+
 1914 -- Kazinczy's Plastic Hinge
 --------------------------------
 
@@ -347,6 +554,83 @@ and J. Heyman, *The Steel Skeleton*, vol. 2 (Cambridge University Press,
 
 .. minigallery:: ../../examples/structural_engineering/plasticity/plot_01_kazinczy_plastic_hinge.py
 
+1915 -- Maney's Slope-Deflection Method
+---------------------------------------
+
+George A. Maney at the University of Minnesota wrote the moment at each
+end of a member in terms of the rotations of its ends and of its chord:
+:math:`M_{ij} = (2EI/L)(2\theta_i + \theta_j - 3\psi) + M^F_{ij}`.
+Moment equilibrium at each free joint then gives one equation per unknown
+rotation. Support settlements enter through the chord rotation
+:math:`\psi`. Hardy Cross's moment distribution (1930) solves the same
+equations by relaxation, and the stiffness method is their matrix form.
+Johnson's *Modern Framed Structures* credits Otto Mohr with the idea before
+Maney found it independently.
+
+*Implementation:* :func:`engineeringkit.structural_engineering.slope_deflection`
+and :class:`engineeringkit.structural_engineering.SlopeDeflectionResult`.
+The example analyses a three-span girder, checks it against moment
+distribution and lets a pier settle.
+
+*References:* G. A. Maney, "Secondary stresses in rigid frames," *Studies
+in Engineering* (University of Minnesota, Minneapolis, 1915). Checked
+against secondary accounts only.
+
+.. minigallery:: ../../examples/structural_engineering/frames/plot_03_maney_slope_deflection.py
+
+
+1919 -- Macaulay's Singularity Functions
+----------------------------------------
+
+Integrating :math:`EIy'' = M` piece by piece between loads leaves two
+constants of integration per piece, tied together by continuity
+conditions. W. H. Macaulay, a Cambridge mathematician, wrote the moment once for
+the whole beam with brackets :math:`\langle x - a\rangle^n` that vanish to
+the left of :math:`a`. Integrated as ordinary powers, they leave only two
+constants. Clebsch had used the idea in 1862, but Macaulay's two-page note
+brought it into English textbooks. With the reactions as unknowns too,
+statically indeterminate beams are solved the same way as determinate
+ones. Superposition of standard cases, the older method, gives the same
+answers.
+
+*Implementation:* :class:`engineeringkit.structural_engineering.Beam` and
+:func:`engineeringkit.structural_engineering.superpose_beam_results`. The
+example solves a propped cantilever under a point load, a couple and a
+triangular load, and repeats it by superposition.
+
+*References:* W. H. Macaulay, "A note on the deflection of beams,"
+*Messenger of Mathematics* 48 (1919) 129-130; A. Clebsch, *Theorie der
+Elasticität fester Körper* (Teubner, Leipzig, 1862).
+
+.. minigallery:: ../../examples/structural_engineering/beams/plot_05_macaulay_singularity_functions.py
+
+
+1921 -- Maillart's Shear Centre
+-------------------------------
+
+Carl von Bach's tests at Stuttgart had shown channel beams twisting under
+loads through the web. The Swiss engineer Robert Maillart explained why.
+The shear flows in the flanges form a couple, so a load bends the beam
+without twisting it only if it passes through a point behind the web, the
+*shear centre*, at :math:`e = 3b^2t_f/(6bt_f + ht_w)`. In a section such as
+an angle the principal axes are inclined, so a vertical load also bends the
+beam sideways. The neutral axis then follows the generalized flexure
+formula, not the plane of the load.
+
+*Implementation:* :func:`engineeringkit.structural_engineering.channel_shear_center`,
+:func:`engineeringkit.structural_engineering.unsymmetrical_bending_stress`,
+:func:`engineeringkit.structural_engineering.neutral_axis_angle`,
+:func:`engineeringkit.structural_engineering.channel_section` and
+:func:`engineeringkit.structural_engineering.angle_section`. The example
+locates the shear centre of a channel from the flange couple and the
+neutral axis of an angle under a vertical load.
+
+*References:* R. Maillart, "Zur Frage der Biegung," *Schweizerische
+Bauzeitung* 77 (1921) 195-197.
+
+.. minigallery:: ../../examples/structural_engineering/shear/plot_02_maillart_shear_center.py
+
+
 1930 -- Hardy Cross's Moment Distribution
 -----------------------------------------
 
@@ -368,6 +652,28 @@ unbalance.
 fixed-end moments," *Proc. ASCE* 56 (1930) 919-928.
 
 .. minigallery:: ../../examples/structural_engineering/frames/plot_01_hardy_cross_moment_distribution.py
+
+1938 -- Simmons and Ruge's Bonded Strain Gauge
+----------------------------------------------
+
+Stress cannot be measured, only strain. Edward E. Simmons at Caltech (from
+1936) and Arthur C. Ruge at MIT (April 1938) independently cemented fine
+resistance wire to a surface, so that the wire's resistance changed with
+the strain beneath it. The device was sold as the SR-4 gauge. One gauge
+gives the strain in one direction. A *rosette* of three at known angles
+gives the full plane strain state, and Hooke's law turns it into stress.
+Strain gauges made experimental stress analysis a routine laboratory and
+field method.
+
+*Implementation:* :func:`engineeringkit.structural_engineering.strain_rosette`
+and :func:`engineeringkit.structural_engineering.plane_stress_from_strains`.
+The example simulates a rosette on a shaft under bending and torsion and
+recovers the torque from three noisy readings.
+
+*References:* E. E. Simmons, US Patent 2,292,549 (11 August 1942). The
+dates of Simmons's and Ruge's work are from secondary accounts.
+
+.. minigallery:: ../../examples/structural_engineering/stress/plot_02_strain_gauge_rosette.py
 
 1956 -- Turner, Clough, Martin and Topp: the Direct Stiffness Method
 --------------------------------------------------------------------

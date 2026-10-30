@@ -1,7 +1,7 @@
 engineeringkit.control_systems
 ==============================
 
-Classical stability, PID responses, state feedback, LQR and estimation.
+Classical stability, compensator design, PID with anti-windup, nonlinear loops, state feedback, LQR and estimation.
 
 .. grid:: 1 2 3 3
    :gutter: 2

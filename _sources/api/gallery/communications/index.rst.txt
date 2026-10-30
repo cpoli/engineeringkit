@@ -7,8 +7,10 @@ Examples
 
 This gallery walks through every public feature of
 ``engineeringkit.communications``, one breakthrough per script: decibels,
-radio propagation and link budgets, thermal noise, analog modulation,
-information and capacity, optimum detection, error-correcting codes and OFDM.
+radio propagation and link budgets, antennas, thermal noise, analog
+modulation and its noise performance, information, pulse shaping and
+capacity, optimum detection, digitization, source and channel codes,
+fading and diversity, and OFDM.
 
 :doc:`Units, assumptions and numerical validation </guides/communications>`
 gives the physical validity limits. Each script is self-contained and can be
@@ -19,11 +21,14 @@ Sections
 
 - **decibels** -- the Bell System transmission unit.
 - **propagation** -- Hertz's waves, the Friis transmission formula and the Telstar link budget.
+- **antennas** -- Friis's effective aperture and Carter's half-wave dipole.
 - **noise** -- Johnson-Nyquist noise and Friis's cascaded noise factor.
-- **modulation** -- Fessenden's AM, Carson's suppressed carrier and Armstrong's FM.
-- **information** -- Nyquist's signalling rate, Hartley's law, Shannon's entropy and capacity.
-- **detection** -- Kotel'nikov's optimum BPSK receiver and quadrature (QPSK) modulation.
-- **coding** -- the Hamming(7,4) code.
+- **modulation** -- Fessenden's AM, Carson's suppressed carrier, Armstrong's FM and Crosby's noise analysis of FM against AM.
+- **information** -- Nyquist's signalling rate and raised-cosine pulses, Hartley's law, Shannon's entropy and capacity, and Huffman's code.
+- **detection** -- Kotel'nikov's optimum BPSK receiver, quadrature (QPSK) modulation, North's matched filter, Cahn's M-PSK and square QAM.
+- **digitization** -- Reeves's pulse-code modulation and delta modulation.
+- **coding** -- the Hamming(7,4) code, Elias's convolutional codes, the cyclic redundancy check and Viterbi decoding.
+- **fading** -- Rayleigh's random phasors and diversity combining.
 - **multiplexing** -- DFT-based OFDM with a cyclic prefix.
 
 
@@ -44,10 +49,68 @@ Sections
 
     </div>
 
+Antennas
+--------
+
+Gain and effective aperture, and the half-wave dipole.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Friis first wrote his transmission formula not with gains but with the antennas&#x27; effective areas: P_r/P_t = A_t A_r/(d\lambda)^2. A receiving antenna collects the power falling on its effective area A_e, and reciprocity ties that area to its gain, A_e = G\lambda^2/4\pi (~engineeringkit.communications.effective_aperture). For a dish of physical area A and aperture efficiency \eta_a, G = 4\pi\eta_a A/\lambda^2 (~engineeringkit.communications.aperture_gain). A dish of fixed size gains 6 dB at every doubling of frequency, while an antenna of fixed gain collects less and less power.">
+
+.. only:: html
+
+  .. image:: /api/gallery/communications/antennas/images/thumb/sphx_glr_plot_01_friis_effective_aperture_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/communications/antennas/plot_01_friis_effective_aperture`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Friis's effective aperture: gain and area (1946)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="The half-wave dipole is the reference antenna of radio engineering. With the sinusoidal current a thin wire carries, its far field varies as \cos(\tfrac\pi2\cos\theta)/\sin\theta (~engineeringkit.communications.half_wave_dipole_pattern), a little narrower than the \sin\theta of a short dipole. Integrating the radiated power gives a directivity of 1.64, or 2.15 dBi (~engineeringkit.communications.half_wave_dipole_directivity), and a radiation resistance of 73 ohms (~engineeringkit.communications.half_wave_dipole_resistance). Philip Carter of RCA put such calculations in circuit form in 1932: his induced-EMF method gave the self- and mutual impedances of dipoles, the basis of every array design that followed.">
+
+.. only:: html
+
+  .. image:: /api/gallery/communications/antennas/images/thumb/sphx_glr_plot_02_carter_half_wave_dipole_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/communications/antennas/plot_02_carter_half_wave_dipole`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Carter's half-wave dipole (1932)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
 Coding
 ------
 
-Single-error-correcting block codes.
+Channel codes: Hamming's block code, cyclic redundancy checks, and
+convolutional codes with Viterbi decoding.
 
 
 .. raw:: html
@@ -75,6 +138,57 @@ Single-error-correcting block codes.
 .. raw:: html
 
       <div class="sphx-glr-thumbnail-title">Hamming's single-error-correcting code (1950)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Peter Elias&#x27;s &quot;Coding for noisy channels&quot; showed that a code need not cut the data into blocks. A shift register of length K slides along the bit stream, and each input bit produces n output bits, sums modulo two of the register taps (~engineeringkit.communications.convolutional_encode). Elias proved that such codes are at least as good as block codes. Their strength is the free distance, the least weight of any path that leaves the all-zero state and returns to it (~engineeringkit.communications.convolutional_free_distance). For the standard rate-1/2 codes it grows with the constraint length.">
+
+.. only:: html
+
+  .. image:: /api/gallery/communications/coding/images/thumb/sphx_glr_plot_02_elias_convolutional_codes_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/communications/coding/plot_02_elias_convolutional_codes`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Elias's convolutional codes (1955)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="W. Wesley Peterson and D. T. Brown showed how to detect errors with a few shift-register stages and exclusive-OR gates. Treat the message as a polynomial over GF(2), multiply by x^r, divide by a generator g(x) of degree r, and send the remainder after the message (~engineeringkit.communications.crc_encode). The receiver divides again and declares an error if anything is left (~engineeringkit.communications.crc_check). Every burst of r or fewer errors is caught, and a random error pattern slips through with probability 2^{-r}. CRCs now guard Ethernet frames, disks and USB packets.">
+
+.. only:: html
+
+  .. image:: /api/gallery/communications/coding/images/thumb/sphx_glr_plot_03_peterson_brown_crc_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/communications/coding/plot_03_peterson_brown_crc`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Peterson and Brown's cyclic redundancy check (1961)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Decoding a convolutional code by brute force means comparing the received sequence with all 2^L possible codewords. Andrew Viterbi saw that two paths entering the same encoder state at the same time have the same future, so only the better of them, the survivor, need be kept. The work then grows linearly with L (~engineeringkit.communications.viterbi_decode, returning a ViterbiDecodeResult). Viterbi introduced the algorithm as a device for proving error bounds. Jim Omura and David Forney showed in the early 1970s that it is maximum-likelihood decoding, and it became the decoder of deep-space links, GSM telephones and dial-up modems. Soft decisions, the received values before slicing, gain about 2 dB over hard bits.">
+
+.. only:: html
+
+  .. image:: /api/gallery/communications/coding/images/thumb/sphx_glr_plot_04_viterbi_algorithm_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/communications/coding/plot_04_viterbi_algorithm`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Viterbi's decoding algorithm (1967)</div>
     </div>
 
 
@@ -127,7 +241,7 @@ Logarithmic power ratios.
 Detection
 ---------
 
-Bit-error rates of coherent BPSK and QPSK in Gaussian noise.
+The matched filter, and error rates of coherent BPSK, QPSK, M-PSK and M-QAM in Gaussian noise.
 
 
 .. raw:: html
@@ -175,6 +289,171 @@ Bit-error rates of coherent BPSK and QPSK in Gaussian noise.
     </div>
 
 
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Working on radar at RCA Laboratories, Dwight North asked which receiving filter makes a known pulse stand out best above white noise. His wartime report answered it: the filter whose impulse response is the pulse reversed in time (and conjugated), matched_filter. Sampled at the end of the pulse, its output signal-to-noise ratio is 2E/N_0 (~engineeringkit.communications.matched_filter_snr). That depends only on the pulse&#x27;s energy, not its shape, and no linear filter does better: the bound is the Cauchy-Schwarz inequality.">
+
+.. only:: html
+
+  .. image:: /api/gallery/communications/detection/images/thumb/sphx_glr_plot_03_north_matched_filter_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/communications/detection/plot_03_north_matched_filter`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">North's matched filter (1943)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Charles Cahn asked what happens when a carrier&#x27;s phase takes not two but M values, so that each symbol carries \log_2 M bits. The points sit on a circle (~engineeringkit.communications.psk_constellation) and crowd together as M grows: the distance between neighbours is 2\sin(\pi/M). Every doubling of M beyond four costs about 6 dB of E_s/N_0. Cahn concluded that multiphase signalling trades bandwidth for signal-to-noise ratio more efficiently than multilevel amplitude signalling. The exact symbol-error rate of minimum-distance detection (~engineeringkit.communications.minimum_distance_detect) is given by Craig&#x27;s integral (~engineeringkit.communications.ser_mpsk_awgn).">
+
+.. only:: html
+
+  .. image:: /api/gallery/communications/detection/images/thumb/sphx_glr_plot_04_cahn_mpsk_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/communications/detection/plot_04_cahn_mpsk`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Cahn's M-ary phase-shift keying (1959)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Phase-shift keying wastes the inside of the circle. C. N. Campopiano and B. G. Glazer modulated the amplitudes of two carriers in quadrature independently, so the points fill a square grid (~engineeringkit.communications.qam_constellation). Each rail is a \sqrt M-level amplitude decision, and the exact symbol-error rate follows from one rail&#x27;s error probability (~engineeringkit.communications.ser_mqam_awgn). At 16 points and above, square QAM needs several decibels less power than M-PSK, which is why every modem from the 1970s to Wi-Fi and 5G uses it.">
+
+.. only:: html
+
+  .. image:: /api/gallery/communications/detection/images/thumb/sphx_glr_plot_05_campopiano_glazer_qam_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/communications/detection/plot_05_campopiano_glazer_qam`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Campopiano and Glazer's square QAM (1962)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+Digitization
+------------
+
+Pulse-code modulation and delta modulation: turning a waveform into bits.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Alec Reeves, an engineer at International Telephone and Telegraph&#x27;s Paris laboratory, proposed sampling a speech waveform, rounding each sample to one of 2^N levels and sending the level number as N on-off pulses (~engineeringkit.communications.pcm_encode, pcm_decode). Rounding adds a small, fixed amount of noise, about 6.02N + 1.76 dB below a full-scale sine (~engineeringkit.communications.pcm_sqnr_db). In exchange, a repeater has only to decide whether each pulse is present, so noise does not accumulate along the line. The vacuum tubes of 1938 made PCM impractical. It waited for the transistor and the Bell System&#x27;s T1 carrier of 1962, which used companding (~engineeringkit.communications.mu_law_compress) to keep quiet speech above the quantization noise.">
+
+.. only:: html
+
+  .. image:: /api/gallery/communications/digitization/images/thumb/sphx_glr_plot_01_reeves_pcm_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/communications/digitization/plot_01_reeves_pcm`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Reeves's pulse-code modulation (1937-1938)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="PCM needs an accurate multilevel coder. Delta modulation needs one comparator. The encoder keeps a staircase copy of the signal and sends a single bit per sample: 1 to step up by \Delta, 0 to step down (~engineeringkit.communications.delta_modulate). The decoder rebuilds the staircase (~engineeringkit.communications.delta_demodulate) and smooths it. The idea appears in a 1946 French patent by Maurice Deloraine and colleagues at ITT&#x27;s Paris laboratory; Frank de Jager of Philips gave the first full published analysis in 1952. The step size is a compromise: small steps fall behind fast signals (slope overload, beyond \Delta f_s, delta_slope_limit), large steps leave granular noise where the signal is flat.">
+
+.. only:: html
+
+  .. image:: /api/gallery/communications/digitization/images/thumb/sphx_glr_plot_02_delta_modulation_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/communications/digitization/plot_02_delta_modulation`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Delta modulation (1946-1952)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+Fading
+------
+
+Rayleigh fading from many scattered paths, and diversity combining.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Lord Rayleigh asked what amplitude results when a large number of vibrations of the same pitch but arbitrary phase are added, a question from optics and acoustics. The answer is a density f(r) = (2r/\Omega)e^{-r^2/\Omega}, now called the Rayleigh distribution (~engineeringkit.communications.rayleigh_pdf). Seventy years later it described the mobile radio channel: a signal reaching a car by many scattered paths fades deeply and often. Averaged over the fades, the bit-error rate of BPSK falls only as 1/4\bar\gamma (~engineeringkit.communications.ber_bpsk_rayleigh) instead of exponentially, so a fading link needs tens of decibels more power than a steady one.">
+
+.. only:: html
+
+  .. image:: /api/gallery/communications/fading/images/thumb/sphx_glr_plot_01_rayleigh_random_phasors_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/communications/fading/plot_01_rayleigh_random_phasors`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Rayleigh's sum of random phasors (1880)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Two antennas a few wavelengths apart rarely fade at the same moment. Short-wave receivers had long switched to whichever antenna was strongest (selection, selection_outage_probability). Leonard Kahn&#x27;s 1954 &quot;ratio squarer&quot; instead weighted each branch by its own signal strength before adding them. With complex weights equal to the conjugate channel gains this is maximal-ratio combining (~engineeringkit.communications.maximal_ratio_combine), whose output SNR is the sum of the branch SNRs. D. G. Brennan&#x27;s 1959 review compared selection, equal-gain and maximal-ratio combining and showed how close they come to one another. With L independent branches the error rate falls as \bar\gamma^{-L} (~engineeringkit.communications.ber_bpsk_mrc_rayleigh).">
+
+.. only:: html
+
+  .. image:: /api/gallery/communications/fading/images/thumb/sphx_glr_plot_02_diversity_combining_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/communications/fading/plot_02_diversity_combining`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Kahn and Brennan's diversity combining (1954-1959)</div>
+    </div>
+
+
 .. thumbnail-parent-div-close
 
 .. raw:: html
@@ -184,7 +463,7 @@ Bit-error rates of coherent BPSK and QPSK in Gaussian noise.
 Information and capacity
 ------------------------
 
-Signalling rate, entropy and channel capacity.
+Signalling rate and pulse shaping, entropy, source coding and channel capacity.
 
 
 .. raw:: html
@@ -266,6 +545,40 @@ Signalling rate, entropy and channel capacity.
     </div>
 
 
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="The same 1928 paper that set the limit of 2B pulses per second also said which pulse shapes reach it without intersymbol interference: those whose spectrum, copied at every multiple of the symbol rate, adds up to a constant. The ideal sinc pulse meets the criterion with the least bandwidth but decays as 1/t, so any timing error lets many neighbours leak in. The raised-cosine family (~engineeringkit.communications.raised_cosine_pulse, raised_cosine_spectrum) spends an excess bandwidth \alpha/2T on a cosine roll-off that keeps the criterion and makes the tails fall as 1/t^3. Split into two root-raised-cosine filters (~engineeringkit.communications.root_raised_cosine_pulse), one at each end of the link, it also gives the receiver a matched filter.">
+
+.. only:: html
+
+  .. image:: /api/gallery/communications/information/images/thumb/sphx_glr_plot_05_nyquist_raised_cosine_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/communications/information/plot_05_nyquist_raised_cosine`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Nyquist's ISI criterion: raised-cosine pulses (1928)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In Robert Fano&#x27;s information theory class at MIT, David Huffman was offered a term paper instead of a final exam: find the most efficient binary code. Shannon and Fano&#x27;s top-down splitting was good but not always optimal. Huffman worked bottom-up. He merged the two least likely symbols into one, and repeated until a single node remained. The resulting prefix code (~engineeringkit.communications.huffman_code) has the least average length of any symbol-by-symbol code, within one bit of the entropy (~engineeringkit.communications.entropy), and reaches it exactly when every probability is a power of one half.">
+
+.. only:: html
+
+  .. image:: /api/gallery/communications/information/images/thumb/sphx_glr_plot_06_huffman_code_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/communications/information/plot_06_huffman_code`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Huffman's minimum-redundancy code (1952)</div>
+    </div>
+
+
 .. thumbnail-parent-div-close
 
 .. raw:: html
@@ -275,7 +588,7 @@ Signalling rate, entropy and channel capacity.
 Modulation
 ----------
 
-Amplitude, suppressed-carrier and frequency modulation.
+Amplitude, suppressed-carrier and frequency modulation, and their noise performance.
 
 
 .. raw:: html
@@ -337,6 +650,23 @@ Amplitude, suppressed-carrier and frequency modulation.
 .. raw:: html
 
       <div class="sphx-glr-thumbnail-title">Armstrong's wideband FM and Carson's bandwidth rule (1933-1936)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Armstrong demonstrated wideband FM&#x27;s quiet reception in 1935. Murray Crosby of RCA explained it. Measured against the reference SNR \gamma = P_R/N_0W (~engineeringkit.communications.baseband_snr), an envelope-detected AM receiver gives at best \gamma/3, because two thirds of the power sits in the carrier (~engineeringkit.communications.am_output_snr). An FM discriminator gives 3\beta^2 P_m\gamma (~engineeringkit.communications.fm_output_snr): every doubling of the deviation buys 6 dB. Crosby also found the catch. Below a carrier-to-noise ratio of about 10 dB in the FM bandwidth, the improvement collapses (~engineeringkit.communications.fm_threshold_snr).">
+
+.. only:: html
+
+  .. image:: /api/gallery/communications/modulation/images/thumb/sphx_glr_plot_04_crosby_fm_noise_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/communications/modulation/plot_04_crosby_fm_noise`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Crosby's noise analysis of FM against AM (1937)</div>
     </div>
 
 
@@ -523,9 +853,12 @@ Wavelength, free-space path loss and link budgets.
    :includehidden:
 
 
+   /api/gallery/communications/antennas/index.rst
    /api/gallery/communications/coding/index.rst
    /api/gallery/communications/decibels/index.rst
    /api/gallery/communications/detection/index.rst
+   /api/gallery/communications/digitization/index.rst
+   /api/gallery/communications/fading/index.rst
    /api/gallery/communications/information/index.rst
    /api/gallery/communications/modulation/index.rst
    /api/gallery/communications/multiplexing/index.rst

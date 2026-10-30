@@ -7,8 +7,9 @@ Examples
 
 This gallery walks through every public feature of
 ``engineeringkit.thermodynamics``, one breakthrough per script: the first and
-second laws, ideal and real gases, vapour pressure and steam properties,
-heat-engine cycles, refrigerators and heat pumps, exergy and moist air.
+second laws, ideal and real gases and their mixtures, vapour pressure and
+steam properties, heat-engine cycles and power plants, refrigerators and heat
+pumps, exergy, moist air and combustion.
 
 :doc:`Units, assumptions and numerical validation </guides/thermodynamics>`
 gives the physical validity limits. Each script is self-contained and can be
@@ -17,16 +18,23 @@ run directly with ``python examples/thermodynamics/<section>/<script>.py``.
 Sections
 --------
 
-- **laws** -- Joule's mechanical equivalent of heat and Clausius's entropy.
-- **properties** -- Clapeyron's ideal gas, the Clausius-Clapeyron relation,
-  the Joule-Thomson effect, van der Waals's equation, Antoine's equation and
-  IAPWS-IF97 steam properties.
-- **cycles** -- Carnot's bound, the Rankine, Brayton, Otto and Diesel
-  cycles, and the Curzon-Ahlborn efficiency at maximum power.
-- **refrigeration** -- Perkins's vapour-compression refrigerator and
-  Kelvin's heat pump.
+- **laws** -- Joule's mechanical equivalent of heat and steady-flow
+  devices, Clausius's entropy and Maxwell's relations.
+- **properties** -- Dalton's partial pressures, Clapeyron's ideal gas, the
+  Clausius-Clapeyron relation, the Joule-Thomson effect, van der Waals's
+  equation, Antoine's equation, Pitzer's acentric factor, Peng and
+  Robinson's equation and IAPWS-IF97 steam properties up to region 5.
+- **cycles** -- Carnot's bound, Stirling's regenerator, the Rankine,
+  Brayton, Otto, Diesel and dual cycles with reheat, feedwater heating,
+  regeneration and intercooling, and the Curzon-Ahlborn efficiency at
+  maximum power.
+- **refrigeration** -- Perkins's vapour-compression refrigerator, on water
+  and on R-134a, and Kelvin's heat pump.
 - **exergy** -- Gouy and Stodola's lost work and Rant's exergy.
-- **psychrometrics** -- Carrier's psychrometric chart.
+- **psychrometrics** -- Carrier's psychrometric chart and air-conditioning
+  processes.
+- **combustion** -- Hess's law, heating values and the adiabatic flame
+  temperature.
 
 
 .. raw:: html
@@ -46,10 +54,50 @@ Sections
 
     </div>
 
+Combustion
+----------
+
+Burning fuel in air: stoichiometry, heating values and flame temperatures.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Germain Henri Hess, a chemist in St Petersburg, measured the heat released by reactions carried out in different steps. In 1840 he found that the total heat depends only on the initial and final states, not on the route. A heat of reaction is then the difference between the enthalpies of formation of the products and of the reactants. Combined with Lavoisier&#x27;s conservation of mass (~engineeringkit.thermodynamics.combustion_products, stoichiometric_air_fuel_ratio), that gives a fuel&#x27;s heating value (~engineeringkit.thermodynamics.heating_value). Burning the fuel adiabatically with NIST&#x27;s product enthalpies gives the flame temperature (~engineeringkit.thermodynamics.adiabatic_flame_temperature).">
+
+.. only:: html
+
+  .. image:: /api/gallery/thermodynamics/combustion/images/thumb/sphx_glr_plot_01_hess_heat_of_combustion_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/thermodynamics/combustion/plot_01_hess_heat_of_combustion`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Hess's law and the heat of combustion (1840)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
 Cycles
 ------
 
-Heat engines: Carnot's bound and the idealized cycles of real engines.
+Heat engines: Carnot's bound, the idealized cycles of real engines and power plants analysed state by state.
 
 
 .. raw:: html
@@ -165,6 +213,74 @@ Heat engines: Carnot's bound and the idealized cycles of real engines.
     </div>
 
 
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="The Reverend Robert Stirling patented a hot-air engine in 1816 whose novelty was the &quot;economiser&quot;, a mass of metal through which the working air passed on its way between the hot and cold spaces. Air cooling at constant volume left its heat in the regenerator, and the returning air picked it up again. Only the two isothermal heat exchanges then crossed the engine&#x27;s boundary, and the ideal cycle reaches Carnot&#x27;s efficiency. Without the regenerator it falls far short (~engineeringkit.thermodynamics.stirling_efficiency).">
+
+.. only:: html
+
+  .. image:: /api/gallery/thermodynamics/cycles/images/thumb/sphx_glr_plot_07_stirling_regenerator_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/thermodynamics/cycles/plot_07_stirling_regenerator`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Stirling's regenerator (1816)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Rankine&#x27;s pump, boiler, engine and condenser became the modern power station by three changes that raise the mean temperature at which heat is added. Superheating heats the steam beyond saturation. Reheating returns it to the boiler halfway through the expansion. Feedwater heating preheats the boiler water with steam bled from the turbine. Each also keeps the turbine exhaust dry. rankine_cycle analyses the plant state by state with IAPWS-IF97. The example reproduces Çengel and Boles&#x27;s three textbook plants at 15 MPa, 600 °C and 10 kPa.">
+
+.. only:: html
+
+  .. image:: /api/gallery/thermodynamics/cycles/images/thumb/sphx_glr_plot_08_rankine_reheat_regeneration_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/thermodynamics/cycles/plot_08_rankine_reheat_regeneration`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Rankine's cycle with reheat and feedwater heating (1859)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A simple gas turbine throws its hot exhaust away and spends much of its turbine work on the compressor. A regenerator heats the compressed air with the exhaust. Splitting the compression with intercoolers and the expansion with reheaters moves both towards isothermal processes. With many stages and a perfect regenerator the cycle becomes Ericsson&#x27;s, whose efficiency is Carnot&#x27;s (~engineeringkit.thermodynamics.brayton_cycle).">
+
+.. only:: html
+
+  .. image:: /api/gallery/thermodynamics/cycles/images/thumb/sphx_glr_plot_09_brayton_regeneration_intercooling_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/thermodynamics/cycles/plot_09_brayton_regeneration_intercooling`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Brayton's cycle with regeneration, intercooling and reheat (1872)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Diesel&#x27;s ideal engine burns its fuel at constant pressure. Real high-speed diesels burn part of the charge almost at once, at nearly constant volume, and the rest as the piston moves. The dual (limited-pressure) cycle models this with both heat additions (~engineeringkit.thermodynamics.dual_efficiency). It contains Otto&#x27;s cycle (no constant-pressure part) and Diesel&#x27;s (no constant-volume part) as its limits.">
+
+.. only:: html
+
+  .. image:: /api/gallery/thermodynamics/cycles/images/thumb/sphx_glr_plot_10_diesel_dual_cycle_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/thermodynamics/cycles/plot_10_diesel_dual_cycle`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Diesel's cycle and the dual cycle (1893)</div>
+    </div>
+
+
 .. thumbnail-parent-div-close
 
 .. raw:: html
@@ -231,7 +347,7 @@ Work potential and the work lost to irreversibility.
 Laws
 ----
 
-The first law (energy is conserved) and the second (entropy never decreases).
+The first law (energy is conserved) for closed systems and steady-flow devices, the second (entropy never decreases), and Maxwell's relations.
 
 
 .. raw:: html
@@ -279,6 +395,40 @@ The first law (energy is conserved) and the second (entropy never decreases).
     </div>
 
 
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In his Theory of Heat (1871) James Clerk Maxwell drew a small cycle on the pressure-volume diagram and read off four relations between the derivatives of p, v, T and s. In modern form they say that the mixed second derivatives of u, h, a and g are equal. One of them, (\partial s/\partial p)_T = -(\partial v/\partial T)_p, trades an unmeasurable entropy derivative for a measurable expansion coefficient. From it follow the difference of the specific heats (~engineeringkit.thermodynamics.cp_minus_cv) and the Joule-Thomson coefficient of any fluid (~engineeringkit.thermodynamics.joule_thomson_coefficient). The example checks both against IAPWS-IF97 steam, which is itself built from a Gibbs function.">
+
+.. only:: html
+
+  .. image:: /api/gallery/thermodynamics/laws/images/thumb/sphx_glr_plot_03_maxwell_relations_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/thermodynamics/laws/plot_03_maxwell_relations`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Maxwell's thermodynamic relations (1871)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Joule&#x27;s equivalence of heat and work, written for fluid flowing steadily through a device, is the energy balance of every engineering component:">
+
+.. only:: html
+
+  .. image:: /api/gallery/thermodynamics/laws/images/thumb/sphx_glr_plot_04_joule_steady_flow_devices_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/thermodynamics/laws/plot_04_joule_steady_flow_devices`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Joule's first law in steady-flow devices (1843-1850)</div>
+    </div>
+
+
 .. thumbnail-parent-div-close
 
 .. raw:: html
@@ -288,7 +438,7 @@ The first law (energy is conserved) and the second (entropy never decreases).
 Properties
 ----------
 
-Equations of state, vapour pressure and the properties of water and steam.
+Equations of state, ideal-gas mixtures, vapour pressure and the properties of water, steam and refrigerants.
 
 
 .. raw:: html
@@ -404,6 +554,74 @@ Equations of state, vapour pressure and the properties of water and steam.
     </div>
 
 
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="John Dalton, a Manchester schoolteacher, read a set of essays to the city&#x27;s Literary and Philosophical Society in October 1801. He argued that each gas in a mixture presses on the walls as if the others were absent, so the total pressure of a mixture is the sum of the partial pressures, p = \sum p_i with p_i = y_i p (~engineeringkit.thermodynamics.partial_pressures). The rule underlies moist-air calculations, combustion products and every ideal-gas mixture: its molar mass is the mole-weighted mean (~engineeringkit.thermodynamics.mixture_molar_mass), and mixing different gases generates entropy (~engineeringkit.thermodynamics.entropy_of_mixing).">
+
+.. only:: html
+
+  .. image:: /api/gallery/thermodynamics/properties/images/thumb/sphx_glr_plot_07_dalton_partial_pressures_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/thermodynamics/properties/plot_07_dalton_partial_pressures`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Dalton's law of partial pressures (1801)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Van der Waals&#x27;s law of corresponding states says that all fluids share one compressibility chart in reduced temperature and pressure. That holds for argon, krypton and xenon but fails for larger, less spherical molecules. Kenneth Pitzer and his co-workers at Berkeley added a third parameter in 1955, the acentric factor \omega = -\log_{10}[p_s(0.7\,T_c)/p_c] - 1 (~engineeringkit.thermodynamics.pitzer_acentric_factor). It is zero for the simple fluids, whose reduced vapour pressure at T_r = 0.7 is almost exactly 0.1. The compressibility factor (~engineeringkit.thermodynamics.compressibility_factor) is then Z = Z^0 + \omega Z^1; at moderate pressure, the second-virial form (~engineeringkit.thermodynamics.pitzer_virial_compressibility).">
+
+.. only:: html
+
+  .. image:: /api/gallery/thermodynamics/properties/images/thumb/sphx_glr_plot_08_pitzer_acentric_factor_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/thermodynamics/properties/plot_08_pitzer_acentric_factor`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Pitzer's acentric factor (1955)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Ding-Yu Peng and Donald Robinson, at the University of Alberta, wanted one simple equation for the vapour-liquid equilibria of natural gas. They kept van der Waals&#x27;s two terms but changed the attraction&#x27;s volume dependence and made it fall with temperature through the acentric factor:">
+
+.. only:: html
+
+  .. image:: /api/gallery/thermodynamics/properties/images/thumb/sphx_glr_plot_09_peng_robinson_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/thermodynamics/properties/plot_09_peng_robinson`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Peng and Robinson's equation of state (1976)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Above 800 °C steam leaves the range of power-station boilers. It enters gas-turbine combustors and steam-injected turbines, where water is sprayed into the hot gas. IF97&#x27;s region 5 covers 1073.15 K to 2273.15 K, at pressures up to 50 MPa since the 2007 revision. Like region 2 it is a dimensionless Gibbs function, of p/1\,\mathrm{MPa} and 1000\,\mathrm{K}/T. steam_properties switches to it automatically and accepts arrays of states.">
+
+.. only:: html
+
+  .. image:: /api/gallery/thermodynamics/properties/images/thumb/sphx_glr_plot_10_iapws_if97_region5_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/thermodynamics/properties/plot_10_iapws_if97_region5`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">IAPWS-IF97 region 5: steam in gas turbines (1997)</div>
+    </div>
+
+
 .. thumbnail-parent-div-close
 
 .. raw:: html
@@ -413,7 +631,7 @@ Equations of state, vapour pressure and the properties of water and steam.
 Psychrometrics
 --------------
 
-Moist air: humidity, relative humidity and dew point.
+Moist air: humidity, relative humidity and dew point, and the air-conditioning processes.
 
 
 .. raw:: html
@@ -441,6 +659,23 @@ Moist air: humidity, relative humidity and dew point.
 .. raw:: html
 
       <div class="sphx-glr-thumbnail-title">Carrier's psychrometric chart (1911)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Carrier&#x27;s chart turned air conditioning into a sequence of processes drawn as lines on it, each a balance of dry air, water and enthalpy (~engineeringkit.thermodynamics.moist_air_enthalpy). Mixing two streams lands on the straight line between them (~engineeringkit.thermodynamics.adiabatic_mixing). A cooling coil below the dew point dehumidifies (~engineeringkit.thermodynamics.cooling_coil). Evaporation into air cools it toward the adiabatic saturation temperature (~engineeringkit.thermodynamics.adiabatic_saturation_temperature), as in a cooling tower (~engineeringkit.thermodynamics.cooling_tower).">
+
+.. only:: html
+
+  .. image:: /api/gallery/thermodynamics/psychrometrics/images/thumb/sphx_glr_plot_02_carrier_air_conditioning_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/thermodynamics/psychrometrics/plot_02_carrier_air_conditioning`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Carrier's air-conditioning processes (1911)</div>
     </div>
 
 
@@ -501,6 +736,23 @@ Refrigerators and heat pumps, and their Carnot limits.
     </div>
 
 
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Perkins&#x27;s cycle of evaporation, compression, condensation and throttling is unchanged. The working fluid is: ether gave way to ammonia, then to the fluorocarbons, and R-134a ran most car air conditioners and domestic refrigerators from the 1990s. With its properties from the Peng-Robinson equation of state (~engineeringkit.thermodynamics.refrigerant_properties), vapor_compression_cycle solves the cycle state by state.">
+
+.. only:: html
+
+  .. image:: /api/gallery/thermodynamics/refrigeration/images/thumb/sphx_glr_plot_03_perkins_r134a_cycle_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/thermodynamics/refrigeration/plot_03_perkins_r134a_cycle`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Perkins's cycle on a modern refrigerant (1834)</div>
+    </div>
+
+
 .. thumbnail-parent-div-close
 
 .. raw:: html
@@ -513,6 +765,7 @@ Refrigerators and heat pumps, and their Carnot limits.
    :includehidden:
 
 
+   /api/gallery/thermodynamics/combustion/index.rst
    /api/gallery/thermodynamics/cycles/index.rst
    /api/gallery/thermodynamics/exergy/index.rst
    /api/gallery/thermodynamics/laws/index.rst

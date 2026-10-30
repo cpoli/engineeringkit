@@ -10,10 +10,10 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://cpoli.github.io/engineeringkit/api/signal_processing.html" />
 <meta property="og:site_name" content="engineeringkit" />
-<meta property="og:description" content="Domain hub · History · Examples · API reference Sampling, aliasing and sinc reconstruction; uniform quantization and SNR; the DFT, a hand-written radix-2 FFT and Fourier partial sums; convolution a..." />
+<meta property="og:description" content="Domain hub · History · Examples · API reference Sampling, aliasing and sinc reconstruction; uniform quantization and SNR; decimation and interpolation; the DFT, a hand-written radix-2 FFT, Fourier ..." />
 <meta property="og:image" content="https://cpoli.github.io/engineeringkit/_static/images/readme_hero.png" />
 <meta property="og:image:alt" content="engineeringkit" />
-<meta name="description" content="Domain hub · History · Examples · API reference Sampling, aliasing and sinc reconstruction; uniform quantization and SNR; the DFT, a hand-written radix-2 FFT and Fourier partial sums; convolution a..." />
+<meta name="description" content="Domain hub · History · Examples · API reference Sampling, aliasing and sinc reconstruction; uniform quantization and SNR; decimation and interpolation; the DFT, a hand-written radix-2 FFT, Fourier ..." />
 
     <title>engineeringkit.signal_processing &#8212; engineeringkit</title>
   
@@ -55,7 +55,7 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be" />
 
-    <script src="../_static/documentation_options.js?v=38b66d78"></script>
+    <script src="../_static/documentation_options.js?v=95e61db4"></script>
     <script src="../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/sg-tags.js?v=d80f6fa4"></script>
@@ -222,6 +222,21 @@
   </ul>
 </div></div>
       
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://cpoli.github.io/" title="Charles Poli" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-user fa-lg" aria-hidden="true"></i><span class="visually-hidden">Charles Poli</span></a>
+        </li>
+</ul></div>
+      
     </div>
     
   </div>
@@ -319,6 +334,21 @@
     <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
   </ul>
 </div></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://cpoli.github.io/" title="Charles Poli" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-user fa-lg" aria-hidden="true"></i><span class="visually-hidden">Charles Poli</span></a>
+        </li>
+</ul></div>
         
       </div>
     
@@ -424,23 +454,144 @@
 <p><a class="reference internal" href="../_generated/subpackages/signal_processing.html"><span class="doc">Domain hub</span></a> · <a class="reference internal" href="../history/signal_processing_breakthroughs.html"><span class="doc">History</span></a> · <a class="reference internal" href="gallery/signal_processing/index.html"><span class="doc">Examples</span></a> · <a class="reference internal" href="#"><span class="doc">API reference</span></a></p>
 </div>
 <p>Sampling, aliasing and sinc reconstruction; uniform quantization and SNR;
-the DFT, a hand-written radix-2 FFT and Fourier partial sums; convolution
-and correlation; the periodogram, windowed spectra, Welch’s averaged
-periodogram, the short-time Fourier transform and Goertzel’s algorithm;
-Butterworth filters as polynomials or second-order sections
-(<code class="docutils literal notranslate"><span class="pre">scipy.signal</span></code>), window-method FIR filters with Kaiser’s formulas; the FIR
-Wiener filter (<code class="docutils literal notranslate"><span class="pre">scipy.linalg.solve_toeplitz</span></code>) and the LMS adaptive filter;
-and the Haar wavelet transform.</p>
+decimation and interpolation; the DFT, a hand-written radix-2 FFT, Fourier
+partial sums and the DCT; linear and circular convolution, overlap-add and
+correlation; the periodogram, windowed spectra, Welch’s averaged
+periodogram, the short-time Fourier transform, Goertzel’s algorithm and the
+cepstrum; autoregressive models by the Levinson-Durbin recursion; the
+Hilbert transform and analytic signal; Butterworth, Chebyshev and elliptic
+filters as polynomials or second-order sections (<code class="docutils literal notranslate"><span class="pre">scipy.signal</span></code>) with
+minimum-order formulas, the bilinear transform with prewarping,
+window-method FIR filters with Kaiser’s formulas and Parks-McClellan
+equiripple filters (<code class="docutils literal notranslate"><span class="pre">scipy.signal.remez</span></code>); the FIR Wiener filter
+(<code class="docutils literal notranslate"><span class="pre">scipy.linalg.solve_toeplitz</span></code>) and the LMS adaptive filter; and the Haar
+wavelet transform.</p>
 <p id="module-engineeringkit.signal_processing">engineeringkit.signal_processing: sampling, Fourier analysis, spectra, filters, adaptive filters and wavelets.</p>
 <p>Sampling, aliasing and sinc reconstruction; uniform quantization and SNR;
-the DFT, a hand-written radix-2 FFT and Fourier partial sums; convolution
-and correlation; the periodogram, windowed spectra, Welch’s averaged
-periodogram, the short-time Fourier transform and Goertzel’s algorithm;
-Butterworth IIR filters as polynomials or second-order sections,
-window-method FIR filters with Kaiser’s design formulas; the FIR Wiener
-filter and the LMS adaptive filter; and the Haar wavelet transform. NumPy’s
-FFT and SciPy’s filter design and filtering are used where they are the
-standard tool; the algorithms named after their inventors are written out.</p>
+decimation and interpolation; the DFT, a hand-written radix-2 FFT, Fourier
+partial sums and the DCT; linear and circular convolution, overlap-add and
+correlation; the periodogram, windowed spectra, Welch’s averaged
+periodogram, the short-time Fourier transform, Goertzel’s algorithm and the
+cepstrum; autoregressive models by the Levinson-Durbin recursion; the
+Hilbert transform and analytic signal; Butterworth, Chebyshev and elliptic
+IIR filters as polynomials or second-order sections, the bilinear transform
+with prewarping, window-method FIR filters with Kaiser’s design formulas
+and Parks-McClellan equiripple filters; the FIR Wiener filter and the LMS
+adaptive filter; and the Haar wavelet transform. NumPy’s FFT and SciPy’s
+filter design and filtering are used where they are the standard tool; the
+algorithms named after their inventors are written out.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="engineeringkit.signal_processing.ARModel">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">engineeringkit.signal_processing.</span></span><span class="sig-name descname"><span class="pre">ARModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coefficients</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">noise_variance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reflection_coefficients</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prediction_errors</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/signal_processing/core/base.html#ARModel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.signal_processing.ARModel" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Autoregressive model <span class="math notranslate nohighlight">\(x_n + \sum_{k=1}^{p} a_k x_{n-k} = e_n\)</span>.</p>
+<p>Returned by <a class="reference internal" href="#engineeringkit.signal_processing.levinson_durbin" title="engineeringkit.signal_processing.levinson_durbin"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.signal_processing.levinson_durbin()</span></code></a> and
+<a class="reference internal" href="#engineeringkit.signal_processing.yule_walker" title="engineeringkit.signal_processing.yule_walker"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.signal_processing.yule_walker()</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>coefficients</strong> (<em>ndarray</em>)</p></li>
+<li><p><strong>noise_variance</strong> (<em>float</em>)</p></li>
+<li><p><strong>reflection_coefficients</strong> (<em>ndarray</em>)</p></li>
+<li><p><strong>prediction_errors</strong> (<em>ndarray</em>)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="engineeringkit.signal_processing.ARModel.coefficients">
+<span class="sig-name descname"><span class="pre">coefficients</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></span><a class="headerlink" href="#engineeringkit.signal_processing.ARModel.coefficients" title="Link to this definition">#</a></dt>
+<dd><p><span class="math notranslate nohighlight">\([1, a_1, \ldots, a_p]\)</span>, the prediction-error filter <span class="math notranslate nohighlight">\(A(z)\)</span> [-].</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="engineeringkit.signal_processing.ARModel.noise_variance">
+<span class="sig-name descname"><span class="pre">noise_variance</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></span><a class="headerlink" href="#engineeringkit.signal_processing.ARModel.noise_variance" title="Link to this definition">#</a></dt>
+<dd><p>Variance <span class="math notranslate nohighlight">\(\sigma^2 = E_p\)</span> of the white input <span class="math notranslate nohighlight">\(e_n\)</span> [signal units squared].</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="engineeringkit.signal_processing.ARModel.order">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">order</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></span><a class="headerlink" href="#engineeringkit.signal_processing.ARModel.order" title="Link to this definition">#</a></dt>
+<dd><p>Model order <span class="math notranslate nohighlight">\(p\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="engineeringkit.signal_processing.ARModel.plot">
+<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/signal_processing/core/base.html#ARModel.plot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.signal_processing.ARModel.plot" title="Link to this definition">#</a></dt>
+<dd><p>Model spectrum in decibels against frequency; returns <code class="docutils literal notranslate"><span class="pre">(fig,</span> <span class="pre">ax)</span></code>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="engineeringkit.signal_processing.ARModel.prediction_errors">
+<span class="sig-name descname"><span class="pre">prediction_errors</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></span><a class="headerlink" href="#engineeringkit.signal_processing.ARModel.prediction_errors" title="Link to this definition">#</a></dt>
+<dd><p>Mean squared prediction error <span class="math notranslate nohighlight">\(E_0..E_p\)</span> of each order [signal units squared].</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="engineeringkit.signal_processing.ARModel.psd">
+<span class="sig-name descname"><span class="pre">psd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">512</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/signal_processing/core/base.html#ARModel.psd"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.signal_processing.ARModel.psd" title="Link to this definition">#</a></dt>
+<dd><p>One-sided power spectral density <span class="math notranslate nohighlight">\(P(f) = 2\sigma^2/(f_s|A(e^{j2\pi f/f_s})|^2)\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>fs</strong> (<em>float</em><em>, </em><em>optional</em>) – Sampling rate [Hz], positive.</p></li>
+<li><p><strong>n</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of frequencies from 0 to <span class="math notranslate nohighlight">\(f_s/2\)</span>, at least 2.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">(frequency,</span> <span class="pre">psd)</span></code> [Hz] and [signal units squared per Hz]; its
+integral over <span class="math notranslate nohighlight">\([0, f_s/2]\)</span> is the model’s variance.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple of ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="engineeringkit.signal_processing.ARModel.reflection_coefficients">
+<span class="sig-name descname"><span class="pre">reflection_coefficients</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></span><a class="headerlink" href="#engineeringkit.signal_processing.ARModel.reflection_coefficients" title="Link to this definition">#</a></dt>
+<dd><p><span class="math notranslate nohighlight">\(k_1..k_p\)</span>, all inside (-1, 1) for a stable model [-].</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="engineeringkit.signal_processing.ARModel.summary">
+<span class="sig-name descname"><span class="pre">summary</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/signal_processing/core/base.html#ARModel.summary"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.signal_processing.ARModel.summary" title="Link to this definition">#</a></dt>
+<dd><p>Order, noise variance, prediction gain <span class="math notranslate nohighlight">\(E_0/E_p\)</span> and whether every <span class="math notranslate nohighlight">\(|k_m| &lt; 1\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 <dl class="py class">
 <dt class="sig sig-object py" id="engineeringkit.signal_processing.LMSResult">
 <span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">engineeringkit.signal_processing.</span></span><span class="sig-name descname"><span class="pre">LMSResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">output</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight_history</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/signal_processing/core/base.html#LMSResult"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.signal_processing.LMSResult" title="Link to this definition">#</a></dt>
@@ -688,6 +839,83 @@ standard tool; the algorithms named after their inventors are written out.</p>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.signal_processing.analytic_signal">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.signal_processing.</span></span><span class="sig-name descname"><span class="pre">analytic_signal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/signal_processing/systems/hilbert.html#analytic_signal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.signal_processing.analytic_signal" title="Link to this definition">#</a></dt>
+<dd><p>Analytic signal <span class="math notranslate nohighlight">\(z = x + j\mathcal{H}x\)</span> by suppressing the negative-frequency half of the DFT.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> (<em>array_like</em>) – Real 1D samples [signal units], at least 2.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="math notranslate nohighlight">\(z\)</span>, with <span class="math notranslate nohighlight">\(\operatorname{Re} z = x\)</span> [signal units].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray of complex</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>The DFT bins are multiplied by 1 at DC (and at Nyquist for even
+<span class="math notranslate nohighlight">\(N\)</span>), 2 at positive frequencies and 0 at negative ones, then
+inverted. The record is treated as one period of a periodic signal, so
+a record that does not hold a whole number of cycles leaks at its ends.
+Equal to <code class="docutils literal notranslate"><span class="pre">scipy.signal.hilbert</span></code>. See <a class="reference internal" href="../guides/signal_processing.html"><span class="doc">Signal processing: sampled energy, spectra and quantization</span></a>.</p>
+<p class="rubric">References</p>
+<p>D. Gabor, “Theory of communication,” <em>J. IEE</em> 93, part III (1946)
+429-457; S. L. Marple Jr., “Computing the discrete-time ‘analytic’
+signal via FFT,” <em>IEEE Trans. Signal Process.</em> 47 (1999) 2600-2603.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">z</span> <span class="o">=</span> <span class="n">analytic_signal</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="o">/</span> <span class="mi">8</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">z</span><span class="o">.</span><span class="n">imag</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.0</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">()[:</span><span class="mi">3</span><span class="p">]</span>
+<span class="go">[0.0, 0.707106781187, 1.0]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.signal_processing.bilinear_transform">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.signal_processing.</span></span><span class="sig-name descname"><span class="pre">bilinear_transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prewarp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/signal_processing/systems/filters.html#bilinear_transform"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.signal_processing.bilinear_transform" title="Link to this definition">#</a></dt>
+<dd><p>Digital filter <span class="math notranslate nohighlight">\(H(z)\)</span> from an analog <span class="math notranslate nohighlight">\(H(s)\)</span> by the bilinear transform, written out.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>b</strong> (<em>array_like</em>) – Analog numerator and denominator coefficients in descending powers
+of <span class="math notranslate nohighlight">\(s\)</span> [-], with <code class="docutils literal notranslate"><span class="pre">a</span></code> of degree at least that of <code class="docutils literal notranslate"><span class="pre">b</span></code>.</p></li>
+<li><p><strong>a</strong> (<em>array_like</em>) – Analog numerator and denominator coefficients in descending powers
+of <span class="math notranslate nohighlight">\(s\)</span> [-], with <code class="docutils literal notranslate"><span class="pre">a</span></code> of degree at least that of <code class="docutils literal notranslate"><span class="pre">b</span></code>.</p></li>
+<li><p><strong>fs</strong> (<em>float</em>) – Sampling rate [Hz], positive.</p></li>
+<li><p><strong>prewarp</strong> (<em>float</em><em>, </em><em>optional</em>) – Frequency [Hz], below <span class="math notranslate nohighlight">\(f_s/2\)</span>, at which the digital response
+is made to equal the analog one exactly. Without it <span class="math notranslate nohighlight">\(K = 2f_s\)</span>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">(b,</span> <span class="pre">a)</span></code>: coefficients in <span class="math notranslate nohighlight">\(z^{-1}\)</span> [-], with <code class="docutils literal notranslate"><span class="pre">a[0]</span> <span class="pre">=</span> <span class="pre">1</span></code>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple of ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Substituting <span class="math notranslate nohighlight">\(s = K(1 - z^{-1})/(1 + z^{-1})\)</span> and multiplying
+through by <span class="math notranslate nohighlight">\((1 + z^{-1})^N\)</span>, each term <span class="math notranslate nohighlight">\(c_m s^m\)</span> of degree
+<span class="math notranslate nohighlight">\(N\)</span> polynomials becomes <span class="math notranslate nohighlight">\(c_m K^m (1 - z^{-1})^m (1 + z^{-1})^{N-m}\)</span>.
+The left half <span class="math notranslate nohighlight">\(s\)</span>-plane maps inside the unit circle, so stable
+analog filters give stable digital ones, and the <span class="math notranslate nohighlight">\(j\Omega\)</span> axis maps
+onto the circle with <span class="math notranslate nohighlight">\(\Omega = K\tan(\omega/2)\)</span>. Prewarping at
+<span class="math notranslate nohighlight">\(f_0\)</span> sets <span class="math notranslate nohighlight">\(K = 2\pi f_0/\tan(\pi f_0/f_s)\)</span>. The result
+equals <code class="docutils literal notranslate"><span class="pre">scipy.signal.bilinear</span></code> with <code class="docutils literal notranslate"><span class="pre">fs</span> <span class="pre">=</span> <span class="pre">K/2</span></code>. See
+<a class="reference internal" href="#engineeringkit.signal_processing.prewarp_frequency" title="engineeringkit.signal_processing.prewarp_frequency"><code class="xref py py-func docutils literal notranslate"><span class="pre">prewarp_frequency()</span></code></a> and <a class="reference internal" href="../guides/signal_processing.html"><span class="doc">Signal processing: sampled energy, spectra and quantization</span></a>.</p>
+<p class="rubric">References</p>
+<p>R. M. Golden and J. F. Kaiser, “Design of wideband sampled-data
+filters,” <em>Bell Syst. Tech. J.</em> 43 (1964) 1533-1546.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">=</span> <span class="n">bilinear_transform</span><span class="p">([</span><span class="mf">1.0</span><span class="p">],</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span> <span class="mf">0.5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span> <span class="n">a</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="go">([0.5, 0.5], [1.0, 0.0])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.signal_processing.butterworth_highpass">
 <span class="sig-prename descclassname"><span class="pre">engineeringkit.signal_processing.</span></span><span class="sig-name descname"><span class="pre">butterworth_highpass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">order</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cutoff</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ba'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/signal_processing/systems/filters.html#butterworth_highpass"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.signal_processing.butterworth_highpass" title="Link to this definition">#</a></dt>
 <dd><p>Digital Butterworth high-pass filter by the bilinear transform.</p>
@@ -758,6 +986,129 @@ J.</em> 49 (1970) 159-184.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">=</span> <span class="n">butterworth_lowpass</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">250.0</span><span class="p">,</span> <span class="mf">1000.0</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
 <span class="go">[0.5, 0.5]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.signal_processing.chebyshev1_lowpass">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.signal_processing.</span></span><span class="sig-name descname"><span class="pre">chebyshev1_lowpass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">order</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ripple_db</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cutoff</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ba'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/signal_processing/systems/filters.html#chebyshev1_lowpass"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.signal_processing.chebyshev1_lowpass" title="Link to this definition">#</a></dt>
+<dd><p>Digital Chebyshev type I low-pass filter (equiripple passband) by the bilinear transform.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>order</strong> (<em>int</em>) – Filter order <span class="math notranslate nohighlight">\(n\)</span>, at least 1.</p></li>
+<li><p><strong>ripple_db</strong> (<em>float</em>) – Peak-to-peak passband ripple <span class="math notranslate nohighlight">\(R\)</span> [dB], positive.</p></li>
+<li><p><strong>cutoff</strong> (<em>float</em>) – Passband edge [Hz], where the gain last equals <span class="math notranslate nohighlight">\(-R\)</span> dB,
+between 0 and <span class="math notranslate nohighlight">\(f_s/2\)</span>.</p></li>
+<li><p><strong>fs</strong> (<em>float</em>) – Sampling rate [Hz], positive.</p></li>
+<li><p><strong>output</strong> (<em>{&quot;ba&quot;</em><em>, </em><em>&quot;sos&quot;}</em><em>, </em><em>optional</em>) – Polynomials or second-order sections, as in
+<a class="reference internal" href="#engineeringkit.signal_processing.butterworth_lowpass" title="engineeringkit.signal_processing.butterworth_lowpass"><code class="xref py py-func docutils literal notranslate"><span class="pre">butterworth_lowpass()</span></code></a>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">(b,</span> <span class="pre">a)</span></code> or second-order sections [-].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple of ndarray or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>The analog prototype has <span class="math notranslate nohighlight">\(|H|^2 = 1/(1 + \varepsilon^2 T_n^2(\Omega/\Omega_p))\)</span>,
+with <span class="math notranslate nohighlight">\(T_n\)</span> the Chebyshev polynomial and
+<span class="math notranslate nohighlight">\(\varepsilon^2 = 10^{R/10} - 1\)</span>. <span class="math notranslate nohighlight">\(|T_n| \le 1\)</span> on
+<span class="math notranslate nohighlight">\([-1, 1]\)</span>, so the passband gain swings <span class="math notranslate nohighlight">\(n\)</span> times between 1
+and <span class="math notranslate nohighlight">\(1/\sqrt{1+\varepsilon^2}\)</span>; outside it <span class="math notranslate nohighlight">\(T_n\)</span> grows as
+fast as any polynomial of degree <span class="math notranslate nohighlight">\(n\)</span> can, which is why the
+transition is steeper than Butterworth’s for the same order. Frequencies
+are mapped by the bilinear transform with the edge prewarped. See
+<a class="reference internal" href="../guides/signal_processing.html"><span class="doc">Signal processing: sampled energy, spectra and quantization</span></a>.</p>
+<p class="rubric">References</p>
+<p>P. L. Chebyshev, “Théorie des mécanismes connus sous le nom de
+parallélogrammes,” <em>Mém. Acad. Sci. St.-Pétersbourg, Savants étrangers</em>
+7 (1854) 539-568; A. V. Oppenheim and R. W. Schafer, <em>Discrete-Time
+Signal Processing</em>, 3rd ed., Pearson (2010), sec. 7.3.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">=</span> <span class="n">chebyshev1_lowpass</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">100.0</span><span class="p">,</span> <span class="mf">1000.0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="p">,</span> <span class="n">H</span> <span class="o">=</span> <span class="n">frequency_response</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">worN</span><span class="o">=</span><span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">100.0</span><span class="p">],</span> <span class="n">fs</span><span class="o">=</span><span class="mf">1000.0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">20</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">H</span><span class="p">)),</span> <span class="mi">6</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="go">[-1.0, -1.0]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.signal_processing.chebyshev2_lowpass">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.signal_processing.</span></span><span class="sig-name descname"><span class="pre">chebyshev2_lowpass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">order</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attenuation_db</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cutoff</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ba'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/signal_processing/systems/filters.html#chebyshev2_lowpass"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.signal_processing.chebyshev2_lowpass" title="Link to this definition">#</a></dt>
+<dd><p>Digital Chebyshev type II (inverse Chebyshev) low-pass filter: flat passband, equiripple stopband.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>order</strong> (<em>int</em>) – Filter order <span class="math notranslate nohighlight">\(n\)</span>, at least 1.</p></li>
+<li><p><strong>attenuation_db</strong> (<em>float</em>) – Minimum stopband attenuation <span class="math notranslate nohighlight">\(A\)</span> [dB], positive.</p></li>
+<li><p><strong>cutoff</strong> (<em>float</em>) – Stopband edge [Hz], where the gain first reaches <span class="math notranslate nohighlight">\(-A\)</span> dB,
+between 0 and <span class="math notranslate nohighlight">\(f_s/2\)</span>.</p></li>
+<li><p><strong>fs</strong> (<em>float</em>) – Sampling rate [Hz], positive.</p></li>
+<li><p><strong>output</strong> (<em>{&quot;ba&quot;</em><em>, </em><em>&quot;sos&quot;}</em><em>, </em><em>optional</em>) – Polynomials or second-order sections, as in
+<a class="reference internal" href="#engineeringkit.signal_processing.butterworth_lowpass" title="engineeringkit.signal_processing.butterworth_lowpass"><code class="xref py py-func docutils literal notranslate"><span class="pre">butterworth_lowpass()</span></code></a>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">(b,</span> <span class="pre">a)</span></code> or second-order sections [-].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple of ndarray or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>The prototype <span class="math notranslate nohighlight">\(|H|^2 = 1/(1 + 1/(\varepsilon^2 T_n^2(\Omega_s/\Omega)))\)</span>
+is maximally flat at DC and has zeros on the unit circle in the
+stopband, where the gain ripples between 0 and <span class="math notranslate nohighlight">\(10^{-A/20}\)</span>. See
+<a class="reference internal" href="#engineeringkit.signal_processing.chebyshev1_lowpass" title="engineeringkit.signal_processing.chebyshev1_lowpass"><code class="xref py py-func docutils literal notranslate"><span class="pre">chebyshev1_lowpass()</span></code></a> and <a class="reference internal" href="../guides/signal_processing.html"><span class="doc">Signal processing: sampled energy, spectra and quantization</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">=</span> <span class="n">chebyshev2_lowpass</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mf">40.0</span><span class="p">,</span> <span class="mf">150.0</span><span class="p">,</span> <span class="mf">1000.0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="p">,</span> <span class="n">H</span> <span class="o">=</span> <span class="n">frequency_response</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">worN</span><span class="o">=</span><span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">150.0</span><span class="p">],</span> <span class="n">fs</span><span class="o">=</span><span class="mf">1000.0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">20</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">H</span><span class="p">)),</span> <span class="mi">6</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="go">[0.0, -40.0]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.signal_processing.circular_convolution">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.signal_processing.</span></span><span class="sig-name descname"><span class="pre">circular_convolution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/signal_processing/systems/convolution.html#circular_convolution"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.signal_processing.circular_convolution" title="Link to this definition">#</a></dt>
+<dd><p>Circular (periodic) convolution <span class="math notranslate nohighlight">\(y_m = \sum_{k=0}^{N-1} h_k\,x_{(m-k) \bmod N}\)</span>, written out.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>array_like</em>) – 1D input samples [signal units].</p></li>
+<li><p><strong>h</strong> (<em>array_like</em>) – 1D impulse response [-].</p></li>
+<li><p><strong>n</strong> (<em>int</em><em>, </em><em>optional</em>) – Period <span class="math notranslate nohighlight">\(N\)</span>, at least <code class="docutils literal notranslate"><span class="pre">max(len(x),</span> <span class="pre">len(h))</span></code>; both sequences
+are zero-padded to it. Defaults to that maximum.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The <span class="math notranslate nohighlight">\(N\)</span> output samples [signal units].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>This is what multiplying two <span class="math notranslate nohighlight">\(N\)</span>-point DFTs computes:
+<span class="math notranslate nohighlight">\(\mathrm{DFT}(y) = \mathrm{DFT}(x)\,\mathrm{DFT}(h)\)</span>. The last
+<span class="math notranslate nohighlight">\(N_h - 1\)</span> samples of the linear convolution wrap around and add
+onto the first ones (time aliasing) unless
+<span class="math notranslate nohighlight">\(N \ge N_x + N_h - 1\)</span>, in which case the two agree. See
+<a class="reference internal" href="#engineeringkit.signal_processing.overlap_add" title="engineeringkit.signal_processing.overlap_add"><code class="xref py py-func docutils literal notranslate"><span class="pre">overlap_add()</span></code></a> and <a class="reference internal" href="../guides/signal_processing.html"><span class="doc">Signal processing: sampled energy, spectra and quantization</span></a>.</p>
+<p class="rubric">References</p>
+<p>A. V. Oppenheim and R. W. Schafer, <em>Discrete-Time Signal Processing</em>,
+3rd ed., Pearson (2010), sec. 8.6-8.7.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">circular_convolution</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">],</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="go">[4.0, 3.0, 5.0]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">circular_convolution</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">],</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span> <span class="n">n</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="go">[1.0, 3.0, 5.0, 3.0]</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -848,6 +1199,82 @@ returns lags <span class="math notranslate nohighlight">\(-(N_y-1)\)</span> to <
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.signal_processing.dct">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.signal_processing.</span></span><span class="sig-name descname"><span class="pre">dct</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/signal_processing/systems/fourier.html#dct"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.signal_processing.dct" title="Link to this definition">#</a></dt>
+<dd><p>Orthonormal DCT-II <span class="math notranslate nohighlight">\(X_k = \alpha_k \sum_{n=0}^{N-1} x_n \cos\frac{\pi(2n+1)k}{2N}\)</span>, written out.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> (<em>array_like</em>) – Real 1D samples [signal units].</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Coefficients <span class="math notranslate nohighlight">\(X_0..X_{N-1}\)</span> [signal units], with
+<span class="math notranslate nohighlight">\(\alpha_0 = \sqrt{1/N}\)</span> and <span class="math notranslate nohighlight">\(\alpha_k = \sqrt{2/N}\)</span>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>The basis is orthonormal, so <span class="math notranslate nohighlight">\(\sum X_k^2 = \sum x_n^2\)</span> and
+<a class="reference internal" href="#engineeringkit.signal_processing.idct" title="engineeringkit.signal_processing.idct"><code class="xref py py-func docutils literal notranslate"><span class="pre">idct()</span></code></a> is the transpose. The DCT is the DFT of the record
+extended by its mirror image, which has no jump at the ends; the DFT’s
+implicit periodic extension does, so its coefficients fall off far more
+slowly for a smooth signal. For a first-order Markov process with
+correlation <span class="math notranslate nohighlight">\(\rho \to 1\)</span> the DCT tends to the Karhunen-Loève
+transform. Evaluated as an <span class="math notranslate nohighlight">\(N \times N\)</span> matrix product, so
+<span class="math notranslate nohighlight">\(O(N^2)\)</span>; equal to <code class="docutils literal notranslate"><span class="pre">scipy.fft.dct(x,</span> <span class="pre">norm=&quot;ortho&quot;)</span></code>. See
+<a class="reference internal" href="../guides/signal_processing.html"><span class="doc">Signal processing: sampled energy, spectra and quantization</span></a>.</p>
+<p class="rubric">References</p>
+<p>N. Ahmed, T. Natarajan and K. R. Rao, “Discrete cosine transform,”
+<em>IEEE Trans. Comput.</em> C-23 (1974) 90-93, doi:10.1109/T-C.1974.223784.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">dct</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]),</span> <span class="mi">12</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.0</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="go">[2.0, 0.0, 0.0, 0.0]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.signal_processing.decimate">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.signal_processing.</span></span><span class="sig-name descname"><span class="pre">decimate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">factor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">numtaps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/signal_processing/systems/sampling.html#decimate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.signal_processing.decimate" title="Link to this definition">#</a></dt>
+<dd><p>Reduce the sampling rate by an integer factor: anti-alias low-pass FIR filter, then downsample.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>array_like</em>) – 1D samples [signal units].</p></li>
+<li><p><strong>factor</strong> (<em>int</em>) – Decimation factor <span class="math notranslate nohighlight">\(M\)</span>, at least 1.</p></li>
+<li><p><strong>numtaps</strong> (<em>int</em><em>, </em><em>optional</em>) – Odd length of the Hamming-window FIR filter, cutoff
+<span class="math notranslate nohighlight">\(f_s/(2M)\)</span>. Defaults to <span class="math notranslate nohighlight">\(20M + 1\)</span>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">ceil(len(x)/M)</span></code> samples at rate <span class="math notranslate nohighlight">\(f_s/M\)</span> [signal units],
+aligned with the input: the filter’s <span class="math notranslate nohighlight">\((N-1)/2\)</span>-sample delay is
+removed.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>The filter removes what would alias before <a class="reference internal" href="#engineeringkit.signal_processing.downsample" title="engineeringkit.signal_processing.downsample"><code class="xref py py-func docutils literal notranslate"><span class="pre">downsample()</span></code></a> discards
+samples. Its gain is about -6 dB at the new Nyquist frequency and its
+stopband about 53 dB down, so keep wanted content below roughly
+<span class="math notranslate nohighlight">\(0.8 f_s/(2M)\)</span>. The record is treated as zero outside its ends,
+so the first and last <span class="math notranslate nohighlight">\((N-1)/2\)</span> input samples carry a transient.
+For large <span class="math notranslate nohighlight">\(M\)</span>, decimating in stages is cheaper. See
+<a class="reference internal" href="../guides/signal_processing.html"><span class="doc">Signal processing: sampled energy, spectra and quantization</span></a>.</p>
+<p class="rubric">References</p>
+<p>R. E. Crochiere and L. R. Rabiner, <em>Multirate Digital Signal
+Processing</em>, Prentice-Hall (1983), ch. 2.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">decimate</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">200</span><span class="p">),</span> <span class="mi">4</span><span class="p">)[</span><span class="mi">20</span><span class="p">:</span><span class="mi">22</span><span class="p">],</span> <span class="mi">6</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="go">[1.0, 1.0]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.signal_processing.dft">
 <span class="sig-prename descclassname"><span class="pre">engineeringkit.signal_processing.</span></span><span class="sig-name descname"><span class="pre">dft</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/signal_processing/systems/fourier.html#dft"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.signal_processing.dft" title="Link to this definition">#</a></dt>
 <dd><p>Discrete Fourier transform <span class="math notranslate nohighlight">\(X_k = \sum_{n=0}^{N-1} x_n e^{-j2\pi kn/N}\)</span> (NumPy’s FFT).</p>
@@ -868,6 +1295,81 @@ returns lags <span class="math notranslate nohighlight">\(-(N_y-1)\)</span> to <
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dft</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span><span class="o">.</span><span class="n">real</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
 <span class="go">[4.0, 0.0, 0.0, 0.0]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.signal_processing.downsample">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.signal_processing.</span></span><span class="sig-name descname"><span class="pre">downsample</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">factor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phase</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/signal_processing/systems/sampling.html#downsample"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.signal_processing.downsample" title="Link to this definition">#</a></dt>
+<dd><p>Keep every <code class="docutils literal notranslate"><span class="pre">factor</span></code>-th sample, <span class="math notranslate nohighlight">\(y_m = x_{mM + p}\)</span>, with no filtering.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>array_like</em>) – 1D samples [signal units].</p></li>
+<li><p><strong>factor</strong> (<em>int</em>) – Downsampling factor <span class="math notranslate nohighlight">\(M\)</span>, at least 1.</p></li>
+<li><p><strong>phase</strong> (<em>int</em><em>, </em><em>optional</em>) – Offset <span class="math notranslate nohighlight">\(p\)</span> of the first kept sample, from 0 to <span class="math notranslate nohighlight">\(M-1\)</span>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Samples at rate <span class="math notranslate nohighlight">\(f_s/M\)</span> [signal units].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>The spectrum of the result is the sum of <span class="math notranslate nohighlight">\(M\)</span> copies of the input
+spectrum stretched by <span class="math notranslate nohighlight">\(M\)</span> and shifted by multiples of
+<span class="math notranslate nohighlight">\(2\pi/M\)</span>, so any content above <span class="math notranslate nohighlight">\(f_s/(2M)\)</span> aliases. Use
+<a class="reference internal" href="#engineeringkit.signal_processing.decimate" title="engineeringkit.signal_processing.decimate"><code class="xref py py-func docutils literal notranslate"><span class="pre">decimate()</span></code></a> to filter first. See <a class="reference internal" href="../guides/signal_processing.html"><span class="doc">Signal processing: sampled energy, spectra and quantization</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">downsample</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">],</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="go">[0.0, 2.0, 4.0]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.signal_processing.elliptic_lowpass">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.signal_processing.</span></span><span class="sig-name descname"><span class="pre">elliptic_lowpass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">order</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ripple_db</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attenuation_db</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cutoff</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ba'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/signal_processing/systems/filters.html#elliptic_lowpass"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.signal_processing.elliptic_lowpass" title="Link to this definition">#</a></dt>
+<dd><p>Digital elliptic (Cauer) low-pass filter: equiripple in both the passband and the stopband.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>order</strong> (<em>int</em>) – Filter order <span class="math notranslate nohighlight">\(n\)</span>, at least 1.</p></li>
+<li><p><strong>ripple_db</strong> (<em>float</em>) – Peak-to-peak passband ripple <span class="math notranslate nohighlight">\(R\)</span> [dB], positive.</p></li>
+<li><p><strong>attenuation_db</strong> (<em>float</em>) – Minimum stopband attenuation <span class="math notranslate nohighlight">\(A\)</span> [dB], above <code class="docutils literal notranslate"><span class="pre">ripple_db</span></code>.</p></li>
+<li><p><strong>cutoff</strong> (<em>float</em>) – Passband edge [Hz], between 0 and <span class="math notranslate nohighlight">\(f_s/2\)</span>.</p></li>
+<li><p><strong>fs</strong> (<em>float</em>) – Sampling rate [Hz], positive.</p></li>
+<li><p><strong>output</strong> (<em>{&quot;ba&quot;</em><em>, </em><em>&quot;sos&quot;}</em><em>, </em><em>optional</em>) – Polynomials or second-order sections, as in
+<a class="reference internal" href="#engineeringkit.signal_processing.butterworth_lowpass" title="engineeringkit.signal_processing.butterworth_lowpass"><code class="xref py py-func docutils literal notranslate"><span class="pre">butterworth_lowpass()</span></code></a>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">(b,</span> <span class="pre">a)</span></code> or second-order sections [-].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple of ndarray or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>The prototype <span class="math notranslate nohighlight">\(|H|^2 = 1/(1 + \varepsilon^2 R_n^2(\Omega/\Omega_p))\)</span>
+uses Cauer’s elliptic rational function <span class="math notranslate nohighlight">\(R_n\)</span>, which ripples
+between <span class="math notranslate nohighlight">\(\pm 1\)</span> in the passband and stays above
+<span class="math notranslate nohighlight">\(\sqrt{(10^{A/10}-1)/\varepsilon^2}\)</span> in the stopband. Spreading
+the error over both bands gives the narrowest transition of any filter
+of order <span class="math notranslate nohighlight">\(n\)</span> with that ripple and attenuation, at the cost of the
+most nonlinear phase. See <a class="reference internal" href="#engineeringkit.signal_processing.iir_order" title="engineeringkit.signal_processing.iir_order"><code class="xref py py-func docutils literal notranslate"><span class="pre">iir_order()</span></code></a> and
+<a class="reference internal" href="../guides/signal_processing.html"><span class="doc">Signal processing: sampled energy, spectra and quantization</span></a>.</p>
+<p class="rubric">References</p>
+<p>W. Cauer, <em>Siebschaltungen</em>, VDI-Verlag, Berlin (1931); W. Cauer,
+<em>Synthesis of Linear Communication Networks</em>, McGraw-Hill (1958).</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">=</span> <span class="n">elliptic_lowpass</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">60.0</span><span class="p">,</span> <span class="mf">100.0</span><span class="p">,</span> <span class="mf">1000.0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="p">,</span> <span class="n">H</span> <span class="o">=</span> <span class="n">frequency_response</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">worN</span><span class="o">=</span><span class="p">[</span><span class="mf">100.0</span><span class="p">],</span> <span class="n">fs</span><span class="o">=</span><span class="mf">1000.0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="mi">20</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">H</span><span class="p">[</span><span class="mi">0</span><span class="p">]))),</span> <span class="mi">6</span><span class="p">)</span>
+<span class="go">-0.5</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -894,6 +1396,115 @@ multiply by <span class="math notranslate nohighlight">\(1/f_s\)</span> to appro
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">energy</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">])</span>
 <span class="go">5.0</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.signal_processing.envelope">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.signal_processing.</span></span><span class="sig-name descname"><span class="pre">envelope</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/signal_processing/systems/hilbert.html#envelope"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.signal_processing.envelope" title="Link to this definition">#</a></dt>
+<dd><p>Envelope <span class="math notranslate nohighlight">\(|z|\)</span> of a real signal, the magnitude of its analytic signal.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> (<em>array_like</em>) – Real 1D samples [signal units], at least 2.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Envelope [signal units].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>For <span class="math notranslate nohighlight">\(x = a_n\cos(\omega_c n + \phi_n)\)</span> with <span class="math notranslate nohighlight">\(a_n\)</span> and
+<span class="math notranslate nohighlight">\(\phi_n\)</span> varying slowly compared with the carrier (Bedrosian’s
+condition), <span class="math notranslate nohighlight">\(|z| = a_n\)</span>: an AM detector without a rectifier. See
+<a class="reference internal" href="../guides/signal_processing.html"><span class="doc">Signal processing: sampled energy, spectra and quantization</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">envelope</span><span class="p">(</span><span class="mi">3</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="o">/</span> <span class="mi">8</span><span class="p">)),</span> <span class="mi">12</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="go">[3.0, 3.0, 3.0, 3.0, 3.0, 3.0, 3.0, 3.0]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.signal_processing.equiripple_lowpass">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.signal_processing.</span></span><span class="sig-name descname"><span class="pre">equiripple_lowpass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">numtaps</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pass_edge</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop_edge</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/signal_processing/systems/filters.html#equiripple_lowpass"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.signal_processing.equiripple_lowpass" title="Link to this definition">#</a></dt>
+<dd><p>Parks-McClellan equiripple linear-phase FIR low-pass filter (SciPy’s <code class="docutils literal notranslate"><span class="pre">remez</span></code>).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>numtaps</strong> (<em>int</em>) – Number of coefficients <span class="math notranslate nohighlight">\(N\)</span>, at least 3.</p></li>
+<li><p><strong>pass_edge</strong> (<em>float</em>) – Passband edge [Hz].</p></li>
+<li><p><strong>stop_edge</strong> (<em>float</em>) – Stopband edge [Hz], with <span class="math notranslate nohighlight">\(0 &lt; f_p &lt; f_s' &lt; f_s/2\)</span>.</p></li>
+<li><p><strong>fs</strong> (<em>float</em>) – Sampling rate [Hz], positive.</p></li>
+<li><p><strong>weight</strong> (<em>float</em><em>, </em><em>optional</em>) – Stopband error weight relative to the passband [-], positive; the
+designed deviations satisfy <span class="math notranslate nohighlight">\(\delta_p = \text{weight}\cdot\delta_s\)</span>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Symmetric impulse response [-].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Among all symmetric FIR filters of length <span class="math notranslate nohighlight">\(N\)</span>, the result
+minimizes the largest weighted error
+<span class="math notranslate nohighlight">\(\max |W(f)(H(f) - D(f))|\)</span> over both bands. By the alternation
+theorem the optimum’s error touches its peak, with alternating sign, at
+least <span class="math notranslate nohighlight">\((N+1)/2 + 1\)</span> frequencies, and Remez’s exchange algorithm
+finds them. For the same length it beats any window design, whose
+largest ripple sits next to the band edge. The transition band is a
+“don’t care” region. See <a class="reference internal" href="#engineeringkit.signal_processing.equiripple_order" title="engineeringkit.signal_processing.equiripple_order"><code class="xref py py-func docutils literal notranslate"><span class="pre">equiripple_order()</span></code></a> and
+<a class="reference internal" href="../guides/signal_processing.html"><span class="doc">Signal processing: sampled energy, spectra and quantization</span></a>.</p>
+<p class="rubric">References</p>
+<p>T. W. Parks and J. H. McClellan, “Chebyshev approximation for
+nonrecursive digital filters with linear phase,” <em>IEEE Trans. Circuit
+Theory</em> 19 (1972) 189-194, doi:10.1109/TCT.1972.1083419.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">h</span> <span class="o">=</span> <span class="n">equiripple_lowpass</span><span class="p">(</span><span class="mi">41</span><span class="p">,</span> <span class="mf">100.0</span><span class="p">,</span> <span class="mf">150.0</span><span class="p">,</span> <span class="mf">1000.0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">h</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="nb">bool</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">h</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+<span class="go">(41, True)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.signal_processing.equiripple_order">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.signal_processing.</span></span><span class="sig-name descname"><span class="pre">equiripple_order</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">passband_deviation</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stopband_deviation</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transition_width</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/signal_processing/systems/filters.html#equiripple_order"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.signal_processing.equiripple_order" title="Link to this definition">#</a></dt>
+<dd><p>Kaiser’s estimate of the Parks-McClellan filter length for given deviations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>passband_deviation</strong> (<em>float</em>) – Passband deviation <span class="math notranslate nohighlight">\(\delta_p\)</span> [-], in (0, 1).</p></li>
+<li><p><strong>stopband_deviation</strong> (<em>float</em>) – Stopband deviation <span class="math notranslate nohighlight">\(\delta_s\)</span> [-], in (0, 1).</p></li>
+<li><p><strong>transition_width</strong> (<em>float</em>) – Transition band <span class="math notranslate nohighlight">\(\Delta f\)</span> [Hz], positive and below <span class="math notranslate nohighlight">\(f_s/2\)</span>.</p></li>
+<li><p><strong>fs</strong> (<em>float</em>) – Sampling rate [Hz], positive.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Number of coefficients <span class="math notranslate nohighlight">\(N\)</span>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p><span class="math notranslate nohighlight">\(N - 1 \approx (-20\log_{10}\sqrt{\delta_p\delta_s} - 13)/(14.6\,\Delta f/f_s)\)</span>,
+rounded up. The estimate is empirical and can be a few taps short;
+check the design and add taps if needed. Pass
+<code class="docutils literal notranslate"><span class="pre">weight</span> <span class="pre">=</span> <span class="pre">passband_deviation</span> <span class="pre">/</span> <span class="pre">stopband_deviation</span></code> to
+<a class="reference internal" href="#engineeringkit.signal_processing.equiripple_lowpass" title="engineeringkit.signal_processing.equiripple_lowpass"><code class="xref py py-func docutils literal notranslate"><span class="pre">equiripple_lowpass()</span></code></a>. See <a class="reference internal" href="../guides/signal_processing.html"><span class="doc">Signal processing: sampled energy, spectra and quantization</span></a>.</p>
+<p class="rubric">References</p>
+<p>J. F. Kaiser, “Nonrecursive digital filter design using the I0-sinh
+window function,” <em>Proc. IEEE Int. Symp. Circuits Syst.</em> (1974) 20-23;
+Oppenheim and Schafer, <em>Discrete-Time Signal Processing</em>, 3rd ed.
+(2010), sec. 7.7.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">equiripple_order</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.001</span><span class="p">,</span> <span class="mf">50.0</span><span class="p">,</span> <span class="mf">1000.0</span><span class="p">)</span>
+<span class="go">52</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -1146,6 +1757,99 @@ sum of squared coefficients equals that of <code class="docutils literal notrans
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.signal_processing.hilbert_fir">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.signal_processing.</span></span><span class="sig-name descname"><span class="pre">hilbert_fir</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">numtaps</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">window</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'hamming'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/signal_processing/systems/hilbert.html#hilbert_fir"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.signal_processing.hilbert_fir" title="Link to this definition">#</a></dt>
+<dd><p>Windowed FIR Hilbert transformer, <span class="math notranslate nohighlight">\(h_m = 2/(\pi m)\)</span> for odd <span class="math notranslate nohighlight">\(m\)</span>, 0 for even.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>numtaps</strong> (<em>int</em>) – Odd number of coefficients <span class="math notranslate nohighlight">\(N\)</span>, at least 3; the taps sit at
+<span class="math notranslate nohighlight">\(m = n - (N-1)/2\)</span>.</p></li>
+<li><p><strong>window</strong> (<em>str</em><em> or </em><em>tuple</em><em>, </em><em>optional</em>) – Window, as in <a class="reference internal" href="#engineeringkit.signal_processing.fir_lowpass" title="engineeringkit.signal_processing.fir_lowpass"><code class="xref py py-func docutils literal notranslate"><span class="pre">fir_lowpass()</span></code></a>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Antisymmetric impulse response [-], delay <span class="math notranslate nohighlight">\((N-1)/2\)</span> samples.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>The ideal <span class="math notranslate nohighlight">\(-j\operatorname{sgn}(\omega)\)</span> response has the
+impulse response <span class="math notranslate nohighlight">\((1 - \cos\pi m)/(\pi m)\)</span>, infinitely long. The
+truncated, windowed version is a type III linear-phase filter: its gain
+is zero at DC and Nyquist and close to 1 between. Delay <span class="math notranslate nohighlight">\(x\)</span> by
+<span class="math notranslate nohighlight">\((N-1)/2\)</span> samples to pair it with the output. See
+<a class="reference internal" href="../guides/signal_processing.html"><span class="doc">Signal processing: sampled energy, spectra and quantization</span></a>.</p>
+<p class="rubric">References</p>
+<p>A. V. Oppenheim and R. W. Schafer, <em>Discrete-Time Signal Processing</em>,
+3rd ed., Pearson (2010), sec. 12.4.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">hilbert_fir</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="s2">"boxcar"</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="go">[0.0, -2.0, 0.0, 2.0, 0.0]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.signal_processing.hilbert_transform">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.signal_processing.</span></span><span class="sig-name descname"><span class="pre">hilbert_transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/signal_processing/systems/hilbert.html#hilbert_transform"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.signal_processing.hilbert_transform" title="Link to this definition">#</a></dt>
+<dd><p>Discrete Hilbert transform <span class="math notranslate nohighlight">\(\mathcal{H}x\)</span>: every component shifted by -90°.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> (<em>array_like</em>) – Real 1D samples [signal units], at least 2.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="math notranslate nohighlight">\(\operatorname{Im} z\)</span> of <a class="reference internal" href="#engineeringkit.signal_processing.analytic_signal" title="engineeringkit.signal_processing.analytic_signal"><code class="xref py py-func docutils literal notranslate"><span class="pre">analytic_signal()</span></code></a> [signal units];
+<span class="math notranslate nohighlight">\(\cos\omega n\)</span> becomes <span class="math notranslate nohighlight">\(\sin\omega n\)</span>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p><span class="math notranslate nohighlight">\(\mathcal{H}(\mathcal{H}x) = -x\)</span> for a record with no DC or
+Nyquist content, and <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(\mathcal{H}x\)</span> are orthogonal.
+See <a class="reference internal" href="../guides/signal_processing.html"><span class="doc">Signal processing: sampled energy, spectra and quantization</span></a>.</p>
+<p class="rubric">References</p>
+<p>D. Hilbert, “Grundzüge einer allgemeinen Theorie der linearen
+Integralgleichungen (Dritte Mitteilung),” <em>Nachr. Ges. Wiss. Göttingen,
+Math.-Phys. Kl.</em> (1905) 307-338.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">hilbert_transform</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="o">/</span> <span class="mi">4</span><span class="p">)),</span> <span class="mi">12</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.0</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="go">[0.0, 1.0, 0.0, -1.0]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.signal_processing.idct">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.signal_processing.</span></span><span class="sig-name descname"><span class="pre">idct</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/signal_processing/systems/fourier.html#idct"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.signal_processing.idct" title="Link to this definition">#</a></dt>
+<dd><p>Inverse of the orthonormal DCT-II (the DCT-III), <span class="math notranslate nohighlight">\(x = C^T X\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>X</strong> (<em>array_like</em>) – Real 1D DCT coefficients [signal units].</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Samples [signal units].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Setting the small coefficients to zero before inverting is transform
+coding, the core of JPEG. See <a class="reference internal" href="#engineeringkit.signal_processing.dct" title="engineeringkit.signal_processing.dct"><code class="xref py py-func docutils literal notranslate"><span class="pre">dct()</span></code></a> and
+<a class="reference internal" href="../guides/signal_processing.html"><span class="doc">Signal processing: sampled energy, spectra and quantization</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">idct</span><span class="p">([</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]),</span> <span class="mi">12</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="go">[1.0, 1.0, 1.0, 1.0]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.signal_processing.idft">
 <span class="sig-prename descclassname"><span class="pre">engineeringkit.signal_processing.</span></span><span class="sig-name descname"><span class="pre">idft</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/signal_processing/systems/fourier.html#idft"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.signal_processing.idft" title="Link to this definition">#</a></dt>
 <dd><p>Inverse DFT <span class="math notranslate nohighlight">\(x_n = \frac{1}{N}\sum_k X_k e^{j2\pi kn/N}\)</span> (NumPy’s inverse FFT).</p>
@@ -1166,6 +1870,119 @@ sum of squared coefficients equals that of <code class="docutils literal notrans
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">idft</span><span class="p">([</span><span class="mf">4.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">])</span><span class="o">.</span><span class="n">real</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
 <span class="go">[1.0, 1.0, 1.0, 1.0]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.signal_processing.iir_order">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.signal_processing.</span></span><span class="sig-name descname"><span class="pre">iir_order</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pass_edge</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop_edge</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ripple_db</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attenuation_db</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">family</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'butterworth'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/signal_processing/systems/filters.html#iir_order"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.signal_processing.iir_order" title="Link to this definition">#</a></dt>
+<dd><p>Minimum order of a digital low-pass IIR filter that meets a specification.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pass_edge</strong> (<em>float</em>) – Passband edge <span class="math notranslate nohighlight">\(f_p\)</span> [Hz].</p></li>
+<li><p><strong>stop_edge</strong> (<em>float</em>) – Stopband edge <span class="math notranslate nohighlight">\(f_s'\)</span> [Hz], with <span class="math notranslate nohighlight">\(0 &lt; f_p &lt; f_s' &lt; f_s/2\)</span>.</p></li>
+<li><p><strong>ripple_db</strong> (<em>float</em>) – Largest passband loss <span class="math notranslate nohighlight">\(R\)</span> [dB], positive.</p></li>
+<li><p><strong>attenuation_db</strong> (<em>float</em>) – Smallest stopband loss <span class="math notranslate nohighlight">\(A\)</span> [dB], above <code class="docutils literal notranslate"><span class="pre">ripple_db</span></code>.</p></li>
+<li><p><strong>fs</strong> (<em>float</em>) – Sampling rate [Hz], positive.</p></li>
+<li><p><strong>family</strong> (<em>{&quot;butterworth&quot;</em><em>, </em><em>&quot;chebyshev&quot;</em><em>, </em><em>&quot;elliptic&quot;}</em><em>, </em><em>optional</em>) – Approximation; <code class="docutils literal notranslate"><span class="pre">&quot;chebyshev&quot;</span></code> holds for both types.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The smallest order <span class="math notranslate nohighlight">\(n\)</span>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>With the prewarped selectivity <span class="math notranslate nohighlight">\(k = \tan(\pi f_p/f_s)/\tan(\pi f_s'/f_s)\)</span>
+and discrimination <span class="math notranslate nohighlight">\(k_1 = \sqrt{(10^{R/10}-1)/(10^{A/10}-1)}\)</span>,
+<span class="math notranslate nohighlight">\(n\)</span> is the ceiling of <span class="math notranslate nohighlight">\(\log k_1/\log k\)</span> (Butterworth),
+<span class="math notranslate nohighlight">\(\cosh^{-1}(1/k_1)/\cosh^{-1}(1/k)\)</span> (Chebyshev), or
+<span class="math notranslate nohighlight">\(K(k)K'(k_1)/(K'(k)K(k_1))\)</span> (elliptic), with <span class="math notranslate nohighlight">\(K\)</span> the
+complete elliptic integral of the first kind and <span class="math notranslate nohighlight">\(K'(k) = K(\sqrt{1-k^2})\)</span>.
+The orders agree with SciPy’s <code class="docutils literal notranslate"><span class="pre">buttord</span></code>, <code class="docutils literal notranslate"><span class="pre">cheb1ord</span></code> and <code class="docutils literal notranslate"><span class="pre">ellipord</span></code>.
+See <a class="reference internal" href="../guides/signal_processing.html"><span class="doc">Signal processing: sampled energy, spectra and quantization</span></a>.</p>
+<p class="rubric">References</p>
+<p>T. W. Parks and C. S. Burrus, <em>Digital Filter Design</em>, Wiley (1987),
+ch. 7; A. V. Oppenheim and R. W. Schafer, <em>Discrete-Time Signal
+Processing</em>, 3rd ed., Pearson (2010), sec. 7.3.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="n">iir_order</span><span class="p">(</span><span class="mf">100.0</span><span class="p">,</span> <span class="mf">150.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">60.0</span><span class="p">,</span> <span class="mf">1000.0</span><span class="p">,</span> <span class="n">family</span><span class="p">)</span> <span class="k">for</span> <span class="n">family</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">"butterworth"</span><span class="p">,</span> <span class="s2">"chebyshev"</span><span class="p">,</span> <span class="s2">"elliptic"</span><span class="p">)]</span>
+<span class="go">[17, 9, 6]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.signal_processing.instantaneous_frequency">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.signal_processing.</span></span><span class="sig-name descname"><span class="pre">instantaneous_frequency</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/signal_processing/systems/hilbert.html#instantaneous_frequency"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.signal_processing.instantaneous_frequency" title="Link to this definition">#</a></dt>
+<dd><p>Instantaneous frequency <span class="math notranslate nohighlight">\(\frac{1}{2\pi}\frac{d}{dt}\arg z\)</span> from the unwrapped analytic phase.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>array_like</em>) – Real 1D samples [signal units], at least 2.</p></li>
+<li><p><strong>fs</strong> (<em>float</em>) – Sampling rate [Hz], positive.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">len(x)</span> <span class="pre">-</span> <span class="pre">1</span></code> frequencies [Hz], each between two samples.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>The phase difference of consecutive samples, times <span class="math notranslate nohighlight">\(f_s/2\pi\)</span>.
+It is meaningful for a single component; two tones give a frequency
+that oscillates between them. See <a class="reference internal" href="../guides/signal_processing.html"><span class="doc">Signal processing: sampled energy, spectra and quantization</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="mi">50</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="o">/</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">instantaneous_frequency</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mf">1000.0</span><span class="p">)[</span><span class="mi">40</span><span class="p">:</span><span class="mi">42</span><span class="p">],</span> <span class="mi">6</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="go">[50.0, 50.0]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.signal_processing.interpolate">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.signal_processing.</span></span><span class="sig-name descname"><span class="pre">interpolate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">factor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">numtaps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/signal_processing/systems/sampling.html#interpolate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.signal_processing.interpolate" title="Link to this definition">#</a></dt>
+<dd><p>Raise the sampling rate by an integer factor: upsample, then low-pass filter with gain <span class="math notranslate nohighlight">\(L\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>array_like</em>) – 1D samples [signal units].</p></li>
+<li><p><strong>factor</strong> (<em>int</em>) – Interpolation factor <span class="math notranslate nohighlight">\(L\)</span>, at least 1.</p></li>
+<li><p><strong>numtaps</strong> (<em>int</em><em>, </em><em>optional</em>) – Odd length of the Hamming-window FIR filter, cutoff
+<span class="math notranslate nohighlight">\(f_s/2\)</span> of the input. Defaults to <span class="math notranslate nohighlight">\(20L + 1\)</span>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">len(x)</span> <span class="pre">*</span> <span class="pre">L</span></code> samples at rate <span class="math notranslate nohighlight">\(L f_s\)</span> [signal units],
+aligned with the input.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>The filter is the windowed ideal interpolator
+<span class="math notranslate nohighlight">\(h_n = w_n \operatorname{sinc}(n/L)\)</span>, which is 1 at <span class="math notranslate nohighlight">\(n = 0\)</span>
+and 0 at every other multiple of <span class="math notranslate nohighlight">\(L\)</span>, so the original samples pass
+through unchanged and only the new ones are computed. It is Shannon’s
+sinc reconstruction, truncated to <span class="math notranslate nohighlight">\(N\)</span> taps; the images left by
+<a class="reference internal" href="#engineeringkit.signal_processing.upsample" title="engineeringkit.signal_processing.upsample"><code class="xref py py-func docutils literal notranslate"><span class="pre">upsample()</span></code></a> are attenuated by about 53 dB. See
+<a class="reference internal" href="../guides/signal_processing.html"><span class="doc">Signal processing: sampled energy, spectra and quantization</span></a>.</p>
+<p class="rubric">References</p>
+<p>R. W. Schafer and L. R. Rabiner, “A digital signal processing approach
+to interpolation,” <em>Proc. IEEE</em> 61 (1973) 692-702,
+doi:10.1109/PROC.1973.9150.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">interpolate</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">],</span> <span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">y</span><span class="p">[::</span><span class="mi">2</span><span class="p">],</span> <span class="mi">12</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="go">[0.0, 1.0, 0.0, -1.0]</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -1221,6 +2038,7 @@ parameter <span class="math notranslate nohighlight">\(\beta\)</span> [-], for <
 </dd>
 </dl>
 <p class="rubric">Notes</p>
+<p>All parameters are scalar-only: the result sizes one filter.</p>
 <p>With <span class="math notranslate nohighlight">\(\Delta\omega = 2\pi\Delta f/f_s\)</span>,
 <span class="math notranslate nohighlight">\(N - 1 = \lceil (A - 7.95)/(2.285\,\Delta\omega) \rceil\)</span> and
 <span class="math notranslate nohighlight">\(\beta = 0.1102(A - 8.7)\)</span> for <span class="math notranslate nohighlight">\(A &gt; 50\)</span>,
@@ -1236,6 +2054,48 @@ function,” <em>Proc. IEEE Int. Symp. Circuits Syst.</em> (1974) 20-23.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">numtaps</span><span class="p">,</span> <span class="n">beta</span> <span class="o">=</span> <span class="n">kaiser_order</span><span class="p">(</span><span class="mf">60.0</span><span class="p">,</span> <span class="mf">50.0</span><span class="p">,</span> <span class="mf">1000.0</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">numtaps</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">beta</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
 <span class="go">(74, 5.6533)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.signal_processing.levinson_durbin">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.signal_processing.</span></span><span class="sig-name descname"><span class="pre">levinson_durbin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/signal_processing/systems/autoregressive.html#levinson_durbin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.signal_processing.levinson_durbin" title="Link to this definition">#</a></dt>
+<dd><p>Levinson-Durbin recursion: AR coefficients of every order up to <code class="docutils literal notranslate"><span class="pre">order</span></code> from autocorrelations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>r</strong> (<em>array_like</em>) – Real autocorrelation <span class="math notranslate nohighlight">\(r_0, r_1, \ldots\)</span> [signal units
+squared], with <span class="math notranslate nohighlight">\(r_0 &gt; 0\)</span> and at least <code class="docutils literal notranslate"><span class="pre">order</span> <span class="pre">+</span> <span class="pre">1</span></code> values.</p></li>
+<li><p><strong>order</strong> (<em>int</em>) – Model order <span class="math notranslate nohighlight">\(p\)</span>, at least 1.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Coefficients <span class="math notranslate nohighlight">\([1, a_1..a_p]\)</span>, noise variance <span class="math notranslate nohighlight">\(E_p\)</span>,
+reflection coefficients and prediction errors.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#engineeringkit.signal_processing.ARModel" title="engineeringkit.signal_processing.ARModel">ARModel</a></p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Starting from <span class="math notranslate nohighlight">\(E_0 = r_0\)</span>, order <span class="math notranslate nohighlight">\(m\)</span> adds the reflection
+coefficient <span class="math notranslate nohighlight">\(k_m = -(r_m + \sum_{i=1}^{m-1} a_i r_{m-i})/E_{m-1}\)</span>,
+updates <span class="math notranslate nohighlight">\(a_i \leftarrow a_i + k_m a_{m-i}\)</span> with <span class="math notranslate nohighlight">\(a_m = k_m\)</span>,
+and shrinks the error to <span class="math notranslate nohighlight">\(E_m = (1 - k_m^2)E_{m-1}\)</span>. The result
+solves the Yule-Walker equations <span class="math notranslate nohighlight">\(\sum_k a_k r_{|i-k|} = -r_i\)</span>,
+<span class="math notranslate nohighlight">\(i = 1..p\)</span>. A <span class="math notranslate nohighlight">\(|k_m| \ge 1\)</span> means the sequence is not a
+valid (positive definite) autocorrelation. See
+<a class="reference internal" href="../guides/signal_processing.html"><span class="doc">Signal processing: sampled energy, spectra and quantization</span></a>.</p>
+<p class="rubric">References</p>
+<p>N. Levinson, “The Wiener RMS (root mean square) error criterion in
+filter design and prediction,” <em>J. Math. Phys.</em> 25 (1947) 261-278;
+J. Durbin, “The fitting of time-series models,” <em>Rev. Int. Stat. Inst.</em>
+28 (1960) 233-244, doi:10.2307/1401322.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">levinson_durbin</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">],</span> <span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">coefficients</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.0</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span> <span class="nb">round</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">noise_variance</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
+<span class="go">([1.0, -0.5, 0.0], 0.75)</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -1335,6 +2195,48 @@ Convention Record</em>, part 4 (1960) 96-104.</p>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.signal_processing.overlap_add">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.signal_processing.</span></span><span class="sig-name descname"><span class="pre">overlap_add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">block_length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/signal_processing/systems/convolution.html#overlap_add"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.signal_processing.overlap_add" title="Link to this definition">#</a></dt>
+<dd><p>Linear convolution of a long record with an FIR filter by FFT blocks, overlap-add.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>array_like</em>) – 1D input samples [signal units].</p></li>
+<li><p><strong>h</strong> (<em>array_like</em>) – 1D impulse response of length <span class="math notranslate nohighlight">\(M\)</span> [-].</p></li>
+<li><p><strong>block_length</strong> (<em>int</em><em>, </em><em>optional</em>) – Input samples per block <span class="math notranslate nohighlight">\(L\)</span>, at least 1. Defaults to the
+largest <span class="math notranslate nohighlight">\(L\)</span> for which <span class="math notranslate nohighlight">\(L + M - 1\)</span> fits in the smallest
+power of two of at least <span class="math notranslate nohighlight">\(4M\)</span>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The <span class="math notranslate nohighlight">\(N_x + M - 1\)</span> samples of <code class="docutils literal notranslate"><span class="pre">convolution(x,</span> <span class="pre">h)</span></code> [signal
+units], real when both inputs are real.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>The record is cut into blocks of <span class="math notranslate nohighlight">\(L\)</span> samples. Each block and
+<span class="math notranslate nohighlight">\(h\)</span> are zero-padded to <span class="math notranslate nohighlight">\(N_{FFT} \ge L + M - 1\)</span>, so that the
+circular convolution of the block equals its linear one, multiplied in
+the frequency domain, and the <span class="math notranslate nohighlight">\(L + M - 1\)</span> output samples are
+added into place, overlapping the next block’s by <span class="math notranslate nohighlight">\(M - 1\)</span>. The
+cost per output sample grows as <span class="math notranslate nohighlight">\(\log N_{FFT}\)</span> rather than
+<span class="math notranslate nohighlight">\(M\)</span>. See <a class="reference internal" href="#engineeringkit.signal_processing.circular_convolution" title="engineeringkit.signal_processing.circular_convolution"><code class="xref py py-func docutils literal notranslate"><span class="pre">circular_convolution()</span></code></a> and
+<a class="reference internal" href="../guides/signal_processing.html"><span class="doc">Signal processing: sampled energy, spectra and quantization</span></a>.</p>
+<p class="rubric">References</p>
+<p>T. G. Stockham Jr., “High-speed convolution and correlation,” <em>AFIPS
+Conf. Proc.</em> 28 (1966 Spring Joint Computer Conf.) 229-233,
+doi:10.1145/1464182.1464209.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">overlap_add</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">],</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span> <span class="n">block_length</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span> <span class="mi">12</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="go">[1.0, 3.0, 5.0, 7.0, 4.0]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.signal_processing.power">
 <span class="sig-prename descclassname"><span class="pre">engineeringkit.signal_processing.</span></span><span class="sig-name descname"><span class="pre">power</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/signal_processing/utils/measures.html#power"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.signal_processing.power" title="Link to this definition">#</a></dt>
 <dd><p>Mean signal power <span class="math notranslate nohighlight">\(\overline{|x|^2}\)</span>.</p>
@@ -1388,6 +2290,39 @@ SciPy removes the mean before transforming. See
 <p>A. Schuster, “On the investigation of hidden periodicities with
 application to a supposed 26 day period of meteorological phenomena,”
 <em>Terr. Magn.</em> 3 (1898) 13-41.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.signal_processing.prewarp_frequency">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.signal_processing.</span></span><span class="sig-name descname"><span class="pre">prewarp_frequency</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frequency</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/signal_processing/systems/filters.html#prewarp_frequency"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.signal_processing.prewarp_frequency" title="Link to this definition">#</a></dt>
+<dd><p>Analog frequency that the bilinear transform maps onto a given digital frequency.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>frequency</strong> (<em>float</em><em> or </em><em>array_like</em>) – Digital frequency <span class="math notranslate nohighlight">\(f\)</span> [Hz], from 0 to below <span class="math notranslate nohighlight">\(f_s/2\)</span>.</p></li>
+<li><p><strong>fs</strong> (<em>float</em>) – Sampling rate [Hz], positive.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Analog frequency <span class="math notranslate nohighlight">\(f_a = (f_s/\pi)\tan(\pi f/f_s)\)</span> [Hz].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>The bilinear transform with <span class="math notranslate nohighlight">\(K = 2f_s\)</span> takes the analog axis
+<span class="math notranslate nohighlight">\(s = j2\pi f_a\)</span> onto the unit circle at
+<span class="math notranslate nohighlight">\(f = (f_s/\pi)\arctan(\pi f_a/f_s)\)</span>, compressing all of
+<span class="math notranslate nohighlight">\([0, \infty)\)</span> into <span class="math notranslate nohighlight">\([0, f_s/2)\)</span>. Designing the analog
+prototype at <span class="math notranslate nohighlight">\(f_a\)</span> puts its edge at <span class="math notranslate nohighlight">\(f\)</span> after the
+transform. <span class="math notranslate nohighlight">\(f_a \approx f\)</span> only for <span class="math notranslate nohighlight">\(f \ll f_s\)</span>. See
+<a class="reference internal" href="#engineeringkit.signal_processing.bilinear_transform" title="engineeringkit.signal_processing.bilinear_transform"><code class="xref py py-func docutils literal notranslate"><span class="pre">bilinear_transform()</span></code></a> and <a class="reference internal" href="../guides/signal_processing.html"><span class="doc">Signal processing: sampled energy, spectra and quantization</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">prewarp_frequency</span><span class="p">(</span><span class="mf">250.0</span><span class="p">,</span> <span class="mf">1000.0</span><span class="p">)),</span> <span class="mi">6</span><span class="p">)</span>
+<span class="go">318.309886</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
@@ -1487,6 +2422,51 @@ of complex Fourier series,” <em>Math. Comp.</em> 19 (1965) 297-301.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">X</span><span class="p">,</span> <span class="n">count</span> <span class="o">=</span> <span class="n">radix2_fft</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span> <span class="n">return_multiplications</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">X</span><span class="o">.</span><span class="n">real</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span> <span class="n">count</span>
 <span class="go">([1.0, 1.0, 1.0, 1.0], 4)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.signal_processing.real_cepstrum">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.signal_processing.</span></span><span class="sig-name descname"><span class="pre">real_cepstrum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_fft</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/signal_processing/systems/spectral.html#real_cepstrum"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.signal_processing.real_cepstrum" title="Link to this definition">#</a></dt>
+<dd><p>Real cepstrum <span class="math notranslate nohighlight">\(c_n = \mathrm{IDFT}(\ln|\mathrm{DFT}(x)|)\)</span>, indexed by quefrency <span class="math notranslate nohighlight">\(n/f_s\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>array_like</em>) – Real 1D samples [signal units].</p></li>
+<li><p><strong>n_fft</strong> (<em>int</em><em>, </em><em>optional</em>) – Transform length, at least <code class="docutils literal notranslate"><span class="pre">len(x)</span></code>; zero-padding reduces the
+wrap-around of the cepstrum. Defaults to <code class="docutils literal notranslate"><span class="pre">len(x)</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Real, even cepstrum of length <code class="docutils literal notranslate"><span class="pre">n_fft</span></code> [-]; sample <span class="math notranslate nohighlight">\(n\)</span> is
+quefrency <span class="math notranslate nohighlight">\(n/f_s\)</span> [s].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>An echo <span class="math notranslate nohighlight">\(x_n + \alpha x_{n-d}\)</span> multiplies the spectrum by
+<span class="math notranslate nohighlight">\(1 + \alpha e^{-j\omega d}\)</span>, a ripple in <span class="math notranslate nohighlight">\(\ln|X|\)</span> with
+“frequency” <span class="math notranslate nohighlight">\(d\)</span>; its log expands as
+<span class="math notranslate nohighlight">\(\sum_m (-1)^{m+1}(\alpha^m/m)\cos(m\omega d)\)</span>, so for
+<span class="math notranslate nohighlight">\(|\alpha| &lt; 1\)</span> the cepstrum adds <span class="math notranslate nohighlight">\(\alpha/2\)</span> at <span class="math notranslate nohighlight">\(n = d\)</span>
+(and smaller peaks at multiples of <span class="math notranslate nohighlight">\(d\)</span>) to that of <span class="math notranslate nohighlight">\(x\)</span>.
+Convolution becomes addition, which is how speech is split into pitch
+and vocal tract. A zero in the spectrum has no logarithm and raises
+<code class="xref py py-class docutils literal notranslate"><span class="pre">ValueError</span></code>. See <a class="reference internal" href="../guides/signal_processing.html"><span class="doc">Signal processing: sampled energy, spectra and quantization</span></a>.</p>
+<p class="rubric">References</p>
+<p>B. P. Bogert, M. J. R. Healy and J. W. Tukey, “The quefrency alanysis
+of time series for echoes: cepstrum, pseudo-autocovariance,
+cross-cepstrum and saphe cracking,” in M. Rosenblatt (ed.),
+<em>Proceedings of the Symposium on Time Series Analysis</em>, Wiley (1963)
+209-243.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">64</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.5</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">real_cepstrum</span><span class="p">(</span><span class="n">x</span><span class="p">)[</span><span class="mi">10</span><span class="p">]),</span> <span class="mi">6</span><span class="p">)</span>
+<span class="go">0.25</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -1648,6 +2628,36 @@ last centres lie <span class="math notranslate nohighlight">\(L/2\)</span> sampl
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.signal_processing.upsample">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.signal_processing.</span></span><span class="sig-name descname"><span class="pre">upsample</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">factor</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/signal_processing/systems/sampling.html#upsample"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.signal_processing.upsample" title="Link to this definition">#</a></dt>
+<dd><p>Insert <span class="math notranslate nohighlight">\(L - 1\)</span> zeros after every sample, <span class="math notranslate nohighlight">\(y_{nL} = x_n\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>array_like</em>) – 1D samples [signal units].</p></li>
+<li><p><strong>factor</strong> (<em>int</em>) – Upsampling factor <span class="math notranslate nohighlight">\(L\)</span>, at least 1.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">len(x)</span> <span class="pre">*</span> <span class="pre">L</span></code> samples at rate <span class="math notranslate nohighlight">\(L f_s\)</span> [signal units].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p><span class="math notranslate nohighlight">\(Y(e^{j\omega}) = X(e^{j\omega L})\)</span>: the spectrum is compressed by
+<span class="math notranslate nohighlight">\(L\)</span> and <span class="math notranslate nohighlight">\(L - 1\)</span> images of it appear up to the new Nyquist
+frequency. <a class="reference internal" href="#engineeringkit.signal_processing.interpolate" title="engineeringkit.signal_processing.interpolate"><code class="xref py py-func docutils literal notranslate"><span class="pre">interpolate()</span></code></a> removes them. See
+<a class="reference internal" href="../guides/signal_processing.html"><span class="doc">Signal processing: sampled energy, spectra and quantization</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">upsample</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">],</span> <span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="go">[1.0, 0.0, 0.0, 2.0, 0.0, 0.0]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.signal_processing.welch_psd">
 <span class="sig-prename descclassname"><span class="pre">engineeringkit.signal_processing.</span></span><span class="sig-name descname"><span class="pre">welch_psd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">segment_length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">256</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overlap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">window</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'hann'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/signal_processing/systems/spectral.html#welch_psd"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.signal_processing.welch_psd" title="Link to this definition">#</a></dt>
 <dd><p>Welch’s averaged, modified periodogram, written out segment by segment.</p>
@@ -1767,6 +2777,49 @@ the point of view of communications engineering,” <em>Bell Syst. Tech. J.</em>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="p">,</span> <span class="n">magnitude</span> <span class="o">=</span> <span class="n">windowed_spectrum</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span> <span class="mf">4.0</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="s2">"boxcar"</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">magnitude</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
 <span class="go">[4.0, 0.0, 0.0]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.signal_processing.yule_walker">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.signal_processing.</span></span><span class="sig-name descname"><span class="pre">yule_walker</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">demean</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/signal_processing/systems/autoregressive.html#yule_walker"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.signal_processing.yule_walker" title="Link to this definition">#</a></dt>
+<dd><p>Yule-Walker estimate of an AR model from a record, solved by <a class="reference internal" href="#engineeringkit.signal_processing.levinson_durbin" title="engineeringkit.signal_processing.levinson_durbin"><code class="xref py py-func docutils literal notranslate"><span class="pre">levinson_durbin()</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>array_like</em>) – Real 1D samples [signal units], longer than <code class="docutils literal notranslate"><span class="pre">order</span></code>.</p></li>
+<li><p><strong>order</strong> (<em>int</em>) – Model order <span class="math notranslate nohighlight">\(p\)</span>, at least 1.</p></li>
+<li><p><strong>demean</strong> (<em>bool</em><em>, </em><em>optional</em>) – Subtract the record’s mean first.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The fitted model; <code class="docutils literal notranslate"><span class="pre">model.psd(fs)</span></code> is the AR spectrum.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#engineeringkit.signal_processing.ARModel" title="engineeringkit.signal_processing.ARModel">ARModel</a></p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Uses the biased autocorrelation <span class="math notranslate nohighlight">\(r_k = \frac1N\sum_n x_n x_{n+k}\)</span>,
+which is always positive definite, so the model is always stable. Its
+spectrum is smooth and can resolve two close peaks from a record too
+short for the periodogram, but a wrong order gives spurious or missing
+peaks. See <a class="reference internal" href="../guides/signal_processing.html"><span class="doc">Signal processing: sampled energy, spectra and quantization</span></a>.</p>
+<p class="rubric">References</p>
+<p>G. U. Yule, “On a method of investigating periodicities in disturbed
+series, with special reference to Wolfer’s sunspot numbers,” <em>Phil.
+Trans. R. Soc. A</em> 226 (1927) 267-298, doi:10.1098/rsta.1927.0007;
+G. Walker, “On periodicity in series of related terms,” <em>Proc. R. Soc.
+A</em> 131 (1931) 518-532.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">e</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">20000</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">e</span><span class="o">.</span><span class="n">size</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="n">x</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.9</span> <span class="o">*</span> <span class="n">x</span><span class="p">[</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">e</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">yule_walker</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">coefficients</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="mi">2</span><span class="p">)</span>
+<span class="go">-0.9</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -2001,6 +3054,17 @@ as in <a class="reference internal" href="#engineeringkit.signal_processing.freq
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.signal_processing.ARModel"><code class="docutils literal notranslate"><span class="pre">ARModel</span></code></a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.signal_processing.ARModel.coefficients"><code class="docutils literal notranslate"><span class="pre">ARModel.coefficients</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.signal_processing.ARModel.noise_variance"><code class="docutils literal notranslate"><span class="pre">ARModel.noise_variance</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.signal_processing.ARModel.order"><code class="docutils literal notranslate"><span class="pre">ARModel.order</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.signal_processing.ARModel.plot"><code class="docutils literal notranslate"><span class="pre">ARModel.plot()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.signal_processing.ARModel.prediction_errors"><code class="docutils literal notranslate"><span class="pre">ARModel.prediction_errors</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.signal_processing.ARModel.psd"><code class="docutils literal notranslate"><span class="pre">ARModel.psd()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.signal_processing.ARModel.reflection_coefficients"><code class="docutils literal notranslate"><span class="pre">ARModel.reflection_coefficients</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.signal_processing.ARModel.summary"><code class="docutils literal notranslate"><span class="pre">ARModel.summary()</span></code></a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.signal_processing.LMSResult"><code class="docutils literal notranslate"><span class="pre">LMSResult</span></code></a><ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.signal_processing.LMSResult.error"><code class="docutils literal notranslate"><span class="pre">LMSResult.error</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.signal_processing.LMSResult.output"><code class="docutils literal notranslate"><span class="pre">LMSResult.output</span></code></a></li>
@@ -2027,13 +3091,25 @@ as in <a class="reference internal" href="#engineeringkit.signal_processing.freq
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.signal_processing.alias_frequency"><code class="docutils literal notranslate"><span class="pre">alias_frequency()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.signal_processing.analytic_signal"><code class="docutils literal notranslate"><span class="pre">analytic_signal()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.signal_processing.bilinear_transform"><code class="docutils literal notranslate"><span class="pre">bilinear_transform()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.signal_processing.butterworth_highpass"><code class="docutils literal notranslate"><span class="pre">butterworth_highpass()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.signal_processing.butterworth_lowpass"><code class="docutils literal notranslate"><span class="pre">butterworth_lowpass()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.signal_processing.chebyshev1_lowpass"><code class="docutils literal notranslate"><span class="pre">chebyshev1_lowpass()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.signal_processing.chebyshev2_lowpass"><code class="docutils literal notranslate"><span class="pre">chebyshev2_lowpass()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.signal_processing.circular_convolution"><code class="docutils literal notranslate"><span class="pre">circular_convolution()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.signal_processing.convolution"><code class="docutils literal notranslate"><span class="pre">convolution()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.signal_processing.correlation"><code class="docutils literal notranslate"><span class="pre">correlation()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.signal_processing.db20"><code class="docutils literal notranslate"><span class="pre">db20()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.signal_processing.dct"><code class="docutils literal notranslate"><span class="pre">dct()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.signal_processing.decimate"><code class="docutils literal notranslate"><span class="pre">decimate()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.signal_processing.dft"><code class="docutils literal notranslate"><span class="pre">dft()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.signal_processing.downsample"><code class="docutils literal notranslate"><span class="pre">downsample()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.signal_processing.elliptic_lowpass"><code class="docutils literal notranslate"><span class="pre">elliptic_lowpass()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.signal_processing.energy"><code class="docutils literal notranslate"><span class="pre">energy()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.signal_processing.envelope"><code class="docutils literal notranslate"><span class="pre">envelope()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.signal_processing.equiripple_lowpass"><code class="docutils literal notranslate"><span class="pre">equiripple_lowpass()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.signal_processing.equiripple_order"><code class="docutils literal notranslate"><span class="pre">equiripple_order()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.signal_processing.fft_frequencies"><code class="docutils literal notranslate"><span class="pre">fft_frequencies()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.signal_processing.filter_signal"><code class="docutils literal notranslate"><span class="pre">filter_signal()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.signal_processing.fir_lowpass"><code class="docutils literal notranslate"><span class="pre">fir_lowpass()</span></code></a></li>
@@ -2041,25 +3117,37 @@ as in <a class="reference internal" href="#engineeringkit.signal_processing.freq
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.signal_processing.frequency_response"><code class="docutils literal notranslate"><span class="pre">frequency_response()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.signal_processing.goertzel"><code class="docutils literal notranslate"><span class="pre">goertzel()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.signal_processing.haar_transform"><code class="docutils literal notranslate"><span class="pre">haar_transform()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.signal_processing.hilbert_fir"><code class="docutils literal notranslate"><span class="pre">hilbert_fir()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.signal_processing.hilbert_transform"><code class="docutils literal notranslate"><span class="pre">hilbert_transform()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.signal_processing.idct"><code class="docutils literal notranslate"><span class="pre">idct()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.signal_processing.idft"><code class="docutils literal notranslate"><span class="pre">idft()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.signal_processing.iir_order"><code class="docutils literal notranslate"><span class="pre">iir_order()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.signal_processing.instantaneous_frequency"><code class="docutils literal notranslate"><span class="pre">instantaneous_frequency()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.signal_processing.interpolate"><code class="docutils literal notranslate"><span class="pre">interpolate()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.signal_processing.inverse_haar_transform"><code class="docutils literal notranslate"><span class="pre">inverse_haar_transform()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.signal_processing.kaiser_order"><code class="docutils literal notranslate"><span class="pre">kaiser_order()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.signal_processing.levinson_durbin"><code class="docutils literal notranslate"><span class="pre">levinson_durbin()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.signal_processing.lms_filter"><code class="docutils literal notranslate"><span class="pre">lms_filter()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.signal_processing.moving_average"><code class="docutils literal notranslate"><span class="pre">moving_average()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.signal_processing.nyquist_frequency"><code class="docutils literal notranslate"><span class="pre">nyquist_frequency()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.signal_processing.overlap_add"><code class="docutils literal notranslate"><span class="pre">overlap_add()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.signal_processing.power"><code class="docutils literal notranslate"><span class="pre">power()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.signal_processing.power_spectral_density"><code class="docutils literal notranslate"><span class="pre">power_spectral_density()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.signal_processing.prewarp_frequency"><code class="docutils literal notranslate"><span class="pre">prewarp_frequency()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.signal_processing.quantization_step"><code class="docutils literal notranslate"><span class="pre">quantization_step()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.signal_processing.quantize"><code class="docutils literal notranslate"><span class="pre">quantize()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.signal_processing.radix2_fft"><code class="docutils literal notranslate"><span class="pre">radix2_fft()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.signal_processing.real_cepstrum"><code class="docutils literal notranslate"><span class="pre">real_cepstrum()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.signal_processing.rms"><code class="docutils literal notranslate"><span class="pre">rms()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.signal_processing.sampling_period"><code class="docutils literal notranslate"><span class="pre">sampling_period()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.signal_processing.sinc_reconstruct"><code class="docutils literal notranslate"><span class="pre">sinc_reconstruct()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.signal_processing.snr_db"><code class="docutils literal notranslate"><span class="pre">snr_db()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.signal_processing.stft"><code class="docutils literal notranslate"><span class="pre">stft()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.signal_processing.upsample"><code class="docutils literal notranslate"><span class="pre">upsample()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.signal_processing.welch_psd"><code class="docutils literal notranslate"><span class="pre">welch_psd()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.signal_processing.wiener_filter"><code class="docutils literal notranslate"><span class="pre">wiener_filter()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.signal_processing.windowed_spectrum"><code class="docutils literal notranslate"><span class="pre">windowed_spectrum()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.signal_processing.yule_walker"><code class="docutils literal notranslate"><span class="pre">yule_walker()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-engineeringkit.signal_processing.utils">Utilities</a><ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.signal_processing.utils.db20"><code class="docutils literal notranslate"><span class="pre">db20()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.signal_processing.utils.energy"><code class="docutils literal notranslate"><span class="pre">energy()</span></code></a></li>

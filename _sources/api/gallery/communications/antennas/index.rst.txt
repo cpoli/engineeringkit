@@ -1,0 +1,68 @@
+
+
+.. _sphx_glr_api_gallery_communications_antennas:
+
+Antennas
+--------
+
+Gain and effective aperture, and the half-wave dipole.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Friis first wrote his transmission formula not with gains but with the antennas&#x27; effective areas: P_r/P_t = A_t A_r/(d\lambda)^2. A receiving antenna collects the power falling on its effective area A_e, and reciprocity ties that area to its gain, A_e = G\lambda^2/4\pi (~engineeringkit.communications.effective_aperture). For a dish of physical area A and aperture efficiency \eta_a, G = 4\pi\eta_a A/\lambda^2 (~engineeringkit.communications.aperture_gain). A dish of fixed size gains 6 dB at every doubling of frequency, while an antenna of fixed gain collects less and less power.">
+
+.. only:: html
+
+  .. image:: /api/gallery/communications/antennas/images/thumb/sphx_glr_plot_01_friis_effective_aperture_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/communications/antennas/plot_01_friis_effective_aperture`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Friis's effective aperture: gain and area (1946)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="The half-wave dipole is the reference antenna of radio engineering. With the sinusoidal current a thin wire carries, its far field varies as \cos(\tfrac\pi2\cos\theta)/\sin\theta (~engineeringkit.communications.half_wave_dipole_pattern), a little narrower than the \sin\theta of a short dipole. Integrating the radiated power gives a directivity of 1.64, or 2.15 dBi (~engineeringkit.communications.half_wave_dipole_directivity), and a radiation resistance of 73 ohms (~engineeringkit.communications.half_wave_dipole_resistance). Philip Carter of RCA put such calculations in circuit form in 1932: his induced-EMF method gave the self- and mutual impedances of dipoles, the basis of every array design that followed.">
+
+.. only:: html
+
+  .. image:: /api/gallery/communications/antennas/images/thumb/sphx_glr_plot_02_carter_half_wave_dipole_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/communications/antennas/plot_02_carter_half_wave_dipole`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Carter's half-wave dipole (1932)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/communications/antennas/plot_01_friis_effective_aperture
+   /api/gallery/communications/antennas/plot_02_carter_half_wave_dipole
+

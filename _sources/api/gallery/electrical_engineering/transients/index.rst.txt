@@ -5,7 +5,7 @@
 Transients
 ----------
 
-First-order charging and the RC time constant.
+First-order charging, the RL current rise and the second-order RLC step.
 
 
 .. raw:: html
@@ -36,6 +36,40 @@ First-order charging and the RC time constant.
     </div>
 
 
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="When a battery is switched onto a coil, the current does not jump to Ohm&#x27;s value: the coil&#x27;s self-induction opposes the change. Hermann Helmholtz measured how long induced currents last and in 1851 gave the law of their rise, i = (V/R)\left(1 - e^{-Rt/L}\right), with the time scale L/R (~engineeringkit.electrical_engineering.rl_current, rl_time_constant). Opening the circuit, the current decays with the same time constant. This example switches a relay coil on and off and checks the energy bookkeeping: what the source supplies is dissipated in the resistance or stored as \tfrac12 L i^2.">
+
+.. only:: html
+
+  .. image:: /api/gallery/electrical_engineering/transients/images/thumb/sphx_glr_plot_02_helmholtz_rl_current_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/electrical_engineering/transients/plot_02_helmholtz_rl_current`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Helmholtz's inductive current rise (1851)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Felix Savary and Joseph Henry had seen that a Leyden jar discharged through a coil could magnetise needles either way, as if the current reversed. In 1853 William Thomson (later Lord Kelvin) wrote down the equation of the discharge, a capacitance, an inductance and a resistance in series, and found that it is a single surge if R &gt; 2\sqrt{L/C} and an oscillation of period close to 2\pi\sqrt{LC} if it is less. Feddersen photographed the oscillating spark a few years later. In modern terms the series RLC circuit has the neper frequency \alpha = R/2L and the resonant frequency \omega_0 = 1/\sqrt{LC}, and is over-, critically or underdamped as \alpha is larger than, equal to or smaller than \omega_0 (~engineeringkit.electrical_engineering.rlc_damping, rlc_step_voltage). This example shows the three regimes of the step response and checks the ringing frequency and decay of the underdamped one.">
+
+.. only:: html
+
+  .. image:: /api/gallery/electrical_engineering/transients/images/thumb/sphx_glr_plot_03_kelvin_oscillatory_discharge_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/electrical_engineering/transients/plot_03_kelvin_oscillatory_discharge`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Kelvin's oscillatory discharge and the RLC step response (1853)</div>
+    </div>
+
+
 .. thumbnail-parent-div-close
 
 .. raw:: html
@@ -47,4 +81,6 @@ First-order charging and the RC time constant.
    :hidden:
 
    /api/gallery/electrical_engineering/transients/plot_01_kelvin_rc_cable
+   /api/gallery/electrical_engineering/transients/plot_02_helmholtz_rl_current
+   /api/gallery/electrical_engineering/transients/plot_03_kelvin_oscillatory_discharge
 

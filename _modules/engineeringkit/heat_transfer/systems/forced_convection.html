@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>engineeringkit.heat_transfer.systems.forced_convection &#8212; engineeringkit</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx_autodoc_typehints.css?v=057ac668" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/plot_directive.css" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Vibur" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/jupyterlite_sphinx.css?v=f676e775" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery.css?v=c83e6b79" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/engineeringkit.css?v=62935cec" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../../../_static/scripts/fontawesome.js?digest=18bd87630a240e9c25be"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be" />
+
+    <script src="../../../../_static/documentation_options.js?v=95e61db4"></script>
+    <script src="../../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../../_static/sg-tags.js?v=d80f6fa4"></script>
+    <script src="../../../../_static/jupyterlite_sphinx.js?v=96e329c5"></script>
+    <script src="../../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/engineeringkit/heat_transfer/systems/forced_convection';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <script async="async" data-goatcounter="https://cpoli.goatcounter.com/count" src="https://gc.zgo.at/count.js"></script>
+    <link rel="canonical" href="https://cpoli.github.io/engineeringkit/_modules/engineeringkit/heat_transfer/systems/forced_convection.html" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="color-scheme" content="light dark"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../../../_static/searchtools.js"></script>
+    <script src="../../../../_static/language_data.js"></script>
+    <script src="../../../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../_static/engineeringkit_logo_transparent.png" class="logo__image only-light" alt="engineeringkit logo"/>
+    <img src="../../../../_static/engineeringkit_logo_transparent.png" class="logo__image only-dark pst-js-only" alt="engineeringkit logo"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../subpackages/index.html">
+    Subpackages
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../history/index.html">
+    History
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../api/index.html">
+    API
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://cpoli.github.io/" title="Charles Poli" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-user fa-lg" aria-hidden="true"></i><span class="visually-hidden">Charles Poli</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../subpackages/index.html">
+    Subpackages
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../history/index.html">
+    History
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../api/index.html">
+    API
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://cpoli.github.io/" title="Charles Poli" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-user fa-lg" aria-hidden="true"></i><span class="visually-hidden">Charles Poli</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">engineeringkit.heat_transfer.systems.forced_convection</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for engineeringkit.heat_transfer.systems.forced_convection</h1><div class="highlight"><pre>
+<span></span><span class="sa">r</span><span class="sd">"""Forced convection: flat plates, cylinders, tube banks, tubes and the heat and mass transfer analogy.</span>
+
+<span class="sd">Graetz (1883) solved laminar heat transfer in a tube, the first convection</span>
+<span class="sd">problem with an exact answer. Pohlhausen (1921) solved the thermal boundary</span>
+<span class="sd">layer on a flat plate, and Colburn (1933) with Chilton (1934) carried heat</span>
+<span class="sd">transfer results over to mass transfer and friction. Žukauskas (1972)</span>
+<span class="sd">correlated tube banks in crossflow, and Churchill and Bernstein (1977) the</span>
+<span class="sd">single cylinder over its whole Reynolds range.</span>
+<span class="sd">"""</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit._validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">finite</span> <span class="k">as</span> <span class="n">_finite</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit._validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">integer</span> <span class="k">as</span> <span class="n">_integer</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit._validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">nonnegative</span> <span class="k">as</span> <span class="n">_nonnegative</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit._validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">positive</span> <span class="k">as</span> <span class="n">_positive</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">"flat_plate_nusselt"</span><span class="p">,</span>
+    <span class="s2">"churchill_bernstein_nusselt"</span><span class="p">,</span>
+    <span class="s2">"tube_bank_max_velocity"</span><span class="p">,</span>
+    <span class="s2">"zukauskas_nusselt"</span><span class="p">,</span>
+    <span class="s2">"laminar_tube_nusselt"</span><span class="p">,</span>
+    <span class="s2">"entry_length"</span><span class="p">,</span>
+    <span class="s2">"hausen_nusselt"</span><span class="p">,</span>
+    <span class="s2">"lewis_number"</span><span class="p">,</span>
+    <span class="s2">"chilton_colburn_mass_transfer"</span><span class="p">,</span>
+<span class="p">]</span>
+
+
+<div class="viewcode-block" id="flat_plate_nusselt">
+<a class="viewcode-back" href="../../../../api/heat_transfer.html#engineeringkit.heat_transfer.flat_plate_nusselt">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">flat_plate_nusselt</span><span class="p">(</span><span class="n">Re</span><span class="p">,</span> <span class="n">Pr</span><span class="p">,</span> <span class="n">Re_c</span><span class="o">=</span><span class="mf">5e5</span><span class="p">,</span> <span class="n">local</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Nusselt number of a flat plate in parallel flow, laminar, turbulent or mixed.</span>
+
+<span class="sd">    Laminar (Pohlhausen): :math:`Nu_x = 0.332\,Re_x^{1/2}Pr^{1/3}` locally and</span>
+<span class="sd">    :math:`\bar{Nu}_L = 0.664\,Re_L^{1/2}Pr^{1/3}` on average. Turbulent:</span>
+<span class="sd">    :math:`Nu_x = 0.0296\,Re_x^{4/5}Pr^{1/3}`. Transition at ``Re_c`` makes</span>
+<span class="sd">    the average over a plate with both regimes</span>
+
+<span class="sd">    .. math::</span>
+
+<span class="sd">        \bar{Nu}_L = \left[0.037\,(Re_L^{4/5} - Re_c^{4/5}) + 0.664\,Re_c^{1/2}\right] Pr^{1/3}.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    Re : float or array_like</span>
+<span class="sd">        Reynolds number :math:`u_\infty x/\nu` on the distance from the leading</span>
+<span class="sd">        edge (the plate length for the average) [-], nonnegative.</span>
+<span class="sd">    Pr : float or array_like</span>
+<span class="sd">        Prandtl number [-], positive; the :math:`Pr^{1/3}` laws are meant for</span>
+<span class="sd">        :math:`0.6 \lesssim Pr \lesssim 60`.</span>
+<span class="sd">    Re_c : float, optional</span>
+<span class="sd">        Transition Reynolds number [-], nonnegative; 0 makes the boundary layer</span>
+<span class="sd">        turbulent from the leading edge and ``numpy.inf`` keeps it laminar.</span>
+<span class="sd">    local : bool, optional</span>
+<span class="sd">        Return the local :math:`Nu_x = h_x x/k` instead of the average :math:`\bar h L/k`.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float or ndarray</span>
+<span class="sd">        Nusselt number [-].</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Inputs are raw SI numbers with no dimensional metadata; see</span>
+<span class="sd">    :doc:`/guides/heat_transfer`. Isothermal plate, properties at the film</span>
+<span class="sd">    temperature. A uniform heat flux raises the laminar coefficient 0.332</span>
+<span class="sd">    to 0.453.</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    E. Pohlhausen, "Der Wärmeaustausch zwischen festen Körpern und</span>
+<span class="sd">    Flüssigkeiten mit kleiner Reibung und kleiner Wärmeleitung," *Z. Angew.</span>
+<span class="sd">    Math. Mech.* 1 (1921) 115-121.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; round(float(flat_plate_nusselt(1e5, 0.7)), 1)</span>
+<span class="sd">    186.4</span>
+<span class="sd">    &gt;&gt;&gt; round(float(flat_plate_nusselt(1e6, 0.7)), 1)</span>
+<span class="sd">    1299.2</span>
+<span class="sd">    """</span>
+    <span class="n">_nonnegative</span><span class="p">(</span><span class="n">Re</span><span class="o">=</span><span class="n">Re</span><span class="p">)</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">Pr</span><span class="o">=</span><span class="n">Pr</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">Re_c</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">ndim</span><span class="p">(</span><span class="n">Re_c</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">float</span><span class="p">(</span><span class="n">Re_c</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Re_c must be a nonnegative number (inf allowed)"</span><span class="p">)</span>
+    <span class="n">Re</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">Re</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+    <span class="n">pr3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">Pr</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span> <span class="o">**</span> <span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="mi">3</span><span class="p">)</span>
+    <span class="n">laminar</span> <span class="o">=</span> <span class="n">Re</span> <span class="o">&lt;=</span> <span class="n">Re_c</span>
+    <span class="k">if</span> <span class="n">local</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">laminar</span><span class="p">,</span> <span class="mf">0.332</span> <span class="o">*</span> <span class="n">Re</span><span class="o">**</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.0296</span> <span class="o">*</span> <span class="n">Re</span><span class="o">**</span><span class="mf">0.8</span><span class="p">)</span> <span class="o">*</span> <span class="n">pr3</span>
+    <span class="n">Re_t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">minimum</span><span class="p">(</span><span class="n">Re_c</span><span class="p">,</span> <span class="n">Re</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">laminar</span><span class="p">,</span> <span class="mf">0.664</span> <span class="o">*</span> <span class="n">Re</span><span class="o">**</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.037</span> <span class="o">*</span> <span class="p">(</span><span class="n">Re</span><span class="o">**</span><span class="mf">0.8</span> <span class="o">-</span> <span class="n">Re_t</span><span class="o">**</span><span class="mf">0.8</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.664</span> <span class="o">*</span> <span class="n">Re_t</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)</span> <span class="o">*</span> <span class="n">pr3</span></div>
+
+
+
+<div class="viewcode-block" id="churchill_bernstein_nusselt">
+<a class="viewcode-back" href="../../../../api/heat_transfer.html#engineeringkit.heat_transfer.churchill_bernstein_nusselt">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">churchill_bernstein_nusselt</span><span class="p">(</span><span class="n">Re</span><span class="p">,</span> <span class="n">Pr</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Churchill-Bernstein average Nusselt number for a circular cylinder in crossflow.</span>
+
+<span class="sd">    .. math::</span>
+
+<span class="sd">        \bar{Nu}_D = 0.3 + \frac{0.62\,Re_D^{1/2}Pr^{1/3}}{[1 + (0.4/Pr)^{2/3}]^{1/4}}</span>
+<span class="sd">        \left[1 + \left(\frac{Re_D}{282\,000}\right)^{5/8}\right]^{4/5}</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    Re : float or array_like</span>
+<span class="sd">        Reynolds number :math:`VD/\nu` on the diameter [-], nonnegative.</span>
+<span class="sd">    Pr : float or array_like</span>
+<span class="sd">        Prandtl number [-], positive.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float or ndarray</span>
+<span class="sd">        Average Nusselt number :math:`\bar hD/k` [-].</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Inputs are raw SI numbers with no dimensional metadata; see</span>
+<span class="sd">    :doc:`/guides/heat_transfer`. Meant for :math:`Re\,Pr \gtrsim 0.2`;</span>
+<span class="sd">    properties at the film temperature. One blended expression covers the</span>
+<span class="sd">    whole range, from creeping flow to the drag crisis; the authors present it</span>
+<span class="sd">    as a slight underestimate of most data.</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    S. W. Churchill and M. Bernstein, "A correlating equation for forced</span>
+<span class="sd">    convection from gases and liquids to a circular cylinder in crossflow,"</span>
+<span class="sd">    *J. Heat Transfer* 99 (1977) 300-306.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; round(float(churchill_bernstein_nusselt(6071.0, 0.7)), 1)</span>
+<span class="sd">    40.6</span>
+<span class="sd">    """</span>
+    <span class="n">_nonnegative</span><span class="p">(</span><span class="n">Re</span><span class="o">=</span><span class="n">Re</span><span class="p">)</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">Pr</span><span class="o">=</span><span class="n">Pr</span><span class="p">)</span>
+    <span class="n">Re</span><span class="p">,</span> <span class="n">Pr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">Re</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">Pr</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+    <span class="n">laminar</span> <span class="o">=</span> <span class="mf">0.62</span> <span class="o">*</span> <span class="n">Re</span><span class="o">**</span><span class="mf">0.5</span> <span class="o">*</span> <span class="n">Pr</span> <span class="o">**</span> <span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="mi">3</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="p">(</span><span class="mf">0.4</span> <span class="o">/</span> <span class="n">Pr</span><span class="p">)</span> <span class="o">**</span> <span class="p">(</span><span class="mi">2</span> <span class="o">/</span> <span class="mi">3</span><span class="p">))</span> <span class="o">**</span> <span class="mf">0.25</span>
+    <span class="k">return</span> <span class="mf">0.3</span> <span class="o">+</span> <span class="n">laminar</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="p">(</span><span class="n">Re</span> <span class="o">/</span> <span class="mi">282000</span><span class="p">)</span> <span class="o">**</span> <span class="mf">0.625</span><span class="p">)</span> <span class="o">**</span> <span class="mf">0.8</span></div>
+
+
+
+<span class="n">_ARRANGEMENTS</span> <span class="o">=</span> <span class="p">(</span><span class="s2">"aligned"</span><span class="p">,</span> <span class="s2">"staggered"</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="tube_bank_max_velocity">
+<a class="viewcode-back" href="../../../../api/heat_transfer.html#engineeringkit.heat_transfer.tube_bank_max_velocity">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">tube_bank_max_velocity</span><span class="p">(</span><span class="n">V</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">ST</span><span class="p">,</span> <span class="n">SL</span><span class="p">,</span> <span class="n">arrangement</span><span class="o">=</span><span class="s2">"aligned"</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Maximum velocity between the tubes of a bank, on which Žukauskas's Reynolds number is based.</span>
+
+<span class="sd">    Aligned: :math:`V_{max} = S_T V/(S_T - D)`. Staggered: the same, unless</span>
+<span class="sd">    the diagonal gap :math:`S_D - D` with :math:`S_D = [S_L^2 + (S_T/2)^2]^{1/2}`</span>
+<span class="sd">    is narrower than :math:`(S_T - D)/2`, in which case</span>
+<span class="sd">    :math:`V_{max} = S_T V/[2(S_D - D)]`.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    V : float or array_like</span>
+<span class="sd">        Upstream (approach) velocity [m/s], nonnegative.</span>
+<span class="sd">    D : float</span>
+<span class="sd">        Tube outer diameter [m], positive.</span>
+<span class="sd">    ST : float</span>
+<span class="sd">        Transverse pitch, normal to the flow [m], greater than ``D``.</span>
+<span class="sd">    SL : float</span>
+<span class="sd">        Longitudinal pitch, along the flow [m], positive.</span>
+<span class="sd">    arrangement : {"aligned", "staggered"}, optional</span>
+<span class="sd">        Tube layout.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float or ndarray</span>
+<span class="sd">        Maximum velocity [m/s].</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Inputs are raw SI numbers with no dimensional metadata; see</span>
+<span class="sd">    :doc:`/guides/heat_transfer`.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; round(float(tube_bank_max_velocity(6.0, 0.01, 0.015, 0.015)), 6)</span>
+<span class="sd">    18.0</span>
+<span class="sd">    """</span>
+    <span class="n">_nonnegative</span><span class="p">(</span><span class="n">V</span><span class="o">=</span><span class="n">V</span><span class="p">)</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">D</span><span class="o">=</span><span class="n">D</span><span class="p">,</span> <span class="n">ST</span><span class="o">=</span><span class="n">ST</span><span class="p">,</span> <span class="n">SL</span><span class="o">=</span><span class="n">SL</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">arrangement</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">_ARRANGEMENTS</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"arrangement must be one of </span><span class="si">{</span><span class="nb">list</span><span class="p">(</span><span class="n">_ARRANGEMENTS</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">ST</span> <span class="o">&lt;=</span> <span class="n">D</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"ST must exceed D"</span><span class="p">)</span>
+    <span class="n">gap</span> <span class="o">=</span> <span class="n">ST</span> <span class="o">-</span> <span class="n">D</span>
+    <span class="k">if</span> <span class="n">arrangement</span> <span class="o">==</span> <span class="s2">"staggered"</span><span class="p">:</span>
+        <span class="n">SD</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hypot</span><span class="p">(</span><span class="n">SL</span><span class="p">,</span> <span class="n">ST</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">SD</span> <span class="o">&lt;=</span> <span class="n">D</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"diagonal pitch must exceed D"</span><span class="p">)</span>
+        <span class="n">gap</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">gap</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">SD</span> <span class="o">-</span> <span class="n">D</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">ST</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">V</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span> <span class="o">/</span> <span class="n">gap</span></div>
+
+
+
+<span class="c1"># Žukauskas (1972) as tabulated by Incropera et al., Table 7.5: (upper Re, C, m) per range.</span>
+<span class="n">_ZUKAUSKAS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"aligned"</span><span class="p">:</span> <span class="p">((</span><span class="mf">1e2</span><span class="p">,</span> <span class="mf">0.80</span><span class="p">,</span> <span class="mf">0.40</span><span class="p">),</span> <span class="p">(</span><span class="mf">1e3</span><span class="p">,</span> <span class="mf">0.52</span><span class="p">,</span> <span class="mf">0.50</span><span class="p">),</span> <span class="p">(</span><span class="mf">2e5</span><span class="p">,</span> <span class="mf">0.27</span><span class="p">,</span> <span class="mf">0.63</span><span class="p">),</span> <span class="p">(</span><span class="mf">2e6</span><span class="p">,</span> <span class="mf">0.021</span><span class="p">,</span> <span class="mf">0.84</span><span class="p">)),</span>
+    <span class="s2">"staggered"</span><span class="p">:</span> <span class="p">((</span><span class="mf">1e2</span><span class="p">,</span> <span class="mf">0.90</span><span class="p">,</span> <span class="mf">0.40</span><span class="p">),</span> <span class="p">(</span><span class="mf">1e3</span><span class="p">,</span> <span class="mf">0.71</span><span class="p">,</span> <span class="mf">0.50</span><span class="p">),</span> <span class="p">(</span><span class="mf">2e5</span><span class="p">,</span> <span class="mf">0.35</span><span class="p">,</span> <span class="mf">0.60</span><span class="p">),</span> <span class="p">(</span><span class="mf">2e6</span><span class="p">,</span> <span class="mf">0.022</span><span class="p">,</span> <span class="mf">0.84</span><span class="p">)),</span>
+<span class="p">}</span>
+<span class="c1"># Row correction C2 for fewer than 20 rows (Incropera et al., Table 7.6), 1 at 20 rows.</span>
+<span class="n">_ROWS</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="n">_ROW_FACTOR</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"aligned"</span><span class="p">:</span> <span class="p">(</span><span class="mf">0.70</span><span class="p">,</span> <span class="mf">0.80</span><span class="p">,</span> <span class="mf">0.86</span><span class="p">,</span> <span class="mf">0.90</span><span class="p">,</span> <span class="mf">0.92</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">,</span> <span class="mf">0.97</span><span class="p">,</span> <span class="mf">0.98</span><span class="p">,</span> <span class="mf">0.99</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span>
+    <span class="s2">"staggered"</span><span class="p">:</span> <span class="p">(</span><span class="mf">0.64</span><span class="p">,</span> <span class="mf">0.76</span><span class="p">,</span> <span class="mf">0.84</span><span class="p">,</span> <span class="mf">0.89</span><span class="p">,</span> <span class="mf">0.92</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">,</span> <span class="mf">0.97</span><span class="p">,</span> <span class="mf">0.98</span><span class="p">,</span> <span class="mf">0.99</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span>
+<span class="p">}</span>
+
+
+<div class="viewcode-block" id="zukauskas_nusselt">
+<a class="viewcode-back" href="../../../../api/heat_transfer.html#engineeringkit.heat_transfer.zukauskas_nusselt">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">zukauskas_nusselt</span><span class="p">(</span><span class="n">Re</span><span class="p">,</span> <span class="n">Pr</span><span class="p">,</span> <span class="n">ST</span><span class="p">,</span> <span class="n">SL</span><span class="p">,</span> <span class="n">arrangement</span><span class="o">=</span><span class="s2">"aligned"</span><span class="p">,</span> <span class="n">rows</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">Pr_s</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Žukauskas's average Nusselt number for a bank of tubes in crossflow.</span>
+
+<span class="sd">    .. math::</span>
+
+<span class="sd">        \bar{Nu}_D = C_2\,C\,Re_{D,max}^{m}\,Pr^{0.36}\,(Pr/Pr_s)^{1/4},</span>
+
+<span class="sd">    with :math:`C` and :math:`m` from Žukauskas's table for the layout and</span>
+<span class="sd">    Reynolds range, and :math:`C_2` the correction for fewer than 20 rows.</span>
+<span class="sd">    In the staggered range :math:`10^3 &lt; Re &lt; 2\times10^5`, :math:`C =</span>
+<span class="sd">    0.35\,(S_T/S_L)^{1/5}` for :math:`S_T/S_L &lt; 2` and 0.40 above.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    Re : float or array_like</span>
+<span class="sd">        Reynolds number :math:`V_{max}D/\nu` on the maximum velocity (see</span>
+<span class="sd">        :func:`tube_bank_max_velocity`) [-], in [10, 2e6].</span>
+<span class="sd">    Pr : float or array_like</span>
+<span class="sd">        Prandtl number at the mean fluid temperature [-], positive; meant for</span>
+<span class="sd">        :math:`0.7 \lesssim Pr \lesssim 500`.</span>
+<span class="sd">    ST, SL : float</span>
+<span class="sd">        Transverse and longitudinal pitches [m], positive.</span>
+<span class="sd">    arrangement : {"aligned", "staggered"}, optional</span>
+<span class="sd">        Tube layout.</span>
+<span class="sd">    rows : int, optional</span>
+<span class="sd">        Number of tube rows along the flow, at least one; 20 or more needs no correction.</span>
+<span class="sd">    Pr_s : float or array_like, optional</span>
+<span class="sd">        Prandtl number at the tube surface temperature [-], positive; ``None``</span>
+<span class="sd">        takes it equal to ``Pr``.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float or ndarray</span>
+<span class="sd">        Average Nusselt number :math:`\bar hD/k` over the bank [-].</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Inputs are raw SI numbers with no dimensional metadata; see</span>
+<span class="sd">    :doc:`/guides/heat_transfer`. Properties except :math:`Pr_s` at the</span>
+<span class="sd">    arithmetic mean of the inlet and outlet fluid temperatures. Between 100</span>
+<span class="sd">    and 1000 the table values 0.52 and 0.71 with :math:`m = 0.5` are</span>
+<span class="sd">    Žukauskas's; Incropera et al. suggest the single-cylinder correlation</span>
+<span class="sd">    there. Aligned banks with :math:`S_T/S_L &lt; 0.7` transfer heat poorly and</span>
+<span class="sd">    are not covered by the correlation. The row correction is interpolated</span>
+<span class="sd">    linearly between the tabulated row counts.</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    A. Žukauskas, "Heat transfer from tubes in crossflow," *Adv. Heat</span>
+<span class="sd">    Transfer* 8 (1972) 93-160.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; round(float(zukauskas_nusselt(13943.0, 0.71, 0.0313, 0.0343, "staggered", rows=7, Pr_s=0.70)), 1)</span>
+<span class="sd">    88.8</span>
+<span class="sd">    """</span>
+    <span class="n">_finite</span><span class="p">(</span><span class="n">Re</span><span class="o">=</span><span class="n">Re</span><span class="p">)</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">Pr</span><span class="o">=</span><span class="n">Pr</span><span class="p">,</span> <span class="n">ST</span><span class="o">=</span><span class="n">ST</span><span class="p">,</span> <span class="n">SL</span><span class="o">=</span><span class="n">SL</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">arrangement</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">_ARRANGEMENTS</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"arrangement must be one of </span><span class="si">{</span><span class="nb">list</span><span class="p">(</span><span class="n">_ARRANGEMENTS</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="n">_integer</span><span class="p">(</span><span class="s2">"rows"</span><span class="p">,</span> <span class="n">rows</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">Re</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">Re</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">((</span><span class="n">Re</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">Re</span> <span class="o">&gt;</span> <span class="mf">2e6</span><span class="p">)):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Re must lie in [10, 2e6]"</span><span class="p">)</span>
+    <span class="n">Pr_ratio</span> <span class="o">=</span> <span class="mf">1.0</span>
+    <span class="k">if</span> <span class="n">Pr_s</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">_positive</span><span class="p">(</span><span class="n">Pr_s</span><span class="o">=</span><span class="n">Pr_s</span><span class="p">)</span>
+        <span class="n">Pr_ratio</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">Pr</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span> <span class="o">/</span> <span class="n">Pr_s</span>
+    <span class="n">upper</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">m</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">column</span><span class="p">)</span> <span class="k">for</span> <span class="n">column</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">_ZUKAUSKAS</span><span class="p">[</span><span class="n">arrangement</span><span class="p">]))</span>
+    <span class="n">C</span> <span class="o">=</span> <span class="n">C</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">arrangement</span> <span class="o">==</span> <span class="s2">"staggered"</span><span class="p">:</span>
+        <span class="n">C</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.35</span> <span class="o">*</span> <span class="p">(</span><span class="n">ST</span> <span class="o">/</span> <span class="n">SL</span><span class="p">)</span> <span class="o">**</span> <span class="mf">0.2</span> <span class="k">if</span> <span class="n">ST</span> <span class="o">/</span> <span class="n">SL</span> <span class="o">&lt;</span> <span class="mi">2</span> <span class="k">else</span> <span class="mf">0.40</span>
+    <span class="n">band</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">searchsorted</span><span class="p">(</span><span class="n">upper</span><span class="p">,</span> <span class="n">Re</span><span class="p">)</span>
+    <span class="n">C2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span> <span class="n">_ROWS</span><span class="p">,</span> <span class="n">_ROW_FACTOR</span><span class="p">[</span><span class="n">arrangement</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">C2</span> <span class="o">*</span> <span class="n">C</span><span class="p">[</span><span class="n">band</span><span class="p">]</span> <span class="o">*</span> <span class="n">Re</span> <span class="o">**</span> <span class="n">m</span><span class="p">[</span><span class="n">band</span><span class="p">]</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">Pr</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span> <span class="o">**</span> <span class="mf">0.36</span> <span class="o">*</span> <span class="n">Pr_ratio</span><span class="o">**</span><span class="mf">0.25</span></div>
+
+
+
+<span class="n">_LAMINAR_TUBE</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"flux"</span><span class="p">:</span> <span class="mi">48</span> <span class="o">/</span> <span class="mi">11</span><span class="p">,</span> <span class="s2">"temperature"</span><span class="p">:</span> <span class="mf">3.6568</span><span class="p">}</span>
+
+
+<div class="viewcode-block" id="laminar_tube_nusselt">
+<a class="viewcode-back" href="../../../../api/heat_transfer.html#engineeringkit.heat_transfer.laminar_tube_nusselt">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">laminar_tube_nusselt</span><span class="p">(</span><span class="n">boundary</span><span class="o">=</span><span class="s2">"flux"</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Nusselt number of fully developed laminar flow in a circular tube.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    boundary : {"flux", "temperature"}, optional</span>
+<span class="sd">        Uniform wall heat flux (:math:`Nu_D = 48/11 \approx 4.364`) or</span>
+<span class="sd">        uniform wall temperature (:math:`Nu_D = 3.657`, Graetz's limit).</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float</span>
+<span class="sd">        Nusselt number :math:`hD/k` [-], based on the mean (bulk) temperature.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Inputs are raw SI numbers with no dimensional metadata; see</span>
+<span class="sd">    :doc:`/guides/heat_transfer`. Valid for :math:`Re_D \lesssim 2300` beyond</span>
+<span class="sd">    the thermal entry length (:func:`entry_length`). The uniform-flux value</span>
+<span class="sd">    follows in closed form from the parabolic profile; the uniform-temperature</span>
+<span class="sd">    value is twice the square of the first eigenvalue of Graetz's problem</span>
+<span class="sd">    (scaled by the radius) and has no closed form.</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    L. Graetz, "Über die Wärmeleitungsfähigkeit von Flüssigkeiten," *Ann.</span>
+<span class="sd">    Phys. Chem.* 18 (1883) 79-94.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; round(laminar_tube_nusselt("flux"), 3)</span>
+<span class="sd">    4.364</span>
+<span class="sd">    """</span>
+    <span class="k">if</span> <span class="n">boundary</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">_LAMINAR_TUBE</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"boundary must be one of </span><span class="si">{</span><span class="nb">sorted</span><span class="p">(</span><span class="n">_LAMINAR_TUBE</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">_LAMINAR_TUBE</span><span class="p">[</span><span class="n">boundary</span><span class="p">]</span></div>
+
+
+
+<div class="viewcode-block" id="entry_length">
+<a class="viewcode-back" href="../../../../api/heat_transfer.html#engineeringkit.heat_transfer.entry_length">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">entry_length</span><span class="p">(</span><span class="n">Re</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">Pr</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Entry length of tube flow: laminar :math:`0.05\,Re_D\,Pr\,D`, turbulent :math:`10D`.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    Re : float or array_like</span>
+<span class="sd">        Reynolds number on the diameter [-], positive; laminar below 2300.</span>
+<span class="sd">    D : float or array_like</span>
+<span class="sd">        Tube diameter [m], positive.</span>
+<span class="sd">    Pr : float or array_like, optional</span>
+<span class="sd">        Prandtl number [-], positive. The default 1 gives the hydrodynamic</span>
+<span class="sd">        entry length; the fluid's Prandtl number gives the thermal one.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float or ndarray</span>
+<span class="sd">        Distance from the inlet to fully developed conditions [m].</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Inputs are raw SI numbers with no dimensional metadata; see</span>
+<span class="sd">    :doc:`/guides/heat_transfer`. The turbulent value is a rule of thumb;</span>
+<span class="sd">    turbulent profiles develop within 10 to 60 diameters, almost</span>
+<span class="sd">    independently of the Prandtl number.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; float(entry_length(1000.0, 0.01, 7.0))</span>
+<span class="sd">    3.5</span>
+<span class="sd">    """</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">Re</span><span class="o">=</span><span class="n">Re</span><span class="p">,</span> <span class="n">D</span><span class="o">=</span><span class="n">D</span><span class="p">,</span> <span class="n">Pr</span><span class="o">=</span><span class="n">Pr</span><span class="p">)</span>
+    <span class="n">Re</span><span class="p">,</span> <span class="n">D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">Re</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">Re</span> <span class="o">&lt;</span> <span class="mi">2300</span><span class="p">,</span> <span class="mf">0.05</span> <span class="o">*</span> <span class="n">Re</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">Pr</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span> <span class="o">*</span> <span class="n">D</span><span class="p">,</span> <span class="mi">10</span> <span class="o">*</span> <span class="n">D</span><span class="p">)[()]</span></div>
+
+
+
+<div class="viewcode-block" id="hausen_nusselt">
+<a class="viewcode-back" href="../../../../api/heat_transfer.html#engineeringkit.heat_transfer.hausen_nusselt">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">hausen_nusselt</span><span class="p">(</span><span class="n">Re</span><span class="p">,</span> <span class="n">Pr</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">L</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Hausen's average Nusselt number for laminar thermal entry flow in an isothermal tube.</span>
+
+<span class="sd">    .. math::</span>
+
+<span class="sd">        \bar{Nu}_D = 3.66 + \frac{0.0668\,Gz_D}{1 + 0.04\,Gz_D^{2/3}},</span>
+<span class="sd">        \qquad Gz_D = \frac{D}{L}\,Re_D\,Pr.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    Re : float or array_like</span>
+<span class="sd">        Reynolds number on the diameter [-], positive; laminar (below 2300).</span>
+<span class="sd">    Pr : float or array_like</span>
+<span class="sd">        Prandtl number [-], positive.</span>
+<span class="sd">    D : float or array_like</span>
+<span class="sd">        Tube diameter [m], positive.</span>
+<span class="sd">    L : float or array_like</span>
+<span class="sd">        Heated length from the inlet [m], positive.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float or ndarray</span>
+<span class="sd">        Nusselt number averaged over the length :math:`L` [-]; tends to</span>
+<span class="sd">        Graetz's 3.66 as :math:`L` grows.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Inputs are raw SI numbers with no dimensional metadata; see</span>
+<span class="sd">    :doc:`/guides/heat_transfer`. The velocity profile is fully developed at</span>
+<span class="sd">    the start of heating (the "thermal entry" or Graetz problem), which also</span>
+<span class="sd">    fits oils and other high-Prandtl fluids whose flow develops much faster</span>
+<span class="sd">    than their temperature. Taken from Incropera et al.; Hausen's original</span>
+<span class="sd">    paper (1943) could not be checked.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; round(float(hausen_nusselt(1000.0, 5.0, 0.01, 1.0)), 3)</span>
+<span class="sd">    5.825</span>
+<span class="sd">    """</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">Re</span><span class="o">=</span><span class="n">Re</span><span class="p">,</span> <span class="n">Pr</span><span class="o">=</span><span class="n">Pr</span><span class="p">,</span> <span class="n">D</span><span class="o">=</span><span class="n">D</span><span class="p">,</span> <span class="n">L</span><span class="o">=</span><span class="n">L</span><span class="p">)</span>
+    <span class="n">Gz</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">Re</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">Pr</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+    <span class="k">return</span> <span class="mf">3.66</span> <span class="o">+</span> <span class="mf">0.0668</span> <span class="o">*</span> <span class="n">Gz</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mf">0.04</span> <span class="o">*</span> <span class="n">Gz</span> <span class="o">**</span> <span class="p">(</span><span class="mi">2</span> <span class="o">/</span> <span class="mi">3</span><span class="p">))</span></div>
+
+
+
+<div class="viewcode-block" id="lewis_number">
+<a class="viewcode-back" href="../../../../api/heat_transfer.html#engineeringkit.heat_transfer.lewis_number">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">lewis_number</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="n">D_AB</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Lewis number :math:`Le = \alpha/D_{AB} = Sc/Pr`, heat over mass diffusivity.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    alpha : float or array_like</span>
+<span class="sd">        Thermal diffusivity [m^2/s], positive.</span>
+<span class="sd">    D_AB : float or array_like</span>
+<span class="sd">        Binary mass diffusivity of species A in B [m^2/s], positive.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float or ndarray</span>
+<span class="sd">        Lewis number [-]; about 0.85 for water vapour in air.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Inputs are raw SI numbers with no dimensional metadata; see</span>
+<span class="sd">    :doc:`/guides/heat_transfer`.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; round(float(lewis_number(2.2e-5, 2.6e-5)), 3)</span>
+<span class="sd">    0.846</span>
+<span class="sd">    """</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">,</span> <span class="n">D_AB</span><span class="o">=</span><span class="n">D_AB</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span> <span class="o">/</span> <span class="n">D_AB</span></div>
+
+
+
+<div class="viewcode-block" id="chilton_colburn_mass_transfer">
+<a class="viewcode-back" href="../../../../api/heat_transfer.html#engineeringkit.heat_transfer.chilton_colburn_mass_transfer">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">chilton_colburn_mass_transfer</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">rho</span><span class="p">,</span> <span class="n">cp</span><span class="p">,</span> <span class="n">Le</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Mass transfer coefficient from a heat transfer coefficient by the Chilton-Colburn analogy.</span>
+
+<span class="sd">    Equal Colburn factors :math:`j_H = St\,Pr^{2/3}` and</span>
+<span class="sd">    :math:`j_m = St_m Sc^{2/3}` give</span>
+
+<span class="sd">    .. math::</span>
+
+<span class="sd">        \frac{h}{h_m} = \rho\,c_p\,Le^{2/3}.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    h : float or array_like</span>
+<span class="sd">        Heat transfer coefficient [W/(m^2 K)], nonnegative.</span>
+<span class="sd">    rho : float or array_like</span>
+<span class="sd">        Density of the fluid [kg/m^3], positive.</span>
+<span class="sd">    cp : float or array_like</span>
+<span class="sd">        Specific heat of the fluid [J/(kg K)], positive.</span>
+<span class="sd">    Le : float or array_like</span>
+<span class="sd">        Lewis number :math:`\alpha/D_{AB}` [-], positive (see :func:`lewis_number`).</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float or ndarray</span>
+<span class="sd">        Mass transfer coefficient :math:`h_m` [m/s]; the species flux is</span>
+<span class="sd">        :math:`h_m(\rho_{A,s} - \rho_{A,\infty})` [kg/(m^2 s)].</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Inputs are raw SI numbers with no dimensional metadata; see</span>
+<span class="sd">    :doc:`/guides/heat_transfer`. Exact between correlations of the form</span>
+<span class="sd">    :math:`Nu \propto Re^m Pr^{1/3}` and :math:`Sh \propto Re^m Sc^{1/3}`</span>
+<span class="sd">    (laminar flat plate); a good approximation for turbulent flow with</span>
+<span class="sd">    :math:`0.6 &lt; Pr, Sc &lt; 60`. Low mass transfer rates are assumed.</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    T. H. Chilton and A. P. Colburn, "Mass transfer (absorption)</span>
+<span class="sd">    coefficients: prediction from data on heat transfer and fluid friction,"</span>
+<span class="sd">    *Ind. Eng. Chem.* 26 (1934) 1183-1187.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; round(float(chilton_colburn_mass_transfer(20.0, 1.16, 1007.0, 0.85)) * 1000, 2)</span>
+<span class="sd">    19.08</span>
+<span class="sd">    """</span>
+    <span class="n">_nonnegative</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="n">h</span><span class="p">)</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">rho</span><span class="o">=</span><span class="n">rho</span><span class="p">,</span> <span class="n">cp</span><span class="o">=</span><span class="n">cp</span><span class="p">,</span> <span class="n">Le</span><span class="o">=</span><span class="n">Le</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">rho</span> <span class="o">*</span> <span class="n">cp</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">Le</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span> <span class="o">**</span> <span class="p">(</span><span class="mi">2</span> <span class="o">/</span> <span class="mi">3</span><span class="p">))</span></div>
+
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../../_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be"></script>
+<script defer src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.1.
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.23.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

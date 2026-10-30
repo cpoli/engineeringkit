@@ -1,0 +1,68 @@
+
+
+.. _sphx_glr_api_gallery_communications_digitization:
+
+Digitization
+------------
+
+Pulse-code modulation and delta modulation: turning a waveform into bits.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Alec Reeves, an engineer at International Telephone and Telegraph&#x27;s Paris laboratory, proposed sampling a speech waveform, rounding each sample to one of 2^N levels and sending the level number as N on-off pulses (~engineeringkit.communications.pcm_encode, pcm_decode). Rounding adds a small, fixed amount of noise, about 6.02N + 1.76 dB below a full-scale sine (~engineeringkit.communications.pcm_sqnr_db). In exchange, a repeater has only to decide whether each pulse is present, so noise does not accumulate along the line. The vacuum tubes of 1938 made PCM impractical. It waited for the transistor and the Bell System&#x27;s T1 carrier of 1962, which used companding (~engineeringkit.communications.mu_law_compress) to keep quiet speech above the quantization noise.">
+
+.. only:: html
+
+  .. image:: /api/gallery/communications/digitization/images/thumb/sphx_glr_plot_01_reeves_pcm_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/communications/digitization/plot_01_reeves_pcm`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Reeves's pulse-code modulation (1937-1938)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="PCM needs an accurate multilevel coder. Delta modulation needs one comparator. The encoder keeps a staircase copy of the signal and sends a single bit per sample: 1 to step up by \Delta, 0 to step down (~engineeringkit.communications.delta_modulate). The decoder rebuilds the staircase (~engineeringkit.communications.delta_demodulate) and smooths it. The idea appears in a 1946 French patent by Maurice Deloraine and colleagues at ITT&#x27;s Paris laboratory; Frank de Jager of Philips gave the first full published analysis in 1952. The step size is a compromise: small steps fall behind fast signals (slope overload, beyond \Delta f_s, delta_slope_limit), large steps leave granular noise where the signal is flat.">
+
+.. only:: html
+
+  .. image:: /api/gallery/communications/digitization/images/thumb/sphx_glr_plot_02_delta_modulation_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/communications/digitization/plot_02_delta_modulation`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Delta modulation (1946-1952)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/communications/digitization/plot_01_reeves_pcm
+   /api/gallery/communications/digitization/plot_02_delta_modulation
+

@@ -7,9 +7,11 @@ Examples
 
 This gallery walks through every public feature of
 ``engineeringkit.reliability``, one breakthrough per script: lifetime
-distributions and censored data, series, parallel and k-out-of-n systems,
-stress-strength and first-order structural reliability, fault and event
-trees, availability and replacement, and reliability growth.
+distributions and censored data, Weibull fitting and Bayesian failure
+rates, accelerated life testing, series, parallel, k-out-of-n and network
+systems, stress-strength, first-order and Monte Carlo structural
+reliability, FMEA, fault and event trees, availability and replacement,
+and reliability growth.
 
 :doc:`Units, assumptions and numerical validation </guides/reliability>`
 gives the validity limits. Each script is self-contained and can be run
@@ -18,10 +20,12 @@ directly with ``python examples/reliability/<section>/<script>.py``.
 Sections
 --------
 
-- **lifetimes** -- Halley's life table, Poisson's rare failures, Weibull's distribution, Epstein and Sobel's life testing and the Kaplan-Meier estimator.
-- **systems** -- Von Neumann's redundancy, the AGREE report's series systems, k-out-of-n systems and Birnbaum's importance.
-- **structural** -- Freudenthal's stress-strength interference and Hasofer and Lind's reliability index.
-- **risk** -- Watson's fault tree, WASH-1400's event trees and IEC 61508's safety integrity levels.
+- **lifetimes** -- Halley's life table, Poisson's rare failures, Weibull's distribution, Epstein and Sobel's life testing, the Kaplan-Meier estimator and McAlister's lognormal law.
+- **life_data** -- Johnson's median ranks, Cohen's censored maximum likelihood and Raiffa and Schlaifer's conjugate prior for a failure rate.
+- **acceleration** -- Arrhenius's law and Eyring's activated complex.
+- **systems** -- Von Neumann's redundancy, the AGREE report's series systems, k-out-of-n systems, Birnbaum's importance and Esary and Proschan's path and cut bounds.
+- **structural** -- Freudenthal's stress-strength interference, Hasofer and Lind's reliability index and Metropolis and Ulam's Monte Carlo method.
+- **risk** -- MIL-P-1629's FMEA, Watson's fault tree, WASH-1400's event trees and IEC 61508's safety integrity levels.
 - **maintenance** -- Barlow and Proschan's age replacement and Markov availability.
 - **growth** -- Duane's reliability growth.
 
@@ -36,6 +40,63 @@ Sections
     <div class="sphx-glr-thumbnails">
 
 .. thumbnail-parent-div-open
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+Accelerated life testing
+------------------------
+
+Carrying lives measured under high stress back to service conditions.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Svante Arrhenius (1889), measuring how fast acid inverts cane sugar, found that reaction rates grow with temperature as e^{-E_a/(k_B T)}. Many failure mechanisms of electronics, such as diffusion, corrosion and intermetallic growth, are reactions, so a part&#x27;s life at temperature T scales as e^{E_a/(k_B T)}. A test at 125 °C then stands in for years at 55 °C, through the acceleration factor (~engineeringkit.reliability.arrhenius_acceleration_factor). Lives measured at several temperatures fix E_a (~engineeringkit.reliability.arrhenius_fit).">
+
+.. only:: html
+
+  .. image:: /api/gallery/reliability/acceleration/images/thumb/sphx_glr_plot_01_arrhenius_accelerated_life_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/reliability/acceleration/plot_01_arrhenius_accelerated_life`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Arrhenius's law and accelerated life testing (1889)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Henry Eyring (1935) derived reaction rates from statistical mechanics: reactants pass through an activated complex, and the rate is (k_B T/h)\,e^{-\Delta G^\ddagger/(k_B T)}. The prefactor T is absent from Arrhenius&#x27;s empirical law. For life testing it means L \propto T^{-1}e^{E_a/(k_B T)}, and an acceleration factor T_t/T_u times the Arrhenius one (~engineeringkit.reliability.eyring_acceleration_factor). The model extends naturally to non-thermal stresses such as voltage, here represented by the inverse power law (~engineeringkit.reliability.inverse_power_law_acceleration_factor).">
+
+.. only:: html
+
+  .. image:: /api/gallery/reliability/acceleration/images/thumb/sphx_glr_plot_02_eyring_activated_complex_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/reliability/acceleration/plot_02_eyring_activated_complex`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Eyring's activated complex (1935)</div>
+    </div>
+
 
 .. thumbnail-parent-div-close
 
@@ -74,6 +135,80 @@ How reliability improves while a design is tested and fixed.
 .. raw:: html
 
       <div class="sphx-glr-thumbnail-title">Duane's reliability growth (1964)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+Life data
+---------
+
+Estimating a lifetime distribution or a failure rate from test and field data.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Where should the i-th of n failures be plotted? The population fraction failed at the i-th smallest life is itself random, with a \mathrm{Beta}(i, n - i + 1) distribution. Leonard Johnson (1951), working on bearing fatigue at General Motors, proposed its median, the median rank, as the plotting position, and Benard&#x27;s (i - 0.3)/(n + 0.4) approximates it closely (~engineeringkit.reliability.median_ranks). For censored data Johnson&#x27;s adjusted order numbers (~engineeringkit.reliability.adjusted_ranks) let units removed early still move the later ranks. A least-squares line on Weibull axes then gives \beta and \eta (~engineeringkit.reliability.weibull_rank_regression).">
+
+.. only:: html
+
+  .. image:: /api/gallery/reliability/life_data/images/thumb/sphx_glr_plot_01_johnson_median_ranks_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/reliability/life_data/plot_01_johnson_median_ranks`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Johnson's median ranks (1951)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A rank-regression line uses a censored unit only through the ranks of later failures. A. Clifford Cohen (1965) wrote out the maximum-likelihood equations of the Weibull distribution for complete, singly censored and progressively censored samples. Every unit contributes: a failure through its density, a survivor through R(t). The shape solves one equation in \beta alone, and \eta follows (~engineeringkit.reliability.weibull_mle). The example repeats a heavily censored test many times and compares the scatter of the two estimators.">
+
+.. only:: html
+
+  .. image:: /api/gallery/reliability/life_data/images/thumb/sphx_glr_plot_02_cohen_censored_mle_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/reliability/life_data/plot_02_cohen_censored_mle`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Cohen's maximum likelihood for censored Weibull data (1965)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Howard Raiffa and Robert Schlaifer (1961) named and catalogued conjugate priors, families that a likelihood maps into themselves. For failures that arrive as a Poisson process the conjugate family is the gamma distribution: a \mathrm{Gamma}(a, b) prior on the rate \lambda and r failures in time T give a \mathrm{Gamma}(a + r, b + T) posterior (~engineeringkit.reliability.bayesian_failure_rate). Handbook or similar-part data set the prior (~engineeringkit.reliability.gamma_prior_from_bounds), so a short test of a new part is not read in isolation.">
+
+.. only:: html
+
+  .. image:: /api/gallery/reliability/life_data/images/thumb/sphx_glr_plot_03_raiffa_schlaifer_bayesian_failure_rate_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/reliability/life_data/plot_03_raiffa_schlaifer_bayesian_failure_rate`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Raiffa and Schlaifer's conjugate prior for a failure rate (1961)</div>
     </div>
 
 
@@ -182,6 +317,23 @@ Hazard rates, lifetime distributions and estimating them from test data.
 .. raw:: html
 
       <div class="sphx-glr-thumbnail-title">Kaplan and Meier's product-limit estimator (1958)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Francis Galton asked why the geometric mean of a set of observations is sometimes a better centre than the arithmetic one, and Donald McAlister (1879) answered with the law now called lognormal: if a quantity is the product of many small independent factors, its logarithm is a sum, and so is normally distributed. Fatigue cracks, corrosion pits and the electromigration of metal lines grow in such multiplicative steps, which is why the lognormal is the life model for these mechanisms (~engineeringkit.reliability.lognormal_reliability). Its hazard (~engineeringkit.reliability.lognormal_hazard) rises to a peak and then falls, unlike a Weibull hazard with \beta &gt; 1.">
+
+.. only:: html
+
+  .. image:: /api/gallery/reliability/lifetimes/images/thumb/sphx_glr_plot_06_mcalister_lognormal_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/reliability/lifetimes/plot_06_mcalister_lognormal`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">McAlister's lognormal law (1879)</div>
     </div>
 
 
@@ -316,6 +468,23 @@ Fault trees, event trees and the safety integrity of protection systems.
     </div>
 
 
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="The US military procedure MIL-P-1629, Procedures for Performing a Failure Mode, Effects and Criticality Analysis (9 November 1949), asked designers to go through a system part by part, list each way the part can fail, trace the effect of each failure and classify it by its consequence for the mission and for safety. NASA used the method on Apollo, and the automotive industry later made it routine, ranking each mode by a risk priority number, severity times occurrence times detection, each scored from 1 to 10 (~engineeringkit.reliability.risk_priority_number, fmea_ranking). Where failure rates are known the military standard&#x27;s criticality number C_m = \beta\alpha\lambda_p t (~engineeringkit.reliability.failure_mode_criticality) ranks modes by expected losses instead.">
+
+.. only:: html
+
+  .. image:: /api/gallery/reliability/risk/images/thumb/sphx_glr_plot_04_mil_p_1629_fmea_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/reliability/risk/plot_04_mil_p_1629_fmea`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">MIL-P-1629's failure mode and effects analysis (1949)</div>
+    </div>
+
+
 .. thumbnail-parent-div-close
 
 .. raw:: html
@@ -370,6 +539,23 @@ The probability that a load exceeds a resistance.
 .. raw:: html
 
       <div class="sphx-glr-thumbnail-title">Hasofer and Lind's reliability index (1974)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Stanislaw Ulam, recovering from an illness and playing solitaire, wondered whether it was quicker to estimate the chance of winning by dealing many games than by combinatorics. With Nicholas Metropolis (1949) he described the Monte Carlo method: estimate a probability or an integral by random sampling. For a structure the failure probability P(g(X) &lt; 0) is the fraction of sampled load and resistance pairs that fail (~engineeringkit.reliability.monte_carlo_failure_probability). It needs no linearisation, which makes it the check on the Hasofer-Lind index (~engineeringkit.reliability.hasofer_lind_index), but its relative error falls only as 1/\sqrt{N p_f}. Sampling around the Hasofer-Lind design point instead of the mean (importance sampling) puts half the samples in the failure domain.">
+
+.. only:: html
+
+  .. image:: /api/gallery/reliability/structural/images/thumb/sphx_glr_plot_03_metropolis_ulam_monte_carlo_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/reliability/structural/plot_03_metropolis_ulam_monte_carlo`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Metropolis and Ulam's Monte Carlo method (1949)</div>
     </div>
 
 
@@ -464,6 +650,23 @@ How the reliability of a system follows from its parts and their arrangement.
     </div>
 
 
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Most block diagrams are neither series nor parallel; the classic example is the bridge. James Esary and Frank Proschan (1963) described any coherent system by its minimal path sets, the smallest groups of components whose working keeps it working (~engineeringkit.reliability.minimal_path_sets), and its minimal cut sets, the smallest groups whose failure stops it (~engineeringkit.reliability.minimal_cut_sets). The system is a parallel arrangement of its paths, or a series arrangement of its cuts. Treating the paths or the cuts as independent gives bounds on the exact reliability (~engineeringkit.reliability.esary_proschan_bounds, network_reliability), and the cut bound is very close for reliable components.">
+
+.. only:: html
+
+  .. image:: /api/gallery/reliability/systems/images/thumb/sphx_glr_plot_05_esary_proschan_bounds_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/reliability/systems/plot_05_esary_proschan_bounds`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Esary and Proschan's path and cut bounds (1963)</div>
+    </div>
+
+
 .. thumbnail-parent-div-close
 
 .. raw:: html
@@ -476,7 +679,9 @@ How the reliability of a system follows from its parts and their arrangement.
    :includehidden:
 
 
+   /api/gallery/reliability/acceleration/index.rst
    /api/gallery/reliability/growth/index.rst
+   /api/gallery/reliability/life_data/index.rst
    /api/gallery/reliability/lifetimes/index.rst
    /api/gallery/reliability/maintenance/index.rst
    /api/gallery/reliability/risk/index.rst

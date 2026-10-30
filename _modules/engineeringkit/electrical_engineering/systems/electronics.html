@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>engineeringkit.electrical_engineering.systems.electronics &#8212; engineeringkit</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx_autodoc_typehints.css?v=057ac668" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/plot_directive.css" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Vibur" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/jupyterlite_sphinx.css?v=f676e775" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery.css?v=c83e6b79" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/engineeringkit.css?v=62935cec" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../../../_static/scripts/fontawesome.js?digest=18bd87630a240e9c25be"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be" />
+
+    <script src="../../../../_static/documentation_options.js?v=95e61db4"></script>
+    <script src="../../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../../_static/sg-tags.js?v=d80f6fa4"></script>
+    <script src="../../../../_static/jupyterlite_sphinx.js?v=96e329c5"></script>
+    <script src="../../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/engineeringkit/electrical_engineering/systems/electronics';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <script async="async" data-goatcounter="https://cpoli.goatcounter.com/count" src="https://gc.zgo.at/count.js"></script>
+    <link rel="canonical" href="https://cpoli.github.io/engineeringkit/_modules/engineeringkit/electrical_engineering/systems/electronics.html" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="color-scheme" content="light dark"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../../../_static/searchtools.js"></script>
+    <script src="../../../../_static/language_data.js"></script>
+    <script src="../../../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../_static/engineeringkit_logo_transparent.png" class="logo__image only-light" alt="engineeringkit logo"/>
+    <img src="../../../../_static/engineeringkit_logo_transparent.png" class="logo__image only-dark pst-js-only" alt="engineeringkit logo"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../subpackages/index.html">
+    Subpackages
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../history/index.html">
+    History
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../api/index.html">
+    API
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://cpoli.github.io/" title="Charles Poli" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-user fa-lg" aria-hidden="true"></i><span class="visually-hidden">Charles Poli</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../subpackages/index.html">
+    Subpackages
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../history/index.html">
+    History
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../api/index.html">
+    API
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://cpoli.github.io/" title="Charles Poli" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-user fa-lg" aria-hidden="true"></i><span class="visually-hidden">Charles Poli</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">engineeringkit.electrical_engineering.systems.electronics</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for engineeringkit.electrical_engineering.systems.electronics</h1><div class="highlight"><pre>
+<span></span><span class="sa">r</span><span class="sd">"""Electronic circuits: ideal operational amplifiers and the junction diode.</span>
+
+<span class="sd">Ragazzini, Randall and Russell named the operational amplifier: a</span>
+<span class="sd">high-gain amplifier whose negative feedback through resistors and</span>
+<span class="sd">capacitors makes it add, scale and integrate voltages. Shockley's theory of</span>
+<span class="sd">the p-n junction gave the diode its exponential law, which a load line</span>
+<span class="sd">turns into an operating point.</span>
+<span class="sd">"""</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.integrate</span><span class="w"> </span><span class="kn">import</span> <span class="n">cumulative_trapezoid</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.optimize</span><span class="w"> </span><span class="kn">import</span> <span class="n">brentq</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit._validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">finite</span> <span class="k">as</span> <span class="n">_finite</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit._validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">positive</span> <span class="k">as</span> <span class="n">_positive</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">"inverting_amplifier_gain"</span><span class="p">,</span>
+    <span class="s2">"noninverting_amplifier_gain"</span><span class="p">,</span>
+    <span class="s2">"op_amp_integrator"</span><span class="p">,</span>
+    <span class="s2">"thermal_voltage"</span><span class="p">,</span>
+    <span class="s2">"shockley_diode_current"</span><span class="p">,</span>
+    <span class="s2">"diode_operating_point"</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="n">_BOLTZMANN</span> <span class="o">=</span> <span class="mf">1.380649e-23</span>
+<span class="n">_ELEMENTARY_CHARGE</span> <span class="o">=</span> <span class="mf">1.602176634e-19</span>
+
+
+<div class="viewcode-block" id="inverting_amplifier_gain">
+<a class="viewcode-back" href="../../../../api/electrical_engineering.html#engineeringkit.electrical_engineering.inverting_amplifier_gain">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">inverting_amplifier_gain</span><span class="p">(</span><span class="n">r_feedback</span><span class="p">,</span> <span class="n">r_input</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Voltage gain :math:`v_o/v_i = -R_f/R_{in}` of an ideal inverting amplifier.</span>
+
+<span class="sd">    The ideal op amp draws no input current and, with negative feedback,</span>
+<span class="sd">    holds its inverting input at the grounded non-inverting one (a virtual</span>
+<span class="sd">    ground), so the input current :math:`v_i/R_{in}` all flows through</span>
+<span class="sd">    :math:`R_f`.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    r_feedback : float or array_like</span>
+<span class="sd">        Feedback resistance :math:`R_f` [ohm], positive.</span>
+<span class="sd">    r_input : float or array_like</span>
+<span class="sd">        Input resistance :math:`R_{in}` [ohm], positive.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float or ndarray</span>
+<span class="sd">        Voltage gain [-], negative.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Inputs are raw SI numbers with no dimensional metadata; see</span>
+<span class="sd">    :doc:`/guides/electrical_engineering`.</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    J. R. Ragazzini, R. H. Randall and F. A. Russell, "Analysis of problems</span>
+<span class="sd">    in dynamics by electronic circuits," *Proc. IRE* 35 (1947) 444-452.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; inverting_amplifier_gain(10e3, 1e3)</span>
+<span class="sd">    -10.0</span>
+<span class="sd">    """</span>
+    <span class="n">_finite</span><span class="p">(</span><span class="n">r_feedback</span><span class="o">=</span><span class="n">r_feedback</span><span class="p">,</span> <span class="n">r_input</span><span class="o">=</span><span class="n">r_input</span><span class="p">)</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">r_feedback</span><span class="o">=</span><span class="n">r_feedback</span><span class="p">,</span> <span class="n">r_input</span><span class="o">=</span><span class="n">r_input</span><span class="p">)</span>
+    <span class="k">return</span> <span class="o">-</span><span class="n">r_feedback</span> <span class="o">/</span> <span class="n">r_input</span></div>
+
+
+
+<div class="viewcode-block" id="noninverting_amplifier_gain">
+<a class="viewcode-back" href="../../../../api/electrical_engineering.html#engineeringkit.electrical_engineering.noninverting_amplifier_gain">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">noninverting_amplifier_gain</span><span class="p">(</span><span class="n">r_feedback</span><span class="p">,</span> <span class="n">r_ground</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Voltage gain :math:`v_o/v_i = 1 + R_f/R_g` of an ideal non-inverting amplifier.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    r_feedback : float or array_like</span>
+<span class="sd">        Feedback resistance :math:`R_f` from the output to the inverting</span>
+<span class="sd">        input [ohm], nonnegative (zero gives the unity-gain follower).</span>
+<span class="sd">    r_ground : float or array_like</span>
+<span class="sd">        Resistance :math:`R_g` from the inverting input to ground [ohm],</span>
+<span class="sd">        positive.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float or ndarray</span>
+<span class="sd">        Voltage gain [-], at least one.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Inputs are raw SI numbers with no dimensional metadata; see</span>
+<span class="sd">    :doc:`/guides/electrical_engineering`.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; noninverting_amplifier_gain(9e3, 1e3)</span>
+<span class="sd">    10.0</span>
+<span class="sd">    """</span>
+    <span class="n">_finite</span><span class="p">(</span><span class="n">r_feedback</span><span class="o">=</span><span class="n">r_feedback</span><span class="p">,</span> <span class="n">r_ground</span><span class="o">=</span><span class="n">r_ground</span><span class="p">)</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">r_ground</span><span class="o">=</span><span class="n">r_ground</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">r_feedback</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"r_feedback must be nonnegative"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">r_feedback</span> <span class="o">/</span> <span class="n">r_ground</span></div>
+
+
+
+<div class="viewcode-block" id="op_amp_integrator">
+<a class="viewcode-back" href="../../../../api/electrical_engineering.html#engineeringkit.electrical_engineering.op_amp_integrator">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">op_amp_integrator</span><span class="p">(</span><span class="n">v_in</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">v0</span><span class="o">=</span><span class="mf">0.0</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Output :math:`v_o(t) = v_0 - \frac{1}{RC}\int_0^t v_i\,dt'` of an ideal inverting integrator.</span>
+
+<span class="sd">    The virtual ground makes the input current :math:`v_i/R`, and it can</span>
+<span class="sd">    only go into the feedback capacitor. The integral of the sampled input</span>
+<span class="sd">    is taken by the trapezoidal rule.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    v_in : array_like</span>
+<span class="sd">        Input voltage at each sample [V].</span>
+<span class="sd">    t : array_like</span>
+<span class="sd">        Sample times [s], strictly increasing, same length as ``v_in``</span>
+<span class="sd">        (at least two).</span>
+<span class="sd">    R : float</span>
+<span class="sd">        Input resistance [ohm], positive.</span>
+<span class="sd">    C : float</span>
+<span class="sd">        Feedback capacitance [F], positive.</span>
+<span class="sd">    v0 : float, optional</span>
+<span class="sd">        Output voltage at ``t[0]`` [V].</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    ndarray</span>
+<span class="sd">        Output voltage [V] at each sample.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Inputs are raw SI numbers with no dimensional metadata; see</span>
+<span class="sd">    :doc:`/guides/electrical_engineering`. A real integrator saturates at</span>
+<span class="sd">    its supply rails and drifts on its input offset; neither is modelled.</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    J. R. Ragazzini, R. H. Randall and F. A. Russell, "Analysis of problems</span>
+<span class="sd">    in dynamics by electronic circuits," *Proc. IRE* 35 (1947) 444-452.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; t = np.linspace(0, 1e-3, 11)</span>
+<span class="sd">    &gt;&gt;&gt; round(float(op_amp_integrator(np.ones(11), t, 1e3, 1e-6)[-1]), 6)</span>
+<span class="sd">    -1.0</span>
+<span class="sd">    """</span>
+    <span class="n">v_in</span><span class="p">,</span> <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">v_in</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+    <span class="n">_finite</span><span class="p">(</span><span class="n">v_in</span><span class="o">=</span><span class="n">v_in</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="n">t</span><span class="p">,</span> <span class="n">R</span><span class="o">=</span><span class="n">R</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="n">C</span><span class="p">,</span> <span class="n">v0</span><span class="o">=</span><span class="n">v0</span><span class="p">)</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">R</span><span class="o">=</span><span class="n">R</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="n">C</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">t</span><span class="o">.</span><span class="n">ndim</span> <span class="o">!=</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">t</span><span class="o">.</span><span class="n">size</span> <span class="o">&lt;</span> <span class="mi">2</span> <span class="ow">or</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"t must be a strictly increasing time vector of at least two samples"</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">v_in</span><span class="o">.</span><span class="n">shape</span> <span class="o">!=</span> <span class="n">t</span><span class="o">.</span><span class="n">shape</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"v_in must have one sample per time"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">v0</span> <span class="o">-</span> <span class="n">cumulative_trapezoid</span><span class="p">(</span><span class="n">v_in</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">initial</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">R</span> <span class="o">*</span> <span class="n">C</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="thermal_voltage">
+<a class="viewcode-back" href="../../../../api/electrical_engineering.html#engineeringkit.electrical_engineering.thermal_voltage">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">thermal_voltage</span><span class="p">(</span><span class="n">temperature</span><span class="o">=</span><span class="mf">300.0</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Thermal voltage :math:`V_T = k_B T/q`.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    temperature : float or array_like, optional</span>
+<span class="sd">        Junction temperature [K], positive.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float or ndarray</span>
+<span class="sd">        Thermal voltage [V]; about 25.85 mV at 300 K.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Inputs are raw SI numbers with no dimensional metadata; see</span>
+<span class="sd">    :doc:`/guides/electrical_engineering`.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; round(thermal_voltage(300.0) * 1e3, 3)</span>
+<span class="sd">    25.852</span>
+<span class="sd">    """</span>
+    <span class="n">_finite</span><span class="p">(</span><span class="n">temperature</span><span class="o">=</span><span class="n">temperature</span><span class="p">)</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">temperature</span><span class="o">=</span><span class="n">temperature</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">_BOLTZMANN</span> <span class="o">*</span> <span class="n">temperature</span> <span class="o">/</span> <span class="n">_ELEMENTARY_CHARGE</span></div>
+
+
+
+<div class="viewcode-block" id="shockley_diode_current">
+<a class="viewcode-back" href="../../../../api/electrical_engineering.html#engineeringkit.electrical_engineering.shockley_diode_current">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">shockley_diode_current</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">saturation_current</span><span class="p">,</span> <span class="n">ideality</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">temperature</span><span class="o">=</span><span class="mf">300.0</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Shockley's diode equation :math:`i = I_S\left(e^{v/nV_T} - 1\right)`.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    v : float or array_like</span>
+<span class="sd">        Voltage across the diode, anode to cathode [V], at most</span>
+<span class="sd">        :math:`40\,nV_T` (beyond that the exponential overflows any real</span>
+<span class="sd">        device's limits).</span>
+<span class="sd">    saturation_current : float</span>
+<span class="sd">        Reverse saturation current :math:`I_S` [A], positive.</span>
+<span class="sd">    ideality : float, optional</span>
+<span class="sd">        Ideality factor :math:`n` [-], positive (1 for Shockley's ideal</span>
+<span class="sd">        junction, up to about 2 for real silicon diodes).</span>
+<span class="sd">    temperature : float, optional</span>
+<span class="sd">        Junction temperature [K], positive.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float or ndarray</span>
+<span class="sd">        Diode current [A]; tends to :math:`-I_S` under reverse bias.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Inputs are raw SI numbers with no dimensional metadata; see</span>
+<span class="sd">    :doc:`/guides/electrical_engineering`. Reverse breakdown, series</span>
+<span class="sd">    resistance and high injection are not modelled.</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    W. Shockley, "The theory of p-n junctions in semiconductors and p-n</span>
+<span class="sd">    junction transistors," *Bell Syst. Tech. J.* 28 (1949) 435-489.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; round(float(shockley_diode_current(0.7, 1e-14)) * 1e3, 4)</span>
+<span class="sd">    5.7475</span>
+<span class="sd">    """</span>
+    <span class="n">_finite</span><span class="p">(</span><span class="n">v</span><span class="o">=</span><span class="n">v</span><span class="p">,</span> <span class="n">saturation_current</span><span class="o">=</span><span class="n">saturation_current</span><span class="p">,</span> <span class="n">ideality</span><span class="o">=</span><span class="n">ideality</span><span class="p">,</span> <span class="n">temperature</span><span class="o">=</span><span class="n">temperature</span><span class="p">)</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">saturation_current</span><span class="o">=</span><span class="n">saturation_current</span><span class="p">,</span> <span class="n">ideality</span><span class="o">=</span><span class="n">ideality</span><span class="p">)</span>
+    <span class="n">scale</span> <span class="o">=</span> <span class="n">ideality</span> <span class="o">*</span> <span class="n">thermal_voltage</span><span class="p">(</span><span class="n">temperature</span><span class="p">)</span>
+    <span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">v</span> <span class="o">&gt;</span> <span class="mi">40</span> <span class="o">*</span> <span class="n">scale</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"v must be at most 40 n V_T; limit the current with a series resistance"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">saturation_current</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">expm1</span><span class="p">(</span><span class="n">v</span> <span class="o">/</span> <span class="n">scale</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="diode_operating_point">
+<a class="viewcode-back" href="../../../../api/electrical_engineering.html#engineeringkit.electrical_engineering.diode_operating_point">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">diode_operating_point</span><span class="p">(</span><span class="n">v_source</span><span class="p">,</span> <span class="n">resistance</span><span class="p">,</span> <span class="n">saturation_current</span><span class="p">,</span> <span class="n">ideality</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">temperature</span><span class="o">=</span><span class="mf">300.0</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Operating point of a diode in series with a resistor: the load-line solution.</span>
+
+<span class="sd">    The resistor fixes the load line :math:`i = (V_s - v)/R`, and the</span>
+<span class="sd">    operating point is where it crosses the diode curve of</span>
+<span class="sd">    :func:`shockley_diode_current`. The crossing is found by bracketed root</span>
+<span class="sd">    finding (Brent's method), on the current for forward bias, where the</span>
+<span class="sd">    diode voltage :math:`nV_T\ln(1 + i/I_S)` stays bounded, and on the</span>
+<span class="sd">    voltage for reverse bias.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    v_source : float</span>
+<span class="sd">        Source voltage driving the anode through the resistor [V].</span>
+<span class="sd">    resistance : float</span>
+<span class="sd">        Series resistance [ohm], positive.</span>
+<span class="sd">    saturation_current : float</span>
+<span class="sd">        Reverse saturation current [A], positive.</span>
+<span class="sd">    ideality : float, optional</span>
+<span class="sd">        Ideality factor [-], positive.</span>
+<span class="sd">    temperature : float, optional</span>
+<span class="sd">        Junction temperature [K], positive.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    tuple of float</span>
+<span class="sd">        ``(v_diode, i_diode)``: diode voltage [V] and current [A].</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Inputs are raw SI numbers with no dimensional metadata; see</span>
+<span class="sd">    :doc:`/guides/electrical_engineering`. All parameters are scalar-only:</span>
+<span class="sd">    each operating point is one root find.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; v, i = diode_operating_point(5.0, 1e3, 1e-14)</span>
+<span class="sd">    &gt;&gt;&gt; round(v, 4), round(i * 1e3, 4)</span>
+<span class="sd">    (0.6925, 4.3075)</span>
+<span class="sd">    """</span>
+    <span class="n">_finite</span><span class="p">(</span><span class="n">v_source</span><span class="o">=</span><span class="n">v_source</span><span class="p">)</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">resistance</span><span class="o">=</span><span class="n">resistance</span><span class="p">,</span> <span class="n">saturation_current</span><span class="o">=</span><span class="n">saturation_current</span><span class="p">,</span> <span class="n">ideality</span><span class="o">=</span><span class="n">ideality</span><span class="p">,</span> <span class="n">temperature</span><span class="o">=</span><span class="n">temperature</span><span class="p">)</span>
+    <span class="n">scale</span> <span class="o">=</span> <span class="n">ideality</span> <span class="o">*</span> <span class="n">thermal_voltage</span><span class="p">(</span><span class="n">temperature</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">v_source</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">current</span> <span class="o">=</span> <span class="n">brentq</span><span class="p">(</span>
+            <span class="k">lambda</span> <span class="n">i</span><span class="p">:</span> <span class="n">v_source</span> <span class="o">-</span> <span class="n">i</span> <span class="o">*</span> <span class="n">resistance</span> <span class="o">-</span> <span class="n">scale</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log1p</span><span class="p">(</span><span class="n">i</span> <span class="o">/</span> <span class="n">saturation_current</span><span class="p">),</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">v_source</span> <span class="o">/</span> <span class="n">resistance</span><span class="p">,</span> <span class="n">xtol</span><span class="o">=</span><span class="mf">1e-18</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">scale</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log1p</span><span class="p">(</span><span class="n">current</span> <span class="o">/</span> <span class="n">saturation_current</span><span class="p">)),</span> <span class="nb">float</span><span class="p">(</span><span class="n">current</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">v_source</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">voltage</span> <span class="o">=</span> <span class="n">brentq</span><span class="p">(</span><span class="k">lambda</span> <span class="n">v</span><span class="p">:</span> <span class="n">saturation_current</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">expm1</span><span class="p">(</span><span class="n">v</span> <span class="o">/</span> <span class="n">scale</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">v_source</span> <span class="o">-</span> <span class="n">v</span><span class="p">)</span> <span class="o">/</span> <span class="n">resistance</span><span class="p">,</span> <span class="n">v_source</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">xtol</span><span class="o">=</span><span class="mf">1e-15</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">voltage</span><span class="p">),</span> <span class="nb">float</span><span class="p">((</span><span class="n">v_source</span> <span class="o">-</span> <span class="n">voltage</span><span class="p">)</span> <span class="o">/</span> <span class="n">resistance</span><span class="p">)</span>
+    <span class="k">return</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span></div>
+
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../../_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be"></script>
+<script defer src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.1.
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.23.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

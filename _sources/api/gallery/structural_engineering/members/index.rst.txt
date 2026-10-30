@@ -70,6 +70,23 @@ Axial bars and twisted shafts.
     </div>
 
 
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Coulomb&#x27;s \tau = Tr/J holds only for circular shafts. Rudolf Bredt (1896) showed that in any closed thin-walled tube the shear flow q = \tau t is the same all round the wall, q = T/(2A_m) with A_m the area enclosed by the wall&#x27;s centreline (~engineeringkit.structural_engineering.thin_walled_torsion_shear_stress), and that the twist is \phi = (TL/4A_m^2G)\oint ds/t (~engineeringkit.structural_engineering.thin_walled_torsion_angle). Aircraft fuselages, box girders and car chassis rails are designed with these two formulas. The example checks them against Coulomb for a circular tube, then cuts the tube along its length: the open section, with torsion constant st^3/3, is hundreds of times more flexible.">
+
+.. only:: html
+
+  .. image:: /api/gallery/structural_engineering/members/images/thumb/sphx_glr_plot_04_bredt_thin_walled_torsion_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/structural_engineering/members/plot_04_bredt_thin_walled_torsion`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Bredt's thin-walled torsion (1896)</div>
+    </div>
+
+
 .. thumbnail-parent-div-close
 
 .. raw:: html
@@ -83,4 +100,5 @@ Axial bars and twisted shafts.
    /api/gallery/structural_engineering/members/plot_01_hooke_axial
    /api/gallery/structural_engineering/members/plot_02_coulomb_torsion
    /api/gallery/structural_engineering/members/plot_03_poisson_ratio
+   /api/gallery/structural_engineering/members/plot_04_bredt_thin_walled_torsion
 

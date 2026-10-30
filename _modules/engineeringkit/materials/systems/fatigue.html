@@ -46,7 +46,7 @@
   <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be" />
 <link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be" />
 
-    <script src="../../../../_static/documentation_options.js?v=38b66d78"></script>
+    <script src="../../../../_static/documentation_options.js?v=95e61db4"></script>
     <script src="../../../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../../../_static/sg-tags.js?v=d80f6fa4"></script>
@@ -210,6 +210,21 @@
   </ul>
 </div></div>
       
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://cpoli.github.io/" title="Charles Poli" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-user fa-lg" aria-hidden="true"></i><span class="visually-hidden">Charles Poli</span></a>
+        </li>
+</ul></div>
+      
     </div>
     
   </div>
@@ -306,6 +321,21 @@
   </ul>
 </div></div>
         
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://cpoli.github.io/" title="Charles Poli" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-user fa-lg" aria-hidden="true"></i><span class="visually-hidden">Charles Poli</span></a>
+        </li>
+</ul></div>
+        
       </div>
     
   </div>
@@ -366,11 +396,12 @@
                 <article class="bd-article">
                   
   <h1>Source code for engineeringkit.materials.systems.fatigue</h1><div class="highlight"><pre>
-<span></span><span class="sa">r</span><span class="sd">"""Fatigue: stress-life, mean stress, strain-life and cumulative damage.</span>
+<span></span><span class="sa">r</span><span class="sd">"""Fatigue: stress-life, mean stress, endurance limit, strain-life and cumulative damage.</span>
 
 <span class="sd">Basquin fitted Wöhler's endurance data with a straight line on log-log axes,</span>
-<span class="sd">:math:`\sigma_a = \sigma_f'(2N)^b`. Goodman drew the line that trades</span>
-<span class="sd">alternating stress against mean stress. Coffin and Manson found the same</span>
+<span class="sd">:math:`\sigma_a = \sigma_f'(2N)^b`. Gerber's parabola, Goodman's line and</span>
+<span class="sd">Soderberg's line trade alternating stress against mean stress, and Marin's</span>
+<span class="sd">factors carry a polished test bar's endurance limit over to a real part. Coffin and Manson found the same</span>
 <span class="sd">power law for the plastic strain range of low-cycle fatigue, and Palmgren and</span>
 <span class="sd">Miner added up the fractions of life used by blocks of different amplitude.</span>
 <span class="sd">"""</span>
@@ -378,18 +409,46 @@
 <span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="kn">import</span> <span class="n">norm</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit._validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">finite</span> <span class="k">as</span> <span class="n">_finite</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit._validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">interval</span> <span class="k">as</span> <span class="n">_interval</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit._validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">nonnegative</span> <span class="k">as</span> <span class="n">_nonnegative</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit._validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">positive</span> <span class="k">as</span> <span class="n">_positive</span>
 
-<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"basquin_cycles"</span><span class="p">,</span> <span class="s2">"goodman_safety_factor"</span><span class="p">,</span> <span class="s2">"coffin_manson_cycles"</span><span class="p">,</span> <span class="s2">"strain_life_amplitude"</span><span class="p">,</span> <span class="s2">"miner_damage"</span><span class="p">]</span>
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">"basquin_cycles"</span><span class="p">,</span>
+    <span class="s2">"goodman_safety_factor"</span><span class="p">,</span>
+    <span class="s2">"gerber_safety_factor"</span><span class="p">,</span>
+    <span class="s2">"soderberg_safety_factor"</span><span class="p">,</span>
+    <span class="s2">"endurance_limit_estimate"</span><span class="p">,</span>
+    <span class="s2">"marin_surface_factor"</span><span class="p">,</span>
+    <span class="s2">"marin_size_factor"</span><span class="p">,</span>
+    <span class="s2">"marin_load_factor"</span><span class="p">,</span>
+    <span class="s2">"marin_reliability_factor"</span><span class="p">,</span>
+    <span class="s2">"marin_endurance_limit"</span><span class="p">,</span>
+    <span class="s2">"coffin_manson_cycles"</span><span class="p">,</span>
+    <span class="s2">"strain_life_amplitude"</span><span class="p">,</span>
+    <span class="s2">"miner_damage"</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="c1"># Shigley's surface-finish constants a [MPa^-b] and b for ka = a Sut^b, Sut in MPa.</span>
+<span class="n">_SURFACE</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"ground"</span><span class="p">:</span> <span class="p">(</span><span class="mf">1.58</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.085</span><span class="p">),</span> <span class="s2">"machined"</span><span class="p">:</span> <span class="p">(</span><span class="mf">4.51</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.265</span><span class="p">),</span> <span class="s2">"hot-rolled"</span><span class="p">:</span> <span class="p">(</span><span class="mf">57.7</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.718</span><span class="p">),</span> <span class="s2">"forged"</span><span class="p">:</span> <span class="p">(</span><span class="mf">272.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.995</span><span class="p">)}</span>
+<span class="n">_LOAD</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"bending"</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s2">"axial"</span><span class="p">:</span> <span class="mf">0.85</span><span class="p">,</span> <span class="s2">"torsion"</span><span class="p">:</span> <span class="mf">0.59</span><span class="p">}</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">_negative_exponent</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
     <span class="n">_finite</span><span class="p">(</span><span class="o">**</span><span class="p">{</span><span class="n">name</span><span class="p">:</span> <span class="n">value</span><span class="p">})</span>
     <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> must be negative"</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_mean_stress_demand</span><span class="p">(</span><span class="n">sa</span><span class="p">,</span> <span class="n">sm</span><span class="p">):</span>
+    <span class="n">_nonnegative</span><span class="p">(</span><span class="n">sa</span><span class="o">=</span><span class="n">sa</span><span class="p">,</span> <span class="n">sm</span><span class="o">=</span><span class="n">sm</span><span class="p">)</span>
+    <span class="n">sa</span><span class="p">,</span> <span class="n">sm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">sa</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">sm</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">((</span><span class="n">sa</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">sm</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"zero demand has unbounded safety factor"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">sa</span><span class="p">,</span> <span class="n">sm</span>
 
 
 <div class="viewcode-block" id="basquin_cycles">
@@ -475,12 +534,317 @@
 <span class="sd">    J. Goodman, *Mechanics Applied to Engineering* (Longmans, Green, London,</span>
 <span class="sd">    1899).</span>
 <span class="sd">    """</span>
-    <span class="n">_nonnegative</span><span class="p">(</span><span class="n">sa</span><span class="o">=</span><span class="n">sa</span><span class="p">,</span> <span class="n">sm</span><span class="o">=</span><span class="n">sm</span><span class="p">)</span>
+    <span class="n">sa</span><span class="p">,</span> <span class="n">sm</span> <span class="o">=</span> <span class="n">_mean_stress_demand</span><span class="p">(</span><span class="n">sa</span><span class="p">,</span> <span class="n">sm</span><span class="p">)</span>
     <span class="n">_positive</span><span class="p">(</span><span class="n">Se</span><span class="o">=</span><span class="n">Se</span><span class="p">,</span> <span class="n">Sut</span><span class="o">=</span><span class="n">Sut</span><span class="p">)</span>
-    <span class="n">sa</span><span class="p">,</span> <span class="n">sm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">sa</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">sm</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">((</span><span class="n">sa</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">sm</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)):</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"zero demand has unbounded safety factor"</span><span class="p">)</span>
     <span class="k">return</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="n">sa</span> <span class="o">/</span> <span class="n">Se</span> <span class="o">+</span> <span class="n">sm</span> <span class="o">/</span> <span class="n">Sut</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="gerber_safety_factor">
+<a class="viewcode-back" href="../../../../api/materials.html#engineeringkit.materials.gerber_safety_factor">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">gerber_safety_factor</span><span class="p">(</span><span class="n">sa</span><span class="p">,</span> <span class="n">sm</span><span class="p">,</span> <span class="n">Se</span><span class="p">,</span> <span class="n">Sut</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Safety factor against fatigue on Gerber's mean-stress parabola.</span>
+
+<span class="sd">    .. math:: \frac{n\sigma_a}{S_e} + \left(\frac{n\sigma_m}{S_{ut}}\right)^2 = 1</span>
+<span class="sd">              \quad\Rightarrow\quad</span>
+<span class="sd">              n = \frac{2}{\sigma_a/S_e + \sqrt{(\sigma_a/S_e)^2 + 4(\sigma_m/S_{ut})^2}}</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    sa : float or array_like</span>
+<span class="sd">        Alternating stress amplitude [Pa], nonnegative.</span>
+<span class="sd">    sm : float or array_like</span>
+<span class="sd">        Mean stress [Pa], nonnegative (tensile).</span>
+<span class="sd">    Se : float or array_like</span>
+<span class="sd">        Endurance limit [Pa], positive.</span>
+<span class="sd">    Sut : float or array_like</span>
+<span class="sd">        Ultimate tensile strength [Pa], positive.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float or ndarray</span>
+<span class="sd">        Safety factor [-] along a load line through the origin; never below</span>
+<span class="sd">        Goodman's.</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    ValueError</span>
+<span class="sd">        If both stresses are zero.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Gerber's parabola runs through the middle of ductile-steel test data, so</span>
+<span class="sd">    it is a best estimate rather than a design line. Inputs are raw SI</span>
+<span class="sd">    numbers with no dimensional metadata; see :doc:`/guides/materials`.</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    H. Gerber, "Bestimmung der zulässigen Spannungen in Eisen-Constructionen,"</span>
+<span class="sd">    *Z. Bayer. Archit. Ing.-Ver.* 6 (1874) 101-110.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; round(float(gerber_safety_factor(100e6, 0.0, 200e6, 600e6)), 6)</span>
+<span class="sd">    2.0</span>
+<span class="sd">    """</span>
+    <span class="n">sa</span><span class="p">,</span> <span class="n">sm</span> <span class="o">=</span> <span class="n">_mean_stress_demand</span><span class="p">(</span><span class="n">sa</span><span class="p">,</span> <span class="n">sm</span><span class="p">)</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">Se</span><span class="o">=</span><span class="n">Se</span><span class="p">,</span> <span class="n">Sut</span><span class="o">=</span><span class="n">Sut</span><span class="p">)</span>
+    <span class="n">a</span><span class="p">,</span> <span class="n">m</span> <span class="o">=</span> <span class="n">sa</span> <span class="o">/</span> <span class="n">Se</span><span class="p">,</span> <span class="n">sm</span> <span class="o">/</span> <span class="n">Sut</span>
+    <span class="k">return</span> <span class="mi">2</span> <span class="o">/</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">a</span> <span class="o">*</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">m</span> <span class="o">*</span> <span class="n">m</span><span class="p">))</span></div>
+
+
+
+<div class="viewcode-block" id="soderberg_safety_factor">
+<a class="viewcode-back" href="../../../../api/materials.html#engineeringkit.materials.soderberg_safety_factor">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">soderberg_safety_factor</span><span class="p">(</span><span class="n">sa</span><span class="p">,</span> <span class="n">sm</span><span class="p">,</span> <span class="n">Se</span><span class="p">,</span> <span class="n">Sy</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Safety factor on Soderberg's line, :math:`1/n = \sigma_a/S_e + \sigma_m/S_y`.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    sa : float or array_like</span>
+<span class="sd">        Alternating stress amplitude [Pa], nonnegative.</span>
+<span class="sd">    sm : float or array_like</span>
+<span class="sd">        Mean stress [Pa], nonnegative (tensile).</span>
+<span class="sd">    Se : float or array_like</span>
+<span class="sd">        Endurance limit [Pa], positive.</span>
+<span class="sd">    Sy : float or array_like</span>
+<span class="sd">        Yield strength [Pa], positive.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float or ndarray</span>
+<span class="sd">        Safety factor [-]; the line to the yield strength also guards</span>
+<span class="sd">        against first-cycle yielding, and is the most conservative of the</span>
+<span class="sd">        three.</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    ValueError</span>
+<span class="sd">        If both stresses are zero.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Inputs are raw SI numbers with no dimensional metadata; see</span>
+<span class="sd">    :doc:`/guides/materials`.</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    C. R. Soderberg, "Factor of safety and working stress," *Trans. ASME* 52</span>
+<span class="sd">    (1930) APM-52-2, 13-28.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; float(soderberg_safety_factor(50e6, 150e6, 200e6, 300e6))</span>
+<span class="sd">    1.3333333333333333</span>
+<span class="sd">    """</span>
+    <span class="n">sa</span><span class="p">,</span> <span class="n">sm</span> <span class="o">=</span> <span class="n">_mean_stress_demand</span><span class="p">(</span><span class="n">sa</span><span class="p">,</span> <span class="n">sm</span><span class="p">)</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">Se</span><span class="o">=</span><span class="n">Se</span><span class="p">,</span> <span class="n">Sy</span><span class="o">=</span><span class="n">Sy</span><span class="p">)</span>
+    <span class="k">return</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="n">sa</span> <span class="o">/</span> <span class="n">Se</span> <span class="o">+</span> <span class="n">sm</span> <span class="o">/</span> <span class="n">Sy</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="endurance_limit_estimate">
+<a class="viewcode-back" href="../../../../api/materials.html#engineeringkit.materials.endurance_limit_estimate">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">endurance_limit_estimate</span><span class="p">(</span><span class="n">Sut</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Rotating-beam endurance limit of a steel estimated from its strength.</span>
+
+<span class="sd">    .. math:: S_e' = 0.5\,S_{ut} \ (S_{ut} \le 1400\ \mathrm{MPa}), \qquad S_e' = 700\ \mathrm{MPa}\ \text{above}</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    Sut : float or array_like</span>
+<span class="sd">        Ultimate tensile strength [Pa], positive.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float or ndarray</span>
+<span class="sd">        Endurance limit of a polished specimen [Pa].</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    For steels only; aluminium and copper alloys have no endurance limit.</span>
+<span class="sd">    Inputs are raw SI numbers with no dimensional metadata; see</span>
+<span class="sd">    :doc:`/guides/materials`.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; float(endurance_limit_estimate(600e6)) / 1e6</span>
+<span class="sd">    300.0</span>
+<span class="sd">    """</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">Sut</span><span class="o">=</span><span class="n">Sut</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">minimum</span><span class="p">(</span><span class="mf">0.5</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">Sut</span><span class="p">),</span> <span class="mf">700e6</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="marin_surface_factor">
+<a class="viewcode-back" href="../../../../api/materials.html#engineeringkit.materials.marin_surface_factor">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">marin_surface_factor</span><span class="p">(</span><span class="n">Sut</span><span class="p">,</span> <span class="n">finish</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Marin surface factor :math:`k_a = a\,S_{ut}^b` (Sut in MPa).</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    Sut : float or array_like</span>
+<span class="sd">        Ultimate tensile strength [Pa], positive.</span>
+<span class="sd">    finish : {"ground", "machined", "hot-rolled", "forged"}</span>
+<span class="sd">        Surface finish; ``"machined"`` also covers cold-drawn.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float or ndarray</span>
+<span class="sd">        :math:`k_a` [-], below one and falling with strength.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Constants from Shigley's *Mechanical Engineering Design*, Table 6-2.</span>
+<span class="sd">    Inputs are raw SI numbers with no dimensional metadata; see</span>
+<span class="sd">    :doc:`/guides/materials`.</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    J. Marin, *Mechanical Behavior of Engineering Materials* (Prentice-Hall,</span>
+<span class="sd">    Englewood Cliffs, 1962).</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; round(float(marin_surface_factor(520e6, "machined")), 3)</span>
+<span class="sd">    0.86</span>
+<span class="sd">    """</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">Sut</span><span class="o">=</span><span class="n">Sut</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">finish</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">_SURFACE</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"finish must be one of </span><span class="si">{</span><span class="nb">sorted</span><span class="p">(</span><span class="n">_SURFACE</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">_SURFACE</span><span class="p">[</span><span class="n">finish</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">*</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">Sut</span><span class="p">)</span> <span class="o">/</span> <span class="mf">1e6</span><span class="p">)</span> <span class="o">**</span> <span class="n">b</span></div>
+
+
+
+<div class="viewcode-block" id="marin_size_factor">
+<a class="viewcode-back" href="../../../../api/materials.html#engineeringkit.materials.marin_size_factor">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">marin_size_factor</span><span class="p">(</span><span class="n">diameter</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Marin size factor of a round bar in rotating bending or torsion.</span>
+
+<span class="sd">    .. math:: k_b = 1.24\,d^{-0.107}\ (2.79 \le d \le 51\ \mathrm{mm}), \qquad</span>
+<span class="sd">              k_b = 1.51\,d^{-0.157}\ (51 &lt; d \le 254\ \mathrm{mm})</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    diameter : float or array_like</span>
+<span class="sd">        Bar diameter [m], between 2.79 mm and 254 mm.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float or ndarray</span>
+<span class="sd">        :math:`k_b` [-]; about one at the 7.6 mm test-bar size.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Use :math:`k_b = 1` for axial loading. Inputs are raw SI numbers with no</span>
+<span class="sd">    dimensional metadata; see :doc:`/guides/materials`.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; round(float(marin_size_factor(32e-3)), 3)</span>
+<span class="sd">    0.856</span>
+<span class="sd">    """</span>
+    <span class="n">_interval</span><span class="p">(</span><span class="s2">"diameter"</span><span class="p">,</span> <span class="n">diameter</span><span class="p">,</span> <span class="mf">2.79e-3</span><span class="p">,</span> <span class="mf">254e-3</span><span class="p">)</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="mf">1e3</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">diameter</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">d</span> <span class="o">&lt;=</span> <span class="mi">51</span><span class="p">,</span> <span class="mf">1.24</span> <span class="o">*</span> <span class="n">d</span><span class="o">**-</span><span class="mf">0.107</span><span class="p">,</span> <span class="mf">1.51</span> <span class="o">*</span> <span class="n">d</span><span class="o">**-</span><span class="mf">0.157</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="marin_load_factor">
+<a class="viewcode-back" href="../../../../api/materials.html#engineeringkit.materials.marin_load_factor">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">marin_load_factor</span><span class="p">(</span><span class="n">loading</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Marin load factor :math:`k_c`: 1 in bending, 0.85 axial, 0.59 in torsion.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    loading : {"bending", "axial", "torsion"}</span>
+<span class="sd">        Type of loading.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float</span>
+<span class="sd">        :math:`k_c` [-]. The torsion value is the von Mises shear ratio</span>
+<span class="sd">        :math:`1/\sqrt3`.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Inputs are raw SI numbers with no dimensional metadata; see</span>
+<span class="sd">    :doc:`/guides/materials`.</span>
+<span class="sd">    """</span>
+    <span class="k">if</span> <span class="n">loading</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">_LOAD</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"loading must be one of </span><span class="si">{</span><span class="nb">sorted</span><span class="p">(</span><span class="n">_LOAD</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">_LOAD</span><span class="p">[</span><span class="n">loading</span><span class="p">]</span></div>
+
+
+
+<div class="viewcode-block" id="marin_reliability_factor">
+<a class="viewcode-back" href="../../../../api/materials.html#engineeringkit.materials.marin_reliability_factor">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">marin_reliability_factor</span><span class="p">(</span><span class="n">reliability</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Marin reliability factor :math:`k_e = 1 - 0.08\,z_R`.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    reliability : float or array_like</span>
+<span class="sd">        Required probability of survival [-], in [0.5, 1).</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float or ndarray</span>
+<span class="sd">        :math:`k_e` [-]: 1 at 50%, 0.814 at 99%, assuming endurance limits</span>
+<span class="sd">        scatter normally with an 8% coefficient of variation.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    :math:`z_R` is the standard normal quantile of the reliability. Inputs</span>
+<span class="sd">    are raw SI numbers with no dimensional metadata; see</span>
+<span class="sd">    :doc:`/guides/materials`.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; round(float(marin_reliability_factor(0.99)), 3)</span>
+<span class="sd">    0.814</span>
+<span class="sd">    """</span>
+    <span class="n">_interval</span><span class="p">(</span><span class="s2">"reliability"</span><span class="p">,</span> <span class="n">reliability</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="s2">"left"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="mi">1</span> <span class="o">-</span> <span class="mf">0.08</span> <span class="o">*</span> <span class="n">norm</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="n">reliability</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="marin_endurance_limit">
+<a class="viewcode-back" href="../../../../api/materials.html#engineeringkit.materials.marin_endurance_limit">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">marin_endurance_limit</span><span class="p">(</span><span class="n">Se_prime</span><span class="p">,</span> <span class="n">ka</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">kb</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">kc</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">kd</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">ke</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">kf</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Endurance limit of a part, :math:`S_e = k_a k_b k_c k_d k_e k_f\,S_e'`.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    Se_prime : float or array_like</span>
+<span class="sd">        Rotating-beam endurance limit of a polished specimen [Pa], positive.</span>
+<span class="sd">    ka, kb, kc, kd, ke, kf : float or array_like, optional</span>
+<span class="sd">        Surface, size, load, temperature, reliability and miscellaneous</span>
+<span class="sd">        factors [-], positive.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float or ndarray</span>
+<span class="sd">        Endurance limit of the part [Pa].</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Inputs are raw SI numbers with no dimensional metadata; see</span>
+<span class="sd">    :doc:`/guides/materials`.</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    J. Marin, *Mechanical Behavior of Engineering Materials* (Prentice-Hall,</span>
+<span class="sd">    Englewood Cliffs, 1962).</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; float(marin_endurance_limit(300e6, ka=0.8, kb=0.9)) / 1e6</span>
+<span class="sd">    216.0</span>
+<span class="sd">    """</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">Se_prime</span><span class="o">=</span><span class="n">Se_prime</span><span class="p">,</span> <span class="n">ka</span><span class="o">=</span><span class="n">ka</span><span class="p">,</span> <span class="n">kb</span><span class="o">=</span><span class="n">kb</span><span class="p">,</span> <span class="n">kc</span><span class="o">=</span><span class="n">kc</span><span class="p">,</span> <span class="n">kd</span><span class="o">=</span><span class="n">kd</span><span class="p">,</span> <span class="n">ke</span><span class="o">=</span><span class="n">ke</span><span class="p">,</span> <span class="n">kf</span><span class="o">=</span><span class="n">kf</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">Se_prime</span><span class="p">)</span> <span class="o">*</span> <span class="n">ka</span> <span class="o">*</span> <span class="n">kb</span> <span class="o">*</span> <span class="n">kc</span> <span class="o">*</span> <span class="n">kd</span> <span class="o">*</span> <span class="n">ke</span> <span class="o">*</span> <span class="n">kf</span></div>
 
 
 

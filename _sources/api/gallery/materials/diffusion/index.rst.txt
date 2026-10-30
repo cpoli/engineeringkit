@@ -1,0 +1,50 @@
+
+
+.. _sphx_glr_api_gallery_materials_diffusion:
+
+Diffusion
+---------
+
+Fick's laws, the Arrhenius diffusivity and case carburizing.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Adolf Fick, a 26-year-old prosector in anatomy at Zürich, took Fourier&#x27;s law of heat conduction and applied it to salt dissolving in water: the flux is proportional to the concentration gradient, J = -D\,\partial C/\partial x (~engineeringkit.materials.fick_flux), and conservation gives the second law \partial C/\partial t = D\,\partial^2 C/\partial x^2. Into a thick steel part whose surface is held at a carbon content C_s, the second law gives the error-function profile (~engineeringkit.materials.semi_infinite_concentration) that times every carburizing furnace. The example computes the case depth of a gear and the furnace time it needs.">
+
+.. only:: html
+
+  .. image:: /api/gallery/materials/diffusion/images/thumb/sphx_glr_plot_01_fick_carburizing_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/materials/diffusion/plot_01_fick_carburizing`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Fick's laws of diffusion (1855)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/materials/diffusion/plot_01_fick_carburizing
+

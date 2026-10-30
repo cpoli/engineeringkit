@@ -5,7 +5,7 @@
 Information and capacity
 ------------------------
 
-Signalling rate, entropy and channel capacity.
+Signalling rate and pulse shaping, entropy, source coding and channel capacity.
 
 
 .. raw:: html
@@ -87,6 +87,40 @@ Signalling rate, entropy and channel capacity.
     </div>
 
 
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="The same 1928 paper that set the limit of 2B pulses per second also said which pulse shapes reach it without intersymbol interference: those whose spectrum, copied at every multiple of the symbol rate, adds up to a constant. The ideal sinc pulse meets the criterion with the least bandwidth but decays as 1/t, so any timing error lets many neighbours leak in. The raised-cosine family (~engineeringkit.communications.raised_cosine_pulse, raised_cosine_spectrum) spends an excess bandwidth \alpha/2T on a cosine roll-off that keeps the criterion and makes the tails fall as 1/t^3. Split into two root-raised-cosine filters (~engineeringkit.communications.root_raised_cosine_pulse), one at each end of the link, it also gives the receiver a matched filter.">
+
+.. only:: html
+
+  .. image:: /api/gallery/communications/information/images/thumb/sphx_glr_plot_05_nyquist_raised_cosine_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/communications/information/plot_05_nyquist_raised_cosine`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Nyquist's ISI criterion: raised-cosine pulses (1928)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In Robert Fano&#x27;s information theory class at MIT, David Huffman was offered a term paper instead of a final exam: find the most efficient binary code. Shannon and Fano&#x27;s top-down splitting was good but not always optimal. Huffman worked bottom-up. He merged the two least likely symbols into one, and repeated until a single node remained. The resulting prefix code (~engineeringkit.communications.huffman_code) has the least average length of any symbol-by-symbol code, within one bit of the entropy (~engineeringkit.communications.entropy), and reaches it exactly when every probability is a power of one half.">
+
+.. only:: html
+
+  .. image:: /api/gallery/communications/information/images/thumb/sphx_glr_plot_06_huffman_code_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/communications/information/plot_06_huffman_code`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Huffman's minimum-redundancy code (1952)</div>
+    </div>
+
+
 .. thumbnail-parent-div-close
 
 .. raw:: html
@@ -101,4 +135,6 @@ Signalling rate, entropy and channel capacity.
    /api/gallery/communications/information/plot_02_hartley_law
    /api/gallery/communications/information/plot_03_shannon_entropy
    /api/gallery/communications/information/plot_04_shannon_hartley_capacity
+   /api/gallery/communications/information/plot_05_nyquist_raised_cosine
+   /api/gallery/communications/information/plot_06_huffman_code
 

@@ -55,7 +55,7 @@
   <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be" />
 <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be" />
 
-    <script src="../../../_static/documentation_options.js?v=38b66d78"></script>
+    <script src="../../../_static/documentation_options.js?v=95e61db4"></script>
     <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../../_static/sg-tags.js?v=d80f6fa4"></script>
@@ -68,7 +68,7 @@
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Conduction" href="conduction/index.html" />
-    <link rel="prev" title="Joukowsky’s water hammer (1898)" href="../fluid_engineering/transients/plot_01_joukowsky_water_hammer.html" />
+    <link rel="prev" title="Couette’s rotating-cylinder viscometer (1890)" href="../fluid_engineering/viscous/plot_01_couette_viscometer.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="color-scheme" content="light dark"/>
   <meta name="docsearch:language" content="en"/>
@@ -221,6 +221,21 @@
   </ul>
 </div></div>
       
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://cpoli.github.io/" title="Charles Poli" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-user fa-lg" aria-hidden="true"></i><span class="visually-hidden">Charles Poli</span></a>
+        </li>
+</ul></div>
+      
     </div>
     
   </div>
@@ -319,6 +334,21 @@
   </ul>
 </div></div>
         
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://cpoli.github.io/" title="Charles Poli" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-user fa-lg" aria-hidden="true"></i><span class="visually-hidden">Charles Poli</span></a>
+        </li>
+</ul></div>
+        
       </div>
     
   </div>
@@ -339,13 +369,16 @@
   <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../structural_engineering/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../structural_engineering/beams/index.html">Beams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../structural_engineering/cables/index.html">Cables and arches</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../structural_engineering/energy/index.html">Energy methods</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../structural_engineering/frames/index.html">Frames</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../structural_engineering/members/index.html">Members</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../structural_engineering/plasticity/index.html">Plasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../structural_engineering/shear/index.html">Shear and sections</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../structural_engineering/stability/index.html">Stability</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../structural_engineering/stress/index.html">Stress</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../structural_engineering/trusses/index.html">Trusses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../structural_engineering/vessels/index.html">Pressure vessels</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../mechanical_engineering/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -358,6 +391,7 @@
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../thermodynamics/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../thermodynamics/combustion/index.html">Combustion</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../thermodynamics/cycles/index.html">Cycles</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../thermodynamics/exergy/index.html">Exergy</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../thermodynamics/laws/index.html">Laws</a></li>
@@ -367,14 +401,17 @@
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../fluid_engineering/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../fluid_engineering/drag/index.html">Drag</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../fluid_engineering/hydrostatics/index.html">Hydrostatics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../fluid_engineering/measurement/index.html">Measurement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fluid_engineering/momentum/index.html">Momentum</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../fluid_engineering/networks/index.html">Networks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../fluid_engineering/open_channel/index.html">Open channels</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../fluid_engineering/pipe_flow/index.html">Pipe flow</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../fluid_engineering/pumps/index.html">Pumps</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../fluid_engineering/similarity/index.html">Similarity</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../fluid_engineering/transients/index.html">Transients</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fluid_engineering/viscous/index.html">Viscous flow</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a aria-current="page" class="current reference internal" href="#">Examples</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -400,6 +437,8 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../electrical_engineering/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../electrical_engineering/ac_circuits/index.html">AC circuits</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../electrical_engineering/dc_circuits/index.html">DC circuits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../electrical_engineering/electronics/index.html">Electronics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../electrical_engineering/machines/index.html">Machines</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../electrical_engineering/networks/index.html">Networks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../electrical_engineering/power/index.html">Power</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../electrical_engineering/transients/index.html">Transients</a></li>
@@ -409,6 +448,7 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../control_systems/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../control_systems/feedback/index.html">Feedback</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../control_systems/frequency/index.html">Frequency response</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../control_systems/nonlinear/index.html">Nonlinear loops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../control_systems/optimal/index.html">Optimal control and estimation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../control_systems/root_locus/index.html">Root locus</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../control_systems/sampled/index.html">Sampled-data control</a></li>
@@ -426,9 +466,12 @@
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../communications/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../communications/antennas/index.html">Antennas</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../communications/coding/index.html">Coding</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../communications/decibels/index.html">Decibels</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../communications/detection/index.html">Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../communications/digitization/index.html">Digitization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../communications/fading/index.html">Fading</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../communications/information/index.html">Information and capacity</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../communications/modulation/index.html">Modulation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../communications/multiplexing/index.html">Multiplexing</a></li>
@@ -439,15 +482,21 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../materials/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../materials/composites/index.html">Composites</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../materials/creep/index.html">Creep</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../materials/crystals/index.html">Crystals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../materials/diffusion/index.html">Diffusion</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../materials/elasticity/index.html">Elasticity</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../materials/fatigue/index.html">Fatigue</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../materials/fracture/index.html">Fracture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../materials/hardness/index.html">Hardness</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../materials/phases/index.html">Phases</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../materials/plasticity/index.html">Plasticity</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../materials/yield/index.html">Yield</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../reliability/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../reliability/acceleration/index.html">Accelerated life testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../reliability/growth/index.html">Growth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reliability/life_data/index.html">Life data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../reliability/lifetimes/index.html">Lifetimes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../reliability/maintenance/index.html">Maintenance</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../reliability/risk/index.html">Risk</a></li>
@@ -491,7 +540,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../guides/control_systems.html">Control systems: matrix contracts and numerical stability</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../guides/signal_processing.html">Signal processing: sampled energy, spectra and quantization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../guides/communications.html">Communications: linear ratios, modulation phase and channel scope</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../guides/materials.html">Materials: elasticity, yield, fatigue, fracture and creep conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../guides/materials.html">Materials: structure, elasticity, yield, fatigue, fracture and creep conventions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../guides/reliability.html">Reliability: distributions, independence and rate units</a></li>
 </ul>
 </div>
@@ -562,37 +611,37 @@
 <code class="docutils literal notranslate"><span class="pre">engineeringkit.heat_transfer</span></code>, one breakthrough per script: Newton’s
 cooling and the convection correlations, transient conduction from Biot to
 Heisler, Fourier’s law, fins and finite differences, blackbody radiation and
-view factors, phase change, and heat exchangers.</p>
+view factors and the radiation network, phase change, and heat exchangers.</p>
 <p><a class="reference internal" href="../../../guides/heat_transfer.html"><span class="doc">Units, assumptions and numerical validation</span></a>
 gives the physical validity limits. Each script is self-contained and can be
 run directly with <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">examples/heat_transfer/&lt;section&gt;/&lt;script&gt;.py</span></code>.</p>
 <section id="sections">
 <h2>Sections<a class="headerlink" href="#sections" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p><strong>convection</strong> – Newton’s law of cooling, the Dittus-Boelter and Churchill-Chu correlations.</p></li>
+<li><p><strong>convection</strong> – Newton’s law of cooling, the Dittus-Boelter and Churchill-Chu correlations, Graetz’s tube flow, Pohlhausen’s flat plate, the Chilton-Colburn analogy, Žukauskas’s tube banks and Churchill and Bernstein’s cylinder.</p></li>
 <li><p><strong>transient</strong> – Biot’s number, Kelvin’s age of the Earth and Heisler’s charts.</p></li>
 <li><p><strong>conduction</strong> – Fourier’s law, Harper and Brown’s fins and the Crank-Nicolson scheme.</p></li>
-<li><p><strong>radiation</strong> – Kirchhoff’s law, Stefan-Boltzmann, Wien’s displacement and Nusselt’s view factors.</p></li>
-<li><p><strong>phase_change</strong> – Stefan’s ice problem, Nusselt’s film condensation and the boiling curve.</p></li>
-<li><p><strong>exchangers</strong> – Kays and London’s effectiveness-NTU method.</p></li>
+<li><p><strong>radiation</strong> – Kirchhoff’s law, Stefan-Boltzmann, Wien’s displacement, Nusselt’s view factors and Oppenheim’s network.</p></li>
+<li><p><strong>phase_change</strong> – Stefan’s ice problem, Nusselt’s film condensation, the boiling curve and Rohsenow’s nucleate boiling.</p></li>
+<li><p><strong>exchangers</strong> – Kays and London’s effectiveness-NTU method and Bowman, Mueller and Nagle’s correction factor.</p></li>
 </ul>
 <div id='sg-tag-list' class='sphx-glr-tag-list'></div><div class="sphx-glr-thumbnails"></div></section>
 <section id="conduction">
 <h2>Conduction<a class="headerlink" href="#conduction" title="Link to this heading">#</a></h2>
-<p>Fourier’s law, thermal resistances, fins and finite-difference conduction.</p>
-<div id='sg-tag-list' class='sphx-glr-tag-list'></div><div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Joseph Fourier&#x27;s 1822 treatise made the heat flux proportional to the temperature gradient, q = -k\,\mathrm{d}T/\mathrm{d}x, derived the heat equation from it, and invented the series that bear his name to solve it. For steady flow through a slab the law gives \dot Q = kA\Delta T/L (~engineeringkit.heat_transfer.fourier_heat_rate), so a slab behaves like an electrical resistor L/(kA) (~engineeringkit.heat_transfer.plane_wall_resistance) and layered walls add like resistors in series (~engineeringkit.heat_transfer.composite_wall). Curved walls give logarithmic resistances, and with them the surprising critical radius of insulation."><img alt="" src="../../../_images/sphx_glr_plot_01_fourier_law_thumb.png" />
+<p>Fourier’s law, thermal resistances, shape factors, fins and finite-difference conduction in one and two dimensions.</p>
+<div id='sg-tag-list' class='sphx-glr-tag-list'></div><div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Joseph Fourier&#x27;s 1822 treatise made the heat flux proportional to the temperature gradient, q = -k\,\mathrm{d}T/\mathrm{d}x, derived the heat equation from it, and invented the series that bear his name to solve it. For steady flow through a slab the law gives \dot Q = kA\Delta T/L (~engineeringkit.heat_transfer.fourier_heat_rate), so a slab behaves like an electrical resistor L/(kA) (~engineeringkit.heat_transfer.plane_wall_resistance) and layered walls add like resistors in series (~engineeringkit.heat_transfer.composite_wall). Curved walls give logarithmic resistances, and with them the surprising critical radius of insulation. Where the heat spreads in two dimensions, the solution of Fourier&#x27;s equation is packed into a conduction shape factor S, with \dot Q = Sk\Delta T."><img alt="" src="../../../_images/sphx_glr_plot_01_fourier_law_thumb.png" />
 <p><a class="reference internal" href="conduction/plot_01_fourier_law.html"><span class="doc">Fourier’s Théorie analytique de la chaleur (1822)</span></a></p>
   <div class="sphx-glr-thumbnail-title">Fourier's Théorie analytique de la chaleur (1822)</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Air-cooled aero engines of the First World War shed their heat through cylinder fins, and in 1922 D. R. Harper and W. B. Brown of the Bureau of Standards gave NACA the mathematics. A thin fin obeys \theta&#x27;&#x27; = m^2\theta with m = \sqrt{hP/(kA_c)} (~engineeringkit.heat_transfer.fin_parameter); with an insulated tip it carries \sqrt{hPkA_c}\,\theta_b\tanh mL (~engineeringkit.heat_transfer.fin_heat_rate_adiabatic), a fraction \tanh(mL)/mL of what an isothermal fin would (~engineeringkit.heat_transfer.fin_efficiency_adiabatic). Their practical trick: a convecting tip is accounted for by lengthening the fin by half its thickness. This example solves the fin equation numerically and checks both."><img alt="" src="../../../_images/sphx_glr_plot_02_fin_efficiency_thumb.png" />
+</div><div class="sphx-glr-thumbcontainer" tooltip="Air-cooled aero engines of the First World War shed their heat through cylinder fins, and in 1922 D. R. Harper and W. B. Brown of the Bureau of Standards gave NACA the mathematics. A thin fin obeys \theta&#x27;&#x27; = m^2\theta with m = \sqrt{hP/(kA_c)} (~engineeringkit.heat_transfer.fin_parameter); with an insulated tip it carries \sqrt{hPkA_c}\,\theta_b\tanh mL (~engineeringkit.heat_transfer.fin_heat_rate_adiabatic), a fraction \tanh(mL)/mL of what an isothermal fin would (~engineeringkit.heat_transfer.fin_efficiency_adiabatic). Their exact result for a convecting tip (~engineeringkit.heat_transfer.fin_heat_rate_convective_tip) is well approximated by lengthening the adiabatic fin by half its thickness. This example solves the fin equation numerically and checks both."><img alt="" src="../../../_images/sphx_glr_plot_02_fin_efficiency_thumb.png" />
 <p><a class="reference internal" href="conduction/plot_02_fin_efficiency.html"><span class="doc">Harper and Brown’s fin efficiency (1922)</span></a></p>
   <div class="sphx-glr-thumbnail-title">Harper and Brown's fin efficiency (1922)</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="In 1947 John Crank and Phyllis Nicolson, solving heat-conduction problems with heat generation on desk calculators, needed a finite-difference scheme for the heat equation that was both stable and accurate. The explicit scheme is stable only for a mesh Fourier number r = \alpha\Delta t/\Delta x^2 \le 1/2; the fully implicit one is always stable but only first order in time. Averaging the two, they got an unconditionally stable, second-order method (~engineeringkit.heat_transfer.conduction_1d). This example measures the order of each scheme and watches the explicit one blow up."><img alt="" src="../../../_images/sphx_glr_plot_03_crank_nicolson_thumb.png" />
+</div><div class="sphx-glr-thumbcontainer" tooltip="In 1947 John Crank and Phyllis Nicolson, solving heat-conduction problems with heat generation on desk calculators, needed a finite-difference scheme for the heat equation that was both stable and accurate. The explicit scheme is stable only for a mesh Fourier number r = \alpha\Delta t/\Delta x^2 \le 1/2; the fully implicit one is always stable but only first order in time. Averaging the two, they got an unconditionally stable, second-order method (~engineeringkit.heat_transfer.conduction_1d). This example measures the order of each scheme, watches the explicit one blow up, and closes with the steady two-dimensional problem the same finite differences solve (~engineeringkit.heat_transfer.conduction_2d)."><img alt="" src="../../../_images/sphx_glr_plot_03_crank_nicolson_thumb.png" />
 <p><a class="reference internal" href="conduction/plot_03_crank_nicolson.html"><span class="doc">Crank and Nicolson: numerical conduction (1947)</span></a></p>
   <div class="sphx-glr-thumbnail-title">Crank and Nicolson: numerical conduction (1947)</div>
 </div></div></section>
 <section id="convection">
 <h2>Convection<a class="headerlink" href="#convection" title="Link to this heading">#</a></h2>
-<p>Newton cooling and Nusselt-number correlations for forced and natural convection.</p>
+<p>Newton cooling, Nusselt-number correlations for forced and natural convection, laminar tube flow and the heat and mass transfer analogy.</p>
 <div id='sg-tag-list' class='sphx-glr-tag-list'></div><div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="In 1701 Newton published, anonymously, a temperature scale reaching far beyond the melting point of tin. He heated a block of iron red hot, set it in a steady wind, and timed how long it took to cool. Assuming that the heat lost is proportional to the excess temperature, \dot Q = hA(T - T_\infty) (~engineeringkit.heat_transfer.convection_heat_rate), equal intervals of time should multiply the excess temperature by equal factors (~engineeringkit.heat_transfer.lumped_temperature). Newton then read temperatures off the clock. This example repeats the measurement on a model block, recovers the time constant from the readings, and checks the energy balance."><img alt="" src="../../../_images/sphx_glr_plot_01_newton_cooling_thumb.png" />
 <p><a class="reference internal" href="convection/plot_01_newton_cooling.html"><span class="doc">Newton’s law of cooling (1701)</span></a></p>
   <div class="sphx-glr-thumbnail-title">Newton's law of cooling (1701)</div>
@@ -602,13 +651,31 @@ run directly with <code class="docutils literal notranslate"><span class="pre">p
 </div><div class="sphx-glr-thumbcontainer" tooltip="Free convection on a vertical plate was long described piecewise: a laminar Ra^{1/4} law, a turbulent Ra^{1/3} law, and a gap between them. In 1975 Stuart Churchill and Humbert Chu fitted one smooth expression to the data from conduction-dominated creeping flow to fully turbulent plumes, Nu = \{0.825 + 0.387 Ra^{1/6}/[1 + (0.492/Pr)^{9/16}]^{8/27}\}^2 (~engineeringkit.heat_transfer.churchill_chu_nusselt, with rayleigh_number). The example checks both asymptotes and the laminar boundary-layer theory it replaces."><img alt="" src="../../../_images/sphx_glr_plot_03_churchill_chu_thumb.png" />
 <p><a class="reference internal" href="convection/plot_03_churchill_chu.html"><span class="doc">Churchill and Chu: natural convection over all Rayleigh numbers (1975)</span></a></p>
   <div class="sphx-glr-thumbnail-title">Churchill and Chu: natural convection over all Rayleigh numbers (1975)</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="In 1883 Leo Graetz, measuring the conductivity of liquids flowing through heated tubes, solved for the temperature of a fluid in laminar Poiseuille flow entering a tube whose wall is held at a new temperature. The answer is a series of eigenfunctions; far from the inlet only the first survives and the Nusselt number settles at Nu_D = 3.657 (~engineeringkit.heat_transfer.laminar_tube_nusselt). A uniform wall flux gives 48/11 instead. Near the inlet the thin thermal boundary layer gives higher values, which Hausen fitted as a function of the Graetz number (~engineeringkit.heat_transfer.hausen_nusselt), and the flow is fully developed after the entry length (~engineeringkit.heat_transfer.entry_length). This example marches Graetz&#x27;s problem numerically down the tube and recovers all three."><img alt="" src="../../../_images/sphx_glr_plot_04_graetz_tube_flow_thumb.png" />
+<p><a class="reference internal" href="convection/plot_04_graetz_tube_flow.html"><span class="doc">Graetz’s laminar tube flow (1883)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Graetz's laminar tube flow (1883)</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Blasius (1908) had reduced Prandtl&#x27;s laminar boundary layer on a flat plate to one ordinary differential equation, f&#x27;&#x27;&#x27; + \tfrac12 ff&#x27;&#x27; = 0. In 1921 Ernst Pohlhausen, also in Prandtl&#x27;s Göttingen, added the energy equation. With the same similarity variable it becomes \theta&#x27;&#x27; + \tfrac12 Pr\,f\theta&#x27; = 0, which integrates in closed form once f is known, and the wall gradient is close to 0.332\,Pr^{1/3} for every Prandtl number of gases and ordinary liquids. That gives Nu_x = 0.332\,Re_x^{1/2}Pr^{1/3}, the starting point of every convection course (~engineeringkit.heat_transfer.flat_plate_nusselt). This example solves Blasius and Pohlhausen&#x27;s equations and then cools a plate whose boundary layer turns turbulent."><img alt="" src="../../../_images/sphx_glr_plot_05_pohlhausen_flat_plate_thumb.png" />
+<p><a class="reference internal" href="convection/plot_05_pohlhausen_flat_plate.html"><span class="doc">Pohlhausen’s thermal boundary layer (1921)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Pohlhausen's thermal boundary layer (1921)</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Allan Colburn at DuPont noticed in 1933 that turbulent heat transfer data collapse when the Stanton number is multiplied by Pr^{2/3}, and that this j factor equals half the friction factor. In 1934, with Thomas Chilton, he carried the same factor over to mass transfer: if St\,Pr^{2/3} = St_m Sc^{2/3}, a heat transfer coefficient gives the mass transfer coefficient, h_m = h/(\rho c_p Le^{2/3}) (~engineeringkit.heat_transfer.chilton_colburn_mass_transfer). It lets one experiment stand for three. This example checks the analogy on the laminar flat plate and uses it to explain the wet-bulb thermometer."><img alt="" src="../../../_images/sphx_glr_plot_06_chilton_colburn_analogy_thumb.png" />
+<p><a class="reference internal" href="convection/plot_06_chilton_colburn_analogy.html"><span class="doc">The Chilton-Colburn analogy (1934)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">The Chilton-Colburn analogy (1934)</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Boilers, air heaters and the cores of most shell-and-tube exchangers are banks of tubes in crossflow. The first rows see the free stream; deeper rows sit in the wakes of the ones ahead, whose turbulence raises their heat transfer. Algirdas Žukauskas, at the Lithuanian Academy of Sciences in Kaunas, gathered decades of his laboratory&#x27;s measurements on aligned and staggered banks into one form, \bar{Nu} = C_2 C Re_{max}^m Pr^{0.36} (Pr/Pr_s)^{1/4}, with constants for each layout and Reynolds range and a correction C_2 for banks of fewer than 20 rows (~engineeringkit.heat_transfer.zukauskas_nusselt, with tube_bank_max_velocity). This example sizes an air heater with it and compares the two layouts."><img alt="" src="../../../_images/sphx_glr_plot_07_zukauskas_tube_banks_thumb.png" />
+<p><a class="reference internal" href="convection/plot_07_zukauskas_tube_banks.html"><span class="doc">Žukauskas’s tube banks in crossflow (1972)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Žukauskas's tube banks in crossflow (1972)</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Heat transfer from a cylinder in crossflow was long given by power laws fitted range by range (Hilpert&#x27;s of 1933 has five), each with its own constants. In 1977 Stuart Churchill and M. Bernstein, applying the method of blending asymptotes that Churchill had used for free convection, wrote a single expression from creeping flow past the drag crisis (~engineeringkit.heat_transfer.churchill_bernstein_nusselt). This example compares it with Hilpert&#x27;s table and calibrates a hot-wire anemometer with it."><img alt="" src="../../../_images/sphx_glr_plot_08_churchill_bernstein_cylinder_thumb.png" />
+<p><a class="reference internal" href="convection/plot_08_churchill_bernstein_cylinder.html"><span class="doc">Churchill and Bernstein: the cylinder in crossflow (1977)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Churchill and Bernstein: the cylinder in crossflow (1977)</div>
 </div></div></section>
 <section id="heat-exchangers">
 <h2>Heat exchangers<a class="headerlink" href="#heat-exchangers" title="Link to this heading">#</a></h2>
-<p>The LMTD and effectiveness-NTU methods.</p>
+<p>The LMTD and effectiveness-NTU methods and the LMTD correction factor.</p>
 <div id='sg-tag-list' class='sphx-glr-tag-list'></div><div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="The log-mean temperature difference sizes an exchanger when all four end temperatures are known (~engineeringkit.heat_transfer.log_mean_temperature_difference, heat_exchanger_rate). To rate a given exchanger, when only the inlets are known, it needs iteration. William Kays and Alexander London, testing compact exchangers for the US Navy at Stanford, organised everything around the effectiveness \varepsilon = \dot Q/\dot Q_{max} as a function of NTU = UA/C_{min} and C_r = C_{min}/C_{max} (~engineeringkit.heat_transfer.exchanger_effectiveness_counterflow, exchanger_effectiveness_parallel), and published the charts in Compact Heat Exchangers (1955). This example rates an oil cooler both ways and marches the energy equations along it."><img alt="" src="../../../_images/sphx_glr_plot_01_kays_london_ntu_thumb.png" />
 <p><a class="reference internal" href="exchangers/plot_01_kays_london_ntu.html"><span class="doc">Kays and London: the effectiveness-NTU method (1955)</span></a></p>
   <div class="sphx-glr-thumbnail-title">Kays and London: the effectiveness-NTU method (1955)</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="The log-mean temperature difference is exact only for pure counterflow or parallel flow. In a shell-and-tube exchanger the tube fluid passes back and forth while the shell fluid crosses it, and in a crossflow core neither stream sees a single temperature. R. A. Bowman, A. C. Mueller and W. M. Nagle, collecting the analyses of the 1930s, presented the correction as one factor F on the counterflow LMTD, charted against the effectiveness P of one stream and the capacity ratio R (~engineeringkit.heat_transfer.lmtd_correction_factor). The effectiveness-NTU forms of the same arrangements (~engineeringkit.heat_transfer.exchanger_effectiveness_shell_tube, exchanger_effectiveness_crossflow) carry the same information. This example redraws the chart, checks the two methods against each other and rates a two-shell oil cooler."><img alt="" src="../../../_images/sphx_glr_plot_02_bowman_correction_factor_thumb.png" />
+<p><a class="reference internal" href="exchangers/plot_02_bowman_correction_factor.html"><span class="doc">Bowman, Mueller and Nagle: the LMTD correction factor (1940)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Bowman, Mueller and Nagle: the LMTD correction factor (1940)</div>
 </div></div></section>
 <section id="phase-change">
 <h2>Phase change<a class="headerlink" href="#phase-change" title="Link to this heading">#</a></h2>
@@ -622,10 +689,13 @@ run directly with <code class="docutils literal notranslate"><span class="pre">p
 </div><div class="sphx-glr-thumbcontainer" tooltip="In 1934 Shiro Nukiyama boiled water at atmospheric pressure on electrically heated wires. Raising the power, he found that the heat flux reached a maximum a few tens of kelvin above saturation. One step more and the wire was suddenly covered by vapour: a nichrome wire melted, a platinum wire glowed red. Controlling the temperature instead of the power later traced the whole curve, through a falling transition region to a minimum and on into film boiling. In 1958 Novak Zuber explained the maximum as a hydrodynamic (Taylor and Helmholtz) instability of the vapour columns, q&#x27;&#x27;_{max} = C h_{fg}\rho_v[\sigma g(\rho_l - \rho_v)/\rho_v^2]^{1/4} (~engineeringkit.heat_transfer.zuber_critical_heat_flux). This example sketches the curve with standard correlations and finds Nukiyama&#x27;s jump."><img alt="" src="../../../_images/sphx_glr_plot_03_nukiyama_boiling_curve_thumb.png" />
 <p><a class="reference internal" href="phase_change/plot_03_nukiyama_boiling_curve.html"><span class="doc">Nukiyama’s boiling curve and Zuber’s critical heat flux (1934)</span></a></p>
   <div class="sphx-glr-thumbnail-title">Nukiyama's boiling curve and Zuber's critical heat flux (1934)</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="In nucleate boiling, bubbles growing and leaving the heater pump liquid to the surface, and the heat flux rises steeply with the wall superheat. At MIT, Warren Rohsenow treated each departing bubble as the agent of a convection process and correlated the data for many liquids with one equation whose only empirical input is a surface-fluid constant C_{s,f}: q&#x27;&#x27; = \mu_l h_{fg}[g(\rho_l - \rho_v)/\sigma]^{1/2} [c_{p,l}\Delta T_e/(C_{s,f}h_{fg}Pr_l^n)]^3 (~engineeringkit.heat_transfer.rohsenow_boiling_heat_flux). This example boils water in a pan, shows the cube law and how strongly the surface matters, and finds where the curve meets Zuber&#x27;s critical flux."><img alt="" src="../../../_images/sphx_glr_plot_04_rohsenow_nucleate_boiling_thumb.png" />
+<p><a class="reference internal" href="phase_change/plot_04_rohsenow_nucleate_boiling.html"><span class="doc">Rohsenow’s nucleate boiling correlation (1952)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Rohsenow's nucleate boiling correlation (1952)</div>
 </div></div></section>
 <section id="radiation">
 <h2>Radiation<a class="headerlink" href="#radiation" title="Link to this heading">#</a></h2>
-<p>Blackbody laws, gray-surface exchange and view factors.</p>
+<p>Blackbody laws, gray-surface exchange, view factors and radiation networks.</p>
 <div id='sg-tag-list' class='sphx-glr-tag-list'></div><div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="In 1859 Gustav Kirchhoff, explaining the dark lines that Fraunhofer had seen in the solar spectrum, proved from the second law that at every wavelength a body&#x27;s emissivity equals its absorptivity. A good absorber is a good emitter, and the perfect absorber, the blackbody, is the universal reference whose emission depends on temperature alone. For a gray surface in large surroundings the net exchange is \varepsilon\sigma A(T_s^4 - T_{sur}^4) (~engineeringkit.heat_transfer.radiation_heat_rate), often linearised as a coefficient h_r (~engineeringkit.heat_transfer.radiation_coefficient). This example shows why \alpha = \varepsilon is forced: anything else would let heat flow from cold to hot."><img alt="" src="../../../_images/sphx_glr_plot_01_kirchhoff_emissivity_thumb.png" />
 <p><a class="reference internal" href="radiation/plot_01_kirchhoff_emissivity.html"><span class="doc">Kirchhoff’s law of thermal radiation (1859)</span></a></p>
   <div class="sphx-glr-thumbnail-title">Kirchhoff's law of thermal radiation (1859)</div>
@@ -638,17 +708,20 @@ run directly with <code class="docutils literal notranslate"><span class="pre">p
 </div><div class="sphx-glr-thumbcontainer" tooltip="How much of the radiation leaving one diffuse surface lands on another? The view factor is a fourfold integral of \cos\theta_1\cos\theta_2/\pi r^2. In 1928 Wilhelm Nusselt found a construction that a draughtsman could do: project the second surface onto a unit hemisphere centred on a point of the first, then project that image straight down onto the base circle. The fraction of the circle covered is the view factor from the point. Picking points uniformly in the circle is the same as picking cosine-weighted directions, which makes the construction a Monte Carlo method. This example uses it to check the closed forms for opposed rectangles (~engineeringkit.heat_transfer.view_factor_parallel_plates) and coaxial disks (~engineeringkit.heat_transfer.view_factor_coaxial_disks)."><img alt="" src="../../../_images/sphx_glr_plot_04_nusselt_view_factor_thumb.png" />
 <p><a class="reference internal" href="radiation/plot_04_nusselt_view_factor.html"><span class="doc">Nusselt’s unit-sphere view factor (1928)</span></a></p>
   <div class="sphx-glr-thumbnail-title">Nusselt's unit-sphere view factor (1928)</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Between gray surfaces radiation is reflected back and forth, so every surface&#x27;s exchange depends on every other. Antoni Oppenheim, at Berkeley, replaced the bookkeeping by an electrical analogy: each surface&#x27;s blackbody emissive power drives current through a surface resistance (1 - \varepsilon)/(\varepsilon A) to a node at its radiosity J, and the radiosity nodes are joined by space resistances 1/(A_iF_{ij}). Insulated walls become floating nodes and radiation shields add resistances in series. The network needs view factors that obey reciprocity and summation (~engineeringkit.heat_transfer.view_factor_reciprocity); radiation_enclosure solves it for any number of surfaces, and two_surface_radiation (checked here on two facing plates) and radiation_shield_heat_flux are its closed forms. This example models a furnace with a refractory wall and an insulated cryogenic line."><img alt="" src="../../../_images/sphx_glr_plot_05_oppenheim_network_thumb.png" />
+<p><a class="reference internal" href="radiation/plot_05_oppenheim_network.html"><span class="doc">Oppenheim’s radiation network (1956)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Oppenheim's radiation network (1956)</div>
 </div></div></section>
 <section id="transient-conduction">
 <h2>Transient conduction<a class="headerlink" href="#transient-conduction" title="Link to this heading">#</a></h2>
-<p>Lumped bodies, the semi-infinite solid and the plane wall.</p>
+<p>Lumped bodies, the semi-infinite solid, and the plane wall, cylinder and sphere.</p>
 <div id='sg-tag-list' class='sphx-glr-tag-list'></div><div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="In 1804 Jean-Baptiste Biot heated one end of iron bars and read thermometers set along them. He saw that the temperature profile is set by a contest between conduction along the bar and loss from its surface. He could not write a consistent differential equation for it; Fourier did in 1807. The ratio of the two effects, now the Biot number Bi = hL/k (~engineeringkit.heat_transfer.biot_number), decides whether a body can be treated as a single temperature. This example cools a plane wall at three Biot numbers and compares the lumped model e^{-Bi\,Fo} with the exact series solution."><img alt="" src="../../../_images/sphx_glr_plot_01_biot_number_thumb.png" />
 <p><a class="reference internal" href="transient/plot_01_biot_number.html"><span class="doc">Biot’s heated bar and the Biot number (1804)</span></a></p>
   <div class="sphx-glr-thumbnail-title">Biot's heated bar and the Biot number (1804)</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="In 1862 William Thomson, later Lord Kelvin, treated the Earth as a semi-infinite solid that began at a uniform molten temperature and has cooled from its surface ever since. The temperature below the surface is then T_s + (T_i - T_s)\operatorname{erf}(x/2\sqrt{\alpha t}) (~engineeringkit.heat_transfer.semi_infinite_temperature), and the surface gradient (T_i - T_s)/\sqrt{\pi\alpha t} falls with time. From the gradient measured in mines, about 1 °F per 50 ft, he found an age of about 98 million years. This example redoes his arithmetic in SI units and checks the gradient against the profile itself."><img alt="" src="../../../_images/sphx_glr_plot_02_kelvin_age_of_earth_thumb.png" />
 <p><a class="reference internal" href="transient/plot_02_kelvin_age_of_earth.html"><span class="doc">Kelvin’s age of the Earth (1862)</span></a></p>
   <div class="sphx-glr-thumbnail-title">Kelvin's age of the Earth (1862)</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Separation of variables gives the cooling of a plane wall as a Fourier series whose eigenvalues solve \zeta\tan\zeta = Bi. Before computers, nobody summed it by hand. In 1947 M. P. Heisler, working on induction heating, noticed that after a short time only the first term matters, and plotted that term as charts of centre temperature against the Fourier number for each Biot number. Generations of students read them with a ruler. plane_wall_transient sums the series (or its first term, terms=1); this example redraws the centre chart, measures the one-term error, and times the quench of a steel plate."><img alt="" src="../../../_images/sphx_glr_plot_03_heisler_charts_thumb.png" />
+</div><div class="sphx-glr-thumbcontainer" tooltip="Separation of variables gives the cooling of a plane wall as a Fourier series whose eigenvalues solve \zeta\tan\zeta = Bi. Before computers, nobody summed it by hand. In 1947 M. P. Heisler, working on induction heating, noticed that after a short time only the first term matters, and plotted that term as charts of centre temperature against the Fourier number for each Biot number. Generations of students read them with a ruler. plane_wall_transient sums the series (or its first term, terms=1), and cylinder_transient and sphere_transient do the same for his cylinder and sphere charts. This example redraws the centre chart, measures the one-term error, times the quench of a steel plate, and compares the three shapes."><img alt="" src="../../../_images/sphx_glr_plot_03_heisler_charts_thumb.png" />
 <p><a class="reference internal" href="transient/plot_03_heisler_charts.html"><span class="doc">Heisler’s transient conduction charts (1947)</span></a></p>
   <div class="sphx-glr-thumbnail-title">Heisler's transient conduction charts (1947)</div>
 </div></div><div class="toctree-wrapper compound">
@@ -676,12 +749,12 @@ run directly with <code class="docutils literal notranslate"><span class="pre">p
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../fluid_engineering/transients/plot_01_joukowsky_water_hammer.html"
+       href="../fluid_engineering/viscous/plot_01_couette_viscometer.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Joukowsky’s water hammer (1898)</p>
+        <p class="prev-next-title">Couette’s rotating-cylinder viscometer (1890)</p>
       </div>
     </a>
     <a class="right-next"

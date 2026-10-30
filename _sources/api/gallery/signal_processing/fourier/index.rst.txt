@@ -5,7 +5,7 @@
 Fourier analysis
 ----------------
 
-Fourier series and the fast Fourier transform.
+Fourier series, the fast Fourier transform and fast convolution, the Hilbert transform and the discrete cosine transform.
 
 
 .. raw:: html
@@ -53,6 +53,57 @@ Fourier series and the fast Fourier transform.
     </div>
 
 
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In his third communication on integral equations (1905), David Hilbert paired a function on the unit circle with its conjugate, the boundary values of the real and imaginary parts of one analytic function, through the singular kernel \cot\frac{s - t}{2}. In frequency terms the pairing shifts every component by -90°: \cos \to \sin. Dennis Gabor (1946) added the conjugate to a real signal as its imaginary part, z = x + j\mathcal{H}x, and called the result the analytic signal: it has no negative frequencies, its magnitude is the envelope and its phase advances at the instantaneous frequency (~engineeringkit.signal_processing.hilbert_transform, analytic_signal, envelope, instantaneous_frequency, hilbert_fir). The 1905 date and pages come from the Göttingen Nachrichten catalogue record; that the transform pair appears there follows F. W. King, Hilbert Transforms (Cambridge, 2009), a secondary source.">
+
+.. only:: html
+
+  .. image:: /api/gallery/signal_processing/fourier/images/thumb/sphx_glr_plot_03_hilbert_analytic_signal_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/signal_processing/fourier/plot_03_hilbert_analytic_signal`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Hilbert's conjugate functions and the analytic signal (1905)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="The FFT multiplies spectra cheaply, but the product of two DFTs is the circular convolution: the tail of the output wraps round onto its start. Thomas Stockham, at MIT&#x27;s Project MAC, showed at the 1966 Spring Joint Computer Conference how to get the linear convolution anyway, and fast: zero-pad both sequences to at least N_x + N_h - 1 samples, and, for a long record, cut it into blocks, convolve each through the FFT and add the overlapping tails, overlap-add (~engineeringkit.signal_processing.circular_convolution, overlap_add). Zero padding does not add resolution to a spectrum; it only samples the same spectrum more finely, which is the last section here.">
+
+.. only:: html
+
+  .. image:: /api/gallery/signal_processing/fourier/images/thumb/sphx_glr_plot_04_stockham_fast_convolution_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/signal_processing/fourier/plot_04_stockham_fast_convolution`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Stockham's high-speed convolution (1966)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="The best basis for compressing a random signal, the Karhunen-Loève transform, depends on the signal&#x27;s covariance and has no fast algorithm. Nasir Ahmed, T. Natarajan and K. R. Rao (1974) proposed a fixed basis of sampled cosines that comes very close to it for strongly correlated signals. Because the DCT implicitly extends the record by its mirror image, there is no jump at the ends and the coefficients of a smooth signal decay fast; the DFT&#x27;s periodic extension has a jump and leaks. The DCT became the core of JPEG, MPEG and MP3 (~engineeringkit.signal_processing.dct, idct).">
+
+.. only:: html
+
+  .. image:: /api/gallery/signal_processing/fourier/images/thumb/sphx_glr_plot_05_ahmed_natarajan_rao_dct_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/signal_processing/fourier/plot_05_ahmed_natarajan_rao_dct`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Ahmed, Natarajan and Rao's discrete cosine transform (1974)</div>
+    </div>
+
+
 .. thumbnail-parent-div-close
 
 .. raw:: html
@@ -65,4 +116,7 @@ Fourier series and the fast Fourier transform.
 
    /api/gallery/signal_processing/fourier/plot_01_gibbs_phenomenon
    /api/gallery/signal_processing/fourier/plot_02_cooley_tukey_fft
+   /api/gallery/signal_processing/fourier/plot_03_hilbert_analytic_signal
+   /api/gallery/signal_processing/fourier/plot_04_stockham_fast_convolution
+   /api/gallery/signal_processing/fourier/plot_05_ahmed_natarajan_rao_dct
 

@@ -46,7 +46,7 @@
   <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be" />
 <link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be" />
 
-    <script src="../../../../_static/documentation_options.js?v=38b66d78"></script>
+    <script src="../../../../_static/documentation_options.js?v=95e61db4"></script>
     <script src="../../../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../../../_static/sg-tags.js?v=d80f6fa4"></script>
@@ -210,6 +210,21 @@
   </ul>
 </div></div>
       
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://cpoli.github.io/" title="Charles Poli" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-user fa-lg" aria-hidden="true"></i><span class="visually-hidden">Charles Poli</span></a>
+        </li>
+</ul></div>
+      
     </div>
     
   </div>
@@ -306,6 +321,21 @@
   </ul>
 </div></div>
         
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://cpoli.github.io/" title="Charles Poli" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-user fa-lg" aria-hidden="true"></i><span class="visually-hidden">Charles Poli</span></a>
+        </li>
+</ul></div>
+        
       </div>
     
   </div>
@@ -371,16 +401,23 @@
 <span class="sd">Perkins's vapour-compression machine pumps heat from a cold space; Kelvin</span>
 <span class="sd">saw that the same machine run against the weather heats a building with</span>
 <span class="sd">less work than the heat it delivers. Both are bounded by the reversed</span>
-<span class="sd">Carnot cycle, whose two COPs differ by exactly one.</span>
+<span class="sd">Carnot cycle, whose two COPs differ by exactly one. The vapour-compression</span>
+<span class="sd">cycle itself is run on a Peng-Robinson refrigerant.</span>
 <span class="sd">"""</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
 
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
 <span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit._validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">finite</span> <span class="k">as</span> <span class="n">_finite</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit._validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">interval</span> <span class="k">as</span> <span class="n">_interval</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit._validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">nonnegative</span> <span class="k">as</span> <span class="n">_nonnegative</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit._validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">positive</span> <span class="k">as</span> <span class="n">_positive</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit.thermodynamics.core.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">VaporCompressionResult</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit.thermodynamics.systems.peng_robinson</span><span class="w"> </span><span class="kn">import</span> <span class="n">R134A</span><span class="p">,</span> <span class="n">refrigerant_properties</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit.thermodynamics.systems.steady_flow</span><span class="w"> </span><span class="kn">import</span> <span class="n">compression_outlet_enthalpy</span>
 
-<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"carnot_cop_refrigerator"</span><span class="p">,</span> <span class="s2">"carnot_cop_heat_pump"</span><span class="p">,</span> <span class="s2">"refrigeration_cop"</span><span class="p">,</span> <span class="s2">"heat_pump_cop"</span><span class="p">]</span>
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"carnot_cop_refrigerator"</span><span class="p">,</span> <span class="s2">"carnot_cop_heat_pump"</span><span class="p">,</span> <span class="s2">"refrigeration_cop"</span><span class="p">,</span> <span class="s2">"heat_pump_cop"</span><span class="p">,</span> <span class="s2">"vapor_compression_cycle"</span><span class="p">]</span>
 
 
 <div class="viewcode-block" id="carnot_cop_refrigerator">
@@ -406,7 +443,7 @@
 <span class="sd">    """</span>
     <span class="n">_finite</span><span class="p">(</span><span class="n">T_hot</span><span class="o">=</span><span class="n">T_hot</span><span class="p">,</span> <span class="n">T_cold</span><span class="o">=</span><span class="n">T_cold</span><span class="p">)</span>
     <span class="n">_positive</span><span class="p">(</span><span class="n">T_hot</span><span class="o">=</span><span class="n">T_hot</span><span class="p">,</span> <span class="n">T_cold</span><span class="o">=</span><span class="n">T_cold</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">T_hot</span> <span class="o">&lt;=</span> <span class="n">T_cold</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">T_hot</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">T_cold</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"hot reservoir must be hotter"</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">T_cold</span> <span class="o">/</span> <span class="p">(</span><span class="n">T_hot</span> <span class="o">-</span> <span class="n">T_cold</span><span class="p">)</span></div>
 
@@ -441,7 +478,7 @@
 <span class="sd">    """</span>
     <span class="n">_finite</span><span class="p">(</span><span class="n">T_hot</span><span class="o">=</span><span class="n">T_hot</span><span class="p">,</span> <span class="n">T_cold</span><span class="o">=</span><span class="n">T_cold</span><span class="p">)</span>
     <span class="n">_positive</span><span class="p">(</span><span class="n">T_hot</span><span class="o">=</span><span class="n">T_hot</span><span class="p">,</span> <span class="n">T_cold</span><span class="o">=</span><span class="n">T_cold</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">T_hot</span> <span class="o">&lt;=</span> <span class="n">T_cold</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">T_hot</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">T_cold</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"hot reservoir must be hotter"</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">T_hot</span> <span class="o">/</span> <span class="p">(</span><span class="n">T_hot</span> <span class="o">-</span> <span class="n">T_cold</span><span class="p">)</span></div>
 
@@ -505,9 +542,80 @@
 <span class="sd">    """</span>
     <span class="n">_finite</span><span class="p">(</span><span class="n">q_hot</span><span class="o">=</span><span class="n">q_hot</span><span class="p">,</span> <span class="n">work_input</span><span class="o">=</span><span class="n">work_input</span><span class="p">)</span>
     <span class="n">_positive</span><span class="p">(</span><span class="n">work_input</span><span class="o">=</span><span class="n">work_input</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">q_hot</span> <span class="o">&lt;</span> <span class="n">work_input</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">q_hot</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">work_input</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"heat-pump heat output must be &gt;= work input"</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">q_hot</span> <span class="o">/</span> <span class="n">work_input</span></div>
+
+
+
+<div class="viewcode-block" id="vapor_compression_cycle">
+<a class="viewcode-back" href="../../../../api/thermodynamics.html#engineeringkit.thermodynamics.vapor_compression_cycle">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">vapor_compression_cycle</span><span class="p">(</span><span class="n">p_evaporator</span><span class="p">,</span> <span class="n">p_condenser</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">fluid</span><span class="o">=</span><span class="n">R134A</span><span class="p">,</span> <span class="n">superheat</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">subcooling</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">compressor_efficiency</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Vapour-compression refrigeration cycle on a Peng-Robinson refrigerant.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    p_evaporator : float</span>
+<span class="sd">        Evaporator pressure [Pa], positive and below ``p_condenser``.</span>
+<span class="sd">    p_condenser : float</span>
+<span class="sd">        Condenser pressure [Pa], below the fluid's critical pressure.</span>
+<span class="sd">    fluid : CubicFluid, optional</span>
+<span class="sd">        Refrigerant; :data:`R134A` by default.</span>
+<span class="sd">    superheat : float, optional</span>
+<span class="sd">        Superheat of the vapour leaving the evaporator [K], nonnegative.</span>
+<span class="sd">    subcooling : float, optional</span>
+<span class="sd">        Subcooling of the liquid leaving the condenser [K], nonnegative.</span>
+<span class="sd">    compressor_efficiency : float, optional</span>
+<span class="sd">        Isentropic efficiency of the compressor [-] in (0, 1].</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    VaporCompressionResult</span>
+<span class="sd">        The four states (compressor inlet and outlet, condenser outlet,</span>
+<span class="sd">        evaporator inlet), the heat absorbed and rejected and the</span>
+<span class="sd">        compressor work per kilogram, and both COPs.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Perkins's cycle: the vapour is compressed, condensed, throttled through</span>
+<span class="sd">    an expansion valve at constant enthalpy and evaporated. Heat exchangers</span>
+<span class="sd">    have no pressure drop. Properties come from</span>
+<span class="sd">    :func:`refrigerant_properties`. Inputs are raw SI numbers with no</span>
+<span class="sd">    dimensional metadata; see :doc:`/guides/thermodynamics`.</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    Y. A. Çengel and M. A. Boles, *Thermodynamics: An Engineering</span>
+<span class="sd">    Approach*, 9th ed., New York: McGraw-Hill (2019), Ch. 11.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; res = vapor_compression_cycle(0.14e6, 0.8e6)</span>
+<span class="sd">    &gt;&gt;&gt; round(res.cop_refrigerator, 2)</span>
+<span class="sd">    3.94</span>
+<span class="sd">    """</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">p_evaporator</span><span class="o">=</span><span class="n">p_evaporator</span><span class="p">,</span> <span class="n">p_condenser</span><span class="o">=</span><span class="n">p_condenser</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">p_evaporator</span> <span class="o">&gt;=</span> <span class="n">p_condenser</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"p_evaporator must be below p_condenser"</span><span class="p">)</span>
+    <span class="n">_nonnegative</span><span class="p">(</span><span class="n">superheat</span><span class="o">=</span><span class="n">superheat</span><span class="p">,</span> <span class="n">subcooling</span><span class="o">=</span><span class="n">subcooling</span><span class="p">)</span>
+    <span class="n">_interval</span><span class="p">(</span><span class="s2">"compressor_efficiency"</span><span class="p">,</span> <span class="n">compressor_efficiency</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="s2">"right"</span><span class="p">)</span>
+    <span class="n">suction</span> <span class="o">=</span> <span class="n">refrigerant_properties</span><span class="p">(</span><span class="n">fluid</span><span class="p">,</span> <span class="n">p_evaporator</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">superheat</span><span class="p">:</span>
+        <span class="n">suction</span> <span class="o">=</span> <span class="n">refrigerant_properties</span><span class="p">(</span><span class="n">fluid</span><span class="p">,</span> <span class="n">p_evaporator</span><span class="p">,</span> <span class="n">suction</span><span class="o">.</span><span class="n">T</span> <span class="o">+</span> <span class="n">superheat</span><span class="p">)</span>
+    <span class="n">h_s</span> <span class="o">=</span> <span class="n">refrigerant_properties</span><span class="p">(</span><span class="n">fluid</span><span class="p">,</span> <span class="n">p_condenser</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="n">suction</span><span class="o">.</span><span class="n">s</span><span class="p">)</span><span class="o">.</span><span class="n">h</span>
+    <span class="n">discharge</span> <span class="o">=</span> <span class="n">refrigerant_properties</span><span class="p">(</span><span class="n">fluid</span><span class="p">,</span> <span class="n">p_condenser</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="n">compression_outlet_enthalpy</span><span class="p">(</span><span class="n">suction</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="n">h_s</span><span class="p">,</span> <span class="n">compressor_efficiency</span><span class="p">))</span>
+    <span class="n">liquid</span> <span class="o">=</span> <span class="n">refrigerant_properties</span><span class="p">(</span><span class="n">fluid</span><span class="p">,</span> <span class="n">p_condenser</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">subcooling</span><span class="p">:</span>
+        <span class="n">liquid</span> <span class="o">=</span> <span class="n">refrigerant_properties</span><span class="p">(</span><span class="n">fluid</span><span class="p">,</span> <span class="n">p_condenser</span><span class="p">,</span> <span class="n">liquid</span><span class="o">.</span><span class="n">T</span> <span class="o">-</span> <span class="n">subcooling</span><span class="p">)</span>
+    <span class="n">valve_exit</span> <span class="o">=</span> <span class="n">refrigerant_properties</span><span class="p">(</span><span class="n">fluid</span><span class="p">,</span> <span class="n">p_evaporator</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="n">liquid</span><span class="o">.</span><span class="n">h</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">VaporCompressionResult</span><span class="p">(</span>
+        <span class="n">fluid</span><span class="o">=</span><span class="n">fluid</span><span class="p">,</span>
+        <span class="n">labels</span><span class="o">=</span><span class="p">(</span><span class="s2">"compressor inlet"</span><span class="p">,</span> <span class="s2">"compressor outlet"</span><span class="p">,</span> <span class="s2">"condenser outlet"</span><span class="p">,</span> <span class="s2">"evaporator inlet"</span><span class="p">),</span>
+        <span class="n">states</span><span class="o">=</span><span class="p">(</span><span class="n">suction</span><span class="p">,</span> <span class="n">discharge</span><span class="p">,</span> <span class="n">liquid</span><span class="p">,</span> <span class="n">valve_exit</span><span class="p">),</span>
+        <span class="n">q_evaporator</span><span class="o">=</span><span class="n">suction</span><span class="o">.</span><span class="n">h</span> <span class="o">-</span> <span class="n">valve_exit</span><span class="o">.</span><span class="n">h</span><span class="p">,</span>
+        <span class="n">q_condenser</span><span class="o">=</span><span class="n">discharge</span><span class="o">.</span><span class="n">h</span> <span class="o">-</span> <span class="n">liquid</span><span class="o">.</span><span class="n">h</span><span class="p">,</span>
+        <span class="n">compressor_work</span><span class="o">=</span><span class="n">discharge</span><span class="o">.</span><span class="n">h</span> <span class="o">-</span> <span class="n">suction</span><span class="o">.</span><span class="n">h</span><span class="p">,</span>
+    <span class="p">)</span></div>
 
 </pre></div>
 

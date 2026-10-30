@@ -20,12 +20,15 @@ Sections
 - **forces** -- Bernoulli's dynamic pressure, Cayley's lift/drag split,
   Lilienthal's coefficients and the Wrights' correction of Smeaton's coefficient.
 - **circulation** -- the Kutta-Joukowski theorem on a spinning cylinder.
-- **airfoils** -- NACA four-digit sections and thin-airfoil theory.
-- **wings** -- Prandtl's lifting line, induced drag and the Oswald drag polar.
-- **performance** -- the Breguet range equation.
+- **airfoils** -- NACA four-digit sections, thin-airfoil lift and pitching
+  moment, and the Hess-Smith panel method.
+- **wings** -- Prandtl's lifting line, Glauert's Fourier solution, induced
+  drag and the Oswald drag polar.
+- **performance** -- the jet and propeller Breguet range equations.
 - **boundary_layer** -- Reynolds similarity, the Blasius layer and turbulent skin friction.
 - **compressible** -- sound speed, the Mach cone, stagnation states,
-  Prandtl-Glauert, normal shocks and the de Laval nozzle.
+  Prandtl-Glauert, normal and oblique shocks, the Prandtl-Meyer expansion,
+  the de Laval nozzle, and Fanno and Rayleigh duct flow.
 - **atmosphere** -- the International Standard Atmosphere.
 
 
@@ -49,7 +52,7 @@ Sections
 Airfoils
 --------
 
-NACA four-digit section geometry and thin-airfoil theory.
+NACA four-digit section geometry, thin-airfoil lift and pitching moment, and the Hess-Smith panel method.
 
 
 .. raw:: html
@@ -94,6 +97,40 @@ NACA four-digit section geometry and thin-airfoil theory.
 .. raw:: html
 
       <div class="sphx-glr-thumbnail-title">Thin-airfoil theory: lift slope 2π and the camber shift (1922-1926)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="At the Douglas Aircraft Company, John Hess and A. M. O. Smith replaced a body by straight surface panels, each with its own uniform source strength, and solved for the strengths that make the surface a streamline. Their 1967 review in Progress in Aerospace Sciences added a single vortex strength shared by every panel. With the Kutta condition at the trailing edge, that let the method carry lift. panel_method implements it. This example checks it against the exact flow round a circular cylinder, then shows what it adds to thin-airfoil theory: the leading-edge suction peak and the extra lift slope of a thick section.">
+
+.. only:: html
+
+  .. image:: /api/gallery/aerodynamics/airfoils/images/thumb/sphx_glr_plot_03_hess_smith_panel_method_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/aerodynamics/airfoils/plot_03_hess_smith_panel_method`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">The Hess-Smith panel method (1967)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Munk&#x27;s and Glauert&#x27;s thin-airfoil theory predicts more than lift. The pitching moment about the quarter chord, c_{m,c/4} = \tfrac{\pi}{4}(A_2 - A_1) (~engineeringkit.aerodynamics.naca4_moment_coefficient), depends only on the camber line and not on the angle of attack. The quarter chord is therefore the aerodynamic centre. A measured section&#x27;s centre sits at x_{ac}/c = \tfrac14 - m_0/a_0 (~engineeringkit.aerodynamics.aerodynamic_center), where m_0 is its residual moment slope. This example reproduces Anderson&#x27;s c_{m,c/4} = -0.053 for the NACA 2412 and finds the aerodynamic centre from panel-method moments.">
+
+.. only:: html
+
+  .. image:: /api/gallery/aerodynamics/airfoils/images/thumb/sphx_glr_plot_04_thin_airfoil_pitching_moment_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/aerodynamics/airfoils/plot_04_thin_airfoil_pitching_moment`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Thin-airfoil pitching moment and the aerodynamic centre (1922-1926)</div>
     </div>
 
 
@@ -260,7 +297,7 @@ Lift as the product of density, speed and circulation.
 Compressible flow
 -----------------
 
-Sound speed, Mach waves, isentropic stagnation states, compressibility corrections, shocks and nozzles.
+Sound speed, Mach waves, isentropic stagnation states, compressibility corrections, normal and oblique shocks, Prandtl-Meyer expansions, nozzles, and Fanno and Rayleigh duct flow.
 
 
 .. raw:: html
@@ -376,6 +413,74 @@ Sound speed, Mach waves, isentropic stagnation states, compressibility correctio
     </div>
 
 
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Theodor Meyer&#x27;s 1908 Göttingen thesis showed that a supersonic stream turned into itself by a wedge passes through a straight oblique shock. Its wave angle \beta follows from the deflection \theta and the Mach number through the \theta-\beta-M relation (~engineeringkit.aerodynamics.oblique_shock_deflection). The jump itself is a normal shock in the velocity component normal to the wave (~engineeringkit.aerodynamics.oblique_shock). This example draws the chart, finds the weak and strong solutions for a 20° wedge at Mach 2, and shows the shock detaching once the wedge is steeper than \theta_{\max}.">
+
+.. only:: html
+
+  .. image:: /api/gallery/aerodynamics/compressible/images/thumb/sphx_glr_plot_07_meyer_oblique_shock_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/aerodynamics/compressible/plot_07_meyer_oblique_shock`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Meyer's oblique shock and the theta-beta-M relation (1908)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Ludwig Prandtl (1907) and his student Theodor Meyer (1908) showed that a supersonic stream turning away from itself around a corner expands isentropically through a centred fan of Mach waves. The turning angle that takes a sonic stream to Mach M is the Prandtl-Meyer function \nu(M) (~engineeringkit.aerodynamics.prandtl_meyer_angle), so a turn by \theta sets \nu(M_2) = \nu(M_1) + \theta (~engineeringkit.aerodynamics.prandtl_meyer_expansion). Combined with Meyer&#x27;s oblique shocks this gives shock-expansion theory, which this example applies to a flat plate at incidence and checks against Ackeret&#x27;s linear supersonic lift c_l = 4\alpha/\sqrt{M^2-1}.">
+
+.. only:: html
+
+  .. image:: /api/gallery/aerodynamics/compressible/images/thumb/sphx_glr_plot_08_prandtl_meyer_expansion_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/aerodynamics/compressible/plot_08_prandtl_meyer_expansion`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">The Prandtl-Meyer expansion fan (1907-1908)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Gino Fanno&#x27;s 1904 diploma thesis at the ETH Zürich, written under Aurel Stodola, followed an adiabatic gas along a constant-area pipe with wall friction. Friction drives the Mach number towards one, from below in subsonic flow and from above in supersonic flow, while the stagnation temperature stays fixed and the stagnation pressure falls. The states lie on a Fanno line in the temperature-entropy plane, whose point of maximum entropy is the sonic state. fanno_flow gives every ratio to that sonic state, and fanno_choking_length the pipe length that chokes it. This example marches the friction ODE down a pipe and checks the closed form.">
+
+.. only:: html
+
+  .. image:: /api/gallery/aerodynamics/compressible/images/thumb/sphx_glr_plot_09_fanno_flow_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/aerodynamics/compressible/plot_09_fanno_flow`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Fanno flow: friction chokes a duct (1904)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In &quot;Aerial plane waves of finite amplitude&quot; (1910), Lord Rayleigh combined the conservation of mass and momentum for a gas in steady one-dimensional flow. The states they allow form a straight line, p + \rho V^2 = const, in the pressure-specific-volume plane: the Rayleigh line. In a constant-area duct with heat transfer but no friction, the flow moves along it. rayleigh_flow gives the ratios to the sonic state on the line. Heating drives the Mach number towards one, and rayleigh_choking_heat is the heat that chokes a combustor. This example checks the conservation laws and finds the two special points of the line.">
+
+.. only:: html
+
+  .. image:: /api/gallery/aerodynamics/compressible/images/thumb/sphx_glr_plot_10_rayleigh_flow_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/aerodynamics/compressible/plot_10_rayleigh_flow`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Rayleigh flow: heat addition and thermal choking (1910)</div>
+    </div>
+
+
 .. thumbnail-parent-div-close
 
 .. raw:: html
@@ -476,7 +581,7 @@ Dynamic pressure, the lift/drag decomposition and dimensionless force coefficien
 Performance
 -----------
 
-Cruise range from aerodynamic efficiency and engine fuel consumption.
+Jet and propeller cruise range from aerodynamic efficiency and engine fuel consumption.
 
 
 .. raw:: html
@@ -507,6 +612,23 @@ Cruise range from aerodynamic efficiency and engine fuel consumption.
     </div>
 
 
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Breguet&#x27;s range equation was first written for propeller aircraft, the only kind there was. Shaft power P = DV/\eta_{pr} burns fuel at a rate set by the engine&#x27;s power-specific consumption c_P. Drag is W/(L/D), so the speed cancels and R = \frac{\eta_{pr}}{g c_P}\frac{L}{D}\ln\frac{W_i}{W_f} (~engineeringkit.aerodynamics.breguet_range_propeller). A propeller aircraft goes furthest at the speed of maximum L/D, which is slower than a jet&#x27;s best-range speed. This example checks the formula against a time-stepped cruise and plots range against speed for a light aircraft.">
+
+.. only:: html
+
+  .. image:: /api/gallery/aerodynamics/performance/images/thumb/sphx_glr_plot_02_breguet_propeller_range_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/aerodynamics/performance/plot_02_breguet_propeller_range`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Breguet's propeller range (c. 1920)</div>
+    </div>
+
+
 .. thumbnail-parent-div-close
 
 .. raw:: html
@@ -516,7 +638,7 @@ Cruise range from aerodynamic efficiency and engine fuel consumption.
 Finite wings
 ------------
 
-Lifting-line theory, induced drag and the parabolic drag polar.
+Lifting-line theory and Glauert's Fourier solution, induced drag and the parabolic drag polar.
 
 
 .. raw:: html
@@ -578,6 +700,23 @@ Lifting-line theory, induced drag and the parabolic drag polar.
 .. raw:: html
 
       <div class="sphx-glr-thumbnail-title">Oswald's efficiency factor and the parabolic drag polar (1933)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Prandtl&#x27;s lifting-line equation is an integro-differential equation for the spanwise circulation. In The Elements of Aerofoil and Airscrew Theory (1926) Hermann Glauert solved it for any planform. He wrote the circulation as a Fourier sine series in \theta, with y = -\tfrac b2\cos\theta, and enforced the equation at as many stations as there are terms (~engineeringkit.aerodynamics.lifting_line). The first coefficient fixes the lift and the others add induced drag, so the span efficiency is e = 1/(1 + \delta) with \delta = \sum_{n&gt;1} nA_n^2/A_1^2. This example recovers the elliptic optimum exactly, then sweeps the taper ratio of straight wings to reproduce Glauert&#x27;s induced-drag factor \delta.">
+
+.. only:: html
+
+  .. image:: /api/gallery/aerodynamics/wings/images/thumb/sphx_glr_plot_04_glauert_fourier_lifting_line_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/aerodynamics/wings/plot_04_glauert_fourier_lifting_line`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Glauert's Fourier solution of the lifting line for any planform (1926)</div>
     </div>
 
 

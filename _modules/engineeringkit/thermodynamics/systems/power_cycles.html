@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>engineeringkit.thermodynamics.systems.power_cycles &#8212; engineeringkit</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx_autodoc_typehints.css?v=057ac668" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/plot_directive.css" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Vibur" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/jupyterlite_sphinx.css?v=f676e775" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery.css?v=c83e6b79" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/engineeringkit.css?v=62935cec" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../../../_static/scripts/fontawesome.js?digest=18bd87630a240e9c25be"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be" />
+
+    <script src="../../../../_static/documentation_options.js?v=95e61db4"></script>
+    <script src="../../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../../_static/sg-tags.js?v=d80f6fa4"></script>
+    <script src="../../../../_static/jupyterlite_sphinx.js?v=96e329c5"></script>
+    <script src="../../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/engineeringkit/thermodynamics/systems/power_cycles';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <script async="async" data-goatcounter="https://cpoli.goatcounter.com/count" src="https://gc.zgo.at/count.js"></script>
+    <link rel="canonical" href="https://cpoli.github.io/engineeringkit/_modules/engineeringkit/thermodynamics/systems/power_cycles.html" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="color-scheme" content="light dark"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../../../_static/searchtools.js"></script>
+    <script src="../../../../_static/language_data.js"></script>
+    <script src="../../../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../_static/engineeringkit_logo_transparent.png" class="logo__image only-light" alt="engineeringkit logo"/>
+    <img src="../../../../_static/engineeringkit_logo_transparent.png" class="logo__image only-dark pst-js-only" alt="engineeringkit logo"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../subpackages/index.html">
+    Subpackages
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../history/index.html">
+    History
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../api/index.html">
+    API
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://cpoli.github.io/" title="Charles Poli" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-user fa-lg" aria-hidden="true"></i><span class="visually-hidden">Charles Poli</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../subpackages/index.html">
+    Subpackages
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../history/index.html">
+    History
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../api/index.html">
+    API
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://cpoli.github.io/" title="Charles Poli" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-user fa-lg" aria-hidden="true"></i><span class="visually-hidden">Charles Poli</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">engineeringkit.thermodynamics.systems.power_cycles</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for engineeringkit.thermodynamics.systems.power_cycles</h1><div class="highlight"><pre>
+<span></span><span class="sa">r</span><span class="sd">"""Power plant cycles state by state: Rankine with reheat and feedwater heating, Brayton with regeneration.</span>
+
+<span class="sd">The efficiency formulas in :mod:`~engineeringkit.thermodynamics.systems.cycles`</span>
+<span class="sd">describe ideal cycles. A real plant is analysed device by device with the</span>
+<span class="sd">steady-flow energy balance. Steam is superheated and reheated to keep the</span>
+<span class="sd">turbine exhaust dry, part of it is bled to heat the feedwater, and pumps and</span>
+<span class="sd">turbines have isentropic efficiencies. A gas turbine recovers exhaust heat in</span>
+<span class="sd">a regenerator and divides its compression and expansion with intercoolers and</span>
+<span class="sd">reheaters. These changes move the cycles towards Carnot's bound.</span>
+<span class="sd">"""</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit._validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">finite</span> <span class="k">as</span> <span class="n">_finite</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit._validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">integer</span> <span class="k">as</span> <span class="n">_integer</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit._validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">interval</span> <span class="k">as</span> <span class="n">_interval</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit._validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">positive</span> <span class="k">as</span> <span class="n">_positive</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit.thermodynamics.core.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">BraytonResult</span><span class="p">,</span> <span class="n">RankineResult</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit.thermodynamics.systems.steady_flow</span><span class="w"> </span><span class="kn">import</span> <span class="n">compression_outlet_enthalpy</span><span class="p">,</span> <span class="n">expansion_outlet_enthalpy</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit.thermodynamics.systems.steam</span><span class="w"> </span><span class="kn">import</span> <span class="n">saturation_temperature</span><span class="p">,</span> <span class="n">steam_properties</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit.thermodynamics.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">if97</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"rankine_cycle"</span><span class="p">,</span> <span class="s2">"brayton_cycle"</span><span class="p">]</span>
+
+<span class="n">_P_TRIPLE</span> <span class="o">=</span> <span class="mf">611.213</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_superheated</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Steam at ``p`` and ``T``, which must lie above the saturation (or critical) temperature."""</span>
+    <span class="n">T_min</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">saturation_temperature</span><span class="p">(</span><span class="n">p</span><span class="p">))</span> <span class="k">if</span> <span class="n">p</span> <span class="o">&lt;</span> <span class="n">if97</span><span class="o">.</span><span class="n">P_CRIT</span> <span class="k">else</span> <span class="n">if97</span><span class="o">.</span><span class="n">T_CRIT</span>
+    <span class="k">if</span> <span class="n">T</span> <span class="o">&lt;=</span> <span class="n">T_min</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> must be above </span><span class="si">{</span><span class="n">T_min</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> K at this pressure"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">steam_properties</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">T</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="rankine_cycle">
+<a class="viewcode-back" href="../../../../api/thermodynamics.html#engineeringkit.thermodynamics.rankine_cycle">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">rankine_cycle</span><span class="p">(</span>
+    <span class="n">p_boiler</span><span class="p">,</span>
+    <span class="n">p_condenser</span><span class="p">,</span>
+    <span class="n">T_turbine_inlet</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">reheat_pressure</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">T_reheat</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">feedwater_pressure</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">turbine_efficiency</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+    <span class="n">pump_efficiency</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+<span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Rankine steam cycle with optional superheat, reheat and an open feedwater heater.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    p_boiler : float</span>
+<span class="sd">        Boiler (turbine inlet) pressure [Pa], at most 100 MPa.</span>
+<span class="sd">    p_condenser : float</span>
+<span class="sd">        Condenser pressure [Pa], from 611.213 Pa to below ``p_boiler``.</span>
+<span class="sd">    T_turbine_inlet : float, optional</span>
+<span class="sd">        Turbine inlet temperature [K], above saturation (or above the</span>
+<span class="sd">        critical temperature for a supercritical boiler). Omitted, the</span>
+<span class="sd">        turbine takes saturated vapour, which needs a subcritical boiler.</span>
+<span class="sd">    reheat_pressure : float, optional</span>
+<span class="sd">        Pressure [Pa] at which the steam leaves the high-pressure turbine</span>
+<span class="sd">        for the reheater, between the condenser and boiler pressures.</span>
+<span class="sd">    T_reheat : float, optional</span>
+<span class="sd">        Reheater outlet temperature [K]; given with ``reheat_pressure``.</span>
+<span class="sd">    feedwater_pressure : float, optional</span>
+<span class="sd">        Pressure [Pa] of an open (direct-contact) feedwater heater, between</span>
+<span class="sd">        the condenser and boiler pressures and not equal to</span>
+<span class="sd">        ``reheat_pressure``. Steam is bled from the turbine at this</span>
+<span class="sd">        pressure; the heater delivers saturated liquid.</span>
+<span class="sd">    turbine_efficiency, pump_efficiency : float, optional</span>
+<span class="sd">        Isentropic efficiencies [-] in (0, 1], applied to every turbine</span>
+<span class="sd">        section and every pump.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    RankineResult</span>
+<span class="sd">        State points, efficiency, turbine, pump, boiler and condenser</span>
+<span class="sd">        energies per kilogram of boiler steam, and the bleed fraction.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    The condenser delivers saturated liquid. The bleed fraction :math:`y`</span>
+<span class="sd">    follows from the heater's energy balance,</span>
+<span class="sd">    :math:`y h_{bleed} + (1 - y) h_{pump\,1} = h_f(p_{fwh})`. Each turbine</span>
+<span class="sd">    section between two of the pressures (boiler, reheat, bleed,</span>
+<span class="sd">    condenser) is expanded with ``turbine_efficiency`` from its own inlet</span>
+<span class="sd">    state. Properties come from :func:`steam_properties` (IAPWS-IF97).</span>
+<span class="sd">    Every parameter is scalar-only: one plant is solved state by state.</span>
+<span class="sd">    Inputs are raw SI numbers with no dimensional metadata; see</span>
+<span class="sd">    :doc:`/guides/thermodynamics`.</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    Y. A. Çengel and M. A. Boles, *Thermodynamics: An Engineering</span>
+<span class="sd">    Approach*, 9th ed., New York: McGraw-Hill (2019), Ch. 10; M. J. Moran</span>
+<span class="sd">    et al., *Fundamentals of Engineering Thermodynamics*, 9th ed., Wiley</span>
+<span class="sd">    (2018), Ch. 8.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; res = rankine_cycle(15e6, 10e3, 873.15, reheat_pressure=4e6, T_reheat=873.15)</span>
+<span class="sd">    &gt;&gt;&gt; round(res.efficiency, 3), round(res.turbine_exit_quality, 3)</span>
+<span class="sd">    (0.45, 0.896)</span>
+<span class="sd">    """</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">p_boiler</span><span class="o">=</span><span class="n">p_boiler</span><span class="p">)</span>
+    <span class="n">_interval</span><span class="p">(</span><span class="s2">"p_condenser"</span><span class="p">,</span> <span class="n">p_condenser</span><span class="p">,</span> <span class="n">_P_TRIPLE</span><span class="p">,</span> <span class="n">p_boiler</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="s2">"left"</span><span class="p">)</span>
+    <span class="n">_interval</span><span class="p">(</span><span class="s2">"p_boiler"</span><span class="p">,</span> <span class="n">p_boiler</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">100e6</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="s2">"right"</span><span class="p">)</span>
+    <span class="n">_interval</span><span class="p">(</span><span class="s2">"turbine_efficiency"</span><span class="p">,</span> <span class="n">turbine_efficiency</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="s2">"right"</span><span class="p">)</span>
+    <span class="n">_interval</span><span class="p">(</span><span class="s2">"pump_efficiency"</span><span class="p">,</span> <span class="n">pump_efficiency</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="s2">"right"</span><span class="p">)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">reheat_pressure</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">)</span> <span class="o">!=</span> <span class="p">(</span><span class="n">T_reheat</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"give reheat_pressure and T_reheat together"</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="p">((</span><span class="s2">"reheat_pressure"</span><span class="p">,</span> <span class="n">reheat_pressure</span><span class="p">),</span> <span class="p">(</span><span class="s2">"feedwater_pressure"</span><span class="p">,</span> <span class="n">feedwater_pressure</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">_interval</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">p_condenser</span><span class="p">,</span> <span class="n">p_boiler</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">reheat_pressure</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">reheat_pressure</span> <span class="o">==</span> <span class="n">feedwater_pressure</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"reheat_pressure and feedwater_pressure must differ"</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">T_turbine_inlet</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">p_boiler</span> <span class="o">&gt;=</span> <span class="n">if97</span><span class="o">.</span><span class="n">P_CRIT</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"a supercritical boiler needs T_turbine_inlet"</span><span class="p">)</span>
+        <span class="n">inlet</span> <span class="o">=</span> <span class="n">steam_properties</span><span class="p">(</span><span class="n">p_boiler</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">inlet</span> <span class="o">=</span> <span class="n">_superheated</span><span class="p">(</span><span class="n">p_boiler</span><span class="p">,</span> <span class="n">T_turbine_inlet</span><span class="p">,</span> <span class="s2">"T_turbine_inlet"</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">pump</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">p_out</span><span class="p">):</span>
+        <span class="n">h_s</span> <span class="o">=</span> <span class="n">steam_properties</span><span class="p">(</span><span class="n">p_out</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="n">state</span><span class="o">.</span><span class="n">s</span><span class="p">)</span><span class="o">.</span><span class="n">h</span>
+        <span class="k">return</span> <span class="n">steam_properties</span><span class="p">(</span><span class="n">p_out</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="n">compression_outlet_enthalpy</span><span class="p">(</span><span class="n">state</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="n">h_s</span><span class="p">,</span> <span class="n">pump_efficiency</span><span class="p">))</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">expand</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">p_out</span><span class="p">):</span>
+        <span class="n">h_s</span> <span class="o">=</span> <span class="n">steam_properties</span><span class="p">(</span><span class="n">p_out</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="n">state</span><span class="o">.</span><span class="n">s</span><span class="p">)</span><span class="o">.</span><span class="n">h</span>
+        <span class="k">return</span> <span class="n">steam_properties</span><span class="p">(</span><span class="n">p_out</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="n">expansion_outlet_enthalpy</span><span class="p">(</span><span class="n">state</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="n">h_s</span><span class="p">,</span> <span class="n">turbine_efficiency</span><span class="p">))</span>
+
+    <span class="c1"># feed train</span>
+    <span class="n">labels</span><span class="p">,</span> <span class="n">states</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"pump inlet"</span><span class="p">],</span> <span class="p">[</span><span class="n">steam_properties</span><span class="p">(</span><span class="n">p_condenser</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)]</span>
+    <span class="k">if</span> <span class="n">feedwater_pressure</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">labels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"pump outlet"</span><span class="p">)</span>
+        <span class="n">states</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pump</span><span class="p">(</span><span class="n">states</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">p_boiler</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">heater</span> <span class="o">=</span> <span class="n">steam_properties</span><span class="p">(</span><span class="n">feedwater_pressure</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>
+        <span class="n">labels</span> <span class="o">+=</span> <span class="p">[</span><span class="s2">"pump outlet"</span><span class="p">,</span> <span class="s2">"heater outlet"</span><span class="p">,</span> <span class="s2">"feed pump outlet"</span><span class="p">]</span>
+        <span class="n">states</span> <span class="o">+=</span> <span class="p">[</span><span class="n">pump</span><span class="p">(</span><span class="n">states</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">feedwater_pressure</span><span class="p">),</span> <span class="n">heater</span><span class="p">,</span> <span class="n">pump</span><span class="p">(</span><span class="n">heater</span><span class="p">,</span> <span class="n">p_boiler</span><span class="p">)]</span>
+    <span class="n">boiler_inlet</span> <span class="o">=</span> <span class="n">states</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">labels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"turbine inlet"</span><span class="p">)</span>
+    <span class="n">states</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">inlet</span><span class="p">)</span>
+
+    <span class="c1"># turbine sections, recording (flow fraction placeholder, inlet, outlet)</span>
+    <span class="n">stops</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">({</span><span class="n">p</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="p">(</span><span class="n">reheat_pressure</span><span class="p">,</span> <span class="n">feedwater_pressure</span><span class="p">)</span> <span class="k">if</span> <span class="n">p</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">},</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="n">p_condenser</span><span class="p">]</span>
+    <span class="n">state</span><span class="p">,</span> <span class="n">sections</span><span class="p">,</span> <span class="n">reheats</span> <span class="o">=</span> <span class="n">inlet</span><span class="p">,</span> <span class="p">[],</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">stops</span><span class="p">:</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="n">expand</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+        <span class="n">sections</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">state</span><span class="p">,</span> <span class="n">out</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">p</span> <span class="o">==</span> <span class="n">reheat_pressure</span><span class="p">:</span>
+            <span class="n">labels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"HP turbine exit"</span><span class="p">)</span>
+            <span class="n">states</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
+            <span class="n">state</span> <span class="o">=</span> <span class="n">_superheated</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">T_reheat</span><span class="p">,</span> <span class="s2">"T_reheat"</span><span class="p">)</span>
+            <span class="n">reheats</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">sections</span><span class="p">),</span> <span class="n">out</span><span class="p">,</span> <span class="n">state</span><span class="p">))</span>
+            <span class="n">labels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"reheat outlet"</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">state</span> <span class="o">=</span> <span class="n">out</span>
+            <span class="n">labels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"bleed"</span> <span class="k">if</span> <span class="n">p</span> <span class="o">==</span> <span class="n">feedwater_pressure</span> <span class="k">else</span> <span class="s2">"turbine exit"</span><span class="p">)</span>
+        <span class="n">states</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
+
+    <span class="n">y</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="k">if</span> <span class="n">feedwater_pressure</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">bleed</span> <span class="o">=</span> <span class="n">states</span><span class="p">[</span><span class="n">labels</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s2">"bleed"</span><span class="p">)]</span>
+        <span class="n">pumped</span> <span class="o">=</span> <span class="n">states</span><span class="p">[</span><span class="n">labels</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s2">"pump outlet"</span><span class="p">)]</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="n">heater</span><span class="o">.</span><span class="n">h</span> <span class="o">-</span> <span class="n">pumped</span><span class="o">.</span><span class="n">h</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">bleed</span><span class="o">.</span><span class="n">h</span> <span class="o">-</span> <span class="n">pumped</span><span class="o">.</span><span class="n">h</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">fraction</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Flow fraction through turbine section ``i``, which starts at ``stops[i - 1]`` (the boiler for 0)."""</span>
+        <span class="k">return</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="n">y</span> <span class="k">if</span> <span class="n">i</span> <span class="ow">and</span> <span class="n">feedwater_pressure</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">stops</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">feedwater_pressure</span> <span class="k">else</span> <span class="mf">1.0</span>
+
+    <span class="n">turbine_work</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">fraction</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">h</span> <span class="o">-</span> <span class="n">b</span><span class="o">.</span><span class="n">h</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">sections</span><span class="p">))</span>
+    <span class="n">heat_in</span> <span class="o">=</span> <span class="p">(</span><span class="n">inlet</span><span class="o">.</span><span class="n">h</span> <span class="o">-</span> <span class="n">boiler_inlet</span><span class="o">.</span><span class="n">h</span><span class="p">)</span> <span class="o">+</span> <span class="nb">sum</span><span class="p">(</span><span class="n">fraction</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">hot</span><span class="o">.</span><span class="n">h</span> <span class="o">-</span> <span class="n">cold</span><span class="o">.</span><span class="n">h</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">cold</span><span class="p">,</span> <span class="n">hot</span> <span class="ow">in</span> <span class="n">reheats</span><span class="p">)</span>
+    <span class="n">exit_state</span> <span class="o">=</span> <span class="n">states</span><span class="p">[</span><span class="n">labels</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s2">"turbine exit"</span><span class="p">)]</span>
+    <span class="n">heat_out</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">exit_state</span><span class="o">.</span><span class="n">h</span> <span class="o">-</span> <span class="n">states</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">h</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">feedwater_pressure</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">pump_work</span> <span class="o">=</span> <span class="n">states</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">h</span> <span class="o">-</span> <span class="n">states</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">h</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">pump_work</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">states</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">h</span> <span class="o">-</span> <span class="n">states</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">h</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">states</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">h</span> <span class="o">-</span> <span class="n">states</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">h</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">RankineResult</span><span class="p">(</span>
+        <span class="n">labels</span><span class="o">=</span><span class="nb">tuple</span><span class="p">(</span><span class="n">labels</span><span class="p">),</span>
+        <span class="n">states</span><span class="o">=</span><span class="nb">tuple</span><span class="p">(</span><span class="n">states</span><span class="p">),</span>
+        <span class="n">efficiency</span><span class="o">=</span><span class="p">(</span><span class="n">turbine_work</span> <span class="o">-</span> <span class="n">pump_work</span><span class="p">)</span> <span class="o">/</span> <span class="n">heat_in</span><span class="p">,</span>
+        <span class="n">turbine_work</span><span class="o">=</span><span class="n">turbine_work</span><span class="p">,</span>
+        <span class="n">pump_work</span><span class="o">=</span><span class="n">pump_work</span><span class="p">,</span>
+        <span class="n">heat_in</span><span class="o">=</span><span class="n">heat_in</span><span class="p">,</span>
+        <span class="n">heat_out</span><span class="o">=</span><span class="n">heat_out</span><span class="p">,</span>
+        <span class="n">bleed_fraction</span><span class="o">=</span><span class="n">y</span><span class="p">,</span>
+    <span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="brayton_cycle">
+<a class="viewcode-back" href="../../../../api/thermodynamics.html#engineeringkit.thermodynamics.brayton_cycle">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">brayton_cycle</span><span class="p">(</span>
+    <span class="n">pressure_ratio</span><span class="p">,</span>
+    <span class="n">T_min</span><span class="p">,</span>
+    <span class="n">T_max</span><span class="p">,</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">compressor_efficiency</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+    <span class="n">turbine_efficiency</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+    <span class="n">regenerator_effectiveness</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
+    <span class="n">compressor_stages</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">turbine_stages</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">cp</span><span class="o">=</span><span class="mf">1005.0</span><span class="p">,</span>
+    <span class="n">gamma</span><span class="o">=</span><span class="mf">1.4</span><span class="p">,</span>
+    <span class="n">p_min</span><span class="o">=</span><span class="mf">101325.0</span><span class="p">,</span>
+<span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Air-standard gas-turbine cycle with regeneration, intercooling and reheat.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    pressure_ratio : float</span>
+<span class="sd">        Overall compressor pressure ratio [-], greater than one.</span>
+<span class="sd">    T_min : float</span>
+<span class="sd">        Compressor inlet temperature [K], positive; every intercooler</span>
+<span class="sd">        returns the air to it.</span>
+<span class="sd">    T_max : float</span>
+<span class="sd">        Turbine inlet temperature [K], above the compressor outlet</span>
+<span class="sd">        temperature; every reheater returns the gas to it.</span>
+<span class="sd">    compressor_efficiency, turbine_efficiency : float, optional</span>
+<span class="sd">        Isentropic efficiency of each stage [-] in (0, 1].</span>
+<span class="sd">    regenerator_effectiveness : float, optional</span>
+<span class="sd">        Regenerator effectiveness [-] in [0, 1]; zero for no regenerator.</span>
+<span class="sd">        It heats the compressed air by</span>
+<span class="sd">        :math:`\varepsilon(T_{exhaust} - T_{compressor})` when the exhaust</span>
+<span class="sd">        is the hotter stream and does nothing otherwise.</span>
+<span class="sd">    compressor_stages, turbine_stages : int, optional</span>
+<span class="sd">        Number of compressor stages (with an intercooler between each pair)</span>
+<span class="sd">        and turbine stages (with a reheater between each pair), each with</span>
+<span class="sd">        the same pressure ratio :math:`r_p^{1/N}`.</span>
+<span class="sd">    cp : float, optional</span>
+<span class="sd">        Isobaric specific heat [J/(kg K)], positive.</span>
+<span class="sd">    gamma : float, optional</span>
+<span class="sd">        Ratio of specific heats [-], greater than one.</span>
+<span class="sd">    p_min : float, optional</span>
+<span class="sd">        Compressor inlet pressure [Pa], positive; it only sets the pressure</span>
+<span class="sd">        labels of the states.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    BraytonResult</span>
+<span class="sd">        State temperatures, pressures and entropies; efficiency; compressor</span>
+<span class="sd">        and turbine work, heat added and heat regenerated per kilogram.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    With ideal components and a perfect regenerator the efficiency is</span>
+<span class="sd">    :math:`1 - (T_{min}/T_{max})\,r_p^{(\gamma-1)/\gamma}`, which falls with</span>
+<span class="sd">    pressure ratio; with many intercooled and reheated stages it approaches</span>
+<span class="sd">    the Ericsson cycle and Carnot's bound. Pressure losses in the heat</span>
+<span class="sd">    exchangers are neglected. Every parameter is scalar-only: one cycle is</span>
+<span class="sd">    built with its list of states. Inputs are raw SI numbers with no</span>
+<span class="sd">    dimensional metadata; see :doc:`/guides/thermodynamics`.</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    Y. A. Çengel and M. A. Boles, *Thermodynamics: An Engineering</span>
+<span class="sd">    Approach*, 9th ed., New York: McGraw-Hill (2019), Ch. 9.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; res = brayton_cycle(8.0, 300.0, 1300.0, compressor_efficiency=0.8, turbine_efficiency=0.85)</span>
+<span class="sd">    &gt;&gt;&gt; round(res.efficiency, 3), round(res.back_work_ratio, 3)</span>
+<span class="sd">    (0.274, 0.615)</span>
+<span class="sd">    """</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">T_min</span><span class="o">=</span><span class="n">T_min</span><span class="p">,</span> <span class="n">T_max</span><span class="o">=</span><span class="n">T_max</span><span class="p">,</span> <span class="n">cp</span><span class="o">=</span><span class="n">cp</span><span class="p">,</span> <span class="n">p_min</span><span class="o">=</span><span class="n">p_min</span><span class="p">)</span>
+    <span class="n">_finite</span><span class="p">(</span><span class="n">pressure_ratio</span><span class="o">=</span><span class="n">pressure_ratio</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="n">gamma</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">pressure_ratio</span> <span class="o">&lt;=</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">gamma</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"require pressure_ratio &gt; 1 and gamma &gt; 1"</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="p">((</span><span class="s2">"compressor_efficiency"</span><span class="p">,</span> <span class="n">compressor_efficiency</span><span class="p">),</span> <span class="p">(</span><span class="s2">"turbine_efficiency"</span><span class="p">,</span> <span class="n">turbine_efficiency</span><span class="p">)):</span>
+        <span class="n">_interval</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="s2">"right"</span><span class="p">)</span>
+    <span class="n">_interval</span><span class="p">(</span><span class="s2">"regenerator_effectiveness"</span><span class="p">,</span> <span class="n">regenerator_effectiveness</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">_integer</span><span class="p">(</span><span class="s2">"compressor_stages"</span><span class="p">,</span> <span class="n">compressor_stages</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">_integer</span><span class="p">(</span><span class="s2">"turbine_stages"</span><span class="p">,</span> <span class="n">turbine_stages</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="p">(</span><span class="n">gamma</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="n">gamma</span>
+    <span class="n">T_comp</span> <span class="o">=</span> <span class="n">T_min</span> <span class="o">+</span> <span class="n">T_min</span> <span class="o">*</span> <span class="p">((</span><span class="n">pressure_ratio</span> <span class="o">**</span> <span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="n">compressor_stages</span><span class="p">))</span> <span class="o">**</span> <span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="n">compressor_efficiency</span>
+    <span class="n">T_turb</span> <span class="o">=</span> <span class="n">T_max</span> <span class="o">-</span> <span class="n">turbine_efficiency</span> <span class="o">*</span> <span class="n">T_max</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="n">pressure_ratio</span> <span class="o">**</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span> <span class="o">/</span> <span class="n">turbine_stages</span><span class="p">))</span> <span class="o">**</span> <span class="n">k</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">T_max</span> <span class="o">&lt;=</span> <span class="n">T_comp</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"T_max must exceed the compressor outlet temperature"</span><span class="p">)</span>
+    <span class="n">regenerated</span> <span class="o">=</span> <span class="n">regenerator_effectiveness</span> <span class="o">*</span> <span class="nb">max</span><span class="p">(</span><span class="n">T_turb</span> <span class="o">-</span> <span class="n">T_comp</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+    <span class="n">T_regen</span> <span class="o">=</span> <span class="n">T_comp</span> <span class="o">+</span> <span class="n">regenerated</span>
+
+    <span class="n">labels</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">temperatures</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">pressures</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="n">temperature</span><span class="p">,</span> <span class="n">pressure</span><span class="p">):</span>
+        <span class="n">labels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
+        <span class="n">temperatures</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">temperature</span><span class="p">)</span>
+        <span class="n">pressures</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pressure</span><span class="p">)</span>
+
+    <span class="n">p_high</span> <span class="o">=</span> <span class="n">p_min</span> <span class="o">*</span> <span class="n">pressure_ratio</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">compressor_stages</span><span class="p">):</span>
+        <span class="n">p_in</span> <span class="o">=</span> <span class="n">p_min</span> <span class="o">*</span> <span class="n">pressure_ratio</span> <span class="o">**</span> <span class="p">(</span><span class="n">i</span> <span class="o">/</span> <span class="n">compressor_stages</span><span class="p">)</span>
+        <span class="n">add</span><span class="p">(</span><span class="s2">"compressor inlet"</span> <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="sa">f</span><span class="s2">"intercooler </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2"> outlet"</span><span class="p">,</span> <span class="n">T_min</span><span class="p">,</span> <span class="n">p_in</span><span class="p">)</span>
+        <span class="n">add</span><span class="p">(</span><span class="sa">f</span><span class="s2">"compressor </span><span class="si">{</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2"> outlet"</span><span class="p">,</span> <span class="n">T_comp</span><span class="p">,</span> <span class="n">p_in</span> <span class="o">*</span> <span class="n">pressure_ratio</span> <span class="o">**</span> <span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="n">compressor_stages</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">regenerated</span><span class="p">:</span>
+        <span class="n">add</span><span class="p">(</span><span class="s2">"regenerator outlet (cold side)"</span><span class="p">,</span> <span class="n">T_regen</span><span class="p">,</span> <span class="n">p_high</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">turbine_stages</span><span class="p">):</span>
+        <span class="n">p_in</span> <span class="o">=</span> <span class="n">p_high</span> <span class="o">*</span> <span class="n">pressure_ratio</span> <span class="o">**</span> <span class="p">(</span><span class="o">-</span><span class="n">i</span> <span class="o">/</span> <span class="n">turbine_stages</span><span class="p">)</span>
+        <span class="n">add</span><span class="p">(</span><span class="s2">"turbine inlet"</span> <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="sa">f</span><span class="s2">"reheater </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2"> outlet"</span><span class="p">,</span> <span class="n">T_max</span><span class="p">,</span> <span class="n">p_in</span><span class="p">)</span>
+        <span class="n">add</span><span class="p">(</span><span class="sa">f</span><span class="s2">"turbine </span><span class="si">{</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2"> outlet"</span><span class="p">,</span> <span class="n">T_turb</span><span class="p">,</span> <span class="n">p_in</span> <span class="o">*</span> <span class="n">pressure_ratio</span> <span class="o">**</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span> <span class="o">/</span> <span class="n">turbine_stages</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">regenerated</span><span class="p">:</span>
+        <span class="n">add</span><span class="p">(</span><span class="s2">"regenerator outlet (hot side)"</span><span class="p">,</span> <span class="n">T_turb</span> <span class="o">-</span> <span class="n">regenerated</span><span class="p">,</span> <span class="n">p_min</span><span class="p">)</span>
+    <span class="n">T</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">temperatures</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">pressures</span><span class="p">)</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">cp</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">T</span> <span class="o">/</span> <span class="n">T_min</span><span class="p">)</span> <span class="o">-</span> <span class="n">cp</span> <span class="o">*</span> <span class="n">k</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">p</span> <span class="o">/</span> <span class="n">p_min</span><span class="p">)</span>
+
+    <span class="n">compressor_work</span> <span class="o">=</span> <span class="n">compressor_stages</span> <span class="o">*</span> <span class="n">cp</span> <span class="o">*</span> <span class="p">(</span><span class="n">T_comp</span> <span class="o">-</span> <span class="n">T_min</span><span class="p">)</span>
+    <span class="n">turbine_work</span> <span class="o">=</span> <span class="n">turbine_stages</span> <span class="o">*</span> <span class="n">cp</span> <span class="o">*</span> <span class="p">(</span><span class="n">T_max</span> <span class="o">-</span> <span class="n">T_turb</span><span class="p">)</span>
+    <span class="n">heat_in</span> <span class="o">=</span> <span class="n">cp</span> <span class="o">*</span> <span class="p">(</span><span class="n">T_max</span> <span class="o">-</span> <span class="n">T_regen</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">turbine_stages</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">cp</span> <span class="o">*</span> <span class="p">(</span><span class="n">T_max</span> <span class="o">-</span> <span class="n">T_turb</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">BraytonResult</span><span class="p">(</span>
+        <span class="n">labels</span><span class="o">=</span><span class="nb">tuple</span><span class="p">(</span><span class="n">labels</span><span class="p">),</span>
+        <span class="n">T</span><span class="o">=</span><span class="n">T</span><span class="p">,</span>
+        <span class="n">p</span><span class="o">=</span><span class="n">p</span><span class="p">,</span>
+        <span class="n">s</span><span class="o">=</span><span class="n">s</span><span class="p">,</span>
+        <span class="n">efficiency</span><span class="o">=</span><span class="p">(</span><span class="n">turbine_work</span> <span class="o">-</span> <span class="n">compressor_work</span><span class="p">)</span> <span class="o">/</span> <span class="n">heat_in</span><span class="p">,</span>
+        <span class="n">compressor_work</span><span class="o">=</span><span class="n">compressor_work</span><span class="p">,</span>
+        <span class="n">turbine_work</span><span class="o">=</span><span class="n">turbine_work</span><span class="p">,</span>
+        <span class="n">heat_in</span><span class="o">=</span><span class="n">heat_in</span><span class="p">,</span>
+        <span class="n">heat_regenerated</span><span class="o">=</span><span class="n">cp</span> <span class="o">*</span> <span class="n">regenerated</span><span class="p">,</span>
+        <span class="n">cp</span><span class="o">=</span><span class="n">cp</span><span class="p">,</span>
+    <span class="p">)</span></div>
+
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../../_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be"></script>
+<script defer src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.1.
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.23.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

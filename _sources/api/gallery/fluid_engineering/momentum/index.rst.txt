@@ -1,0 +1,50 @@
+
+
+.. _sphx_glr_api_gallery_fluid_engineering_momentum:
+
+Momentum
+--------
+
+Forces from turning a stream: jets, vanes and pipe bends.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Lester Pelton, a millwright in the California gold country, patented in 1880 a wheel whose buckets split the jet in two and turn each half almost back on itself. By the momentum equation a vane that turns a jet through \theta is pushed with \rho A (V - u)^2 (1 - \cos\theta) (~engineeringkit.fluid_engineering.jet_force); a wheel, which always has a bucket in the jet, takes \rho Q u (V - u)(1 - \cos\theta) (~engineeringkit.fluid_engineering.pelton_wheel_power). Turning the jet through nearly 180° and running the buckets at half the jet speed leaves the water with almost no speed at all. This example compares Pelton&#x27;s buckets with the flat paddles of the hurdy-gurdy wheels they replaced.">
+
+.. only:: html
+
+  .. image:: /api/gallery/fluid_engineering/momentum/images/thumb/sphx_glr_plot_01_pelton_wheel_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/fluid_engineering/momentum/plot_01_pelton_wheel`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Pelton's water wheel (1880)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/fluid_engineering/momentum/plot_01_pelton_wheel
+

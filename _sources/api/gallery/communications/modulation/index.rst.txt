@@ -5,7 +5,7 @@
 Modulation
 ----------
 
-Amplitude, suppressed-carrier and frequency modulation.
+Amplitude, suppressed-carrier and frequency modulation, and their noise performance.
 
 
 .. raw:: html
@@ -70,6 +70,23 @@ Amplitude, suppressed-carrier and frequency modulation.
     </div>
 
 
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Armstrong demonstrated wideband FM&#x27;s quiet reception in 1935. Murray Crosby of RCA explained it. Measured against the reference SNR \gamma = P_R/N_0W (~engineeringkit.communications.baseband_snr), an envelope-detected AM receiver gives at best \gamma/3, because two thirds of the power sits in the carrier (~engineeringkit.communications.am_output_snr). An FM discriminator gives 3\beta^2 P_m\gamma (~engineeringkit.communications.fm_output_snr): every doubling of the deviation buys 6 dB. Crosby also found the catch. Below a carrier-to-noise ratio of about 10 dB in the FM bandwidth, the improvement collapses (~engineeringkit.communications.fm_threshold_snr).">
+
+.. only:: html
+
+  .. image:: /api/gallery/communications/modulation/images/thumb/sphx_glr_plot_04_crosby_fm_noise_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/communications/modulation/plot_04_crosby_fm_noise`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Crosby's noise analysis of FM against AM (1937)</div>
+    </div>
+
+
 .. thumbnail-parent-div-close
 
 .. raw:: html
@@ -83,4 +100,5 @@ Amplitude, suppressed-carrier and frequency modulation.
    /api/gallery/communications/modulation/plot_01_fessenden_amplitude_modulation
    /api/gallery/communications/modulation/plot_02_carson_suppressed_carrier
    /api/gallery/communications/modulation/plot_03_armstrong_frequency_modulation
+   /api/gallery/communications/modulation/plot_04_crosby_fm_noise
 

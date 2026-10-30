@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.944** total execution time for 3 files **from api/gallery/control_systems/optimal**:
+**00:00.753** total execution time for 3 files **from api/gallery/control_systems/optimal**:
 
 .. container::
 
@@ -33,11 +33,11 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_control_systems_optimal_plot_02_kalman_bucy_filter.py` (``plot_02_kalman_bucy_filter.py``)
-     - 00:00.531
+     - 00:00.379
      - 0.0
    * - :ref:`sphx_glr_api_gallery_control_systems_optimal_plot_01_kalman_lqr.py` (``plot_01_kalman_lqr.py``)
-     - 00:00.243
+     - 00:00.220
      - 0.0
    * - :ref:`sphx_glr_api_gallery_control_systems_optimal_plot_03_doyle_lqg_margins.py` (``plot_03_doyle_lqg_margins.py``)
-     - 00:00.169
+     - 00:00.154
      - 0.0

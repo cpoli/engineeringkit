@@ -19,17 +19,19 @@ unit from being passed.
 Open numerical gaps
 -------------------
 
-- **Steam above 1073.15 K.** ``steam_properties`` implements IAPWS-IF97
-  regions 1 to 4. Region 5 (1073.15 K to 2273.15 K, for gas turbines) is
-  not implemented and raises ``ValueError``. ``steam_properties`` takes
-  scalars only, and close to the critical point, where :math:`c_p`
+- **Steam near the critical point.** ``steam_properties`` implements all
+  five IAPWS-IF97 regions. Close to the critical point, where :math:`c_p`
   diverges, its region 3 values carry the formulation's larger tolerance.
-- **Real fluids other than water.** Van der Waals's equation, the
-  Joule-Thomson coefficient and the Clausius-Clapeyron and Antoine vapour
-  pressures are available, but there are no property tables for
-  refrigerants or other working fluids. Refrigeration stops at Carnot and
-  energy-balance coefficients of performance; there is no vapour-
-  compression cycle.
+- **Real fluids other than water** come from the Peng-Robinson equation
+  with a constant ideal-gas heat capacity (``refrigerant_properties``, with
+  R-134a built in). Vapour pressures are within about 2% and latent heats
+  within about 3% of the reference tables. Liquid volumes are 5-15% off, and
+  saturation stops at 0.45 and 0.9999 of the critical temperature. There are
+  no reference-quality refrigerant equations and no fluid mixtures beyond
+  ideal gases.
+- **Combustion** is complete combustion with no dissociation, so flame
+  temperatures above about 2000 K are upper bounds, and rich mixtures (CO and
+  H2 in the products) are not covered.
 - **SciPy errors.** Some thin wrappers around SciPy leave shape and range
   checks to SciPy, so a bad input can raise a SciPy error rather than one
   from ``_validation.py`` (``filter_signal`` with a two-dimensional ``b``,
@@ -41,6 +43,10 @@ Documentation gaps
 - Two history entries have no primary source: Jacobi's maximum power
   theorem (``electrical_engineering``) cites a textbook, and Thoma's 1924
   cavitation paper (``fluid_engineering``) is cited by title and year only.
+- In ``electrical_engineering``, Evans and Wagner's 1926 stability paper
+  (swing curves and the equal-area criterion) is cited by title, journal
+  and year only and was not checked, and Steinmetz's 1897 induction motor
+  paper was checked against bibliographies only.
 
 Using the models
 ----------------

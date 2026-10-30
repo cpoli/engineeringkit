@@ -28,16 +28,18 @@ for the heat equation that was both stable and accurate. The explicit scheme is 
 always stable but only first order in time. Averaging the two, they got an
 unconditionally stable, second-order method
 (:func:`~engineeringkit.heat_transfer.conduction_1d`). This example measures
-the order of each scheme and watches the explicit one blow up.
+the order of each scheme, watches the explicit one blow up, and closes with
+the steady two-dimensional problem the same finite differences solve
+(:func:`~engineeringkit.heat_transfer.conduction_2d`).
 
-.. GENERATED FROM PYTHON SOURCE LINES 16-21
+.. GENERATED FROM PYTHON SOURCE LINES 18-23
 
 .. code-block:: Python
 
     import matplotlib.pyplot as plt
     import numpy as np
 
-    from engineeringkit.heat_transfer import conduction_1d
+    from engineeringkit.heat_transfer import conduction_1d, conduction_2d
 
 
 
@@ -46,7 +48,7 @@ the order of each scheme and watches the explicit one blow up.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 22-29
+.. GENERATED FROM PYTHON SOURCE LINES 24-31
 
 A decaying sine mode
 --------------------
@@ -56,7 +58,7 @@ On the grid this mode decays exactly as :math:`e^{\alpha\lambda t}` with
 the discrete eigenvalue :math:`\lambda = -(4/\Delta x^2)\sin^2(\pi\Delta x/2L)`,
 so any remaining error comes from the time stepping alone.
 
-.. GENERATED FROM PYTHON SOURCE LINES 29-43
+.. GENERATED FROM PYTHON SOURCE LINES 31-45
 
 .. code-block:: Python
 
@@ -81,7 +83,7 @@ so any remaining error comes from the time stepping alone.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 44-50
+.. GENERATED FROM PYTHON SOURCE LINES 46-52
 
 Order of accuracy
 -----------------
@@ -90,7 +92,7 @@ Halving the time step halves the implicit error and quarters the
 Crank-Nicolson error, even at mesh Fourier numbers of 20 where the
 explicit scheme cannot run at all.
 
-.. GENERATED FROM PYTHON SOURCE LINES 50-65
+.. GENERATED FROM PYTHON SOURCE LINES 52-67
 
 .. code-block:: Python
 
@@ -126,11 +128,11 @@ explicit scheme cannot run at all.
     crank_nicolson : errors [0.01425 0.00356 0.00089 0.00022], observed order 2.000
     explicit at r = 0.50: error 0.02707
 
-    <matplotlib.legend.Legend object at 0x7f1f1b1cee70>
+    <matplotlib.legend.Legend object at 0x7f97807334a0>
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 66-73
+.. GENERATED FROM PYTHON SOURCE LINES 68-75
 
 The explicit instability
 ------------------------
@@ -140,7 +142,7 @@ the grid by :math:`|1 - 4r|` per step. Round-off seeds it, and within about a
 hundred steps a checkerboard swamps the solution. Crank-Nicolson with the
 same step is unaffected.
 
-.. GENERATED FROM PYTHON SOURCE LINES 73-90
+.. GENERATED FROM PYTHON SOURCE LINES 75-91
 
 .. code-block:: Python
 
@@ -160,7 +162,6 @@ same step is unaffected.
     axes[1].legend()
     fig.tight_layout()
 
-    plt.show()
 
 
 
@@ -174,10 +175,64 @@ same step is unaffected.
 
 
 
+.. GENERATED FROM PYTHON SOURCE LINES 92-100
+
+Steady conduction in two dimensions
+-----------------------------------
+
+Without time, the five-point stencil turns Laplace's equation into one
+sparse linear system. A 2 m by 1 m plate with three edges at 300 K and the
+top at 400 K has a Fourier-series solution (Incropera et al., eq. 4.19) to
+check the centre against; the error falls as :math:`\Delta x^2`, and the
+heat entering through the top leaves through the other three edges.
+
+.. GENERATED FROM PYTHON SOURCE LINES 100-120
+
+.. code-block:: Python
+
+
+
+    def series(xc, yc, width=2.0, height=1.0):
+        n = np.arange(1, 400, 2)
+        return 300 + 100 * 4 / np.pi * np.sum(
+            np.sin(n * np.pi * xc / width) * np.sinh(n * np.pi * yc / width) / (n * np.sinh(n * np.pi * height / width))
+        )
+
+
+    errors = []
+    for nodes in (11, 21, 41):
+        plate = conduction_2d(2.0, 1.0, 2 * nodes - 1, nodes, 300.0, 300.0, 300.0, 400.0, k=15.0)
+        errors.append(abs(plate.T[(nodes - 1) // 2, nodes - 1] - series(1.0, 0.5)))
+    print(f"centre error {errors[0]:.4f}, {errors[1]:.4f}, {errors[2]:.5f} K: ratios {errors[0] / errors[1]:.2f}, {errors[1] / errors[2]:.2f}")
+    print(f"edge heat rates [W/m]: {', '.join(f'{edge} {rate:.0f}' for edge, rate in plate.heat_rates.items())}")
+    assert 3.6 < errors[1] / errors[2] < 4.4 and abs(plate.summary()["imbalance_W_per_m"]) < 1e-8
+    fig, ax = plate.plot()
+    ax.set_title("Steady 2-D conduction, top edge at 400 K")
+
+    plt.show()
+
+
+
+.. image-sg:: /api/gallery/heat_transfer/conduction/images/sphx_glr_plot_03_crank_nicolson_002.png
+   :alt: Steady 2-D conduction, top edge at 400 K
+   :srcset: /api/gallery/heat_transfer/conduction/images/sphx_glr_plot_03_crank_nicolson_002.png
+   :class: sphx-glr-single-img
+
+
+.. rst-class:: sphx-glr-script-out
+
+ .. code-block:: none
+
+    centre error 0.0925, 0.0234, 0.00587 K: ratios 3.95, 3.99
+    edge heat rates [W/m]: left -3401, right -3401, bottom -1684, top 8485
+
+
+
+
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.382 seconds)
+   **Total running time of the script:** (0 minutes 0.331 seconds)
 
 
 .. _sphx_glr_download_api_gallery_heat_transfer_conduction_plot_03_crank_nicolson.py:

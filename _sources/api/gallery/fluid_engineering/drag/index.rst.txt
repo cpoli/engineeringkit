@@ -1,0 +1,50 @@
+
+
+.. _sphx_glr_api_gallery_fluid_engineering_drag:
+
+Drag
+----
+
+The drag on a sphere, from creeping flow to the drag crisis.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="George Gabriel Stokes, correcting pendulum experiments for the air dragged along with the bob, solved the slow viscous flow past a sphere in a paper read to the Cambridge Philosophical Society in December 1850 and printed in 1851. The drag is 3\pi\mu dV (~engineeringkit.fluid_engineering.stokes_drag), so a small sphere settles at (\rho_p - \rho)gd^2/(18\mu) (~engineeringkit.fluid_engineering.stokes_settling_velocity). The law fails once inertia matters, near Re = 1; the measured drag curve (~engineeringkit.fluid_engineering.sphere_drag_coefficient) takes over. This example draws the curve and finds how fast sand grains of different sizes fall through water (~engineeringkit.fluid_engineering.terminal_velocity).">
+
+.. only:: html
+
+  .. image:: /api/gallery/fluid_engineering/drag/images/thumb/sphx_glr_plot_01_stokes_drag_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/fluid_engineering/drag/plot_01_stokes_drag`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Stokes's drag on a sphere (1851)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/fluid_engineering/drag/plot_01_stokes_drag
+

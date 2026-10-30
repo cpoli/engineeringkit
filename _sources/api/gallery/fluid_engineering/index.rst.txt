@@ -7,9 +7,10 @@ Examples
 
 This gallery walks through every public feature of
 ``engineeringkit.fluid_engineering``, one breakthrough per script:
-hydrostatics, flow meters, pipe friction from Hagen and Poiseuille to Swamee
-and Jain, ship models and dimensional analysis, open channels, water
-hammer, pump cavitation and pipe networks.
+hydrostatics, flow meters, orifices and weirs, the momentum of jets, pipe
+friction from Hagen and Poiseuille to Swamee and Jain, Couette flow, drag
+on spheres, ship models and dimensional analysis, open channels, water
+hammer, turbomachines, pump cavitation and pipe networks.
 
 :doc:`Units, assumptions and numerical validation </guides/fluid_engineering>`
 gives the physical validity limits. Each script is self-contained and can be
@@ -19,12 +20,15 @@ Sections
 --------
 
 - **hydrostatics** -- Archimedes's principle and Stevin's hydrostatic paradox.
-- **measurement** -- Pitot's tube and Venturi's meter.
+- **measurement** -- Pitot's tube, Venturi's meter, Torricelli's orifice and Thomson's V-notch weir.
+- **momentum** -- Pelton's water wheel.
 - **pipe_flow** -- Hagen-Poiseuille, Darcy-Weisbach, Reynolds's transition, Nikuradse's roughness, Colebrook's equation, Moody's diagram and Swamee-Jain.
+- **viscous** -- Couette's rotating-cylinder viscometer.
+- **drag** -- Stokes's drag on a sphere.
 - **similarity** -- Froude's ship models and Buckingham's Pi theorem.
-- **open_channel** -- Manning's formula.
+- **open_channel** -- Manning's formula, Bélanger's hydraulic jump and Bakhmeteff's specific energy.
 - **transients** -- Joukowsky's water hammer.
-- **pumps** -- Thoma's cavitation parameter.
+- **pumps** -- Thoma's cavitation parameter and Euler's turbine equation.
 - **networks** -- Hardy Cross's method for pipe networks.
 
 
@@ -38,6 +42,46 @@ Sections
     <div class="sphx-glr-thumbnails">
 
 .. thumbnail-parent-div-open
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+Drag
+----
+
+The drag on a sphere, from creeping flow to the drag crisis.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="George Gabriel Stokes, correcting pendulum experiments for the air dragged along with the bob, solved the slow viscous flow past a sphere in a paper read to the Cambridge Philosophical Society in December 1850 and printed in 1851. The drag is 3\pi\mu dV (~engineeringkit.fluid_engineering.stokes_drag), so a small sphere settles at (\rho_p - \rho)gd^2/(18\mu) (~engineeringkit.fluid_engineering.stokes_settling_velocity). The law fails once inertia matters, near Re = 1; the measured drag curve (~engineeringkit.fluid_engineering.sphere_drag_coefficient) takes over. This example draws the curve and finds how fast sand grains of different sizes fall through water (~engineeringkit.fluid_engineering.terminal_velocity).">
+
+.. only:: html
+
+  .. image:: /api/gallery/fluid_engineering/drag/images/thumb/sphx_glr_plot_01_stokes_drag_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/fluid_engineering/drag/plot_01_stokes_drag`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Stokes's drag on a sphere (1851)</div>
+    </div>
+
 
 .. thumbnail-parent-div-close
 
@@ -105,7 +149,7 @@ Pressure in a fluid at rest, buoyancy and forces on submerged surfaces.
 Measurement
 -----------
 
-Flow speed and flow rate from pressure differences.
+Flow speed and flow rate from pressure differences, orifices and weirs.
 
 
 .. raw:: html
@@ -150,6 +194,80 @@ Flow speed and flow rate from pressure differences.
 .. raw:: html
 
       <div class="sphx-glr-thumbnail-title">Venturi's tube (1797)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Evangelista Torricelli, Galileo&#x27;s successor at Florence, found that water spouts from a small hole in a vessel at the speed a body gains falling from the free surface, v = \sqrt{2gh}, and published it in the Opera geometrica of 1644. The jet narrows just past a sharp-edged hole (the vena contracta), so the flow is a discharge coefficient of about 0.61 times the ideal one (~engineeringkit.fluid_engineering.orifice_flow). This example drains a tank through an orifice (~engineeringkit.fluid_engineering.tank_drain_time) and checks the square-root law of the level against a step-by-step integration.">
+
+.. only:: html
+
+  .. image:: /api/gallery/fluid_engineering/measurement/images/thumb/sphx_glr_plot_03_torricelli_efflux_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/fluid_engineering/measurement/plot_03_torricelli_efflux`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Torricelli's law of efflux (1644)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="James Thomson, engineer and elder brother of Lord Kelvin, reported to the British Association in 1858 that a V-shaped notch measures small flows better than a rectangular weir. The flow section keeps the same shape as the head changes, so the discharge coefficient hardly varies, and the flow grows as H^{5/2} (~engineeringkit.fluid_engineering.v_notch_weir_flow) instead of H^{3/2} (~engineeringkit.fluid_engineering.rectangular_weir_flow), so a small flow still gives a readable head. This example compares the rating curves of the two weirs and finds how precisely each must be read.">
+
+.. only:: html
+
+  .. image:: /api/gallery/fluid_engineering/measurement/images/thumb/sphx_glr_plot_04_thomson_v_notch_weir_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/fluid_engineering/measurement/plot_04_thomson_v_notch_weir`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">James Thomson's triangular notch (1858)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+Momentum
+--------
+
+Forces from turning a stream: jets, vanes and pipe bends.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Lester Pelton, a millwright in the California gold country, patented in 1880 a wheel whose buckets split the jet in two and turn each half almost back on itself. By the momentum equation a vane that turns a jet through \theta is pushed with \rho A (V - u)^2 (1 - \cos\theta) (~engineeringkit.fluid_engineering.jet_force); a wheel, which always has a bucket in the jet, takes \rho Q u (V - u)(1 - \cos\theta) (~engineeringkit.fluid_engineering.pelton_wheel_power). Turning the jet through nearly 180° and running the buckets at half the jet speed leaves the water with almost no speed at all. This example compares Pelton&#x27;s buckets with the flat paddles of the hurdy-gurdy wheels they replaced.">
+
+.. only:: html
+
+  .. image:: /api/gallery/fluid_engineering/momentum/images/thumb/sphx_glr_plot_01_pelton_wheel_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/fluid_engineering/momentum/plot_01_pelton_wheel`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Pelton's water wheel (1880)</div>
     </div>
 
 
@@ -202,7 +320,7 @@ Looped pipe networks.
 Open channels
 -------------
 
-Uniform flow with a free surface.
+Flow with a free surface: uniform flow, specific energy and the hydraulic jump.
 
 
 .. raw:: html
@@ -230,6 +348,40 @@ Uniform flow with a free surface.
 .. raw:: html
 
       <div class="sphx-glr-thumbnail-title">Manning's open-channel formula (1889)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Water shooting fast and shallow from under a sluice gate cannot slow down smoothly: it rises abruptly, in a turbulent roller, to a deeper, slower stream. Jean-Baptiste Bélanger studied this hydraulic jump in his 1828 essay on steady flow in open channels. The rule used today, that the pressure force plus the momentum flux is the same on both sides, gives the sequent depth y_2/y_1 = (\sqrt{1 + 8\mathrm{Fr}_1^2} - 1)/2 (~engineeringkit.fluid_engineering.sequent_depth). The energy balance cannot be used across the jump, because the roller dissipates energy (~engineeringkit.fluid_engineering.hydraulic_jump_head_loss). This example finds the jump below a sluice gate and how much of the stream&#x27;s energy it destroys.">
+
+.. only:: html
+
+  .. image:: /api/gallery/fluid_engineering/open_channel/images/thumb/sphx_glr_plot_02_belanger_hydraulic_jump_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/fluid_engineering/open_channel/plot_02_belanger_hydraulic_jump`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Bélanger's hydraulic jump (1828)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Boris Bakhmeteff, in a 1912 book on varied flow written at St Petersburg, measured the energy of a stream from the channel bed instead of from a fixed datum: the specific energy E = y + q^2/(2gy^2) (~engineeringkit.fluid_engineering.specific_energy). Plotted against depth, it has a least value at the critical depth y_c = (q^2/g)^{1/3} (~engineeringkit.fluid_engineering.critical_depth), where the Froude number is 1, and any larger energy can be carried at a subcritical and a supercritical alternate depth (~engineeringkit.fluid_engineering.alternate_depths). This example draws the specific-energy diagram and uses it to find the flow over a raised step in the bed.">
+
+.. only:: html
+
+  .. image:: /api/gallery/fluid_engineering/open_channel/images/thumb/sphx_glr_plot_03_bakhmeteff_specific_energy_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/fluid_engineering/open_channel/plot_03_bakhmeteff_specific_energy`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Bakhmeteff's specific energy (1912)</div>
     </div>
 
 
@@ -384,7 +536,7 @@ Laminar and turbulent flow in pipes, head losses and friction factors.
 Pumps
 -----
 
-Pump power and cavitation.
+Turbomachine head, pump power and cavitation.
 
 
 .. raw:: html
@@ -412,6 +564,23 @@ Pump power and cavitation.
 .. raw:: html
 
       <div class="sphx-glr-thumbnail-title">Thoma's cavitation parameter (1924)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Leonhard Euler, studying Segner&#x27;s reaction water wheel at the Berlin academy, wrote the torque of a rotor as the change in the angular momentum of the water passing through it. Multiplied by the speed, it gives the head a pump adds or a turbine takes, H = (u_2V_{t2} - u_1V_{t1})/g (~engineeringkit.fluid_engineering.euler_turbomachine_head). This example draws the ideal head of a centrifugal impeller for backward, radial and forward blades, and shows that the head scales with the square of the speed, the affinity law (~engineeringkit.fluid_engineering.affinity_laws).">
+
+.. only:: html
+
+  .. image:: /api/gallery/fluid_engineering/pumps/images/thumb/sphx_glr_plot_02_euler_turbine_equation_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/fluid_engineering/pumps/plot_02_euler_turbine_equation`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Euler's turbine equation (1754)</div>
     </div>
 
 
@@ -518,20 +687,63 @@ Pressure waves in pipelines.
 
     </div>
 
+Viscous flow
+------------
+
+Exact laminar solutions between moving walls.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Maurice Couette, in his 1890 thesis at Paris, measured the viscosity of water in the narrow gap between a fixed inner cylinder and a rotating outer one, from the torque on the inner cylinder. Rotating the outer cylinder keeps the flow laminar to high speeds. For a narrow gap the flow is the plane shear flow between a fixed and a sliding plate, with a straight velocity profile and uniform stress \mu U/h (~engineeringkit.fluid_engineering.couette_velocity, couette_shear_stress); the exact torque for any gap is couette_viscometer_torque. This example reads a viscosity back from a torque and adds a pressure gradient to the plane flow.">
+
+.. only:: html
+
+  .. image:: /api/gallery/fluid_engineering/viscous/images/thumb/sphx_glr_plot_01_couette_viscometer_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/fluid_engineering/viscous/plot_01_couette_viscometer`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Couette's rotating-cylinder viscometer (1890)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
 
 .. toctree::
    :hidden:
    :includehidden:
 
 
+   /api/gallery/fluid_engineering/drag/index.rst
    /api/gallery/fluid_engineering/hydrostatics/index.rst
    /api/gallery/fluid_engineering/measurement/index.rst
+   /api/gallery/fluid_engineering/momentum/index.rst
    /api/gallery/fluid_engineering/networks/index.rst
    /api/gallery/fluid_engineering/open_channel/index.rst
    /api/gallery/fluid_engineering/pipe_flow/index.rst
    /api/gallery/fluid_engineering/pumps/index.rst
    /api/gallery/fluid_engineering/similarity/index.rst
    /api/gallery/fluid_engineering/transients/index.rst
+   /api/gallery/fluid_engineering/viscous/index.rst
 
 
 .. only:: html

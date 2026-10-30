@@ -1,0 +1,43 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-10-30T06:36:53.647066Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-30T06:36:51.350485Z",
+      "mimetype": null,
+      "name": "plot_02_maillart_shear_center.ipynb",
+      "path": "jupyterlite_contents/api/gallery/structural_engineering/shear/plot_02_maillart_shear_center.ipynb",
+      "size": 5143,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-30T06:36:53.646929Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-30T06:36:51.350372Z",
+      "mimetype": null,
+      "name": "plot_01_jourawski_shear_stress.ipynb",
+      "path": "jupyterlite_contents/api/gallery/structural_engineering/shear/plot_01_jourawski_shear_stress.ipynb",
+      "size": 4271,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2026-10-30T06:36:53.647066Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-10-30T06:36:53.647066Z",
+  "mimetype": null,
+  "name": "shear",
+  "path": "jupyterlite_contents/api/gallery/structural_engineering/shear",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

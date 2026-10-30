@@ -77,7 +77,7 @@ lag zero to the front and taking a DFT of length :math:`2N-1` gives
 
  .. code-block:: none
 
-    largest difference: 2.22e-15
+    largest difference: 2.66e-15
 
 
 
@@ -147,7 +147,7 @@ of :math:`f_s`. The sample autocorrelation of a long record follows
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.401 seconds)
+   **Total running time of the script:** (0 minutes 0.372 seconds)
 
 
 .. _sphx_glr_download_api_gallery_signal_processing_spectral_plot_02_wiener_khinchin.py:

@@ -53,6 +53,23 @@ The probability that a load exceeds a resistance.
     </div>
 
 
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Stanislaw Ulam, recovering from an illness and playing solitaire, wondered whether it was quicker to estimate the chance of winning by dealing many games than by combinatorics. With Nicholas Metropolis (1949) he described the Monte Carlo method: estimate a probability or an integral by random sampling. For a structure the failure probability P(g(X) &lt; 0) is the fraction of sampled load and resistance pairs that fail (~engineeringkit.reliability.monte_carlo_failure_probability). It needs no linearisation, which makes it the check on the Hasofer-Lind index (~engineeringkit.reliability.hasofer_lind_index), but its relative error falls only as 1/\sqrt{N p_f}. Sampling around the Hasofer-Lind design point instead of the mean (importance sampling) puts half the samples in the failure domain.">
+
+.. only:: html
+
+  .. image:: /api/gallery/reliability/structural/images/thumb/sphx_glr_plot_03_metropolis_ulam_monte_carlo_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/reliability/structural/plot_03_metropolis_ulam_monte_carlo`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Metropolis and Ulam's Monte Carlo method (1949)</div>
+    </div>
+
+
 .. thumbnail-parent-div-close
 
 .. raw:: html
@@ -65,4 +82,5 @@ The probability that a load exceeds a resistance.
 
    /api/gallery/reliability/structural/plot_01_freudenthal_interference
    /api/gallery/reliability/structural/plot_02_hasofer_lind
+   /api/gallery/reliability/structural/plot_03_metropolis_ulam_monte_carlo
 

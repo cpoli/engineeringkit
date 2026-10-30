@@ -87,6 +87,23 @@ Bending stress, continuous beams and moving loads.
     </div>
 
 
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Integrating EIy&#x27;&#x27; = M for a beam with several loads used to mean a separate moment equation, and two constants of integration, for every stretch between loads, all joined by continuity conditions. William Herrick Macaulay (1919), following Clebsch (1862), wrote the moment once for the whole beam with brackets \langle x - a\rangle^n that vanish to the left of a, so only two constants remain. Beam adds the unknown reactions to those two constants and solves equilibrium and the support conditions together, so statically indeterminate beams need no special treatment. The example solves a propped cantilever under a point load, a couple and a triangular load, and checks it against the older method of superposition (~engineeringkit.structural_engineering.superpose_beam_results).">
+
+.. only:: html
+
+  .. image:: /api/gallery/structural_engineering/beams/images/thumb/sphx_glr_plot_05_macaulay_singularity_functions_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/structural_engineering/beams/plot_05_macaulay_singularity_functions`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Macaulay's singularity functions (1919)</div>
+    </div>
+
+
 .. thumbnail-parent-div-close
 
 .. raw:: html
@@ -101,4 +118,5 @@ Bending stress, continuous beams and moving loads.
    /api/gallery/structural_engineering/beams/plot_02_navier_beam
    /api/gallery/structural_engineering/beams/plot_03_clapeyron_three_moment
    /api/gallery/structural_engineering/beams/plot_04_winkler_influence_lines
+   /api/gallery/structural_engineering/beams/plot_05_macaulay_singularity_functions
 

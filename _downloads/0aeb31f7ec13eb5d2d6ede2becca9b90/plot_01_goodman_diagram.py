@@ -12,7 +12,9 @@ endurance limit :math:`S_e` at zero mean to nothing at the ultimate strength
 .. math:: \frac{\sigma_a}{S_e} + \frac{\sigma_m}{S_{ut}} = \frac{1}{n}
 
 (:func:`~engineeringkit.materials.goodman_safety_factor`). The example
-compares it with Gerber's parabola (1874) and Soderberg's line (1930) and
+compares it with Gerber's parabola (1874,
+:func:`~engineeringkit.materials.gerber_safety_factor`) and Soderberg's
+line (1930, :func:`~engineeringkit.materials.soderberg_safety_factor`) and
 reads safety factors along a load line.
 """
 
@@ -20,7 +22,7 @@ reads safety factors along a load line.
 import matplotlib.pyplot as plt
 import numpy as np
 
-from engineeringkit.materials import goodman_safety_factor
+from engineeringkit.materials import gerber_safety_factor, goodman_safety_factor, soderberg_safety_factor
 
 # %%
 # A bolt with a preload
@@ -50,6 +52,9 @@ goodman = Se * (1 - mean / Sut)
 gerber = Se * (1 - (mean / Sut) ** 2)
 soderberg = Se * np.clip(1 - mean / Sy, 0, None)
 assert np.all(soderberg <= goodman + 1e-6) and np.all(goodman <= gerber + 1e-6)
+n_gerber, n_soderberg = gerber_safety_factor(sa, sm, Se, Sut), soderberg_safety_factor(sa, sm, Se, Sy)
+print(f"bolt safety factors: Gerber {n_gerber:.3f}, Goodman {n:.3f}, Soderberg {n_soderberg:.3f}")
+assert n_soderberg < n < n_gerber
 external = np.linspace(10e6, 80e6, 8)
 n_external = goodman_safety_factor(external, sm, Se, Sut)
 print("safety factor as the alternating stress grows:", np.round(n_external, 2).tolist())

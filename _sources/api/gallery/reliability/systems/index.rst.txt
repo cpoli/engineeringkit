@@ -87,6 +87,23 @@ How the reliability of a system follows from its parts and their arrangement.
     </div>
 
 
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Most block diagrams are neither series nor parallel; the classic example is the bridge. James Esary and Frank Proschan (1963) described any coherent system by its minimal path sets, the smallest groups of components whose working keeps it working (~engineeringkit.reliability.minimal_path_sets), and its minimal cut sets, the smallest groups whose failure stops it (~engineeringkit.reliability.minimal_cut_sets). The system is a parallel arrangement of its paths, or a series arrangement of its cuts. Treating the paths or the cuts as independent gives bounds on the exact reliability (~engineeringkit.reliability.esary_proschan_bounds, network_reliability), and the cut bound is very close for reliable components.">
+
+.. only:: html
+
+  .. image:: /api/gallery/reliability/systems/images/thumb/sphx_glr_plot_05_esary_proschan_bounds_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/reliability/systems/plot_05_esary_proschan_bounds`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Esary and Proschan's path and cut bounds (1963)</div>
+    </div>
+
+
 .. thumbnail-parent-div-close
 
 .. raw:: html
@@ -101,4 +118,5 @@ How the reliability of a system follows from its parts and their arrangement.
    /api/gallery/reliability/systems/plot_02_agree_series_systems
    /api/gallery/reliability/systems/plot_03_k_out_of_n
    /api/gallery/reliability/systems/plot_04_birnbaum_importance
+   /api/gallery/reliability/systems/plot_05_esary_proschan_bounds
 

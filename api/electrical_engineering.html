@@ -10,10 +10,10 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://cpoli.github.io/engineeringkit/api/electrical_engineering.html" />
 <meta property="og:site_name" content="engineeringkit" />
-<meta property="og:description" content="Domain hub · History · Examples · API reference Ohm’s law, series and parallel equivalents, the Wheatstone bridge and modified nodal analysis; Thévenin and Norton equivalents and maximum power tran..." />
+<meta property="og:description" content="Domain hub · History · Examples · API reference Ohm’s law, series and parallel equivalents, the Wheatstone bridge, modified nodal analysis and mesh analysis; Thévenin and Norton equivalents and max..." />
 <meta property="og:image" content="https://cpoli.github.io/engineeringkit/_static/images/readme_hero.png" />
 <meta property="og:image:alt" content="engineeringkit" />
-<meta name="description" content="Domain hub · History · Examples · API reference Ohm’s law, series and parallel equivalents, the Wheatstone bridge and modified nodal analysis; Thévenin and Norton equivalents and maximum power tran..." />
+<meta name="description" content="Domain hub · History · Examples · API reference Ohm’s law, series and parallel equivalents, the Wheatstone bridge, modified nodal analysis and mesh analysis; Thévenin and Norton equivalents and max..." />
 
     <title>engineeringkit.electrical_engineering &#8212; engineeringkit</title>
   
@@ -55,7 +55,7 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be" />
 
-    <script src="../_static/documentation_options.js?v=38b66d78"></script>
+    <script src="../_static/documentation_options.js?v=95e61db4"></script>
     <script src="../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/sg-tags.js?v=d80f6fa4"></script>
@@ -222,6 +222,21 @@
   </ul>
 </div></div>
       
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://cpoli.github.io/" title="Charles Poli" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-user fa-lg" aria-hidden="true"></i><span class="visually-hidden">Charles Poli</span></a>
+        </li>
+</ul></div>
+      
     </div>
     
   </div>
@@ -319,6 +334,21 @@
     <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
   </ul>
 </div></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://cpoli.github.io/" title="Charles Poli" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-user fa-lg" aria-hidden="true"></i><span class="visually-hidden">Charles Poli</span></a>
+        </li>
+</ul></div>
         
       </div>
     
@@ -423,23 +453,33 @@
 <div class="subpkg-nav docutils container">
 <p><a class="reference internal" href="../_generated/subpackages/electrical_engineering.html"><span class="doc">Domain hub</span></a> · <a class="reference internal" href="../history/electrical_engineering_breakthroughs.html"><span class="doc">History</span></a> · <a class="reference internal" href="gallery/electrical_engineering/index.html"><span class="doc">Examples</span></a> · <a class="reference internal" href="#"><span class="doc">API reference</span></a></p>
 </div>
-<p>Ohm’s law, series and parallel equivalents, the Wheatstone bridge and
-modified nodal analysis; Thévenin and Norton equivalents and maximum power
-transfer; RC and RL transients; phasors, complex impedance, series
-resonance and the ideal transformer; lossless and lossy transmission lines,
-the distortionless condition, reflection coefficients and input impedance;
-real, reactive and three-phase power, symmetrical components and
-Gauss-Seidel load flow (linear systems by <code class="docutils literal notranslate"><span class="pre">numpy.linalg</span></code>, the RLC step
-response by <code class="docutils literal notranslate"><span class="pre">scipy.signal</span></code>).</p>
+<p>Ohm’s law, series and parallel equivalents, the Wheatstone bridge,
+modified nodal analysis and mesh analysis; Thévenin and Norton equivalents
+and maximum power transfer; RC and RL transients and the second-order RLC
+step; phasors, complex impedance, series resonance and the ideal
+transformer; ideal op-amp circuits, the Shockley diode and its load line;
+DC machine and induction motor torque-speed curves; lossless and lossy
+transmission lines, the distortionless condition, reflection coefficients
+and input impedance; real, reactive and three-phase power, the per-unit
+system, symmetrical components and fault currents, Gauss-Seidel and
+Newton-Raphson load flow, the swing equation and the equal-area criterion
+(linear systems by <code class="docutils literal notranslate"><span class="pre">numpy.linalg</span></code>, the RLC step response by
+<code class="docutils literal notranslate"><span class="pre">scipy.signal</span></code>, roots by <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code> and swing curves by
+<code class="docutils literal notranslate"><span class="pre">engineeringkit.integrators</span></code>).</p>
 <p id="module-engineeringkit.electrical_engineering">engineeringkit.electrical_engineering: circuits from Ohm’s law to the digital load flow.</p>
-<p>Ohm’s law, series and parallel equivalents, the Wheatstone bridge and
-modified nodal analysis of resistive networks; Thévenin, Norton and Jacobi’s
-maximum power transfer; RC and RL transients; complex impedance, series
-resonance and the ideal transformer; lossless and lossy transmission lines,
-Heaviside’s distortionless condition, reflections and input impedance for
-the Smith chart; and real, reactive and three-phase power, Fortescue’s
-symmetrical components and Gauss-Seidel load flow. Models are hand-written;
-NumPy solves the linear systems and SciPy computes the RLC step response.</p>
+<p>Ohm’s law, series and parallel equivalents, the Wheatstone bridge, modified
+nodal analysis and mesh analysis of resistive networks; Thévenin, Norton
+and Jacobi’s maximum power transfer; RC and RL transients and the over-,
+critically and underdamped RLC step; complex impedance, series resonance
+and the ideal transformer; ideal op-amp circuits, Shockley’s diode equation
+and the load line; DC machine and induction motor torque-speed curves;
+lossless and lossy transmission lines, Heaviside’s distortionless
+condition, reflections and input impedance for the Smith chart; and real,
+reactive and three-phase power, the per-unit system, Fortescue’s
+symmetrical components and fault currents, Gauss-Seidel and Newton-Raphson
+load flow, and the swing equation with the equal-area criterion. Models are
+hand-written; NumPy solves the linear systems and SciPy computes the RLC
+step response, integrals, roots and swing curves.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="engineeringkit.electrical_engineering.CircuitResult">
 <span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">engineeringkit.electrical_engineering.</span></span><span class="sig-name descname"><span class="pre">CircuitResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">response</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/electrical_engineering/core/base.html#CircuitResult"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.electrical_engineering.CircuitResult" title="Link to this definition">#</a></dt>
@@ -498,7 +538,8 @@ NumPy solves the linear systems and SciPy computes the RLC step response.</p>
 <dt class="sig sig-object py" id="engineeringkit.electrical_engineering.LoadFlowResult">
 <span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">engineeringkit.electrical_engineering.</span></span><span class="sig-name descname"><span class="pre">LoadFlowResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">voltages</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">power</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iterations</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">converged</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">history</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/electrical_engineering/core/base.html#LoadFlowResult"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.electrical_engineering.LoadFlowResult" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Output of <a class="reference internal" href="#engineeringkit.electrical_engineering.gauss_seidel_load_flow" title="engineeringkit.electrical_engineering.gauss_seidel_load_flow"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.electrical_engineering.gauss_seidel_load_flow()</span></code></a>.</p>
+<p>Output of <a class="reference internal" href="#engineeringkit.electrical_engineering.gauss_seidel_load_flow" title="engineeringkit.electrical_engineering.gauss_seidel_load_flow"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.electrical_engineering.gauss_seidel_load_flow()</span></code></a> and
+<a class="reference internal" href="#engineeringkit.electrical_engineering.newton_raphson_load_flow" title="engineeringkit.electrical_engineering.newton_raphson_load_flow"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.electrical_engineering.newton_raphson_load_flow()</span></code></a>.</p>
 <p>All quantities are per unit on the system base.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -514,7 +555,7 @@ NumPy solves the linear systems and SciPy computes the RLC step response.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="engineeringkit.electrical_engineering.LoadFlowResult.converged">
 <span class="sig-name descname"><span class="pre">converged</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></span><a class="headerlink" href="#engineeringkit.electrical_engineering.LoadFlowResult.converged" title="Link to this definition">#</a></dt>
-<dd><p>Whether the largest voltage update fell below the tolerance.</p>
+<dd><p>Whether the convergence measure in <code class="docutils literal notranslate"><span class="pre">history</span></code> fell below the tolerance.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>bool</p>
@@ -525,7 +566,7 @@ NumPy solves the linear systems and SciPy computes the RLC step response.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="engineeringkit.electrical_engineering.LoadFlowResult.history">
 <span class="sig-name descname"><span class="pre">history</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></span><a class="headerlink" href="#engineeringkit.electrical_engineering.LoadFlowResult.history" title="Link to this definition">#</a></dt>
-<dd><p>Largest voltage update in each sweep.</p>
+<dd><p>Largest voltage update in each Gauss-Seidel sweep, or largest power mismatch before each Newton step.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>ndarray</p>
@@ -536,7 +577,7 @@ NumPy solves the linear systems and SciPy computes the RLC step response.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="engineeringkit.electrical_engineering.LoadFlowResult.iterations">
 <span class="sig-name descname"><span class="pre">iterations</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></span><a class="headerlink" href="#engineeringkit.electrical_engineering.LoadFlowResult.iterations" title="Link to this definition">#</a></dt>
-<dd><p>Gauss-Seidel sweeps performed.</p>
+<dd><p>Gauss-Seidel sweeps or Newton-Raphson steps performed.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>int</p>
@@ -585,6 +626,72 @@ NumPy solves the linear systems and SciPy computes the RLC step response.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>ndarray of complex</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="engineeringkit.electrical_engineering.MeshResult">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">engineeringkit.electrical_engineering.</span></span><span class="sig-name descname"><span class="pre">MeshResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mesh_currents</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resistor_currents</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kvl_residual</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/electrical_engineering/core/base.html#MeshResult"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.electrical_engineering.MeshResult" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Output of <a class="reference internal" href="#engineeringkit.electrical_engineering.mesh_analysis" title="engineeringkit.electrical_engineering.mesh_analysis"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.electrical_engineering.mesh_analysis()</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mesh_currents</strong> (<em>ndarray</em>)</p></li>
+<li><p><strong>resistor_currents</strong> (<em>ndarray</em>)</p></li>
+<li><p><strong>kvl_residual</strong> (<em>float</em>)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="engineeringkit.electrical_engineering.MeshResult.kvl_residual">
+<span class="sig-name descname"><span class="pre">kvl_residual</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></span><a class="headerlink" href="#engineeringkit.electrical_engineering.MeshResult.kvl_residual" title="Link to this definition">#</a></dt>
+<dd><p>Largest net voltage around any mesh [V]; zero up to rounding.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="engineeringkit.electrical_engineering.MeshResult.mesh_currents">
+<span class="sig-name descname"><span class="pre">mesh_currents</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></span><a class="headerlink" href="#engineeringkit.electrical_engineering.MeshResult.mesh_currents" title="Link to this definition">#</a></dt>
+<dd><p>Clockwise current in each mesh [A], index 0 is mesh 1.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="engineeringkit.electrical_engineering.MeshResult.plot">
+<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/electrical_engineering/core/base.html#MeshResult.plot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.electrical_engineering.MeshResult.plot" title="Link to this definition">#</a></dt>
+<dd><p>Bar chart of mesh currents; return <code class="docutils literal notranslate"><span class="pre">(fig,</span> <span class="pre">ax)</span></code>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="engineeringkit.electrical_engineering.MeshResult.resistor_currents">
+<span class="sig-name descname"><span class="pre">resistor_currents</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></span><a class="headerlink" href="#engineeringkit.electrical_engineering.MeshResult.resistor_currents" title="Link to this definition">#</a></dt>
+<dd><p>Current in each resistor in the clockwise sense of its first mesh [A].</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="engineeringkit.electrical_engineering.MeshResult.summary">
+<span class="sig-name descname"><span class="pre">summary</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/electrical_engineering/core/base.html#MeshResult.summary"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.electrical_engineering.MeshResult.summary" title="Link to this definition">#</a></dt>
+<dd><p>Number of meshes, largest mesh current magnitude [A] and the KVL residual [V].</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></span></p>
 </dd>
 </dl>
 </dd></dl>
@@ -771,6 +878,102 @@ if omitted.</p>
 
 </dd></dl>
 
+<dl class="py class">
+<dt class="sig sig-object py" id="engineeringkit.electrical_engineering.SwingResult">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">engineeringkit.electrical_engineering.</span></span><span class="sig-name descname"><span class="pre">SwingResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">speed_deviation</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clearing_time</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_stable_angle</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/electrical_engineering/core/base.html#SwingResult"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.electrical_engineering.SwingResult" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Output of <a class="reference internal" href="#engineeringkit.electrical_engineering.swing_response" title="engineeringkit.electrical_engineering.swing_response"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.electrical_engineering.swing_response()</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>t</strong> (<em>ndarray</em>)</p></li>
+<li><p><strong>delta</strong> (<em>ndarray</em>)</p></li>
+<li><p><strong>speed_deviation</strong> (<em>ndarray</em>)</p></li>
+<li><p><strong>clearing_time</strong> (<em>float</em>)</p></li>
+<li><p><strong>max_stable_angle</strong> (<em>float</em>)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="engineeringkit.electrical_engineering.SwingResult.clearing_time">
+<span class="sig-name descname"><span class="pre">clearing_time</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></span><a class="headerlink" href="#engineeringkit.electrical_engineering.SwingResult.clearing_time" title="Link to this definition">#</a></dt>
+<dd><p>Time at which the fault is cleared [s].</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="engineeringkit.electrical_engineering.SwingResult.delta">
+<span class="sig-name descname"><span class="pre">delta</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></span><a class="headerlink" href="#engineeringkit.electrical_engineering.SwingResult.delta" title="Link to this definition">#</a></dt>
+<dd><p>Rotor angle against the infinite bus at each sample [rad].</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="engineeringkit.electrical_engineering.SwingResult.max_stable_angle">
+<span class="sig-name descname"><span class="pre">max_stable_angle</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></span><a class="headerlink" href="#engineeringkit.electrical_engineering.SwingResult.max_stable_angle" title="Link to this definition">#</a></dt>
+<dd><p>Unstable equilibrium <span class="math notranslate nohighlight">\(\pi - \arcsin(P_m/P_{max,post})\)</span> of the post-fault curve [rad].</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="engineeringkit.electrical_engineering.SwingResult.plot">
+<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/electrical_engineering/core/base.html#SwingResult.plot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.electrical_engineering.SwingResult.plot" title="Link to this definition">#</a></dt>
+<dd><p>Plot the swing curve, rotor angle in degrees against time; return <code class="docutils literal notranslate"><span class="pre">(fig,</span> <span class="pre">ax)</span></code>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="engineeringkit.electrical_engineering.SwingResult.speed_deviation">
+<span class="sig-name descname"><span class="pre">speed_deviation</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></span><a class="headerlink" href="#engineeringkit.electrical_engineering.SwingResult.speed_deviation" title="Link to this definition">#</a></dt>
+<dd><p>Rotor speed above synchronous speed at each sample [rad/s, electrical].</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="engineeringkit.electrical_engineering.SwingResult.stable">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">stable</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></span><a class="headerlink" href="#engineeringkit.electrical_engineering.SwingResult.stable" title="Link to this definition">#</a></dt>
+<dd><p>Whether the rotor angle stays below the post-fault unstable equilibrium (first swing).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="engineeringkit.electrical_engineering.SwingResult.summary">
+<span class="sig-name descname"><span class="pre">summary</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/electrical_engineering/core/base.html#SwingResult.summary"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.electrical_engineering.SwingResult.summary" title="Link to this definition">#</a></dt>
+<dd><p>First-swing stability, largest rotor angle [rad] and clearing time [s].</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="engineeringkit.electrical_engineering.SwingResult.t">
+<span class="sig-name descname"><span class="pre">t</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></span><a class="headerlink" href="#engineeringkit.electrical_engineering.SwingResult.t" title="Link to this definition">#</a></dt>
+<dd><p>Time samples [s].</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 <dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.electrical_engineering.admittance_matrix">
 <span class="sig-prename descclassname"><span class="pre">engineeringkit.electrical_engineering.</span></span><span class="sig-name descname"><span class="pre">admittance_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_buses</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lines</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/electrical_engineering/systems/power.html#admittance_matrix"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.electrical_engineering.admittance_matrix" title="Link to this definition">#</a></dt>
@@ -874,6 +1077,190 @@ circuit at DC).</p></li>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.electrical_engineering.change_base">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.electrical_engineering.</span></span><span class="sig-name descname"><span class="pre">change_base</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z_pu</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s_old</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v_old</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s_new</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v_new</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/electrical_engineering/systems/power.html#change_base"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.electrical_engineering.change_base" title="Link to this definition">#</a></dt>
+<dd><p>Convert a per-unit impedance to new bases, <span class="math notranslate nohighlight">\(z_{new} = z_{old}(V_{old}/V_{new})^2(S_{new}/S_{old})\)</span>.</p>
+<p>Nameplate impedances of generators and transformers are given on their
+own ratings; a network study puts them all on one system base.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>z_pu</strong> (<em>complex</em><em> or </em><em>array_like</em>) – Impedance on the old bases [pu].</p></li>
+<li><p><strong>s_old</strong> (<em>float</em><em> or </em><em>array_like</em>) – Old base power [VA] and base voltage [V], positive.</p></li>
+<li><p><strong>v_old</strong> (<em>float</em><em> or </em><em>array_like</em>) – Old base power [VA] and base voltage [V], positive.</p></li>
+<li><p><strong>s_new</strong> (<em>float</em><em> or </em><em>array_like</em>) – New base power [VA] and base voltage [V], positive.</p></li>
+<li><p><strong>v_new</strong> (<em>float</em><em> or </em><em>array_like</em>) – New base power [VA] and base voltage [V], positive.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Impedance on the new bases [pu].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>complex or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/electrical_engineering.html"><span class="doc">Electrical engineering: passive components and circuit responses</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">complex</span><span class="p">(</span><span class="n">change_base</span><span class="p">(</span><span class="mf">0.1</span><span class="n">j</span><span class="p">,</span> <span class="mf">50e6</span><span class="p">,</span> <span class="mf">13.8e3</span><span class="p">,</span> <span class="mf">100e6</span><span class="p">,</span> <span class="mf">13.8e3</span><span class="p">))</span><span class="o">.</span><span class="n">imag</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="go">0.2</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.electrical_engineering.critical_clearing_time">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.electrical_engineering.</span></span><span class="sig-name descname"><span class="pre">critical_clearing_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inertia_constant</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_mech</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_max_pre</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frequency</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">60.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_max_post</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/electrical_engineering/systems/stability.html#critical_clearing_time"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.electrical_engineering.critical_clearing_time" title="Link to this definition">#</a></dt>
+<dd><p>Critical clearing time of a bolted fault that drops the electrical power to zero.</p>
+<p>With <span class="math notranslate nohighlight">\(P_e = 0\)</span> during the fault the swing equation integrates to
+<span class="math notranslate nohighlight">\(\delta = \delta_0 + \omega_s P_m t^2/4H\)</span>, so the critical
+clearing angle of <a class="reference internal" href="#engineeringkit.electrical_engineering.equal_area_clearing_angle" title="engineeringkit.electrical_engineering.equal_area_clearing_angle"><code class="xref py py-func docutils literal notranslate"><span class="pre">equal_area_clearing_angle()</span></code></a> is reached at</p>
+<div class="math notranslate nohighlight">
+\[t_{cr} = \sqrt{\frac{4H(\delta_{cr} - \delta_0)}{\omega_s P_m}},
+\qquad \omega_s = 2\pi f.\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>inertia_constant</strong> (<em>float</em><em> or </em><em>array_like</em>) – Inertia constant <span class="math notranslate nohighlight">\(H\)</span> [s] (stored kinetic energy per unit
+rating), positive.</p></li>
+<li><p><strong>p_mech</strong> (<em>float</em><em> or </em><em>array_like</em>) – Mechanical input power [pu], positive.</p></li>
+<li><p><strong>p_max_pre</strong> (<em>float</em><em> or </em><em>array_like</em>) – Prefault power-angle amplitude [pu], above <code class="docutils literal notranslate"><span class="pre">p_mech</span></code>.</p></li>
+<li><p><strong>frequency</strong> (<em>float</em><em> or </em><em>array_like</em><em>, </em><em>optional</em>) – System frequency [Hz], positive.</p></li>
+<li><p><strong>p_max_post</strong> (<em>float</em><em> or </em><em>array_like</em><em>, </em><em>optional</em>) – Post-fault amplitude [pu]; defaults to <code class="docutils literal notranslate"><span class="pre">p_max_pre</span></code> (the fault is
+cleared without losing a line).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Critical clearing time [s].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/electrical_engineering.html"><span class="doc">Electrical engineering: passive components and circuit responses</span></a>. For a fault that leaves some
+power flowing there is no closed form: integrate with
+<a class="reference internal" href="#engineeringkit.electrical_engineering.swing_response" title="engineeringkit.electrical_engineering.swing_response"><code class="xref py py-func docutils literal notranslate"><span class="pre">swing_response()</span></code></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">critical_clearing_time</span><span class="p">(</span><span class="mf">5.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">)),</span> <span class="mi">4</span><span class="p">)</span>
+<span class="go">0.2142</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.electrical_engineering.dc_motor_speed">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.electrical_engineering.</span></span><span class="sig-name descname"><span class="pre">dc_motor_speed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v_terminal</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">armature_resistance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k_phi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">torque</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/electrical_engineering/systems/machines.html#dc_motor_speed"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.electrical_engineering.dc_motor_speed" title="Link to this definition">#</a></dt>
+<dd><p>Speed <span class="math notranslate nohighlight">\(\omega = V/k\Phi - R_a T/(k\Phi)^2\)</span> of a separately excited DC motor; the inverse of <a class="reference internal" href="#engineeringkit.electrical_engineering.dc_motor_torque" title="engineeringkit.electrical_engineering.dc_motor_torque"><code class="xref py py-func docutils literal notranslate"><span class="pre">dc_motor_torque()</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>v_terminal</strong> (<em>float</em><em> or </em><em>array_like</em>) – Armature terminal voltage [V].</p></li>
+<li><p><strong>armature_resistance</strong> (<em>float</em><em> or </em><em>array_like</em>) – Armature resistance [ohm], positive.</p></li>
+<li><p><strong>k_phi</strong> (<em>float</em><em> or </em><em>array_like</em>) – Machine constant [V s/rad], positive.</p></li>
+<li><p><strong>torque</strong> (<em>float</em><em> or </em><em>array_like</em>) – Load torque [N m].</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Shaft speed [rad/s].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/electrical_engineering.html"><span class="doc">Electrical engineering: passive components and circuit responses</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">float</span><span class="p">(</span><span class="n">dc_motor_speed</span><span class="p">(</span><span class="mf">240.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">160.0</span><span class="p">))</span>
+<span class="go">100.0</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.electrical_engineering.dc_motor_torque">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.electrical_engineering.</span></span><span class="sig-name descname"><span class="pre">dc_motor_torque</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v_terminal</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">armature_resistance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k_phi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">omega</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/electrical_engineering/systems/machines.html#dc_motor_torque"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.electrical_engineering.dc_motor_torque" title="Link to this definition">#</a></dt>
+<dd><p>Torque <span class="math notranslate nohighlight">\(T = k\Phi(V - k\Phi\omega)/R_a\)</span> of a separately excited DC machine.</p>
+<p>The armature is its back EMF <span class="math notranslate nohighlight">\(E = k\Phi\omega\)</span> behind the
+armature resistance, so the current is <span class="math notranslate nohighlight">\((V - E)/R_a\)</span> and the
+torque <span class="math notranslate nohighlight">\(k\Phi I_a\)</span>. The torque-speed curve is a straight line from
+the stall torque <span class="math notranslate nohighlight">\(k\Phi V/R_a\)</span> to the no-load speed
+<span class="math notranslate nohighlight">\(V/k\Phi\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>v_terminal</strong> (<em>float</em><em> or </em><em>array_like</em>) – Armature terminal voltage [V].</p></li>
+<li><p><strong>armature_resistance</strong> (<em>float</em><em> or </em><em>array_like</em>) – Armature resistance <span class="math notranslate nohighlight">\(R_a\)</span> [ohm], positive.</p></li>
+<li><p><strong>k_phi</strong> (<em>float</em><em> or </em><em>array_like</em>) – Machine constant <span class="math notranslate nohighlight">\(k\Phi\)</span> at the set field current [V s/rad]
+(equally N m/A), positive.</p></li>
+<li><p><strong>omega</strong> (<em>float</em><em> or </em><em>array_like</em>) – Shaft speed [rad/s].</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Electromagnetic torque [N m]; negative when the machine runs above
+its no-load speed and generates.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/electrical_engineering.html"><span class="doc">Electrical engineering: passive components and circuit responses</span></a>. Armature reaction, brush drop and
+rotational losses are neglected.</p>
+<p class="rubric">References</p>
+<p>J. Hopkinson and E. Hopkinson, “Dynamo-electric machinery,” <em>Phil.
+Trans. R. Soc.</em> 177 (1886) 331.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">float</span><span class="p">(</span><span class="n">dc_motor_torque</span><span class="p">(</span><span class="mf">240.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">100.0</span><span class="p">))</span>
+<span class="go">160.0</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.electrical_engineering.diode_operating_point">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.electrical_engineering.</span></span><span class="sig-name descname"><span class="pre">diode_operating_point</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v_source</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resistance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">saturation_current</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ideality</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">temperature</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">300.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/electrical_engineering/systems/electronics.html#diode_operating_point"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.electrical_engineering.diode_operating_point" title="Link to this definition">#</a></dt>
+<dd><p>Operating point of a diode in series with a resistor: the load-line solution.</p>
+<p>The resistor fixes the load line <span class="math notranslate nohighlight">\(i = (V_s - v)/R\)</span>, and the
+operating point is where it crosses the diode curve of
+<a class="reference internal" href="#engineeringkit.electrical_engineering.shockley_diode_current" title="engineeringkit.electrical_engineering.shockley_diode_current"><code class="xref py py-func docutils literal notranslate"><span class="pre">shockley_diode_current()</span></code></a>. The crossing is found by bracketed root
+finding (Brent’s method), on the current for forward bias, where the
+diode voltage <span class="math notranslate nohighlight">\(nV_T\ln(1 + i/I_S)\)</span> stays bounded, and on the
+voltage for reverse bias.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>v_source</strong> (<em>float</em>) – Source voltage driving the anode through the resistor [V].</p></li>
+<li><p><strong>resistance</strong> (<em>float</em>) – Series resistance [ohm], positive.</p></li>
+<li><p><strong>saturation_current</strong> (<em>float</em>) – Reverse saturation current [A], positive.</p></li>
+<li><p><strong>ideality</strong> (<em>float</em><em>, </em><em>optional</em>) – Ideality factor [-], positive.</p></li>
+<li><p><strong>temperature</strong> (<em>float</em><em>, </em><em>optional</em>) – Junction temperature [K], positive.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">(v_diode,</span> <span class="pre">i_diode)</span></code>: diode voltage [V] and current [A].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple of float</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/electrical_engineering.html"><span class="doc">Electrical engineering: passive components and circuit responses</span></a>. All parameters are scalar-only:
+each operating point is one root find.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">v</span><span class="p">,</span> <span class="n">i</span> <span class="o">=</span> <span class="n">diode_operating_point</span><span class="p">(</span><span class="mf">5.0</span><span class="p">,</span> <span class="mf">1e3</span><span class="p">,</span> <span class="mf">1e-14</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="nb">round</span><span class="p">(</span><span class="n">i</span> <span class="o">*</span> <span class="mf">1e3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="go">(0.6925, 4.3075)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.electrical_engineering.distortionless_condition">
 <span class="sig-prename descclassname"><span class="pre">engineeringkit.electrical_engineering.</span></span><span class="sig-name descname"><span class="pre">distortionless_condition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">R_per_m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">L_per_m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">G_per_m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">C_per_m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rtol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-09</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/electrical_engineering/systems/transmission_lines.html#distortionless_condition"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.electrical_engineering.distortionless_condition" title="Link to this definition">#</a></dt>
 <dd><p>Whether a line meets Heaviside’s distortionless condition <span class="math notranslate nohighlight">\(R/L = G/C\)</span>.</p>
@@ -907,6 +1294,124 @@ Macmillan, 1892).</p>
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">distortionless_condition</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">1e-6</span><span class="p">,</span> <span class="mf">1e-8</span><span class="p">,</span> <span class="mf">1e-12</span><span class="p">)</span>
 <span class="go">True</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.electrical_engineering.equal_area_clearing_angle">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.electrical_engineering.</span></span><span class="sig-name descname"><span class="pre">equal_area_clearing_angle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">p_mech</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_max_pre</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_max_fault</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_max_post</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/electrical_engineering/systems/stability.html#equal_area_clearing_angle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.electrical_engineering.equal_area_clearing_angle" title="Link to this definition">#</a></dt>
+<dd><p>Initial and critical clearing rotor angles by the equal-area criterion.</p>
+<p>The rotor starts at <span class="math notranslate nohighlight">\(\delta_0 = \arcsin(P_m/P_1)\)</span> on the prefault
+curve, accelerates along the fault curve <span class="math notranslate nohighlight">\(P_2\sin\delta\)</span> and, once
+cleared, decelerates along <span class="math notranslate nohighlight">\(P_3\sin\delta\)</span> until at most
+<span class="math notranslate nohighlight">\(\delta_{max} = \pi - \arcsin(P_m/P_3)\)</span>. Equating the accelerating
+and decelerating areas,</p>
+<div class="math notranslate nohighlight">
+\[\cos\delta_{cr} = \frac{P_m(\delta_{max} - \delta_0)
++ P_3\cos\delta_{max} - P_2\cos\delta_0}{P_3 - P_2}.\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_mech</strong> (<em>float</em><em> or </em><em>array_like</em>) – Mechanical input power <span class="math notranslate nohighlight">\(P_m\)</span> [pu], positive.</p></li>
+<li><p><strong>p_max_pre</strong> (<em>float</em><em> or </em><em>array_like</em>) – Amplitudes <span class="math notranslate nohighlight">\(P_1, P_2, P_3\)</span> of the prefault, fault-on and
+post-fault power-angle curves [pu]; <span class="math notranslate nohighlight">\(P_1, P_3 &gt; P_m\)</span> and
+<span class="math notranslate nohighlight">\(0 \le P_2 &lt; P_3\)</span>.</p></li>
+<li><p><strong>p_max_fault</strong> (<em>float</em><em> or </em><em>array_like</em>) – Amplitudes <span class="math notranslate nohighlight">\(P_1, P_2, P_3\)</span> of the prefault, fault-on and
+post-fault power-angle curves [pu]; <span class="math notranslate nohighlight">\(P_1, P_3 &gt; P_m\)</span> and
+<span class="math notranslate nohighlight">\(0 \le P_2 &lt; P_3\)</span>.</p></li>
+<li><p><strong>p_max_post</strong> (<em>float</em><em> or </em><em>array_like</em>) – Amplitudes <span class="math notranslate nohighlight">\(P_1, P_2, P_3\)</span> of the prefault, fault-on and
+post-fault power-angle curves [pu]; <span class="math notranslate nohighlight">\(P_1, P_3 &gt; P_m\)</span> and
+<span class="math notranslate nohighlight">\(0 \le P_2 &lt; P_3\)</span>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">(delta0,</span> <span class="pre">delta_critical)</span></code> [rad]. If the fault-on curve keeps the
+rotor from passing <span class="math notranslate nohighlight">\(\delta_{max}\)</span> whenever it is cleared,
+<code class="docutils literal notranslate"><span class="pre">delta_critical</span></code> is <span class="math notranslate nohighlight">\(\delta_{max}\)</span>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple of float or ndarray</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – For inconsistent powers, or if the post-fault system cannot hold the
+    rotor even when the fault is cleared at once.</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/electrical_engineering.html"><span class="doc">Electrical engineering: passive components and circuit responses</span></a>. Classical model: constant
+voltage behind transient reactance, constant mechanical power, no
+damping, one machine against an infinite bus.</p>
+<p class="rubric">References</p>
+<p>R. D. Evans and C. F. Wagner, “Studies of transmission stability,”
+<em>Trans. AIEE</em> 45 (1926); E. W. Kimbark, <em>Power System Stability</em>,
+vol. 1 (New York: Wiley, 1948), ch. 4.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">d0</span><span class="p">,</span> <span class="n">dcr</span> <span class="o">=</span> <span class="n">equal_area_clearing_angle</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">degrees</span><span class="p">(</span><span class="n">d0</span><span class="p">)),</span> <span class="mi">2</span><span class="p">),</span> <span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">degrees</span><span class="p">(</span><span class="n">dcr</span><span class="p">)),</span> <span class="mi">2</span><span class="p">)</span>
+<span class="go">(30.0, 79.56)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.electrical_engineering.fault_currents">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.electrical_engineering.</span></span><span class="sig-name descname"><span class="pre">fault_currents</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">e_prefault</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kind</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'slg'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z_fault</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/electrical_engineering/systems/power.html#fault_currents"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.electrical_engineering.fault_currents" title="Link to this definition">#</a></dt>
+<dd><p>Phase fault currents at a bus from its sequence impedances.</p>
+<p>The fault’s boundary conditions connect the Thévenin sequence networks
+seen from the faulted bus (phase a is the reference phase; a
+line-to-line fault is between phases b and c):</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;3ph&quot;</span></code>, balanced three-phase: <span class="math notranslate nohighlight">\(I_1 = E/(Z_1 + Z_f)\)</span>,
+<span class="math notranslate nohighlight">\(I_0 = I_2 = 0\)</span>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;slg&quot;</span></code>, single line (a) to ground: the three networks in series,
+<span class="math notranslate nohighlight">\(I_0 = I_1 = I_2 = E/(Z_0 + Z_1 + Z_2 + 3Z_f)\)</span>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;ll&quot;</span></code>, line to line: positive and negative networks in parallel
+opposition, <span class="math notranslate nohighlight">\(I_1 = -I_2 = E/(Z_1 + Z_2 + Z_f)\)</span>, <span class="math notranslate nohighlight">\(I_0 = 0\)</span>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;llg&quot;</span></code>, double line to ground: the negative network in parallel
+with the zero network plus <span class="math notranslate nohighlight">\(3Z_f\)</span>.</p></li>
+</ul>
+<p>The phase currents then follow from <a class="reference internal" href="#engineeringkit.electrical_engineering.phase_components" title="engineeringkit.electrical_engineering.phase_components"><code class="xref py py-func docutils literal notranslate"><span class="pre">phase_components()</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>e_prefault</strong> (<em>complex</em><em> or </em><em>array_like</em>) – Prefault (Thévenin) voltage at the bus [pu or V], nonzero.</p></li>
+<li><p><strong>z1</strong> (<em>complex</em><em> or </em><em>array_like</em>) – Positive-, negative- and zero-sequence Thévenin impedances at the
+bus [pu or ohm].</p></li>
+<li><p><strong>z2</strong> (<em>complex</em><em> or </em><em>array_like</em>) – Positive-, negative- and zero-sequence Thévenin impedances at the
+bus [pu or ohm].</p></li>
+<li><p><strong>z0</strong> (<em>complex</em><em> or </em><em>array_like</em>) – Positive-, negative- and zero-sequence Thévenin impedances at the
+bus [pu or ohm].</p></li>
+<li><p><strong>kind</strong> (<em>{&quot;slg&quot;</em><em>, </em><em>&quot;ll&quot;</em><em>, </em><em>&quot;llg&quot;</em><em>, </em><em>&quot;3ph&quot;}</em><em>, </em><em>optional</em>) – Fault type.</p></li>
+<li><p><strong>z_fault</strong> (<em>complex</em><em> or </em><em>array_like</em><em>, </em><em>optional</em>) – Fault impedance [pu or ohm] (to ground for <code class="docutils literal notranslate"><span class="pre">&quot;slg&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;llg&quot;</span></code>,
+between the faulted lines for <code class="docutils literal notranslate"><span class="pre">&quot;ll&quot;</span></code>, per phase for <code class="docutils literal notranslate"><span class="pre">&quot;3ph&quot;</span></code>).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">(Ia,</span> <span class="pre">Ib,</span> <span class="pre">Ic)</span></code>, phase currents into the fault [pu or A].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple of complex or ndarray</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – For an unknown <code class="docutils literal notranslate"><span class="pre">kind</span></code> or a fault path of zero total impedance.</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/electrical_engineering.html"><span class="doc">Electrical engineering: passive components and circuit responses</span></a>. Use one consistent unit system
+(per unit, or volts and ohms) for all inputs. Load current before the
+fault is neglected.</p>
+<p class="rubric">References</p>
+<p>C. L. Fortescue, “Method of symmetrical co-ordinates applied to the
+solution of polyphase networks,” <em>Trans. AIEE</em> 37 (1918) 1027-1140;
+J. D. Glover, T. J. Overbye and M. S. Sarma, <em>Power System Analysis
+and Design</em>, 6th ed. (Boston: Cengage, 2017), ch. 7 and 9.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ia</span><span class="p">,</span> <span class="n">ib</span><span class="p">,</span> <span class="n">ic</span> <span class="o">=</span> <span class="n">fault_currents</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.2</span><span class="n">j</span><span class="p">,</span> <span class="mf">0.2</span><span class="n">j</span><span class="p">,</span> <span class="mf">0.1</span><span class="n">j</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">ia</span><span class="p">),</span> <span class="mi">4</span><span class="p">),</span> <span class="nb">round</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">ib</span><span class="p">),</span> <span class="mi">12</span><span class="p">)</span>
+<span class="go">(6.0, 0.0)</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -959,6 +1464,100 @@ problems,” <em>Trans. AIEE Part III</em> 75 (1956) 398-404.</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">r</span> <span class="o">=</span> <span class="n">gauss_seidel_load_flow</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="p">[</span><span class="mf">0.5</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">r</span><span class="o">.</span><span class="n">converged</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">voltages</span><span class="p">[</span><span class="mi">1</span><span class="p">])),</span> <span class="mi">4</span><span class="p">)</span>
 <span class="go">(True, 0.9987)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.electrical_engineering.induction_motor_breakdown">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.electrical_engineering.</span></span><span class="sig-name descname"><span class="pre">induction_motor_breakdown</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v_phase</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">synchronous_speed</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phases</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/electrical_engineering/systems/machines.html#induction_motor_breakdown"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.electrical_engineering.induction_motor_breakdown" title="Link to this definition">#</a></dt>
+<dd><p>Slip and torque at the breakdown (pull-out) point of an induction motor.</p>
+<p>Torque is greatest when the rotor resistance <span class="math notranslate nohighlight">\(R_2/s\)</span> matches the
+impedance in front of it, at</p>
+<div class="math notranslate nohighlight">
+\[s_{max} = \frac{R_2}{\sqrt{R_{th}^2 + (X_{th} + X_2)^2}},\qquad
+T_{max} = \frac{m V_{th}^2}{2\omega_s\left[R_{th} + \sqrt{R_{th}^2 + (X_{th} + X_2)^2}\right]},\]</div>
+<p>so the breakdown torque does not depend on <span class="math notranslate nohighlight">\(R_2\)</span>, only where it
+occurs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>v_phase</strong> (<em>float</em><em> or </em><em>array_like</em>) – RMS phase voltage [V], nonnegative.</p></li>
+<li><p><strong>synchronous_speed</strong> (<em>float</em><em> or </em><em>array_like</em>) – Synchronous shaft speed [rad/s], positive.</p></li>
+<li><p><strong>r1</strong> (<em>float</em><em> or </em><em>array_like</em>) – Equivalent-circuit parameters [ohm]; see <a class="reference internal" href="#engineeringkit.electrical_engineering.induction_motor_torque" title="engineeringkit.electrical_engineering.induction_motor_torque"><code class="xref py py-func docutils literal notranslate"><span class="pre">induction_motor_torque()</span></code></a>.</p></li>
+<li><p><strong>x1</strong> (<em>float</em><em> or </em><em>array_like</em>) – Equivalent-circuit parameters [ohm]; see <a class="reference internal" href="#engineeringkit.electrical_engineering.induction_motor_torque" title="engineeringkit.electrical_engineering.induction_motor_torque"><code class="xref py py-func docutils literal notranslate"><span class="pre">induction_motor_torque()</span></code></a>.</p></li>
+<li><p><strong>r2</strong> (<em>float</em><em> or </em><em>array_like</em>) – Equivalent-circuit parameters [ohm]; see <a class="reference internal" href="#engineeringkit.electrical_engineering.induction_motor_torque" title="engineeringkit.electrical_engineering.induction_motor_torque"><code class="xref py py-func docutils literal notranslate"><span class="pre">induction_motor_torque()</span></code></a>.</p></li>
+<li><p><strong>x2</strong> (<em>float</em><em> or </em><em>array_like</em>) – Equivalent-circuit parameters [ohm]; see <a class="reference internal" href="#engineeringkit.electrical_engineering.induction_motor_torque" title="engineeringkit.electrical_engineering.induction_motor_torque"><code class="xref py py-func docutils literal notranslate"><span class="pre">induction_motor_torque()</span></code></a>.</p></li>
+<li><p><strong>xm</strong> (<em>float</em><em> or </em><em>array_like</em>) – Equivalent-circuit parameters [ohm]; see <a class="reference internal" href="#engineeringkit.electrical_engineering.induction_motor_torque" title="engineeringkit.electrical_engineering.induction_motor_torque"><code class="xref py py-func docutils literal notranslate"><span class="pre">induction_motor_torque()</span></code></a>.</p></li>
+<li><p><strong>phases</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of phases, at least one.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">(slip_max,</span> <span class="pre">torque_max)</span></code>: slip [-] and torque [N m] at breakdown.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple of float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/electrical_engineering.html"><span class="doc">Electrical engineering: passive components and circuit responses</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="p">,</span> <span class="n">T</span> <span class="o">=</span> <span class="n">induction_motor_breakdown</span><span class="p">(</span><span class="mf">230.0</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="mi">25</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">20.0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">s</span><span class="p">),</span> <span class="mi">4</span><span class="p">),</span> <span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">T</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
+<span class="go">(0.2049, 316.8)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.electrical_engineering.induction_motor_torque">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.electrical_engineering.</span></span><span class="sig-name descname"><span class="pre">induction_motor_torque</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v_phase</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">slip</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">synchronous_speed</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phases</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/electrical_engineering/systems/machines.html#induction_motor_torque"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.electrical_engineering.induction_motor_torque" title="Link to this definition">#</a></dt>
+<dd><p>Torque of an induction motor from Steinmetz’s per-phase equivalent circuit.</p>
+<p>Replacing the stator impedance and magnetizing reactance by their
+Thévenin equivalent <span class="math notranslate nohighlight">\(V_{th}, R_{th} + jX_{th}\)</span> seen from the rotor,</p>
+<div class="math notranslate nohighlight">
+\[T = \frac{m V_{th}^2\, R_2/s}{\omega_s\left[(R_{th} + R_2/s)^2 + (X_{th} + X_2)^2\right]},\]</div>
+<p>computed in the equivalent form multiplied through by <span class="math notranslate nohighlight">\(s^2\)</span> so
+that <span class="math notranslate nohighlight">\(s = 0\)</span> gives zero torque.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>v_phase</strong> (<em>float</em><em> or </em><em>array_like</em>) – RMS phase voltage at the stator [V], nonnegative.</p></li>
+<li><p><strong>slip</strong> (<em>float</em><em> or </em><em>array_like</em>) – Slip <span class="math notranslate nohighlight">\(s = (\omega_s - \omega)/\omega_s\)</span> [-]: 0 at synchronous
+speed, 1 at standstill, negative when generating and above 1 when
+plugging.</p></li>
+<li><p><strong>synchronous_speed</strong> (<em>float</em><em> or </em><em>array_like</em>) – Synchronous shaft speed <span class="math notranslate nohighlight">\(\omega_s\)</span> [rad/s], positive.</p></li>
+<li><p><strong>r1</strong> (<em>float</em><em> or </em><em>array_like</em>) – Stator resistance [ohm] (nonnegative) and leakage reactance [ohm]
+(positive).</p></li>
+<li><p><strong>x1</strong> (<em>float</em><em> or </em><em>array_like</em>) – Stator resistance [ohm] (nonnegative) and leakage reactance [ohm]
+(positive).</p></li>
+<li><p><strong>r2</strong> (<em>float</em><em> or </em><em>array_like</em>) – Rotor resistance and leakage reactance referred to the stator
+[ohm], positive.</p></li>
+<li><p><strong>x2</strong> (<em>float</em><em> or </em><em>array_like</em>) – Rotor resistance and leakage reactance referred to the stator
+[ohm], positive.</p></li>
+<li><p><strong>xm</strong> (<em>float</em><em> or </em><em>array_like</em>) – Magnetizing reactance [ohm], positive.</p></li>
+<li><p><strong>phases</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of phases <span class="math notranslate nohighlight">\(m\)</span>, at least one.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Electromagnetic torque [N m].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/electrical_engineering.html"><span class="doc">Electrical engineering: passive components and circuit responses</span></a>. Core loss is neglected (no
+shunt resistance) and the parameters are constant: deep-bar and
+double-cage rotors, whose <span class="math notranslate nohighlight">\(R_2\)</span> rises with slip, are not modelled.</p>
+<p class="rubric">References</p>
+<p>C. P. Steinmetz, “The alternating current induction motor,” <em>Trans.
+AIEE</em> 14 (1897) 183-217.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">induction_motor_torque</span><span class="p">(</span><span class="mf">230.0</span><span class="p">,</span> <span class="mf">0.03</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="mi">25</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">20.0</span><span class="p">)),</span> <span class="mi">1</span><span class="p">)</span>
+<span class="go">104.9</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -1029,6 +1628,41 @@ into an open circuit.</p>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.electrical_engineering.inverting_amplifier_gain">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.electrical_engineering.</span></span><span class="sig-name descname"><span class="pre">inverting_amplifier_gain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r_feedback</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r_input</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/electrical_engineering/systems/electronics.html#inverting_amplifier_gain"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.electrical_engineering.inverting_amplifier_gain" title="Link to this definition">#</a></dt>
+<dd><p>Voltage gain <span class="math notranslate nohighlight">\(v_o/v_i = -R_f/R_{in}\)</span> of an ideal inverting amplifier.</p>
+<p>The ideal op amp draws no input current and, with negative feedback,
+holds its inverting input at the grounded non-inverting one (a virtual
+ground), so the input current <span class="math notranslate nohighlight">\(v_i/R_{in}\)</span> all flows through
+<span class="math notranslate nohighlight">\(R_f\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>r_feedback</strong> (<em>float</em><em> or </em><em>array_like</em>) – Feedback resistance <span class="math notranslate nohighlight">\(R_f\)</span> [ohm], positive.</p></li>
+<li><p><strong>r_input</strong> (<em>float</em><em> or </em><em>array_like</em>) – Input resistance <span class="math notranslate nohighlight">\(R_{in}\)</span> [ohm], positive.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Voltage gain [-], negative.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/electrical_engineering.html"><span class="doc">Electrical engineering: passive components and circuit responses</span></a>.</p>
+<p class="rubric">References</p>
+<p>J. R. Ragazzini, R. H. Randall and F. A. Russell, “Analysis of problems
+in dynamics by electronic circuits,” <em>Proc. IRE</em> 35 (1947) 444-452.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">inverting_amplifier_gain</span><span class="p">(</span><span class="mf">10e3</span><span class="p">,</span> <span class="mf">1e3</span><span class="p">)</span>
+<span class="go">-10.0</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.electrical_engineering.maximum_power_transfer">
 <span class="sig-prename descclassname"><span class="pre">engineeringkit.electrical_engineering.</span></span><span class="sig-name descname"><span class="pre">maximum_power_transfer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vth</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rth</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/electrical_engineering/systems/networks.html#maximum_power_transfer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.electrical_engineering.maximum_power_transfer" title="Link to this definition">#</a></dt>
 <dd><p>Matched load <span class="math notranslate nohighlight">\(R_L = R_{th}\)</span> and the power <span class="math notranslate nohighlight">\(V_{th}^2/4R_{th}\)</span> it receives.</p>
@@ -1052,6 +1686,121 @@ into an open circuit.</p>
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">maximum_power_transfer</span><span class="p">(</span><span class="mf">12.0</span><span class="p">,</span> <span class="mf">6.0</span><span class="p">)</span>
 <span class="go">(6.0, 6.0)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.electrical_engineering.mesh_analysis">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.electrical_engineering.</span></span><span class="sig-name descname"><span class="pre">mesh_analysis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_meshes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resistors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">voltage_sources</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/electrical_engineering/systems/dc_circuits.html#mesh_analysis"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.electrical_engineering.mesh_analysis" title="Link to this definition">#</a></dt>
+<dd><p>Solve a planar resistive DC network by mesh analysis.</p>
+<p>Each mesh (window) of the planar circuit carries a clockwise mesh
+current. Kirchhoff’s voltage law around every mesh, with Ohm’s law for
+every resistor, gives the resistance system <span class="math notranslate nohighlight">\(R\mathbf{i} =
+\mathbf{v}\)</span>: <span class="math notranslate nohighlight">\(R_{kk}\)</span> is the total resistance around mesh
+<span class="math notranslate nohighlight">\(k\)</span>, <span class="math notranslate nohighlight">\(R_{kl}\)</span> minus the resistance mesh <span class="math notranslate nohighlight">\(k\)</span> shares with
+mesh <span class="math notranslate nohighlight">\(l\)</span>, and <span class="math notranslate nohighlight">\(v_k\)</span> the sum of the source EMFs driving
+clockwise around mesh <span class="math notranslate nohighlight">\(k\)</span>. It is the dual of
+<a class="reference internal" href="#engineeringkit.electrical_engineering.nodal_analysis" title="engineeringkit.electrical_engineering.nodal_analysis"><code class="xref py py-func docutils literal notranslate"><span class="pre">nodal_analysis()</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n_meshes</strong> (<em>int</em>) – Number of meshes, at least one. Meshes are numbered
+<code class="docutils literal notranslate"><span class="pre">1..n_meshes</span></code>; <code class="docutils literal notranslate"><span class="pre">0</span></code> stands for the outside of the circuit.</p></li>
+<li><p><strong>resistors</strong> (<em>sequence</em><em> of </em><em>(</em><em>int</em><em>, </em><em>int</em><em>, </em><em>float</em><em>)</em>) – <code class="docutils literal notranslate"><span class="pre">(a,</span> <span class="pre">b,</span> <span class="pre">R)</span></code> for each resistor on the boundary between meshes
+<code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code> (<code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">=</span> <span class="pre">0</span></code> for an outer branch), with <span class="math notranslate nohighlight">\(R\)</span>
+[ohm] positive.</p></li>
+<li><p><strong>voltage_sources</strong> (<em>sequence</em><em> of </em><em>(</em><em>int</em><em>, </em><em>int</em><em>, </em><em>float</em><em>)</em><em>, </em><em>optional</em>) – <code class="docutils literal notranslate"><span class="pre">(a,</span> <span class="pre">b,</span> <span class="pre">V)</span></code>: an ideal source on the boundary between meshes <code class="docutils literal notranslate"><span class="pre">a</span></code>
+and <code class="docutils literal notranslate"><span class="pre">b</span></code> whose EMF <span class="math notranslate nohighlight">\(V\)</span> [V] drives current clockwise around
+mesh <code class="docutils literal notranslate"><span class="pre">a</span></code> (and so anticlockwise around mesh <code class="docutils literal notranslate"><span class="pre">b</span></code>).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Mesh currents [A], resistor currents in the clockwise sense of their
+first mesh [A] and the KVL residual [V].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#engineeringkit.electrical_engineering.MeshResult" title="engineeringkit.electrical_engineering.MeshResult">MeshResult</a></p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – For bad mesh indices or values, or if the network has no unique
+    solution (a mesh with no resistance).</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/electrical_engineering.html"><span class="doc">Electrical engineering: passive components and circuit responses</span></a>. Current sources are not
+accepted: replace one by its Thévenin equivalent, or use
+<a class="reference internal" href="#engineeringkit.electrical_engineering.nodal_analysis" title="engineeringkit.electrical_engineering.nodal_analysis"><code class="xref py py-func docutils literal notranslate"><span class="pre">nodal_analysis()</span></code></a>.</p>
+<p class="rubric">References</p>
+<p>W. H. Hayt, J. E. Kemmerly and S. M. Durbin, <em>Engineering Circuit
+Analysis</em>, 8th ed. (New York: McGraw-Hill, 2012), ch. 4.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span> <span class="o">=</span> <span class="n">mesh_analysis</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">)],</span> <span class="n">voltage_sources</span><span class="o">=</span><span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">12.0</span><span class="p">)])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">i</span><span class="p">),</span> <span class="mi">6</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">r</span><span class="o">.</span><span class="n">mesh_currents</span><span class="p">]</span>
+<span class="go">[3.0, 1.5]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.electrical_engineering.newton_raphson_load_flow">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.electrical_engineering.</span></span><span class="sig-name descname"><span class="pre">newton_raphson_load_flow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_load</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q_load</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v_slack</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pv_buses</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-08</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/electrical_engineering/systems/power.html#newton_raphson_load_flow"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.electrical_engineering.newton_raphson_load_flow" title="Link to this definition">#</a></dt>
+<dd><p>Newton-Raphson load flow in polar coordinates, with PQ and PV buses.</p>
+<p>Bus 0 is the slack bus. A PV (generator) bus has its real power and
+voltage magnitude specified; a PQ (load) bus its real and reactive
+power. The unknowns are the angles <span class="math notranslate nohighlight">\(\theta\)</span> of every non-slack bus
+and the magnitudes <span class="math notranslate nohighlight">\(|V|\)</span> of the PQ buses. Each step solves</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{bmatrix}\partial P/\partial\theta &amp; \partial P/\partial|V|\\
+\partial Q/\partial\theta &amp; \partial Q/\partial|V|\end{bmatrix}
+\begin{bmatrix}\Delta\theta\\ \Delta|V|\end{bmatrix}
+= \begin{bmatrix}\Delta P\\ \Delta Q\end{bmatrix}\end{split}\]</div>
+<p>for the correction, where the mismatches are the specified minus the
+computed injections <span class="math notranslate nohighlight">\(S_i = V_i(\sum_k Y_{ik}V_k)^*\)</span>. Near the
+solution the mismatch is squared at every step.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Y</strong> (<em>array_like</em><em> of </em><em>complex</em>) – Bus admittance matrix [pu], square, at least 2x2; see
+<a class="reference internal" href="#engineeringkit.electrical_engineering.admittance_matrix" title="engineeringkit.electrical_engineering.admittance_matrix"><code class="xref py py-func docutils literal notranslate"><span class="pre">admittance_matrix()</span></code></a>.</p></li>
+<li><p><strong>p_load</strong> (<em>array_like</em>) – Real [pu] and reactive [pu] power consumed at buses <code class="docutils literal notranslate"><span class="pre">1..n-1</span></code>
+(length <code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">-</span> <span class="pre">1</span></code>); negative values are generation. <code class="docutils literal notranslate"><span class="pre">q_load</span></code> is
+ignored at PV buses, whose reactive power is an output.</p></li>
+<li><p><strong>q_load</strong> (<em>array_like</em>) – Real [pu] and reactive [pu] power consumed at buses <code class="docutils literal notranslate"><span class="pre">1..n-1</span></code>
+(length <code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">-</span> <span class="pre">1</span></code>); negative values are generation. <code class="docutils literal notranslate"><span class="pre">q_load</span></code> is
+ignored at PV buses, whose reactive power is an output.</p></li>
+<li><p><strong>v_slack</strong> (<em>complex</em><em>, </em><em>optional</em>) – Slack-bus voltage [pu], nonzero.</p></li>
+<li><p><strong>pv_buses</strong> (<em>mapping</em><em> of </em><em>int to float</em><em>, </em><em>optional</em>) – <code class="docutils literal notranslate"><span class="pre">{bus:</span> <span class="pre">|V|}</span></code>, the voltage-magnitude setpoint [pu] (positive) of
+each PV bus, <code class="docutils literal notranslate"><span class="pre">bus</span></code> in <code class="docutils literal notranslate"><span class="pre">1..n-1</span></code>.</p></li>
+<li><p><strong>tol</strong> (<em>float</em><em>, </em><em>optional</em>) – Stop when the largest power mismatch is below this [pu], positive.</p></li>
+<li><p><strong>max_iter</strong> (<em>int</em><em>, </em><em>optional</em>) – Maximum number of Newton steps, at least one.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Bus voltages, injected powers (bus 0 gives the slack power; PV
+buses their reactive output), step count, a convergence flag and
+the largest mismatch before each step. No exception is raised on
+non-convergence; check <code class="docutils literal notranslate"><span class="pre">converged</span></code>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#engineeringkit.electrical_engineering.LoadFlowResult" title="engineeringkit.electrical_engineering.LoadFlowResult">LoadFlowResult</a></p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/electrical_engineering.html"><span class="doc">Electrical engineering: passive components and circuit responses</span></a>. The Jacobian is dense here;
+Tinney and Hart’s contribution was to keep it sparse by optimal
+ordering. Generator reactive limits (PV-to-PQ switching) are not
+modelled.</p>
+<p class="rubric">References</p>
+<p>W. F. Tinney and C. E. Hart, “Power flow solution by Newton’s method,”
+<em>IEEE Trans. Power App. Syst.</em> PAS-86 (1967) 1449-1460.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Y</span> <span class="o">=</span> <span class="n">admittance_matrix</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.1</span><span class="n">j</span><span class="p">)])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">r</span> <span class="o">=</span> <span class="n">newton_raphson_load_flow</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="p">[</span><span class="mf">0.5</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">r</span><span class="o">.</span><span class="n">converged</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">voltages</span><span class="p">[</span><span class="mi">1</span><span class="p">])),</span> <span class="mi">4</span><span class="p">)</span>
+<span class="go">(True, 0.9987)</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -1103,6 +1852,36 @@ approach to network analysis,” <em>IEEE Trans. Circuits Syst.</em> 22 (1975)
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span> <span class="o">=</span> <span class="n">nodal_analysis</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">1e3</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">1e3</span><span class="p">)],</span> <span class="n">voltage_sources</span><span class="o">=</span><span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">)])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">v</span><span class="p">),</span> <span class="mi">6</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">r</span><span class="o">.</span><span class="n">voltages</span><span class="p">]</span>
 <span class="go">[0.0, 10.0, 5.0]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.electrical_engineering.noninverting_amplifier_gain">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.electrical_engineering.</span></span><span class="sig-name descname"><span class="pre">noninverting_amplifier_gain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r_feedback</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r_ground</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/electrical_engineering/systems/electronics.html#noninverting_amplifier_gain"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.electrical_engineering.noninverting_amplifier_gain" title="Link to this definition">#</a></dt>
+<dd><p>Voltage gain <span class="math notranslate nohighlight">\(v_o/v_i = 1 + R_f/R_g\)</span> of an ideal non-inverting amplifier.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>r_feedback</strong> (<em>float</em><em> or </em><em>array_like</em>) – Feedback resistance <span class="math notranslate nohighlight">\(R_f\)</span> from the output to the inverting
+input [ohm], nonnegative (zero gives the unity-gain follower).</p></li>
+<li><p><strong>r_ground</strong> (<em>float</em><em> or </em><em>array_like</em>) – Resistance <span class="math notranslate nohighlight">\(R_g\)</span> from the inverting input to ground [ohm],
+positive.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Voltage gain [-], at least one.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/electrical_engineering.html"><span class="doc">Electrical engineering: passive components and circuit responses</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">noninverting_amplifier_gain</span><span class="p">(</span><span class="mf">9e3</span><span class="p">,</span> <span class="mf">1e3</span><span class="p">)</span>
+<span class="go">10.0</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -1176,6 +1955,46 @@ T. H. Riemann, 1827).</p>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.electrical_engineering.op_amp_integrator">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.electrical_engineering.</span></span><span class="sig-name descname"><span class="pre">op_amp_integrator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">R</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">C</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/electrical_engineering/systems/electronics.html#op_amp_integrator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.electrical_engineering.op_amp_integrator" title="Link to this definition">#</a></dt>
+<dd><p>Output <span class="math notranslate nohighlight">\(v_o(t) = v_0 - \frac{1}{RC}\int_0^t v_i\,dt'\)</span> of an ideal inverting integrator.</p>
+<p>The virtual ground makes the input current <span class="math notranslate nohighlight">\(v_i/R\)</span>, and it can
+only go into the feedback capacitor. The integral of the sampled input
+is taken by the trapezoidal rule.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>v_in</strong> (<em>array_like</em>) – Input voltage at each sample [V].</p></li>
+<li><p><strong>t</strong> (<em>array_like</em>) – Sample times [s], strictly increasing, same length as <code class="docutils literal notranslate"><span class="pre">v_in</span></code>
+(at least two).</p></li>
+<li><p><strong>R</strong> (<em>float</em>) – Input resistance [ohm], positive.</p></li>
+<li><p><strong>C</strong> (<em>float</em>) – Feedback capacitance [F], positive.</p></li>
+<li><p><strong>v0</strong> (<em>float</em><em>, </em><em>optional</em>) – Output voltage at <code class="docutils literal notranslate"><span class="pre">t[0]</span></code> [V].</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Output voltage [V] at each sample.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/electrical_engineering.html"><span class="doc">Electrical engineering: passive components and circuit responses</span></a>. A real integrator saturates at
+its supply rails and drifts on its input offset; neither is modelled.</p>
+<p class="rubric">References</p>
+<p>J. R. Ragazzini, R. H. Randall and F. A. Russell, “Analysis of problems
+in dynamics by electronic circuits,” <em>Proc. IRE</em> 35 (1947) 444-452.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1e-3</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">op_amp_integrator</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">11</span><span class="p">),</span> <span class="n">t</span><span class="p">,</span> <span class="mf">1e3</span><span class="p">,</span> <span class="mf">1e-6</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]),</span> <span class="mi">6</span><span class="p">)</span>
+<span class="go">-1.0</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.electrical_engineering.parallel_resistance">
 <span class="sig-prename descclassname"><span class="pre">engineeringkit.electrical_engineering.</span></span><span class="sig-name descname"><span class="pre">parallel_resistance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">r</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/electrical_engineering/systems/dc_circuits.html#parallel_resistance"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.electrical_engineering.parallel_resistance" title="Link to this definition">#</a></dt>
 <dd><p>Equivalent resistance of resistors in parallel, <span class="math notranslate nohighlight">\(1/R = \sum 1/R_k\)</span>.</p>
@@ -1196,6 +2015,48 @@ T. H. Riemann, 1827).</p>
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">parallel_resistance</span><span class="p">(</span><span class="mf">100.0</span><span class="p">,</span> <span class="mf">100.0</span><span class="p">)</span>
 <span class="go">50.0</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.electrical_engineering.per_unit_base">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.electrical_engineering.</span></span><span class="sig-name descname"><span class="pre">per_unit_base</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s_base</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v_base</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phases</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/electrical_engineering/systems/power.html#per_unit_base"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.electrical_engineering.per_unit_base" title="Link to this definition">#</a></dt>
+<dd><p>Base impedance and base current of a per-unit system.</p>
+<p>Choosing a base power and a base voltage fixes the other two bases. For
+a three-phase system with three-phase base power <span class="math notranslate nohighlight">\(S_b\)</span> and
+line-to-line base voltage <span class="math notranslate nohighlight">\(V_b\)</span>,
+<span class="math notranslate nohighlight">\(Z_b = V_b^2/S_b\)</span> and <span class="math notranslate nohighlight">\(I_b = S_b/\sqrt3 V_b\)</span>; for a
+single-phase system <span class="math notranslate nohighlight">\(Z_b = V_b^2/S_b\)</span> and <span class="math notranslate nohighlight">\(I_b = S_b/V_b\)</span>.
+A quantity in per unit is its value divided by its base.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>s_base</strong> (<em>float</em><em> or </em><em>array_like</em>) – Base apparent power [VA], three-phase total when <code class="docutils literal notranslate"><span class="pre">phases=3</span></code>,
+positive.</p></li>
+<li><p><strong>v_base</strong> (<em>float</em><em> or </em><em>array_like</em>) – Base voltage [V], line-to-line when <code class="docutils literal notranslate"><span class="pre">phases=3</span></code>, positive.</p></li>
+<li><p><strong>phases</strong> (<em>{1</em><em>, </em><em>3}</em><em>, </em><em>optional</em>) – Single-phase or three-phase bases.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">(z_base,</span> <span class="pre">i_base)</span></code>: base impedance [ohm] and base current [A].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple of float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/electrical_engineering.html"><span class="doc">Electrical engineering: passive components and circuit responses</span></a>. Choosing base voltages in the
+turns ratio of every transformer makes the ideal transformers vanish
+from the per-unit network.</p>
+<p class="rubric">References</p>
+<p>J. D. Glover, T. J. Overbye and M. S. Sarma, <em>Power System Analysis
+and Design</em>, 6th ed. (Boston: Cengage, 2017), sec. 3.3.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">z</span><span class="p">,</span> <span class="n">i</span> <span class="o">=</span> <span class="n">per_unit_base</span><span class="p">(</span><span class="mf">100e6</span><span class="p">,</span> <span class="mf">138e3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">z</span><span class="p">),</span> <span class="mi">2</span><span class="p">),</span> <span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">i</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
+<span class="go">(190.44, 418.4)</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -1535,6 +2396,41 @@ wires,” British Patent 11,575 (1897).</p>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.electrical_engineering.rl_current">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.electrical_engineering.</span></span><span class="sig-name descname"><span class="pre">rl_current</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v_source</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">R</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">L</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/electrical_engineering/systems/transients.html#rl_current"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.electrical_engineering.rl_current" title="Link to this definition">#</a></dt>
+<dd><p>Inductor current <span class="math notranslate nohighlight">\(i(t) = V_s/R + (i_0 - V_s/R)e^{-Rt/L}\)</span> after a step.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>v_source</strong> (<em>float</em>) – Constant source voltage applied at <span class="math notranslate nohighlight">\(t = 0\)</span> [V].</p></li>
+<li><p><strong>R</strong> (<em>float</em>) – Series resistance [ohm], positive.</p></li>
+<li><p><strong>L</strong> (<em>float</em>) – Inductance [H], positive.</p></li>
+<li><p><strong>t</strong> (<em>float</em><em> or </em><em>array_like</em>) – Time since the step [s], nonnegative.</p></li>
+<li><p><strong>i0</strong> (<em>float</em><em>, </em><em>optional</em>) – Initial inductor current [A].</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Inductor current [A], shaped like <code class="docutils literal notranslate"><span class="pre">t</span></code>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/electrical_engineering.html"><span class="doc">Electrical engineering: passive components and circuit responses</span></a>.</p>
+<p class="rubric">References</p>
+<p>H. Helmholtz, “Ueber die Dauer und den Verlauf der durch
+Stromesschwankungen inducirten elektrischen Ströme,” <em>Ann. Phys.</em> 83
+(1851) 505-540.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">rl_current</span><span class="p">(</span><span class="mf">10.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)),</span> <span class="mi">4</span><span class="p">)</span>
+<span class="go">1.2642</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.electrical_engineering.rl_time_constant">
 <span class="sig-prename descclassname"><span class="pre">engineeringkit.electrical_engineering.</span></span><span class="sig-name descname"><span class="pre">rl_time_constant</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">L</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">R</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/electrical_engineering/systems/transients.html#rl_time_constant"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.electrical_engineering.rl_time_constant" title="Link to this definition">#</a></dt>
 <dd><p>RL time constant <span class="math notranslate nohighlight">\(\tau = L/R\)</span>.</p>
@@ -1555,6 +2451,95 @@ wires,” British Patent 11,575 (1897).</p>
 <p class="rubric">Notes</p>
 <p>Inputs are raw SI numbers with no dimensional metadata; see
 <a class="reference internal" href="../guides/electrical_engineering.html"><span class="doc">Electrical engineering: passive components and circuit responses</span></a>.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.electrical_engineering.rlc_damping">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.electrical_engineering.</span></span><span class="sig-name descname"><span class="pre">rlc_damping</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">R</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">L</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">C</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/electrical_engineering/systems/transients.html#rlc_damping"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.electrical_engineering.rlc_damping" title="Link to this definition">#</a></dt>
+<dd><p>Neper frequency, resonant frequency and damping regime of a series RLC circuit.</p>
+<p>The natural response of a series RLC circuit has the characteristic
+roots <span class="math notranslate nohighlight">\(s = -\alpha \pm \sqrt{\alpha^2 - \omega_0^2}\)</span> with
+<span class="math notranslate nohighlight">\(\alpha = R/2L\)</span> and <span class="math notranslate nohighlight">\(\omega_0 = 1/\sqrt{LC}\)</span>. It is
+overdamped for <span class="math notranslate nohighlight">\(\alpha &gt; \omega_0\)</span>, critically damped for
+<span class="math notranslate nohighlight">\(\alpha = \omega_0\)</span> (<span class="math notranslate nohighlight">\(R = 2\sqrt{L/C}\)</span>) and underdamped,
+an oscillation decaying as <span class="math notranslate nohighlight">\(e^{-\alpha t}\)</span>, for
+<span class="math notranslate nohighlight">\(\alpha &lt; \omega_0\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>R</strong> (<em>float</em>) – Series resistance [ohm], nonnegative.</p></li>
+<li><p><strong>L</strong> (<em>float</em>) – Inductance [H], positive.</p></li>
+<li><p><strong>C</strong> (<em>float</em>) – Capacitance [F], positive.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">(alpha,</span> <span class="pre">omega0,</span> <span class="pre">regime)</span></code>: the neper frequency [1/s], the
+undamped resonant frequency [rad/s] and one of <code class="docutils literal notranslate"><span class="pre">&quot;overdamped&quot;</span></code>,
+<code class="docutils literal notranslate"><span class="pre">&quot;critically</span> <span class="pre">damped&quot;</span></code> (within a relative 1e-9), <code class="docutils literal notranslate"><span class="pre">&quot;underdamped&quot;</span></code>
+or <code class="docutils literal notranslate"><span class="pre">&quot;undamped&quot;</span></code> (<span class="math notranslate nohighlight">\(R = 0\)</span>).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple of (float, float, str)</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/electrical_engineering.html"><span class="doc">Electrical engineering: passive components and circuit responses</span></a>. The damping ratio is
+<span class="math notranslate nohighlight">\(\zeta = \alpha/\omega_0\)</span>. <code class="docutils literal notranslate"><span class="pre">R</span></code>, <code class="docutils literal notranslate"><span class="pre">L</span></code> and <code class="docutils literal notranslate"><span class="pre">C</span></code> are
+scalar-only: the regime names one circuit.</p>
+<p class="rubric">References</p>
+<p>W. Thomson, “On transient electric currents,” <em>Phil. Mag.</em> 5 (1853)
+393-405.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">rlc_damping</span><span class="p">(</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+<span class="go">(1.0, 1.0, 'critically damped')</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.electrical_engineering.rlc_step_voltage">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.electrical_engineering.</span></span><span class="sig-name descname"><span class="pre">rlc_step_voltage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v_source</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">R</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">L</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">C</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/electrical_engineering/systems/transients.html#rlc_step_voltage"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.electrical_engineering.rlc_step_voltage" title="Link to this definition">#</a></dt>
+<dd><p>Capacitor voltage of a series RLC circuit after a voltage step, from rest.</p>
+<p>With <span class="math notranslate nohighlight">\(\alpha\)</span> and <span class="math notranslate nohighlight">\(\omega_0\)</span> from <a class="reference internal" href="#engineeringkit.electrical_engineering.rlc_damping" title="engineeringkit.electrical_engineering.rlc_damping"><code class="xref py py-func docutils literal notranslate"><span class="pre">rlc_damping()</span></code></a>,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\frac{v_C(t)}{V_s} = \begin{cases}
+1 + \dfrac{s_2 e^{s_1 t} - s_1 e^{s_2 t}}{s_1 - s_2} &amp; \text{overdamped},\\
+1 - (1 + \alpha t)e^{-\alpha t} &amp; \text{critically damped},\\
+1 - e^{-\alpha t}\left(\cos\omega_d t + \dfrac{\alpha}{\omega_d}
+\sin\omega_d t\right) &amp; \text{underdamped},
+\end{cases}\end{split}\]</div>
+<p>with <span class="math notranslate nohighlight">\(s_{1,2} = -\alpha \pm \sqrt{\alpha^2 - \omega_0^2}\)</span> and
+<span class="math notranslate nohighlight">\(\omega_d = \sqrt{\omega_0^2 - \alpha^2}\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>v_source</strong> (<em>float</em>) – Constant source voltage applied at <span class="math notranslate nohighlight">\(t = 0\)</span> [V].</p></li>
+<li><p><strong>R</strong> (<em>float</em>) – Series resistance [ohm], nonnegative.</p></li>
+<li><p><strong>L</strong> (<em>float</em>) – Inductance [H], positive.</p></li>
+<li><p><strong>C</strong> (<em>float</em>) – Capacitance [F], positive.</p></li>
+<li><p><strong>t</strong> (<em>float</em><em> or </em><em>array_like</em>) – Time since the step [s], nonnegative.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Capacitor voltage [V], shaped like <code class="docutils literal notranslate"><span class="pre">t</span></code>. The loop current is
+<span class="math notranslate nohighlight">\(C\,dv_C/dt\)</span>, as returned by
+<a class="reference internal" href="#engineeringkit.electrical_engineering.SeriesRLC.step_response" title="engineeringkit.electrical_engineering.SeriesRLC.step_response"><code class="xref py py-meth docutils literal notranslate"><span class="pre">SeriesRLC.step_response</span></code></a>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/electrical_engineering.html"><span class="doc">Electrical engineering: passive components and circuit responses</span></a>. Within the relative 1e-9 band
+that <a class="reference internal" href="#engineeringkit.electrical_engineering.rlc_damping" title="engineeringkit.electrical_engineering.rlc_damping"><code class="xref py py-func docutils literal notranslate"><span class="pre">rlc_damping()</span></code></a> calls critical, the critical formula is used.
+<code class="docutils literal notranslate"><span class="pre">R</span></code>, <code class="docutils literal notranslate"><span class="pre">L</span></code> and <code class="docutils literal notranslate"><span class="pre">C</span></code> are scalar-only (one circuit, swept over <code class="docutils literal notranslate"><span class="pre">t</span></code>).</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">rlc_step_voltage</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)),</span> <span class="mi">4</span><span class="p">)</span>
+<span class="go">0.2642</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
@@ -1642,6 +2627,43 @@ engineering,” <em>Proc. International Electrical Congress, Chicago 1893</em>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.electrical_engineering.shockley_diode_current">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.electrical_engineering.</span></span><span class="sig-name descname"><span class="pre">shockley_diode_current</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">saturation_current</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ideality</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">temperature</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">300.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/electrical_engineering/systems/electronics.html#shockley_diode_current"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.electrical_engineering.shockley_diode_current" title="Link to this definition">#</a></dt>
+<dd><p>Shockley’s diode equation <span class="math notranslate nohighlight">\(i = I_S\left(e^{v/nV_T} - 1\right)\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>v</strong> (<em>float</em><em> or </em><em>array_like</em>) – Voltage across the diode, anode to cathode [V], at most
+<span class="math notranslate nohighlight">\(40\,nV_T\)</span> (beyond that the exponential overflows any real
+device’s limits).</p></li>
+<li><p><strong>saturation_current</strong> (<em>float</em>) – Reverse saturation current <span class="math notranslate nohighlight">\(I_S\)</span> [A], positive.</p></li>
+<li><p><strong>ideality</strong> (<em>float</em><em>, </em><em>optional</em>) – Ideality factor <span class="math notranslate nohighlight">\(n\)</span> [-], positive (1 for Shockley’s ideal
+junction, up to about 2 for real silicon diodes).</p></li>
+<li><p><strong>temperature</strong> (<em>float</em><em>, </em><em>optional</em>) – Junction temperature [K], positive.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Diode current [A]; tends to <span class="math notranslate nohighlight">\(-I_S\)</span> under reverse bias.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/electrical_engineering.html"><span class="doc">Electrical engineering: passive components and circuit responses</span></a>. Reverse breakdown, series
+resistance and high injection are not modelled.</p>
+<p class="rubric">References</p>
+<p>W. Shockley, “The theory of p-n junctions in semiconductors and p-n
+junction transistors,” <em>Bell Syst. Tech. J.</em> 28 (1949) 435-489.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">shockley_diode_current</span><span class="p">(</span><span class="mf">0.7</span><span class="p">,</span> <span class="mf">1e-14</span><span class="p">))</span> <span class="o">*</span> <span class="mf">1e3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="go">5.7475</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="engineeringkit.electrical_engineering.standing_wave_ratio">
 <span class="sig-prename descclassname"><span class="pre">engineeringkit.electrical_engineering.</span></span><span class="sig-name descname"><span class="pre">standing_wave_ratio</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gamma</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/electrical_engineering/systems/transmission_lines.html#standing_wave_ratio"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.electrical_engineering.standing_wave_ratio" title="Link to this definition">#</a></dt>
 <dd><p>Voltage standing-wave ratio <span class="math notranslate nohighlight">\((1 + |\Gamma|)/(1 - |\Gamma|)\)</span>.</p>
@@ -1662,6 +2684,58 @@ engineering,” <em>Proc. International Electrical Congress, Chicago 1893</em>
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">float</span><span class="p">(</span><span class="n">standing_wave_ratio</span><span class="p">(</span><span class="mf">0.5</span><span class="p">))</span>
 <span class="go">3.0</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.electrical_engineering.swing_response">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.electrical_engineering.</span></span><span class="sig-name descname"><span class="pre">swing_response</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inertia_constant</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_mech</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_max_pre</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_max_fault</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_max_post</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clearing_time</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_end</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frequency</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">60.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">damping</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_points</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2001</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/electrical_engineering/systems/stability.html#swing_response"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.electrical_engineering.swing_response" title="Link to this definition">#</a></dt>
+<dd><p>Swing curve of a generator against an infinite bus through a cleared fault.</p>
+<p>Integrates the swing equation</p>
+<div class="math notranslate nohighlight">
+\[\frac{2H}{\omega_s}\frac{d^2\delta}{dt^2} = P_m - P_{max}\sin\delta
+- D\frac{d\delta}{dt}\]</div>
+<p>from rest at <span class="math notranslate nohighlight">\(\delta_0 = \arcsin(P_m/P_1)\)</span>, with
+<span class="math notranslate nohighlight">\(P_{max} = P_2\)</span> until <code class="docutils literal notranslate"><span class="pre">clearing_time</span></code> and <span class="math notranslate nohighlight">\(P_3\)</span> after.
+The two intervals are integrated separately, so the step change in
+<span class="math notranslate nohighlight">\(P_{max}\)</span> falls on a sample.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>inertia_constant</strong> (<em>float</em>) – Inertia constant <span class="math notranslate nohighlight">\(H\)</span> [s], positive.</p></li>
+<li><p><strong>p_mech</strong> (<em>float</em>) – Mechanical input power [pu], positive.</p></li>
+<li><p><strong>p_max_pre</strong> (<em>float</em>) – Power-angle amplitudes before, during and after the fault [pu]; see
+<a class="reference internal" href="#engineeringkit.electrical_engineering.equal_area_clearing_angle" title="engineeringkit.electrical_engineering.equal_area_clearing_angle"><code class="xref py py-func docutils literal notranslate"><span class="pre">equal_area_clearing_angle()</span></code></a>.</p></li>
+<li><p><strong>p_max_fault</strong> (<em>float</em>) – Power-angle amplitudes before, during and after the fault [pu]; see
+<a class="reference internal" href="#engineeringkit.electrical_engineering.equal_area_clearing_angle" title="engineeringkit.electrical_engineering.equal_area_clearing_angle"><code class="xref py py-func docutils literal notranslate"><span class="pre">equal_area_clearing_angle()</span></code></a>.</p></li>
+<li><p><strong>p_max_post</strong> (<em>float</em>) – Power-angle amplitudes before, during and after the fault [pu]; see
+<a class="reference internal" href="#engineeringkit.electrical_engineering.equal_area_clearing_angle" title="engineeringkit.electrical_engineering.equal_area_clearing_angle"><code class="xref py py-func docutils literal notranslate"><span class="pre">equal_area_clearing_angle()</span></code></a>.</p></li>
+<li><p><strong>clearing_time</strong> (<em>float</em>) – Fault duration [s], in <span class="math notranslate nohighlight">\((0, t_{end})\)</span>.</p></li>
+<li><p><strong>t_end</strong> (<em>float</em>) – End of the simulation [s], positive.</p></li>
+<li><p><strong>frequency</strong> (<em>float</em><em>, </em><em>optional</em>) – System frequency [Hz], positive.</p></li>
+<li><p><strong>damping</strong> (<em>float</em><em>, </em><em>optional</em>) – Damping coefficient <span class="math notranslate nohighlight">\(D\)</span> [pu power s/rad], nonnegative.</p></li>
+<li><p><strong>n_points</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of output samples over <span class="math notranslate nohighlight">\([0, t_{end}]\)</span>, at least three
+(the clearing instant is added to them).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Rotor angle [rad] and speed deviation [rad/s] against time [s], with
+a first-swing <code class="docutils literal notranslate"><span class="pre">stable</span></code> flag.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#engineeringkit.electrical_engineering.SwingResult" title="engineeringkit.electrical_engineering.SwingResult">SwingResult</a></p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/electrical_engineering.html"><span class="doc">Electrical engineering: passive components and circuit responses</span></a>. Integrated with
+<a class="reference internal" href="integrators.html#engineeringkit.integrators.integrate_ode" title="engineeringkit.integrators.integrate_ode"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.integrators.integrate_ode()</span></code></a> (RK45). All parameters
+are scalar-only: the result is one swing curve.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span> <span class="o">=</span> <span class="n">swing_response</span><span class="p">(</span><span class="mf">5.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">r</span><span class="o">.</span><span class="n">stable</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">degrees</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">delta</span><span class="o">.</span><span class="n">max</span><span class="p">())),</span> <span class="mi">1</span><span class="p">)</span>
+<span class="go">(True, 119.4)</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -1701,6 +2775,31 @@ solution of polyphase networks,” <em>Trans. AIEE</em> 37 (1918) 1027-1140.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">2</span><span class="n">j</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">3</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="nb">round</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="nb">complex</span><span class="p">(</span><span class="n">x</span><span class="p">)),</span> <span class="mi">12</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">symmetrical_components</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">a</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">a</span><span class="p">)]</span>
 <span class="go">[0.0, 1.0, 0.0]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="engineeringkit.electrical_engineering.thermal_voltage">
+<span class="sig-prename descclassname"><span class="pre">engineeringkit.electrical_engineering.</span></span><span class="sig-name descname"><span class="pre">thermal_voltage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">temperature</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">300.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/engineeringkit/electrical_engineering/systems/electronics.html#thermal_voltage"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#engineeringkit.electrical_engineering.thermal_voltage" title="Link to this definition">#</a></dt>
+<dd><p>Thermal voltage <span class="math notranslate nohighlight">\(V_T = k_B T/q\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>temperature</strong> (<em>float</em><em> or </em><em>array_like</em><em>, </em><em>optional</em>) – Junction temperature [K], positive.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Thermal voltage [V]; about 25.85 mV at 300 K.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Inputs are raw SI numbers with no dimensional metadata; see
+<a class="reference internal" href="../guides/electrical_engineering.html"><span class="doc">Electrical engineering: passive components and circuit responses</span></a>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="n">thermal_voltage</span><span class="p">(</span><span class="mf">300.0</span><span class="p">)</span> <span class="o">*</span> <span class="mf">1e3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="go">25.852</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -2012,6 +3111,14 @@ point), all with <span class="math notranslate nohighlight">\(|\Gamma| \le 1\)</
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.electrical_engineering.LoadFlowResult.voltages"><code class="docutils literal notranslate"><span class="pre">LoadFlowResult.voltages</span></code></a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.electrical_engineering.MeshResult"><code class="docutils literal notranslate"><span class="pre">MeshResult</span></code></a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.electrical_engineering.MeshResult.kvl_residual"><code class="docutils literal notranslate"><span class="pre">MeshResult.kvl_residual</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.electrical_engineering.MeshResult.mesh_currents"><code class="docutils literal notranslate"><span class="pre">MeshResult.mesh_currents</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.electrical_engineering.MeshResult.plot"><code class="docutils literal notranslate"><span class="pre">MeshResult.plot()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.electrical_engineering.MeshResult.resistor_currents"><code class="docutils literal notranslate"><span class="pre">MeshResult.resistor_currents</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.electrical_engineering.MeshResult.summary"><code class="docutils literal notranslate"><span class="pre">MeshResult.summary()</span></code></a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.electrical_engineering.NodalResult"><code class="docutils literal notranslate"><span class="pre">NodalResult</span></code></a><ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.electrical_engineering.NodalResult.kcl_residual"><code class="docutils literal notranslate"><span class="pre">NodalResult.kcl_residual</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.electrical_engineering.NodalResult.plot"><code class="docutils literal notranslate"><span class="pre">NodalResult.plot()</span></code></a></li>
@@ -2032,19 +3139,45 @@ point), all with <span class="math notranslate nohighlight">\(|\Gamma| \le 1\)</
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.electrical_engineering.SeriesRLC.transfer_function"><code class="docutils literal notranslate"><span class="pre">SeriesRLC.transfer_function()</span></code></a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.electrical_engineering.SwingResult"><code class="docutils literal notranslate"><span class="pre">SwingResult</span></code></a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.electrical_engineering.SwingResult.clearing_time"><code class="docutils literal notranslate"><span class="pre">SwingResult.clearing_time</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.electrical_engineering.SwingResult.delta"><code class="docutils literal notranslate"><span class="pre">SwingResult.delta</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.electrical_engineering.SwingResult.max_stable_angle"><code class="docutils literal notranslate"><span class="pre">SwingResult.max_stable_angle</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.electrical_engineering.SwingResult.plot"><code class="docutils literal notranslate"><span class="pre">SwingResult.plot()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.electrical_engineering.SwingResult.speed_deviation"><code class="docutils literal notranslate"><span class="pre">SwingResult.speed_deviation</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.electrical_engineering.SwingResult.stable"><code class="docutils literal notranslate"><span class="pre">SwingResult.stable</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.electrical_engineering.SwingResult.summary"><code class="docutils literal notranslate"><span class="pre">SwingResult.summary()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.electrical_engineering.SwingResult.t"><code class="docutils literal notranslate"><span class="pre">SwingResult.t</span></code></a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.electrical_engineering.admittance_matrix"><code class="docutils literal notranslate"><span class="pre">admittance_matrix()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.electrical_engineering.capacitor_impedance"><code class="docutils literal notranslate"><span class="pre">capacitor_impedance()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.electrical_engineering.capacitors_parallel"><code class="docutils literal notranslate"><span class="pre">capacitors_parallel()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.electrical_engineering.capacitors_series"><code class="docutils literal notranslate"><span class="pre">capacitors_series()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.electrical_engineering.change_base"><code class="docutils literal notranslate"><span class="pre">change_base()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.electrical_engineering.critical_clearing_time"><code class="docutils literal notranslate"><span class="pre">critical_clearing_time()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.electrical_engineering.dc_motor_speed"><code class="docutils literal notranslate"><span class="pre">dc_motor_speed()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.electrical_engineering.dc_motor_torque"><code class="docutils literal notranslate"><span class="pre">dc_motor_torque()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.electrical_engineering.diode_operating_point"><code class="docutils literal notranslate"><span class="pre">diode_operating_point()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.electrical_engineering.distortionless_condition"><code class="docutils literal notranslate"><span class="pre">distortionless_condition()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.electrical_engineering.equal_area_clearing_angle"><code class="docutils literal notranslate"><span class="pre">equal_area_clearing_angle()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.electrical_engineering.fault_currents"><code class="docutils literal notranslate"><span class="pre">fault_currents()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.electrical_engineering.gauss_seidel_load_flow"><code class="docutils literal notranslate"><span class="pre">gauss_seidel_load_flow()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.electrical_engineering.induction_motor_breakdown"><code class="docutils literal notranslate"><span class="pre">induction_motor_breakdown()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.electrical_engineering.induction_motor_torque"><code class="docutils literal notranslate"><span class="pre">induction_motor_torque()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.electrical_engineering.inductor_impedance"><code class="docutils literal notranslate"><span class="pre">inductor_impedance()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.electrical_engineering.input_impedance"><code class="docutils literal notranslate"><span class="pre">input_impedance()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.electrical_engineering.inverting_amplifier_gain"><code class="docutils literal notranslate"><span class="pre">inverting_amplifier_gain()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.electrical_engineering.maximum_power_transfer"><code class="docutils literal notranslate"><span class="pre">maximum_power_transfer()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.electrical_engineering.mesh_analysis"><code class="docutils literal notranslate"><span class="pre">mesh_analysis()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.electrical_engineering.newton_raphson_load_flow"><code class="docutils literal notranslate"><span class="pre">newton_raphson_load_flow()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.electrical_engineering.nodal_analysis"><code class="docutils literal notranslate"><span class="pre">nodal_analysis()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.electrical_engineering.noninverting_amplifier_gain"><code class="docutils literal notranslate"><span class="pre">noninverting_amplifier_gain()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.electrical_engineering.norton_from_thevenin"><code class="docutils literal notranslate"><span class="pre">norton_from_thevenin()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.electrical_engineering.ohms_law"><code class="docutils literal notranslate"><span class="pre">ohms_law()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.electrical_engineering.op_amp_integrator"><code class="docutils literal notranslate"><span class="pre">op_amp_integrator()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.electrical_engineering.parallel_resistance"><code class="docutils literal notranslate"><span class="pre">parallel_resistance()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.electrical_engineering.per_unit_base"><code class="docutils literal notranslate"><span class="pre">per_unit_base()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.electrical_engineering.phase_components"><code class="docutils literal notranslate"><span class="pre">phase_components()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.electrical_engineering.phasor"><code class="docutils literal notranslate"><span class="pre">phasor()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.electrical_engineering.polar"><code class="docutils literal notranslate"><span class="pre">polar()</span></code></a></li>
@@ -2056,12 +3189,18 @@ point), all with <span class="math notranslate nohighlight">\(|\Gamma| \le 1\)</
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.electrical_engineering.real_power"><code class="docutils literal notranslate"><span class="pre">real_power()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.electrical_engineering.reflection_coefficient"><code class="docutils literal notranslate"><span class="pre">reflection_coefficient()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.electrical_engineering.resonance_frequency"><code class="docutils literal notranslate"><span class="pre">resonance_frequency()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.electrical_engineering.rl_current"><code class="docutils literal notranslate"><span class="pre">rl_current()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.electrical_engineering.rl_time_constant"><code class="docutils literal notranslate"><span class="pre">rl_time_constant()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.electrical_engineering.rlc_damping"><code class="docutils literal notranslate"><span class="pre">rlc_damping()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.electrical_engineering.rlc_step_voltage"><code class="docutils literal notranslate"><span class="pre">rlc_step_voltage()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.electrical_engineering.rms_sine"><code class="docutils literal notranslate"><span class="pre">rms_sine()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.electrical_engineering.series_resistance"><code class="docutils literal notranslate"><span class="pre">series_resistance()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.electrical_engineering.series_rlc_impedance"><code class="docutils literal notranslate"><span class="pre">series_rlc_impedance()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.electrical_engineering.shockley_diode_current"><code class="docutils literal notranslate"><span class="pre">shockley_diode_current()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.electrical_engineering.standing_wave_ratio"><code class="docutils literal notranslate"><span class="pre">standing_wave_ratio()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.electrical_engineering.swing_response"><code class="docutils literal notranslate"><span class="pre">swing_response()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.electrical_engineering.symmetrical_components"><code class="docutils literal notranslate"><span class="pre">symmetrical_components()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.electrical_engineering.thermal_voltage"><code class="docutils literal notranslate"><span class="pre">thermal_voltage()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.electrical_engineering.thevenin_from_source"><code class="docutils literal notranslate"><span class="pre">thevenin_from_source()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.electrical_engineering.three_phase_power"><code class="docutils literal notranslate"><span class="pre">three_phase_power()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineeringkit.electrical_engineering.transformer_secondary"><code class="docutils literal notranslate"><span class="pre">transformer_secondary()</span></code></a></li>

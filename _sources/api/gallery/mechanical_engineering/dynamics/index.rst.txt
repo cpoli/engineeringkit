@@ -5,7 +5,7 @@
 Dynamics
 --------
 
-Moments of inertia, work, kinetic energy and power.
+Moments of inertia, work, kinetic energy and power, and Lagrange's equations.
 
 
 .. raw:: html
@@ -53,6 +53,23 @@ Moments of inertia, work, kinetic energy and power.
     </div>
 
 
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Joseph-Louis Lagrange&#x27;s Mécanique analytique (1788) contains no figures. It derives the motion of any system from two scalar functions, the kinetic energy T and the potential energy V, written in whatever coordinates q fix its configuration. With L = T - V,">
+
+.. only:: html
+
+  .. image:: /api/gallery/mechanical_engineering/dynamics/images/thumb/sphx_glr_plot_03_lagrange_equations_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/mechanical_engineering/dynamics/plot_03_lagrange_equations`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Lagrange's equations of motion (1788)</div>
+    </div>
+
+
 .. thumbnail-parent-div-close
 
 .. raw:: html
@@ -65,4 +82,5 @@ Moments of inertia, work, kinetic energy and power.
 
    /api/gallery/mechanical_engineering/dynamics/plot_01_huygens_moment_of_inertia
    /api/gallery/mechanical_engineering/dynamics/plot_02_coriolis_work_energy
+   /api/gallery/mechanical_engineering/dynamics/plot_03_lagrange_equations
 

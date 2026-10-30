@@ -121,6 +121,57 @@ Estimating how a signal's power is spread over frequency, and how that spread ch
     </div>
 
 
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Schuster&#x27;s periodogram looked for strict periodicities hidden in noise. George Udny Yule, studying Wolfer&#x27;s sunspot numbers, proposed another picture: a pendulum &quot;pelted with peas&quot;, a damped oscillator kept going by random shocks, x_n = -a_1 x_{n-1} - a_2 x_{n-2} + e_n. Its cycle wanders in phase and amplitude, as the sunspot cycle does, and it is fitted from the record&#x27;s correlations, not its Fourier coefficients. Gilbert Walker (1931) extended the equations to any order. The fitted model gives a smooth spectrum \sigma^2/|A(e^{j\omega})|^2 (~engineeringkit.signal_processing.yule_walker, ARModel).">
+
+.. only:: html
+
+  .. image:: /api/gallery/signal_processing/spectral/images/thumb/sphx_glr_plot_07_yule_autoregression_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/signal_processing/spectral/plot_07_yule_autoregression`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Yule's autoregressive model (1927)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="The Yule-Walker equations have a Toeplitz matrix, and Norman Levinson (1947) had solved such systems, for Wiener&#x27;s filter, by a recursion on the order. James Durbin (1960) recast it for fitting autoregressions: the order-m model is the order-(m-1) one plus a correction weighted by a reflection coefficient k_m. It costs p^2 operations instead of p^3, gives every order on the way, so the prediction error can be watched as the order grows, and |k_m| &lt; 1 certifies a stable model (~engineeringkit.signal_processing.levinson_durbin). Linear predictive coding of speech is built on it.">
+
+.. only:: html
+
+  .. image:: /api/gallery/signal_processing/spectral/images/thumb/sphx_glr_plot_08_levinson_durbin_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/signal_processing/spectral/plot_08_levinson_durbin`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Durbin's recursion for autoregressive fitting (1960)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Seismologists wanted to know how deep an earthquake was, from the delay between a wave and its echo off the surface. An echo multiplies the spectrum by 1 + \alpha e^{-j\omega d}: a ripple in the log spectrum whose &quot;frequency&quot; is the delay. Bruce Bogert, Michael Healy and John Tukey (1963) took the spectrum of the log spectrum and found the echo as a peak. They reversed letters to name the new domain: cepstrum, quefrency, liftering. Logarithms turn the convolution of a source and a filter into a sum, which is how pitch is separated from the vocal tract in speech (~engineeringkit.signal_processing.real_cepstrum).">
+
+.. only:: html
+
+  .. image:: /api/gallery/signal_processing/spectral/images/thumb/sphx_glr_plot_09_bogert_healy_tukey_cepstrum_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/signal_processing/spectral/plot_09_bogert_healy_tukey_cepstrum`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Bogert, Healy and Tukey's cepstrum (1963)</div>
+    </div>
+
+
 .. thumbnail-parent-div-close
 
 .. raw:: html
@@ -137,4 +188,7 @@ Estimating how a signal's power is spread over frequency, and how that spread ch
    /api/gallery/signal_processing/spectral/plot_04_blackman_tukey_windows
    /api/gallery/signal_processing/spectral/plot_05_goertzel
    /api/gallery/signal_processing/spectral/plot_06_welch_psd
+   /api/gallery/signal_processing/spectral/plot_07_yule_autoregression
+   /api/gallery/signal_processing/spectral/plot_08_levinson_durbin
+   /api/gallery/signal_processing/spectral/plot_09_bogert_healy_tukey_cepstrum
 

@@ -5,7 +5,7 @@
 Radiation
 ---------
 
-Blackbody laws, gray-surface exchange and view factors.
+Blackbody laws, gray-surface exchange, view factors and radiation networks.
 
 
 .. raw:: html
@@ -87,6 +87,23 @@ Blackbody laws, gray-surface exchange and view factors.
     </div>
 
 
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Between gray surfaces radiation is reflected back and forth, so every surface&#x27;s exchange depends on every other. Antoni Oppenheim, at Berkeley, replaced the bookkeeping by an electrical analogy: each surface&#x27;s blackbody emissive power drives current through a surface resistance (1 - \varepsilon)/(\varepsilon A) to a node at its radiosity J, and the radiosity nodes are joined by space resistances 1/(A_iF_{ij}). Insulated walls become floating nodes and radiation shields add resistances in series. The network needs view factors that obey reciprocity and summation (~engineeringkit.heat_transfer.view_factor_reciprocity); radiation_enclosure solves it for any number of surfaces, and two_surface_radiation (checked here on two facing plates) and radiation_shield_heat_flux are its closed forms. This example models a furnace with a refractory wall and an insulated cryogenic line.">
+
+.. only:: html
+
+  .. image:: /api/gallery/heat_transfer/radiation/images/thumb/sphx_glr_plot_05_oppenheim_network_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/heat_transfer/radiation/plot_05_oppenheim_network`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Oppenheim's radiation network (1956)</div>
+    </div>
+
+
 .. thumbnail-parent-div-close
 
 .. raw:: html
@@ -101,4 +118,5 @@ Blackbody laws, gray-surface exchange and view factors.
    /api/gallery/heat_transfer/radiation/plot_02_stefan_boltzmann
    /api/gallery/heat_transfer/radiation/plot_03_wien_displacement
    /api/gallery/heat_transfer/radiation/plot_04_nusselt_view_factor
+   /api/gallery/heat_transfer/radiation/plot_05_oppenheim_network
 

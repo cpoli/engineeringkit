@@ -5,7 +5,7 @@
 Frequency response
 ------------------
 
-The Nyquist criterion, Bode plots and stability margins.
+The Nyquist criterion, Bode plots and stability margins, sensitivity and the Nichols chart.
 
 
 .. raw:: html
@@ -53,6 +53,40 @@ The Nyquist criterion, Bode plots and stability margins.
     </div>
 
 
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Hendrik Bode defined the sensitivity of a feedback loop, S = 1/(1 + L), as the fraction of a plant change that survives in the closed loop (~engineeringkit.control_systems.sensitivity), and its complement T = L/(1 + L) (~engineeringkit.control_systems.complementary_sensitivity) as the map from reference and sensor noise to the output. Since S + T = 1, the two cannot both be small at one frequency. Bode also showed that, for a stable loop that rolls off at least as 1/s^2, \int_0^\infty \ln|S(j\omega)|\,d\omega = 0. Sensitivity pushed down at low frequency pops up elsewhere, the waterbed effect. Freudenberg and Looze (1985) showed that each unstable open-loop pole p raises the integral to \pi\sum \mathrm{Re}\,p.">
+
+.. only:: html
+
+  .. image:: /api/gallery/control_systems/frequency/images/thumb/sphx_glr_plot_03_bode_sensitivity_integral_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/control_systems/frequency/plot_03_bode_sensitivity_integral`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Bode's sensitivity integral (1945)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Nathaniel Nichols, at the MIT Radiation Laboratory during the war, plotted the open-loop gain in decibels against its phase. On those axes the closed-loop gain of a unity-feedback loop, |L/(1+L)|, is a fixed family of contours (~engineeringkit.control_systems.nichols_closed_loop), so one curve shows both. The highest contour the locus touches is the closed-loop resonant peak M_r (~engineeringkit.control_systems.nichols), and reshaping the locus away from the critical point (-180^\circ, 0\text{ dB}) lowers it. The chart was published in James, Nichols and Phillips&#x27;s Theory of Servomechanisms (1947). Here a lead compensator (~engineeringkit.control_systems.design_lead) lifts the phase of L = 4/(s(s+1)(s+2)) near crossover and pulls the resonant peak down.">
+
+.. only:: html
+
+  .. image:: /api/gallery/control_systems/frequency/images/thumb/sphx_glr_plot_04_nichols_chart_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/control_systems/frequency/plot_04_nichols_chart`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">The Nichols chart (1947)</div>
+    </div>
+
+
 .. thumbnail-parent-div-close
 
 .. raw:: html
@@ -65,4 +99,6 @@ The Nyquist criterion, Bode plots and stability margins.
 
    /api/gallery/control_systems/frequency/plot_01_nyquist_stability_criterion
    /api/gallery/control_systems/frequency/plot_02_bode_stability_margins
+   /api/gallery/control_systems/frequency/plot_03_bode_sensitivity_integral
+   /api/gallery/control_systems/frequency/plot_04_nichols_chart
 

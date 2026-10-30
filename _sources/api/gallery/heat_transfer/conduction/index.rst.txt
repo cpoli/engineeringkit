@@ -5,7 +5,7 @@
 Conduction
 ----------
 
-Fourier's law, thermal resistances, fins and finite-difference conduction.
+Fourier's law, thermal resistances, shape factors, fins and finite-difference conduction in one and two dimensions.
 
 
 .. raw:: html
@@ -21,7 +21,7 @@ Fourier's law, thermal resistances, fins and finite-difference conduction.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Joseph Fourier&#x27;s 1822 treatise made the heat flux proportional to the temperature gradient, q = -k\,\mathrm{d}T/\mathrm{d}x, derived the heat equation from it, and invented the series that bear his name to solve it. For steady flow through a slab the law gives \dot Q = kA\Delta T/L (~engineeringkit.heat_transfer.fourier_heat_rate), so a slab behaves like an electrical resistor L/(kA) (~engineeringkit.heat_transfer.plane_wall_resistance) and layered walls add like resistors in series (~engineeringkit.heat_transfer.composite_wall). Curved walls give logarithmic resistances, and with them the surprising critical radius of insulation.">
+    <div class="sphx-glr-thumbcontainer" tooltip="Joseph Fourier&#x27;s 1822 treatise made the heat flux proportional to the temperature gradient, q = -k\,\mathrm{d}T/\mathrm{d}x, derived the heat equation from it, and invented the series that bear his name to solve it. For steady flow through a slab the law gives \dot Q = kA\Delta T/L (~engineeringkit.heat_transfer.fourier_heat_rate), so a slab behaves like an electrical resistor L/(kA) (~engineeringkit.heat_transfer.plane_wall_resistance) and layered walls add like resistors in series (~engineeringkit.heat_transfer.composite_wall). Curved walls give logarithmic resistances, and with them the surprising critical radius of insulation. Where the heat spreads in two dimensions, the solution of Fourier&#x27;s equation is packed into a conduction shape factor S, with \dot Q = Sk\Delta T.">
 
 .. only:: html
 
@@ -38,7 +38,7 @@ Fourier's law, thermal resistances, fins and finite-difference conduction.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Air-cooled aero engines of the First World War shed their heat through cylinder fins, and in 1922 D. R. Harper and W. B. Brown of the Bureau of Standards gave NACA the mathematics. A thin fin obeys \theta&#x27;&#x27; = m^2\theta with m = \sqrt{hP/(kA_c)} (~engineeringkit.heat_transfer.fin_parameter); with an insulated tip it carries \sqrt{hPkA_c}\,\theta_b\tanh mL (~engineeringkit.heat_transfer.fin_heat_rate_adiabatic), a fraction \tanh(mL)/mL of what an isothermal fin would (~engineeringkit.heat_transfer.fin_efficiency_adiabatic). Their practical trick: a convecting tip is accounted for by lengthening the fin by half its thickness. This example solves the fin equation numerically and checks both.">
+    <div class="sphx-glr-thumbcontainer" tooltip="Air-cooled aero engines of the First World War shed their heat through cylinder fins, and in 1922 D. R. Harper and W. B. Brown of the Bureau of Standards gave NACA the mathematics. A thin fin obeys \theta&#x27;&#x27; = m^2\theta with m = \sqrt{hP/(kA_c)} (~engineeringkit.heat_transfer.fin_parameter); with an insulated tip it carries \sqrt{hPkA_c}\,\theta_b\tanh mL (~engineeringkit.heat_transfer.fin_heat_rate_adiabatic), a fraction \tanh(mL)/mL of what an isothermal fin would (~engineeringkit.heat_transfer.fin_efficiency_adiabatic). Their exact result for a convecting tip (~engineeringkit.heat_transfer.fin_heat_rate_convective_tip) is well approximated by lengthening the adiabatic fin by half its thickness. This example solves the fin equation numerically and checks both.">
 
 .. only:: html
 
@@ -55,7 +55,7 @@ Fourier's law, thermal resistances, fins and finite-difference conduction.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="In 1947 John Crank and Phyllis Nicolson, solving heat-conduction problems with heat generation on desk calculators, needed a finite-difference scheme for the heat equation that was both stable and accurate. The explicit scheme is stable only for a mesh Fourier number r = \alpha\Delta t/\Delta x^2 \le 1/2; the fully implicit one is always stable but only first order in time. Averaging the two, they got an unconditionally stable, second-order method (~engineeringkit.heat_transfer.conduction_1d). This example measures the order of each scheme and watches the explicit one blow up.">
+    <div class="sphx-glr-thumbcontainer" tooltip="In 1947 John Crank and Phyllis Nicolson, solving heat-conduction problems with heat generation on desk calculators, needed a finite-difference scheme for the heat equation that was both stable and accurate. The explicit scheme is stable only for a mesh Fourier number r = \alpha\Delta t/\Delta x^2 \le 1/2; the fully implicit one is always stable but only first order in time. Averaging the two, they got an unconditionally stable, second-order method (~engineeringkit.heat_transfer.conduction_1d). This example measures the order of each scheme, watches the explicit one blow up, and closes with the steady two-dimensional problem the same finite differences solve (~engineeringkit.heat_transfer.conduction_2d).">
 
 .. only:: html
 

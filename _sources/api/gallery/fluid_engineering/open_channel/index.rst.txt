@@ -5,7 +5,7 @@
 Open channels
 -------------
 
-Uniform flow with a free surface.
+Flow with a free surface: uniform flow, specific energy and the hydraulic jump.
 
 
 .. raw:: html
@@ -36,6 +36,40 @@ Uniform flow with a free surface.
     </div>
 
 
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Water shooting fast and shallow from under a sluice gate cannot slow down smoothly: it rises abruptly, in a turbulent roller, to a deeper, slower stream. Jean-Baptiste Bélanger studied this hydraulic jump in his 1828 essay on steady flow in open channels. The rule used today, that the pressure force plus the momentum flux is the same on both sides, gives the sequent depth y_2/y_1 = (\sqrt{1 + 8\mathrm{Fr}_1^2} - 1)/2 (~engineeringkit.fluid_engineering.sequent_depth). The energy balance cannot be used across the jump, because the roller dissipates energy (~engineeringkit.fluid_engineering.hydraulic_jump_head_loss). This example finds the jump below a sluice gate and how much of the stream&#x27;s energy it destroys.">
+
+.. only:: html
+
+  .. image:: /api/gallery/fluid_engineering/open_channel/images/thumb/sphx_glr_plot_02_belanger_hydraulic_jump_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/fluid_engineering/open_channel/plot_02_belanger_hydraulic_jump`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Bélanger's hydraulic jump (1828)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Boris Bakhmeteff, in a 1912 book on varied flow written at St Petersburg, measured the energy of a stream from the channel bed instead of from a fixed datum: the specific energy E = y + q^2/(2gy^2) (~engineeringkit.fluid_engineering.specific_energy). Plotted against depth, it has a least value at the critical depth y_c = (q^2/g)^{1/3} (~engineeringkit.fluid_engineering.critical_depth), where the Froude number is 1, and any larger energy can be carried at a subcritical and a supercritical alternate depth (~engineeringkit.fluid_engineering.alternate_depths). This example draws the specific-energy diagram and uses it to find the flow over a raised step in the bed.">
+
+.. only:: html
+
+  .. image:: /api/gallery/fluid_engineering/open_channel/images/thumb/sphx_glr_plot_03_bakhmeteff_specific_energy_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/fluid_engineering/open_channel/plot_03_bakhmeteff_specific_energy`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Bakhmeteff's specific energy (1912)</div>
+    </div>
+
+
 .. thumbnail-parent-div-close
 
 .. raw:: html
@@ -47,4 +81,6 @@ Uniform flow with a free surface.
    :hidden:
 
    /api/gallery/fluid_engineering/open_channel/plot_01_manning_formula
+   /api/gallery/fluid_engineering/open_channel/plot_02_belanger_hydraulic_jump
+   /api/gallery/fluid_engineering/open_channel/plot_03_bakhmeteff_specific_energy
 

@@ -46,7 +46,7 @@
   <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be" />
 <link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be" />
 
-    <script src="../../../../_static/documentation_options.js?v=38b66d78"></script>
+    <script src="../../../../_static/documentation_options.js?v=95e61db4"></script>
     <script src="../../../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../../../_static/sg-tags.js?v=d80f6fa4"></script>
@@ -210,6 +210,21 @@
   </ul>
 </div></div>
       
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://cpoli.github.io/" title="Charles Poli" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-user fa-lg" aria-hidden="true"></i><span class="visually-hidden">Charles Poli</span></a>
+        </li>
+</ul></div>
+      
     </div>
     
   </div>
@@ -306,6 +321,21 @@
   </ul>
 </div></div>
         
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://cpoli.github.io/" title="Charles Poli" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-user fa-lg" aria-hidden="true"></i><span class="visually-hidden">Charles Poli</span></a>
+        </li>
+</ul></div>
+        
       </div>
     
   </div>
@@ -371,21 +401,41 @@
 <span class="sd">A series system works only if every component works; a parallel system</span>
 <span class="sd">needs one; a :math:`k`-out-of-:math:`n` system needs any :math:`k`. Von</span>
 <span class="sd">Neumann showed that redundancy can make a reliable machine from unreliable</span>
-<span class="sd">parts, and Birnbaum measured how much each part matters. Every formula here</span>
+<span class="sd">parts, and Birnbaum measured how much each part matters. A general block</span>
+<span class="sd">diagram, such as a bridge, is a network whose minimal path and cut sets</span>
+<span class="sd">give its exact reliability and Esary and Proschan's bounds. A cold standby</span>
+<span class="sd">unit is switched in only when the running one fails. Every formula here</span>
 <span class="sd">assumes independent component failures.</span>
 <span class="sd">"""</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
 
+<span class="kn">import</span><span class="w"> </span><span class="nn">itertools</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections.abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">Mapping</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit._validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">finite</span> <span class="k">as</span> <span class="n">_finite</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit._validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">integer</span> <span class="k">as</span> <span class="n">_integer</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit._validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">interval</span> <span class="k">as</span> <span class="n">_interval</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit._validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">nonnegative</span> <span class="k">as</span> <span class="n">_nonnegative</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit._validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">positive</span> <span class="k">as</span> <span class="n">_positive</span>
 
-<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"series_reliability"</span><span class="p">,</span> <span class="s2">"parallel_reliability"</span><span class="p">,</span> <span class="s2">"k_of_n_reliability"</span><span class="p">,</span> <span class="s2">"birnbaum_importance_series"</span><span class="p">]</span>
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">"series_reliability"</span><span class="p">,</span>
+    <span class="s2">"parallel_reliability"</span><span class="p">,</span>
+    <span class="s2">"k_of_n_reliability"</span><span class="p">,</span>
+    <span class="s2">"birnbaum_importance_series"</span><span class="p">,</span>
+    <span class="s2">"minimal_path_sets"</span><span class="p">,</span>
+    <span class="s2">"minimal_cut_sets"</span><span class="p">,</span>
+    <span class="s2">"network_reliability"</span><span class="p">,</span>
+    <span class="s2">"esary_proschan_bounds"</span><span class="p">,</span>
+    <span class="s2">"standby_reliability"</span><span class="p">,</span>
+    <span class="s2">"standby_mttf"</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="n">_MAX_COMPONENTS</span> <span class="o">=</span> <span class="mi">20</span>
 
 
 <div class="viewcode-block" id="series_reliability">
@@ -413,8 +463,9 @@
 <span class="sd">    &gt;&gt;&gt; round(series_reliability(0.9, 0.8), 2)</span>
 <span class="sd">    0.72</span>
 <span class="sd">    """</span>
-    <span class="n">_interval</span><span class="p">(</span><span class="s2">"r"</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-    <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="n">r</span><span class="p">))</span></div>
+    <span class="n">parts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">broadcast_arrays</span><span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">r</span><span class="p">))</span>
+    <span class="n">_interval</span><span class="p">(</span><span class="s2">"r"</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">parts</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">parts</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)[()]</span></div>
 
 
 
@@ -449,8 +500,9 @@
 <span class="sd">    &gt;&gt;&gt; round(parallel_reliability(0.9, 0.8), 2)</span>
 <span class="sd">    0.98</span>
 <span class="sd">    """</span>
-    <span class="n">_interval</span><span class="p">(</span><span class="s2">"r"</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-    <span class="k">return</span> <span class="mi">1</span> <span class="o">-</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">prod</span><span class="p">([</span><span class="mi">1</span> <span class="o">-</span> <span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">r</span><span class="p">]))</span></div>
+    <span class="n">parts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">broadcast_arrays</span><span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">r</span><span class="p">))</span>
+    <span class="n">_interval</span><span class="p">(</span><span class="s2">"r"</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">parts</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">parts</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))[()]</span></div>
 
 
 
@@ -540,6 +592,332 @@
     <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="nb">len</span><span class="p">(</span><span class="n">reliabilities</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"component index out of range"</span><span class="p">)</span>
     <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">reliabilities</span><span class="p">),</span> <span class="n">i</span><span class="p">)))</span></div>
+
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_check_network</span><span class="p">(</span><span class="n">components</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">sink</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Validate a block diagram given as ``{name: (node, node)}``."""</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">components</span><span class="p">,</span> <span class="n">Mapping</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">components</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"components must map component names to (node, node) pairs"</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">ends</span> <span class="ow">in</span> <span class="n">components</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ends</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">ends</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"components must map component names (str) to (node, node) pairs"</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">source</span> <span class="o">==</span> <span class="n">sink</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"source and sink must be different nodes"</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="minimal_path_sets">
+<a class="viewcode-back" href="../../../../api/reliability.html#engineeringkit.reliability.minimal_path_sets">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">minimal_path_sets</span><span class="p">(</span><span class="n">components</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">sink</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Minimal path sets of a reliability block diagram drawn as a network.</span>
+
+<span class="sd">    Each component is a link between two nodes, usable in either direction;</span>
+<span class="sd">    the system works if the working components connect ``source`` to</span>
+<span class="sd">    ``sink``. A minimal path set is a set of components whose working alone</span>
+<span class="sd">    connects them and none of which can be dropped: the components along</span>
+<span class="sd">    each simple path.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    components : mapping of str to tuple</span>
+<span class="sd">        ``{name: (node_a, node_b)}``; nodes are any hashable labels.</span>
+<span class="sd">    source, sink : hashable</span>
+<span class="sd">        Input and output nodes of the diagram.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    list of tuple of str</span>
+<span class="sd">        Minimal path sets, each sorted, shortest first.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Inputs are raw SI numbers with no dimensional metadata; see</span>
+<span class="sd">    :doc:`/guides/reliability`.</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    J. D. Esary and F. Proschan, "Coherent structures of non-identical</span>
+<span class="sd">    components," *Technometrics* 5 (1963) 191-209.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; bridge = {"A": ("s", 1), "B": ("s", 2), "C": (1, 2), "D": (1, "t"), "E": (2, "t")}</span>
+<span class="sd">    &gt;&gt;&gt; minimal_path_sets(bridge, "s", "t")</span>
+<span class="sd">    [('A', 'D'), ('B', 'E'), ('A', 'C', 'E'), ('B', 'C', 'D')]</span>
+<span class="sd">    """</span>
+    <span class="n">_check_network</span><span class="p">(</span><span class="n">components</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">sink</span><span class="p">)</span>
+    <span class="n">links</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="ow">in</span> <span class="n">components</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">links</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="p">[])</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">name</span><span class="p">,</span> <span class="n">b</span><span class="p">))</span>
+        <span class="n">links</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="p">[])</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">name</span><span class="p">,</span> <span class="n">a</span><span class="p">))</span>
+    <span class="n">found</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">walk</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">visited</span><span class="p">,</span> <span class="n">used</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">node</span> <span class="o">==</span> <span class="n">sink</span><span class="p">:</span>
+            <span class="n">found</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="nb">tuple</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">used</span><span class="p">)))</span>
+            <span class="k">return</span>
+        <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">other</span> <span class="ow">in</span> <span class="n">links</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="p">[]):</span>
+            <span class="k">if</span> <span class="n">other</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">visited</span><span class="p">:</span>
+                <span class="n">walk</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">visited</span> <span class="o">|</span> <span class="p">{</span><span class="n">other</span><span class="p">},</span> <span class="n">used</span> <span class="o">+</span> <span class="p">[</span><span class="n">name</span><span class="p">])</span>
+
+    <span class="n">walk</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="p">{</span><span class="n">source</span><span class="p">},</span> <span class="p">[])</span>
+    <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">found</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">path</span><span class="p">:</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">path</span><span class="p">),</span> <span class="n">path</span><span class="p">))</span></div>
+
+
+
+<div class="viewcode-block" id="minimal_cut_sets">
+<a class="viewcode-back" href="../../../../api/reliability.html#engineeringkit.reliability.minimal_cut_sets">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">minimal_cut_sets</span><span class="p">(</span><span class="n">components</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">sink</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Minimal cut sets of a reliability block diagram drawn as a network.</span>
+
+<span class="sd">    A cut set is a set of components whose failure alone disconnects</span>
+<span class="sd">    ``source`` from ``sink``; it is minimal if no component can be dropped.</span>
+<span class="sd">    The minimal cut sets are the minimal sets that meet every minimal path</span>
+<span class="sd">    set, found here by trying sets in order of size.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    components : mapping of str to tuple</span>
+<span class="sd">        ``{name: (node_a, node_b)}``.</span>
+<span class="sd">    source, sink : hashable</span>
+<span class="sd">        Input and output nodes of the diagram.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    list of tuple of str</span>
+<span class="sd">        Minimal cut sets, each sorted, smallest first. Empty if ``source``</span>
+<span class="sd">        and ``sink`` are not connected at all.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Limited to 20 components that lie on some path. Inputs are raw SI</span>
+<span class="sd">    numbers with no dimensional metadata; see :doc:`/guides/reliability`.</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    J. D. Esary and F. Proschan, "Coherent structures of non-identical</span>
+<span class="sd">    components," *Technometrics* 5 (1963) 191-209.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; bridge = {"A": ("s", 1), "B": ("s", 2), "C": (1, 2), "D": (1, "t"), "E": (2, "t")}</span>
+<span class="sd">    &gt;&gt;&gt; minimal_cut_sets(bridge, "s", "t")</span>
+<span class="sd">    [('A', 'B'), ('D', 'E'), ('A', 'C', 'E'), ('B', 'C', 'D')]</span>
+<span class="sd">    """</span>
+    <span class="n">paths</span> <span class="o">=</span> <span class="p">[</span><span class="nb">set</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">minimal_path_sets</span><span class="p">(</span><span class="n">components</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">sink</span><span class="p">)]</span>
+    <span class="n">names</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">set</span><span class="p">()</span><span class="o">.</span><span class="n">union</span><span class="p">(</span><span class="o">*</span><span class="n">paths</span><span class="p">))</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">names</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">_MAX_COMPONENTS</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"cut-set enumeration is limited to </span><span class="si">{</span><span class="n">_MAX_COMPONENTS</span><span class="si">}</span><span class="s2"> components"</span><span class="p">)</span>
+    <span class="n">cuts</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">set</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">size</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">names</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">candidate</span> <span class="ow">in</span> <span class="n">itertools</span><span class="o">.</span><span class="n">combinations</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="n">size</span><span class="p">):</span>
+            <span class="n">chosen</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">candidate</span><span class="p">)</span>
+            <span class="k">if</span> <span class="nb">all</span><span class="p">(</span><span class="n">chosen</span> <span class="o">&amp;</span> <span class="n">path</span> <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">paths</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">any</span><span class="p">(</span><span class="n">cut</span> <span class="o">&lt;=</span> <span class="n">chosen</span> <span class="k">for</span> <span class="n">cut</span> <span class="ow">in</span> <span class="n">cuts</span><span class="p">):</span>
+                <span class="n">cuts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">chosen</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">[</span><span class="nb">tuple</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">cut</span><span class="p">))</span> <span class="k">for</span> <span class="n">cut</span> <span class="ow">in</span> <span class="n">cuts</span><span class="p">]</span></div>
+
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_component_reliabilities</span><span class="p">(</span><span class="n">components</span><span class="p">,</span> <span class="n">reliabilities</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">reliabilities</span><span class="p">,</span> <span class="n">Mapping</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"reliabilities must map component names to reliabilities"</span><span class="p">)</span>
+    <span class="n">missing</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">components</span><span class="p">)</span> <span class="o">-</span> <span class="nb">set</span><span class="p">(</span><span class="n">reliabilities</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">missing</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"no reliability given for components </span><span class="si">{</span><span class="n">missing</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="p">{</span><span class="n">name</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">reliabilities</span><span class="p">[</span><span class="n">name</span><span class="p">])</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">components</span><span class="p">}</span>
+    <span class="n">_interval</span><span class="p">(</span><span class="s2">"reliabilities"</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">values</span><span class="p">()),</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">r</span>
+
+
+<div class="viewcode-block" id="network_reliability">
+<a class="viewcode-back" href="../../../../api/reliability.html#engineeringkit.reliability.network_reliability">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">network_reliability</span><span class="p">(</span><span class="n">components</span><span class="p">,</span> <span class="n">reliabilities</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">sink</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Exact reliability of a block diagram with independent components.</span>
+
+<span class="sd">    The system works in every state of the components in which some minimal</span>
+<span class="sd">    path set works entirely; the probabilities of those states are summed</span>
+<span class="sd">    over all :math:`2^m` states of the :math:`m` components on paths.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    components : mapping of str to tuple</span>
+<span class="sd">        ``{name: (node_a, node_b)}``.</span>
+<span class="sd">    reliabilities : mapping of str to float</span>
+<span class="sd">        Reliability of each component [-], in [0, 1].</span>
+<span class="sd">    source, sink : hashable</span>
+<span class="sd">        Input and output nodes of the diagram.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float</span>
+<span class="sd">        System reliability [-].</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Limited to 20 components that lie on some path. Series, parallel and</span>
+<span class="sd">    k-out-of-n systems are special cases. Inputs are raw SI numbers with no</span>
+<span class="sd">    dimensional metadata; see :doc:`/guides/reliability`.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; bridge = {"A": ("s", 1), "B": ("s", 2), "C": (1, 2), "D": (1, "t"), "E": (2, "t")}</span>
+<span class="sd">    &gt;&gt;&gt; round(network_reliability(bridge, dict.fromkeys(bridge, 0.9), "s", "t"), 5)</span>
+<span class="sd">    0.97848</span>
+<span class="sd">    """</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">_component_reliabilities</span><span class="p">(</span><span class="n">components</span><span class="p">,</span> <span class="n">reliabilities</span><span class="p">)</span>
+    <span class="n">paths</span> <span class="o">=</span> <span class="n">minimal_path_sets</span><span class="p">(</span><span class="n">components</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">sink</span><span class="p">)</span>
+    <span class="n">names</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">({</span><span class="n">name</span> <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">paths</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">path</span><span class="p">})</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">names</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">_MAX_COMPONENTS</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"exact evaluation is limited to </span><span class="si">{</span><span class="n">_MAX_COMPONENTS</span><span class="si">}</span><span class="s2"> components"</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">paths</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mf">0.0</span>
+    <span class="n">index</span> <span class="o">=</span> <span class="p">{</span><span class="n">name</span><span class="p">:</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">names</span><span class="p">)}</span>
+    <span class="n">codes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">2</span> <span class="o">**</span> <span class="nb">len</span><span class="p">(</span><span class="n">names</span><span class="p">))</span>
+    <span class="n">states</span> <span class="o">=</span> <span class="p">(</span><span class="n">codes</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">names</span><span class="p">)))</span> <span class="o">&amp;</span> <span class="mi">1</span> <span class="o">==</span> <span class="mi">1</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">r</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span><span class="p">])</span>
+    <span class="n">weights</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">states</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">p</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">works</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logical_or</span><span class="o">.</span><span class="n">reduce</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">states</span><span class="p">[:,</span> <span class="p">[</span><span class="n">index</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">path</span><span class="p">]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">paths</span><span class="p">])</span>
+    <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">weights</span><span class="p">[</span><span class="n">works</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span></div>
+
+
+
+<div class="viewcode-block" id="esary_proschan_bounds">
+<a class="viewcode-back" href="../../../../api/reliability.html#engineeringkit.reliability.esary_proschan_bounds">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">esary_proschan_bounds</span><span class="p">(</span><span class="n">components</span><span class="p">,</span> <span class="n">reliabilities</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">sink</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Esary-Proschan lower and upper bounds on block-diagram reliability from minimal cuts and paths.</span>
+
+<span class="sd">    :math:`\prod_{C}\left(1 - \prod_{i \in C} q_i\right) \le R \le</span>
+<span class="sd">    1 - \prod_{P}\left(1 - \prod_{i \in P} p_i\right)`, over the minimal cut</span>
+<span class="sd">    sets :math:`C` and path sets :math:`P`. The bounds treat the cuts (or</span>
+<span class="sd">    paths) as if they failed independently; they are tight when components</span>
+<span class="sd">    are reliable (lower) or unreliable (upper).</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    components : mapping of str to tuple</span>
+<span class="sd">        ``{name: (node_a, node_b)}``.</span>
+<span class="sd">    reliabilities : mapping of str to float</span>
+<span class="sd">        Reliability of each component [-], in [0, 1].</span>
+<span class="sd">    source, sink : hashable</span>
+<span class="sd">        Input and output nodes of the diagram.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    tuple of float</span>
+<span class="sd">        ``(lower, upper)`` [-].</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Inputs are raw SI numbers with no dimensional metadata; see</span>
+<span class="sd">    :doc:`/guides/reliability`.</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    J. D. Esary and F. Proschan, "Coherent structures of non-identical</span>
+<span class="sd">    components," *Technometrics* 5 (1963) 191-209.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; bridge = {"A": ("s", 1), "B": ("s", 2), "C": (1, 2), "D": (1, "t"), "E": (2, "t")}</span>
+<span class="sd">    &gt;&gt;&gt; [round(b, 4) for b in esary_proschan_bounds(bridge, dict.fromkeys(bridge, 0.9), "s", "t")]</span>
+<span class="sd">    [0.9781, 0.9973]</span>
+<span class="sd">    """</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">_component_reliabilities</span><span class="p">(</span><span class="n">components</span><span class="p">,</span> <span class="n">reliabilities</span><span class="p">)</span>
+    <span class="n">paths</span> <span class="o">=</span> <span class="n">minimal_path_sets</span><span class="p">(</span><span class="n">components</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">sink</span><span class="p">)</span>
+    <span class="n">cuts</span> <span class="o">=</span> <span class="n">minimal_cut_sets</span><span class="p">(</span><span class="n">components</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">sink</span><span class="p">)</span>
+    <span class="n">lower</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">prod</span><span class="p">([</span><span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">prod</span><span class="p">([</span><span class="mi">1</span> <span class="o">-</span> <span class="n">r</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">cut</span><span class="p">])</span> <span class="k">for</span> <span class="n">cut</span> <span class="ow">in</span> <span class="n">cuts</span><span class="p">]))</span> <span class="k">if</span> <span class="n">paths</span> <span class="k">else</span> <span class="mf">0.0</span>
+    <span class="n">upper</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">prod</span><span class="p">([</span><span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">prod</span><span class="p">([</span><span class="n">r</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">path</span><span class="p">])</span> <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">paths</span><span class="p">]))</span>
+    <span class="k">return</span> <span class="n">lower</span><span class="p">,</span> <span class="n">upper</span></div>
+
+
+
+<div class="viewcode-block" id="standby_reliability">
+<a class="viewcode-back" href="../../../../api/reliability.html#engineeringkit.reliability.standby_reliability">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">standby_reliability</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">lam</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">switch_reliability</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Reliability of ``n`` identical units in cold standby, :math:`e^{-\lambda t}\sum_{k=0}^{n-1} p^k(\lambda t)^k/k!`.</span>
+
+<span class="sd">    One unit runs; when it fails a switch, which works with probability</span>
+<span class="sd">    :math:`p` at each changeover, brings in the next. Spares do not age</span>
+<span class="sd">    while waiting. With a perfect switch the system life is the sum of</span>
+<span class="sd">    :math:`n` exponential lives, a gamma (Erlang) distribution of shape</span>
+<span class="sd">    :math:`n`.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    t : float or array_like</span>
+<span class="sd">        Mission time [s], nonnegative.</span>
+<span class="sd">    lam : float</span>
+<span class="sd">        Failure rate of a running unit [1/s], nonnegative.</span>
+<span class="sd">    n : int, optional</span>
+<span class="sd">        Number of units, the running one included, at least one.</span>
+<span class="sd">    switch_reliability : float, optional</span>
+<span class="sd">        Probability :math:`p` that a changeover succeeds [-], in [0, 1].</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float or ndarray</span>
+<span class="sd">        System reliability [-].</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Cold standby with a perfect switch beats active parallel redundancy of</span>
+<span class="sd">    the same units, since the spares do not wear while waiting. Inputs are</span>
+<span class="sd">    raw SI numbers with no dimensional metadata; see</span>
+<span class="sd">    :doc:`/guides/reliability`.</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    C. E. Ebeling, *An Introduction to Reliability and Maintainability</span>
+<span class="sd">    Engineering* (McGraw-Hill, 1997), §6.5.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; round(float(standby_reliability(1000.0, 1e-3, 2)), 4)</span>
+<span class="sd">    0.7358</span>
+<span class="sd">    """</span>
+    <span class="n">_finite</span><span class="p">(</span><span class="n">t</span><span class="o">=</span><span class="n">t</span><span class="p">,</span> <span class="n">lam</span><span class="o">=</span><span class="n">lam</span><span class="p">)</span>
+    <span class="n">_nonnegative</span><span class="p">(</span><span class="n">t</span><span class="o">=</span><span class="n">t</span><span class="p">,</span> <span class="n">lam</span><span class="o">=</span><span class="n">lam</span><span class="p">)</span>
+    <span class="n">_integer</span><span class="p">(</span><span class="s2">"n"</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">_interval</span><span class="p">(</span><span class="s2">"switch_reliability"</span><span class="p">,</span> <span class="n">switch_reliability</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">lam</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+    <span class="n">terms</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">((</span><span class="n">switch_reliability</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span> <span class="o">**</span> <span class="n">k</span> <span class="o">/</span> <span class="n">math</span><span class="o">.</span><span class="n">factorial</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="n">terms</span></div>
+
+
+
+<div class="viewcode-block" id="standby_mttf">
+<a class="viewcode-back" href="../../../../api/reliability.html#engineeringkit.reliability.standby_mttf">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">standby_mttf</span><span class="p">(</span><span class="n">lam</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">switch_reliability</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Mean life of ``n`` identical units in cold standby, :math:`\sum_{k=0}^{n-1} p^k/\lambda`.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    lam : float</span>
+<span class="sd">        Failure rate of a running unit [1/s], positive.</span>
+<span class="sd">    n : int, optional</span>
+<span class="sd">        Number of units, at least one.</span>
+<span class="sd">    switch_reliability : float, optional</span>
+<span class="sd">        Probability that a changeover succeeds [-], in [0, 1].</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float</span>
+<span class="sd">        Mean time to failure [s]; :math:`n/\lambda` with a perfect switch.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Inputs are raw SI numbers with no dimensional metadata; see</span>
+<span class="sd">    :doc:`/guides/reliability`.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; standby_mttf(0.5, 3)</span>
+<span class="sd">    6.0</span>
+<span class="sd">    """</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">lam</span><span class="o">=</span><span class="n">lam</span><span class="p">)</span>
+    <span class="n">_integer</span><span class="p">(</span><span class="s2">"n"</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">_interval</span><span class="p">(</span><span class="s2">"switch_reliability"</span><span class="p">,</span> <span class="n">switch_reliability</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">switch_reliability</span><span class="o">**</span><span class="n">k</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">))</span> <span class="o">/</span> <span class="n">lam</span></div>
 
 </pre></div>
 

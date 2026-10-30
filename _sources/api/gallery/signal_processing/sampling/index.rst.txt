@@ -5,7 +5,7 @@
 Sampling
 --------
 
-What is kept and what is lost when a signal is sampled and quantized.
+What is kept and what is lost when a signal is sampled and quantized, and how its sampling rate is changed.
 
 
 .. raw:: html
@@ -53,6 +53,23 @@ What is kept and what is lost when a signal is sampled and quantized.
     </div>
 
 
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Changing a sampling rate used to mean converting back to analog and sampling again. Ronald Schafer and Lawrence Rabiner (1973), at Bell Labs, showed it is a digital filtering problem. To raise the rate by L, insert L - 1 zeros between samples, which leaves images of the spectrum, and remove them with a low-pass filter of gain L. To lower it by M, low-pass filter first so nothing aliases, then keep every M-th sample (~engineeringkit.signal_processing.upsample, interpolate, downsample, decimate). A windowed-sinc interpolator passes the original samples through unchanged.">
+
+.. only:: html
+
+  .. image:: /api/gallery/signal_processing/sampling/images/thumb/sphx_glr_plot_03_schafer_rabiner_interpolation_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/signal_processing/sampling/plot_03_schafer_rabiner_interpolation`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Schafer and Rabiner's digital interpolation (1973)</div>
+    </div>
+
+
 .. thumbnail-parent-div-close
 
 .. raw:: html
@@ -65,4 +82,5 @@ What is kept and what is lost when a signal is sampled and quantized.
 
    /api/gallery/signal_processing/sampling/plot_01_bennett_quantization
    /api/gallery/signal_processing/sampling/plot_02_shannon_sampling
+   /api/gallery/signal_processing/sampling/plot_03_schafer_rabiner_interpolation
 

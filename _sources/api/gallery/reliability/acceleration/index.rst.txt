@@ -1,0 +1,68 @@
+
+
+.. _sphx_glr_api_gallery_reliability_acceleration:
+
+Accelerated life testing
+------------------------
+
+Carrying lives measured under high stress back to service conditions.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Svante Arrhenius (1889), measuring how fast acid inverts cane sugar, found that reaction rates grow with temperature as e^{-E_a/(k_B T)}. Many failure mechanisms of electronics, such as diffusion, corrosion and intermetallic growth, are reactions, so a part&#x27;s life at temperature T scales as e^{E_a/(k_B T)}. A test at 125 °C then stands in for years at 55 °C, through the acceleration factor (~engineeringkit.reliability.arrhenius_acceleration_factor). Lives measured at several temperatures fix E_a (~engineeringkit.reliability.arrhenius_fit).">
+
+.. only:: html
+
+  .. image:: /api/gallery/reliability/acceleration/images/thumb/sphx_glr_plot_01_arrhenius_accelerated_life_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/reliability/acceleration/plot_01_arrhenius_accelerated_life`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Arrhenius's law and accelerated life testing (1889)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Henry Eyring (1935) derived reaction rates from statistical mechanics: reactants pass through an activated complex, and the rate is (k_B T/h)\,e^{-\Delta G^\ddagger/(k_B T)}. The prefactor T is absent from Arrhenius&#x27;s empirical law. For life testing it means L \propto T^{-1}e^{E_a/(k_B T)}, and an acceleration factor T_t/T_u times the Arrhenius one (~engineeringkit.reliability.eyring_acceleration_factor). The model extends naturally to non-thermal stresses such as voltage, here represented by the inverse power law (~engineeringkit.reliability.inverse_power_law_acceleration_factor).">
+
+.. only:: html
+
+  .. image:: /api/gallery/reliability/acceleration/images/thumb/sphx_glr_plot_02_eyring_activated_complex_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/reliability/acceleration/plot_02_eyring_activated_complex`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Eyring's activated complex (1935)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/reliability/acceleration/plot_01_arrhenius_accelerated_life
+   /api/gallery/reliability/acceleration/plot_02_eyring_activated_complex
+

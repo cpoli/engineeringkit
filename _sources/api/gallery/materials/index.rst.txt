@@ -6,10 +6,12 @@ Examples
 .. include:: /_generated/nav/materials.rst
 
 This gallery walks through every public feature of
-``engineeringkit.materials``, one breakthrough per script: elastic constants
-and thermal stress, the yield criteria, composite bounds, fatigue from
-Goodman to Coffin-Manson, fracture from Griffith to Paris, creep, and the
-dislocation theory of plasticity.
+``engineeringkit.materials``, one breakthrough per script: X-ray
+diffraction, diffusion, transformation kinetics, elastic constants and
+thermal stress, hardness, the yield criteria, composites from the
+rules of mixtures to laminates, fatigue from Goodman to Neuber, fracture
+from Griffith to Paris and Weibull, creep, and the dislocation theory of
+plasticity.
 
 :doc:`Units, assumptions and numerical validation </guides/materials>`
 gives the physical validity limits. Each script is self-contained and can be
@@ -18,11 +20,15 @@ run directly with ``python examples/materials/<section>/<script>.py``.
 Sections
 --------
 
+- **crystals** -- the Braggs' law of X-ray diffraction.
+- **diffusion** -- Fick's laws and carburizing.
+- **phases** -- Avrami's transformation kinetics and the lever rule.
 - **elasticity** -- Young's modulus, Duhamel's thermal stress and Lamé's constants.
+- **hardness** -- Brinell's hardness test.
 - **yield** -- Tresca's maximum-shear criterion and von Mises's distortion energy.
-- **composites** -- the Voigt and Reuss bounds.
-- **fatigue** -- Goodman's diagram, Basquin's S-N law, Palmgren-Miner damage and Coffin-Manson low-cycle fatigue.
-- **fracture** -- Griffith's energy balance, Irwin's stress intensity factor and Paris's law.
+- **composites** -- the Voigt and Reuss bounds, the Halpin-Tsai equations and classical laminate theory.
+- **fatigue** -- Goodman's diagram, Basquin's S-N law, Palmgren-Miner damage, Coffin-Manson low-cycle fatigue and Neuber's rule.
+- **fracture** -- Griffith's energy balance, Irwin's stress intensity factor, Paris's law and Weibull's brittle strength.
 - **creep** -- Norton's power-law creep and the Larson-Miller parameter.
 - **plasticity** -- dislocations, the Ramberg-Osgood curve and Hall-Petch strengthening.
 
@@ -47,7 +53,7 @@ Sections
 Composites
 ----------
 
-Rules of mixtures and the bounds on a composite's stiffness.
+Rules of mixtures, the Halpin-Tsai equations and classical laminate theory.
 
 
 .. raw:: html
@@ -75,6 +81,40 @@ Rules of mixtures and the bounds on a composite's stiffness.
 .. raw:: html
 
       <div class="sphx-glr-thumbnail-title">Voigt and Reuss: bounds on a composite's stiffness (1889-1929)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="The Voigt and Reuss bounds are far apart for fibre composites, and the exact elasticity solutions for fibre arrays were too complicated for design. John Halpin and Stephen Tsai, at the US Air Force Materials Laboratory, fitted those solutions with one interpolating formula,">
+
+.. only:: html
+
+  .. image:: /api/gallery/materials/composites/images/thumb/sphx_glr_plot_02_halpin_tsai_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/materials/composites/plot_02_halpin_tsai`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">The Halpin-Tsai equations (1969)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A ply of aligned fibres is stiff along them and soft across, so composite parts stack plies at several angles. Eric Reissner and Yehuda Stavsky, at MIT, extended Kirchhoff&#x27;s plate theory to such stacks and found that in an unsymmetric laminate stretching and bending are coupled: pulling it makes it curl. The laminate relates force and moment resultants to midplane strains and curvatures through three matrices,">
+
+.. only:: html
+
+  .. image:: /api/gallery/materials/composites/images/thumb/sphx_glr_plot_03_classical_laminate_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/materials/composites/plot_03_classical_laminate`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Reissner and Stavsky: classical laminate theory (1961)</div>
     </div>
 
 
@@ -132,6 +172,86 @@ Steady creep and time-temperature parameters for rupture.
 .. raw:: html
 
       <div class="sphx-glr-thumbnail-title">The Larson-Miller parameter (1952)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+Crystals
+--------
+
+Unit cells, packing, theoretical density and X-ray diffraction.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Laue showed in 1912 that crystals diffract X-rays. William Lawrence Bragg, a research student at Cambridge, read the spots as reflections from planes of atoms: waves reflected by neighbouring planes a distance d apart reinforce when their path difference is a whole number of wavelengths,">
+
+.. only:: html
+
+  .. image:: /api/gallery/materials/crystals/images/thumb/sphx_glr_plot_01_bragg_diffraction_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/materials/crystals/plot_01_bragg_diffraction`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">The Braggs' law of X-ray diffraction (1913)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+Diffusion
+---------
+
+Fick's laws, the Arrhenius diffusivity and case carburizing.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Adolf Fick, a 26-year-old prosector in anatomy at Zürich, took Fourier&#x27;s law of heat conduction and applied it to salt dissolving in water: the flux is proportional to the concentration gradient, J = -D\,\partial C/\partial x (~engineeringkit.materials.fick_flux), and conservation gives the second law \partial C/\partial t = D\,\partial^2 C/\partial x^2. Into a thick steel part whose surface is held at a carbon content C_s, the second law gives the error-function profile (~engineeringkit.materials.semi_infinite_concentration) that times every carburizing furnace. The example computes the case depth of a gear and the furnace time it needs.">
+
+.. only:: html
+
+  .. image:: /api/gallery/materials/diffusion/images/thumb/sphx_glr_plot_01_fick_carburizing_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/materials/diffusion/plot_01_fick_carburizing`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Fick's laws of diffusion (1855)</div>
     </div>
 
 
@@ -218,7 +338,7 @@ Young's modulus, thermal stress and the isotropic elastic constants.
 Fatigue
 -------
 
-Stress-life, mean stress, cumulative damage and strain-life.
+Stress-life, mean stress, cumulative damage, strain-life and notches.
 
 
 .. raw:: html
@@ -300,6 +420,23 @@ Stress-life, mean stress, cumulative damage and strain-life.
     </div>
 
 
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A notch raises the elastic stress at its root by K_t, but in a ductile part the root yields long before the nominal stress does, and K_t S overstates the stress and understates the strain. Heinz Neuber, at the Technical University of Munich, showed for a shear-loaded notch that the stress and strain concentration factors keep their geometric mean equal to K_t after yield, K_\sigma K_\varepsilon = K_t^2, so">
+
+.. only:: html
+
+  .. image:: /api/gallery/materials/fatigue/images/thumb/sphx_glr_plot_05_neuber_rule_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/materials/fatigue/plot_05_neuber_rule`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Neuber's rule for notches that yield (1961)</div>
+    </div>
+
+
 .. thumbnail-parent-div-close
 
 .. raw:: html
@@ -309,7 +446,7 @@ Stress-life, mean stress, cumulative damage and strain-life.
 Fracture
 --------
 
-Brittle fracture, the stress intensity factor and fatigue crack growth.
+Brittle fracture, the stress intensity factor, fatigue crack growth and the statistics of brittle strength.
 
 
 .. raw:: html
@@ -371,6 +508,103 @@ Brittle fracture, the stress intensity factor and fatigue crack growth.
 .. raw:: html
 
       <div class="sphx-glr-thumbnail-title">Paris's crack-growth law (1963)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Identical glass rods or ceramic bars break at widely different loads, and long ones break at lower loads than short ones. Waloddi Weibull, at the Royal Institute of Technology in Stockholm, explained both with a weakest link: a part fails when its worst flaw does, so its survival probability is the product of the survival probabilities of its volume elements,">
+
+.. only:: html
+
+  .. image:: /api/gallery/materials/fracture/images/thumb/sphx_glr_plot_04_weibull_strength_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/materials/fracture/plot_04_weibull_strength`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Weibull's statistical strength of brittle materials (1939)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+Hardness
+--------
+
+Indentation hardness and its link to tensile strength.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Johan August Brinell, chief engineer of the Fagersta ironworks in Sweden, showed his ball test at the 1900 Paris Exposition. A 10 mm hardened steel ball pressed into the part with 3000 kgf leaves a dent of diameter d; the load divided by the curved area of the dent is the hardness number (~engineeringkit.materials.brinell_hardness),">
+
+.. only:: html
+
+  .. image:: /api/gallery/materials/hardness/images/thumb/sphx_glr_plot_01_brinell_hardness_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/materials/hardness/plot_01_brinell_hardness`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Brinell's hardness test (1900)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+Phases
+------
+
+The lever rule on a binary phase diagram and transformation kinetics.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Austenite turning to pearlite, cold-worked metal recrystallising and polymers crystallising all follow the same S-shaped curve. Melvin Avrami, then at Columbia, modelled nuclei that appear at random and grow until they run into each other: counting the &quot;extended&quot; volume they would fill if they could overlap, and removing the overlaps statistically, gives">
+
+.. only:: html
+
+  .. image:: /api/gallery/materials/phases/images/thumb/sphx_glr_plot_01_avrami_kinetics_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/materials/phases/plot_01_avrami_kinetics`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Avrami's transformation kinetics (1939)</div>
     </div>
 
 
@@ -519,9 +753,13 @@ Multiaxial yield criteria for ductile metals.
 
    /api/gallery/materials/composites/index.rst
    /api/gallery/materials/creep/index.rst
+   /api/gallery/materials/crystals/index.rst
+   /api/gallery/materials/diffusion/index.rst
    /api/gallery/materials/elasticity/index.rst
    /api/gallery/materials/fatigue/index.rst
    /api/gallery/materials/fracture/index.rst
+   /api/gallery/materials/hardness/index.rst
+   /api/gallery/materials/phases/index.rst
    /api/gallery/materials/plasticity/index.rst
    /api/gallery/materials/yield/index.rst
 

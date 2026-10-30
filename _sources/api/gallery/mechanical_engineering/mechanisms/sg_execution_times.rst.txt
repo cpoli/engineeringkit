@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.712** total execution time for 4 files **from api/gallery/mechanical_engineering/mechanisms**:
+**00:00.781** total execution time for 5 files **from api/gallery/mechanical_engineering/mechanisms**:
 
 .. container::
 
@@ -33,14 +33,17 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_mechanical_engineering_mechanisms_plot_01_reuleaux_slider_crank.py` (``plot_01_reuleaux_slider_crank.py``)
-     - 00:00.212
-     - 0.0
-   * - :ref:`sphx_glr_api_gallery_mechanical_engineering_mechanisms_plot_03_freudenstein_equation.py` (``plot_03_freudenstein_equation.py``)
-     - 00:00.182
+     - 00:00.200
      - 0.0
    * - :ref:`sphx_glr_api_gallery_mechanical_engineering_mechanisms_plot_02_grashof_condition.py` (``plot_02_grashof_condition.py``)
-     - 00:00.177
+     - 00:00.172
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_mechanical_engineering_mechanisms_plot_03_freudenstein_equation.py` (``plot_03_freudenstein_equation.py``)
+     - 00:00.166
      - 0.0
    * - :ref:`sphx_glr_api_gallery_mechanical_engineering_mechanisms_plot_04_denavit_hartenberg.py` (``plot_04_denavit_hartenberg.py``)
-     - 00:00.141
+     - 00:00.132
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_mechanical_engineering_mechanisms_plot_05_aronhold_kennedy_instant_centres.py` (``plot_05_aronhold_kennedy_instant_centres.py``)
+     - 00:00.111
      - 0.0

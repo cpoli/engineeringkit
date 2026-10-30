@@ -12,12 +12,14 @@ Breakthroughs in Fluid Engineering
    Engineers, 1883
 
 Engineering hydraulics is older than the calculus. Archimedes and Stevin
-settled fluids at rest, and the eighteenth century learned to measure
-moving water with Pitot's and Venturi's instruments. Viscous flow in pipes
-then took a century to understand, from Hagen and Poiseuille's capillaries
+settled fluids at rest, Torricelli timed the jet from an orifice, and the
+eighteenth century learned to measure moving water with Pitot's and
+Venturi's instruments while Euler wrote the equation of every turbine.
+Viscous flow in pipes then took a century to understand, from Hagen and Poiseuille's capillaries
 through Reynolds's dye streak to the friction charts of Nikuradse,
 Colebrook and Moody. Alongside them came the scaling laws of Froude and
-Buckingham, the empirical formulas of open channels, the pressure waves of
+Buckingham, Stokes's drag and Couette's viscometer, the weirs, jumps and
+specific energy of open channels, Pelton's wheel, the pressure waves of
 water hammer, cavitation in turbines and the hand methods for city water
 networks. The entries trace the ideas behind
 :mod:`engineeringkit.fluid_engineering`. Each links to the implementing
@@ -72,6 +74,32 @@ Plantijn, 1586).
 
 .. minigallery:: ../../examples/fluid_engineering/hydrostatics/plot_02_stevin_hydrostatic_paradox.py
 
+1644 -- Torricelli's Law of Efflux
+----------------------------------
+
+Evangelista Torricelli, who succeeded Galileo at Florence, stated at the
+end of his treatise on the motion of heavy bodies that water spouting from
+a small hole in a vessel has the speed a body would gain falling from the
+free surface, so that a jet pointed upward would rise back almost to the
+surface. In modern form :math:`v = \sqrt{2gh}`. The jet contracts just
+past a sharp-edged hole, the vena contracta, and the discharge coefficient
+of about 0.61 that measures this contraction became a staple of hydraulic
+tables. Daniel Bernoulli later derived Torricelli's law from the
+conservation of energy.
+
+*Implementation:* :func:`engineeringkit.fluid_engineering.orifice_flow`
+and :func:`engineeringkit.fluid_engineering.tank_drain_time`. The example
+drains a tank through an orifice and checks the square-root law of its
+level against a step-by-step integration.
+
+*References:* E. Torricelli, "De motu aquarum," in *De motu gravium
+naturaliter descendentium et proiectorum*, *Opera geometrica* (Florence:
+Masse and de Landis, 1644) 191-203. The date and page range were checked
+against secondary sources (Whewell; S. R. Bistafa's translation), not the
+1644 printing.
+
+.. minigallery:: ../../examples/fluid_engineering/measurement/plot_03_torricelli_efflux.py
+
 1732 -- Pitot's Tube
 --------------------
 
@@ -94,6 +122,34 @@ des eaux courantes et le sillage des vaisseaux," *Hist. Acad. R. Sci.*
 
 .. minigallery:: ../../examples/fluid_engineering/measurement/plot_01_pitot_tube.py
 
+1754 -- Euler's Turbine Equation
+--------------------------------
+
+Leonhard Euler, at the Berlin academy, analysed the reaction water wheel
+that Segner had built, and in a long memoir written in 1753 he worked out
+the theory of turbines in general. Its central result is that the torque
+on a rotor equals the change in the angular momentum of the water passing
+through it, so the head a rotor gives or takes is
+:math:`H = (u_2V_{t2} - u_1V_{t1})/g`. The equation still opens the
+design of every pump, fan, compressor and turbine; Jakob Ackeret built and
+tested a turbine to Euler's proportions in 1944.
+
+*Implementation:*
+:func:`engineeringkit.fluid_engineering.euler_turbomachine_head`, with
+:func:`engineeringkit.fluid_engineering.affinity_laws`. The example draws
+the ideal head of an impeller with backward, radial and forward blades and
+recovers the head affinity law from the velocity triangle.
+
+*References:* L. Euler, "Théorie plus complette des machines qui sont
+mises en mouvement par la réaction de l'eau," *Mém. Acad. Sci. Berlin* 10
+(for 1754, publ. 1756) 227-295 (Eneström E222); J. Ackeret,
+"Untersuchung einer nach den Euler'schen Vorschlägen (1754) gebauten
+Wasserturbine" (1944), English translation by S. R. Bistafa,
+arXiv:2108.12048 (2021). The volume and pages are from the Euler Archive;
+the memoir itself was not consulted.
+
+.. minigallery:: ../../examples/fluid_engineering/pumps/plot_02_euler_turbine_equation.py
+
 1797 -- Venturi's Tube
 ----------------------
 
@@ -115,6 +171,36 @@ la communication latérale du mouvement dans les fluides* (Paris, 1797);
 C. Herschel, "The Venturi water meter," *Trans. ASCE* 17 (1887) 228-258.
 
 .. minigallery:: ../../examples/fluid_engineering/measurement/plot_02_venturi_meter.py
+
+1828 -- Bélanger's Hydraulic Jump
+---------------------------------
+
+Jean-Baptiste Bélanger, an engineer of the Ponts et Chaussées, published
+in 1828 an essay on the numerical solution of steady flow in open
+channels. It gave the backwater equation for gradually varied flow with a
+step method to integrate it, identified the critical flow condition where
+that equation is singular, and treated the abrupt rise of a fast, shallow
+stream to a deep, slow one: the hydraulic jump. In 1828 he applied
+Bernoulli's energy balance across the jump, which is wrong, since the
+roller dissipates energy. His later lectures (1838, printed 1841) used the
+momentum principle and gave the relation still known as the Bélanger
+equation, :math:`y_2/y_1 = (\sqrt{1 + 8\mathrm{Fr}_1^2} - 1)/2`.
+
+*Implementation:* :func:`engineeringkit.fluid_engineering.sequent_depth`
+and :func:`engineeringkit.fluid_engineering.hydraulic_jump_head_loss`.
+The example finds the jump below a sluice gate, checks that momentum is
+conserved and energy is not, and draws the depth ratio and loss against
+the upstream Froude number.
+
+*References:* J.-B. Bélanger, *Essai sur la solution numérique de
+quelques problèmes relatifs au mouvement permanent des eaux courantes*
+(Paris: Carilian-Goeury, 1828); H. Chanson, "Development of the Bélanger
+equation and backwater equation by Jean-Baptiste Bélanger (1828)," *J.
+Hydraul. Eng.* 135 (2009) 159-163,
+:doi:`10.1061/(ASCE)0733-9429(2009)135:3(159)`. The account of the 1828 and
+1838 derivations follows Chanson; the essay itself was not consulted.
+
+.. minigallery:: ../../examples/fluid_engineering/open_channel/plot_02_belanger_hydraulic_jump.py
 
 1839-1840 -- Hagen and Poiseuille: Laminar Pipe Flow
 ----------------------------------------------------
@@ -166,6 +252,60 @@ tuyaux* (Paris: Mallet-Bachelier, 1857).
 
 .. minigallery:: ../../examples/fluid_engineering/pipe_flow/plot_02_darcy_weisbach.py
 
+1851 -- Stokes's Drag on a Sphere
+---------------------------------
+
+Pendulum clocks and the pendulums used to measure gravity were corrected
+for the air they carried with them, and the corrections disagreed with
+experiment. George Gabriel Stokes, Lucasian professor at Cambridge, solved
+the slow viscous flow around a sphere and a cylinder in a paper read in
+December 1850. For the sphere he found the drag :math:`3\pi\mu dV`, valid
+while inertia is negligible, and from it the speed at which a fine
+particle settles, which he used to explain why clouds float. At larger
+Reynolds numbers the measured drag curve takes over, levelling off near
+:math:`C_D = 0.4`.
+
+*Implementation:* :func:`engineeringkit.fluid_engineering.stokes_drag`,
+:func:`engineeringkit.fluid_engineering.stokes_settling_velocity`,
+:func:`engineeringkit.fluid_engineering.sphere_drag_coefficient` and
+:func:`engineeringkit.fluid_engineering.terminal_velocity`. The example
+draws the sphere drag curve and finds how fast sand grains of four sizes
+fall through water, with and without Stokes's law.
+
+*References:* G. G. Stokes, "On the effect of the internal friction of
+fluids on the motion of pendulums," *Trans. Camb. Phil. Soc.* 9, Part II
+(1851) 8-106 (read 9 December 1850); F. M. White, *Viscous Fluid Flow*,
+3rd ed. (New York: McGraw-Hill, 2006), for the drag-curve fit.
+
+.. minigallery:: ../../examples/fluid_engineering/drag/plot_01_stokes_drag.py
+
+1858 -- James Thomson's Triangular Notch
+----------------------------------------
+
+James Thomson, professor of engineering at Belfast and elder brother of
+William Thomson (Lord Kelvin), proposed to the British Association in
+1858 that water be measured over a right-angled V-notch cut in a weir
+board. Because the wetted section stays the same shape as the head
+changes, the discharge coefficient is nearly constant, and because the
+flow grows as :math:`H^{5/2}`, small flows still give a readable head. He
+reported experiments on 90° and wider notches in 1861. Rectangular
+sharp-crested weirs, with coefficients refined by Francis (1855) and
+Rehbock (1929), remain the companion device for larger flows.
+
+*Implementation:*
+:func:`engineeringkit.fluid_engineering.v_notch_weir_flow`,
+:func:`engineeringkit.fluid_engineering.rectangular_weir_flow` and
+:func:`engineeringkit.fluid_engineering.rehbock_discharge_coefficient`.
+The example compares the rating curves of a V-notch and a rectangular weir
+and the precision with which each must be read.
+
+*References:* J. Thomson, "On experiments on the measurement of water by
+triangular notches in weir boards," *Rep. Br. Assoc. Adv. Sci.* (1858),
+Trans. Sect., 181; (1861), Trans. Sect., 151. Later sources disagree on
+the 1858 page (133 or 181); the report itself was not consulted.
+
+.. minigallery:: ../../examples/fluid_engineering/measurement/plot_04_thomson_v_notch_weir.py
+
 1868 -- Froude's Ship Models
 ----------------------------
 
@@ -189,6 +329,31 @@ Admiralty (1868), in *The Papers of William Froude* (London: Institution
 of Naval Architects, 1955).
 
 .. minigallery:: ../../examples/fluid_engineering/similarity/plot_01_froude_ship_models.py
+
+1880 -- Pelton's Water Wheel
+----------------------------
+
+The hydraulic mines of the California gold country drove their stamps and
+pumps with hurdy-gurdy wheels: jets of water from high heads striking flat
+paddles. Lester Allan Pelton, a millwright at Camptonville, built a wheel
+whose buckets split the jet with a central ridge and turned each half
+almost back on itself, and patented it in October 1880. The momentum
+equation explains the gain: a jet turned through :math:`\theta` delivers
+a fraction :math:`(1 - \cos\theta)/2` of its power at the best bucket
+speed, half the jet speed, which is one half for flat paddles and nearly
+one for Pelton's buckets. Pelton wheels still run the highest-head
+hydroelectric plants.
+
+*Implementation:* :func:`engineeringkit.fluid_engineering.jet_force` and
+:func:`engineeringkit.fluid_engineering.pelton_wheel_power`, with
+:func:`engineeringkit.fluid_engineering.bend_force` for the same momentum
+balance on a pipe bend. The example compares the efficiency of flat
+paddles and Pelton buckets against bucket speed.
+
+*References:* L. A. Pelton, "Water-wheel," US Patent 233,692 (granted 26
+October 1880; filed 3 July 1880).
+
+.. minigallery:: ../../examples/fluid_engineering/momentum/plot_01_pelton_wheel.py
 
 1883 -- Reynolds's Dye Experiment
 ---------------------------------
@@ -236,6 +401,34 @@ pipes," *Trans. Inst. Civil Eng. Ireland* 20 (1891) 161-207.
 
 .. minigallery:: ../../examples/fluid_engineering/open_channel/plot_01_manning_formula.py
 
+1890 -- Couette's Rotating-Cylinder Viscometer
+----------------------------------------------
+
+Maurice Couette, in his doctoral work under Gabriel Lippmann at Paris,
+measured the viscosity of water between two coaxial cylinders, the outer
+one rotating and the inner one hung from a torsion wire. In a narrow gap
+the flow is plain shear between a fixed and a sliding wall, with a
+straight velocity profile and a uniform stress :math:`\mu U/h`, so the
+torque on the inner cylinder gives the viscosity directly. He found the
+torque proportional to the speed until the flow became unstable, and his
+instrument is the ancestor of the rotational viscometers and rheometers
+used today. Arnulph Mallock built a similar apparatus at about the same
+time.
+
+*Implementation:*
+:func:`engineeringkit.fluid_engineering.couette_viscometer_torque`,
+:func:`engineeringkit.fluid_engineering.couette_velocity`,
+:func:`engineeringkit.fluid_engineering.couette_flow_rate` and
+:func:`engineeringkit.fluid_engineering.couette_shear_stress`. The example
+reads a viscosity back from a measured torque and adds a pressure
+gradient to plane Couette flow.
+
+*References:* M. Couette, "Études sur le frottement des liquides," *Ann.
+Chim. Phys.*, 6th ser., 21 (1890) 433-510. The volume and pages are from
+secondary sources; the paper itself was not consulted.
+
+.. minigallery:: ../../examples/fluid_engineering/viscous/plot_01_couette_viscometer.py
+
 1898 -- Joukowsky's Water Hammer
 --------------------------------
 
@@ -262,6 +455,37 @@ Wasserleitungsröhren," *Mém. Acad. Imp. Sci. St.-Pétersbourg*, 8th ser.,
 Schalles in elastischen Röhren," *Ann. Phys.* 241 (1878) 525-542.
 
 .. minigallery:: ../../examples/fluid_engineering/transients/plot_01_joukowsky_water_hammer.py
+
+1912 -- Bakhmeteff's Specific Energy
+------------------------------------
+
+Boris Bakhmeteff, then teaching hydraulics at St Petersburg, measured the
+energy of an open-channel stream from its own bed rather than from a fixed
+datum. Plotted against depth, this specific energy
+:math:`E = y + q^2/(2gy^2)` has a least value at the critical depth, where
+the Froude number is 1, and any larger energy can be carried at two
+alternate depths, one tranquil and one rapid. Bélanger had found the
+critical condition in 1828 as a singularity of the backwater equation;
+Bakhmeteff tied it to minimum energy, and the specific-energy diagram of
+his 1932 *Hydraulics of Open Channels* became the standard way to reason
+about gates, steps and contractions. Salas Edwards and Domínguez reached
+the same idea independently at about the same time.
+
+*Implementation:* :func:`engineeringkit.fluid_engineering.specific_energy`,
+:func:`engineeringkit.fluid_engineering.critical_depth` and
+:func:`engineeringkit.fluid_engineering.alternate_depths`. The example
+draws the specific-energy diagram and finds the water surface over a
+raised step in the bed.
+
+*References:* B. A. Bakhmeteff, *O neravnomernom dvizhenii zhidkosti v
+otkrytom rusle* [Varied flow of liquids in open channels] (St Petersburg,
+1912); B. A. Bakhmeteff, *Hydraulics of Open Channels* (New York:
+McGraw-Hill, 1932); O. Castro-Orgaz, H. Chanson et al., "Boris A.
+Bakhmeteff and the development of specific energy and momentum concepts,"
+*J. Hydraul. Eng.* (2018). The 1912 book was not consulted; its priority
+follows Castro-Orgaz and Chanson.
+
+.. minigallery:: ../../examples/fluid_engineering/open_channel/plot_03_bakhmeteff_specific_energy.py
 
 1914 -- Buckingham's Pi Theorem
 -------------------------------

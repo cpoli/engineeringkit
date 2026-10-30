@@ -1,0 +1,57 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-10-30T06:36:53.637956Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-30T06:36:51.341995Z",
+      "mimetype": null,
+      "name": "plot_02_cohen_censored_mle.ipynb",
+      "path": "jupyterlite_contents/api/gallery/reliability/life_data/plot_02_cohen_censored_mle.ipynb",
+      "size": 4201,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-30T06:36:53.638077Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-30T06:36:51.342126Z",
+      "mimetype": null,
+      "name": "plot_03_raiffa_schlaifer_bayesian_failure_rate.ipynb",
+      "path": "jupyterlite_contents/api/gallery/reliability/life_data/plot_03_raiffa_schlaifer_bayesian_failure_rate.ipynb",
+      "size": 5308,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-30T06:36:53.637818Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-30T06:36:51.341884Z",
+      "mimetype": null,
+      "name": "plot_01_johnson_median_ranks.ipynb",
+      "path": "jupyterlite_contents/api/gallery/reliability/life_data/plot_01_johnson_median_ranks.ipynb",
+      "size": 4406,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2026-10-30T06:36:53.638077Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-10-30T06:36:53.638077Z",
+  "mimetype": null,
+  "name": "life_data",
+  "path": "jupyterlite_contents/api/gallery/reliability/life_data",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

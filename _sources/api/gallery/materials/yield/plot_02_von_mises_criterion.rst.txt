@@ -38,7 +38,7 @@ tubes (1931) fell closer to von Mises than to Tresca.
     import matplotlib.pyplot as plt
     import numpy as np
 
-    from engineeringkit.materials import tresca_equivalent, von_mises_plane_stress
+    from engineeringkit.materials import principal_stresses, tresca_equivalent, von_mises_plane_stress, von_mises_stress
     from engineeringkit.materials.visualizers import plot_yield_surfaces
 
 
@@ -79,7 +79,45 @@ value in a tensile test at yield gives the von Mises criterion.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 42-50
+.. GENERATED FROM PYTHON SOURCE LINES 42-51
+
+Three dimensions and hydrostatic pressure
+-----------------------------------------
+
+In a general stress state (:func:`~engineeringkit.materials.von_mises_stress`)
+the criterion depends only on differences of the principal stresses
+(:func:`~engineeringkit.materials.principal_stresses`), so adding a
+hydrostatic pressure changes neither it nor Tresca's: metals deep in the
+sea do not yield. The plane-stress formula is the special case
+:math:`\sigma_z = \tau_{yz} = \tau_{zx} = 0`.
+
+.. GENERATED FROM PYTHON SOURCE LINES 51-60
+
+.. code-block:: Python
+
+
+    state = dict(sx=120e6, sy=-40e6, sz=60e6, txy=50e6, tyz=-30e6, tzx=20e6)
+    principal = principal_stresses(**state)
+    pressed = {**state, "sx": state["sx"] - 500e6, "sy": state["sy"] - 500e6, "sz": state["sz"] - 500e6}
+    vm, vm_pressed = von_mises_stress(**state), von_mises_stress(**pressed)
+    print(f"principal stresses {np.round(principal / 1e6, 1).tolist()} MPa, von Mises {vm / 1e6:.1f} MPa")
+    assert np.isclose(vm, vm_pressed) and np.isclose(tresca_equivalent(principal), tresca_equivalent(principal_stresses(**pressed)))
+    assert np.isclose(von_mises_stress(sx[0], sy_[0], 0.0, txy[0]), equivalent[0])
+
+
+
+
+
+.. rst-class:: sphx-glr-script-out
+
+ .. code-block:: none
+
+    principal stresses [136.1, 67.9, -63.9] MPa, von Mises 176.1 MPa
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 61-69
 
 Tension and torsion of a thin tube
 ----------------------------------
@@ -90,7 +128,7 @@ ellipses, :math:`\sigma^2 + 4\tau^2 = \sigma_y^2` (Tresca) and
 disagree most: von Mises predicts yield at :math:`\sigma_y/\sqrt3`,
 15% above Tresca's :math:`\sigma_y/2`.
 
-.. GENERATED FROM PYTHON SOURCE LINES 50-75
+.. GENERATED FROM PYTHON SOURCE LINES 69-94
 
 .. code-block:: Python
 
@@ -141,7 +179,7 @@ disagree most: von Mises predicts yield at :math:`\sigma_y/\sqrt3`,
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.197 seconds)
+   **Total running time of the script:** (0 minutes 0.115 seconds)
 
 
 .. _sphx_glr_download_api_gallery_materials_yield_plot_02_von_mises_criterion.py:

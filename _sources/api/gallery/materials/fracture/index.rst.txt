@@ -5,7 +5,7 @@
 Fracture
 --------
 
-Brittle fracture, the stress intensity factor and fatigue crack growth.
+Brittle fracture, the stress intensity factor, fatigue crack growth and the statistics of brittle strength.
 
 
 .. raw:: html
@@ -70,6 +70,23 @@ Brittle fracture, the stress intensity factor and fatigue crack growth.
     </div>
 
 
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Identical glass rods or ceramic bars break at widely different loads, and long ones break at lower loads than short ones. Waloddi Weibull, at the Royal Institute of Technology in Stockholm, explained both with a weakest link: a part fails when its worst flaw does, so its survival probability is the product of the survival probabilities of its volume elements,">
+
+.. only:: html
+
+  .. image:: /api/gallery/materials/fracture/images/thumb/sphx_glr_plot_04_weibull_strength_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/materials/fracture/plot_04_weibull_strength`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Weibull's statistical strength of brittle materials (1939)</div>
+    </div>
+
+
 .. thumbnail-parent-div-close
 
 .. raw:: html
@@ -83,4 +100,5 @@ Brittle fracture, the stress intensity factor and fatigue crack growth.
    /api/gallery/materials/fracture/plot_01_griffith_fracture
    /api/gallery/materials/fracture/plot_02_irwin_stress_intensity
    /api/gallery/materials/fracture/plot_03_paris_law
+   /api/gallery/materials/fracture/plot_04_weibull_strength
 

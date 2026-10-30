@@ -1,0 +1,50 @@
+
+
+.. _sphx_glr_api_gallery_materials_hardness:
+
+Hardness
+--------
+
+Indentation hardness and its link to tensile strength.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Johan August Brinell, chief engineer of the Fagersta ironworks in Sweden, showed his ball test at the 1900 Paris Exposition. A 10 mm hardened steel ball pressed into the part with 3000 kgf leaves a dent of diameter d; the load divided by the curved area of the dent is the hardness number (~engineeringkit.materials.brinell_hardness),">
+
+.. only:: html
+
+  .. image:: /api/gallery/materials/hardness/images/thumb/sphx_glr_plot_01_brinell_hardness_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/materials/hardness/plot_01_brinell_hardness`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Brinell's hardness test (1900)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/materials/hardness/plot_01_brinell_hardness
+

@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:01.628** total execution time for 6 files **from api/gallery/thermodynamics/cycles**:
+**00:02.187** total execution time for 10 files **from api/gallery/thermodynamics/cycles**:
 
 .. container::
 
@@ -32,21 +32,33 @@ Computation times
    * - Example
      - Time
      - Mem (MB)
+   * - :ref:`sphx_glr_api_gallery_thermodynamics_cycles_plot_08_rankine_reheat_regeneration.py` (``plot_08_rankine_reheat_regeneration.py``)
+     - 00:00.517
+     - 0.0
    * - :ref:`sphx_glr_api_gallery_thermodynamics_cycles_plot_02_rankine_cycle.py` (``plot_02_rankine_cycle.py``)
-     - 00:00.928
+     - 00:00.499
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_thermodynamics_cycles_plot_09_brayton_regeneration_intercooling.py` (``plot_09_brayton_regeneration_intercooling.py``)
+     - 00:00.230
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_thermodynamics_cycles_plot_07_stirling_regenerator.py` (``plot_07_stirling_regenerator.py``)
+     - 00:00.182
      - 0.0
    * - :ref:`sphx_glr_api_gallery_thermodynamics_cycles_plot_04_otto_cycle.py` (``plot_04_otto_cycle.py``)
-     - 00:00.186
+     - 00:00.173
      - 0.0
    * - :ref:`sphx_glr_api_gallery_thermodynamics_cycles_plot_05_diesel_cycle.py` (``plot_05_diesel_cycle.py``)
-     - 00:00.158
-     - 0.0
-   * - :ref:`sphx_glr_api_gallery_thermodynamics_cycles_plot_01_carnot_efficiency.py` (``plot_01_carnot_efficiency.py``)
-     - 00:00.123
+     - 00:00.139
      - 0.0
    * - :ref:`sphx_glr_api_gallery_thermodynamics_cycles_plot_03_brayton_cycle.py` (``plot_03_brayton_cycle.py``)
-     - 00:00.118
+     - 00:00.115
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_thermodynamics_cycles_plot_01_carnot_efficiency.py` (``plot_01_carnot_efficiency.py``)
+     - 00:00.113
      - 0.0
    * - :ref:`sphx_glr_api_gallery_thermodynamics_cycles_plot_06_curzon_ahlborn.py` (``plot_06_curzon_ahlborn.py``)
-     - 00:00.115
+     - 00:00.111
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_thermodynamics_cycles_plot_10_diesel_dual_cycle.py` (``plot_10_diesel_dual_cycle.py``)
+     - 00:00.107
      - 0.0

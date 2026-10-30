@@ -16,9 +16,10 @@ insurance: the first life tables were estimates of a hazard rate. Poisson
 supplied the law of rare events, and after the Second World War aircraft
 structures, vacuum-tube electronics and missiles turned these ideas into a
 discipline. Engineers learned to fit lifetime distributions to censored
-test data, to combine components into series, parallel and voting systems,
-to trace accidents through fault and event trees, and to schedule repair
-and replacement. The entries trace the ideas behind
+test data, to accelerate tests with heat and voltage, to combine components
+into series, parallel, voting and general networks, to list failure modes
+and trace accidents through fault and event trees, to sample what they
+could not linearise, and to schedule repair and replacement. The entries trace the ideas behind
 :mod:`engineeringkit.reliability`. Each links to the implementing function
 and to a gallery example devoted to it.
 
@@ -72,6 +73,83 @@ en matière criminelle et en matière civile* (Bachelier, Paris, 1837),
 
 .. minigallery:: ../../examples/reliability/lifetimes/plot_02_poisson_failures.py
 
+1879 -- McAlister's Lognormal Law
+---------------------------------
+
+Francis Galton asked when the geometric mean is the right average, and
+Donald McAlister, at his request, worked out the law of errors that makes
+it so: if a quantity is the product of many small independent factors, its
+logarithm is normally distributed. The *lognormal* distribution has a
+hazard that rises to a peak and then falls. In reliability it became the
+model for failure mechanisms that grow in multiplicative steps, such as
+fatigue cracks, corrosion and electromigration, and for repair times. The
+gamma distribution, the life of several exponential stages in sequence,
+completes the standard set of lifetime laws.
+
+*Implementation:* :func:`engineeringkit.reliability.lognormal_reliability`,
+:func:`engineeringkit.reliability.lognormal_cdf`,
+:func:`engineeringkit.reliability.lognormal_hazard` and
+:func:`engineeringkit.reliability.lognormal_mttf`, with
+:func:`engineeringkit.reliability.gamma_reliability`,
+:func:`engineeringkit.reliability.gamma_cdf`,
+:func:`engineeringkit.reliability.gamma_hazard` and
+:func:`engineeringkit.reliability.gamma_mttf`. The example builds lives as
+products of random factors, checks that their logarithms are normal and
+compares the lognormal hazard with a Weibull one.
+
+*References:* D. McAlister, "The law of the geometric mean," *Proc. R.
+Soc. Lond.* 29 (1879) 367-376, which follows F. Galton, "The geometric
+mean, in vital and social statistics," *ibid.* 365-367.
+
+.. minigallery:: ../../examples/reliability/lifetimes/plot_06_mcalister_lognormal.py
+
+1889 -- Arrhenius's Law and Accelerated Life Testing
+----------------------------------------------------
+
+Svante Arrhenius measured how fast acids invert cane sugar and found the
+rate rising with temperature as :math:`e^{-E_a/(k_B T)}`, where the
+activation energy :math:`E_a` is the barrier a molecule must cross. Many
+failure mechanisms in electronics, such as diffusion, corrosion and the
+growth of intermetallic layers, are chemical reactions, so a part's life
+scales as :math:`e^{E_a/(k_B T)}`. Reliability engineers turned the law
+into the acceleration factor of a high-temperature test, which compresses
+years of service into weeks, and fit :math:`E_a` from lives measured at
+several temperatures.
+
+*Implementation:* :func:`engineeringkit.reliability.arrhenius_acceleration_factor`
+and :func:`engineeringkit.reliability.arrhenius_fit`. The example tests
+capacitors at three temperatures, fits a Weibull scale at each, recovers
+the activation energy and predicts the life at 55 °C.
+
+*References:* S. Arrhenius, "Über die Reaktionsgeschwindigkeit bei der
+Inversion von Rohrzucker durch Säuren," *Z. Phys. Chem.* 4 (1889)
+226-248; W. Nelson, *Accelerated Testing* (Wiley, New York, 1990), ch. 2.
+
+.. minigallery:: ../../examples/reliability/acceleration/plot_01_arrhenius_accelerated_life.py
+
+1935 -- Eyring's Activated Complex
+----------------------------------
+
+Henry Eyring derived reaction rates from statistical mechanics. Reactants
+pass through an *activated complex* at the top of the energy barrier, and
+the rate is :math:`(k_B T/h)\,e^{-\Delta G^\ddagger/(k_B T)}`, with a
+prefactor proportional to temperature that Arrhenius's empirical law lacks.
+Applied to life testing, the theory gives :math:`L \propto T^{-1}
+e^{E_a/(k_B T)}`. Its generalised form multiplies in a factor for each
+non-thermal stress, such as voltage or humidity, often as an inverse power
+law :math:`L \propto V^{-n}`.
+
+*Implementation:* :func:`engineeringkit.reliability.eyring_acceleration_factor`
+and :func:`engineeringkit.reliability.inverse_power_law_acceleration_factor`.
+The example shows that an Arrhenius fit to Eyring lives needs an activation
+energy larger by about :math:`k_B T`, and combines temperature and voltage
+acceleration.
+
+*References:* H. Eyring, "The activated complex in chemical reactions,"
+*J. Chem. Phys.* 3 (1935) 107-115.
+
+.. minigallery:: ../../examples/reliability/acceleration/plot_02_eyring_activated_complex.py
+
 1947 -- Freudenthal's Stress-Strength Interference
 --------------------------------------------------
 
@@ -92,6 +170,62 @@ with the same safety factor and different reliabilities.
 112 (1947) 125-159.
 
 .. minigallery:: ../../examples/reliability/structural/plot_01_freudenthal_interference.py
+
+1949 -- Metropolis and Ulam's Monte Carlo Method
+------------------------------------------------
+
+Stanislaw Ulam, playing solitaire while recovering from an illness,
+wondered whether it was easier to estimate the chance of winning by
+dealing many games than by combinatorics. At Los Alamos he and John von
+Neumann used the idea for neutron diffusion, and Nicholas Metropolis and
+Ulam described it in print as the *Monte Carlo method*. A structure's
+failure probability is the fraction of sampled loads and resistances that
+fail. The estimate needs no linearisation, which makes it the check on
+first-order methods, but its relative error falls only as
+:math:`1/\sqrt{N p_f}`. Importance sampling around the most likely failure
+point, a later refinement, removes most of that cost.
+
+*Implementation:* :func:`engineeringkit.reliability.monte_carlo_failure_probability`,
+which returns a :class:`~engineeringkit.reliability.MonteCarloResult`. The
+example estimates the failure probability of a tie with a curved limit
+state, compares it with the Hasofer-Lind result and shows how much faster
+importance sampling at the design point converges.
+
+*References:* N. Metropolis and S. Ulam, "The Monte Carlo method," *J.
+Amer. Statist. Assoc.* 44 (1949) 335-341; G. Harbitz, "An efficient
+sampling method for probability of failure calculation," *Struct. Saf.* 3
+(1986) 109-115.
+
+.. minigallery:: ../../examples/reliability/structural/plot_03_metropolis_ulam_monte_carlo.py
+
+1949 -- MIL-P-1629: Failure Mode and Effects Analysis
+-----------------------------------------------------
+
+The US military procedure MIL-P-1629, *Procedures for Performing a Failure
+Mode, Effects and Criticality Analysis*, dated 9 November 1949, asked
+designers to go through a system part by part, list each way the part
+could fail, trace the effect of each failure and classify it by its
+consequence for the mission and for personnel. NASA contractors used the
+method on Apollo, MIL-STD-1629A (1980) added the criticality number
+:math:`C_m = \beta\alpha\lambda_p t`, and the automotive industry later
+ranked modes by a *risk priority number*, the product of severity,
+occurrence and detection scores from 1 to 10. Because the scores are
+ordinal, a severe mode needs attention whatever its product.
+
+*Implementation:* :func:`engineeringkit.reliability.risk_priority_number`,
+:func:`engineeringkit.reliability.fmea_ranking`, which returns an
+:class:`~engineeringkit.reliability.FMEAResult` with a Pareto chart, and
+:func:`engineeringkit.reliability.failure_mode_criticality`. The example
+ranks the failure modes of a pump and shows a mode that the RPN places last
+and severity places first.
+
+*References:* U.S. Department of Defense, *Procedures for Performing a
+Failure Mode, Effects and Criticality Analysis* (MIL-P-1629, 9 November
+1949); MIL-STD-1629A (24 November 1980). The 1949 text could not be found;
+its date and title are taken from secondary sources and O'Connor and
+Kleyner, *Practical Reliability Engineering* (5th ed., Wiley, 2012), §7.3.
+
+.. minigallery:: ../../examples/reliability/risk/plot_04_mil_p_1629_fmea.py
 
 1951 -- Weibull's Distribution
 ------------------------------
@@ -115,6 +249,37 @@ formula.
 applicability," *J. Appl. Mech.* 18 (1951) 293-297.
 
 .. minigallery:: ../../examples/reliability/lifetimes/plot_03_weibull_distribution.py
+
+1951 -- Johnson's Median Ranks
+------------------------------
+
+Before a line can be drawn on Weibull paper, each failure needs a plotting
+position. Leonard Johnson, studying the fatigue of ball bearings at General
+Motors, noted that the fraction of the population failed at the
+:math:`i`-th of :math:`n` failures has a :math:`\mathrm{Beta}(i, n-i+1)`
+distribution, and proposed its median, the *median rank*, as the position.
+Benard's :math:`(i - 0.3)/(n + 0.4)` approximates it within a fraction of
+a percent. Johnson later gave *adjusted ranks* for censored samples: a
+unit removed before failing raises the order numbers of every later
+failure. Median-rank regression became the standard Weibull analysis in
+industry.
+
+*Implementation:* :func:`engineeringkit.reliability.median_ranks`,
+:func:`engineeringkit.reliability.adjusted_ranks` and
+:func:`engineeringkit.reliability.weibull_rank_regression`, which returns
+a :class:`~engineeringkit.reliability.WeibullFitResult` that draws the
+probability plot. The example checks the median ranks by simulation and
+fits a censored bearing test.
+
+*References:* L. G. Johnson, "The median ranks of sample values in their
+population with an application to certain fatigue studies," *Industrial
+Mathematics* 2 (1951) 1-9, and *The Statistical Treatment of Fatigue
+Experiments* (Elsevier, Amsterdam, 1964), ch. 3. The 1951 paper could not
+be found; its citation is the one given in later Weibull handbooks. A.
+Benard and E. C. Bos-Levenbach, "Het uitzetten van waarnemingen op
+waarschijnlijkheids-papier," *Statistica Neerlandica* 7 (1953) 163-173.
+
+.. minigallery:: ../../examples/reliability/life_data/plot_01_johnson_median_ranks.py
 
 1953 -- Epstein and Sobel's Exponential Life Testing
 ----------------------------------------------------
@@ -251,6 +416,58 @@ tree analysis," *System Safety Symposium* (Seattle, 1965).
 
 .. minigallery:: ../../examples/reliability/risk/plot_01_watson_fault_tree.py
 
+1961 -- Raiffa and Schlaifer's Conjugate Priors
+-----------------------------------------------
+
+Howard Raiffa and Robert Schlaifer, at the Harvard Business School, built
+a practical Bayesian decision theory and catalogued the *conjugate*
+families, priors that a given likelihood maps into the same family. For
+failures arriving as a Poisson process the conjugate prior on the rate is
+the gamma distribution, and the update is two additions: :math:`r`
+failures in time :math:`T` turn :math:`\mathrm{Gamma}(a, b)` into
+:math:`\mathrm{Gamma}(a + r, b + T)`. Reliability engineers use it to
+combine handbook or similar-part data with short tests of a new design,
+and in nuclear and aerospace risk assessment to update generic failure
+rates with plant data.
+
+*Implementation:* :func:`engineeringkit.reliability.bayesian_failure_rate`,
+which returns a :class:`~engineeringkit.reliability.FailureRatePosterior`,
+and :func:`engineeringkit.reliability.gamma_prior_from_bounds`. The example
+sets a prior from an engineer's median and upper bound, updates it with a
+short and a long test, and recovers the chi-square bounds with vague
+priors.
+
+*References:* H. Raiffa and R. Schlaifer, *Applied Statistical Decision
+Theory* (Division of Research, Harvard Business School, Boston, 1961),
+ch. 3 and 7.
+
+.. minigallery:: ../../examples/reliability/life_data/plot_03_raiffa_schlaifer_bayesian_failure_rate.py
+
+1963 -- Esary and Proschan's Path and Cut Bounds
+------------------------------------------------
+
+Most block diagrams are neither series nor parallel, the bridge network
+being the classic example. James Esary and Frank Proschan, at Boeing,
+described any coherent system by its *minimal path sets*, the smallest
+groups of components whose working keeps the system working, and its
+*minimal cut sets*, the smallest groups whose failure stops it. The system
+is a parallel arrangement of its paths and a series arrangement of its
+cuts, but paths and cuts share components. Treating them as independent
+gives a lower bound from the cuts and an upper bound from the paths, and
+the cut bound is close to exact when components are reliable.
+
+*Implementation:* :func:`engineeringkit.reliability.minimal_path_sets`,
+:func:`engineeringkit.reliability.minimal_cut_sets`,
+:func:`engineeringkit.reliability.network_reliability` and
+:func:`engineeringkit.reliability.esary_proschan_bounds`. The example
+finds the paths and cuts of the bridge, checks its reliability polynomial
+and compares both bounds with the exact result.
+
+*References:* J. D. Esary and F. Proschan, "Coherent structures of
+non-identical components," *Technometrics* 5 (1963) 191-209.
+
+.. minigallery:: ../../examples/reliability/systems/plot_05_esary_proschan_bounds.py
+
 1964 -- Duane's Reliability Growth
 ----------------------------------
 
@@ -319,6 +536,31 @@ repair crew.
 Reliability* (Wiley, New York, 1965), ch. 5.
 
 .. minigallery:: ../../examples/reliability/maintenance/plot_02_markov_availability.py
+
+1965 -- Cohen's Maximum Likelihood for Censored Weibull Data
+------------------------------------------------------------
+
+Rank regression uses a censored unit only through the ranks of later
+failures, and its estimates scatter widely when most units survive the
+test. A. Clifford Cohen, at the University of Georgia, wrote out the
+maximum-likelihood equations of the Weibull distribution for complete,
+singly censored and progressively censored samples. Each failure
+contributes its density and each survivor its reliability, so a unit
+still running when the test stops counts for the time it survived. The
+shape solves one equation in :math:`\beta` alone, and Cohen also gave the
+asymptotic variances of the estimates. Opening his paper he named
+parameter estimation as the main obstacle to wider use of the Weibull
+distribution.
+
+*Implementation:* :func:`engineeringkit.reliability.weibull_mle`. The
+example repeats a test in which most units survive and shows that the
+maximum-likelihood shape scatters less than the rank-regression one.
+
+*References:* A. C. Cohen, "Maximum likelihood estimation in the Weibull
+distribution based on complete and on censored samples," *Technometrics* 7
+(1965) 579-588.
+
+.. minigallery:: ../../examples/reliability/life_data/plot_02_cohen_censored_mle.py
 
 1969 -- Birnbaum's Component Importance
 ---------------------------------------

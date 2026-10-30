@@ -5,7 +5,7 @@
 Laws
 ----
 
-The first law (energy is conserved) and the second (entropy never decreases).
+The first law (energy is conserved) for closed systems and steady-flow devices, the second (entropy never decreases), and Maxwell's relations.
 
 
 .. raw:: html
@@ -53,6 +53,40 @@ The first law (energy is conserved) and the second (entropy never decreases).
     </div>
 
 
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In his Theory of Heat (1871) James Clerk Maxwell drew a small cycle on the pressure-volume diagram and read off four relations between the derivatives of p, v, T and s. In modern form they say that the mixed second derivatives of u, h, a and g are equal. One of them, (\partial s/\partial p)_T = -(\partial v/\partial T)_p, trades an unmeasurable entropy derivative for a measurable expansion coefficient. From it follow the difference of the specific heats (~engineeringkit.thermodynamics.cp_minus_cv) and the Joule-Thomson coefficient of any fluid (~engineeringkit.thermodynamics.joule_thomson_coefficient). The example checks both against IAPWS-IF97 steam, which is itself built from a Gibbs function.">
+
+.. only:: html
+
+  .. image:: /api/gallery/thermodynamics/laws/images/thumb/sphx_glr_plot_03_maxwell_relations_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/thermodynamics/laws/plot_03_maxwell_relations`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Maxwell's thermodynamic relations (1871)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Joule&#x27;s equivalence of heat and work, written for fluid flowing steadily through a device, is the energy balance of every engineering component:">
+
+.. only:: html
+
+  .. image:: /api/gallery/thermodynamics/laws/images/thumb/sphx_glr_plot_04_joule_steady_flow_devices_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/thermodynamics/laws/plot_04_joule_steady_flow_devices`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Joule's first law in steady-flow devices (1843-1850)</div>
+    </div>
+
+
 .. thumbnail-parent-div-close
 
 .. raw:: html
@@ -65,4 +99,6 @@ The first law (energy is conserved) and the second (entropy never decreases).
 
    /api/gallery/thermodynamics/laws/plot_01_joule_first_law
    /api/gallery/thermodynamics/laws/plot_02_clausius_entropy
+   /api/gallery/thermodynamics/laws/plot_03_maxwell_relations
+   /api/gallery/thermodynamics/laws/plot_04_joule_steady_flow_devices
 

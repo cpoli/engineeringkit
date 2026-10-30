@@ -46,7 +46,7 @@
   <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be" />
 <link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be" />
 
-    <script src="../../../../_static/documentation_options.js?v=38b66d78"></script>
+    <script src="../../../../_static/documentation_options.js?v=95e61db4"></script>
     <script src="../../../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../../../_static/sg-tags.js?v=d80f6fa4"></script>
@@ -210,6 +210,21 @@
   </ul>
 </div></div>
       
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://cpoli.github.io/" title="Charles Poli" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-user fa-lg" aria-hidden="true"></i><span class="visually-hidden">Charles Poli</span></a>
+        </li>
+</ul></div>
+      
     </div>
     
   </div>
@@ -306,6 +321,21 @@
   </ul>
 </div></div>
         
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://cpoli.github.io/" title="Charles Poli" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-user fa-lg" aria-hidden="true"></i><span class="visually-hidden">Charles Poli</span></a>
+        </li>
+</ul></div>
+        
       </div>
     
   </div>
@@ -366,23 +396,38 @@
                 <article class="bd-article">
                   
   <h1>Source code for engineeringkit.materials.systems.composites</h1><div class="highlight"><pre>
-<span></span><span class="sa">r</span><span class="sd">"""Rules of mixtures: the Voigt and Reuss bounds on a composite's stiffness.</span>
+<span></span><span class="sa">r</span><span class="sd">"""Composites: rules of mixtures, Halpin-Tsai and classical laminate theory.</span>
 
 <span class="sd">Voigt assumed every phase strains equally (fibres loaded along their length),</span>
 <span class="sd">which averages the moduli, :math:`E_V = V_f E_f + (1 - V_f) E_m`. Reuss assumed</span>
 <span class="sd">every phase carries the same stress (loaded across), which averages the</span>
 <span class="sd">compliances. Hill (1952) proved that the true modulus of any arrangement of</span>
-<span class="sd">the phases lies between the two.</span>
+<span class="sd">the phases lies between the two, and Halpin and Tsai (1969) interpolated</span>
+<span class="sd">between them with one geometric parameter. Classical laminate theory stacks</span>
+<span class="sd">unidirectional plies at different angles and relates in-plane forces and</span>
+<span class="sd">moments to midplane strains and curvatures through the ABD matrix.</span>
 <span class="sd">"""</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
+<span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit._validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">finite</span> <span class="k">as</span> <span class="n">_finite</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit._validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">interval</span> <span class="k">as</span> <span class="n">_interval</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit._validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">nonnegative</span> <span class="k">as</span> <span class="n">_nonnegative</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit._validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">positive</span> <span class="k">as</span> <span class="n">_positive</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit._validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">vector</span> <span class="k">as</span> <span class="n">_vector</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit.materials.core.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">Laminate</span>
 
-<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"rule_of_mixtures_E_longitudinal"</span><span class="p">,</span> <span class="s2">"rule_of_mixtures_E_transverse"</span><span class="p">,</span> <span class="s2">"density_rule_of_mixtures"</span><span class="p">]</span>
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">"rule_of_mixtures_E_longitudinal"</span><span class="p">,</span>
+    <span class="s2">"rule_of_mixtures_E_transverse"</span><span class="p">,</span>
+    <span class="s2">"density_rule_of_mixtures"</span><span class="p">,</span>
+    <span class="s2">"halpin_tsai"</span><span class="p">,</span>
+    <span class="s2">"lamina_stiffness"</span><span class="p">,</span>
+    <span class="s2">"transformed_stiffness"</span><span class="p">,</span>
+    <span class="s2">"classical_laminate"</span><span class="p">,</span>
+<span class="p">]</span>
 
 
 <div class="viewcode-block" id="rule_of_mixtures_E_longitudinal">
@@ -487,6 +532,201 @@
     <span class="n">_interval</span><span class="p">(</span><span class="s2">"Vf"</span><span class="p">,</span> <span class="n">Vf</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
     <span class="n">Vf</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">Vf</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">rhof</span> <span class="o">*</span> <span class="n">Vf</span> <span class="o">+</span> <span class="n">rhom</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">Vf</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="halpin_tsai">
+<a class="viewcode-back" href="../../../../api/materials.html#engineeringkit.materials.halpin_tsai">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">halpin_tsai</span><span class="p">(</span><span class="n">Pf</span><span class="p">,</span> <span class="n">Pm</span><span class="p">,</span> <span class="n">Vf</span><span class="p">,</span> <span class="n">xi</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Halpin-Tsai estimate of a composite modulus.</span>
+
+<span class="sd">    .. math:: \frac{P}{P_m} = \frac{1 + \xi\eta V_f}{1 - \eta V_f}, \qquad</span>
+<span class="sd">              \eta = \frac{P_f/P_m - 1}{P_f/P_m + \xi}</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    Pf : float or array_like</span>
+<span class="sd">        Fibre modulus [Pa], positive (Young's or shear).</span>
+<span class="sd">    Pm : float or array_like</span>
+<span class="sd">        Matrix modulus [Pa], positive (the same kind).</span>
+<span class="sd">    Vf : float or array_like</span>
+<span class="sd">        Fibre volume fraction [-], in [0, 1].</span>
+<span class="sd">    xi : float or array_like</span>
+<span class="sd">        Reinforcement parameter [-], nonnegative: 2 for the transverse</span>
+<span class="sd">        modulus :math:`E_2` of circular fibres, 1 for :math:`G_{12}`,</span>
+<span class="sd">        :math:`2\ell/d` for :math:`E_1` of short fibres.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float or ndarray</span>
+<span class="sd">        Composite modulus [Pa]. :math:`\xi = 0` gives the Reuss bound and</span>
+<span class="sd">        :math:`\xi \to \infty` the Voigt bound.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Inputs are raw SI numbers with no dimensional metadata; see</span>
+<span class="sd">    :doc:`/guides/materials`.</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    J. C. Halpin and S. W. Tsai, "Effects of environmental factors on</span>
+<span class="sd">    composite materials," AFML-TR-67-423, Air Force Materials Laboratory</span>
+<span class="sd">    (1969); J. C. Halpin and J. L. Kardos, "The Halpin-Tsai equations: a</span>
+<span class="sd">    review," *Polym. Eng. Sci.* 16 (1976) 344-352.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; round(float(halpin_tsai(72e9, 3.5e9, 0.6, 2.0)) / 1e9, 2)</span>
+<span class="sd">    14.89</span>
+<span class="sd">    """</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">Pf</span><span class="o">=</span><span class="n">Pf</span><span class="p">,</span> <span class="n">Pm</span><span class="o">=</span><span class="n">Pm</span><span class="p">)</span>
+    <span class="n">_interval</span><span class="p">(</span><span class="s2">"Vf"</span><span class="p">,</span> <span class="n">Vf</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">_nonnegative</span><span class="p">(</span><span class="n">xi</span><span class="o">=</span><span class="n">xi</span><span class="p">)</span>
+    <span class="n">ratio</span><span class="p">,</span> <span class="n">Vf</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">Pf</span><span class="p">)</span> <span class="o">/</span> <span class="n">Pm</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">Vf</span><span class="p">)</span>
+    <span class="n">eta</span> <span class="o">=</span> <span class="p">(</span><span class="n">ratio</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">ratio</span> <span class="o">+</span> <span class="n">xi</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">Pm</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">xi</span> <span class="o">*</span> <span class="n">eta</span> <span class="o">*</span> <span class="n">Vf</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">eta</span> <span class="o">*</span> <span class="n">Vf</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="lamina_stiffness">
+<a class="viewcode-back" href="../../../../api/materials.html#engineeringkit.materials.lamina_stiffness">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">lamina_stiffness</span><span class="p">(</span><span class="n">E1</span><span class="p">,</span> <span class="n">E2</span><span class="p">,</span> <span class="n">nu12</span><span class="p">,</span> <span class="n">G12</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Reduced stiffness matrix :math:`\mathbf Q` of an orthotropic ply in plane stress.</span>
+
+<span class="sd">    .. math:: Q_{11} = \frac{E_1}{1 - \nu_{12}\nu_{21}}, \quad</span>
+<span class="sd">              Q_{22} = \frac{E_2}{1 - \nu_{12}\nu_{21}}, \quad</span>
+<span class="sd">              Q_{12} = \nu_{12} Q_{22}, \quad Q_{66} = G_{12}</span>
+
+<span class="sd">    with :math:`\nu_{21} = \nu_{12} E_2/E_1`.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    E1, E2 : float</span>
+<span class="sd">        Moduli along and across the fibres [Pa], positive.</span>
+<span class="sd">    nu12 : float</span>
+<span class="sd">        Major Poisson's ratio [-], with :math:`\nu_{12}^2 &lt; E_1/E_2`.</span>
+<span class="sd">    G12 : float</span>
+<span class="sd">        In-plane shear modulus [Pa], positive.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    ndarray</span>
+<span class="sd">        :math:`3 \times 3` matrix [Pa] relating</span>
+<span class="sd">        :math:`(\sigma_1, \sigma_2, \tau_{12})` to</span>
+<span class="sd">        :math:`(\varepsilon_1, \varepsilon_2, \gamma_{12})`.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Inputs are raw SI numbers with no dimensional metadata; see</span>
+<span class="sd">    :doc:`/guides/materials`.</span>
+<span class="sd">    """</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">E1</span><span class="o">=</span><span class="n">E1</span><span class="p">,</span> <span class="n">E2</span><span class="o">=</span><span class="n">E2</span><span class="p">,</span> <span class="n">G12</span><span class="o">=</span><span class="n">G12</span><span class="p">)</span>
+    <span class="n">_finite</span><span class="p">(</span><span class="n">nu12</span><span class="o">=</span><span class="n">nu12</span><span class="p">)</span>
+    <span class="n">nu21</span> <span class="o">=</span> <span class="n">nu12</span> <span class="o">*</span> <span class="n">E2</span> <span class="o">/</span> <span class="n">E1</span>
+    <span class="k">if</span> <span class="n">nu12</span> <span class="o">*</span> <span class="n">nu21</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"nu12**2 must be smaller than E1/E2 for a stable ply"</span><span class="p">)</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">nu12</span> <span class="o">*</span> <span class="n">nu21</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">E1</span> <span class="o">/</span> <span class="n">d</span><span class="p">,</span> <span class="n">nu12</span> <span class="o">*</span> <span class="n">E2</span> <span class="o">/</span> <span class="n">d</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span> <span class="p">[</span><span class="n">nu12</span> <span class="o">*</span> <span class="n">E2</span> <span class="o">/</span> <span class="n">d</span><span class="p">,</span> <span class="n">E2</span> <span class="o">/</span> <span class="n">d</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">G12</span><span class="p">]],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="transformed_stiffness">
+<a class="viewcode-back" href="../../../../api/materials.html#engineeringkit.materials.transformed_stiffness">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">transformed_stiffness</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span> <span class="n">theta</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Ply stiffness :math:`\bar{\mathbf Q}` in laminate axes, for fibres at angle :math:`\theta` to x.</span>
+
+<span class="sd">    .. math:: \bar{\mathbf Q} = \mathbf T^{-1}\mathbf Q\,\mathbf R\,\mathbf T\,\mathbf R^{-1}</span>
+
+<span class="sd">    with :math:`\mathbf T` the stress transformation and :math:`\mathbf R`</span>
+<span class="sd">    the Reuter matrix that converts engineering to tensor shear strain.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    Q : array_like</span>
+<span class="sd">        :math:`3 \times 3` reduced stiffness [Pa], from :func:`lamina_stiffness`.</span>
+<span class="sd">    theta : float</span>
+<span class="sd">        Fibre angle from the laminate x axis [rad], counterclockwise.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    ndarray</span>
+<span class="sd">        :math:`3 \times 3` matrix [Pa] relating</span>
+<span class="sd">        :math:`(\sigma_x, \sigma_y, \tau_{xy})` to</span>
+<span class="sd">        :math:`(\varepsilon_x, \varepsilon_y, \gamma_{xy})`.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Inputs are raw SI numbers with no dimensional metadata; see</span>
+<span class="sd">    :doc:`/guides/materials`.</span>
+<span class="sd">    """</span>
+    <span class="n">Q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">Q</span><span class="o">.</span><span class="n">shape</span> <span class="o">!=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Q must be a 3x3 matrix"</span><span class="p">)</span>
+    <span class="n">_finite</span><span class="p">(</span><span class="n">Q</span><span class="o">=</span><span class="n">Q</span><span class="p">,</span> <span class="n">theta</span><span class="o">=</span><span class="n">theta</span><span class="p">)</span>
+    <span class="n">T</span> <span class="o">=</span> <span class="n">_stress_rotation</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+    <span class="n">R</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">Q</span> <span class="o">@</span> <span class="n">R</span> <span class="o">@</span> <span class="n">T</span> <span class="o">@</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">R</span><span class="p">))</span></div>
+
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_stress_rotation</span><span class="p">(</span><span class="n">theta</span><span class="p">):</span>
+    <span class="n">c</span><span class="p">,</span> <span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">c</span> <span class="o">*</span> <span class="n">c</span><span class="p">,</span> <span class="n">s</span> <span class="o">*</span> <span class="n">s</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">s</span> <span class="o">*</span> <span class="n">c</span><span class="p">],</span> <span class="p">[</span><span class="n">s</span> <span class="o">*</span> <span class="n">s</span><span class="p">,</span> <span class="n">c</span> <span class="o">*</span> <span class="n">c</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span> <span class="o">*</span> <span class="n">s</span> <span class="o">*</span> <span class="n">c</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="n">s</span> <span class="o">*</span> <span class="n">c</span><span class="p">,</span> <span class="n">s</span> <span class="o">*</span> <span class="n">c</span><span class="p">,</span> <span class="n">c</span> <span class="o">*</span> <span class="n">c</span> <span class="o">-</span> <span class="n">s</span> <span class="o">*</span> <span class="n">s</span><span class="p">]])</span>
+
+
+<div class="viewcode-block" id="classical_laminate">
+<a class="viewcode-back" href="../../../../api/materials.html#engineeringkit.materials.classical_laminate">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">classical_laminate</span><span class="p">(</span><span class="n">E1</span><span class="p">,</span> <span class="n">E2</span><span class="p">,</span> <span class="n">nu12</span><span class="p">,</span> <span class="n">G12</span><span class="p">,</span> <span class="n">angles</span><span class="p">,</span> <span class="n">ply_thickness</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Assemble the ABD matrix of a laminate by classical laminate theory.</span>
+
+<span class="sd">    .. math:: (A, B, D)_{ij} = \sum_k \bar Q_{ij}^{(k)}\,</span>
+<span class="sd">              \left(z_k - z_{k-1},\ \tfrac12(z_k^2 - z_{k-1}^2),\ \tfrac13(z_k^3 - z_{k-1}^3)\right)</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    E1, E2, nu12, G12 : float</span>
+<span class="sd">        Ply properties, as in :func:`lamina_stiffness`.</span>
+<span class="sd">    angles : array_like</span>
+<span class="sd">        Fibre angle of each ply [rad], listed from the bottom (most negative</span>
+<span class="sd">        z) to the top.</span>
+<span class="sd">    ply_thickness : float or array_like</span>
+<span class="sd">        Thickness of every ply, or of each [m], positive.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    Laminate</span>
+<span class="sd">        The stacking sequence, the A, B and D matrices and the midplane</span>
+<span class="sd">        and ply-stress solvers.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Kirchhoff plate kinematics (straight normals) and perfect bonding are</span>
+<span class="sd">    assumed; interlaminar stresses near free edges are not modelled. Inputs</span>
+<span class="sd">    are raw SI numbers with no dimensional metadata; see</span>
+<span class="sd">    :doc:`/guides/materials`.</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    E. Reissner and Y. Stavsky, "Bending and stretching of certain types of</span>
+<span class="sd">    heterogeneous aeolotropic elastic plates," *J. Appl. Mech.* 28 (1961)</span>
+<span class="sd">    402-408.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; lam = classical_laminate(140e9, 10e9, 0.3, 5e9, [0.0, np.pi / 2, np.pi / 2, 0.0], 0.125e-3)</span>
+<span class="sd">    &gt;&gt;&gt; bool(np.allclose(lam.B, 0))</span>
+<span class="sd">    True</span>
+<span class="sd">    """</span>
+    <span class="n">Q</span> <span class="o">=</span> <span class="n">lamina_stiffness</span><span class="p">(</span><span class="n">E1</span><span class="p">,</span> <span class="n">E2</span><span class="p">,</span> <span class="n">nu12</span><span class="p">,</span> <span class="n">G12</span><span class="p">)</span>
+    <span class="n">angles</span> <span class="o">=</span> <span class="n">_vector</span><span class="p">(</span><span class="s2">"angles"</span><span class="p">,</span> <span class="n">angles</span><span class="p">)</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">broadcast_to</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">ply_thickness</span><span class="p">,</span> <span class="nb">float</span><span class="p">),</span> <span class="n">angles</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">ply_thickness</span><span class="o">=</span><span class="n">t</span><span class="p">)</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([[</span><span class="mf">0.0</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">t</span><span class="p">)])</span> <span class="o">-</span> <span class="n">t</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="mi">2</span>
+    <span class="n">Qbar</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">transformed_stiffness</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">angles</span><span class="p">])</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s2">"kij,k-&gt;ij"</span><span class="p">,</span> <span class="n">Qbar</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">z</span><span class="p">))</span>
+    <span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s2">"kij,k-&gt;ij"</span><span class="p">,</span> <span class="n">Qbar</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">z</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s2">"kij,k-&gt;ij"</span><span class="p">,</span> <span class="n">Qbar</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">z</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span> <span class="o">/</span> <span class="mi">3</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">Laminate</span><span class="p">(</span><span class="n">angles</span><span class="o">=</span><span class="n">angles</span><span class="p">,</span> <span class="n">z</span><span class="o">=</span><span class="n">z</span><span class="p">,</span> <span class="n">Q</span><span class="o">=</span><span class="n">Q</span><span class="p">,</span> <span class="n">Qbar</span><span class="o">=</span><span class="n">Qbar</span><span class="p">,</span> <span class="n">A</span><span class="o">=</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="o">=</span><span class="n">B</span><span class="p">,</span> <span class="n">D</span><span class="o">=</span><span class="n">D</span><span class="p">)</span></div>
 
 </pre></div>
 

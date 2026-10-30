@@ -89,7 +89,7 @@ The 1903 Flyer's minimum speed
 About 340 kg flying mass, 47.4 m² of wing, and :math:`C_{L,\max}` taken
 between 0.6 and 1.4.
 
-.. GENERATED FROM PYTHON SOURCE LINES 41-56
+.. GENERATED FROM PYTHON SOURCE LINES 41-58
 
 .. code-block:: Python
 
@@ -103,6 +103,8 @@ between 0.6 and 1.4.
         ax.plot(clmax, stall_speed(weight, rho_implied, S, clmax), label=label)
     ratio = float(stall_speed(weight, 1.225, S, 1.0) / stall_speed(weight, 2 * 0.005 * lbf_per_ft2 / mph**2, S, 1.0))
     print(f"true / Smeaton-predicted stall speed: {ratio:.2f}")
+    assert np.isclose(2 * 0.00256 * lbf_per_ft2 / mph**2, 1.225, rtol=0.01)
+    assert np.isclose(ratio, np.sqrt(0.005 / 0.00256), rtol=0.01) and 1.3 < ratio < 1.5
     ax.set(xlabel="$C_{L,\\max}$", ylabel="stall speed [m/s]", title="1903 Flyer minimum flying speed")
     ax.legend()
     fig.tight_layout()
@@ -129,7 +131,7 @@ between 0.6 and 1.4.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.129 seconds)
+   **Total running time of the script:** (0 minutes 0.118 seconds)
 
 
 .. _sphx_glr_download_api_gallery_aerodynamics_forces_plot_04_wright_smeaton_stall_speed.py:

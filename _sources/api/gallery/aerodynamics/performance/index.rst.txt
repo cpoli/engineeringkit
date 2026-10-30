@@ -5,7 +5,7 @@
 Performance
 -----------
 
-Cruise range from aerodynamic efficiency and engine fuel consumption.
+Jet and propeller cruise range from aerodynamic efficiency and engine fuel consumption.
 
 
 .. raw:: html
@@ -36,6 +36,23 @@ Cruise range from aerodynamic efficiency and engine fuel consumption.
     </div>
 
 
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Breguet&#x27;s range equation was first written for propeller aircraft, the only kind there was. Shaft power P = DV/\eta_{pr} burns fuel at a rate set by the engine&#x27;s power-specific consumption c_P. Drag is W/(L/D), so the speed cancels and R = \frac{\eta_{pr}}{g c_P}\frac{L}{D}\ln\frac{W_i}{W_f} (~engineeringkit.aerodynamics.breguet_range_propeller). A propeller aircraft goes furthest at the speed of maximum L/D, which is slower than a jet&#x27;s best-range speed. This example checks the formula against a time-stepped cruise and plots range against speed for a light aircraft.">
+
+.. only:: html
+
+  .. image:: /api/gallery/aerodynamics/performance/images/thumb/sphx_glr_plot_02_breguet_propeller_range_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/aerodynamics/performance/plot_02_breguet_propeller_range`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Breguet's propeller range (c. 1920)</div>
+    </div>
+
+
 .. thumbnail-parent-div-close
 
 .. raw:: html
@@ -47,4 +64,5 @@ Cruise range from aerodynamic efficiency and engine fuel consumption.
    :hidden:
 
    /api/gallery/aerodynamics/performance/plot_01_breguet_range
+   /api/gallery/aerodynamics/performance/plot_02_breguet_propeller_range
 

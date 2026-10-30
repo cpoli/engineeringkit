@@ -1,0 +1,68 @@
+
+
+.. _sphx_glr_api_gallery_electrical_engineering_electronics:
+
+Electronics
+-----------
+
+Ideal op-amp circuits, the junction diode and its load line.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Analog computers of the 1940s solved differential equations with high-gain DC amplifiers wrapped in resistive and capacitive feedback. John Ragazzini, Robert Randall and Frederick Russell of Columbia University analysed them in 1947 and named them operational amplifiers, because each performed a mathematical operation: with a large enough gain the feedback forces the inverting input to a virtual ground, so the output depends only on the feedback network. A resistor ratio scales and inverts (~engineeringkit.electrical_engineering.inverting_amplifier_gain), the non-inverting connection scales without inversion (~engineeringkit.electrical_engineering.noninverting_amplifier_gain) and a feedback capacitor integrates (~engineeringkit.electrical_engineering.op_amp_integrator). This example checks the ideal gains against an amplifier of finite open-loop gain, then wires two integrators into a loop that solves \ddot y = -\omega^2 y, as an analog computer did.">
+
+.. only:: html
+
+  .. image:: /api/gallery/electrical_engineering/electronics/images/thumb/sphx_glr_plot_01_ragazzini_operational_amplifier_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/electrical_engineering/electronics/plot_01_ragazzini_operational_amplifier`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Ragazzini's operational amplifier (1947)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="William Shockley&#x27;s theory of the p-n junction, published in 1949 with the junction transistor, explained why a diode conducts one way: minority carriers injected across the junction diffuse away at a rate that grows as e^{qv/kT}, so the current is i = I_S\left(e^{v/nV_T} - 1\right) with the thermal voltage V_T = kT/q (~engineeringkit.electrical_engineering.shockley_diode_current, thermal_voltage). In a circuit the diode shares its current with a resistor, whose straight load line meets the exponential at the operating point (~engineeringkit.electrical_engineering.diode_operating_point). This example draws the characteristic, solves a load line and checks the famous 60 mV per decade and the fall of the forward voltage with temperature, roughly 2 mV/K.">
+
+.. only:: html
+
+  .. image:: /api/gallery/electrical_engineering/electronics/images/thumb/sphx_glr_plot_02_shockley_diode_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/electrical_engineering/electronics/plot_02_shockley_diode`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Shockley's diode equation and the load line (1949)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/electrical_engineering/electronics/plot_01_ragazzini_operational_amplifier
+   /api/gallery/electrical_engineering/electronics/plot_02_shockley_diode
+

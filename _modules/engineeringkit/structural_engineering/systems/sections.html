@@ -46,7 +46,7 @@
   <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be" />
 <link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be" />
 
-    <script src="../../../../_static/documentation_options.js?v=38b66d78"></script>
+    <script src="../../../../_static/documentation_options.js?v=95e61db4"></script>
     <script src="../../../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../../../_static/sg-tags.js?v=d80f6fa4"></script>
@@ -210,6 +210,21 @@
   </ul>
 </div></div>
       
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://cpoli.github.io/" title="Charles Poli" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-user fa-lg" aria-hidden="true"></i><span class="visually-hidden">Charles Poli</span></a>
+        </li>
+</ul></div>
+      
     </div>
     
   </div>
@@ -306,6 +321,21 @@
   </ul>
 </div></div>
         
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://cpoli.github.io/" title="Charles Poli" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-user fa-lg" aria-hidden="true"></i><span class="visually-hidden">Charles Poli</span></a>
+        </li>
+</ul></div>
+        
       </div>
     
   </div>
@@ -366,12 +396,15 @@
                 <article class="bd-article">
                   
   <h1>Source code for engineeringkit.structural_engineering.systems.sections</h1><div class="highlight"><pre>
-<span></span><span class="sa">r</span><span class="sd">"""Section properties: second moment, elastic and plastic section moduli.</span>
+<span></span><span class="sa">r</span><span class="sd">"""Section properties: second moment, elastic and plastic section moduli, built-up and transformed sections.</span>
 
 <span class="sd">For a rectangle of width :math:`b` and depth :math:`h`, the second moment is</span>
 <span class="sd">:math:`bh^3/12`, the elastic modulus :math:`Z = bh^2/6` (first yield at</span>
 <span class="sd">:math:`M_y = \sigma_y Z`) and the plastic modulus :math:`Z_p = bh^2/4`</span>
-<span class="sd">(full plastification at :math:`M_p = \sigma_y Z_p`).</span>
+<span class="sd">(full plastification at :math:`M_p = \sigma_y Z_p`). I, T, channel, angle</span>
+<span class="sd">and hollow box sections are assembled from rectangles with the parallel-axis</span>
+<span class="sd">theorem; weighting a rectangle by a modular ratio gives the transformed</span>
+<span class="sd">section of a composite beam.</span>
 <span class="sd">"""</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
@@ -381,8 +414,20 @@
 <span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit._validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">finite</span> <span class="k">as</span> <span class="n">_finite</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit._validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">nonnegative</span> <span class="k">as</span> <span class="n">_nonnegative</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit._validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">positive</span> <span class="k">as</span> <span class="n">_positive</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit.structural_engineering.core.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">SectionProperties</span>
 
-<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"rectangular_second_moment"</span><span class="p">,</span> <span class="s2">"rectangular_section_modulus"</span><span class="p">,</span> <span class="s2">"plastic_section_modulus"</span><span class="p">,</span> <span class="s2">"parallel_axis"</span><span class="p">]</span>
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">"rectangular_second_moment"</span><span class="p">,</span>
+    <span class="s2">"rectangular_section_modulus"</span><span class="p">,</span>
+    <span class="s2">"plastic_section_modulus"</span><span class="p">,</span>
+    <span class="s2">"parallel_axis"</span><span class="p">,</span>
+    <span class="s2">"composite_section"</span><span class="p">,</span>
+    <span class="s2">"i_section"</span><span class="p">,</span>
+    <span class="s2">"t_section"</span><span class="p">,</span>
+    <span class="s2">"channel_section"</span><span class="p">,</span>
+    <span class="s2">"angle_section"</span><span class="p">,</span>
+    <span class="s2">"box_section"</span><span class="p">,</span>
+<span class="p">]</span>
 
 
 <div class="viewcode-block" id="rectangular_second_moment">
@@ -511,6 +556,243 @@
     <span class="n">_nonnegative</span><span class="p">(</span><span class="n">Ic</span><span class="o">=</span><span class="n">Ic</span><span class="p">)</span>
     <span class="n">_positive</span><span class="p">(</span><span class="n">A</span><span class="o">=</span><span class="n">A</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">Ic</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">A</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">d</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span></div>
+
+
+
+<div class="viewcode-block" id="composite_section">
+<a class="viewcode-back" href="../../../../api/structural_engineering.html#engineeringkit.structural_engineering.composite_section">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">composite_section</span><span class="p">(</span><span class="n">rectangles</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Area, centroid and second moments of a section made of rectangles.</span>
+
+<span class="sd">    Each part adds its own centroidal second moment and, by the parallel-axis</span>
+<span class="sd">    theorem, its area times the squared distance to the section centroid:</span>
+
+<span class="sd">    .. math::</span>
+
+<span class="sd">        I_z = \sum n_i\left(\frac{b_ih_i^3}{12} + b_ih_i(y_i - \bar y)^2\right),\qquad</span>
+<span class="sd">        I_{yz} = \sum n_ib_ih_i(y_i - \bar y)(z_i - \bar z).</span>
+
+<span class="sd">    A weight :math:`n_i = -1` removes a hole; a modular ratio</span>
+<span class="sd">    :math:`n_i = E_i/E_\mathrm{ref}` gives the transformed section of a</span>
+<span class="sd">    composite beam, whose bending stress in part :math:`i` is</span>
+<span class="sd">    :math:`n_i` times the flexure-formula stress of the transformed section.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    rectangles : sequence of tuple</span>
+<span class="sd">        ``(b, h, z, y)`` or ``(b, h, z, y, weight)`` for each part: width</span>
+<span class="sd">        along :math:`z` [m] and height along :math:`y` [m], both positive,</span>
+<span class="sd">        the coordinates of its centre [m], and its weight [-], nonzero</span>
+<span class="sd">        (1 by default). Holes must lie inside solid parts.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    SectionProperties</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Assumptions, governing equations and validity limits are discussed in</span>
+<span class="sd">    :doc:`/guides/structural_engineering`. SI inputs are required; raw numbers carry no</span>
+<span class="sd">    dimensional metadata.</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    R. C. Hibbeler, *Mechanics of Materials*, 10th ed. (Pearson, 2017),</span>
+<span class="sd">    section 6.6 and appendix A.</span>
+<span class="sd">    """</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">len</span><span class="p">(</span><span class="n">rectangles</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"at least one rectangle is required"</span><span class="p">)</span>
+    <span class="n">parts</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">part</span> <span class="ow">in</span> <span class="n">rectangles</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">part</span><span class="p">)</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"each rectangle must be (b, h, z, y) or (b, h, z, y, weight)"</span><span class="p">)</span>
+        <span class="n">b</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">part</span><span class="p">[:</span><span class="mi">4</span><span class="p">]</span>
+        <span class="n">weight</span> <span class="o">=</span> <span class="n">part</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">part</span><span class="p">)</span> <span class="o">==</span> <span class="mi">5</span> <span class="k">else</span> <span class="mf">1.0</span>
+        <span class="n">_positive</span><span class="p">(</span><span class="n">b</span><span class="o">=</span><span class="n">b</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="n">h</span><span class="p">)</span>
+        <span class="n">_finite</span><span class="p">(</span><span class="n">z</span><span class="o">=</span><span class="n">z</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="n">weight</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">weight</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"weight must be nonzero"</span><span class="p">)</span>
+        <span class="n">parts</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="nb">float</span><span class="p">(</span><span class="n">b</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">h</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">z</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">weight</span><span class="p">)))</span>
+    <span class="n">b</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">parts</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="n">n</span> <span class="o">*</span> <span class="n">b</span> <span class="o">*</span> <span class="n">h</span>
+    <span class="n">area</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+    <span class="k">if</span> <span class="n">area</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"the net (transformed) area must be positive"</span><span class="p">)</span>
+    <span class="n">yc</span><span class="p">,</span> <span class="n">zc</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">A</span> <span class="o">@</span> <span class="n">y</span> <span class="o">/</span> <span class="n">area</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">A</span> <span class="o">@</span> <span class="n">z</span> <span class="o">/</span> <span class="n">area</span><span class="p">)</span>
+    <span class="n">Iz</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="n">b</span> <span class="o">*</span> <span class="n">h</span><span class="o">**</span><span class="mi">3</span> <span class="o">/</span> <span class="mi">12</span> <span class="o">+</span> <span class="n">A</span> <span class="o">*</span> <span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">yc</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">))</span>
+    <span class="n">Iy</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="n">h</span> <span class="o">*</span> <span class="n">b</span><span class="o">**</span><span class="mi">3</span> <span class="o">/</span> <span class="mi">12</span> <span class="o">+</span> <span class="n">A</span> <span class="o">*</span> <span class="p">(</span><span class="n">z</span> <span class="o">-</span> <span class="n">zc</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">))</span>
+    <span class="n">Iyz</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">A</span> <span class="o">*</span> <span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">yc</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">z</span> <span class="o">-</span> <span class="n">zc</span><span class="p">)))</span>
+    <span class="k">return</span> <span class="n">SectionProperties</span><span class="p">(</span><span class="n">area</span><span class="p">,</span> <span class="n">yc</span><span class="p">,</span> <span class="n">zc</span><span class="p">,</span> <span class="n">Iz</span><span class="p">,</span> <span class="n">Iy</span><span class="p">,</span> <span class="n">Iyz</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">parts</span><span class="p">))</span></div>
+
+
+
+<div class="viewcode-block" id="i_section">
+<a class="viewcode-back" href="../../../../api/structural_engineering.html#engineeringkit.structural_engineering.i_section">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">i_section</span><span class="p">(</span><span class="n">depth</span><span class="p">,</span> <span class="n">flange_width</span><span class="p">,</span> <span class="n">flange_thickness</span><span class="p">,</span> <span class="n">web_thickness</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Properties of a doubly symmetric I (wide-flange) section.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    depth : float</span>
+<span class="sd">        Overall depth [m], more than twice ``flange_thickness``.</span>
+<span class="sd">    flange_width : float</span>
+<span class="sd">        Flange width [m], at least ``web_thickness``.</span>
+<span class="sd">    flange_thickness : float</span>
+<span class="sd">        Flange thickness [m], positive.</span>
+<span class="sd">    web_thickness : float</span>
+<span class="sd">        Web thickness [m], positive.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    SectionProperties</span>
+<span class="sd">        Bottom of the section at :math:`y = 0`, web centred on :math:`z = 0`.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Assumptions, governing equations and validity limits are discussed in</span>
+<span class="sd">    :doc:`/guides/structural_engineering`. SI inputs are required; raw numbers carry no</span>
+<span class="sd">    dimensional metadata. Root fillets are ignored.</span>
+<span class="sd">    """</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">depth</span><span class="o">=</span><span class="n">depth</span><span class="p">,</span> <span class="n">flange_width</span><span class="o">=</span><span class="n">flange_width</span><span class="p">,</span> <span class="n">flange_thickness</span><span class="o">=</span><span class="n">flange_thickness</span><span class="p">,</span> <span class="n">web_thickness</span><span class="o">=</span><span class="n">web_thickness</span><span class="p">)</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">web_depth</span><span class="o">=</span><span class="n">depth</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">flange_thickness</span><span class="p">)</span>
+    <span class="n">_nonnegative</span><span class="p">(</span><span class="n">flange_outstand</span><span class="o">=</span><span class="n">flange_width</span> <span class="o">-</span> <span class="n">web_thickness</span><span class="p">)</span>
+    <span class="n">d</span><span class="p">,</span> <span class="n">bf</span><span class="p">,</span> <span class="n">tf</span><span class="p">,</span> <span class="n">tw</span> <span class="o">=</span> <span class="n">depth</span><span class="p">,</span> <span class="n">flange_width</span><span class="p">,</span> <span class="n">flange_thickness</span><span class="p">,</span> <span class="n">web_thickness</span>
+    <span class="k">return</span> <span class="n">composite_section</span><span class="p">([(</span><span class="n">bf</span><span class="p">,</span> <span class="n">tf</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">tf</span> <span class="o">/</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="n">tw</span><span class="p">,</span> <span class="n">d</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">tf</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">d</span> <span class="o">/</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="n">bf</span><span class="p">,</span> <span class="n">tf</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">d</span> <span class="o">-</span> <span class="n">tf</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)])</span></div>
+
+
+
+<div class="viewcode-block" id="t_section">
+<a class="viewcode-back" href="../../../../api/structural_engineering.html#engineeringkit.structural_engineering.t_section">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">t_section</span><span class="p">(</span><span class="n">depth</span><span class="p">,</span> <span class="n">flange_width</span><span class="p">,</span> <span class="n">flange_thickness</span><span class="p">,</span> <span class="n">web_thickness</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Properties of a T section, flange on top.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    depth : float</span>
+<span class="sd">        Overall depth [m], more than ``flange_thickness``.</span>
+<span class="sd">    flange_width : float</span>
+<span class="sd">        Flange width [m], at least ``web_thickness``.</span>
+<span class="sd">    flange_thickness : float</span>
+<span class="sd">        Flange thickness [m], positive.</span>
+<span class="sd">    web_thickness : float</span>
+<span class="sd">        Web (stem) thickness [m], positive.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    SectionProperties</span>
+<span class="sd">        Bottom of the stem at :math:`y = 0`, stem centred on :math:`z = 0`.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Assumptions, governing equations and validity limits are discussed in</span>
+<span class="sd">    :doc:`/guides/structural_engineering`. SI inputs are required; raw numbers carry no</span>
+<span class="sd">    dimensional metadata.</span>
+<span class="sd">    """</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">depth</span><span class="o">=</span><span class="n">depth</span><span class="p">,</span> <span class="n">flange_width</span><span class="o">=</span><span class="n">flange_width</span><span class="p">,</span> <span class="n">flange_thickness</span><span class="o">=</span><span class="n">flange_thickness</span><span class="p">,</span> <span class="n">web_thickness</span><span class="o">=</span><span class="n">web_thickness</span><span class="p">)</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">stem_depth</span><span class="o">=</span><span class="n">depth</span> <span class="o">-</span> <span class="n">flange_thickness</span><span class="p">)</span>
+    <span class="n">_nonnegative</span><span class="p">(</span><span class="n">flange_outstand</span><span class="o">=</span><span class="n">flange_width</span> <span class="o">-</span> <span class="n">web_thickness</span><span class="p">)</span>
+    <span class="n">d</span><span class="p">,</span> <span class="n">bf</span><span class="p">,</span> <span class="n">tf</span><span class="p">,</span> <span class="n">tw</span> <span class="o">=</span> <span class="n">depth</span><span class="p">,</span> <span class="n">flange_width</span><span class="p">,</span> <span class="n">flange_thickness</span><span class="p">,</span> <span class="n">web_thickness</span>
+    <span class="k">return</span> <span class="n">composite_section</span><span class="p">([(</span><span class="n">tw</span><span class="p">,</span> <span class="n">d</span> <span class="o">-</span> <span class="n">tf</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="p">(</span><span class="n">d</span> <span class="o">-</span> <span class="n">tf</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="n">bf</span><span class="p">,</span> <span class="n">tf</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">d</span> <span class="o">-</span> <span class="n">tf</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)])</span></div>
+
+
+
+<div class="viewcode-block" id="channel_section">
+<a class="viewcode-back" href="../../../../api/structural_engineering.html#engineeringkit.structural_engineering.channel_section">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">channel_section</span><span class="p">(</span><span class="n">depth</span><span class="p">,</span> <span class="n">flange_width</span><span class="p">,</span> <span class="n">flange_thickness</span><span class="p">,</span> <span class="n">web_thickness</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Properties of a channel (C) section, flanges pointing in :math:`+z`.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    depth : float</span>
+<span class="sd">        Overall depth [m], more than twice ``flange_thickness``.</span>
+<span class="sd">    flange_width : float</span>
+<span class="sd">        Overall flange width, including the web [m], more than ``web_thickness``.</span>
+<span class="sd">    flange_thickness : float</span>
+<span class="sd">        Flange thickness [m], positive.</span>
+<span class="sd">    web_thickness : float</span>
+<span class="sd">        Web thickness [m], positive.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    SectionProperties</span>
+<span class="sd">        Back of the web at :math:`z = 0`, bottom at :math:`y = 0`.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Assumptions, governing equations and validity limits are discussed in</span>
+<span class="sd">    :doc:`/guides/structural_engineering`. SI inputs are required; raw numbers carry no</span>
+<span class="sd">    dimensional metadata. A channel loaded through its centroid twists:</span>
+<span class="sd">    see :func:`channel_shear_center`.</span>
+<span class="sd">    """</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">depth</span><span class="o">=</span><span class="n">depth</span><span class="p">,</span> <span class="n">flange_width</span><span class="o">=</span><span class="n">flange_width</span><span class="p">,</span> <span class="n">flange_thickness</span><span class="o">=</span><span class="n">flange_thickness</span><span class="p">,</span> <span class="n">web_thickness</span><span class="o">=</span><span class="n">web_thickness</span><span class="p">)</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">web_depth</span><span class="o">=</span><span class="n">depth</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">flange_thickness</span><span class="p">,</span> <span class="n">flange_outstand</span><span class="o">=</span><span class="n">flange_width</span> <span class="o">-</span> <span class="n">web_thickness</span><span class="p">)</span>
+    <span class="n">d</span><span class="p">,</span> <span class="n">bf</span><span class="p">,</span> <span class="n">tf</span><span class="p">,</span> <span class="n">tw</span> <span class="o">=</span> <span class="n">depth</span><span class="p">,</span> <span class="n">flange_width</span><span class="p">,</span> <span class="n">flange_thickness</span><span class="p">,</span> <span class="n">web_thickness</span>
+    <span class="n">zf</span> <span class="o">=</span> <span class="n">tw</span> <span class="o">+</span> <span class="p">(</span><span class="n">bf</span> <span class="o">-</span> <span class="n">tw</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+    <span class="k">return</span> <span class="n">composite_section</span><span class="p">([(</span><span class="n">tw</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">tw</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="n">d</span> <span class="o">/</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="n">bf</span> <span class="o">-</span> <span class="n">tw</span><span class="p">,</span> <span class="n">tf</span><span class="p">,</span> <span class="n">zf</span><span class="p">,</span> <span class="n">tf</span> <span class="o">/</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="n">bf</span> <span class="o">-</span> <span class="n">tw</span><span class="p">,</span> <span class="n">tf</span><span class="p">,</span> <span class="n">zf</span><span class="p">,</span> <span class="n">d</span> <span class="o">-</span> <span class="n">tf</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)])</span></div>
+
+
+
+<div class="viewcode-block" id="angle_section">
+<a class="viewcode-back" href="../../../../api/structural_engineering.html#engineeringkit.structural_engineering.angle_section">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">angle_section</span><span class="p">(</span><span class="n">leg_height</span><span class="p">,</span> <span class="n">leg_width</span><span class="p">,</span> <span class="n">thickness</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Properties of an angle (L) section, the simplest section with :math:`I_{yz} \ne 0`.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    leg_height : float</span>
+<span class="sd">        Overall height of the vertical leg [m], more than ``thickness``.</span>
+<span class="sd">    leg_width : float</span>
+<span class="sd">        Overall width of the horizontal leg [m], more than ``thickness``.</span>
+<span class="sd">    thickness : float</span>
+<span class="sd">        Leg thickness [m], positive.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    SectionProperties</span>
+<span class="sd">        Heel (outer corner) at the origin, legs along :math:`+y` and :math:`+z`.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Assumptions, governing equations and validity limits are discussed in</span>
+<span class="sd">    :doc:`/guides/structural_engineering`. SI inputs are required; raw numbers carry no</span>
+<span class="sd">    dimensional metadata.</span>
+<span class="sd">    """</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">leg_height</span><span class="o">=</span><span class="n">leg_height</span><span class="p">,</span> <span class="n">leg_width</span><span class="o">=</span><span class="n">leg_width</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="n">thickness</span><span class="p">)</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">vertical_outstand</span><span class="o">=</span><span class="n">leg_height</span> <span class="o">-</span> <span class="n">thickness</span><span class="p">,</span> <span class="n">horizontal_outstand</span><span class="o">=</span><span class="n">leg_width</span> <span class="o">-</span> <span class="n">thickness</span><span class="p">)</span>
+    <span class="n">h</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">t</span> <span class="o">=</span> <span class="n">leg_height</span><span class="p">,</span> <span class="n">leg_width</span><span class="p">,</span> <span class="n">thickness</span>
+    <span class="k">return</span> <span class="n">composite_section</span><span class="p">([(</span><span class="n">t</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">t</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="n">h</span> <span class="o">/</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="n">b</span> <span class="o">-</span> <span class="n">t</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">t</span> <span class="o">+</span> <span class="p">(</span><span class="n">b</span> <span class="o">-</span> <span class="n">t</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="n">t</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)])</span></div>
+
+
+
+<div class="viewcode-block" id="box_section">
+<a class="viewcode-back" href="../../../../api/structural_engineering.html#engineeringkit.structural_engineering.box_section">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">box_section</span><span class="p">(</span><span class="n">depth</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">thickness</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Properties of a rectangular hollow (box) section of uniform wall thickness.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    depth : float</span>
+<span class="sd">        Overall depth [m], more than twice ``thickness``.</span>
+<span class="sd">    width : float</span>
+<span class="sd">        Overall width [m], more than twice ``thickness``.</span>
+<span class="sd">    thickness : float</span>
+<span class="sd">        Wall thickness [m], positive.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    SectionProperties</span>
+<span class="sd">        Bottom at :math:`y = 0`, centred on :math:`z = 0`.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Assumptions, governing equations and validity limits are discussed in</span>
+<span class="sd">    :doc:`/guides/structural_engineering`. SI inputs are required; raw numbers carry no</span>
+<span class="sd">    dimensional metadata. Corner radii are ignored.</span>
+<span class="sd">    """</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">depth</span><span class="o">=</span><span class="n">depth</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">width</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="n">thickness</span><span class="p">)</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">inner_depth</span><span class="o">=</span><span class="n">depth</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">thickness</span><span class="p">,</span> <span class="n">inner_width</span><span class="o">=</span><span class="n">width</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">thickness</span><span class="p">)</span>
+    <span class="n">d</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">t</span> <span class="o">=</span> <span class="n">depth</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">thickness</span>
+    <span class="k">return</span> <span class="n">composite_section</span><span class="p">([(</span><span class="n">b</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">d</span> <span class="o">/</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="n">b</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">t</span><span class="p">,</span> <span class="n">d</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">t</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">d</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)])</span></div>
 
 </pre></div>
 

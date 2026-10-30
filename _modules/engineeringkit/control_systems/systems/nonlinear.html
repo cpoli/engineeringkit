@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>engineeringkit.control_systems.systems.nonlinear &#8212; engineeringkit</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx_autodoc_typehints.css?v=057ac668" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/plot_directive.css" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Vibur" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/jupyterlite_sphinx.css?v=f676e775" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery.css?v=c83e6b79" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/engineeringkit.css?v=62935cec" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../../../_static/scripts/fontawesome.js?digest=18bd87630a240e9c25be"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be" />
+
+    <script src="../../../../_static/documentation_options.js?v=95e61db4"></script>
+    <script src="../../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../../_static/sg-tags.js?v=d80f6fa4"></script>
+    <script src="../../../../_static/jupyterlite_sphinx.js?v=96e329c5"></script>
+    <script src="../../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/engineeringkit/control_systems/systems/nonlinear';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <script async="async" data-goatcounter="https://cpoli.goatcounter.com/count" src="https://gc.zgo.at/count.js"></script>
+    <link rel="canonical" href="https://cpoli.github.io/engineeringkit/_modules/engineeringkit/control_systems/systems/nonlinear.html" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="color-scheme" content="light dark"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../../../_static/searchtools.js"></script>
+    <script src="../../../../_static/language_data.js"></script>
+    <script src="../../../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../_static/engineeringkit_logo_transparent.png" class="logo__image only-light" alt="engineeringkit logo"/>
+    <img src="../../../../_static/engineeringkit_logo_transparent.png" class="logo__image only-dark pst-js-only" alt="engineeringkit logo"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../subpackages/index.html">
+    Subpackages
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../history/index.html">
+    History
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../api/index.html">
+    API
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://cpoli.github.io/" title="Charles Poli" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-user fa-lg" aria-hidden="true"></i><span class="visually-hidden">Charles Poli</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../subpackages/index.html">
+    Subpackages
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../history/index.html">
+    History
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../api/index.html">
+    API
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://cpoli.github.io/" title="Charles Poli" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-user fa-lg" aria-hidden="true"></i><span class="visually-hidden">Charles Poli</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">engineeringkit.control_systems.systems.nonlinear</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for engineeringkit.control_systems.systems.nonlinear</h1><div class="highlight"><pre>
+<span></span><span class="sa">r</span><span class="sd">"""Nonlinear loops: describing functions, limit-cycle prediction and the phase plane.</span>
+
+<span class="sd">Kochenburger (1950) analysed relay ("contactor") servomechanisms by</span>
+<span class="sd">replacing the nonlinearity with its *describing function*</span>
+<span class="sd">:math:`N(A)`, the complex gain from a sinusoid :math:`A\sin\omega t` to the</span>
+<span class="sd">fundamental of its output. A loop :math:`L(s)` closed through it can</span>
+<span class="sd">sustain an oscillation of amplitude :math:`A` and frequency :math:`\omega`</span>
+<span class="sd">where :math:`L(j\omega) = -1/N(A)`. Andronov, Vitt and Khaikin (1937)</span>
+<span class="sd">studied such self-sustained oscillations in the phase plane</span>
+<span class="sd">:math:`(x, \dot x)`, where they are closed orbits.</span>
+<span class="sd">"""</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">optimize</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit._validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">finite</span> <span class="k">as</span> <span class="n">_finite</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit._validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">integer</span> <span class="k">as</span> <span class="n">_integer</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit._validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">nonnegative</span> <span class="k">as</span> <span class="n">_nonnegative</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit._validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">positive</span> <span class="k">as</span> <span class="n">_positive</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit.control_systems.core.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">PhasePortraitResult</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit.control_systems.systems.frequency</span><span class="w"> </span><span class="kn">import</span> <span class="n">stability_margins</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit.integrators</span><span class="w"> </span><span class="kn">import</span> <span class="n">integrate_ode</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">"describing_function"</span><span class="p">,</span>
+    <span class="s2">"relay_describing_function"</span><span class="p">,</span>
+    <span class="s2">"saturation_describing_function"</span><span class="p">,</span>
+    <span class="s2">"dead_zone_describing_function"</span><span class="p">,</span>
+    <span class="s2">"limit_cycle"</span><span class="p">,</span>
+    <span class="s2">"phase_portrait"</span><span class="p">,</span>
+<span class="p">]</span>
+
+
+<div class="viewcode-block" id="describing_function">
+<a class="viewcode-back" href="../../../../api/control_systems.html#engineeringkit.control_systems.describing_function">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">describing_function</span><span class="p">(</span><span class="n">nonlinearity</span><span class="p">,</span> <span class="n">amplitude</span><span class="p">,</span> <span class="n">samples</span><span class="o">=</span><span class="mi">4096</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Describing function of a memoryless nonlinearity, from the first Fourier harmonic of its output.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    nonlinearity : callable</span>
+<span class="sd">        ``nonlinearity(x)`` evaluated elementwise on an array of inputs.</span>
+<span class="sd">    amplitude : float or array_like</span>
+<span class="sd">        Input amplitude :math:`A` [input units], positive.</span>
+<span class="sd">    samples : int, optional</span>
+<span class="sd">        Points per period of the quadrature, at least 16.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    complex or ndarray of complex</span>
+<span class="sd">        :math:`N(A) = (b_1 + j a_1)/A`, where :math:`b_1` and :math:`a_1`</span>
+<span class="sd">        are the sine and cosine coefficients of the output's fundamental</span>
+<span class="sd">        [output units per input unit].</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    The rectangle rule on a uniform grid is spectrally accurate for smooth</span>
+<span class="sd">    nonlinearities and first-order accurate across a jump. An odd,</span>
+<span class="sd">    single-valued nonlinearity has a real :math:`N`. Inputs are raw SI</span>
+<span class="sd">    numbers with no dimensional metadata; see :doc:`/guides/control_systems`.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; round(float(describing_function(lambda x: x**3, 2.0).real), 6)</span>
+<span class="sd">    3.0</span>
+<span class="sd">    """</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">amplitude</span><span class="o">=</span><span class="n">amplitude</span><span class="p">)</span>
+    <span class="n">_integer</span><span class="p">(</span><span class="s2">"samples"</span><span class="p">,</span> <span class="n">samples</span><span class="p">,</span> <span class="n">minimum</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">amplitude</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span>
+    <span class="n">theta</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">samples</span><span class="p">)</span> <span class="o">/</span> <span class="n">samples</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">nonlinearity</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)),</span> <span class="nb">float</span><span class="p">)</span>
+    <span class="n">b1</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">y</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">a1</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">y</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="p">(</span><span class="n">b1</span> <span class="o">+</span> <span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="n">a1</span><span class="p">)</span> <span class="o">/</span> <span class="n">A</span>
+    <span class="k">return</span> <span class="nb">complex</span><span class="p">(</span><span class="n">N</span><span class="p">)</span> <span class="k">if</span> <span class="n">N</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">N</span></div>
+
+
+
+<div class="viewcode-block" id="relay_describing_function">
+<a class="viewcode-back" href="../../../../api/control_systems.html#engineeringkit.control_systems.relay_describing_function">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">relay_describing_function</span><span class="p">(</span><span class="n">amplitude</span><span class="p">,</span> <span class="n">output_level</span><span class="p">,</span> <span class="n">hysteresis</span><span class="o">=</span><span class="mf">0.0</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Describing function of a relay, ideal or with hysteresis.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    amplitude : float or array_like</span>
+<span class="sd">        Input amplitude :math:`A` [input units], greater than ``hysteresis``.</span>
+<span class="sd">    output_level : float</span>
+<span class="sd">        Relay output :math:`\pm M` [output units], positive.</span>
+<span class="sd">    hysteresis : float, optional</span>
+<span class="sd">        Switching threshold :math:`h` [input units], nonnegative: the relay</span>
+<span class="sd">        switches up when the input rises past :math:`h` and down when it</span>
+<span class="sd">        falls past :math:`-h`.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float, complex or ndarray</span>
+<span class="sd">        :math:`N(A) = \frac{4M}{\pi A}e^{-j\arcsin(h/A)}`; real when</span>
+<span class="sd">        :math:`h = 0` [output units per input unit].</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Hysteresis makes the relay lag the input by :math:`\arcsin(h/A)`.</span>
+<span class="sd">    Inputs are raw SI numbers with no dimensional metadata; see</span>
+<span class="sd">    :doc:`/guides/control_systems`.</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    R. J. Kochenburger, "A frequency response method for analyzing and</span>
+<span class="sd">    synthesizing contactor servomechanisms," *Trans. AIEE* 69 (1950)</span>
+<span class="sd">    270-284.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; round(float(relay_describing_function(1.0, np.pi / 4)), 12)</span>
+<span class="sd">    1.0</span>
+<span class="sd">    """</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">amplitude</span><span class="o">=</span><span class="n">amplitude</span><span class="p">,</span> <span class="n">output_level</span><span class="o">=</span><span class="n">output_level</span><span class="p">)</span>
+    <span class="n">_nonnegative</span><span class="p">(</span><span class="n">hysteresis</span><span class="o">=</span><span class="n">hysteresis</span><span class="p">)</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">amplitude</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">A</span> <span class="o">&lt;=</span> <span class="n">hysteresis</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"amplitude must exceed the hysteresis"</span><span class="p">)</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">output_level</span> <span class="o">/</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">A</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">hysteresis</span><span class="p">:</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">hysteresis</span> <span class="o">/</span> <span class="n">A</span>
+        <span class="n">N</span> <span class="o">=</span> <span class="n">N</span> <span class="o">*</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">r</span> <span class="o">*</span> <span class="n">r</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="n">r</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">N</span><span class="p">[()]</span></div>
+
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_saturation_gain</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">limit</span><span class="p">,</span> <span class="n">slope</span><span class="p">):</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">minimum</span><span class="p">(</span><span class="n">limit</span> <span class="o">/</span> <span class="n">A</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+    <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">slope</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arcsin</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="o">+</span> <span class="n">r</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">r</span> <span class="o">*</span> <span class="n">r</span><span class="p">))</span>
+
+
+<div class="viewcode-block" id="saturation_describing_function">
+<a class="viewcode-back" href="../../../../api/control_systems.html#engineeringkit.control_systems.saturation_describing_function">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">saturation_describing_function</span><span class="p">(</span><span class="n">amplitude</span><span class="p">,</span> <span class="n">limit</span><span class="p">,</span> <span class="n">slope</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Describing function of a saturation: linear with gain ``slope`` for inputs up to ``limit``.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    amplitude : float or array_like</span>
+<span class="sd">        Input amplitude :math:`A` [input units], positive.</span>
+<span class="sd">    limit : float</span>
+<span class="sd">        Input :math:`a` at which the output saturates [input units],</span>
+<span class="sd">        positive; the output saturates at :math:`\pm k a`.</span>
+<span class="sd">    slope : float, optional</span>
+<span class="sd">        Linear gain :math:`k` [output units per input unit], positive.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float or ndarray</span>
+<span class="sd">        :math:`N = k` for :math:`A \le a`, else</span>
+<span class="sd">        :math:`\frac{2k}{\pi}\left[\arcsin\frac aA + \frac aA</span>
+<span class="sd">        \sqrt{1 - (a/A)^2}\right]`.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    :math:`N` falls from :math:`k` towards :math:`4ka/(\pi A)`, the relay</span>
+<span class="sd">    value, as the amplitude grows. Inputs are raw SI numbers with no</span>
+<span class="sd">    dimensional metadata; see :doc:`/guides/control_systems`.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; float(saturation_describing_function(0.5, 1.0, 2.0))</span>
+<span class="sd">    2.0</span>
+<span class="sd">    """</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">amplitude</span><span class="o">=</span><span class="n">amplitude</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="n">limit</span><span class="p">,</span> <span class="n">slope</span><span class="o">=</span><span class="n">slope</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">_saturation_gain</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">amplitude</span><span class="p">,</span> <span class="nb">float</span><span class="p">),</span> <span class="n">limit</span><span class="p">,</span> <span class="n">slope</span><span class="p">)[()]</span></div>
+
+
+
+<div class="viewcode-block" id="dead_zone_describing_function">
+<a class="viewcode-back" href="../../../../api/control_systems.html#engineeringkit.control_systems.dead_zone_describing_function">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">dead_zone_describing_function</span><span class="p">(</span><span class="n">amplitude</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">slope</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Describing function of a dead zone: zero output for inputs below ``width``, then gain ``slope``.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    amplitude : float or array_like</span>
+<span class="sd">        Input amplitude :math:`A` [input units], positive.</span>
+<span class="sd">    width : float</span>
+<span class="sd">        Half-width :math:`\delta` of the dead zone [input units], positive.</span>
+<span class="sd">    slope : float, optional</span>
+<span class="sd">        Gain :math:`k` outside the dead zone [output units per input unit],</span>
+<span class="sd">        positive.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float or ndarray</span>
+<span class="sd">        :math:`N = 0` for :math:`A \le \delta`, else :math:`k` minus the</span>
+<span class="sd">        saturation describing function with limit :math:`\delta`.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    A dead zone is a linear gain minus a saturation, and the describing</span>
+<span class="sd">    function is linear in the nonlinearity. Inputs are raw SI numbers with</span>
+<span class="sd">    no dimensional metadata; see :doc:`/guides/control_systems`.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; float(dead_zone_describing_function(0.5, 1.0))</span>
+<span class="sd">    0.0</span>
+<span class="sd">    """</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">amplitude</span><span class="o">=</span><span class="n">amplitude</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">width</span><span class="p">,</span> <span class="n">slope</span><span class="o">=</span><span class="n">slope</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">slope</span> <span class="o">-</span> <span class="n">_saturation_gain</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">amplitude</span><span class="p">,</span> <span class="nb">float</span><span class="p">),</span> <span class="n">width</span><span class="p">,</span> <span class="n">slope</span><span class="p">))[()]</span></div>
+
+
+
+<div class="viewcode-block" id="limit_cycle">
+<a class="viewcode-back" href="../../../../api/control_systems.html#engineeringkit.control_systems.limit_cycle">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">limit_cycle</span><span class="p">(</span><span class="n">loop</span><span class="p">,</span> <span class="n">describing</span><span class="p">,</span> <span class="n">amplitude_bounds</span><span class="p">,</span> <span class="n">w</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">samples</span><span class="o">=</span><span class="mi">400</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Limit cycles predicted by the describing function for a loop closed through a real nonlinearity.</span>
+
+<span class="sd">    With a real :math:`N(A)`, :math:`L(j\omega) = -1/N(A)` needs</span>
+<span class="sd">    :math:`\angle L = -180^\circ` (a phase crossover :math:`\omega_{180}`)</span>
+<span class="sd">    and :math:`N(A) = 1/|L(j\omega_{180})|`, the gain margin there.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    loop : scipy.signal.lti</span>
+<span class="sd">        Linear part :math:`L(s)` of the loop, open-loop stable.</span>
+<span class="sd">    describing : callable</span>
+<span class="sd">        ``describing(A)`` returning the real describing function, vectorised</span>
+<span class="sd">        over amplitudes.</span>
+<span class="sd">    amplitude_bounds : tuple of float</span>
+<span class="sd">        ``(A_min, A_max)`` [input units], the positive amplitude range</span>
+<span class="sd">        searched.</span>
+<span class="sd">    w : array_like, optional</span>
+<span class="sd">        Positive angular frequencies [rad/s] for finding the phase</span>
+<span class="sd">        crossovers, as in :func:`stability_margins`.</span>
+<span class="sd">    samples : int, optional</span>
+<span class="sd">        Log-spaced amplitudes scanned for sign changes, at least 2.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    list of dict</span>
+<span class="sd">        One dict per predicted limit cycle, in increasing frequency then</span>
+<span class="sd">        amplitude: ``amplitude`` [input units], ``frequency`` [rad/s],</span>
+<span class="sd">        ``period`` [s] and ``stable`` (bool). Empty if none is predicted.</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    ValueError</span>
+<span class="sd">        If the bounds are not increasing and positive, or the describing</span>
+<span class="sd">        function is not real.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    By Loeb's criterion, a cycle is stable when :math:`N` falls through the</span>
+<span class="sd">    gain margin as :math:`A` grows: a larger oscillation then sees a loop</span>
+<span class="sd">    gain below the critical one and decays back. The method assumes</span>
+<span class="sd">    :math:`L` filters out the harmonics, so it gives estimates, not proofs.</span>
+<span class="sd">    Inputs are raw SI numbers with no dimensional metadata; see</span>
+<span class="sd">    :doc:`/guides/control_systems`.</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    R. J. Kochenburger, "A frequency response method for analyzing and</span>
+<span class="sd">    synthesizing contactor servomechanisms," *Trans. AIEE* 69 (1950)</span>
+<span class="sd">    270-284.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; from engineeringkit.control_systems import transfer_function</span>
+<span class="sd">    &gt;&gt;&gt; relay = lambda A: relay_describing_function(A, 1.0)</span>
+<span class="sd">    &gt;&gt;&gt; (cycle,) = limit_cycle(transfer_function([1], [1, 3, 3, 1]), relay, (0.01, 10))</span>
+<span class="sd">    &gt;&gt;&gt; round(cycle["amplitude"], 4), round(cycle["frequency"], 3)</span>
+<span class="sd">    (0.1592, 1.732)</span>
+<span class="sd">    """</span>
+    <span class="n">a_min</span><span class="p">,</span> <span class="n">a_max</span> <span class="o">=</span> <span class="n">amplitude_bounds</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">a_min</span><span class="o">=</span><span class="n">a_min</span><span class="p">,</span> <span class="n">a_max</span><span class="o">=</span><span class="n">a_max</span><span class="p">)</span>
+    <span class="n">_integer</span><span class="p">(</span><span class="s2">"samples"</span><span class="p">,</span> <span class="n">samples</span><span class="p">,</span> <span class="n">minimum</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">a_min</span> <span class="o">&gt;=</span> <span class="n">a_max</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"amplitude_bounds must be increasing"</span><span class="p">)</span>
+    <span class="n">amplitudes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">a_min</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">a_max</span><span class="p">),</span> <span class="n">samples</span><span class="p">)</span>
+    <span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">describing</span><span class="p">(</span><span class="n">amplitudes</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">iscomplexobj</span><span class="p">(</span><span class="n">values</span><span class="p">)</span> <span class="ow">and</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">values</span><span class="o">.</span><span class="n">imag</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"only real describing functions (odd, single-valued nonlinearities) are supported"</span><span class="p">)</span>
+    <span class="n">values</span> <span class="o">=</span> <span class="n">values</span><span class="o">.</span><span class="n">real</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+    <span class="n">margins</span> <span class="o">=</span> <span class="n">stability_margins</span><span class="p">(</span><span class="n">loop</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>
+    <span class="n">cycles</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">frequency</span><span class="p">,</span> <span class="n">gain_margin</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">margins</span><span class="p">[</span><span class="s2">"phase_cross_frequencies"</span><span class="p">],</span> <span class="n">margins</span><span class="p">[</span><span class="s2">"gain_margins"</span><span class="p">]):</span>
+        <span class="n">excess</span> <span class="o">=</span> <span class="n">values</span> <span class="o">-</span> <span class="n">gain_margin</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">flatnonzero</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">excess</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">excess</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">):</span>
+            <span class="n">amplitude</span> <span class="o">=</span> <span class="n">optimize</span><span class="o">.</span><span class="n">brentq</span><span class="p">(</span><span class="k">lambda</span> <span class="n">a</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">describing</span><span class="p">(</span><span class="n">a</span><span class="p">)))</span> <span class="o">-</span> <span class="n">gain_margin</span><span class="p">,</span> <span class="n">amplitudes</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">amplitudes</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span>
+            <span class="n">cycles</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="p">{</span>
+                    <span class="s2">"amplitude"</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">amplitude</span><span class="p">),</span>
+                    <span class="s2">"frequency"</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">frequency</span><span class="p">),</span>
+                    <span class="s2">"period"</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="n">frequency</span><span class="p">),</span>
+                    <span class="s2">"stable"</span><span class="p">:</span> <span class="nb">bool</span><span class="p">(</span><span class="n">excess</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">),</span>
+                <span class="p">}</span>
+            <span class="p">)</span>
+    <span class="k">return</span> <span class="n">cycles</span></div>
+
+
+
+<div class="viewcode-block" id="phase_portrait">
+<a class="viewcode-back" href="../../../../api/control_systems.html#engineeringkit.control_systems.phase_portrait">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">phase_portrait</span><span class="p">(</span><span class="n">acceleration</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">v0</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Trajectory of :math:`\ddot x = f(x, \dot x)` in the phase plane.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    acceleration : callable</span>
+<span class="sd">        ``acceleration(x, v)`` returning :math:`\ddot x` [position units/s²];</span>
+<span class="sd">        it is also evaluated on arrays to draw the direction field.</span>
+<span class="sd">    x0, v0 : float</span>
+<span class="sd">        Initial position [position units] and velocity [position units/s].</span>
+<span class="sd">    t : array_like</span>
+<span class="sd">        At least two strictly increasing sample times [s], fine enough for a</span>
+<span class="sd">        fixed-step RK4 integration.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    PhasePortraitResult</span>
+<span class="sd">        Time [s], position and velocity, and the right-hand side for plotting</span>
+<span class="sd">        the direction field.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Fixed RK4 steps tolerate a discontinuous :math:`f`, such as a relay, at</span>
+<span class="sd">    first-order accuracy across each switch. Time is eliminated in the</span>
+<span class="sd">    plane: the slope of a trajectory is :math:`dv/dx = f(x, v)/v`. Inputs</span>
+<span class="sd">    are raw SI numbers with no dimensional metadata; see</span>
+<span class="sd">    :doc:`/guides/control_systems`.</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    A. A. Andronov and S. E. Khaikin, *Theory of Oscillations* (ONTI,</span>
+<span class="sd">    Moscow, 1937; with A. A. Vitt, 2nd ed., 1959).</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; r = phase_portrait(lambda x, v: -x, 1.0, 0.0, np.linspace(0, np.pi, 2001))</span>
+<span class="sd">    &gt;&gt;&gt; round(r.summary()["final_x"], 6)</span>
+<span class="sd">    -1.0</span>
+<span class="sd">    """</span>
+    <span class="n">_finite</span><span class="p">(</span><span class="n">x0</span><span class="o">=</span><span class="n">x0</span><span class="p">,</span> <span class="n">v0</span><span class="o">=</span><span class="n">v0</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">rhs</span><span class="p">(</span><span class="n">_</span><span class="p">,</span> <span class="n">state</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">state</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">acceleration</span><span class="p">(</span><span class="n">state</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">state</span><span class="p">[</span><span class="mi">1</span><span class="p">])],</span> <span class="nb">float</span><span class="p">)</span>
+
+    <span class="n">sol</span> <span class="o">=</span> <span class="n">integrate_ode</span><span class="p">(</span><span class="n">rhs</span><span class="p">,</span> <span class="p">[</span><span class="n">x0</span><span class="p">,</span> <span class="n">v0</span><span class="p">],</span> <span class="n">t</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">"rk4"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">PhasePortraitResult</span><span class="p">(</span><span class="n">sol</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">sol</span><span class="o">.</span><span class="n">history</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">sol</span><span class="o">.</span><span class="n">history</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">acceleration</span><span class="p">)</span></div>
+
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../../_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be"></script>
+<script defer src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.1.
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.23.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

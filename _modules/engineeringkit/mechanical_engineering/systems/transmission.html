@@ -46,7 +46,7 @@
   <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be" />
 <link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be" />
 
-    <script src="../../../../_static/documentation_options.js?v=38b66d78"></script>
+    <script src="../../../../_static/documentation_options.js?v=95e61db4"></script>
     <script src="../../../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../../../_static/sg-tags.js?v=d80f6fa4"></script>
@@ -210,6 +210,21 @@
   </ul>
 </div></div>
       
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://cpoli.github.io/" title="Charles Poli" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-user fa-lg" aria-hidden="true"></i><span class="visually-hidden">Charles Poli</span></a>
+        </li>
+</ul></div>
+      
     </div>
     
   </div>
@@ -306,6 +321,21 @@
   </ul>
 </div></div>
         
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://cpoli.github.io/" title="Charles Poli" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-user fa-lg" aria-hidden="true"></i><span class="visually-hidden">Charles Poli</span></a>
+        </li>
+</ul></div>
+        
       </div>
     
   </div>
@@ -371,7 +401,10 @@
 <span class="sd">Euler showed that involute teeth keep the speed ratio of two gears constant,</span>
 <span class="sd">so a gear pair is fixed by its tooth counts. Euler, and later Eytelwein for</span>
 <span class="sd">engineers, found that friction lets a belt's tension grow exponentially with</span>
-<span class="sd">the angle of wrap, :math:`T_1/T_2 = e^{\mu\theta}`.</span>
+<span class="sd">the angle of wrap, :math:`T_1/T_2 = e^{\mu\theta}`. Lewis treated a gear</span>
+<span class="sd">tooth as a cantilever of uniform strength inscribed in its profile, which</span>
+<span class="sd">gives the bending stress :math:`\sigma = W_t/(F m Y)`, and Barth's factor</span>
+<span class="sd">raises it for the dynamic load of a gear running at speed.</span>
 <span class="sd">"""</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
@@ -384,7 +417,32 @@
 <span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit._validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">nonnegative</span> <span class="k">as</span> <span class="n">_nonnegative</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit._validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">positive</span> <span class="k">as</span> <span class="n">_positive</span>
 
-<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"gear_ratio"</span><span class="p">,</span> <span class="s2">"gear_output_speed"</span><span class="p">,</span> <span class="s2">"gear_output_torque"</span><span class="p">,</span> <span class="s2">"belt_speed"</span><span class="p">,</span> <span class="s2">"belt_tension_ratio"</span><span class="p">]</span>
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">"gear_ratio"</span><span class="p">,</span>
+    <span class="s2">"gear_output_speed"</span><span class="p">,</span>
+    <span class="s2">"gear_output_torque"</span><span class="p">,</span>
+    <span class="s2">"belt_speed"</span><span class="p">,</span>
+    <span class="s2">"belt_tension_ratio"</span><span class="p">,</span>
+    <span class="s2">"lewis_form_factor"</span><span class="p">,</span>
+    <span class="s2">"lewis_bending_stress"</span><span class="p">,</span>
+    <span class="s2">"barth_velocity_factor"</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="c1"># Lewis form factor of 20-degree full-depth spur teeth, Shigley's Mechanical</span>
+<span class="c1"># Engineering Design, Table 14-2.</span>
+<span class="n">_LEWIS_TEETH</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mi">38</span><span class="p">,</span> <span class="mi">43</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">400</span><span class="p">])</span>
+<span class="n">_LEWIS_Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="mf">0.245</span><span class="p">,</span> <span class="mf">0.261</span><span class="p">,</span> <span class="mf">0.277</span><span class="p">,</span> <span class="mf">0.290</span><span class="p">,</span> <span class="mf">0.296</span><span class="p">,</span> <span class="mf">0.303</span><span class="p">,</span> <span class="mf">0.309</span><span class="p">,</span> <span class="mf">0.314</span><span class="p">,</span> <span class="mf">0.322</span><span class="p">,</span> <span class="mf">0.328</span><span class="p">,</span> <span class="mf">0.331</span><span class="p">,</span> <span class="mf">0.337</span><span class="p">,</span> <span class="mf">0.346</span><span class="p">,</span>
+        <span class="mf">0.353</span><span class="p">,</span> <span class="mf">0.359</span><span class="p">,</span> <span class="mf">0.371</span><span class="p">,</span> <span class="mf">0.384</span><span class="p">,</span> <span class="mf">0.397</span><span class="p">,</span> <span class="mf">0.409</span><span class="p">,</span> <span class="mf">0.422</span><span class="p">,</span> <span class="mf">0.435</span><span class="p">,</span> <span class="mf">0.447</span><span class="p">,</span> <span class="mf">0.460</span><span class="p">,</span> <span class="mf">0.472</span><span class="p">,</span> <span class="mf">0.480</span><span class="p">,</span>
+    <span class="p">]</span>
+<span class="p">)</span>  <span class="c1"># fmt: skip</span>
+<span class="n">_BARTH</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"cast"</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">V</span><span class="p">:</span> <span class="p">(</span><span class="mf">3.05</span> <span class="o">+</span> <span class="n">V</span><span class="p">)</span> <span class="o">/</span> <span class="mf">3.05</span><span class="p">,</span>
+    <span class="s2">"cut"</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">V</span><span class="p">:</span> <span class="p">(</span><span class="mf">6.1</span> <span class="o">+</span> <span class="n">V</span><span class="p">)</span> <span class="o">/</span> <span class="mf">6.1</span><span class="p">,</span>
+    <span class="s2">"hobbed"</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">V</span><span class="p">:</span> <span class="p">(</span><span class="mf">3.56</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">V</span><span class="p">))</span> <span class="o">/</span> <span class="mf">3.56</span><span class="p">,</span>
+    <span class="s2">"ground"</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">V</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="mf">5.56</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">V</span><span class="p">))</span> <span class="o">/</span> <span class="mf">5.56</span><span class="p">),</span>
+<span class="p">}</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">_teeth</span><span class="p">(</span><span class="n">teeth_driver</span><span class="p">,</span> <span class="n">teeth_driven</span><span class="p">):</span>
@@ -574,6 +632,134 @@
         <span class="n">_interval</span><span class="p">(</span><span class="s2">"groove_angle"</span><span class="p">,</span> <span class="n">groove_angle</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
         <span class="n">wedge</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">groove_angle</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">mu</span><span class="p">)</span> <span class="o">*</span> <span class="n">wrap_angle</span> <span class="o">/</span> <span class="n">wedge</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="lewis_form_factor">
+<a class="viewcode-back" href="../../../../api/mechanical_engineering.html#engineeringkit.mechanical_engineering.lewis_form_factor">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">lewis_form_factor</span><span class="p">(</span><span class="n">teeth</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Lewis form factor :math:`Y` of a 20-degree full-depth involute spur tooth.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    teeth : float or array_like</span>
+<span class="sd">        Number of teeth [-], from 12 to 400; values between the tabulated</span>
+<span class="sd">        tooth counts are interpolated linearly.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float or ndarray</span>
+<span class="sd">        :math:`Y` [-], from 0.245 at 12 teeth to 0.480 at 400 (0.485 for a</span>
+<span class="sd">        rack).</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    :math:`Y = 2xP/3` in Lewis's terms, with :math:`x` the depth from the</span>
+<span class="sd">    root to where the inscribed parabola of uniform strength meets the tooth</span>
+<span class="sd">    centreline and :math:`P` the diametral pitch (here :math:`1/m`).</span>
+<span class="sd">    Values are those of Shigley's Table 14-2. Inputs are raw SI numbers with</span>
+<span class="sd">    no dimensional metadata; see :doc:`/guides/mechanical_engineering`.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; float(lewis_form_factor(20))</span>
+<span class="sd">    0.322</span>
+<span class="sd">    """</span>
+    <span class="n">_interval</span><span class="p">(</span><span class="s2">"teeth"</span><span class="p">,</span> <span class="n">teeth</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="n">teeth</span><span class="p">,</span> <span class="n">_LEWIS_TEETH</span><span class="p">,</span> <span class="n">_LEWIS_Y</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="lewis_bending_stress">
+<a class="viewcode-back" href="../../../../api/mechanical_engineering.html#engineeringkit.mechanical_engineering.lewis_bending_stress">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">lewis_bending_stress</span><span class="p">(</span><span class="n">tangential_load</span><span class="p">,</span> <span class="n">face_width</span><span class="p">,</span> <span class="n">module</span><span class="p">,</span> <span class="n">form_factor</span><span class="p">,</span> <span class="n">velocity_factor</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Lewis bending stress at the root of a spur-gear tooth, :math:`\sigma = K_v W_t/(F m Y)`.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    tangential_load : float or array_like</span>
+<span class="sd">        Transmitted load :math:`W_t` at the pitch circle [N], nonnegative.</span>
+<span class="sd">    face_width : float or array_like</span>
+<span class="sd">        Face width :math:`F` [m], positive.</span>
+<span class="sd">    module : float or array_like</span>
+<span class="sd">        Module :math:`m` = pitch diameter over teeth [m], positive.</span>
+<span class="sd">    form_factor : float or array_like</span>
+<span class="sd">        Lewis form factor :math:`Y` [-], positive (see</span>
+<span class="sd">        :func:`lewis_form_factor`).</span>
+<span class="sd">    velocity_factor : float or array_like, optional</span>
+<span class="sd">        Dynamic factor :math:`K_v` [-], at least one (see</span>
+<span class="sd">        :func:`barth_velocity_factor`).</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float or ndarray</span>
+<span class="sd">        Bending stress [Pa].</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    The whole load is assumed to act at the tip of one tooth, with no stress</span>
+<span class="sd">    concentration at the fillet and no radial compression; the AGMA method</span>
+<span class="sd">    refines all three. Inputs are raw SI numbers with no dimensional</span>
+<span class="sd">    metadata; see :doc:`/guides/mechanical_engineering`.</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    W. Lewis, "Investigation of the strength of gear teeth," *Proc.</span>
+<span class="sd">    Engineers' Club of Philadelphia* (1892) 16-23.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; round(float(lewis_bending_stress(1000.0, 0.03, 0.003, 0.322)) / 1e6, 3)</span>
+<span class="sd">    34.507</span>
+<span class="sd">    """</span>
+    <span class="n">_nonnegative</span><span class="p">(</span><span class="n">tangential_load</span><span class="o">=</span><span class="n">tangential_load</span><span class="p">)</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">face_width</span><span class="o">=</span><span class="n">face_width</span><span class="p">,</span> <span class="n">module</span><span class="o">=</span><span class="n">module</span><span class="p">,</span> <span class="n">form_factor</span><span class="o">=</span><span class="n">form_factor</span><span class="p">)</span>
+    <span class="n">_interval</span><span class="p">(</span><span class="s2">"velocity_factor"</span><span class="p">,</span> <span class="n">velocity_factor</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="s2">"left"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">velocity_factor</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">tangential_load</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">face_width</span> <span class="o">*</span> <span class="n">module</span> <span class="o">*</span> <span class="n">form_factor</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="barth_velocity_factor">
+<a class="viewcode-back" href="../../../../api/mechanical_engineering.html#engineeringkit.mechanical_engineering.barth_velocity_factor">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">barth_velocity_factor</span><span class="p">(</span><span class="n">pitch_line_velocity</span><span class="p">,</span> <span class="n">profile</span><span class="o">=</span><span class="s2">"cut"</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Barth's dynamic factor :math:`K_v` for spur gears running at speed.</span>
+
+<span class="sd">    =========  =====================================</span>
+<span class="sd">    profile    :math:`K_v`</span>
+<span class="sd">    =========  =====================================</span>
+<span class="sd">    cast       :math:`(3.05 + V)/3.05`</span>
+<span class="sd">    cut        :math:`(6.1 + V)/6.1`</span>
+<span class="sd">    hobbed     :math:`(3.56 + \sqrt V)/3.56`</span>
+<span class="sd">    ground     :math:`\sqrt{(5.56 + \sqrt V)/5.56}`</span>
+<span class="sd">    =========  =====================================</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    pitch_line_velocity : float or array_like</span>
+<span class="sd">        :math:`V` [m/s], nonnegative.</span>
+<span class="sd">    profile : {"cast", "cut", "hobbed", "ground"}, optional</span>
+<span class="sd">        How the tooth profile was made.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float or ndarray</span>
+<span class="sd">        :math:`K_v` [-], one at rest.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    The constants are the SI forms of Barth's 1900-era empirical fits, as in</span>
+<span class="sd">    Shigley's equation 14-4. Inputs are raw SI numbers with no dimensional</span>
+<span class="sd">    metadata; see :doc:`/guides/mechanical_engineering`.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; float(barth_velocity_factor(6.1))</span>
+<span class="sd">    2.0</span>
+<span class="sd">    """</span>
+    <span class="n">_nonnegative</span><span class="p">(</span><span class="n">pitch_line_velocity</span><span class="o">=</span><span class="n">pitch_line_velocity</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">profile</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">_BARTH</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"profile must be one of </span><span class="si">{</span><span class="nb">sorted</span><span class="p">(</span><span class="n">_BARTH</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">_BARTH</span><span class="p">[</span><span class="n">profile</span><span class="p">](</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">pitch_line_velocity</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">))</span></div>
 
 </pre></div>
 

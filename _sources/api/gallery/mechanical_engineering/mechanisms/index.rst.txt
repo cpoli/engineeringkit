@@ -5,7 +5,7 @@
 Mechanisms
 ----------
 
-Slider-cranks, four-bar linkages and serial robot arms.
+Slider-cranks, four-bar linkages and their velocities and accelerations, and serial robot arms.
 
 
 .. raw:: html
@@ -87,6 +87,23 @@ Slider-cranks, four-bar linkages and serial robot arms.
     </div>
 
 
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Every pair of links in a plane mechanism has an instant centre, a point where neither moves relative to the other. Siegfried Aronhold (1872) and, independently, Alexander Kennedy (1886) proved that the three instant centres of any three links lie on a straight line. For a four-bar linkage the centre I_{24} of crank and rocker lies where the line through the ground pivots meets the line of the coupler, and the speed ratio is the ratio of its distances from the pivots, \omega_4/\omega_2 = I_{12}I_{24}/I_{14}I_{24}. The example checks this against the analytical velocity and acceleration analysis of fourbar_kinematics, and checks slider_crank_kinematics against its instant centre and against the engine designers&#x27; two-term acceleration series.">
+
+.. only:: html
+
+  .. image:: /api/gallery/mechanical_engineering/mechanisms/images/thumb/sphx_glr_plot_05_aronhold_kennedy_instant_centres_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/mechanical_engineering/mechanisms/plot_05_aronhold_kennedy_instant_centres`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Aronhold and Kennedy's theorem of three centres (1872-1886)</div>
+    </div>
+
+
 .. thumbnail-parent-div-close
 
 .. raw:: html
@@ -101,4 +118,5 @@ Slider-cranks, four-bar linkages and serial robot arms.
    /api/gallery/mechanical_engineering/mechanisms/plot_02_grashof_condition
    /api/gallery/mechanical_engineering/mechanisms/plot_03_freudenstein_equation
    /api/gallery/mechanical_engineering/mechanisms/plot_04_denavit_hartenberg
+   /api/gallery/mechanical_engineering/mechanisms/plot_05_aronhold_kennedy_instant_centres
 

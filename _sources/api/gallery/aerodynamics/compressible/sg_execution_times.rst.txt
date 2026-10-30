@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:01.237** total execution time for 6 files **from api/gallery/aerodynamics/compressible**:
+**00:01.781** total execution time for 10 files **from api/gallery/aerodynamics/compressible**:
 
 .. container::
 
@@ -33,19 +33,31 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_aerodynamics_compressible_plot_06_de_laval_nozzle.py` (``plot_06_de_laval_nozzle.py``)
-     - 00:00.359
+     - 00:00.311
      - 0.0
    * - :ref:`sphx_glr_api_gallery_aerodynamics_compressible_plot_05_rankine_hugoniot_normal_shock.py` (``plot_05_rankine_hugoniot_normal_shock.py``)
-     - 00:00.249
+     - 00:00.239
      - 0.0
-   * - :ref:`sphx_glr_api_gallery_aerodynamics_compressible_plot_01_laplace_speed_of_sound.py` (``plot_01_laplace_speed_of_sound.py``)
+   * - :ref:`sphx_glr_api_gallery_aerodynamics_compressible_plot_08_prandtl_meyer_expansion.py` (``plot_08_prandtl_meyer_expansion.py``)
+     - 00:00.200
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_aerodynamics_compressible_plot_09_fanno_flow.py` (``plot_09_fanno_flow.py``)
      - 00:00.192
      - 0.0
+   * - :ref:`sphx_glr_api_gallery_aerodynamics_compressible_plot_01_laplace_speed_of_sound.py` (``plot_01_laplace_speed_of_sound.py``)
+     - 00:00.176
+     - 0.0
    * - :ref:`sphx_glr_api_gallery_aerodynamics_compressible_plot_03_saint_venant_stagnation.py` (``plot_03_saint_venant_stagnation.py``)
-     - 00:00.188
+     - 00:00.165
      - 0.0
    * - :ref:`sphx_glr_api_gallery_aerodynamics_compressible_plot_04_prandtl_glauert.py` (``plot_04_prandtl_glauert.py``)
-     - 00:00.150
+     - 00:00.153
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_aerodynamics_compressible_plot_07_meyer_oblique_shock.py` (``plot_07_meyer_oblique_shock.py``)
+     - 00:00.146
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_aerodynamics_compressible_plot_10_rayleigh_flow.py` (``plot_10_rayleigh_flow.py``)
+     - 00:00.100
      - 0.0
    * - :ref:`sphx_glr_api_gallery_aerodynamics_compressible_plot_02_mach_cone.py` (``plot_02_mach_cone.py``)
      - 00:00.099

@@ -10,13 +10,83 @@ numerical solvers; EngineeringKit exposes engineering equations, SI conventions
 and intermediate results for learning and teaching.
 
 .. image:: _static/images/readme_hero.png
-   :alt: Beam deflection, damped vibration and pipe friction computed with EngineeringKit
+   :alt: Panel-method streamlines over a NACA 2412, two chaotic double pendulums released 0.001 rad apart, and the Van der Pol limit cycle computed with EngineeringKit
    :width: 100%
 
-Browse by domain
-----------------
+Each domain at a glance
+-----------------------
 
-.. include:: /_generated/grid_hub.rst
+- :mod:`engineeringkit.aerodynamics` -- Airfoil and wing baselines, drag polars and compressible flow.
+
+  .. image:: _static/images/readme_aerodynamics.png
+     :alt: Panel-method pressure distribution on a NACA 2412, lifting-line spanwise loading, and the oblique-shock theta-beta-Mach chart
+     :width: 100%
+
+- :mod:`engineeringkit.communications` -- Modulation and pulse shaping, noise, capacity, detection, PCM, source and channel coding, fading and link budgets.
+
+  .. image:: _static/images/readme_communications.png
+     :alt: A noisy 16-QAM constellation, a raised-cosine eye diagram, and bit error rate curves
+     :width: 100%
+
+- :mod:`engineeringkit.control_systems` -- Classical stability, compensator design, PID with anti-windup, nonlinear loops, state feedback, LQR and estimation.
+
+  .. image:: _static/images/readme_control_systems.png
+     :alt: PID step responses, a root locus, and a Nyquist plot
+     :width: 100%
+
+- :mod:`engineeringkit.electrical_engineering` -- DC and AC circuits, transients, electronics, machines and power systems.
+
+  .. image:: _static/images/readme_electrical_engineering.png
+     :alt: Series RLC step responses, a Smith chart, and induction motor torque-speed curves
+     :width: 100%
+
+- :mod:`engineeringkit.fluid_engineering` -- Hydrostatics, flow measurement, momentum, pipe friction, drag, similarity, open channels, pumps and networks.
+
+  .. image:: _static/images/readme_fluid_engineering.png
+     :alt: The Moody diagram, pump operating points, and open-channel specific energy curves
+     :width: 100%
+
+- :mod:`engineeringkit.heat_transfer` -- Conduction, convection, radiation, fins and heat exchangers.
+
+  .. image:: _static/images/readme_heat_transfer.png
+     :alt: Steady 2-D conduction in a plate, Planck blackbody spectra, and heat exchanger effectiveness-NTU curves
+     :width: 100%
+
+- :mod:`engineeringkit.materials` -- Crystals and diffusion, elastic constants, hardness, yield criteria, composites and laminates, fatigue and notches, fracture, creep and dislocation plasticity.
+
+  .. image:: _static/images/readme_materials.png
+     :alt: Ramberg-Osgood stress-strain curves, Tresca and von Mises yield surfaces, and Paris-law fatigue crack growth
+     :width: 100%
+
+- :mod:`engineeringkit.mechanical_engineering` -- Rigid-body motion, Lagrange's equations, machine elements, mechanisms, cams and multi-degree-of-freedom vibration.
+
+  .. image:: _static/images/readme_mechanical_engineering.png
+     :alt: Vibration transmissibility, normal modes of a five-mass chain, and a four-bar coupler curve
+     :width: 100%
+
+- :mod:`engineeringkit.reliability` -- Lifetimes and life data, accelerated testing, networks, structural reliability, FMEA, fault trees and maintenance.
+
+  .. image:: _static/images/readme_reliability.png
+     :alt: The bathtub hazard curve, a Weibull probability plot, and a Kaplan-Meier survival estimate
+     :width: 100%
+
+- :mod:`engineeringkit.signal_processing` -- Sampling and rate conversion, the FFT and DCT, spectra and AR models, IIR and FIR design, adaptive filters.
+
+  .. image:: _static/images/readme_signal_processing.png
+     :alt: The Gibbs phenomenon, Butterworth, Chebyshev and elliptic low-pass filters, and an STFT spectrogram of a chirp
+     :width: 100%
+
+- :mod:`engineeringkit.structural_engineering` -- Members, sections, beams on any supports, columns, stress and strain at a point, pressure vessels, energy methods, trusses, frames, cables and arches.
+
+  .. image:: _static/images/readme_structural_engineering.png
+     :alt: Pratt truss member forces, a two-span continuous beam's moment and deflection, and portal frame sway
+     :width: 100%
+
+- :mod:`engineeringkit.thermodynamics` -- Ideal and real gases, mixtures, the two laws, steady-flow devices, engine and refrigeration cycles, exergy, steam properties, psychrometrics and combustion.
+
+  .. image:: _static/images/readme_thermodynamics.png
+     :alt: An ideal Rankine cycle on the steam dome, a dual-cycle p-v diagram, and air-standard cycle efficiencies
+     :width: 100%
 
 Start here
 ----------
@@ -32,7 +102,7 @@ domains: :doc:`/tutorials/beam_to_fatigue_life`,
 :doc:`exercises </exercises/index>` with worked solutions. The domain guides describe
 units, sign conventions and model assumptions; :doc:`validation` records the
 benchmark policy, and :doc:`limitations` identifies remaining scope limits.
-Version 0.1.0 includes all twelve domains and enforces 100% production statement
+Version 0.2.0 includes all twelve domains and enforces 100% production statement
 coverage. That metric does not prove scientific correctness or model applicability.
 
 .. code-block:: python

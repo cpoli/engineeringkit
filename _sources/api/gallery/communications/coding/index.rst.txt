@@ -5,7 +5,8 @@
 Coding
 ------
 
-Single-error-correcting block codes.
+Channel codes: Hamming's block code, cyclic redundancy checks, and
+convolutional codes with Viterbi decoding.
 
 
 .. raw:: html
@@ -36,6 +37,57 @@ Single-error-correcting block codes.
     </div>
 
 
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Peter Elias&#x27;s &quot;Coding for noisy channels&quot; showed that a code need not cut the data into blocks. A shift register of length K slides along the bit stream, and each input bit produces n output bits, sums modulo two of the register taps (~engineeringkit.communications.convolutional_encode). Elias proved that such codes are at least as good as block codes. Their strength is the free distance, the least weight of any path that leaves the all-zero state and returns to it (~engineeringkit.communications.convolutional_free_distance). For the standard rate-1/2 codes it grows with the constraint length.">
+
+.. only:: html
+
+  .. image:: /api/gallery/communications/coding/images/thumb/sphx_glr_plot_02_elias_convolutional_codes_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/communications/coding/plot_02_elias_convolutional_codes`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Elias's convolutional codes (1955)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="W. Wesley Peterson and D. T. Brown showed how to detect errors with a few shift-register stages and exclusive-OR gates. Treat the message as a polynomial over GF(2), multiply by x^r, divide by a generator g(x) of degree r, and send the remainder after the message (~engineeringkit.communications.crc_encode). The receiver divides again and declares an error if anything is left (~engineeringkit.communications.crc_check). Every burst of r or fewer errors is caught, and a random error pattern slips through with probability 2^{-r}. CRCs now guard Ethernet frames, disks and USB packets.">
+
+.. only:: html
+
+  .. image:: /api/gallery/communications/coding/images/thumb/sphx_glr_plot_03_peterson_brown_crc_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/communications/coding/plot_03_peterson_brown_crc`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Peterson and Brown's cyclic redundancy check (1961)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Decoding a convolutional code by brute force means comparing the received sequence with all 2^L possible codewords. Andrew Viterbi saw that two paths entering the same encoder state at the same time have the same future, so only the better of them, the survivor, need be kept. The work then grows linearly with L (~engineeringkit.communications.viterbi_decode, returning a ViterbiDecodeResult). Viterbi introduced the algorithm as a device for proving error bounds. Jim Omura and David Forney showed in the early 1970s that it is maximum-likelihood decoding, and it became the decoder of deep-space links, GSM telephones and dial-up modems. Soft decisions, the received values before slicing, gain about 2 dB over hard bits.">
+
+.. only:: html
+
+  .. image:: /api/gallery/communications/coding/images/thumb/sphx_glr_plot_04_viterbi_algorithm_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/communications/coding/plot_04_viterbi_algorithm`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Viterbi's decoding algorithm (1967)</div>
+    </div>
+
+
 .. thumbnail-parent-div-close
 
 .. raw:: html
@@ -47,4 +99,7 @@ Single-error-correcting block codes.
    :hidden:
 
    /api/gallery/communications/coding/plot_01_hamming_code
+   /api/gallery/communications/coding/plot_02_elias_convolutional_codes
+   /api/gallery/communications/coding/plot_03_peterson_brown_crc
+   /api/gallery/communications/coding/plot_04_viterbi_algorithm
 

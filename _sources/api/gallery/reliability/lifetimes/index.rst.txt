@@ -104,6 +104,23 @@ Hazard rates, lifetime distributions and estimating them from test data.
     </div>
 
 
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Francis Galton asked why the geometric mean of a set of observations is sometimes a better centre than the arithmetic one, and Donald McAlister (1879) answered with the law now called lognormal: if a quantity is the product of many small independent factors, its logarithm is a sum, and so is normally distributed. Fatigue cracks, corrosion pits and the electromigration of metal lines grow in such multiplicative steps, which is why the lognormal is the life model for these mechanisms (~engineeringkit.reliability.lognormal_reliability). Its hazard (~engineeringkit.reliability.lognormal_hazard) rises to a peak and then falls, unlike a Weibull hazard with \beta &gt; 1.">
+
+.. only:: html
+
+  .. image:: /api/gallery/reliability/lifetimes/images/thumb/sphx_glr_plot_06_mcalister_lognormal_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/reliability/lifetimes/plot_06_mcalister_lognormal`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">McAlister's lognormal law (1879)</div>
+    </div>
+
+
 .. thumbnail-parent-div-close
 
 .. raw:: html
@@ -119,4 +136,5 @@ Hazard rates, lifetime distributions and estimating them from test data.
    /api/gallery/reliability/lifetimes/plot_03_weibull_distribution
    /api/gallery/reliability/lifetimes/plot_04_epstein_sobel_life_testing
    /api/gallery/reliability/lifetimes/plot_05_kaplan_meier
+   /api/gallery/reliability/lifetimes/plot_06_mcalister_lognormal
 

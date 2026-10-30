@@ -46,7 +46,7 @@
   <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be" />
 <link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be" />
 
-    <script src="../../../../_static/documentation_options.js?v=38b66d78"></script>
+    <script src="../../../../_static/documentation_options.js?v=95e61db4"></script>
     <script src="../../../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../../../_static/sg-tags.js?v=d80f6fa4"></script>
@@ -210,6 +210,21 @@
   </ul>
 </div></div>
       
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://cpoli.github.io/" title="Charles Poli" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-user fa-lg" aria-hidden="true"></i><span class="visually-hidden">Charles Poli</span></a>
+        </li>
+</ul></div>
+      
     </div>
     
   </div>
@@ -306,6 +321,21 @@
   </ul>
 </div></div>
         
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://cpoli.github.io/" title="Charles Poli" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-user fa-lg" aria-hidden="true"></i><span class="visually-hidden">Charles Poli</span></a>
+        </li>
+</ul></div>
+        
       </div>
     
   </div>
@@ -366,13 +396,15 @@
                 <article class="bd-article">
                   
   <h1>Source code for engineeringkit.electrical_engineering.systems.power</h1><div class="highlight"><pre>
-<span></span><span class="sa">r</span><span class="sd">"""Power systems: AC power, three-phase supply, symmetrical components and load flow.</span>
+<span></span><span class="sa">r</span><span class="sd">"""Power systems: AC power, three-phase supply, per unit, faults and load flow.</span>
 
 <span class="sd">Tesla's polyphase system delivers constant power through three wires;</span>
 <span class="sd">Budeanu split AC power into a real part that does work and a reactive part</span>
 <span class="sd">that only sloshes back and forth; Fortescue decomposed any unbalanced</span>
-<span class="sd">three-phase set into three balanced ones; and Ward and Hale solved the flow</span>
-<span class="sd">of power through a whole network by iteration on a digital computer.</span>
+<span class="sd">three-phase set into three balanced ones, which turns a fault into a</span>
+<span class="sd">connection of sequence networks; Ward and Hale solved the flow of power</span>
+<span class="sd">through a whole network by iteration on a digital computer, and Tinney and</span>
+<span class="sd">Hart made Newton's method practical for it with sparse matrices.</span>
 <span class="sd">"""</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
@@ -393,8 +425,12 @@
     <span class="s2">"three_phase_power"</span><span class="p">,</span>
     <span class="s2">"symmetrical_components"</span><span class="p">,</span>
     <span class="s2">"phase_components"</span><span class="p">,</span>
+    <span class="s2">"per_unit_base"</span><span class="p">,</span>
+    <span class="s2">"change_base"</span><span class="p">,</span>
+    <span class="s2">"fault_currents"</span><span class="p">,</span>
     <span class="s2">"admittance_matrix"</span><span class="p">,</span>
     <span class="s2">"gauss_seidel_load_flow"</span><span class="p">,</span>
+    <span class="s2">"newton_raphson_load_flow"</span><span class="p">,</span>
 <span class="p">]</span>
 
 <span class="n">_A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">2</span><span class="n">j</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">3</span><span class="p">)</span>
@@ -507,7 +543,7 @@
 <span class="sd">    """</span>
     <span class="n">_finite</span><span class="p">(</span><span class="n">real_power_value</span><span class="o">=</span><span class="n">real_power_value</span><span class="p">,</span> <span class="n">apparent_power</span><span class="o">=</span><span class="n">apparent_power</span><span class="p">)</span>
     <span class="n">_positive</span><span class="p">(</span><span class="n">apparent_power</span><span class="o">=</span><span class="n">apparent_power</span><span class="p">)</span>
-    <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">real_power_value</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">apparent_power</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">real_power_value</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">apparent_power</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"real power magnitude cannot exceed apparent power"</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">real_power_value</span> <span class="o">/</span> <span class="n">apparent_power</span></div>
 
@@ -634,6 +670,197 @@
     <span class="k">if</span> <span class="n">va</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
         <span class="k">return</span> <span class="nb">complex</span><span class="p">(</span><span class="n">va</span><span class="p">),</span> <span class="nb">complex</span><span class="p">(</span><span class="n">vb</span><span class="p">),</span> <span class="nb">complex</span><span class="p">(</span><span class="n">vc</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">va</span><span class="p">,</span> <span class="n">vb</span><span class="p">,</span> <span class="n">vc</span></div>
+
+
+
+<div class="viewcode-block" id="per_unit_base">
+<a class="viewcode-back" href="../../../../api/electrical_engineering.html#engineeringkit.electrical_engineering.per_unit_base">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">per_unit_base</span><span class="p">(</span><span class="n">s_base</span><span class="p">,</span> <span class="n">v_base</span><span class="p">,</span> <span class="n">phases</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Base impedance and base current of a per-unit system.</span>
+
+<span class="sd">    Choosing a base power and a base voltage fixes the other two bases. For</span>
+<span class="sd">    a three-phase system with three-phase base power :math:`S_b` and</span>
+<span class="sd">    line-to-line base voltage :math:`V_b`,</span>
+<span class="sd">    :math:`Z_b = V_b^2/S_b` and :math:`I_b = S_b/\sqrt3 V_b`; for a</span>
+<span class="sd">    single-phase system :math:`Z_b = V_b^2/S_b` and :math:`I_b = S_b/V_b`.</span>
+<span class="sd">    A quantity in per unit is its value divided by its base.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    s_base : float or array_like</span>
+<span class="sd">        Base apparent power [VA], three-phase total when ``phases=3``,</span>
+<span class="sd">        positive.</span>
+<span class="sd">    v_base : float or array_like</span>
+<span class="sd">        Base voltage [V], line-to-line when ``phases=3``, positive.</span>
+<span class="sd">    phases : {1, 3}, optional</span>
+<span class="sd">        Single-phase or three-phase bases.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    tuple of float or ndarray</span>
+<span class="sd">        ``(z_base, i_base)``: base impedance [ohm] and base current [A].</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Inputs are raw SI numbers with no dimensional metadata; see</span>
+<span class="sd">    :doc:`/guides/electrical_engineering`. Choosing base voltages in the</span>
+<span class="sd">    turns ratio of every transformer makes the ideal transformers vanish</span>
+<span class="sd">    from the per-unit network.</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    J. D. Glover, T. J. Overbye and M. S. Sarma, *Power System Analysis</span>
+<span class="sd">    and Design*, 6th ed. (Boston: Cengage, 2017), sec. 3.3.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; z, i = per_unit_base(100e6, 138e3)</span>
+<span class="sd">    &gt;&gt;&gt; round(float(z), 2), round(float(i), 1)</span>
+<span class="sd">    (190.44, 418.4)</span>
+<span class="sd">    """</span>
+    <span class="n">_finite</span><span class="p">(</span><span class="n">s_base</span><span class="o">=</span><span class="n">s_base</span><span class="p">,</span> <span class="n">v_base</span><span class="o">=</span><span class="n">v_base</span><span class="p">)</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">s_base</span><span class="o">=</span><span class="n">s_base</span><span class="p">,</span> <span class="n">v_base</span><span class="o">=</span><span class="n">v_base</span><span class="p">)</span>
+    <span class="n">s_base</span><span class="p">,</span> <span class="n">v_base</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">s_base</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">v_base</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">phases</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">phases</span><span class="p">,</span> <span class="nb">bool</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"phases must be 1 or 3"</span><span class="p">)</span>
+    <span class="n">z_base</span> <span class="o">=</span> <span class="n">v_base</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="n">s_base</span>
+    <span class="n">i_base</span> <span class="o">=</span> <span class="n">s_base</span> <span class="o">/</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="n">v_base</span><span class="p">)</span> <span class="k">if</span> <span class="n">phases</span> <span class="o">==</span> <span class="mi">3</span> <span class="k">else</span> <span class="n">s_base</span> <span class="o">/</span> <span class="n">v_base</span>
+    <span class="k">return</span> <span class="n">z_base</span><span class="p">,</span> <span class="n">i_base</span></div>
+
+
+
+<div class="viewcode-block" id="change_base">
+<a class="viewcode-back" href="../../../../api/electrical_engineering.html#engineeringkit.electrical_engineering.change_base">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">change_base</span><span class="p">(</span><span class="n">z_pu</span><span class="p">,</span> <span class="n">s_old</span><span class="p">,</span> <span class="n">v_old</span><span class="p">,</span> <span class="n">s_new</span><span class="p">,</span> <span class="n">v_new</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Convert a per-unit impedance to new bases, :math:`z_{new} = z_{old}(V_{old}/V_{new})^2(S_{new}/S_{old})`.</span>
+
+<span class="sd">    Nameplate impedances of generators and transformers are given on their</span>
+<span class="sd">    own ratings; a network study puts them all on one system base.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    z_pu : complex or array_like</span>
+<span class="sd">        Impedance on the old bases [pu].</span>
+<span class="sd">    s_old, v_old : float or array_like</span>
+<span class="sd">        Old base power [VA] and base voltage [V], positive.</span>
+<span class="sd">    s_new, v_new : float or array_like</span>
+<span class="sd">        New base power [VA] and base voltage [V], positive.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    complex or ndarray</span>
+<span class="sd">        Impedance on the new bases [pu].</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Inputs are raw SI numbers with no dimensional metadata; see</span>
+<span class="sd">    :doc:`/guides/electrical_engineering`.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; round(complex(change_base(0.1j, 50e6, 13.8e3, 100e6, 13.8e3)).imag, 6)</span>
+<span class="sd">    0.2</span>
+<span class="sd">    """</span>
+    <span class="n">_finite</span><span class="p">(</span><span class="n">z_pu</span><span class="o">=</span><span class="n">z_pu</span><span class="p">)</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">s_old</span><span class="o">=</span><span class="n">s_old</span><span class="p">,</span> <span class="n">v_old</span><span class="o">=</span><span class="n">v_old</span><span class="p">,</span> <span class="n">s_new</span><span class="o">=</span><span class="n">s_new</span><span class="p">,</span> <span class="n">v_new</span><span class="o">=</span><span class="n">v_new</span><span class="p">)</span>
+    <span class="n">z_pu</span><span class="p">,</span> <span class="n">s_old</span><span class="p">,</span> <span class="n">v_old</span><span class="p">,</span> <span class="n">s_new</span><span class="p">,</span> <span class="n">v_new</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">(</span><span class="n">z_pu</span><span class="p">,</span> <span class="n">s_old</span><span class="p">,</span> <span class="n">v_old</span><span class="p">,</span> <span class="n">s_new</span><span class="p">,</span> <span class="n">v_new</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">z_pu</span> <span class="o">*</span> <span class="p">(</span><span class="n">v_old</span> <span class="o">/</span> <span class="n">v_new</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">s_new</span> <span class="o">/</span> <span class="n">s_old</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="fault_currents">
+<a class="viewcode-back" href="../../../../api/electrical_engineering.html#engineeringkit.electrical_engineering.fault_currents">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">fault_currents</span><span class="p">(</span><span class="n">e_prefault</span><span class="p">,</span> <span class="n">z1</span><span class="p">,</span> <span class="n">z2</span><span class="p">,</span> <span class="n">z0</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">"slg"</span><span class="p">,</span> <span class="n">z_fault</span><span class="o">=</span><span class="mf">0.0</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Phase fault currents at a bus from its sequence impedances.</span>
+
+<span class="sd">    The fault's boundary conditions connect the Thévenin sequence networks</span>
+<span class="sd">    seen from the faulted bus (phase a is the reference phase; a</span>
+<span class="sd">    line-to-line fault is between phases b and c):</span>
+
+<span class="sd">    - ``"3ph"``, balanced three-phase: :math:`I_1 = E/(Z_1 + Z_f)`,</span>
+<span class="sd">      :math:`I_0 = I_2 = 0`;</span>
+<span class="sd">    - ``"slg"``, single line (a) to ground: the three networks in series,</span>
+<span class="sd">      :math:`I_0 = I_1 = I_2 = E/(Z_0 + Z_1 + Z_2 + 3Z_f)`;</span>
+<span class="sd">    - ``"ll"``, line to line: positive and negative networks in parallel</span>
+<span class="sd">      opposition, :math:`I_1 = -I_2 = E/(Z_1 + Z_2 + Z_f)`, :math:`I_0 = 0`;</span>
+<span class="sd">    - ``"llg"``, double line to ground: the negative network in parallel</span>
+<span class="sd">      with the zero network plus :math:`3Z_f`.</span>
+
+<span class="sd">    The phase currents then follow from :func:`phase_components`.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    e_prefault : complex or array_like</span>
+<span class="sd">        Prefault (Thévenin) voltage at the bus [pu or V], nonzero.</span>
+<span class="sd">    z1, z2, z0 : complex or array_like</span>
+<span class="sd">        Positive-, negative- and zero-sequence Thévenin impedances at the</span>
+<span class="sd">        bus [pu or ohm].</span>
+<span class="sd">    kind : {"slg", "ll", "llg", "3ph"}, optional</span>
+<span class="sd">        Fault type.</span>
+<span class="sd">    z_fault : complex or array_like, optional</span>
+<span class="sd">        Fault impedance [pu or ohm] (to ground for ``"slg"`` and ``"llg"``,</span>
+<span class="sd">        between the faulted lines for ``"ll"``, per phase for ``"3ph"``).</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    tuple of complex or ndarray</span>
+<span class="sd">        ``(Ia, Ib, Ic)``, phase currents into the fault [pu or A].</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    ValueError</span>
+<span class="sd">        For an unknown ``kind`` or a fault path of zero total impedance.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Inputs are raw SI numbers with no dimensional metadata; see</span>
+<span class="sd">    :doc:`/guides/electrical_engineering`. Use one consistent unit system</span>
+<span class="sd">    (per unit, or volts and ohms) for all inputs. Load current before the</span>
+<span class="sd">    fault is neglected.</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    C. L. Fortescue, "Method of symmetrical co-ordinates applied to the</span>
+<span class="sd">    solution of polyphase networks," *Trans. AIEE* 37 (1918) 1027-1140;</span>
+<span class="sd">    J. D. Glover, T. J. Overbye and M. S. Sarma, *Power System Analysis</span>
+<span class="sd">    and Design*, 6th ed. (Boston: Cengage, 2017), ch. 7 and 9.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; ia, ib, ic = fault_currents(1.0, 0.2j, 0.2j, 0.1j)</span>
+<span class="sd">    &gt;&gt;&gt; round(abs(ia), 4), round(abs(ib), 12)</span>
+<span class="sd">    (6.0, 0.0)</span>
+<span class="sd">    """</span>
+    <span class="n">_finite</span><span class="p">(</span><span class="n">e_prefault</span><span class="o">=</span><span class="n">e_prefault</span><span class="p">,</span> <span class="n">z1</span><span class="o">=</span><span class="n">z1</span><span class="p">,</span> <span class="n">z2</span><span class="o">=</span><span class="n">z2</span><span class="p">,</span> <span class="n">z0</span><span class="o">=</span><span class="n">z0</span><span class="p">,</span> <span class="n">z_fault</span><span class="o">=</span><span class="n">z_fault</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">e_prefault</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"e_prefault must be nonzero"</span><span class="p">)</span>
+    <span class="n">e</span><span class="p">,</span> <span class="n">z1</span><span class="p">,</span> <span class="n">z2</span><span class="p">,</span> <span class="n">z0</span><span class="p">,</span> <span class="n">zf</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">complex</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">(</span><span class="n">e_prefault</span><span class="p">,</span> <span class="n">z1</span><span class="p">,</span> <span class="n">z2</span><span class="p">,</span> <span class="n">z0</span><span class="p">,</span> <span class="n">z_fault</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">"3ph"</span><span class="p">:</span>
+        <span class="n">denominator</span> <span class="o">=</span> <span class="n">z1</span> <span class="o">+</span> <span class="n">zf</span>
+    <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">"slg"</span><span class="p">:</span>
+        <span class="n">denominator</span> <span class="o">=</span> <span class="n">z0</span> <span class="o">+</span> <span class="n">z1</span> <span class="o">+</span> <span class="n">z2</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">zf</span>
+    <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">"ll"</span><span class="p">:</span>
+        <span class="n">denominator</span> <span class="o">=</span> <span class="n">z1</span> <span class="o">+</span> <span class="n">z2</span> <span class="o">+</span> <span class="n">zf</span>
+    <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">"llg"</span><span class="p">:</span>
+        <span class="n">ground</span> <span class="o">=</span> <span class="n">z0</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">zf</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">z2</span> <span class="o">+</span> <span class="n">ground</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"the fault path has zero impedance"</span><span class="p">)</span>
+        <span class="n">denominator</span> <span class="o">=</span> <span class="n">z1</span> <span class="o">+</span> <span class="n">z2</span> <span class="o">*</span> <span class="n">ground</span> <span class="o">/</span> <span class="p">(</span><span class="n">z2</span> <span class="o">+</span> <span class="n">ground</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">'kind must be "3ph", "slg", "ll" or "llg"'</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">denominator</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"the fault path has zero impedance"</span><span class="p">)</span>
+    <span class="n">i1</span> <span class="o">=</span> <span class="n">e</span> <span class="o">/</span> <span class="n">denominator</span>
+    <span class="k">if</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">"3ph"</span><span class="p">:</span>
+        <span class="n">i0</span><span class="p">,</span> <span class="n">i2</span> <span class="o">=</span> <span class="mi">0</span> <span class="o">*</span> <span class="n">i1</span><span class="p">,</span> <span class="mi">0</span> <span class="o">*</span> <span class="n">i1</span>
+    <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">"slg"</span><span class="p">:</span>
+        <span class="n">i0</span><span class="p">,</span> <span class="n">i2</span> <span class="o">=</span> <span class="n">i1</span><span class="p">,</span> <span class="n">i1</span>
+    <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">"ll"</span><span class="p">:</span>
+        <span class="n">i0</span><span class="p">,</span> <span class="n">i2</span> <span class="o">=</span> <span class="mi">0</span> <span class="o">*</span> <span class="n">i1</span><span class="p">,</span> <span class="o">-</span><span class="n">i1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">i2</span> <span class="o">=</span> <span class="o">-</span><span class="n">i1</span> <span class="o">*</span> <span class="n">ground</span> <span class="o">/</span> <span class="p">(</span><span class="n">z2</span> <span class="o">+</span> <span class="n">ground</span><span class="p">)</span>
+        <span class="n">i0</span> <span class="o">=</span> <span class="o">-</span><span class="n">i1</span> <span class="o">*</span> <span class="n">z2</span> <span class="o">/</span> <span class="p">(</span><span class="n">z2</span> <span class="o">+</span> <span class="n">ground</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">phase_components</span><span class="p">(</span><span class="n">i0</span><span class="p">,</span> <span class="n">i1</span><span class="p">,</span> <span class="n">i2</span><span class="p">)</span></div>
 
 
 
@@ -792,6 +1019,134 @@
             <span class="k">break</span>
     <span class="n">power</span> <span class="o">=</span> <span class="n">V</span> <span class="o">*</span> <span class="p">(</span><span class="n">Y</span> <span class="o">@</span> <span class="n">V</span><span class="p">)</span><span class="o">.</span><span class="n">conjugate</span><span class="p">()</span>
     <span class="k">return</span> <span class="n">LoadFlowResult</span><span class="p">(</span><span class="n">V</span><span class="p">,</span> <span class="n">power</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">history</span><span class="p">),</span> <span class="n">converged</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">history</span><span class="p">))</span></div>
+
+
+
+<div class="viewcode-block" id="newton_raphson_load_flow">
+<a class="viewcode-back" href="../../../../api/electrical_engineering.html#engineeringkit.electrical_engineering.newton_raphson_load_flow">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">newton_raphson_load_flow</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="n">p_load</span><span class="p">,</span> <span class="n">q_load</span><span class="p">,</span> <span class="n">v_slack</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">pv_buses</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1e-8</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">20</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Newton-Raphson load flow in polar coordinates, with PQ and PV buses.</span>
+
+<span class="sd">    Bus 0 is the slack bus. A PV (generator) bus has its real power and</span>
+<span class="sd">    voltage magnitude specified; a PQ (load) bus its real and reactive</span>
+<span class="sd">    power. The unknowns are the angles :math:`\theta` of every non-slack bus</span>
+<span class="sd">    and the magnitudes :math:`|V|` of the PQ buses. Each step solves</span>
+
+<span class="sd">    .. math::</span>
+
+<span class="sd">        \begin{bmatrix}\partial P/\partial\theta &amp; \partial P/\partial|V|\\</span>
+<span class="sd">        \partial Q/\partial\theta &amp; \partial Q/\partial|V|\end{bmatrix}</span>
+<span class="sd">        \begin{bmatrix}\Delta\theta\\ \Delta|V|\end{bmatrix}</span>
+<span class="sd">        = \begin{bmatrix}\Delta P\\ \Delta Q\end{bmatrix}</span>
+
+<span class="sd">    for the correction, where the mismatches are the specified minus the</span>
+<span class="sd">    computed injections :math:`S_i = V_i(\sum_k Y_{ik}V_k)^*`. Near the</span>
+<span class="sd">    solution the mismatch is squared at every step.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    Y : array_like of complex</span>
+<span class="sd">        Bus admittance matrix [pu], square, at least 2x2; see</span>
+<span class="sd">        :func:`admittance_matrix`.</span>
+<span class="sd">    p_load, q_load : array_like</span>
+<span class="sd">        Real [pu] and reactive [pu] power consumed at buses ``1..n-1``</span>
+<span class="sd">        (length ``n - 1``); negative values are generation. ``q_load`` is</span>
+<span class="sd">        ignored at PV buses, whose reactive power is an output.</span>
+<span class="sd">    v_slack : complex, optional</span>
+<span class="sd">        Slack-bus voltage [pu], nonzero.</span>
+<span class="sd">    pv_buses : mapping of int to float, optional</span>
+<span class="sd">        ``{bus: |V|}``, the voltage-magnitude setpoint [pu] (positive) of</span>
+<span class="sd">        each PV bus, ``bus`` in ``1..n-1``.</span>
+<span class="sd">    tol : float, optional</span>
+<span class="sd">        Stop when the largest power mismatch is below this [pu], positive.</span>
+<span class="sd">    max_iter : int, optional</span>
+<span class="sd">        Maximum number of Newton steps, at least one.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    LoadFlowResult</span>
+<span class="sd">        Bus voltages, injected powers (bus 0 gives the slack power; PV</span>
+<span class="sd">        buses their reactive output), step count, a convergence flag and</span>
+<span class="sd">        the largest mismatch before each step. No exception is raised on</span>
+<span class="sd">        non-convergence; check ``converged``.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Inputs are raw SI numbers with no dimensional metadata; see</span>
+<span class="sd">    :doc:`/guides/electrical_engineering`. The Jacobian is dense here;</span>
+<span class="sd">    Tinney and Hart's contribution was to keep it sparse by optimal</span>
+<span class="sd">    ordering. Generator reactive limits (PV-to-PQ switching) are not</span>
+<span class="sd">    modelled.</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    W. F. Tinney and C. E. Hart, "Power flow solution by Newton's method,"</span>
+<span class="sd">    *IEEE Trans. Power App. Syst.* PAS-86 (1967) 1449-1460.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; Y = admittance_matrix(2, [(0, 1, 0.1j)])</span>
+<span class="sd">    &gt;&gt;&gt; r = newton_raphson_load_flow(Y, [0.5], [0.0])</span>
+<span class="sd">    &gt;&gt;&gt; r.converged, round(float(abs(r.voltages[1])), 4)</span>
+<span class="sd">    (True, 0.9987)</span>
+<span class="sd">    """</span>
+    <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">complex</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">Y</span><span class="o">.</span><span class="n">ndim</span> <span class="o">!=</span> <span class="mi">2</span> <span class="ow">or</span> <span class="n">Y</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="n">Y</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="ow">or</span> <span class="n">Y</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Y must be a square matrix with at least two buses"</span><span class="p">)</span>
+    <span class="n">_finite</span><span class="p">(</span><span class="n">Y</span><span class="o">=</span><span class="n">Y</span><span class="p">)</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">Y</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">p</span><span class="p">,</span> <span class="n">q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">p_load</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">q_load</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">p</span><span class="o">.</span><span class="n">shape</span> <span class="o">!=</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,)</span> <span class="ow">or</span> <span class="n">q</span><span class="o">.</span><span class="n">shape</span> <span class="o">!=</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"p_load and q_load must each have one entry per non-slack bus"</span><span class="p">)</span>
+    <span class="n">_finite</span><span class="p">(</span><span class="n">p_load</span><span class="o">=</span><span class="n">p</span><span class="p">,</span> <span class="n">q_load</span><span class="o">=</span><span class="n">q</span><span class="p">,</span> <span class="n">v_slack</span><span class="o">=</span><span class="n">v_slack</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">v_slack</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"v_slack must be nonzero"</span><span class="p">)</span>
+    <span class="n">pv_buses</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">pv_buses</span> <span class="ow">or</span> <span class="p">{})</span>
+    <span class="k">for</span> <span class="n">bus</span><span class="p">,</span> <span class="n">magnitude</span> <span class="ow">in</span> <span class="n">pv_buses</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">_integer</span><span class="p">(</span><span class="s2">"PV bus"</span><span class="p">,</span> <span class="n">bus</span><span class="p">,</span> <span class="n">minimum</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">bus</span> <span class="o">&gt;=</span> <span class="n">n</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"PV bus must be in 1..</span><span class="si">{</span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="n">_positive</span><span class="p">(</span><span class="o">**</span><span class="p">{</span><span class="sa">f</span><span class="s2">"PV bus </span><span class="si">{</span><span class="n">bus</span><span class="si">}</span><span class="s2"> voltage"</span><span class="p">:</span> <span class="n">magnitude</span><span class="p">})</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">tol</span><span class="o">=</span><span class="n">tol</span><span class="p">)</span>
+    <span class="n">_integer</span><span class="p">(</span><span class="s2">"max_iter"</span><span class="p">,</span> <span class="n">max_iter</span><span class="p">,</span> <span class="n">minimum</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">pv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">pv_buses</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+    <span class="n">pq</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span> <span class="k">if</span> <span class="n">i</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">pv_buses</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+    <span class="n">angle_buses</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+    <span class="n">s_spec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(([</span><span class="mi">0</span><span class="n">j</span><span class="p">],</span> <span class="o">-</span><span class="p">(</span><span class="n">p</span> <span class="o">+</span> <span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="n">q</span><span class="p">)))</span>
+    <span class="n">magnitude</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">magnitude</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">v_slack</span><span class="p">)</span>
+    <span class="n">magnitude</span><span class="p">[</span><span class="n">pv</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">pv_buses</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">pv</span><span class="p">]</span>
+    <span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">theta</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">angle</span><span class="p">(</span><span class="n">v_slack</span><span class="p">)</span>
+    <span class="n">history</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">converged</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="k">for</span> <span class="n">step</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">max_iter</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">V</span> <span class="o">=</span> <span class="n">magnitude</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="n">theta</span><span class="p">)</span>
+        <span class="n">current</span> <span class="o">=</span> <span class="n">Y</span> <span class="o">@</span> <span class="n">V</span>
+        <span class="n">mismatch</span> <span class="o">=</span> <span class="n">s_spec</span> <span class="o">-</span> <span class="n">V</span> <span class="o">*</span> <span class="n">current</span><span class="o">.</span><span class="n">conjugate</span><span class="p">()</span>
+        <span class="n">f</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">mismatch</span><span class="o">.</span><span class="n">real</span><span class="p">[</span><span class="n">angle_buses</span><span class="p">],</span> <span class="n">mismatch</span><span class="o">.</span><span class="n">imag</span><span class="p">[</span><span class="n">pq</span><span class="p">]))</span>
+        <span class="n">history</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">f</span><span class="p">))))</span>
+        <span class="k">if</span> <span class="n">history</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">tol</span><span class="p">:</span>
+            <span class="n">converged</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="k">break</span>
+        <span class="k">if</span> <span class="n">step</span> <span class="o">==</span> <span class="n">max_iter</span><span class="p">:</span>
+            <span class="k">break</span>
+        <span class="c1"># Derivatives of S = V (Y V)^* with respect to the angles and magnitudes.</span>
+        <span class="n">dS_dtheta</span> <span class="o">=</span> <span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">V</span><span class="p">)</span> <span class="o">@</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">current</span><span class="p">)</span> <span class="o">-</span> <span class="n">Y</span> <span class="o">@</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">V</span><span class="p">))</span><span class="o">.</span><span class="n">conjugate</span><span class="p">()</span>
+        <span class="n">dS_dmag</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">V</span><span class="p">)</span> <span class="o">@</span> <span class="p">(</span><span class="n">Y</span> <span class="o">@</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">V</span> <span class="o">/</span> <span class="n">magnitude</span><span class="p">))</span><span class="o">.</span><span class="n">conjugate</span><span class="p">()</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">current</span><span class="o">.</span><span class="n">conjugate</span><span class="p">()</span> <span class="o">*</span> <span class="n">V</span> <span class="o">/</span> <span class="n">magnitude</span><span class="p">)</span>
+        <span class="n">J</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">block</span><span class="p">(</span>
+            <span class="p">[</span>
+                <span class="p">[</span><span class="n">dS_dtheta</span><span class="o">.</span><span class="n">real</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ix_</span><span class="p">(</span><span class="n">angle_buses</span><span class="p">,</span> <span class="n">angle_buses</span><span class="p">)],</span> <span class="n">dS_dmag</span><span class="o">.</span><span class="n">real</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ix_</span><span class="p">(</span><span class="n">angle_buses</span><span class="p">,</span> <span class="n">pq</span><span class="p">)]],</span>
+                <span class="p">[</span><span class="n">dS_dtheta</span><span class="o">.</span><span class="n">imag</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ix_</span><span class="p">(</span><span class="n">pq</span><span class="p">,</span> <span class="n">angle_buses</span><span class="p">)],</span> <span class="n">dS_dmag</span><span class="o">.</span><span class="n">imag</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ix_</span><span class="p">(</span><span class="n">pq</span><span class="p">,</span> <span class="n">pq</span><span class="p">)]],</span>
+            <span class="p">]</span>
+        <span class="p">)</span>
+        <span class="n">dx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">J</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+        <span class="n">theta</span><span class="p">[</span><span class="n">angle_buses</span><span class="p">]</span> <span class="o">+=</span> <span class="n">dx</span><span class="p">[:</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+        <span class="n">magnitude</span><span class="p">[</span><span class="n">pq</span><span class="p">]</span> <span class="o">+=</span> <span class="n">dx</span><span class="p">[</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span> <span class="p">:]</span>
+    <span class="n">V</span> <span class="o">=</span> <span class="n">magnitude</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="n">theta</span><span class="p">)</span>
+    <span class="n">power</span> <span class="o">=</span> <span class="n">V</span> <span class="o">*</span> <span class="p">(</span><span class="n">Y</span> <span class="o">@</span> <span class="n">V</span><span class="p">)</span><span class="o">.</span><span class="n">conjugate</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">LoadFlowResult</span><span class="p">(</span><span class="n">V</span><span class="p">,</span> <span class="n">power</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">history</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">converged</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">history</span><span class="p">))</span></div>
 
 </pre></div>
 

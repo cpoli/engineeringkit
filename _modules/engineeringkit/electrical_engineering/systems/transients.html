@@ -46,7 +46,7 @@
   <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be" />
 <link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be" />
 
-    <script src="../../../../_static/documentation_options.js?v=38b66d78"></script>
+    <script src="../../../../_static/documentation_options.js?v=95e61db4"></script>
     <script src="../../../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../../../_static/sg-tags.js?v=d80f6fa4"></script>
@@ -210,6 +210,21 @@
   </ul>
 </div></div>
       
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://cpoli.github.io/" title="Charles Poli" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-user fa-lg" aria-hidden="true"></i><span class="visually-hidden">Charles Poli</span></a>
+        </li>
+</ul></div>
+      
     </div>
     
   </div>
@@ -306,6 +321,21 @@
   </ul>
 </div></div>
         
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://cpoli.github.io/" title="Charles Poli" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-user fa-lg" aria-hidden="true"></i><span class="visually-hidden">Charles Poli</span></a>
+        </li>
+</ul></div>
+        
       </div>
     
   </div>
@@ -366,12 +396,14 @@
                 <article class="bd-article">
                   
   <h1>Source code for engineeringkit.electrical_engineering.systems.transients</h1><div class="highlight"><pre>
-<span></span><span class="sa">r</span><span class="sd">"""First-order transients: the RC and RL time constants.</span>
+<span></span><span class="sa">r</span><span class="sd">"""First- and second-order transients: RC and RL responses and the series RLC step.</span>
 
-<span class="sd">Kelvin's analysis of the first submarine telegraph cables showed that a</span>
-<span class="sd">capacitance charged through a resistance responds on the time scale</span>
-<span class="sd">:math:`RC`; an inductance in series with a resistance does the same on</span>
-<span class="sd">:math:`L/R`.</span>
+<span class="sd">Helmholtz showed that the current in an inductive circuit rises to its</span>
+<span class="sd">final value on the time scale :math:`L/R`, and Kelvin's analysis of the</span>
+<span class="sd">first submarine telegraph cables showed that a capacitance charged through</span>
+<span class="sd">a resistance responds on the time scale :math:`RC`. With both an inductance</span>
+<span class="sd">and a capacitance the circuit is second order, and Kelvin found that a</span>
+<span class="sd">Leyden jar discharges by oscillation when :math:`R &lt; 2\sqrt{L/C}`.</span>
 <span class="sd">"""</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
@@ -382,7 +414,7 @@
 <span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit._validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">nonnegative</span> <span class="k">as</span> <span class="n">_nonnegative</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit._validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">positive</span> <span class="k">as</span> <span class="n">_positive</span>
 
-<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"rc_time_constant"</span><span class="p">,</span> <span class="s2">"rl_time_constant"</span><span class="p">,</span> <span class="s2">"rc_charging_voltage"</span><span class="p">]</span>
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"rc_time_constant"</span><span class="p">,</span> <span class="s2">"rl_time_constant"</span><span class="p">,</span> <span class="s2">"rc_charging_voltage"</span><span class="p">,</span> <span class="s2">"rl_current"</span><span class="p">,</span> <span class="s2">"rlc_damping"</span><span class="p">,</span> <span class="s2">"rlc_step_voltage"</span><span class="p">]</span>
 
 
 <div class="viewcode-block" id="rc_time_constant">
@@ -489,6 +521,182 @@
     <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span>
     <span class="n">tau</span> <span class="o">=</span> <span class="n">rc_time_constant</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">C</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">v_source</span> <span class="o">+</span> <span class="p">(</span><span class="n">v0</span> <span class="o">-</span> <span class="n">v_source</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">t</span> <span class="o">/</span> <span class="n">tau</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="rl_current">
+<a class="viewcode-back" href="../../../../api/electrical_engineering.html#engineeringkit.electrical_engineering.rl_current">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">rl_current</span><span class="p">(</span><span class="n">v_source</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">i0</span><span class="o">=</span><span class="mf">0.0</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Inductor current :math:`i(t) = V_s/R + (i_0 - V_s/R)e^{-Rt/L}` after a step.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    v_source : float</span>
+<span class="sd">        Constant source voltage applied at :math:`t = 0` [V].</span>
+<span class="sd">    R : float</span>
+<span class="sd">        Series resistance [ohm], positive.</span>
+<span class="sd">    L : float</span>
+<span class="sd">        Inductance [H], positive.</span>
+<span class="sd">    t : float or array_like</span>
+<span class="sd">        Time since the step [s], nonnegative.</span>
+<span class="sd">    i0 : float, optional</span>
+<span class="sd">        Initial inductor current [A].</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    ndarray</span>
+<span class="sd">        Inductor current [A], shaped like ``t``.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Inputs are raw SI numbers with no dimensional metadata; see</span>
+<span class="sd">    :doc:`/guides/electrical_engineering`.</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    H. Helmholtz, "Ueber die Dauer und den Verlauf der durch</span>
+<span class="sd">    Stromesschwankungen inducirten elektrischen Ströme," *Ann. Phys.* 83</span>
+<span class="sd">    (1851) 505-540.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; round(float(rl_current(10.0, 5.0, 0.5, 0.1)), 4)</span>
+<span class="sd">    1.2642</span>
+<span class="sd">    """</span>
+    <span class="n">_finite</span><span class="p">(</span><span class="n">v_source</span><span class="o">=</span><span class="n">v_source</span><span class="p">,</span> <span class="n">R</span><span class="o">=</span><span class="n">R</span><span class="p">,</span> <span class="n">L</span><span class="o">=</span><span class="n">L</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="n">t</span><span class="p">,</span> <span class="n">i0</span><span class="o">=</span><span class="n">i0</span><span class="p">)</span>
+    <span class="n">_nonnegative</span><span class="p">(</span><span class="n">t</span><span class="o">=</span><span class="n">t</span><span class="p">)</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span>
+    <span class="n">final</span> <span class="o">=</span> <span class="n">v_source</span> <span class="o">/</span> <span class="n">R</span>
+    <span class="k">return</span> <span class="n">final</span> <span class="o">+</span> <span class="p">(</span><span class="n">i0</span> <span class="o">-</span> <span class="n">final</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">t</span> <span class="o">/</span> <span class="n">rl_time_constant</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">R</span><span class="p">))</span></div>
+
+
+
+<div class="viewcode-block" id="rlc_damping">
+<a class="viewcode-back" href="../../../../api/electrical_engineering.html#engineeringkit.electrical_engineering.rlc_damping">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">rlc_damping</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">C</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Neper frequency, resonant frequency and damping regime of a series RLC circuit.</span>
+
+<span class="sd">    The natural response of a series RLC circuit has the characteristic</span>
+<span class="sd">    roots :math:`s = -\alpha \pm \sqrt{\alpha^2 - \omega_0^2}` with</span>
+<span class="sd">    :math:`\alpha = R/2L` and :math:`\omega_0 = 1/\sqrt{LC}`. It is</span>
+<span class="sd">    overdamped for :math:`\alpha &gt; \omega_0`, critically damped for</span>
+<span class="sd">    :math:`\alpha = \omega_0` (:math:`R = 2\sqrt{L/C}`) and underdamped,</span>
+<span class="sd">    an oscillation decaying as :math:`e^{-\alpha t}`, for</span>
+<span class="sd">    :math:`\alpha &lt; \omega_0`.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    R : float</span>
+<span class="sd">        Series resistance [ohm], nonnegative.</span>
+<span class="sd">    L : float</span>
+<span class="sd">        Inductance [H], positive.</span>
+<span class="sd">    C : float</span>
+<span class="sd">        Capacitance [F], positive.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    tuple of (float, float, str)</span>
+<span class="sd">        ``(alpha, omega0, regime)``: the neper frequency [1/s], the</span>
+<span class="sd">        undamped resonant frequency [rad/s] and one of ``"overdamped"``,</span>
+<span class="sd">        ``"critically damped"`` (within a relative 1e-9), ``"underdamped"``</span>
+<span class="sd">        or ``"undamped"`` (:math:`R = 0`).</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Inputs are raw SI numbers with no dimensional metadata; see</span>
+<span class="sd">    :doc:`/guides/electrical_engineering`. The damping ratio is</span>
+<span class="sd">    :math:`\zeta = \alpha/\omega_0`. ``R``, ``L`` and ``C`` are</span>
+<span class="sd">    scalar-only: the regime names one circuit.</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    W. Thomson, "On transient electric currents," *Phil. Mag.* 5 (1853)</span>
+<span class="sd">    393-405.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; rlc_damping(2.0, 1.0, 1.0)</span>
+<span class="sd">    (1.0, 1.0, 'critically damped')</span>
+<span class="sd">    """</span>
+    <span class="n">_finite</span><span class="p">(</span><span class="n">R</span><span class="o">=</span><span class="n">R</span><span class="p">,</span> <span class="n">L</span><span class="o">=</span><span class="n">L</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="n">C</span><span class="p">)</span>
+    <span class="n">_nonnegative</span><span class="p">(</span><span class="n">R</span><span class="o">=</span><span class="n">R</span><span class="p">)</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">L</span><span class="o">=</span><span class="n">L</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="n">C</span><span class="p">)</span>
+    <span class="n">alpha</span><span class="p">,</span> <span class="n">omega0</span> <span class="o">=</span> <span class="n">R</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">L</span><span class="p">),</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">L</span> <span class="o">*</span> <span class="n">C</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">alpha</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">regime</span> <span class="o">=</span> <span class="s2">"undamped"</span>
+    <span class="k">elif</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="n">omega0</span><span class="p">,</span> <span class="n">rtol</span><span class="o">=</span><span class="mf">1e-9</span><span class="p">,</span> <span class="n">atol</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="n">regime</span> <span class="o">=</span> <span class="s2">"critically damped"</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">regime</span> <span class="o">=</span> <span class="s2">"overdamped"</span> <span class="k">if</span> <span class="n">alpha</span> <span class="o">&gt;</span> <span class="n">omega0</span> <span class="k">else</span> <span class="s2">"underdamped"</span>
+    <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">alpha</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">omega0</span><span class="p">),</span> <span class="n">regime</span></div>
+
+
+
+<div class="viewcode-block" id="rlc_step_voltage">
+<a class="viewcode-back" href="../../../../api/electrical_engineering.html#engineeringkit.electrical_engineering.rlc_step_voltage">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">rlc_step_voltage</span><span class="p">(</span><span class="n">v_source</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Capacitor voltage of a series RLC circuit after a voltage step, from rest.</span>
+
+<span class="sd">    With :math:`\alpha` and :math:`\omega_0` from :func:`rlc_damping`,</span>
+
+<span class="sd">    .. math::</span>
+
+<span class="sd">        \frac{v_C(t)}{V_s} = \begin{cases}</span>
+<span class="sd">        1 + \dfrac{s_2 e^{s_1 t} - s_1 e^{s_2 t}}{s_1 - s_2} &amp; \text{overdamped},\\</span>
+<span class="sd">        1 - (1 + \alpha t)e^{-\alpha t} &amp; \text{critically damped},\\</span>
+<span class="sd">        1 - e^{-\alpha t}\left(\cos\omega_d t + \dfrac{\alpha}{\omega_d}</span>
+<span class="sd">        \sin\omega_d t\right) &amp; \text{underdamped},</span>
+<span class="sd">        \end{cases}</span>
+
+<span class="sd">    with :math:`s_{1,2} = -\alpha \pm \sqrt{\alpha^2 - \omega_0^2}` and</span>
+<span class="sd">    :math:`\omega_d = \sqrt{\omega_0^2 - \alpha^2}`.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    v_source : float</span>
+<span class="sd">        Constant source voltage applied at :math:`t = 0` [V].</span>
+<span class="sd">    R : float</span>
+<span class="sd">        Series resistance [ohm], nonnegative.</span>
+<span class="sd">    L : float</span>
+<span class="sd">        Inductance [H], positive.</span>
+<span class="sd">    C : float</span>
+<span class="sd">        Capacitance [F], positive.</span>
+<span class="sd">    t : float or array_like</span>
+<span class="sd">        Time since the step [s], nonnegative.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    ndarray</span>
+<span class="sd">        Capacitor voltage [V], shaped like ``t``. The loop current is</span>
+<span class="sd">        :math:`C\,dv_C/dt`, as returned by</span>
+<span class="sd">        :meth:`SeriesRLC.step_response &lt;engineeringkit.electrical_engineering.SeriesRLC.step_response&gt;`.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Inputs are raw SI numbers with no dimensional metadata; see</span>
+<span class="sd">    :doc:`/guides/electrical_engineering`. Within the relative 1e-9 band</span>
+<span class="sd">    that :func:`rlc_damping` calls critical, the critical formula is used.</span>
+<span class="sd">    ``R``, ``L`` and ``C`` are scalar-only (one circuit, swept over ``t``).</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; round(float(rlc_step_voltage(1.0, 2.0, 1.0, 1.0, 1.0)), 4)</span>
+<span class="sd">    0.2642</span>
+<span class="sd">    """</span>
+    <span class="n">_finite</span><span class="p">(</span><span class="n">v_source</span><span class="o">=</span><span class="n">v_source</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="n">t</span><span class="p">)</span>
+    <span class="n">_nonnegative</span><span class="p">(</span><span class="n">t</span><span class="o">=</span><span class="n">t</span><span class="p">)</span>
+    <span class="n">alpha</span><span class="p">,</span> <span class="n">omega0</span><span class="p">,</span> <span class="n">regime</span> <span class="o">=</span> <span class="n">rlc_damping</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">C</span><span class="p">)</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">regime</span> <span class="o">==</span> <span class="s2">"overdamped"</span><span class="p">:</span>
+        <span class="n">root</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">alpha</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">omega0</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">s1</span><span class="p">,</span> <span class="n">s2</span> <span class="o">=</span> <span class="o">-</span><span class="n">alpha</span> <span class="o">+</span> <span class="n">root</span><span class="p">,</span> <span class="o">-</span><span class="n">alpha</span> <span class="o">-</span> <span class="n">root</span>
+        <span class="n">shape</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="p">(</span><span class="n">s2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">s1</span> <span class="o">*</span> <span class="n">t</span><span class="p">)</span> <span class="o">-</span> <span class="n">s1</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">s2</span> <span class="o">*</span> <span class="n">t</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="n">s1</span> <span class="o">-</span> <span class="n">s2</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">regime</span> <span class="o">==</span> <span class="s2">"critically damped"</span><span class="p">:</span>
+        <span class="n">shape</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">t</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">alpha</span> <span class="o">*</span> <span class="n">t</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">wd</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">omega0</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">alpha</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">shape</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">alpha</span> <span class="o">*</span> <span class="n">t</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">wd</span> <span class="o">*</span> <span class="n">t</span><span class="p">)</span> <span class="o">+</span> <span class="n">alpha</span> <span class="o">/</span> <span class="n">wd</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">wd</span> <span class="o">*</span> <span class="n">t</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">v_source</span> <span class="o">*</span> <span class="n">shape</span></div>
 
 </pre></div>
 

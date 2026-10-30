@@ -53,6 +53,23 @@ Rigid-jointed continuous beams and frames.
     </div>
 
 
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="George A. Maney (1915), studying secondary stresses in rigid frames at the University of Minnesota, wrote each member-end moment in terms of the rotations of its two ends and the rotation of its chord:">
+
+.. only:: html
+
+  .. image:: /api/gallery/structural_engineering/frames/images/thumb/sphx_glr_plot_03_maney_slope_deflection_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/structural_engineering/frames/plot_03_maney_slope_deflection`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Maney's slope-deflection method (1915)</div>
+    </div>
+
+
 .. thumbnail-parent-div-close
 
 .. raw:: html
@@ -65,4 +82,5 @@ Rigid-jointed continuous beams and frames.
 
    /api/gallery/structural_engineering/frames/plot_01_hardy_cross_moment_distribution
    /api/gallery/structural_engineering/frames/plot_02_planar_frame
+   /api/gallery/structural_engineering/frames/plot_03_maney_slope_deflection
 

@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:01.679** total execution time for 6 files **from api/gallery/signal_processing/filters**:
+**00:02.249** total execution time for 10 files **from api/gallery/signal_processing/filters**:
 
 .. container::
 
@@ -33,20 +33,32 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_signal_processing_filters_plot_04_widrow_hoff_lms.py` (``plot_04_widrow_hoff_lms.py``)
-     - 00:00.458
+     - 00:00.419
      - 0.0
    * - :ref:`sphx_glr_api_gallery_signal_processing_filters_plot_06_second_order_sections.py` (``plot_06_second_order_sections.py``)
-     - 00:00.326
+     - 00:00.307
      - 0.0
    * - :ref:`sphx_glr_api_gallery_signal_processing_filters_plot_02_hurewicz_z_transform.py` (``plot_02_hurewicz_z_transform.py``)
-     - 00:00.288
+     - 00:00.278
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_signal_processing_filters_plot_07_chebyshev_equiripple.py` (``plot_07_chebyshev_equiripple.py``)
+     - 00:00.226
      - 0.0
    * - :ref:`sphx_glr_api_gallery_signal_processing_filters_plot_03_wiener_filter.py` (``plot_03_wiener_filter.py``)
-     - 00:00.241
+     - 00:00.221
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_signal_processing_filters_plot_08_cauer_elliptic.py` (``plot_08_cauer_elliptic.py``)
+     - 00:00.190
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_signal_processing_filters_plot_09_golden_kaiser_bilinear.py` (``plot_09_golden_kaiser_bilinear.py``)
+     - 00:00.175
      - 0.0
    * - :ref:`sphx_glr_api_gallery_signal_processing_filters_plot_01_butterworth.py` (``plot_01_butterworth.py``)
-     - 00:00.188
+     - 00:00.173
      - 0.0
    * - :ref:`sphx_glr_api_gallery_signal_processing_filters_plot_05_kaiser_fir.py` (``plot_05_kaiser_fir.py``)
-     - 00:00.179
+     - 00:00.167
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_signal_processing_filters_plot_10_parks_mcclellan.py` (``plot_10_parks_mcclellan.py``)
+     - 00:00.095
      - 0.0

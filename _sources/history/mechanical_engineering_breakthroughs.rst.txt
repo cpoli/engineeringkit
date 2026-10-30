@@ -14,9 +14,10 @@ a science when their parts could be calculated before they were made.
 Natural philosophers of the seventeenth and eighteenth centuries supplied
 the dynamics: inertia, friction and the geometry of gear teeth. Engineers
 of the nineteenth century turned machines into kinematic chains and
-measured what friction and lubrication cost. The twentieth century added
-vibration, rotating shafts, rolling bearings and the analytical design of
-linkages and robots. The entries trace the ideas behind
+measured what friction and lubrication cost, and sized gear teeth, shafts
+and balance weights by calculation. The twentieth century added vibration
+absorbers, rotating shafts, bolted joints, springs, rolling bearings and the
+analytical design of linkages and robots. The entries trace the ideas behind
 :mod:`engineeringkit.mechanical_engineering`. Each links to the implementing
 function and to a gallery example devoted to it.
 
@@ -48,6 +49,34 @@ pendulum and computes the clock-bob correction.
 *J. Reine Angew. Math.* 21 (1840) 33-63.
 
 .. minigallery:: ../../examples/mechanical_engineering/dynamics/plot_01_huygens_moment_of_inertia.py
+
+1753 -- Daniel Bernoulli's Superposition of Normal Modes
+--------------------------------------------------------
+
+Euler and d'Alembert had solved the vibrating string as a travelling wave
+of arbitrary shape. Daniel Bernoulli answered in 1753 that the string
+sounds a set of simple vibrations at once, each with its own shape and
+frequency, and that every motion is their sum, which explained the
+overtones heard with the fundamental. For masses and springs the simple
+vibrations are the eigenvectors of :math:`K\phi = \omega^2 M\phi`, the
+small-oscillation problem Lagrange set out in 1788. The modes are
+orthogonal through :math:`M` and :math:`K`, so the coupled equations split
+into independent oscillators. Modal superposition is still how structures
+and machines are analysed for vibration, with modal damping added mode by
+mode.
+
+*Implementation:* :func:`engineeringkit.mechanical_engineering.normal_modes`,
+:func:`engineeringkit.mechanical_engineering.modal_response` and
+:func:`engineeringkit.mechanical_engineering.harmonic_response`. The
+example finds the modes of a three-storey frame and checks free and forced
+superposition against direct solutions.
+
+*References:* D. Bernoulli, "Réflexions et éclaircissemens sur les nouvelles
+vibrations des cordes," *Hist. Acad. R. Sci. Belles Lettres Berlin* 9
+(1753, published 1755) 147-172; J. L. Lagrange, *Mécanique analytique*
+(Desaint, Paris, 1788), part II, section VI.
+
+.. minigallery:: ../../examples/mechanical_engineering/vibration/plot_05_bernoulli_normal_modes.py
 
 1765 -- Euler's Involute Gear Tooth
 -----------------------------------
@@ -119,6 +148,30 @@ Phys. Acad. R. Sci.* 10 (1785) 161-332.
 
 .. minigallery:: ../../examples/mechanical_engineering/machine_elements/plot_01_coulomb_power_screw.py
 
+1788 -- Lagrange's Equations of Motion
+--------------------------------------
+
+Joseph-Louis Lagrange's *Mécanique analytique* boasted that it contained no
+figures. It wrote the motion of any system in terms of independent
+generalised coordinates :math:`q` and the scalar :math:`L = T - V`,
+:math:`\frac{d}{dt}\partial L/\partial\dot q - \partial L/\partial q = Q`.
+Workless constraint forces, such as the tension in a pendulum rod or the
+reactions of a mechanism's joints, never appear, so a double pendulum or a
+linkage takes two energies instead of a free-body diagram per part.
+Linearised about an equilibrium, the equations become
+:math:`M\ddot q + Kq = 0`, the eigenproblem of normal modes.
+
+*Implementation:* :func:`engineeringkit.mechanical_engineering.lagrange_accelerations`
+and :func:`engineeringkit.mechanical_engineering.simulate_lagrangian`,
+which take the derivatives of :math:`L` numerically. The example runs a
+double pendulum against its hand-derived equations and energy, and checks
+its small oscillations against :func:`engineeringkit.mechanical_engineering.normal_modes`.
+
+*References:* J. L. Lagrange, *Mécanique analytique* (Desaint, Paris, 1788),
+part II, section IV.
+
+.. minigallery:: ../../examples/mechanical_engineering/dynamics/plot_03_lagrange_equations.py
+
 1829 -- Coriolis Defines Work and Kinetic Energy
 ------------------------------------------------
 
@@ -145,6 +198,35 @@ flywheel against integrated equations of motion.
 
 .. minigallery:: ../../examples/mechanical_engineering/dynamics/plot_02_coriolis_work_energy.py
 
+1872-1886 -- Aronhold and Kennedy's Theorem of Three Centres
+------------------------------------------------------------
+
+At each instant any two links of a plane mechanism turn relative to each
+other about an *instant centre*. Siegfried Aronhold in Berlin (1872) and
+Alexander Kennedy in London (1886), independently, proved that the three
+instant centres of any three links lie on one straight line. The theorem
+locates the centres that cannot be seen by inspection, and with them the
+velocity of every point: in a four-bar linkage the speed ratio
+:math:`\omega_4/\omega_2` is the ratio of the distances of the
+crank-rocker centre from the two ground pivots. Graphical velocity and
+acceleration polygons built on the same idea were the standard method
+until the loop-closure equations could be differentiated and solved
+numerically.
+
+*Implementation:* :func:`engineeringkit.mechanical_engineering.fourbar_kinematics`
+and :func:`engineeringkit.mechanical_engineering.slider_crank_kinematics`.
+The example checks the analytical four-bar velocities against the instant
+centre, the piston velocity against the rod's instant centre and the piston
+acceleration against its two-term series.
+
+*References:* S. H. Aronhold, "Grundzüge der kinematischen Geometrie,"
+*Verh. Ver. Beförd. Gewerbefleisses Preussen* 51 (1872) 129-155; A. B. W.
+Kennedy, *The Mechanics of Machinery* (Macmillan, London, 1886). The
+Aronhold citation is taken from textbook histories; the original was not
+consulted.
+
+.. minigallery:: ../../examples/mechanical_engineering/mechanisms/plot_05_aronhold_kennedy_instant_centres.py
+
 1875 -- Reuleaux's Kinematics of Machinery
 ------------------------------------------
 
@@ -169,13 +251,15 @@ des Maschinenwesens* (Vieweg, Braunschweig, 1875); trans. A. B. W. Kennedy,
 
 .. minigallery:: ../../examples/mechanical_engineering/mechanisms/plot_01_reuleaux_slider_crank.py
 
-1877 -- Rayleigh's *Theory of Sound*: Free Vibration
-----------------------------------------------------
+1877 -- Rayleigh's *Theory of Sound*: Free and Forced Vibration
+---------------------------------------------------------------
 
 Lord Rayleigh's two volumes gathered the vibration of strings, bars,
 plates, air columns and bells into one linear theory, and set out the
 behaviour of the damped oscillator :math:`m\ddot x + c\dot x + kx = 0`. It
-rings at :math:`\omega_n = \sqrt{k/m}`, slightly slower when damped. He also
+rings at :math:`\omega_n = \sqrt{k/m}`, slightly slower when damped, and
+driven harmonically it resonates near :math:`\omega_n`, lagging the force
+by 90 degrees there. He also
 gave the energy method that bears his name: for an assumed shape of motion,
 equate the peak kinetic and potential energies. Because the true mode
 minimises the resulting frequency, a reasonable guess gives a close upper
@@ -185,15 +269,18 @@ of itself to the moving mass.
 *Implementation:* :func:`engineeringkit.mechanical_engineering.natural_frequency`,
 :func:`engineeringkit.mechanical_engineering.natural_frequency_hz`,
 :func:`engineeringkit.mechanical_engineering.damping_ratio`,
-:func:`engineeringkit.mechanical_engineering.damped_frequency` and
-:func:`engineeringkit.mechanical_engineering.simulate_sdof`. The example
+:func:`engineeringkit.mechanical_engineering.damped_frequency`,
+:func:`engineeringkit.mechanical_engineering.simulate_sdof`,
+:func:`engineeringkit.mechanical_engineering.magnification_factor` and
+:func:`engineeringkit.mechanical_engineering.phase_angle`. The first example
 times simulated free decays and checks Rayleigh's spring-mass correction
-against the exact frequency.
+against the exact frequency; the second checks the forced steady state
+against the magnification factor and phase.
 
 *References:* J. W. Strutt, Baron Rayleigh, *The Theory of Sound*, vol. 1
 (Macmillan, London, 1877).
 
-.. minigallery:: ../../examples/mechanical_engineering/vibration/plot_01_rayleigh_free_vibration.py
+.. minigallery:: ../../examples/mechanical_engineering/vibration/plot_01_rayleigh_free_vibration.py ../../examples/mechanical_engineering/vibration/plot_04_rayleigh_forced_vibration.py
 
 1883 -- Grashof's Condition for Four-Bar Linkages
 -------------------------------------------------
@@ -268,6 +355,79 @@ Schmiermittelreibung," *Z. Math. Phys.* 50 (1904) 97-155.
 
 .. minigallery:: ../../examples/mechanical_engineering/machine_elements/plot_03_reynolds_sommerfeld_lubrication.py
 
+1892 -- Lewis's Gear-Tooth Bending Formula
+------------------------------------------
+
+Wilfred Lewis, of William Sellers and Co., gave the first rational strength
+calculation for gear teeth in an address to the Engineers' Club of
+Philadelphia on 15 October 1892. He took the whole load at the tip of one
+tooth and inscribed in the tooth a parabola, a cantilever of uniform
+strength, tangent to the flanks at the root. The root section is then the
+weakest, and the stress there is :math:`\sigma = W_t/(F m Y)`, with a form
+factor :math:`Y` that depends only on the tooth shape and so on the number
+of teeth. Carl Barth soon added a velocity factor for the dynamic load. The
+AGMA bending-strength equation is Lewis's with correction factors.
+
+*Implementation:* :func:`engineeringkit.mechanical_engineering.lewis_bending_stress`,
+:func:`engineeringkit.mechanical_engineering.lewis_form_factor` and
+:func:`engineeringkit.mechanical_engineering.barth_velocity_factor`.
+The example checks the uniform-strength parabola against the Lewis stress
+and sizes the face width of a pinion.
+
+*References:* W. Lewis, "Investigation of the strength of gear teeth," *Proc.
+Engineers' Club of Philadelphia* (1892) 16-23; the volume number could not
+be confirmed.
+
+.. minigallery:: ../../examples/mechanical_engineering/transmission/plot_03_lewis_gear_tooth.py
+
+1894 -- Dunkerley's Whirling Shafts
+-----------------------------------
+
+Stanley Dunkerley measured the whirling speeds of shafts carrying pulleys
+and found that the inverse squares of the critical speeds of each pulley
+alone, and of the bare shaft, add to the inverse square of the critical
+speed of the whole, :math:`1/\omega^2 \approx \sum 1/\omega_i^2`. The sum
+is the trace of the flexibility-mass matrix, the sum of every
+:math:`1/\omega_r^2`, so it always errs low, while Rayleigh's quotient with
+the static deflection as trial shape always errs high. Together the two
+bracket the first critical speed by hand, and both are still used to check
+shaft designs.
+
+*Implementation:* :func:`engineeringkit.mechanical_engineering.dunkerley_frequency`
+and :func:`engineeringkit.mechanical_engineering.rayleigh_frequency`.
+The example brackets the first critical speed of a shaft with three disks
+and shows Rayleigh's quotient is stationary at the true mode.
+
+*References:* S. Dunkerley, "On the whirling and vibration of shafts," *Phil.
+Trans. R. Soc. Lond. A* 185 (1894) 279-360; J. W. Strutt, Baron Rayleigh,
+"Some general theorems relating to vibrations," *Proc. Lond. Math. Soc.* 4
+(1873) 357-368.
+
+.. minigallery:: ../../examples/mechanical_engineering/vibration/plot_06_dunkerley_whirling_shaft.py
+
+1902 -- Dalby's Balancing of Engines
+------------------------------------
+
+Faster engines made unbalance dangerous, since a mass :math:`m` at radius
+:math:`r` loads the bearings with :math:`mr\omega^2`. William Dalby, in an
+1898 paper and *The Balancing of Engines* (1902), gave draughtsmen a
+schedule for balancing any set of rotating masses with two corrections in
+chosen planes. Taking moments about one correction plane, the *reference
+plane*, removes its unknown and gives the other correction directly; the
+force balance then gives the first. One correction can only balance a
+shaft statically and leaves a rocking couple that two-plane balancing
+removes.
+
+*Implementation:* :func:`engineeringkit.mechanical_engineering.balance_rotating_masses`
+and :func:`engineeringkit.mechanical_engineering.unbalance`. The example
+balances four masses statically and in two planes and compares the bearing
+reactions.
+
+*References:* W. E. Dalby, *The Balancing of Engines* (Edward Arnold, London,
+1902).
+
+.. minigallery:: ../../examples/mechanical_engineering/rotordynamics/plot_02_dalby_balancing.py
+
 1909 -- Frahm's Vibration Absorber and Den Hartog's Tuning
 ----------------------------------------------------------
 
@@ -338,6 +498,61 @@ them against the matrix eigenvalue problem.
 Berlin, 1921).
 
 .. minigallery:: ../../examples/mechanical_engineering/vibration/plot_03_holzer_torsional.py
+
+1927 -- Rötscher's Bolted-Joint Diagram
+---------------------------------------
+
+Bolts were long sized by dividing the load by the root area. Friedrich
+Rötscher's *Die Maschinenelemente* drew bolt and clamped members as two
+springs, one stretched and one squeezed by the preload, with a separating
+load lengthening the bolt only as far as it relieves the members. The bolt
+then carries only the fraction :math:`C = k_b/(k_b + k_m)` of the load
+until the joint opens at :math:`F_i/(1 - C)`. A stiff clamped joint with a
+high preload protects the bolt in fatigue, the basis of modern joint design
+and of VDI 2230. The members' stiffness is found from cones of compressed
+material, often called Rötscher's cones.
+
+*Implementation:* :func:`engineeringkit.mechanical_engineering.bolted_joint`,
+:func:`engineeringkit.mechanical_engineering.bolt_stiffness`,
+:func:`engineeringkit.mechanical_engineering.member_stiffness` and
+:func:`engineeringkit.mechanical_engineering.preload_torque`. The example
+checks the frustum stiffness by integration and draws the joint diagram of
+a preloaded M12 bolt.
+
+*References:* F. Rötscher, *Die Maschinenelemente* (Springer, Berlin, 1927).
+The book was not consulted; the date and attribution follow J. H.
+Bickford, *An Introduction to the Design and Behavior of Bolted Joints*
+(Marcel Dekker, New York), and L. Winter's history of joint design for the
+Bolt Council.
+
+.. minigallery:: ../../examples/mechanical_engineering/machine_elements/plot_05_rotscher_joint_diagram.py
+
+1929 -- Wahl's Curvature Factor for Helical Springs
+---------------------------------------------------
+
+A helical spring's wire is a bar in torsion, so its nominal stress is
+:math:`8FD/\pi d^3` and its rate :math:`Gd^4/8D^3N`. Valve and suspension
+springs nonetheless broke in fatigue at loads this called safe. Arthur
+Wahl, at Westinghouse, treated the wire as a curved bar: the fibres on the
+inside of the coil are shorter, so the same twist strains them more, and
+the direct shear of the load adds there too. His factor
+:math:`K_W = (4C - 1)/(4C - 4) + 0.615/C`, with :math:`C = D/d`, became the
+standard correction in spring design.
+
+*Implementation:* :func:`engineeringkit.mechanical_engineering.wahl_factor`,
+:func:`engineeringkit.mechanical_engineering.bergstrasser_factor`,
+:func:`engineeringkit.mechanical_engineering.spring_shear_stress`,
+:func:`engineeringkit.mechanical_engineering.spring_rate` and
+:func:`engineeringkit.mechanical_engineering.spring_index`. The example
+derives the rate from the wire's strain energy and compares the stress
+factors.
+
+*References:* A. M. Wahl, "Stresses in heavy closely coiled helical springs,"
+*Trans. ASME* 51 (1929) APM-51-17; the paper was not found online, and is
+cited from A. M. Wahl, *Mechanical Springs* (Penton, Cleveland, 1944), and
+Shigley's *Mechanical Engineering Design*.
+
+.. minigallery:: ../../examples/mechanical_engineering/machine_elements/plot_06_wahl_spring_factor.py
 
 1947 -- Lundberg and Palmgren's Rolling-Bearing Life
 ----------------------------------------------------

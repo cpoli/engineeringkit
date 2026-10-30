@@ -70,6 +70,23 @@ Melting and freezing fronts, condensation and boiling.
     </div>
 
 
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In nucleate boiling, bubbles growing and leaving the heater pump liquid to the surface, and the heat flux rises steeply with the wall superheat. At MIT, Warren Rohsenow treated each departing bubble as the agent of a convection process and correlated the data for many liquids with one equation whose only empirical input is a surface-fluid constant C_{s,f}: q&#x27;&#x27; = \mu_l h_{fg}[g(\rho_l - \rho_v)/\sigma]^{1/2} [c_{p,l}\Delta T_e/(C_{s,f}h_{fg}Pr_l^n)]^3 (~engineeringkit.heat_transfer.rohsenow_boiling_heat_flux). This example boils water in a pan, shows the cube law and how strongly the surface matters, and finds where the curve meets Zuber&#x27;s critical flux.">
+
+.. only:: html
+
+  .. image:: /api/gallery/heat_transfer/phase_change/images/thumb/sphx_glr_plot_04_rohsenow_nucleate_boiling_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/heat_transfer/phase_change/plot_04_rohsenow_nucleate_boiling`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Rohsenow's nucleate boiling correlation (1952)</div>
+    </div>
+
+
 .. thumbnail-parent-div-close
 
 .. raw:: html
@@ -83,4 +100,5 @@ Melting and freezing fronts, condensation and boiling.
    /api/gallery/heat_transfer/phase_change/plot_01_stefan_problem
    /api/gallery/heat_transfer/phase_change/plot_02_nusselt_condensation
    /api/gallery/heat_transfer/phase_change/plot_03_nukiyama_boiling_curve
+   /api/gallery/heat_transfer/phase_change/plot_04_rohsenow_nucleate_boiling
 

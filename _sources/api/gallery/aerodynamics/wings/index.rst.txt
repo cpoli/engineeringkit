@@ -5,7 +5,7 @@
 Finite wings
 ------------
 
-Lifting-line theory, induced drag and the parabolic drag polar.
+Lifting-line theory and Glauert's Fourier solution, induced drag and the parabolic drag polar.
 
 
 .. raw:: html
@@ -70,6 +70,23 @@ Lifting-line theory, induced drag and the parabolic drag polar.
     </div>
 
 
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Prandtl&#x27;s lifting-line equation is an integro-differential equation for the spanwise circulation. In The Elements of Aerofoil and Airscrew Theory (1926) Hermann Glauert solved it for any planform. He wrote the circulation as a Fourier sine series in \theta, with y = -\tfrac b2\cos\theta, and enforced the equation at as many stations as there are terms (~engineeringkit.aerodynamics.lifting_line). The first coefficient fixes the lift and the others add induced drag, so the span efficiency is e = 1/(1 + \delta) with \delta = \sum_{n&gt;1} nA_n^2/A_1^2. This example recovers the elliptic optimum exactly, then sweeps the taper ratio of straight wings to reproduce Glauert&#x27;s induced-drag factor \delta.">
+
+.. only:: html
+
+  .. image:: /api/gallery/aerodynamics/wings/images/thumb/sphx_glr_plot_04_glauert_fourier_lifting_line_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/aerodynamics/wings/plot_04_glauert_fourier_lifting_line`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Glauert's Fourier solution of the lifting line for any planform (1926)</div>
+    </div>
+
+
 .. thumbnail-parent-div-close
 
 .. raw:: html
@@ -83,4 +100,5 @@ Lifting-line theory, induced drag and the parabolic drag polar.
    /api/gallery/aerodynamics/wings/plot_01_prandtl_lifting_line
    /api/gallery/aerodynamics/wings/plot_02_induced_drag_elliptic_loading
    /api/gallery/aerodynamics/wings/plot_03_oswald_drag_polar
+   /api/gallery/aerodynamics/wings/plot_04_glauert_fourier_lifting_line
 

@@ -46,7 +46,7 @@
   <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be" />
 <link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be" />
 
-    <script src="../../../../_static/documentation_options.js?v=38b66d78"></script>
+    <script src="../../../../_static/documentation_options.js?v=95e61db4"></script>
     <script src="../../../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../../../_static/sg-tags.js?v=d80f6fa4"></script>
@@ -210,6 +210,21 @@
   </ul>
 </div></div>
       
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://cpoli.github.io/" title="Charles Poli" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-user fa-lg" aria-hidden="true"></i><span class="visually-hidden">Charles Poli</span></a>
+        </li>
+</ul></div>
+      
     </div>
     
   </div>
@@ -306,6 +321,21 @@
   </ul>
 </div></div>
         
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://cpoli.github.io/" title="Charles Poli" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-user fa-lg" aria-hidden="true"></i><span class="visually-hidden">Charles Poli</span></a>
+        </li>
+</ul></div>
+        
       </div>
     
   </div>
@@ -368,10 +398,11 @@
   <h1>Source code for engineeringkit.structural_engineering.core.base</h1><div class="highlight"><pre>
 <span></span><span class="sd">"""Result containers for engineeringkit.structural_engineering.</span>
 
-<span class="sd">Closed-form member and section formulas return plain floats or arrays. The</span>
-<span class="sd">solvers (beams, trusses, the method of joints, moment distribution and plane</span>
-<span class="sd">frames) return the frozen dataclasses below, each with ``summary()`` and,</span>
-<span class="sd">where a picture helps, ``plot()``.</span>
+<span class="sd">Closed-form member formulas return plain floats or arrays. Section</span>
+<span class="sd">properties and the solvers (beams, trusses, the method of joints, moment</span>
+<span class="sd">distribution, slope-deflection, plane frames and three-hinged arches) return</span>
+<span class="sd">the frozen dataclasses below, each with ``summary()`` and, where a picture</span>
+<span class="sd">helps, ``plot()``.</span>
 <span class="sd">"""</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
@@ -380,14 +411,23 @@
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
-<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"BeamResult"</span><span class="p">,</span> <span class="s2">"TrussResult"</span><span class="p">,</span> <span class="s2">"JointMethodResult"</span><span class="p">,</span> <span class="s2">"MomentDistributionResult"</span><span class="p">,</span> <span class="s2">"FrameResult"</span><span class="p">]</span>
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">"BeamResult"</span><span class="p">,</span>
+    <span class="s2">"TrussResult"</span><span class="p">,</span>
+    <span class="s2">"JointMethodResult"</span><span class="p">,</span>
+    <span class="s2">"MomentDistributionResult"</span><span class="p">,</span>
+    <span class="s2">"FrameResult"</span><span class="p">,</span>
+    <span class="s2">"SectionProperties"</span><span class="p">,</span>
+    <span class="s2">"SlopeDeflectionResult"</span><span class="p">,</span>
+    <span class="s2">"ArchResult"</span><span class="p">,</span>
+<span class="p">]</span>
 
 
 <div class="viewcode-block" id="BeamResult">
 <a class="viewcode-back" href="../../../../api/structural_engineering.html#engineeringkit.structural_engineering.BeamResult">[docs]</a>
 <span class="nd">@dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">BeamResult</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">"""Shear, moment and deflection along a simply supported beam.</span>
+<span class="w">    </span><span class="sd">"""Shear, moment and deflection along a beam.</span>
 
 <span class="sd">    Positive loads act downward, reactions upward, sagging moment is</span>
 <span class="sd">    positive and downward deflection is negative.</span>
@@ -405,8 +445,17 @@
     <span class="n">deflection</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>
 <span class="w">    </span><span class="sd">"""ndarray: Transverse deflection at each station [m], downward negative."""</span>
 
-    <span class="n">reactions</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span>
-<span class="w">    </span><span class="sd">"""tuple of float: Left and right support reactions [N], upward positive."""</span>
+    <span class="n">reactions</span><span class="p">:</span> <span class="nb">tuple</span>
+<span class="w">    </span><span class="sd">"""tuple of float: Support reactions [N], upward positive, left to right</span>
+<span class="sd">    (left and right for :class:`SimplySupportedBeam`)."""</span>
+
+    <span class="n">support_moments</span><span class="p">:</span> <span class="nb">tuple</span> <span class="o">=</span> <span class="p">()</span>
+<span class="w">    </span><span class="sd">"""tuple of float: Reaction moments of the fixed supports [N m], clockwise</span>
+<span class="sd">    positive, left to right; empty when no support is fixed."""</span>
+
+    <span class="n">slope</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="w">    </span><span class="sd">"""ndarray or None: Slope :math:`dy/dx` at each station [-], counterclockwise</span>
+<span class="sd">    positive; ``None`` when the solver does not return it."""</span>
 
 <div class="viewcode-block" id="BeamResult.summary">
 <a class="viewcode-back" href="../../../../api/structural_engineering.html#engineeringkit.structural_engineering.BeamResult.summary">[docs]</a>
@@ -640,6 +689,241 @@
 
         <span class="n">ax</span> <span class="o">=</span> <span class="n">plot_frame</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">scale</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">ax</span><span class="o">.</span><span class="n">figure</span><span class="p">,</span> <span class="n">ax</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="SectionProperties">
+<a class="viewcode-back" href="../../../../api/structural_engineering.html#engineeringkit.structural_engineering.SectionProperties">[docs]</a>
+<span class="nd">@dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">SectionProperties</span><span class="p">:</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Area, centroid and second moments of a cross-section built from rectangles.</span>
+
+<span class="sd">    The section lies in the :math:`y`-:math:`z` plane with :math:`z`</span>
+<span class="sd">    horizontal and :math:`y` vertical (upward), as in Hibbeler and Gere:</span>
+<span class="sd">    :math:`I_z` is the second moment about the horizontal centroidal axis</span>
+<span class="sd">    (the strong axis of an I-beam), :math:`I_y` about the vertical one, and</span>
+<span class="sd">    :math:`I_{yz} = \int yz\,dA`. Each rectangle carries a weight: 1 for</span>
+<span class="sd">    solid material, -1 for a hole and the modular ratio</span>
+<span class="sd">    :math:`n = E/E_\mathrm{ref}` for a transformed section, in which case</span>
+<span class="sd">    every property is that of the transformed section in the reference</span>
+<span class="sd">    material.</span>
+<span class="sd">    """</span>
+
+    <span class="n">area</span><span class="p">:</span> <span class="nb">float</span>
+<span class="w">    </span><span class="sd">"""float: (Transformed) area [m^2]."""</span>
+
+    <span class="n">y_centroid</span><span class="p">:</span> <span class="nb">float</span>
+<span class="w">    </span><span class="sd">"""float: Vertical position of the centroid [m]."""</span>
+
+    <span class="n">z_centroid</span><span class="p">:</span> <span class="nb">float</span>
+<span class="w">    </span><span class="sd">"""float: Horizontal position of the centroid [m]."""</span>
+
+    <span class="n">Iz</span><span class="p">:</span> <span class="nb">float</span>
+<span class="w">    </span><span class="sd">"""float: Second moment about the horizontal centroidal axis [m^4]."""</span>
+
+    <span class="n">Iy</span><span class="p">:</span> <span class="nb">float</span>
+<span class="w">    </span><span class="sd">"""float: Second moment about the vertical centroidal axis [m^4]."""</span>
+
+    <span class="n">Iyz</span><span class="p">:</span> <span class="nb">float</span>
+<span class="w">    </span><span class="sd">"""float: Product of inertia about the centroidal axes [m^4]."""</span>
+
+    <span class="n">rectangles</span><span class="p">:</span> <span class="nb">tuple</span>
+<span class="w">    </span><span class="sd">"""tuple: The parts as ``(b, h, z, y, weight)`` [m, m, m, m, -], with ``(z, y)`` each part's centre."""</span>
+
+<div class="viewcode-block" id="SectionProperties.principal_moments">
+<a class="viewcode-back" href="../../../../api/structural_engineering.html#engineeringkit.structural_engineering.SectionProperties.principal_moments">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">principal_moments</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
+<span class="w">        </span><span class="sa">r</span><span class="sd">"""Principal second moments and the direction of the major axis.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        tuple of float</span>
+<span class="sd">            ``(I_max [m^4], I_min [m^4], angle [rad])``; the major principal</span>
+<span class="sd">            axis is the :math:`z` axis turned counterclockwise by ``angle``,</span>
+<span class="sd">            with :math:`\tan 2\theta = -2I_{yz}/(I_z - I_y)`.</span>
+<span class="sd">        """</span>
+        <span class="n">mean</span><span class="p">,</span> <span class="n">half</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Iz</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">Iy</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Iz</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">Iy</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+        <span class="n">radius</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">hypot</span><span class="p">(</span><span class="n">half</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">Iyz</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">mean</span> <span class="o">+</span> <span class="n">radius</span><span class="p">,</span> <span class="n">mean</span> <span class="o">-</span> <span class="n">radius</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="mf">0.5</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">Iyz</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">Iz</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">Iy</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="SectionProperties.first_moment">
+<a class="viewcode-back" href="../../../../api/structural_engineering.html#engineeringkit.structural_engineering.SectionProperties.first_moment">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">first_moment</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sa">r</span><span class="sd">"""First moment :math:`Q` of the part above height ``y`` about the centroidal :math:`z` axis.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        y : float</span>
+<span class="sd">            Height of the cut [m], in the coordinates of the rectangles.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        float</span>
+<span class="sd">            :math:`Q = \int_{A'} (y - \bar y)\,dA` [m^3], weighted like the</span>
+<span class="sd">            area; the part below the cut has the opposite value.</span>
+<span class="sd">        """</span>
+        <span class="n">Q</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="k">for</span> <span class="n">b</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">yc</span><span class="p">,</span> <span class="n">weight</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">rectangles</span><span class="p">:</span>
+            <span class="n">top</span><span class="p">,</span> <span class="n">bottom</span> <span class="o">=</span> <span class="n">yc</span> <span class="o">+</span> <span class="n">h</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">yc</span> <span class="o">-</span> <span class="n">h</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">top</span> <span class="o">&gt;</span> <span class="n">bottom</span><span class="p">:</span>
+                <span class="n">Q</span> <span class="o">+=</span> <span class="n">weight</span> <span class="o">*</span> <span class="n">b</span> <span class="o">*</span> <span class="p">(</span><span class="n">top</span> <span class="o">-</span> <span class="n">bottom</span><span class="p">)</span> <span class="o">*</span> <span class="p">((</span><span class="n">top</span> <span class="o">+</span> <span class="n">bottom</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">y_centroid</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">Q</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="SectionProperties.width_at">
+<a class="viewcode-back" href="../../../../api/structural_engineering.html#engineeringkit.structural_engineering.SectionProperties.width_at">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">width_at</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Width of material cut by the horizontal line at height ``y``.</span>
+
+<span class="sd">        Holes subtract their width and modular ratios are ignored, so this</span>
+<span class="sd">        is the true thickness :math:`t` in Jourawski's formula.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        y : float</span>
+<span class="sd">            Height of the cut [m].</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        float</span>
+<span class="sd">            Width [m].</span>
+<span class="sd">        """</span>
+        <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">weight</span><span class="p">)</span> <span class="o">*</span> <span class="n">b</span> <span class="k">for</span> <span class="n">b</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">yc</span><span class="p">,</span> <span class="n">weight</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">rectangles</span> <span class="k">if</span> <span class="n">yc</span> <span class="o">-</span> <span class="n">h</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">&lt;=</span> <span class="n">y</span> <span class="o">&lt;=</span> <span class="n">yc</span> <span class="o">+</span> <span class="n">h</span> <span class="o">/</span> <span class="mi">2</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="SectionProperties.summary">
+<a class="viewcode-back" href="../../../../api/structural_engineering.html#engineeringkit.structural_engineering.SectionProperties.summary">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Area [m^2], centroid [m] and centroidal second moments [m^4]."""</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s2">"area"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">area</span><span class="p">,</span>
+            <span class="s2">"y_centroid"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">y_centroid</span><span class="p">,</span>
+            <span class="s2">"z_centroid"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">z_centroid</span><span class="p">,</span>
+            <span class="s2">"Iz"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">Iz</span><span class="p">,</span>
+            <span class="s2">"Iy"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">Iy</span><span class="p">,</span>
+            <span class="s2">"Iyz"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">Iyz</span><span class="p">,</span>
+        <span class="p">}</span></div>
+
+
+<div class="viewcode-block" id="SectionProperties.plot">
+<a class="viewcode-back" href="../../../../api/structural_engineering.html#engineeringkit.structural_engineering.SectionProperties.plot">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">plot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Draw the parts (holes white, transformed parts orange) and the centroid; return ``(fig, ax)``.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        ax : matplotlib.axes.Axes, optional</span>
+<span class="sd">            Axes to draw on; a new figure is created if omitted.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        tuple</span>
+<span class="sd">            ``(fig, ax)``.</span>
+<span class="sd">        """</span>
+        <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.patches</span><span class="w"> </span><span class="kn">import</span> <span class="n">Rectangle</span>
+
+        <span class="k">if</span> <span class="n">ax</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">_</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">b</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">weight</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rectangles</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">part</span><span class="p">:</span> <span class="n">part</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">):</span>
+            <span class="n">color</span> <span class="o">=</span> <span class="s2">"white"</span> <span class="k">if</span> <span class="n">weight</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="s2">"C0"</span> <span class="k">if</span> <span class="n">weight</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="s2">"C1"</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">Rectangle</span><span class="p">((</span><span class="n">z</span> <span class="o">-</span> <span class="n">b</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="n">y</span> <span class="o">-</span> <span class="n">h</span> <span class="o">/</span> <span class="mi">2</span><span class="p">),</span> <span class="n">b</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s2">"k"</span><span class="p">))</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">z_centroid</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y_centroid</span><span class="p">,</span> <span class="s2">"+"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"C3"</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">autoscale_view</span><span class="p">()</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s2">"equal"</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s2">"z [m]"</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s2">"y [m]"</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">ax</span><span class="o">.</span><span class="n">figure</span><span class="p">,</span> <span class="n">ax</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="SlopeDeflectionResult">
+<a class="viewcode-back" href="../../../../api/structural_engineering.html#engineeringkit.structural_engineering.SlopeDeflectionResult">[docs]</a>
+<span class="nd">@dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">SlopeDeflectionResult</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Output of :func:`engineeringkit.structural_engineering.slope_deflection`.</span>
+
+<span class="sd">    Moments and rotations are clockwise positive, as in Maney's method and</span>
+<span class="sd">    Hardy Cross's moment distribution, so ``end_moments`` compare directly</span>
+<span class="sd">    with :class:`MomentDistributionResult`.</span>
+<span class="sd">    """</span>
+
+    <span class="n">end_moments</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>
+<span class="w">    </span><span class="sd">"""ndarray, shape (m, 2): Moments at the ``i`` and ``j`` ends of each member [N m], clockwise positive."""</span>
+
+    <span class="n">rotations</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>
+<span class="w">    </span><span class="sd">"""ndarray: Rotation of each joint [rad], clockwise positive (zero at fixed joints)."""</span>
+
+<div class="viewcode-block" id="SlopeDeflectionResult.summary">
+<a class="viewcode-back" href="../../../../api/structural_engineering.html#engineeringkit.structural_engineering.SlopeDeflectionResult.summary">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Largest end moment [N m] and joint rotation [rad]."""</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s2">"max_abs_end_moment"</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">end_moments</span><span class="p">))),</span>
+            <span class="s2">"max_abs_rotation"</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rotations</span><span class="p">))),</span>
+        <span class="p">}</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="ArchResult">
+<a class="viewcode-back" href="../../../../api/structural_engineering.html#engineeringkit.structural_engineering.ArchResult">[docs]</a>
+<span class="nd">@dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">ArchResult</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Shape, bending moment and axial force of a three-hinged arch.</span>
+
+<span class="sd">    Loads act downward when positive and sagging moment (intrados in</span>
+<span class="sd">    tension) is positive.</span>
+<span class="sd">    """</span>
+
+    <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>
+<span class="w">    </span><span class="sd">"""ndarray: Stations along the span [m]."""</span>
+
+    <span class="n">y</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>
+<span class="w">    </span><span class="sd">"""ndarray: Height of the arch axis above the springings [m]."""</span>
+
+    <span class="n">moment</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>
+<span class="w">    </span><span class="sd">"""ndarray: Bending moment at each station [N m], sagging positive."""</span>
+
+    <span class="n">axial_force</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>
+<span class="w">    </span><span class="sd">"""ndarray: Axial force along the arch axis [N], tension positive."""</span>
+
+    <span class="n">reactions</span><span class="p">:</span> <span class="nb">tuple</span>
+<span class="w">    </span><span class="sd">"""tuple of float: Left and right vertical reactions [N], upward positive."""</span>
+
+    <span class="n">thrust</span><span class="p">:</span> <span class="nb">float</span>
+<span class="w">    </span><span class="sd">"""float: Horizontal thrust on each springing [N], pushing the supports outward."""</span>
+
+<div class="viewcode-block" id="ArchResult.summary">
+<a class="viewcode-back" href="../../../../api/structural_engineering.html#engineeringkit.structural_engineering.ArchResult.summary">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Thrust [N], vertical reactions [N], largest moment [N m] and largest compression [N]."""</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s2">"thrust"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">thrust</span><span class="p">,</span>
+            <span class="s2">"reactions"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">reactions</span><span class="p">,</span>
+            <span class="s2">"max_abs_moment"</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">moment</span><span class="p">))),</span>
+            <span class="s2">"max_compression"</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">axial_force</span><span class="p">)),</span>
+        <span class="p">}</span></div>
+
+
+<div class="viewcode-block" id="ArchResult.plot">
+<a class="viewcode-back" href="../../../../api/structural_engineering.html#engineeringkit.structural_engineering.ArchResult.plot">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">plot</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Draw the arch with its three hinges above its bending-moment diagram; return ``(fig, axes)``."""</span>
+        <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+        <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"k"</span><span class="p">)</span>
+        <span class="n">span</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">span</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">),</span> <span class="mi">0</span><span class="p">],</span> <span class="s2">"o"</span><span class="p">,</span> <span class="n">mfc</span><span class="o">=</span><span class="s2">"white"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"k"</span><span class="p">)</span>
+        <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s2">"equal"</span><span class="p">)</span>
+        <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">"y [m]"</span><span class="p">)</span>
+        <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">moment</span><span class="p">)</span>
+        <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"gray"</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+        <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s2">"x [m]"</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s2">"moment [N m]"</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span></div>
 </div>
 
 </pre></div>

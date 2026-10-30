@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.319** total execution time for 2 files **from api/gallery/thermodynamics/exergy**:
+**00:00.186** total execution time for 2 files **from api/gallery/thermodynamics/exergy**:
 
 .. container::
 
@@ -33,8 +33,8 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_thermodynamics_exergy_plot_02_rant_exergy.py` (``plot_02_rant_exergy.py``)
-     - 00:00.181
+     - 00:00.106
      - 0.0
    * - :ref:`sphx_glr_api_gallery_thermodynamics_exergy_plot_01_gouy_stodola.py` (``plot_01_gouy_stodola.py``)
-     - 00:00.138
+     - 00:00.079
      - 0.0

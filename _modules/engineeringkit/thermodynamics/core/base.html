@@ -46,7 +46,7 @@
   <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be" />
 <link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be" />
 
-    <script src="../../../../_static/documentation_options.js?v=38b66d78"></script>
+    <script src="../../../../_static/documentation_options.js?v=95e61db4"></script>
     <script src="../../../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../../../_static/sg-tags.js?v=d80f6fa4"></script>
@@ -210,6 +210,21 @@
   </ul>
 </div></div>
       
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://cpoli.github.io/" title="Charles Poli" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-user fa-lg" aria-hidden="true"></i><span class="visually-hidden">Charles Poli</span></a>
+        </li>
+</ul></div>
+      
     </div>
     
   </div>
@@ -306,6 +321,21 @@
   </ul>
 </div></div>
         
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://cpoli.github.io/" title="Charles Poli" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-user fa-lg" aria-hidden="true"></i><span class="visually-hidden">Charles Poli</span></a>
+        </li>
+</ul></div>
+        
       </div>
     
   </div>
@@ -368,50 +398,61 @@
   <h1>Source code for engineeringkit.thermodynamics.core.base</h1><div class="highlight"><pre>
 <span></span><span class="sd">"""Result containers for engineeringkit.thermodynamics.</span>
 
-<span class="sd">Most thermodynamic models return plain floats or arrays. A steam state</span>
-<span class="sd">carries several properties at once, plus which IF97 region produced them,</span>
-<span class="sd">so it gets a frozen dataclass with the usual ``summary()``.</span>
+<span class="sd">Most thermodynamic models return plain floats or arrays. A steam or</span>
+<span class="sd">refrigerant state carries several properties at once, and a cycle solved</span>
+<span class="sd">state by state carries its states and energy balance, so they get frozen</span>
+<span class="sd">dataclasses with the usual ``summary()`` (and ``plot()`` for the cycles).</span>
+<span class="sd">A Peng-Robinson fluid is described by a frozen ``CubicFluid``.</span>
 <span class="sd">"""</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
 
-<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"SteamState"</span><span class="p">]</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit._validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">interval</span> <span class="k">as</span> <span class="n">_interval</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit._validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">positive</span> <span class="k">as</span> <span class="n">_positive</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"SteamState"</span><span class="p">,</span> <span class="s2">"RankineResult"</span><span class="p">,</span> <span class="s2">"BraytonResult"</span><span class="p">,</span> <span class="s2">"CubicFluid"</span><span class="p">,</span> <span class="s2">"RefrigerantState"</span><span class="p">,</span> <span class="s2">"VaporCompressionResult"</span><span class="p">]</span>
 
 
 <div class="viewcode-block" id="SteamState">
 <a class="viewcode-back" href="../../../../api/thermodynamics.html#engineeringkit.thermodynamics.SteamState">[docs]</a>
 <span class="nd">@dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">SteamState</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">"""Output of :func:`engineeringkit.thermodynamics.steam_properties`."""</span>
+<span class="w">    </span><span class="sd">"""Output of :func:`engineeringkit.thermodynamics.steam_properties`.</span>
+
+<span class="sd">    Each field is a float for a scalar call and an array of the broadcast</span>
+<span class="sd">    input shape for an array call.</span>
+<span class="sd">    """</span>
 
     <span class="n">p</span><span class="p">:</span> <span class="nb">float</span>
-<span class="w">    </span><span class="sd">"""float: Pressure [Pa]."""</span>
+<span class="w">    </span><span class="sd">"""float or ndarray: Pressure [Pa]."""</span>
 
     <span class="n">T</span><span class="p">:</span> <span class="nb">float</span>
-<span class="w">    </span><span class="sd">"""float: Temperature [K]."""</span>
+<span class="w">    </span><span class="sd">"""float or ndarray: Temperature [K]."""</span>
 
     <span class="n">v</span><span class="p">:</span> <span class="nb">float</span>
-<span class="w">    </span><span class="sd">"""float: Specific volume [m^3/kg]."""</span>
+<span class="w">    </span><span class="sd">"""float or ndarray: Specific volume [m^3/kg]."""</span>
 
     <span class="n">h</span><span class="p">:</span> <span class="nb">float</span>
-<span class="w">    </span><span class="sd">"""float: Specific enthalpy [J/kg], zero for liquid at the triple point."""</span>
+<span class="w">    </span><span class="sd">"""float or ndarray: Specific enthalpy [J/kg], zero for liquid at the triple point."""</span>
 
     <span class="n">s</span><span class="p">:</span> <span class="nb">float</span>
-<span class="w">    </span><span class="sd">"""float: Specific entropy [J/(kg K)], zero for liquid at the triple point."""</span>
+<span class="w">    </span><span class="sd">"""float or ndarray: Specific entropy [J/(kg K)], zero for liquid at the triple point."""</span>
 
     <span class="n">u</span><span class="p">:</span> <span class="nb">float</span>
-<span class="w">    </span><span class="sd">"""float: Specific internal energy [J/kg]."""</span>
+<span class="w">    </span><span class="sd">"""float or ndarray: Specific internal energy [J/kg]."""</span>
 
     <span class="n">cp</span><span class="p">:</span> <span class="nb">float</span>
-<span class="w">    </span><span class="sd">"""float: Isobaric specific heat [J/(kg K)]; NaN inside the two-phase dome."""</span>
+<span class="w">    </span><span class="sd">"""float or ndarray: Isobaric specific heat [J/(kg K)]; NaN inside the two-phase dome."""</span>
 
     <span class="n">x</span><span class="p">:</span> <span class="nb">float</span>
-<span class="w">    </span><span class="sd">"""float: Vapour quality [-] inside the dome; NaN for a single-phase state."""</span>
+<span class="w">    </span><span class="sd">"""float or ndarray: Vapour quality [-] inside the dome; NaN for a single-phase state."""</span>
 
     <span class="n">region</span><span class="p">:</span> <span class="nb">int</span>
-<span class="w">    </span><span class="sd">"""int: IF97 region, 1 (compressed liquid), 2 (vapour), 3 (near-critical) or 4 (wet mixture)."""</span>
+<span class="w">    </span><span class="sd">"""int or ndarray: IF97 region, 1 (compressed liquid), 2 (vapour), 3 (near-critical), 4 (wet mixture) or 5 (above 1073.15 K)."""</span>
 
 <div class="viewcode-block" id="SteamState.summary">
 <a class="viewcode-back" href="../../../../api/thermodynamics.html#engineeringkit.thermodynamics.SteamState.summary">[docs]</a>
@@ -428,6 +469,366 @@
             <span class="s2">"x"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">,</span>
             <span class="s2">"region"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">region</span><span class="p">,</span>
         <span class="p">}</span></div>
+</div>
+
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_isobar_or_line</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">isobar</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Draw from state ``a`` to ``b``: along ``isobar(a, b)`` -&gt; (s, T) if they share a pressure, else straight."""</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">b</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">rtol</span><span class="o">=</span><span class="mf">1e-12</span><span class="p">):</span>
+        <span class="n">s</span><span class="p">,</span> <span class="n">T</span> <span class="o">=</span> <span class="n">isobar</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">s</span><span class="p">,</span> <span class="n">T</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]]),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">]])</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">s</span> <span class="o">/</span> <span class="mf">1e3</span><span class="p">,</span> <span class="n">T</span> <span class="o">-</span> <span class="mf">273.15</span><span class="p">,</span> <span class="s2">"C0-"</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="RankineResult">
+<a class="viewcode-back" href="../../../../api/thermodynamics.html#engineeringkit.thermodynamics.RankineResult">[docs]</a>
+<span class="nd">@dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">RankineResult</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Output of :func:`engineeringkit.thermodynamics.rankine_cycle`.</span>
+
+<span class="sd">    Energies are per kilogram of steam through the boiler.</span>
+<span class="sd">    """</span>
+
+    <span class="n">labels</span><span class="p">:</span> <span class="nb">tuple</span>
+<span class="w">    </span><span class="sd">"""tuple of str: Name of each state, in the order the water meets them."""</span>
+
+    <span class="n">states</span><span class="p">:</span> <span class="nb">tuple</span>
+<span class="w">    </span><span class="sd">"""tuple of SteamState: The state points, matching ``labels``."""</span>
+
+    <span class="n">efficiency</span><span class="p">:</span> <span class="nb">float</span>
+<span class="w">    </span><span class="sd">"""float: Thermal efficiency, net work over heat added [-]."""</span>
+
+    <span class="n">turbine_work</span><span class="p">:</span> <span class="nb">float</span>
+<span class="w">    </span><span class="sd">"""float: Turbine work [J/kg], counting the bled steam only up to its bleed point."""</span>
+
+    <span class="n">pump_work</span><span class="p">:</span> <span class="nb">float</span>
+<span class="w">    </span><span class="sd">"""float: Work of all pumps [J/kg]."""</span>
+
+    <span class="n">heat_in</span><span class="p">:</span> <span class="nb">float</span>
+<span class="w">    </span><span class="sd">"""float: Heat added in the boiler and reheater [J/kg]."""</span>
+
+    <span class="n">heat_out</span><span class="p">:</span> <span class="nb">float</span>
+<span class="w">    </span><span class="sd">"""float: Heat rejected in the condenser [J/kg]."""</span>
+
+    <span class="n">bleed_fraction</span><span class="p">:</span> <span class="nb">float</span>
+<span class="w">    </span><span class="sd">"""float: Fraction of the boiler flow bled to the open feedwater heater [-]; zero without one."""</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">net_work</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""float: Turbine work less pump work [J/kg]."""</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">turbine_work</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">pump_work</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">back_work_ratio</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""float: Pump work over turbine work [-]."""</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">pump_work</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">turbine_work</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">turbine_exit_quality</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""float: Vapour quality at the condenser inlet [-]; NaN if the steam is still superheated."""</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">states</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">labels</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s2">"turbine exit"</span><span class="p">)]</span><span class="o">.</span><span class="n">x</span>
+
+<div class="viewcode-block" id="RankineResult.summary">
+<a class="viewcode-back" href="../../../../api/thermodynamics.html#engineeringkit.thermodynamics.RankineResult.summary">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Efficiency, energies per kilogram, back-work ratio, bleed fraction and exit quality."""</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s2">"efficiency"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">efficiency</span><span class="p">,</span>
+            <span class="s2">"net_work"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">net_work</span><span class="p">,</span>
+            <span class="s2">"turbine_work"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">turbine_work</span><span class="p">,</span>
+            <span class="s2">"pump_work"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">pump_work</span><span class="p">,</span>
+            <span class="s2">"heat_in"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">heat_in</span><span class="p">,</span>
+            <span class="s2">"heat_out"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">heat_out</span><span class="p">,</span>
+            <span class="s2">"back_work_ratio"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">back_work_ratio</span><span class="p">,</span>
+            <span class="s2">"bleed_fraction"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">bleed_fraction</span><span class="p">,</span>
+            <span class="s2">"turbine_exit_quality"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">turbine_exit_quality</span><span class="p">,</span>
+        <span class="p">}</span></div>
+
+
+<div class="viewcode-block" id="RankineResult.plot">
+<a class="viewcode-back" href="../../../../api/thermodynamics.html#engineeringkit.thermodynamics.RankineResult.plot">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">plot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Draw the cycle on the T-s diagram over the water dome; return ``(fig, ax)``.</span>
+
+<span class="sd">        Heat exchanges follow their isobar; pumps and turbine stages are</span>
+<span class="sd">        drawn as straight lines between their end states.</span>
+<span class="sd">        """</span>
+        <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+        <span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit.thermodynamics.systems.steam</span><span class="w"> </span><span class="kn">import</span> <span class="n">steam_properties</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit.thermodynamics.visualizers.plots</span><span class="w"> </span><span class="kn">import</span> <span class="n">plot_saturation_dome</span>
+
+        <span class="k">if</span> <span class="n">ax</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">_</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+        <span class="n">plot_saturation_dome</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
+
+        <span class="k">def</span><span class="w"> </span><span class="nf">isobar</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+            <span class="n">path</span> <span class="o">=</span> <span class="n">steam_properties</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">h</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">b</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="mi">40</span><span class="p">))</span>
+            <span class="k">return</span> <span class="n">path</span><span class="o">.</span><span class="n">s</span><span class="p">,</span> <span class="n">path</span><span class="o">.</span><span class="n">T</span>
+
+        <span class="c1"># the main loop: feed train, boiler, every expansion state except the bleed, condenser</span>
+        <span class="n">order</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">labels</span><span class="p">)</span> <span class="k">if</span> <span class="n">label</span> <span class="o">!=</span> <span class="s2">"bleed"</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">points</span> <span class="o">=</span> <span class="p">[(</span><span class="n">st</span><span class="o">.</span><span class="n">s</span><span class="p">,</span> <span class="n">st</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">st</span><span class="o">.</span><span class="n">p</span><span class="p">,</span> <span class="n">st</span><span class="o">.</span><span class="n">h</span><span class="p">)</span> <span class="k">for</span> <span class="n">st</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">states</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">order</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">order</span><span class="p">[</span><span class="mi">1</span><span class="p">:]):</span>
+            <span class="n">_isobar_or_line</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">points</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">points</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">isobar</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="mf">1e3</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">points</span><span class="p">],</span> <span class="p">[</span><span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mf">273.15</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">points</span><span class="p">],</span> <span class="s2">"C0o"</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s2">"entropy [kJ/(kg K)]"</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s2">"temperature [°C]"</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">"Rankine cycle, η = </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">efficiency</span><span class="si">:</span><span class="s2">.1%</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">ax</span><span class="o">.</span><span class="n">figure</span><span class="p">,</span> <span class="n">ax</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="BraytonResult">
+<a class="viewcode-back" href="../../../../api/thermodynamics.html#engineeringkit.thermodynamics.BraytonResult">[docs]</a>
+<span class="nd">@dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">BraytonResult</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Output of :func:`engineeringkit.thermodynamics.brayton_cycle`.</span>
+
+<span class="sd">    Energies are per kilogram of air (air-standard, constant specific heats).</span>
+<span class="sd">    """</span>
+
+    <span class="n">labels</span><span class="p">:</span> <span class="nb">tuple</span>
+<span class="w">    </span><span class="sd">"""tuple of str: Name of each state, in the order the air meets them."""</span>
+
+    <span class="n">T</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>
+<span class="w">    </span><span class="sd">"""ndarray: Temperature of each state [K]."""</span>
+
+    <span class="n">p</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>
+<span class="w">    </span><span class="sd">"""ndarray: Pressure of each state [Pa]."""</span>
+
+    <span class="n">s</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>
+<span class="w">    </span><span class="sd">"""ndarray: Entropy of each state relative to the compressor inlet [J/(kg K)]."""</span>
+
+    <span class="n">efficiency</span><span class="p">:</span> <span class="nb">float</span>
+<span class="w">    </span><span class="sd">"""float: Thermal efficiency, net work over heat added [-]."""</span>
+
+    <span class="n">compressor_work</span><span class="p">:</span> <span class="nb">float</span>
+<span class="w">    </span><span class="sd">"""float: Work of all compressor stages [J/kg]."""</span>
+
+    <span class="n">turbine_work</span><span class="p">:</span> <span class="nb">float</span>
+<span class="w">    </span><span class="sd">"""float: Work of all turbine stages [J/kg]."""</span>
+
+    <span class="n">heat_in</span><span class="p">:</span> <span class="nb">float</span>
+<span class="w">    </span><span class="sd">"""float: Heat added in the combustor and reheaters [J/kg]."""</span>
+
+    <span class="n">heat_regenerated</span><span class="p">:</span> <span class="nb">float</span>
+<span class="w">    </span><span class="sd">"""float: Heat passed from the exhaust to the compressed air [J/kg]."""</span>
+
+    <span class="n">cp</span><span class="p">:</span> <span class="nb">float</span>
+<span class="w">    </span><span class="sd">"""float: Isobaric specific heat used [J/(kg K)]."""</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">net_work</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""float: Turbine work less compressor work [J/kg]."""</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">turbine_work</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">compressor_work</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">heat_out</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""float: Heat rejected in the exhaust and intercoolers [J/kg]."""</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">heat_in</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">net_work</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">back_work_ratio</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""float: Compressor work over turbine work [-]."""</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">compressor_work</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">turbine_work</span>
+
+<div class="viewcode-block" id="BraytonResult.summary">
+<a class="viewcode-back" href="../../../../api/thermodynamics.html#engineeringkit.thermodynamics.BraytonResult.summary">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Efficiency, energies per kilogram and the back-work ratio."""</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s2">"efficiency"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">efficiency</span><span class="p">,</span>
+            <span class="s2">"net_work"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">net_work</span><span class="p">,</span>
+            <span class="s2">"compressor_work"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">compressor_work</span><span class="p">,</span>
+            <span class="s2">"turbine_work"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">turbine_work</span><span class="p">,</span>
+            <span class="s2">"heat_in"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">heat_in</span><span class="p">,</span>
+            <span class="s2">"heat_out"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">heat_out</span><span class="p">,</span>
+            <span class="s2">"heat_regenerated"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">heat_regenerated</span><span class="p">,</span>
+            <span class="s2">"back_work_ratio"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">back_work_ratio</span><span class="p">,</span>
+        <span class="p">}</span></div>
+
+
+<div class="viewcode-block" id="BraytonResult.plot">
+<a class="viewcode-back" href="../../../../api/thermodynamics.html#engineeringkit.thermodynamics.BraytonResult.plot">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">plot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Draw the cycle on T-s axes; return ``(fig, ax)``.</span>
+
+<span class="sd">        Constant-pressure processes follow :math:`s = c_p\\ln T + \\text{const}`;</span>
+<span class="sd">        compressor and turbine stages are straight lines.</span>
+<span class="sd">        """</span>
+        <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+        <span class="k">if</span> <span class="n">ax</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">_</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+        <span class="k">def</span><span class="w"> </span><span class="nf">isobar</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+            <span class="n">T</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">40</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">cp</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">T</span> <span class="o">/</span> <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="n">T</span>
+
+        <span class="n">points</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="p">))</span>
+        <span class="k">for</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">points</span><span class="p">,</span> <span class="n">points</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">+</span> <span class="n">points</span><span class="p">[:</span><span class="mi">1</span><span class="p">]):</span>
+            <span class="n">_isobar_or_line</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">isobar</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">s</span> <span class="o">/</span> <span class="mf">1e3</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">T</span> <span class="o">-</span> <span class="mf">273.15</span><span class="p">,</span> <span class="s2">"C0o"</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s2">"entropy [kJ/(kg K)]"</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s2">"temperature [°C]"</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">"Brayton cycle, η = </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">efficiency</span><span class="si">:</span><span class="s2">.1%</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">ax</span><span class="o">.</span><span class="n">figure</span><span class="p">,</span> <span class="n">ax</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="CubicFluid">
+<a class="viewcode-back" href="../../../../api/thermodynamics.html#engineeringkit.thermodynamics.CubicFluid">[docs]</a>
+<span class="nd">@dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">CubicFluid</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""A pure fluid described by the Peng-Robinson equation of state.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    name : str</span>
+<span class="sd">        Display name.</span>
+<span class="sd">    Tc : float</span>
+<span class="sd">        Critical temperature [K].</span>
+<span class="sd">    pc : float</span>
+<span class="sd">        Critical pressure [Pa].</span>
+<span class="sd">    omega : float</span>
+<span class="sd">        Pitzer's acentric factor [-].</span>
+<span class="sd">    molar_mass : float</span>
+<span class="sd">        Molar mass [kg/mol].</span>
+<span class="sd">    cp0 : float</span>
+<span class="sd">        Ideal-gas isobaric specific heat [J/(kg K)], taken as constant.</span>
+<span class="sd">    """</span>
+
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">Tc</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">pc</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">omega</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">molar_mass</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">cp0</span><span class="p">:</span> <span class="nb">float</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">__post_init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">_positive</span><span class="p">(</span><span class="n">Tc</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">Tc</span><span class="p">,</span> <span class="n">pc</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">pc</span><span class="p">,</span> <span class="n">molar_mass</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">molar_mass</span><span class="p">,</span> <span class="n">cp0</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">cp0</span><span class="p">)</span>
+        <span class="n">_interval</span><span class="p">(</span><span class="s2">"omega"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">omega</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">)</span>
+
+<div class="viewcode-block" id="CubicFluid.summary">
+<a class="viewcode-back" href="../../../../api/thermodynamics.html#engineeringkit.thermodynamics.CubicFluid.summary">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""The fluid constants as a dict."""</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">"name"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="s2">"Tc"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">Tc</span><span class="p">,</span> <span class="s2">"pc"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">pc</span><span class="p">,</span> <span class="s2">"omega"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">omega</span><span class="p">,</span> <span class="s2">"molar_mass"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">molar_mass</span><span class="p">,</span> <span class="s2">"cp0"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">cp0</span><span class="p">}</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="RefrigerantState">
+<a class="viewcode-back" href="../../../../api/thermodynamics.html#engineeringkit.thermodynamics.RefrigerantState">[docs]</a>
+<span class="nd">@dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">RefrigerantState</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Output of :func:`engineeringkit.thermodynamics.refrigerant_properties`."""</span>
+
+    <span class="n">p</span><span class="p">:</span> <span class="nb">float</span>
+<span class="w">    </span><span class="sd">"""float: Pressure [Pa]."""</span>
+
+    <span class="n">T</span><span class="p">:</span> <span class="nb">float</span>
+<span class="w">    </span><span class="sd">"""float: Temperature [K]."""</span>
+
+    <span class="n">v</span><span class="p">:</span> <span class="nb">float</span>
+<span class="w">    </span><span class="sd">"""float: Specific volume [m^3/kg]."""</span>
+
+    <span class="n">h</span><span class="p">:</span> <span class="nb">float</span>
+<span class="w">    </span><span class="sd">"""float: Specific enthalpy [J/kg], 200 kJ/kg for saturated liquid at 0 °C (IIR reference)."""</span>
+
+    <span class="n">s</span><span class="p">:</span> <span class="nb">float</span>
+<span class="w">    </span><span class="sd">"""float: Specific entropy [J/(kg K)], 1 kJ/(kg K) for saturated liquid at 0 °C (IIR reference)."""</span>
+
+    <span class="n">x</span><span class="p">:</span> <span class="nb">float</span>
+<span class="w">    </span><span class="sd">"""float: Vapour quality [-] inside the dome; NaN for a single-phase state."""</span>
+
+    <span class="n">phase</span><span class="p">:</span> <span class="nb">str</span>
+<span class="w">    </span><span class="sd">"""str: ``"liquid"``, ``"vapour"``, ``"mixture"`` or ``"supercritical"``."""</span>
+
+<div class="viewcode-block" id="RefrigerantState.summary">
+<a class="viewcode-back" href="../../../../api/thermodynamics.html#engineeringkit.thermodynamics.RefrigerantState.summary">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""All properties as a dict."""</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">"p"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="p">,</span> <span class="s2">"T"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="s2">"v"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">v</span><span class="p">,</span> <span class="s2">"h"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="s2">"s"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="p">,</span> <span class="s2">"x"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="s2">"phase"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">phase</span><span class="p">}</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="VaporCompressionResult">
+<a class="viewcode-back" href="../../../../api/thermodynamics.html#engineeringkit.thermodynamics.VaporCompressionResult">[docs]</a>
+<span class="nd">@dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">VaporCompressionResult</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Output of :func:`engineeringkit.thermodynamics.vapor_compression_cycle`.</span>
+
+<span class="sd">    Energies are per kilogram of refrigerant.</span>
+<span class="sd">    """</span>
+
+    <span class="n">fluid</span><span class="p">:</span> <span class="n">CubicFluid</span>
+<span class="w">    </span><span class="sd">"""CubicFluid: The refrigerant."""</span>
+
+    <span class="n">labels</span><span class="p">:</span> <span class="nb">tuple</span>
+<span class="w">    </span><span class="sd">"""tuple of str: Compressor inlet, compressor outlet, condenser outlet and evaporator inlet."""</span>
+
+    <span class="n">states</span><span class="p">:</span> <span class="nb">tuple</span>
+<span class="w">    </span><span class="sd">"""tuple of RefrigerantState: The four state points, matching ``labels``."""</span>
+
+    <span class="n">q_evaporator</span><span class="p">:</span> <span class="nb">float</span>
+<span class="w">    </span><span class="sd">"""float: Heat absorbed in the evaporator (refrigerating effect) [J/kg]."""</span>
+
+    <span class="n">q_condenser</span><span class="p">:</span> <span class="nb">float</span>
+<span class="w">    </span><span class="sd">"""float: Heat rejected in the condenser [J/kg]."""</span>
+
+    <span class="n">compressor_work</span><span class="p">:</span> <span class="nb">float</span>
+<span class="w">    </span><span class="sd">"""float: Compressor work [J/kg]."""</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">cop_refrigerator</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""float: Refrigerating effect over compressor work [-]."""</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">q_evaporator</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">compressor_work</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">cop_heat_pump</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""float: Condenser heat over compressor work [-], one more than the refrigerator COP."""</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">q_condenser</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">compressor_work</span>
+
+<div class="viewcode-block" id="VaporCompressionResult.summary">
+<a class="viewcode-back" href="../../../../api/thermodynamics.html#engineeringkit.thermodynamics.VaporCompressionResult.summary">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""COPs, energies per kilogram and the compressor outlet temperature."""</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s2">"cop_refrigerator"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">cop_refrigerator</span><span class="p">,</span>
+            <span class="s2">"cop_heat_pump"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">cop_heat_pump</span><span class="p">,</span>
+            <span class="s2">"q_evaporator"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">q_evaporator</span><span class="p">,</span>
+            <span class="s2">"q_condenser"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">q_condenser</span><span class="p">,</span>
+            <span class="s2">"compressor_work"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">compressor_work</span><span class="p">,</span>
+            <span class="s2">"compressor_outlet_T"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">states</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="p">,</span>
+        <span class="p">}</span></div>
+
+
+<div class="viewcode-block" id="VaporCompressionResult.plot">
+<a class="viewcode-back" href="../../../../api/thermodynamics.html#engineeringkit.thermodynamics.VaporCompressionResult.plot">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">plot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Draw the cycle on the pressure-enthalpy diagram over the fluid's dome; return ``(fig, ax)``."""</span>
+        <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+        <span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit.thermodynamics.systems.peng_robinson</span><span class="w"> </span><span class="kn">import</span> <span class="n">refrigerant_properties</span>
+
+        <span class="k">if</span> <span class="n">ax</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">_</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+        <span class="n">p_dome</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">geomspace</span><span class="p">(</span><span class="mf">0.02</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">fluid</span><span class="o">.</span><span class="n">pc</span><span class="p">,</span> <span class="mf">0.98</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">fluid</span><span class="o">.</span><span class="n">pc</span><span class="p">,</span> <span class="mi">40</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">):</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">refrigerant_properties</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fluid</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">h</span> <span class="o">/</span> <span class="mf">1e3</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">p_dome</span><span class="p">],</span> <span class="n">p_dome</span> <span class="o">/</span> <span class="mf">1e3</span><span class="p">,</span> <span class="s2">"k-"</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">h</span> <span class="o">=</span> <span class="p">[</span><span class="n">st</span><span class="o">.</span><span class="n">h</span> <span class="o">/</span> <span class="mf">1e3</span> <span class="k">for</span> <span class="n">st</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">states</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">states</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">h</span> <span class="o">/</span> <span class="mf">1e3</span><span class="p">]</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="p">[</span><span class="n">st</span><span class="o">.</span><span class="n">p</span> <span class="o">/</span> <span class="mf">1e3</span> <span class="k">for</span> <span class="n">st</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">states</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">states</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">p</span> <span class="o">/</span> <span class="mf">1e3</span><span class="p">]</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="s2">"C0o-"</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span>
+            <span class="n">yscale</span><span class="o">=</span><span class="s2">"log"</span><span class="p">,</span>
+            <span class="n">xlabel</span><span class="o">=</span><span class="s2">"enthalpy [kJ/kg]"</span><span class="p">,</span>
+            <span class="n">ylabel</span><span class="o">=</span><span class="s2">"pressure [kPa]"</span><span class="p">,</span>
+            <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">fluid</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> vapour-compression cycle, COP = </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">cop_refrigerator</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">ax</span><span class="o">.</span><span class="n">figure</span><span class="p">,</span> <span class="n">ax</span></div>
 </div>
 
 </pre></div>

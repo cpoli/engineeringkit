@@ -46,7 +46,7 @@
   <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be" />
 <link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be" />
 
-    <script src="../../../../_static/documentation_options.js?v=38b66d78"></script>
+    <script src="../../../../_static/documentation_options.js?v=95e61db4"></script>
     <script src="../../../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../../../_static/sg-tags.js?v=d80f6fa4"></script>
@@ -210,6 +210,21 @@
   </ul>
 </div></div>
       
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://cpoli.github.io/" title="Charles Poli" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-user fa-lg" aria-hidden="true"></i><span class="visually-hidden">Charles Poli</span></a>
+        </li>
+</ul></div>
+      
     </div>
     
   </div>
@@ -306,6 +321,21 @@
   </ul>
 </div></div>
         
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://cpoli.github.io/" title="Charles Poli" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-user fa-lg" aria-hidden="true"></i><span class="visually-hidden">Charles Poli</span></a>
+        </li>
+</ul></div>
+        
       </div>
     
   </div>
@@ -366,11 +396,14 @@
                 <article class="bd-article">
                   
   <h1>Source code for engineeringkit.communications.systems.noise</h1><div class="highlight"><pre>
-<span></span><span class="sa">r</span><span class="sd">"""Thermal noise and the noise figure of cascaded amplifiers.</span>
+<span></span><span class="sa">r</span><span class="sd">"""Thermal noise, the noise figure of cascaded amplifiers, and the noise performance of AM and FM.</span>
 
 <span class="sd">Johnson measured, and Nyquist explained, the noise power :math:`kTB`</span>
 <span class="sd">delivered by any resistor; Friis showed that in a chain of amplifiers the</span>
-<span class="sd">first stage dominates the total noise factor.</span>
+<span class="sd">first stage dominates the total noise factor. Crosby (1937) showed that</span>
+<span class="sd">above a threshold wideband FM improves the output signal-to-noise ratio by</span>
+<span class="sd">:math:`3\beta^2` times the message power, while envelope-detected AM loses</span>
+<span class="sd">the power spent on its carrier.</span>
 <span class="sd">"""</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
@@ -383,7 +416,16 @@
 <span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit._validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">vector</span> <span class="k">as</span> <span class="n">_vector</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit.communications.utils.decibels</span><span class="w"> </span><span class="kn">import</span> <span class="n">db</span>
 
-<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"BOLTZMANN"</span><span class="p">,</span> <span class="s2">"thermal_noise_power"</span><span class="p">,</span> <span class="s2">"noise_figure"</span><span class="p">,</span> <span class="s2">"cascaded_noise_factor"</span><span class="p">]</span>
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">"BOLTZMANN"</span><span class="p">,</span>
+    <span class="s2">"thermal_noise_power"</span><span class="p">,</span>
+    <span class="s2">"noise_figure"</span><span class="p">,</span>
+    <span class="s2">"cascaded_noise_factor"</span><span class="p">,</span>
+    <span class="s2">"baseband_snr"</span><span class="p">,</span>
+    <span class="s2">"am_output_snr"</span><span class="p">,</span>
+    <span class="s2">"fm_output_snr"</span><span class="p">,</span>
+    <span class="s2">"fm_threshold_snr"</span><span class="p">,</span>
+<span class="p">]</span>
 
 <span class="n">BOLTZMANN</span> <span class="o">=</span> <span class="mf">1.380649e-23</span>
 <span class="sd">"""Boltzmann constant [J/K] (exact)."""</span>
@@ -505,6 +547,165 @@
     <span class="n">_interval</span><span class="p">(</span><span class="s2">"noise factors"</span><span class="p">,</span> <span class="n">noise_factors</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="s2">"left"</span><span class="p">)</span>
     <span class="n">upstream_gain</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(([</span><span class="mf">1.0</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">cumprod</span><span class="p">(</span><span class="n">gains</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])))</span>
     <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">noise_factors</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">noise_factors</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="n">upstream_gain</span><span class="p">[</span><span class="mi">1</span><span class="p">:]))</span></div>
+
+
+
+<div class="viewcode-block" id="baseband_snr">
+<a class="viewcode-back" href="../../../../api/communications.html#engineeringkit.communications.baseband_snr">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">baseband_snr</span><span class="p">(</span><span class="n">received_power</span><span class="p">,</span> <span class="n">N0</span><span class="p">,</span> <span class="n">message_bandwidth</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Reference SNR :math:`\gamma = P_R/(N_0 W)` against which analog modulations are compared.</span>
+
+<span class="sd">    It is the output SNR of baseband transmission, and also of coherent</span>
+<span class="sd">    DSB-SC and SSB, with the same received power.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    received_power : float or array_like</span>
+<span class="sd">        Received signal power :math:`P_R` [W], nonnegative.</span>
+<span class="sd">    N0 : float or array_like</span>
+<span class="sd">        One-sided noise power spectral density [W/Hz], positive.</span>
+<span class="sd">    message_bandwidth : float or array_like</span>
+<span class="sd">        Message bandwidth :math:`W` [Hz], positive.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float or ndarray</span>
+<span class="sd">        :math:`\gamma` [-] (linear).</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Inputs are raw SI numbers with no dimensional metadata; see</span>
+<span class="sd">    :doc:`/guides/communications`.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; float(baseband_snr(1e-9, 1e-15, 1e4))</span>
+<span class="sd">    100.0</span>
+<span class="sd">    """</span>
+    <span class="n">_nonnegative</span><span class="p">(</span><span class="n">received_power</span><span class="o">=</span><span class="n">received_power</span><span class="p">)</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">N0</span><span class="o">=</span><span class="n">N0</span><span class="p">,</span> <span class="n">message_bandwidth</span><span class="o">=</span><span class="n">message_bandwidth</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">received_power</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">N0</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span> <span class="o">*</span> <span class="n">message_bandwidth</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="am_output_snr">
+<a class="viewcode-back" href="../../../../api/communications.html#engineeringkit.communications.am_output_snr">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">am_output_snr</span><span class="p">(</span><span class="n">snr_baseband</span><span class="p">,</span> <span class="n">mu</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">message_power</span><span class="o">=</span><span class="mf">0.5</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Output SNR of conventional AM with an envelope detector above threshold, :math:`\dfrac{\mu^2 P_m}{1 + \mu^2 P_m}\gamma`.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    snr_baseband : float or array_like</span>
+<span class="sd">        Reference SNR :math:`\gamma` from :func:`baseband_snr` [-], nonnegative.</span>
+<span class="sd">    mu : float or array_like, optional</span>
+<span class="sd">        Modulation index [-] in ``[0, 1]``.</span>
+<span class="sd">    message_power : float or array_like, optional</span>
+<span class="sd">        Mean square of the normalised message, :math:`P_m` [-] in ``[0, 1]``;</span>
+<span class="sd">        0.5 for a full-scale tone.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float or ndarray</span>
+<span class="sd">        Output SNR [-] (linear): at best one third of :math:`\gamma`, for a</span>
+<span class="sd">        tone at :math:`\mu = 1`.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Valid when the carrier is well above the noise; below that the envelope</span>
+<span class="sd">    detector's output collapses. Inputs are raw SI numbers with no</span>
+<span class="sd">    dimensional metadata; see :doc:`/guides/communications`.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; round(float(am_output_snr(300.0)), 6)</span>
+<span class="sd">    100.0</span>
+<span class="sd">    """</span>
+    <span class="n">_nonnegative</span><span class="p">(</span><span class="n">snr_baseband</span><span class="o">=</span><span class="n">snr_baseband</span><span class="p">)</span>
+    <span class="n">_interval</span><span class="p">(</span><span class="s2">"mu"</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">_interval</span><span class="p">(</span><span class="s2">"message_power"</span><span class="p">,</span> <span class="n">message_power</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">efficiency</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">message_power</span>
+    <span class="k">return</span> <span class="n">efficiency</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">efficiency</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">snr_baseband</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="fm_output_snr">
+<a class="viewcode-back" href="../../../../api/communications.html#engineeringkit.communications.fm_output_snr">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">fm_output_snr</span><span class="p">(</span><span class="n">snr_baseband</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="n">message_power</span><span class="o">=</span><span class="mf">0.5</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Output SNR of FM with a limiter-discriminator above threshold, :math:`3\beta^2 P_m\gamma`.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    snr_baseband : float or array_like</span>
+<span class="sd">        Reference SNR :math:`\gamma` from :func:`baseband_snr` [-], nonnegative.</span>
+<span class="sd">    beta : float or array_like</span>
+<span class="sd">        Modulation index :math:`\beta = \Delta f/W` [-], nonnegative.</span>
+<span class="sd">    message_power : float or array_like, optional</span>
+<span class="sd">        Mean square of the message normalised to :math:`|m| \le 1`,</span>
+<span class="sd">        :math:`P_m` [-] in ``[0, 1]``; 0.5 for a full-scale tone.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float or ndarray</span>
+<span class="sd">        Output SNR [-] (linear). The improvement grows as the square of the</span>
+<span class="sd">        deviation, so FM trades bandwidth (:func:`carson_bandwidth`) for</span>
+<span class="sd">        noise immunity. No pre-emphasis is assumed.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Valid only above the threshold of :func:`fm_threshold_snr`. Inputs are</span>
+<span class="sd">    raw SI numbers with no dimensional metadata; see</span>
+<span class="sd">    :doc:`/guides/communications`.</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    M. G. Crosby, "Frequency modulation noise characteristics," *Proc. IRE*</span>
+<span class="sd">    25 (1937) 472-514.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; float(fm_output_snr(100.0, 5.0))</span>
+<span class="sd">    3750.0</span>
+<span class="sd">    """</span>
+    <span class="n">_nonnegative</span><span class="p">(</span><span class="n">snr_baseband</span><span class="o">=</span><span class="n">snr_baseband</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="n">beta</span><span class="p">)</span>
+    <span class="n">_interval</span><span class="p">(</span><span class="s2">"message_power"</span><span class="p">,</span> <span class="n">message_power</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">beta</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">message_power</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">snr_baseband</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="fm_threshold_snr">
+<a class="viewcode-back" href="../../../../api/communications.html#engineeringkit.communications.fm_threshold_snr">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">fm_threshold_snr</span><span class="p">(</span><span class="n">beta</span><span class="p">,</span> <span class="n">carrier_to_noise</span><span class="o">=</span><span class="mf">10.0</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Reference SNR :math:`\gamma` at the FM threshold, :math:`2(\beta + 1)\,\mathrm{CNR}_{th}`.</span>
+
+<span class="sd">    Below threshold, noise spikes ("clicks") from phase wrap-arounds swamp</span>
+<span class="sd">    the discriminator output and :func:`fm_output_snr` no longer holds.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    beta : float or array_like</span>
+<span class="sd">        Modulation index [-], nonnegative.</span>
+<span class="sd">    carrier_to_noise : float, optional</span>
+<span class="sd">        Carrier-to-noise ratio in the Carson bandwidth at threshold [-]</span>
+<span class="sd">        (linear), positive; about 10 (10 dB) is customary.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float or ndarray</span>
+<span class="sd">        Threshold value of :math:`\gamma = P_R/(N_0 W)` [-] (linear).</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Inputs are raw SI numbers with no dimensional metadata; see</span>
+<span class="sd">    :doc:`/guides/communications`.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; float(fm_threshold_snr(5.0))</span>
+<span class="sd">    120.0</span>
+<span class="sd">    """</span>
+    <span class="n">_nonnegative</span><span class="p">(</span><span class="n">beta</span><span class="o">=</span><span class="n">beta</span><span class="p">)</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">carrier_to_noise</span><span class="o">=</span><span class="n">carrier_to_noise</span><span class="p">)</span>
+    <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">beta</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">carrier_to_noise</span></div>
 
 </pre></div>
 

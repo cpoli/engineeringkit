@@ -5,7 +5,7 @@
 Power
 -----
 
-Three-phase supply, reactive power, symmetrical components and load flow.
+Three-phase supply, reactive power, symmetrical components and faults, load flow and transient stability.
 
 
 .. raw:: html
@@ -38,7 +38,7 @@ Three-phase supply, reactive power, symmetrical components and load flow.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="An unbalanced three-phase system, such as one with a fault to ground, couples all three phases and resisted hand calculation. Charles LeGeyt Fortescue of Westinghouse showed in 1918 that any three phasors are the sum of three balanced sets: a zero-sequence set (three equal phasors), a positive-sequence set (a-b-c rotation) and a negative-sequence set (a-c-b) (~engineeringkit.electrical_engineering.symmetrical_components). In a symmetrical network the three sequences do not interact, so each is solved as a single-phase circuit and the results recombined (~engineeringkit.electrical_engineering.phase_components). This example decomposes an unbalanced set and computes a single-line-to-ground fault the way protection engineers still do.">
+    <div class="sphx-glr-thumbcontainer" tooltip="An unbalanced three-phase system, such as one with a fault to ground, couples all three phases and resisted hand calculation. Charles LeGeyt Fortescue of Westinghouse showed in 1918 that any three phasors are the sum of three balanced sets: a zero-sequence set (three equal phasors), a positive-sequence set (a-b-c rotation) and a negative-sequence set (a-c-b) (~engineeringkit.electrical_engineering.symmetrical_components). In a symmetrical network the three sequences do not interact, so each is solved as a single-phase circuit and the results recombined (~engineeringkit.electrical_engineering.phase_components). This example decomposes an unbalanced set, computes a single-line-to-ground fault the way protection engineers still do and compares the four fault types (~engineeringkit.electrical_engineering.fault_currents).">
 
 .. only:: html
 
@@ -87,6 +87,40 @@ Three-phase supply, reactive power, symmetrical components and load flow.
     </div>
 
 
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="As transmission lines grew longer in the 1920s, generators at their two ends began to fall out of step after faults. Westinghouse engineers R. D. Evans and C. F. Wagner computed swing curves, the rotor angle \delta against time, by integrating the swing equation (2H/\omega_s)\,\ddot\delta = P_m - P_{max}\sin\delta step by step (~engineeringkit.electrical_engineering.swing_response). For one machine against an infinite bus there is a shortcut: the kinetic energy gained while the fault holds the electrical power down (the accelerating area) must be given back after clearing (the decelerating area) before \delta passes the unstable equilibrium. Equating the two areas gives the critical clearing angle (~engineeringkit.electrical_engineering.equal_area_clearing_angle) and, for a bolted fault, the critical clearing time (~engineeringkit.electrical_engineering.critical_clearing_time). This example checks the criterion against the integrated swing curves.">
+
+.. only:: html
+
+  .. image:: /api/gallery/electrical_engineering/power/images/thumb/sphx_glr_plot_05_swing_equation_equal_area_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/electrical_engineering/power/plot_05_swing_equation_equal_area`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Swing curves and the equal-area criterion (1926)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Gauss-Seidel load flow needs little memory, but on large networks it converges slowly or not at all. Newton&#x27;s method converges quadratically, yet its Jacobian is as large as the network squared. William Tinney and Clifford Hart of the Bonneville Power Administration made it practical in 1967 by keeping the Jacobian sparse and ordering the buses so that its factorization stays sparse too. Newton-Raphson has been the standard power flow method ever since. In polar form the unknowns are the bus angles and the load-bus voltage magnitudes; a generator (PV) bus holds its voltage magnitude and lets its reactive power follow (~engineeringkit.electrical_engineering.newton_raphson_load_flow). This example solves a five-bus network with a generator bus, shows the quadratic convergence against Gauss-Seidel (~engineeringkit.electrical_engineering.gauss_seidel_load_flow) and checks the power balance.">
+
+.. only:: html
+
+  .. image:: /api/gallery/electrical_engineering/power/images/thumb/sphx_glr_plot_06_tinney_hart_newton_load_flow_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/electrical_engineering/power/plot_06_tinney_hart_newton_load_flow`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Tinney and Hart's Newton-Raphson load flow (1967)</div>
+    </div>
+
+
 .. thumbnail-parent-div-close
 
 .. raw:: html
@@ -101,4 +135,6 @@ Three-phase supply, reactive power, symmetrical components and load flow.
    /api/gallery/electrical_engineering/power/plot_02_fortescue_symmetrical_components
    /api/gallery/electrical_engineering/power/plot_03_budeanu_reactive_power
    /api/gallery/electrical_engineering/power/plot_04_ward_hale_load_flow
+   /api/gallery/electrical_engineering/power/plot_05_swing_equation_equal_area
+   /api/gallery/electrical_engineering/power/plot_06_tinney_hart_newton_load_flow
 

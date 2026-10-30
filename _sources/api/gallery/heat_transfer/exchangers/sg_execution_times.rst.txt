@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.171** total execution time for 1 file **from api/gallery/heat_transfer/exchangers**:
+**00:00.315** total execution time for 2 files **from api/gallery/heat_transfer/exchangers**:
 
 .. container::
 
@@ -32,6 +32,9 @@ Computation times
    * - Example
      - Time
      - Mem (MB)
+   * - :ref:`sphx_glr_api_gallery_heat_transfer_exchangers_plot_02_bowman_correction_factor.py` (``plot_02_bowman_correction_factor.py``)
+     - 00:00.201
+     - 0.0
    * - :ref:`sphx_glr_api_gallery_heat_transfer_exchangers_plot_01_kays_london_ntu.py` (``plot_01_kays_london_ntu.py``)
-     - 00:00.171
+     - 00:00.114
      - 0.0

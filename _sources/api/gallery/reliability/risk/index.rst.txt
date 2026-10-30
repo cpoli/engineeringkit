@@ -70,6 +70,23 @@ Fault trees, event trees and the safety integrity of protection systems.
     </div>
 
 
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="The US military procedure MIL-P-1629, Procedures for Performing a Failure Mode, Effects and Criticality Analysis (9 November 1949), asked designers to go through a system part by part, list each way the part can fail, trace the effect of each failure and classify it by its consequence for the mission and for safety. NASA used the method on Apollo, and the automotive industry later made it routine, ranking each mode by a risk priority number, severity times occurrence times detection, each scored from 1 to 10 (~engineeringkit.reliability.risk_priority_number, fmea_ranking). Where failure rates are known the military standard&#x27;s criticality number C_m = \beta\alpha\lambda_p t (~engineeringkit.reliability.failure_mode_criticality) ranks modes by expected losses instead.">
+
+.. only:: html
+
+  .. image:: /api/gallery/reliability/risk/images/thumb/sphx_glr_plot_04_mil_p_1629_fmea_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/reliability/risk/plot_04_mil_p_1629_fmea`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">MIL-P-1629's failure mode and effects analysis (1949)</div>
+    </div>
+
+
 .. thumbnail-parent-div-close
 
 .. raw:: html
@@ -83,4 +100,5 @@ Fault trees, event trees and the safety integrity of protection systems.
    /api/gallery/reliability/risk/plot_01_watson_fault_tree
    /api/gallery/reliability/risk/plot_02_wash1400_event_tree
    /api/gallery/reliability/risk/plot_03_iec61508_sil
+   /api/gallery/reliability/risk/plot_04_mil_p_1629_fmea
 

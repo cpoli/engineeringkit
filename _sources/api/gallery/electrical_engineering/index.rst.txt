@@ -8,7 +8,7 @@ Examples
 This gallery walks through every public feature of
 ``engineeringkit.electrical_engineering``, one breakthrough per script: DC
 circuits and nodal analysis, equivalent networks, transients, AC circuits,
-transmission lines and power systems.
+electronics, machines, transmission lines and power systems.
 
 :doc:`Units, assumptions and numerical validation </guides/electrical_engineering>`
 gives the physical validity limits. Each script is self-contained and can be
@@ -19,10 +19,12 @@ Sections
 
 - **dc_circuits** -- Ohm's law, Wheatstone's bridge and Kirchhoff's nodal analysis.
 - **networks** -- Jacobi's maximum power theorem, Thévenin and Norton equivalents.
-- **transients** -- Kelvin's telegraph cable and the RC time constant.
+- **transients** -- Kelvin's telegraph cable, Helmholtz's RL current rise and Kelvin's oscillatory RLC discharge.
 - **ac_circuits** -- Stanley's transformer, Steinmetz's phasors and Lodge's resonance.
+- **electronics** -- Ragazzini's operational amplifier and Shockley's diode with its load line.
+- **machines** -- The Hopkinsons' DC machine and Steinmetz's induction motor equivalent circuit.
 - **transmission_lines** -- Heaviside's telegrapher's equations and the Smith chart.
-- **power** -- Tesla's three-phase system, Fortescue's symmetrical components, Budeanu's reactive power and the digital load flow.
+- **power** -- Tesla's three-phase system, Fortescue's symmetrical components and fault currents, Budeanu's reactive power, swing curves and the equal-area criterion, and the Gauss-Seidel and Newton-Raphson load flows.
 
 
 .. raw:: html
@@ -190,6 +192,120 @@ Ohm's law, bridges and Kirchhoff's laws for resistive networks.
 
     </div>
 
+Electronics
+-----------
+
+Ideal op-amp circuits, the junction diode and its load line.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Analog computers of the 1940s solved differential equations with high-gain DC amplifiers wrapped in resistive and capacitive feedback. John Ragazzini, Robert Randall and Frederick Russell of Columbia University analysed them in 1947 and named them operational amplifiers, because each performed a mathematical operation: with a large enough gain the feedback forces the inverting input to a virtual ground, so the output depends only on the feedback network. A resistor ratio scales and inverts (~engineeringkit.electrical_engineering.inverting_amplifier_gain), the non-inverting connection scales without inversion (~engineeringkit.electrical_engineering.noninverting_amplifier_gain) and a feedback capacitor integrates (~engineeringkit.electrical_engineering.op_amp_integrator). This example checks the ideal gains against an amplifier of finite open-loop gain, then wires two integrators into a loop that solves \ddot y = -\omega^2 y, as an analog computer did.">
+
+.. only:: html
+
+  .. image:: /api/gallery/electrical_engineering/electronics/images/thumb/sphx_glr_plot_01_ragazzini_operational_amplifier_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/electrical_engineering/electronics/plot_01_ragazzini_operational_amplifier`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Ragazzini's operational amplifier (1947)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="William Shockley&#x27;s theory of the p-n junction, published in 1949 with the junction transistor, explained why a diode conducts one way: minority carriers injected across the junction diffuse away at a rate that grows as e^{qv/kT}, so the current is i = I_S\left(e^{v/nV_T} - 1\right) with the thermal voltage V_T = kT/q (~engineeringkit.electrical_engineering.shockley_diode_current, thermal_voltage). In a circuit the diode shares its current with a resistor, whose straight load line meets the exponential at the operating point (~engineeringkit.electrical_engineering.diode_operating_point). This example draws the characteristic, solves a load line and checks the famous 60 mV per decade and the fall of the forward voltage with temperature, roughly 2 mV/K.">
+
+.. only:: html
+
+  .. image:: /api/gallery/electrical_engineering/electronics/images/thumb/sphx_glr_plot_02_shockley_diode_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/electrical_engineering/electronics/plot_02_shockley_diode`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Shockley's diode equation and the load line (1949)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+Machines
+--------
+
+DC machine and induction motor equivalent circuits and their torque-speed curves.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="John Hopkinson introduced the characteristic curve of a dynamo, its EMF against field current at constant speed, in 1879, and with his brother Edward showed in 1886 how to predict it from the magnetic circuit of the iron. Underneath both lies the armature equation of every DC machine: an EMF E = k\Phi\omega proportional to flux and speed, behind the armature resistance R_a, with torque T = k\Phi I_a. As a motor on a fixed supply the torque-speed curve is then a straight line from the stall torque to the no-load speed (~engineeringkit.electrical_engineering.dc_motor_torque, dc_motor_speed); driven faster than that the same machine generates. This example draws the torque-speed lines for three armature voltages and checks the power balance at an operating point.">
+
+.. only:: html
+
+  .. image:: /api/gallery/electrical_engineering/machines/images/thumb/sphx_glr_plot_01_hopkinson_dynamo_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/electrical_engineering/machines/plot_01_hopkinson_dynamo`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">The Hopkinsons' dynamo and the DC machine (1886)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Tesla&#x27;s induction motor had no electrical connection to its rotor, which made it hard to calculate. Charles Proteus Steinmetz treated it as a transformer whose secondary is shorted through a resistance R_2/s that depends on the slip s between the rotating field and the rotor. The power absorbed by R_2/s is the air-gap power, and the torque follows from it (~engineeringkit.electrical_engineering.induction_motor_torque). The torque peaks at the breakdown slip, where R_2/s matches the impedance in front of it (~engineeringkit.electrical_engineering.induction_motor_breakdown), and the peak itself does not depend on the rotor resistance. This example draws the torque-speed curve of a four-pole, 50 Hz motor, checks the breakdown point and shows why wound-rotor motors add resistance to start.">
+
+.. only:: html
+
+  .. image:: /api/gallery/electrical_engineering/machines/images/thumb/sphx_glr_plot_02_steinmetz_induction_motor_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/electrical_engineering/machines/plot_02_steinmetz_induction_motor`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Steinmetz's induction motor equivalent circuit (1897)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
 Networks
 --------
 
@@ -267,7 +383,7 @@ Two-terminal equivalents and maximum power transfer.
 Power
 -----
 
-Three-phase supply, reactive power, symmetrical components and load flow.
+Three-phase supply, reactive power, symmetrical components and faults, load flow and transient stability.
 
 
 .. raw:: html
@@ -300,7 +416,7 @@ Three-phase supply, reactive power, symmetrical components and load flow.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="An unbalanced three-phase system, such as one with a fault to ground, couples all three phases and resisted hand calculation. Charles LeGeyt Fortescue of Westinghouse showed in 1918 that any three phasors are the sum of three balanced sets: a zero-sequence set (three equal phasors), a positive-sequence set (a-b-c rotation) and a negative-sequence set (a-c-b) (~engineeringkit.electrical_engineering.symmetrical_components). In a symmetrical network the three sequences do not interact, so each is solved as a single-phase circuit and the results recombined (~engineeringkit.electrical_engineering.phase_components). This example decomposes an unbalanced set and computes a single-line-to-ground fault the way protection engineers still do.">
+    <div class="sphx-glr-thumbcontainer" tooltip="An unbalanced three-phase system, such as one with a fault to ground, couples all three phases and resisted hand calculation. Charles LeGeyt Fortescue of Westinghouse showed in 1918 that any three phasors are the sum of three balanced sets: a zero-sequence set (three equal phasors), a positive-sequence set (a-b-c rotation) and a negative-sequence set (a-c-b) (~engineeringkit.electrical_engineering.symmetrical_components). In a symmetrical network the three sequences do not interact, so each is solved as a single-phase circuit and the results recombined (~engineeringkit.electrical_engineering.phase_components). This example decomposes an unbalanced set, computes a single-line-to-ground fault the way protection engineers still do and compares the four fault types (~engineeringkit.electrical_engineering.fault_currents).">
 
 .. only:: html
 
@@ -349,6 +465,40 @@ Three-phase supply, reactive power, symmetrical components and load flow.
     </div>
 
 
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="As transmission lines grew longer in the 1920s, generators at their two ends began to fall out of step after faults. Westinghouse engineers R. D. Evans and C. F. Wagner computed swing curves, the rotor angle \delta against time, by integrating the swing equation (2H/\omega_s)\,\ddot\delta = P_m - P_{max}\sin\delta step by step (~engineeringkit.electrical_engineering.swing_response). For one machine against an infinite bus there is a shortcut: the kinetic energy gained while the fault holds the electrical power down (the accelerating area) must be given back after clearing (the decelerating area) before \delta passes the unstable equilibrium. Equating the two areas gives the critical clearing angle (~engineeringkit.electrical_engineering.equal_area_clearing_angle) and, for a bolted fault, the critical clearing time (~engineeringkit.electrical_engineering.critical_clearing_time). This example checks the criterion against the integrated swing curves.">
+
+.. only:: html
+
+  .. image:: /api/gallery/electrical_engineering/power/images/thumb/sphx_glr_plot_05_swing_equation_equal_area_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/electrical_engineering/power/plot_05_swing_equation_equal_area`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Swing curves and the equal-area criterion (1926)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Gauss-Seidel load flow needs little memory, but on large networks it converges slowly or not at all. Newton&#x27;s method converges quadratically, yet its Jacobian is as large as the network squared. William Tinney and Clifford Hart of the Bonneville Power Administration made it practical in 1967 by keeping the Jacobian sparse and ordering the buses so that its factorization stays sparse too. Newton-Raphson has been the standard power flow method ever since. In polar form the unknowns are the bus angles and the load-bus voltage magnitudes; a generator (PV) bus holds its voltage magnitude and lets its reactive power follow (~engineeringkit.electrical_engineering.newton_raphson_load_flow). This example solves a five-bus network with a generator bus, shows the quadratic convergence against Gauss-Seidel (~engineeringkit.electrical_engineering.gauss_seidel_load_flow) and checks the power balance.">
+
+.. only:: html
+
+  .. image:: /api/gallery/electrical_engineering/power/images/thumb/sphx_glr_plot_06_tinney_hart_newton_load_flow_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/electrical_engineering/power/plot_06_tinney_hart_newton_load_flow`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Tinney and Hart's Newton-Raphson load flow (1967)</div>
+    </div>
+
+
 .. thumbnail-parent-div-close
 
 .. raw:: html
@@ -358,7 +508,7 @@ Three-phase supply, reactive power, symmetrical components and load flow.
 Transients
 ----------
 
-First-order charging and the RC time constant.
+First-order charging, the RL current rise and the second-order RLC step.
 
 
 .. raw:: html
@@ -386,6 +536,40 @@ First-order charging and the RC time constant.
 .. raw:: html
 
       <div class="sphx-glr-thumbnail-title">Kelvin's telegraph cable and the RC time constant (1855)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="When a battery is switched onto a coil, the current does not jump to Ohm&#x27;s value: the coil&#x27;s self-induction opposes the change. Hermann Helmholtz measured how long induced currents last and in 1851 gave the law of their rise, i = (V/R)\left(1 - e^{-Rt/L}\right), with the time scale L/R (~engineeringkit.electrical_engineering.rl_current, rl_time_constant). Opening the circuit, the current decays with the same time constant. This example switches a relay coil on and off and checks the energy bookkeeping: what the source supplies is dissipated in the resistance or stored as \tfrac12 L i^2.">
+
+.. only:: html
+
+  .. image:: /api/gallery/electrical_engineering/transients/images/thumb/sphx_glr_plot_02_helmholtz_rl_current_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/electrical_engineering/transients/plot_02_helmholtz_rl_current`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Helmholtz's inductive current rise (1851)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Felix Savary and Joseph Henry had seen that a Leyden jar discharged through a coil could magnetise needles either way, as if the current reversed. In 1853 William Thomson (later Lord Kelvin) wrote down the equation of the discharge, a capacitance, an inductance and a resistance in series, and found that it is a single surge if R &gt; 2\sqrt{L/C} and an oscillation of period close to 2\pi\sqrt{LC} if it is less. Feddersen photographed the oscillating spark a few years later. In modern terms the series RLC circuit has the neper frequency \alpha = R/2L and the resonant frequency \omega_0 = 1/\sqrt{LC}, and is over-, critically or underdamped as \alpha is larger than, equal to or smaller than \omega_0 (~engineeringkit.electrical_engineering.rlc_damping, rlc_step_voltage). This example shows the three regimes of the step response and checks the ringing frequency and decay of the underdamped one.">
+
+.. only:: html
+
+  .. image:: /api/gallery/electrical_engineering/transients/images/thumb/sphx_glr_plot_03_kelvin_oscillatory_discharge_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/electrical_engineering/transients/plot_03_kelvin_oscillatory_discharge`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Kelvin's oscillatory discharge and the RLC step response (1853)</div>
     </div>
 
 
@@ -460,6 +644,8 @@ Distributed lines, reflections and the Smith chart.
 
    /api/gallery/electrical_engineering/ac_circuits/index.rst
    /api/gallery/electrical_engineering/dc_circuits/index.rst
+   /api/gallery/electrical_engineering/electronics/index.rst
+   /api/gallery/electrical_engineering/machines/index.rst
    /api/gallery/electrical_engineering/networks/index.rst
    /api/gallery/electrical_engineering/power/index.rst
    /api/gallery/electrical_engineering/transients/index.rst

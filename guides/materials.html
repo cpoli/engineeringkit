@@ -6,16 +6,16 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta property="og:title" content="Materials: elasticity, yield, fatigue, fracture and creep conventions" />
+<meta property="og:title" content="Materials: structure, elasticity, yield, fatigue, fracture and creep conventions" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://cpoli.github.io/engineeringkit/guides/materials.html" />
 <meta property="og:site_name" content="engineeringkit" />
-<meta property="og:description" content="Stresses and moduli are Pa, strains dimensionless, lengths m, stress intensity Pa sqrt(m), energies per volume J/m^3 and temperatures K. Engineering (nominal) stress and strain and small-strain ela..." />
+<meta property="og:description" content="Stresses and moduli are Pa, strains dimensionless, lengths m, stress intensity Pa sqrt(m), energies per volume J/m^3, temperatures K, angles rad, diffusivities m^2/s and molar masses kg/mol. Hardne..." />
 <meta property="og:image" content="https://cpoli.github.io/engineeringkit/_static/images/readme_hero.png" />
 <meta property="og:image:alt" content="engineeringkit" />
-<meta name="description" content="Stresses and moduli are Pa, strains dimensionless, lengths m, stress intensity Pa sqrt(m), energies per volume J/m^3 and temperatures K. Engineering (nominal) stress and strain and small-strain ela..." />
+<meta name="description" content="Stresses and moduli are Pa, strains dimensionless, lengths m, stress intensity Pa sqrt(m), energies per volume J/m^3, temperatures K, angles rad, diffusivities m^2/s and molar masses kg/mol. Hardne..." />
 
-    <title>Materials: elasticity, yield, fatigue, fracture and creep conventions &#8212; engineeringkit</title>
+    <title>Materials: structure, elasticity, yield, fatigue, fracture and creep conventions &#8212; engineeringkit</title>
   
   
   
@@ -55,7 +55,7 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be" />
 
-    <script src="../_static/documentation_options.js?v=38b66d78"></script>
+    <script src="../_static/documentation_options.js?v=95e61db4"></script>
     <script src="../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/sg-tags.js?v=d80f6fa4"></script>
@@ -221,6 +221,21 @@
   </ul>
 </div></div>
       
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://cpoli.github.io/" title="Charles Poli" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-user fa-lg" aria-hidden="true"></i><span class="visually-hidden">Charles Poli</span></a>
+        </li>
+</ul></div>
+      
     </div>
     
   </div>
@@ -319,6 +334,21 @@
   </ul>
 </div></div>
         
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://cpoli.github.io/" title="Charles Poli" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-user fa-lg" aria-hidden="true"></i><span class="visually-hidden">Charles Poli</span></a>
+        </li>
+</ul></div>
+        
       </div>
     
   </div>
@@ -339,13 +369,16 @@
   <div class="bd-toc-item navbar-nav"><ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../api/gallery/structural_engineering/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../api/gallery/structural_engineering/beams/index.html">Beams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/structural_engineering/cables/index.html">Cables and arches</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/gallery/structural_engineering/energy/index.html">Energy methods</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/gallery/structural_engineering/frames/index.html">Frames</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/gallery/structural_engineering/members/index.html">Members</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/gallery/structural_engineering/plasticity/index.html">Plasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/structural_engineering/shear/index.html">Shear and sections</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/gallery/structural_engineering/stability/index.html">Stability</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/gallery/structural_engineering/stress/index.html">Stress</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/gallery/structural_engineering/trusses/index.html">Trusses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/structural_engineering/vessels/index.html">Pressure vessels</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../api/gallery/mechanical_engineering/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -358,6 +391,7 @@
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../api/gallery/thermodynamics/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/thermodynamics/combustion/index.html">Combustion</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/gallery/thermodynamics/cycles/index.html">Cycles</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/gallery/thermodynamics/exergy/index.html">Exergy</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/gallery/thermodynamics/laws/index.html">Laws</a></li>
@@ -367,14 +401,17 @@
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../api/gallery/fluid_engineering/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/fluid_engineering/drag/index.html">Drag</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/gallery/fluid_engineering/hydrostatics/index.html">Hydrostatics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/gallery/fluid_engineering/measurement/index.html">Measurement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/fluid_engineering/momentum/index.html">Momentum</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/gallery/fluid_engineering/networks/index.html">Networks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/gallery/fluid_engineering/open_channel/index.html">Open channels</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/gallery/fluid_engineering/pipe_flow/index.html">Pipe flow</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/gallery/fluid_engineering/pumps/index.html">Pumps</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/gallery/fluid_engineering/similarity/index.html">Similarity</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/gallery/fluid_engineering/transients/index.html">Transients</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/fluid_engineering/viscous/index.html">Viscous flow</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../api/gallery/heat_transfer/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -400,6 +437,8 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../api/gallery/electrical_engineering/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../api/gallery/electrical_engineering/ac_circuits/index.html">AC circuits</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/gallery/electrical_engineering/dc_circuits/index.html">DC circuits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/electrical_engineering/electronics/index.html">Electronics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/electrical_engineering/machines/index.html">Machines</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/gallery/electrical_engineering/networks/index.html">Networks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/gallery/electrical_engineering/power/index.html">Power</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/gallery/electrical_engineering/transients/index.html">Transients</a></li>
@@ -409,6 +448,7 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../api/gallery/control_systems/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../api/gallery/control_systems/feedback/index.html">Feedback</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/gallery/control_systems/frequency/index.html">Frequency response</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/control_systems/nonlinear/index.html">Nonlinear loops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/gallery/control_systems/optimal/index.html">Optimal control and estimation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/gallery/control_systems/root_locus/index.html">Root locus</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/gallery/control_systems/sampled/index.html">Sampled-data control</a></li>
@@ -426,9 +466,12 @@
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../api/gallery/communications/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/communications/antennas/index.html">Antennas</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/gallery/communications/coding/index.html">Coding</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/gallery/communications/decibels/index.html">Decibels</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/gallery/communications/detection/index.html">Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/communications/digitization/index.html">Digitization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/communications/fading/index.html">Fading</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/gallery/communications/information/index.html">Information and capacity</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/gallery/communications/modulation/index.html">Modulation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/gallery/communications/multiplexing/index.html">Multiplexing</a></li>
@@ -439,15 +482,21 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../api/gallery/materials/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../api/gallery/materials/composites/index.html">Composites</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/gallery/materials/creep/index.html">Creep</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/materials/crystals/index.html">Crystals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/materials/diffusion/index.html">Diffusion</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/gallery/materials/elasticity/index.html">Elasticity</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/gallery/materials/fatigue/index.html">Fatigue</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/gallery/materials/fracture/index.html">Fracture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/materials/hardness/index.html">Hardness</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/materials/phases/index.html">Phases</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/gallery/materials/plasticity/index.html">Plasticity</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/gallery/materials/yield/index.html">Yield</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../api/gallery/reliability/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/reliability/acceleration/index.html">Accelerated life testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/gallery/reliability/growth/index.html">Growth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gallery/reliability/life_data/index.html">Life data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/gallery/reliability/lifetimes/index.html">Lifetimes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/gallery/reliability/maintenance/index.html">Maintenance</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/gallery/reliability/risk/index.html">Risk</a></li>
@@ -491,7 +540,7 @@
 <li class="toctree-l1"><a class="reference internal" href="control_systems.html">Control systems: matrix contracts and numerical stability</a></li>
 <li class="toctree-l1"><a class="reference internal" href="signal_processing.html">Signal processing: sampled energy, spectra and quantization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="communications.html">Communications: linear ratios, modulation phase and channel scope</a></li>
-<li class="toctree-l1 current active"><a aria-current="page" class="current reference internal" href="#">Materials: elasticity, yield, fatigue, fracture and creep conventions</a></li>
+<li class="toctree-l1 current active"><a aria-current="page" class="current reference internal" href="#">Materials: structure, elasticity, yield, fatigue, fracture and creep conventions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reliability.html">Reliability: distributions, independence and rate units</a></li>
 </ul>
 </div>
@@ -536,7 +585,7 @@
     
     <li class="breadcrumb-item"><a href="../examples/index.html" class="nav-link">Examples</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Materials: elasticity, yield, fatigue, fracture and creep conventions</span></li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Materials: structure, elasticity, yield, fatigue, fracture and creep conventions</span></li>
   </ul>
 </nav>
 </div>
@@ -553,13 +602,47 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="materials-elasticity-yield-fatigue-fracture-and-creep-conventions">
-<h1>Materials: elasticity, yield, fatigue, fracture and creep conventions<a class="headerlink" href="#materials-elasticity-yield-fatigue-fracture-and-creep-conventions" title="Link to this heading">#</a></h1>
+  <section id="materials-structure-elasticity-yield-fatigue-fracture-and-creep-conventions">
+<h1>Materials: structure, elasticity, yield, fatigue, fracture and creep conventions<a class="headerlink" href="#materials-structure-elasticity-yield-fatigue-fracture-and-creep-conventions" title="Link to this heading">#</a></h1>
 <p>Stresses and moduli are Pa, strains dimensionless, lengths m, stress
-intensity Pa sqrt(m), energies per volume J/m^3 and temperatures K.
+intensity Pa sqrt(m), energies per volume J/m^3, temperatures K, angles
+rad, diffusivities m^2/s and molar masses kg/mol. Hardness numbers are the
+exception: they keep their conventional kgf/mm^2 values.
 Engineering (nominal) stress and strain and small-strain elasticity are
 assumed throughout. Every function accepts NumPy arrays and broadcasts its
 arguments, except where a vector is stated.</p>
+<section id="crystals">
+<h2>Crystals<a class="headerlink" href="#crystals" title="Link to this heading">#</a></h2>
+<p>cubic_lattice_parameter gives the cell edge of touching hard spheres
+(sc 2R, bcc 4R/sqrt(3), fcc 2*sqrt(2)*R); atomic_packing_factor also
+accepts “hcp” with the ideal c/a = sqrt(8/3). theoretical_density is
+n*A/(Vc*N_A) for a perfect crystal; vacancies lower the measured value.
+interplanar_spacing is for cubic cells only and needs integer Miller
+indices. bragg_angle returns theta, not 2*theta, and raises when
+n*lambda &gt; 2d. diffraction_peaks lists first-order peaks with the BCC
+(h+k+l even) and FCC (all odd or all even) selection rules; planes with the
+same h^2+k^2+l^2 share a peak and are listed once. Peak intensities are
+not modelled.</p>
+</section>
+<section id="diffusion-and-phases">
+<h2>Diffusion and phases<a class="headerlink" href="#diffusion-and-phases" title="Link to this heading">#</a></h2>
+<p>diffusion_coefficient is D0*exp(-Qd/RT) with R = 8.314 J/(mol K).
+fick_flux is the steady first law. semi_infinite_concentration and
+diffusion_time are the error-function solution for a constant D, a
+uniform initial concentration and a surface held at Cs from t = 0; the
+part must be thicker than a few sqrt(D*t). Concentrations may be in any
+unit, as long as C, C0 and Cs share it.</p>
+<p>lever_rule takes the tie-line compositions read from a phase diagram (no
+diagrams are built in) and returns (W_alpha, W_beta); weight percent gives
+mass fractions. avrami_fraction is 1 - exp(-k*t^n) for an isothermal
+transformation, with k in 1/s^n; avrami_time inverts it and avrami_fit
+fits k and n on Avrami axes, so trim points near 0 and 1 first.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit.materials</span><span class="w"> </span><span class="kn">import</span> <span class="n">diffusion_coefficient</span><span class="p">,</span> <span class="n">diffusion_time</span>
+<span class="n">D</span> <span class="o">=</span> <span class="n">diffusion_coefficient</span><span class="p">(</span><span class="mf">2.3e-5</span><span class="p">,</span> <span class="mf">148e3</span><span class="p">,</span> <span class="mf">1223.0</span><span class="p">)</span>    <span class="c1"># C in austenite</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">diffusion_time</span><span class="p">(</span><span class="mf">0.5e-3</span><span class="p">,</span> <span class="mf">0.80</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">1.20</span><span class="p">)</span>     <span class="c1"># s to 0.8 wt% at 0.5 mm</span>
+</pre></div>
+</div>
+</section>
 <section id="elasticity">
 <h2>Elasticity<a class="headerlink" href="#elasticity" title="Link to this heading">#</a></h2>
 <p>For an isotropic stable elastic material E&gt;0 and -1&lt;nu&lt;0.5. The
@@ -575,6 +658,14 @@ choose an elastic segment. offset_yield_strength finds the first crossing
 of the curve with the elastic line shifted by the offset strain (0.002 by
 default) by linear interpolation, and raises if the curve never reaches it.</p>
 </section>
+<section id="hardness">
+<h2>Hardness<a class="headerlink" href="#hardness" title="Link to this heading">#</a></h2>
+<p>brinell_hardness and vickers_hardness take the load in N and lengths in m
+and return the conventional HB and HV numbers (kgf/mm^2). Brinell is
+valid for dents between 0.24 and 0.6 ball diameters. brinell_tensile_strength
+is the empirical 3.45 MPa per HB for steels, good to about 10%; pass
+another factor for other alloys.</p>
+</section>
 <section id="yield">
 <h2>Yield<a class="headerlink" href="#yield" title="Link to this heading">#</a></h2>
 <p>tresca_equivalent takes the principal stresses along the last axis and
@@ -582,7 +673,12 @@ returns their spread; include the zero out-of-plane stress for plane
 stress, or equal biaxial tension will be wrongly reported as safe.
 von_mises_plane_stress assumes sigma_z = tau_xz = tau_yz = 0. Both are for
 isotropic, pressure-insensitive ductile metals; Tresca’s equivalent is never
-smaller than von Mises’s and at most 2/sqrt(3) times it.</p>
+smaller than von Mises’s and at most 2/sqrt(3) times it.
+principal_stresses takes the six components of a three-dimensional state
+(shears default to zero) and returns sigma_1 &gt;= sigma_2 &gt;= sigma_3 along
+the last axis, ready for tresca_equivalent; von_mises_stress is the
+three-dimensional equivalent and equals von_mises_plane_stress when
+sigma_z = tau_yz = tau_zx = 0.</p>
 </section>
 <section id="composites">
 <h2>Composites<a class="headerlink" href="#composites" title="Link to this heading">#</a></h2>
@@ -590,6 +686,16 @@ smaller than von Mises’s and at most 2/sqrt(3) times it.</p>
 Vf in [0,1]. They are the exact moduli of continuous aligned fibres loaded
 along and across them, and bounds for any other arrangement; real
 transverse moduli lie above the Reuss value. Voids and fibre waviness are
+not modelled. halpin_tsai interpolates between them with xi &gt;= 0: xi = 0 is
+Reuss, xi -&gt; infinity is Voigt, xi = 2 for E2 and 1 for G12 of round fibres,
+2*l/d for E1 of aligned short fibres.</p>
+<p>classical_laminate builds the ABD matrix from the ply properties (E1, E2,
+nu12, G12), the fibre angles in radians listed from the bottom ply up, and
+one thickness or one per ply. The returned Laminate solves for midplane
+strains and curvatures, gives each ply’s stresses in its material axes at
+mid-height, and the in-plane engineering constants from A. Kirchhoff
+kinematics and perfect bonding are assumed; free-edge interlaminar
+stresses, hygrothermal strains and failure criteria (Tsai-Wu, Hashin) are
 not modelled.</p>
 </section>
 <section id="fatigue">
@@ -601,6 +707,26 @@ stress correction (Morrow, Smith-Watson-Topper) is applied. Goodman
 restricts mean stress to nonnegative values. Miner sums n_i/N_i over
 matching vectors and ignores load order; it is not a probabilistic fatigue
 predictor. No endurance limit is built into the S-N law.</p>
+<p>gerber_safety_factor solves n*sa/Se + (n*sm/Sut)^2 = 1 in closed form and
+soderberg_safety_factor uses the yield strength in place of Sut; for the
+same stresses Soderberg &lt;= Goodman &lt;= Gerber. endurance_limit_estimate is
+0.5*Sut capped at 700 MPa, for steels only. The Marin factors follow
+Shigley: marin_surface_factor (ground, machined or cold-drawn, hot-rolled,
+forged), marin_size_factor for round bars in bending or torsion between
+2.79 and 254 mm (use 1 for axial load), marin_load_factor (1, 0.85, 0.59)
+and marin_reliability_factor 1 - 0.08*z for reliability in [0.5, 1).
+marin_endurance_limit multiplies them; the temperature factor kd is left
+to the caller.</p>
+</section>
+<section id="notches">
+<h2>Notches<a class="headerlink" href="#notches" title="Link to this heading">#</a></h2>
+<p>elliptical_hole_concentration is Inglis’s 1 + 2a/b for a wide plate.
+peterson_notch_sensitivity and neuber_notch_sensitivity take the root
+radius and a material length in m, and fatigue_notch_factor is
+1 + q*(Kt - 1). neuber_notch_stress solves sigma*eps = (Kt*S)^2/E with the
+Ramberg-Osgood curve of ramberg_osgood_strain; for fatigue use the cyclic
+curve and Kf, and pass a stress range with the doubled curve for the
+Massing hysteresis branch. Nominal stresses should be elastic.</p>
 </section>
 <section id="fracture">
 <h2>Fracture<a class="headerlink" href="#fracture" title="Link to this heading">#</a></h2>
@@ -613,6 +739,12 @@ energy J/m^2, a central crack of half-length a and plane stress.</p>
 MPa sqrt(m) (multiply by 1e-6**m), and only the stable-growth regime is
 modelled. crack_growth_life integrates the law by the trapezoid rule on a
 geometric grid of crack lengths; Y may be a function of crack length.</p>
+<p>The Weibull strength functions assume a uniformly stressed volume:
+weibull_failure_probability is 1 - exp(-(V/V0)*(sigma/sigma_0)^m),
+evaluated by engineeringkit.reliability.weibull_cdf with the scale
+sigma_0*(V0/V)^(1/m). For bending or other non-uniform stress, replace V
+by the effective volume. weibull_size_effect scales a strength between
+volumes at equal failure probability.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit.materials</span><span class="w"> </span><span class="kn">import</span> <span class="n">crack_growth_life</span><span class="p">,</span> <span class="n">critical_crack_length</span>
 <span class="n">a_c</span> <span class="o">=</span> <span class="n">critical_crack_length</span><span class="p">(</span><span class="mf">35e6</span><span class="p">,</span> <span class="mf">100e6</span><span class="p">)</span>
 <span class="n">life</span> <span class="o">=</span> <span class="n">crack_growth_life</span><span class="p">(</span><span class="mf">5e-32</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">,</span> <span class="mf">100e6</span><span class="p">,</span> <span class="mf">1e-3</span><span class="p">,</span> <span class="n">a_c</span><span class="p">)</span><span class="o">.</span><span class="n">life</span>   <span class="c1"># cycles</span>
@@ -630,7 +762,14 @@ Peierls-Nabarro estimate, a guide to trends rather than an accurate value.
 hall_petch holds down to grain sizes of tens of nanometres.
 ramberg_osgood_strain uses the offset form eps = sigma/E +
 offset*(sigma/sigma_y)^n with n &gt;= 1 and is odd in stress.</p>
-<p>Tests check the isotropic modulus identities, Lamé’s law in uniaxial
+<p>Tests check the textbook values of copper’s density, the (220) reflection
+of iron, Fick’s flux, a carburizing time, the lever rule, a Brinell number
+and Shigley’s Marin factors; the error-function profile against Fick’s
+second law, Avrami fit round trips, Gerber-Goodman-Soderberg ordering,
+Neuber’s product, principal-stress invariants, Halpin-Tsai’s limits at the
+Reuss and Voigt bounds, the ABD matrix of single, quasi-isotropic and
+cross-ply laminates, Weibull’s size effect against the reliability
+distribution, and also the isotropic modulus identities, Lamé’s law in uniaxial
 tension, elastic triangle energy, fitted modulus and offset yield, the
 Tresca and von Mises ratio in shear, fracture inversion and Griffith-Irwin
 agreement, Paris integration against the closed form and quadrature,
@@ -686,10 +825,14 @@ and Miner accumulation.</p>
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#crystals">Crystals</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diffusion-and-phases">Diffusion and phases</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#elasticity">Elasticity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hardness">Hardness</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#yield">Yield</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#composites">Composites</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fatigue">Fatigue</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notches">Notches</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fracture">Fracture</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creep-and-plasticity">Creep and plasticity</a></li>
 </ul>

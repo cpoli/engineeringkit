@@ -42,7 +42,7 @@ jump.
     import numpy as np
     from scipy.optimize import brentq
 
-    from engineeringkit.heat_transfer import STEFAN_BOLTZMANN, zuber_critical_heat_flux
+    from engineeringkit.heat_transfer import STEFAN_BOLTZMANN, rohsenow_boiling_heat_flux, zuber_critical_heat_flux
 
 
 
@@ -81,23 +81,24 @@ Saturated water at 1 atm
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 38-44
+.. GENERATED FROM PYTHON SOURCE LINES 38-45
 
 Nucleate boiling (Rohsenow, 1952)
 ---------------------------------
 
 :math:`q'' = \mu_l h_{fg}[g(\rho_l - \rho_v)/\sigma]^{1/2}[c_p\Delta T/(C_{sf}h_{fg}Pr_l)]^3`
-with :math:`C_{sf} = 0.013` for water on clean metal. The cube makes the
-flux climb steeply until it meets Zuber's limit.
+with :math:`C_{sf} = 0.013` for water on clean metal
+(:func:`~engineeringkit.heat_transfer.rohsenow_boiling_heat_flux`). The cube
+makes the flux climb steeply until it meets Zuber's limit.
 
-.. GENERATED FROM PYTHON SOURCE LINES 44-55
+.. GENERATED FROM PYTHON SOURCE LINES 45-56
 
 .. code-block:: Python
 
 
 
-    def nucleate(dT, C_sf=0.013):
-        return mu_l * h_fg * np.sqrt(g * (rho_l - rho_v) / sigma) * (cp_l * dT / (C_sf * h_fg * Pr_l)) ** 3
+    def nucleate(dT):
+        return rohsenow_boiling_heat_flux(mu_l, h_fg, rho_l, rho_v, sigma, cp_l, Pr_l, dT, C_sf=0.013, g=g)
 
 
     dT_max = brentq(lambda dT: nucleate(dT) - q_max, 1, 100)
@@ -118,7 +119,7 @@ flux climb steeply until it meets Zuber's limit.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 56-63
+.. GENERATED FROM PYTHON SOURCE LINES 57-64
 
 Film boiling on a 1 mm wire (Bromley, 1950)
 -------------------------------------------
@@ -128,7 +129,7 @@ properties at the film temperature. With the power held at
 :math:`q''_{max}`, the wire must jump along the dashed line to the film
 branch, more than a thousand kelvin hotter.
 
-.. GENERATED FROM PYTHON SOURCE LINES 63-97
+.. GENERATED FROM PYTHON SOURCE LINES 64-98
 
 .. code-block:: Python
 
@@ -187,7 +188,7 @@ branch, more than a thousand kelvin hotter.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.219 seconds)
+   **Total running time of the script:** (0 minutes 0.216 seconds)
 
 
 .. _sphx_glr_download_api_gallery_heat_transfer_phase_change_plot_03_nukiyama_boiling_curve.py:

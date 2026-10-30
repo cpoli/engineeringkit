@@ -55,7 +55,7 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be" />
 
-    <script src="../_static/documentation_options.js?v=38b66d78"></script>
+    <script src="../_static/documentation_options.js?v=95e61db4"></script>
     <script src="../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/sg-tags.js?v=d80f6fa4"></script>
@@ -222,6 +222,21 @@
   </ul>
 </div></div>
       
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://cpoli.github.io/" title="Charles Poli" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-user fa-lg" aria-hidden="true"></i><span class="visually-hidden">Charles Poli</span></a>
+        </li>
+</ul></div>
+      
     </div>
     
   </div>
@@ -319,6 +334,21 @@
     <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
   </ul>
 </div></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://cpoli.github.io/" title="Charles Poli" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-user fa-lg" aria-hidden="true"></i><span class="visually-hidden">Charles Poli</span></a>
+        </li>
+</ul></div>
         
       </div>
     
@@ -422,12 +452,14 @@ numbers, you know something about it.”
 Engineers, 1883</p>
 </div></blockquote>
 <p>Engineering hydraulics is older than the calculus. Archimedes and Stevin
-settled fluids at rest, and the eighteenth century learned to measure
-moving water with Pitot’s and Venturi’s instruments. Viscous flow in pipes
-then took a century to understand, from Hagen and Poiseuille’s capillaries
+settled fluids at rest, Torricelli timed the jet from an orifice, and the
+eighteenth century learned to measure moving water with Pitot’s and
+Venturi’s instruments while Euler wrote the equation of every turbine.
+Viscous flow in pipes then took a century to understand, from Hagen and Poiseuille’s capillaries
 through Reynolds’s dye streak to the friction charts of Nikuradse,
 Colebrook and Moody. Alongside them came the scaling laws of Froude and
-Buckingham, the empirical formulas of open channels, the pressure waves of
+Buckingham, Stokes’s drag and Couette’s viscometer, the weirs, jumps and
+specific energy of open channels, Pelton’s wheel, the pressure waves of
 water hammer, cavitation in turbines and the hand methods for city water
 networks. The entries trace the ideas behind
 <a class="reference internal" href="../api/fluid_engineering.html#module-engineeringkit.fluid_engineering" title="engineeringkit.fluid_engineering"><code class="xref py py-mod docutils literal notranslate"><span class="pre">engineeringkit.fluid_engineering</span></code></a>. Each links to the implementing
@@ -437,22 +469,30 @@ function and to a gallery example devoted to it.</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#c-250-bc-archimedes-s-principle" id="id1">c. 250 BC – Archimedes’s Principle</a></p></li>
 <li><p><a class="reference internal" href="#stevin-s-hydrostatic-paradox" id="id2">1586 – Stevin’s Hydrostatic Paradox</a></p></li>
-<li><p><a class="reference internal" href="#pitot-s-tube" id="id3">1732 – Pitot’s Tube</a></p></li>
-<li><p><a class="reference internal" href="#venturi-s-tube" id="id4">1797 – Venturi’s Tube</a></p></li>
-<li><p><a class="reference internal" href="#hagen-and-poiseuille-laminar-pipe-flow" id="id5">1839-1840 – Hagen and Poiseuille: Laminar Pipe Flow</a></p></li>
-<li><p><a class="reference internal" href="#weisbach-and-darcy-head-loss-in-pipes" id="id6">1845-1857 – Weisbach and Darcy: Head Loss in Pipes</a></p></li>
-<li><p><a class="reference internal" href="#froude-s-ship-models" id="id7">1868 – Froude’s Ship Models</a></p></li>
-<li><p><a class="reference internal" href="#reynolds-s-dye-experiment" id="id8">1883 – Reynolds’s Dye Experiment</a></p></li>
-<li><p><a class="reference internal" href="#manning-s-open-channel-formula" id="id9">1889 – Manning’s Open-Channel Formula</a></p></li>
-<li><p><a class="reference internal" href="#joukowsky-s-water-hammer" id="id10">1898 – Joukowsky’s Water Hammer</a></p></li>
-<li><p><a class="reference internal" href="#buckingham-s-pi-theorem" id="id11">1914 – Buckingham’s Pi Theorem</a></p></li>
-<li><p><a class="reference internal" href="#thoma-s-cavitation-parameter" id="id12">1924 – Thoma’s Cavitation Parameter</a></p></li>
-<li><p><a class="reference internal" href="#nikuradse-s-sand-roughened-pipes" id="id13">1933 – Nikuradse’s Sand-Roughened Pipes</a></p></li>
-<li><p><a class="reference internal" href="#hardy-cross-s-pipe-network-method" id="id14">1936 – Hardy Cross’s Pipe-Network Method</a></p></li>
-<li><p><a class="reference internal" href="#colebrook-s-turbulent-friction-factor" id="id15">1939 – Colebrook’s Turbulent Friction Factor</a></p></li>
-<li><p><a class="reference internal" href="#moody-s-diagram" id="id16">1944 – Moody’s Diagram</a></p></li>
-<li><p><a class="reference internal" href="#swamee-and-jain-s-explicit-friction-factor" id="id17">1976 – Swamee and Jain’s Explicit Friction Factor</a></p></li>
-<li><p><a class="reference internal" href="#see-also" id="id18">See Also</a></p></li>
+<li><p><a class="reference internal" href="#torricelli-s-law-of-efflux" id="id3">1644 – Torricelli’s Law of Efflux</a></p></li>
+<li><p><a class="reference internal" href="#pitot-s-tube" id="id4">1732 – Pitot’s Tube</a></p></li>
+<li><p><a class="reference internal" href="#euler-s-turbine-equation" id="id5">1754 – Euler’s Turbine Equation</a></p></li>
+<li><p><a class="reference internal" href="#venturi-s-tube" id="id6">1797 – Venturi’s Tube</a></p></li>
+<li><p><a class="reference internal" href="#belanger-s-hydraulic-jump" id="id7">1828 – Bélanger’s Hydraulic Jump</a></p></li>
+<li><p><a class="reference internal" href="#hagen-and-poiseuille-laminar-pipe-flow" id="id8">1839-1840 – Hagen and Poiseuille: Laminar Pipe Flow</a></p></li>
+<li><p><a class="reference internal" href="#weisbach-and-darcy-head-loss-in-pipes" id="id9">1845-1857 – Weisbach and Darcy: Head Loss in Pipes</a></p></li>
+<li><p><a class="reference internal" href="#stokes-s-drag-on-a-sphere" id="id10">1851 – Stokes’s Drag on a Sphere</a></p></li>
+<li><p><a class="reference internal" href="#james-thomson-s-triangular-notch" id="id11">1858 – James Thomson’s Triangular Notch</a></p></li>
+<li><p><a class="reference internal" href="#froude-s-ship-models" id="id12">1868 – Froude’s Ship Models</a></p></li>
+<li><p><a class="reference internal" href="#pelton-s-water-wheel" id="id13">1880 – Pelton’s Water Wheel</a></p></li>
+<li><p><a class="reference internal" href="#reynolds-s-dye-experiment" id="id14">1883 – Reynolds’s Dye Experiment</a></p></li>
+<li><p><a class="reference internal" href="#manning-s-open-channel-formula" id="id15">1889 – Manning’s Open-Channel Formula</a></p></li>
+<li><p><a class="reference internal" href="#couette-s-rotating-cylinder-viscometer" id="id16">1890 – Couette’s Rotating-Cylinder Viscometer</a></p></li>
+<li><p><a class="reference internal" href="#joukowsky-s-water-hammer" id="id17">1898 – Joukowsky’s Water Hammer</a></p></li>
+<li><p><a class="reference internal" href="#bakhmeteff-s-specific-energy" id="id18">1912 – Bakhmeteff’s Specific Energy</a></p></li>
+<li><p><a class="reference internal" href="#buckingham-s-pi-theorem" id="id19">1914 – Buckingham’s Pi Theorem</a></p></li>
+<li><p><a class="reference internal" href="#thoma-s-cavitation-parameter" id="id20">1924 – Thoma’s Cavitation Parameter</a></p></li>
+<li><p><a class="reference internal" href="#nikuradse-s-sand-roughened-pipes" id="id21">1933 – Nikuradse’s Sand-Roughened Pipes</a></p></li>
+<li><p><a class="reference internal" href="#hardy-cross-s-pipe-network-method" id="id22">1936 – Hardy Cross’s Pipe-Network Method</a></p></li>
+<li><p><a class="reference internal" href="#colebrook-s-turbulent-friction-factor" id="id23">1939 – Colebrook’s Turbulent Friction Factor</a></p></li>
+<li><p><a class="reference internal" href="#moody-s-diagram" id="id24">1944 – Moody’s Diagram</a></p></li>
+<li><p><a class="reference internal" href="#swamee-and-jain-s-explicit-friction-factor" id="id25">1976 – Swamee and Jain’s Explicit Friction Factor</a></p></li>
+<li><p><a class="reference internal" href="#see-also" id="id26">See Also</a></p></li>
 </ul>
 </nav>
 <section id="c-250-bc-archimedes-s-principle">
@@ -496,8 +536,32 @@ Plantijn, 1586).</p>
 <p><a class="reference internal" href="../api/gallery/fluid_engineering/hydrostatics/plot_02_stevin_hydrostatic_paradox.html"><span class="doc">Stevin’s hydrostatic paradox (1586)</span></a></p>
   <div class="sphx-glr-thumbnail-title">Stevin's hydrostatic paradox (1586)</div>
 </div></div></section>
+<section id="torricelli-s-law-of-efflux">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">1644 – Torricelli’s Law of Efflux</a><a class="headerlink" href="#torricelli-s-law-of-efflux" title="Link to this heading">#</a></h2>
+<p>Evangelista Torricelli, who succeeded Galileo at Florence, stated at the
+end of his treatise on the motion of heavy bodies that water spouting from
+a small hole in a vessel has the speed a body would gain falling from the
+free surface, so that a jet pointed upward would rise back almost to the
+surface. In modern form <span class="math notranslate nohighlight">\(v = \sqrt{2gh}\)</span>. The jet contracts just
+past a sharp-edged hole, the vena contracta, and the discharge coefficient
+of about 0.61 that measures this contraction became a staple of hydraulic
+tables. Daniel Bernoulli later derived Torricelli’s law from the
+conservation of energy.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/fluid_engineering.html#engineeringkit.fluid_engineering.orifice_flow" title="engineeringkit.fluid_engineering.orifice_flow"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.fluid_engineering.orifice_flow()</span></code></a>
+and <a class="reference internal" href="../api/fluid_engineering.html#engineeringkit.fluid_engineering.tank_drain_time" title="engineeringkit.fluid_engineering.tank_drain_time"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.fluid_engineering.tank_drain_time()</span></code></a>. The example
+drains a tank through an orifice and checks the square-root law of its
+level against a step-by-step integration.</p>
+<p><em>References:</em> E. Torricelli, “De motu aquarum,” in <em>De motu gravium
+naturaliter descendentium et proiectorum</em>, <em>Opera geometrica</em> (Florence:
+Masse and de Landis, 1644) 191-203. The date and page range were checked
+against secondary sources (Whewell; S. R. Bistafa’s translation), not the
+1644 printing.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Evangelista Torricelli, Galileo&#x27;s successor at Florence, found that water spouts from a small hole in a vessel at the speed a body gains falling from the free surface, v = \sqrt{2gh}, and published it in the Opera geometrica of 1644. The jet narrows just past a sharp-edged hole (the vena contracta), so the flow is a discharge coefficient of about 0.61 times the ideal one (~engineeringkit.fluid_engineering.orifice_flow). This example drains a tank through an orifice (~engineeringkit.fluid_engineering.tank_drain_time) and checks the square-root law of the level against a step-by-step integration."><img alt="" src="../_images/sphx_glr_plot_03_torricelli_efflux_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/fluid_engineering/measurement/plot_03_torricelli_efflux.html"><span class="doc">Torricelli’s law of efflux (1644)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Torricelli's law of efflux (1644)</div>
+</div></div></section>
 <section id="pitot-s-tube">
-<h2><a class="toc-backref" href="#id3" role="doc-backlink">1732 – Pitot’s Tube</a><a class="headerlink" href="#pitot-s-tube" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">1732 – Pitot’s Tube</a><a class="headerlink" href="#pitot-s-tube" title="Link to this heading">#</a></h2>
 <p>Henri Pitot faced the open end of a bent glass tube into the current of
 the Seine and saw the water inside rise above the river surface by an
 amount that grew with the speed. His readings showed that the river flows
@@ -516,8 +580,34 @@ des eaux courantes et le sillage des vaisseaux,” <em>Hist. Acad. R. Sci.</em>
 <p><a class="reference internal" href="../api/gallery/fluid_engineering/measurement/plot_01_pitot_tube.html"><span class="doc">Pitot’s tube (1732)</span></a></p>
   <div class="sphx-glr-thumbnail-title">Pitot's tube (1732)</div>
 </div></div></section>
+<section id="euler-s-turbine-equation">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">1754 – Euler’s Turbine Equation</a><a class="headerlink" href="#euler-s-turbine-equation" title="Link to this heading">#</a></h2>
+<p>Leonhard Euler, at the Berlin academy, analysed the reaction water wheel
+that Segner had built, and in a long memoir written in 1753 he worked out
+the theory of turbines in general. Its central result is that the torque
+on a rotor equals the change in the angular momentum of the water passing
+through it, so the head a rotor gives or takes is
+<span class="math notranslate nohighlight">\(H = (u_2V_{t2} - u_1V_{t1})/g\)</span>. The equation still opens the
+design of every pump, fan, compressor and turbine; Jakob Ackeret built and
+tested a turbine to Euler’s proportions in 1944.</p>
+<p><em>Implementation:</em>
+<a class="reference internal" href="../api/fluid_engineering.html#engineeringkit.fluid_engineering.euler_turbomachine_head" title="engineeringkit.fluid_engineering.euler_turbomachine_head"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.fluid_engineering.euler_turbomachine_head()</span></code></a>, with
+<a class="reference internal" href="../api/fluid_engineering.html#engineeringkit.fluid_engineering.affinity_laws" title="engineeringkit.fluid_engineering.affinity_laws"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.fluid_engineering.affinity_laws()</span></code></a>. The example draws
+the ideal head of an impeller with backward, radial and forward blades and
+recovers the head affinity law from the velocity triangle.</p>
+<p><em>References:</em> L. Euler, “Théorie plus complette des machines qui sont
+mises en mouvement par la réaction de l’eau,” <em>Mém. Acad. Sci. Berlin</em> 10
+(for 1754, publ. 1756) 227-295 (Eneström E222); J. Ackeret,
+“Untersuchung einer nach den Euler’schen Vorschlägen (1754) gebauten
+Wasserturbine” (1944), English translation by S. R. Bistafa,
+arXiv:2108.12048 (2021). The volume and pages are from the Euler Archive;
+the memoir itself was not consulted.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Leonhard Euler, studying Segner&#x27;s reaction water wheel at the Berlin academy, wrote the torque of a rotor as the change in the angular momentum of the water passing through it. Multiplied by the speed, it gives the head a pump adds or a turbine takes, H = (u_2V_{t2} - u_1V_{t1})/g (~engineeringkit.fluid_engineering.euler_turbomachine_head). This example draws the ideal head of a centrifugal impeller for backward, radial and forward blades, and shows that the head scales with the square of the speed, the affinity law (~engineeringkit.fluid_engineering.affinity_laws)."><img alt="" src="../_images/sphx_glr_plot_02_euler_turbine_equation_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/fluid_engineering/pumps/plot_02_euler_turbine_equation.html"><span class="doc">Euler’s turbine equation (1754)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Euler's turbine equation (1754)</div>
+</div></div></section>
 <section id="venturi-s-tube">
-<h2><a class="toc-backref" href="#id4" role="doc-backlink">1797 – Venturi’s Tube</a><a class="headerlink" href="#venturi-s-tube" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">1797 – Venturi’s Tube</a><a class="headerlink" href="#venturi-s-tube" title="Link to this heading">#</a></h2>
 <p>Giovanni Battista Venturi, professor of physics at Modena, studied water
 flowing through conical contractions and expansions. He found that the
 pressure falls in the throat and is mostly recovered when the cone widens
@@ -536,8 +626,36 @@ C. Herschel, “The Venturi water meter,” <em>Trans. ASCE</em> 17 (1887) 228-2
 <p><a class="reference internal" href="../api/gallery/fluid_engineering/measurement/plot_02_venturi_meter.html"><span class="doc">Venturi’s tube (1797)</span></a></p>
   <div class="sphx-glr-thumbnail-title">Venturi's tube (1797)</div>
 </div></div></section>
+<section id="belanger-s-hydraulic-jump">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">1828 – Bélanger’s Hydraulic Jump</a><a class="headerlink" href="#belanger-s-hydraulic-jump" title="Link to this heading">#</a></h2>
+<p>Jean-Baptiste Bélanger, an engineer of the Ponts et Chaussées, published
+in 1828 an essay on the numerical solution of steady flow in open
+channels. It gave the backwater equation for gradually varied flow with a
+step method to integrate it, identified the critical flow condition where
+that equation is singular, and treated the abrupt rise of a fast, shallow
+stream to a deep, slow one: the hydraulic jump. In 1828 he applied
+Bernoulli’s energy balance across the jump, which is wrong, since the
+roller dissipates energy. His later lectures (1838, printed 1841) used the
+momentum principle and gave the relation still known as the Bélanger
+equation, <span class="math notranslate nohighlight">\(y_2/y_1 = (\sqrt{1 + 8\mathrm{Fr}_1^2} - 1)/2\)</span>.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/fluid_engineering.html#engineeringkit.fluid_engineering.sequent_depth" title="engineeringkit.fluid_engineering.sequent_depth"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.fluid_engineering.sequent_depth()</span></code></a>
+and <a class="reference internal" href="../api/fluid_engineering.html#engineeringkit.fluid_engineering.hydraulic_jump_head_loss" title="engineeringkit.fluid_engineering.hydraulic_jump_head_loss"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.fluid_engineering.hydraulic_jump_head_loss()</span></code></a>.
+The example finds the jump below a sluice gate, checks that momentum is
+conserved and energy is not, and draws the depth ratio and loss against
+the upstream Froude number.</p>
+<p><em>References:</em> J.-B. Bélanger, <em>Essai sur la solution numérique de
+quelques problèmes relatifs au mouvement permanent des eaux courantes</em>
+(Paris: Carilian-Goeury, 1828); H. Chanson, “Development of the Bélanger
+equation and backwater equation by Jean-Baptiste Bélanger (1828),” <em>J.
+Hydraul. Eng.</em> 135 (2009) 159-163,
+<a class="extlink-doi reference external" href="https://doi.org/10.1061/(ASCE)0733-9429(2009)135:3(159)">doi:10.1061/(ASCE)0733-9429(2009)135:3(159)</a>. The account of the 1828 and
+1838 derivations follows Chanson; the essay itself was not consulted.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Water shooting fast and shallow from under a sluice gate cannot slow down smoothly: it rises abruptly, in a turbulent roller, to a deeper, slower stream. Jean-Baptiste Bélanger studied this hydraulic jump in his 1828 essay on steady flow in open channels. The rule used today, that the pressure force plus the momentum flux is the same on both sides, gives the sequent depth y_2/y_1 = (\sqrt{1 + 8\mathrm{Fr}_1^2} - 1)/2 (~engineeringkit.fluid_engineering.sequent_depth). The energy balance cannot be used across the jump, because the roller dissipates energy (~engineeringkit.fluid_engineering.hydraulic_jump_head_loss). This example finds the jump below a sluice gate and how much of the stream&#x27;s energy it destroys."><img alt="" src="../_images/sphx_glr_plot_02_belanger_hydraulic_jump_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/fluid_engineering/open_channel/plot_02_belanger_hydraulic_jump.html"><span class="doc">Bélanger’s hydraulic jump (1828)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Bélanger's hydraulic jump (1828)</div>
+</div></div></section>
 <section id="hagen-and-poiseuille-laminar-pipe-flow">
-<h2><a class="toc-backref" href="#id5" role="doc-backlink">1839-1840 – Hagen and Poiseuille: Laminar Pipe Flow</a><a class="headerlink" href="#hagen-and-poiseuille-laminar-pipe-flow" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">1839-1840 – Hagen and Poiseuille: Laminar Pipe Flow</a><a class="headerlink" href="#hagen-and-poiseuille-laminar-pipe-flow" title="Link to this heading">#</a></h2>
 <p>Gotthilf Hagen, a Prussian hydraulic engineer, timed water through brass
 tubes, and Jean Léonard Marie Poiseuille, a physician studying the
 circulation of the blood, timed liquids through glass capillaries. Both
@@ -560,7 +678,7 @@ liquides dans les tubes de très petits diamètres,” <em>C. R. Acad. Sci.</em>
   <div class="sphx-glr-thumbnail-title">Hagen and Poiseuille: laminar pipe flow (1839-1840)</div>
 </div></div></section>
 <section id="weisbach-and-darcy-head-loss-in-pipes">
-<h2><a class="toc-backref" href="#id6" role="doc-backlink">1845-1857 – Weisbach and Darcy: Head Loss in Pipes</a><a class="headerlink" href="#weisbach-and-darcy-head-loss-in-pipes" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">1845-1857 – Weisbach and Darcy: Head Loss in Pipes</a><a class="headerlink" href="#weisbach-and-darcy-head-loss-in-pipes" title="Link to this heading">#</a></h2>
 <p>Julius Weisbach, at the Freiberg mining academy, wrote the friction loss in
 a pipe as a coefficient times <span class="math notranslate nohighlight">\((L/D)\,v^2/(2g)\)</span> and tabulated loss
 coefficients for bends, valves and contractions. Henry Darcy, engineer of
@@ -582,8 +700,58 @@ tuyaux</em> (Paris: Mallet-Bachelier, 1857).</p>
 <p><a class="reference internal" href="../api/gallery/fluid_engineering/pipe_flow/plot_02_darcy_weisbach.html"><span class="doc">Weisbach and Darcy: head loss in pipes (1845-1857)</span></a></p>
   <div class="sphx-glr-thumbnail-title">Weisbach and Darcy: head loss in pipes (1845-1857)</div>
 </div></div></section>
+<section id="stokes-s-drag-on-a-sphere">
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">1851 – Stokes’s Drag on a Sphere</a><a class="headerlink" href="#stokes-s-drag-on-a-sphere" title="Link to this heading">#</a></h2>
+<p>Pendulum clocks and the pendulums used to measure gravity were corrected
+for the air they carried with them, and the corrections disagreed with
+experiment. George Gabriel Stokes, Lucasian professor at Cambridge, solved
+the slow viscous flow around a sphere and a cylinder in a paper read in
+December 1850. For the sphere he found the drag <span class="math notranslate nohighlight">\(3\pi\mu dV\)</span>, valid
+while inertia is negligible, and from it the speed at which a fine
+particle settles, which he used to explain why clouds float. At larger
+Reynolds numbers the measured drag curve takes over, levelling off near
+<span class="math notranslate nohighlight">\(C_D = 0.4\)</span>.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/fluid_engineering.html#engineeringkit.fluid_engineering.stokes_drag" title="engineeringkit.fluid_engineering.stokes_drag"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.fluid_engineering.stokes_drag()</span></code></a>,
+<a class="reference internal" href="../api/fluid_engineering.html#engineeringkit.fluid_engineering.stokes_settling_velocity" title="engineeringkit.fluid_engineering.stokes_settling_velocity"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.fluid_engineering.stokes_settling_velocity()</span></code></a>,
+<a class="reference internal" href="../api/fluid_engineering.html#engineeringkit.fluid_engineering.sphere_drag_coefficient" title="engineeringkit.fluid_engineering.sphere_drag_coefficient"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.fluid_engineering.sphere_drag_coefficient()</span></code></a> and
+<a class="reference internal" href="../api/fluid_engineering.html#engineeringkit.fluid_engineering.terminal_velocity" title="engineeringkit.fluid_engineering.terminal_velocity"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.fluid_engineering.terminal_velocity()</span></code></a>. The example
+draws the sphere drag curve and finds how fast sand grains of four sizes
+fall through water, with and without Stokes’s law.</p>
+<p><em>References:</em> G. G. Stokes, “On the effect of the internal friction of
+fluids on the motion of pendulums,” <em>Trans. Camb. Phil. Soc.</em> 9, Part II
+(1851) 8-106 (read 9 December 1850); F. M. White, <em>Viscous Fluid Flow</em>,
+3rd ed. (New York: McGraw-Hill, 2006), for the drag-curve fit.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="George Gabriel Stokes, correcting pendulum experiments for the air dragged along with the bob, solved the slow viscous flow past a sphere in a paper read to the Cambridge Philosophical Society in December 1850 and printed in 1851. The drag is 3\pi\mu dV (~engineeringkit.fluid_engineering.stokes_drag), so a small sphere settles at (\rho_p - \rho)gd^2/(18\mu) (~engineeringkit.fluid_engineering.stokes_settling_velocity). The law fails once inertia matters, near Re = 1; the measured drag curve (~engineeringkit.fluid_engineering.sphere_drag_coefficient) takes over. This example draws the curve and finds how fast sand grains of different sizes fall through water (~engineeringkit.fluid_engineering.terminal_velocity)."><img alt="" src="../_images/sphx_glr_plot_01_stokes_drag_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/fluid_engineering/drag/plot_01_stokes_drag.html"><span class="doc">Stokes’s drag on a sphere (1851)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Stokes's drag on a sphere (1851)</div>
+</div></div></section>
+<section id="james-thomson-s-triangular-notch">
+<h2><a class="toc-backref" href="#id11" role="doc-backlink">1858 – James Thomson’s Triangular Notch</a><a class="headerlink" href="#james-thomson-s-triangular-notch" title="Link to this heading">#</a></h2>
+<p>James Thomson, professor of engineering at Belfast and elder brother of
+William Thomson (Lord Kelvin), proposed to the British Association in
+1858 that water be measured over a right-angled V-notch cut in a weir
+board. Because the wetted section stays the same shape as the head
+changes, the discharge coefficient is nearly constant, and because the
+flow grows as <span class="math notranslate nohighlight">\(H^{5/2}\)</span>, small flows still give a readable head. He
+reported experiments on 90° and wider notches in 1861. Rectangular
+sharp-crested weirs, with coefficients refined by Francis (1855) and
+Rehbock (1929), remain the companion device for larger flows.</p>
+<p><em>Implementation:</em>
+<a class="reference internal" href="../api/fluid_engineering.html#engineeringkit.fluid_engineering.v_notch_weir_flow" title="engineeringkit.fluid_engineering.v_notch_weir_flow"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.fluid_engineering.v_notch_weir_flow()</span></code></a>,
+<a class="reference internal" href="../api/fluid_engineering.html#engineeringkit.fluid_engineering.rectangular_weir_flow" title="engineeringkit.fluid_engineering.rectangular_weir_flow"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.fluid_engineering.rectangular_weir_flow()</span></code></a> and
+<a class="reference internal" href="../api/fluid_engineering.html#engineeringkit.fluid_engineering.rehbock_discharge_coefficient" title="engineeringkit.fluid_engineering.rehbock_discharge_coefficient"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.fluid_engineering.rehbock_discharge_coefficient()</span></code></a>.
+The example compares the rating curves of a V-notch and a rectangular weir
+and the precision with which each must be read.</p>
+<p><em>References:</em> J. Thomson, “On experiments on the measurement of water by
+triangular notches in weir boards,” <em>Rep. Br. Assoc. Adv. Sci.</em> (1858),
+Trans. Sect., 181; (1861), Trans. Sect., 151. Later sources disagree on
+the 1858 page (133 or 181); the report itself was not consulted.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="James Thomson, engineer and elder brother of Lord Kelvin, reported to the British Association in 1858 that a V-shaped notch measures small flows better than a rectangular weir. The flow section keeps the same shape as the head changes, so the discharge coefficient hardly varies, and the flow grows as H^{5/2} (~engineeringkit.fluid_engineering.v_notch_weir_flow) instead of H^{3/2} (~engineeringkit.fluid_engineering.rectangular_weir_flow), so a small flow still gives a readable head. This example compares the rating curves of the two weirs and finds how precisely each must be read."><img alt="" src="../_images/sphx_glr_plot_04_thomson_v_notch_weir_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/fluid_engineering/measurement/plot_04_thomson_v_notch_weir.html"><span class="doc">James Thomson’s triangular notch (1858)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">James Thomson's triangular notch (1858)</div>
+</div></div></section>
 <section id="froude-s-ship-models">
-<h2><a class="toc-backref" href="#id7" role="doc-backlink">1868 – Froude’s Ship Models</a><a class="headerlink" href="#froude-s-ship-models" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id12" role="doc-backlink">1868 – Froude’s Ship Models</a><a class="headerlink" href="#froude-s-ship-models" title="Link to this heading">#</a></h2>
 <p>William Froude proposed to the Admiralty that a ship’s resistance could be
 found by towing a model at the “corresponding speed”, the ship’s speed
 times the square root of the length ratio. At that speed model and ship
@@ -604,8 +772,31 @@ of Naval Architects, 1955).</p>
 <p><a class="reference internal" href="../api/gallery/fluid_engineering/similarity/plot_01_froude_ship_models.html"><span class="doc">Froude’s ship models (1868)</span></a></p>
   <div class="sphx-glr-thumbnail-title">Froude's ship models (1868)</div>
 </div></div></section>
+<section id="pelton-s-water-wheel">
+<h2><a class="toc-backref" href="#id13" role="doc-backlink">1880 – Pelton’s Water Wheel</a><a class="headerlink" href="#pelton-s-water-wheel" title="Link to this heading">#</a></h2>
+<p>The hydraulic mines of the California gold country drove their stamps and
+pumps with hurdy-gurdy wheels: jets of water from high heads striking flat
+paddles. Lester Allan Pelton, a millwright at Camptonville, built a wheel
+whose buckets split the jet with a central ridge and turned each half
+almost back on itself, and patented it in October 1880. The momentum
+equation explains the gain: a jet turned through <span class="math notranslate nohighlight">\(\theta\)</span> delivers
+a fraction <span class="math notranslate nohighlight">\((1 - \cos\theta)/2\)</span> of its power at the best bucket
+speed, half the jet speed, which is one half for flat paddles and nearly
+one for Pelton’s buckets. Pelton wheels still run the highest-head
+hydroelectric plants.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/fluid_engineering.html#engineeringkit.fluid_engineering.jet_force" title="engineeringkit.fluid_engineering.jet_force"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.fluid_engineering.jet_force()</span></code></a> and
+<a class="reference internal" href="../api/fluid_engineering.html#engineeringkit.fluid_engineering.pelton_wheel_power" title="engineeringkit.fluid_engineering.pelton_wheel_power"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.fluid_engineering.pelton_wheel_power()</span></code></a>, with
+<a class="reference internal" href="../api/fluid_engineering.html#engineeringkit.fluid_engineering.bend_force" title="engineeringkit.fluid_engineering.bend_force"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.fluid_engineering.bend_force()</span></code></a> for the same momentum
+balance on a pipe bend. The example compares the efficiency of flat
+paddles and Pelton buckets against bucket speed.</p>
+<p><em>References:</em> L. A. Pelton, “Water-wheel,” US Patent 233,692 (granted 26
+October 1880; filed 3 July 1880).</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Lester Pelton, a millwright in the California gold country, patented in 1880 a wheel whose buckets split the jet in two and turn each half almost back on itself. By the momentum equation a vane that turns a jet through \theta is pushed with \rho A (V - u)^2 (1 - \cos\theta) (~engineeringkit.fluid_engineering.jet_force); a wheel, which always has a bucket in the jet, takes \rho Q u (V - u)(1 - \cos\theta) (~engineeringkit.fluid_engineering.pelton_wheel_power). Turning the jet through nearly 180° and running the buckets at half the jet speed leaves the water with almost no speed at all. This example compares Pelton&#x27;s buckets with the flat paddles of the hurdy-gurdy wheels they replaced."><img alt="" src="../_images/sphx_glr_plot_01_pelton_wheel_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/fluid_engineering/momentum/plot_01_pelton_wheel.html"><span class="doc">Pelton’s water wheel (1880)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Pelton's water wheel (1880)</div>
+</div></div></section>
 <section id="reynolds-s-dye-experiment">
-<h2><a class="toc-backref" href="#id8" role="doc-backlink">1883 – Reynolds’s Dye Experiment</a><a class="headerlink" href="#reynolds-s-dye-experiment" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id14" role="doc-backlink">1883 – Reynolds’s Dye Experiment</a><a class="headerlink" href="#reynolds-s-dye-experiment" title="Link to this heading">#</a></h2>
 <p>Osborne Reynolds let water flow from a tank into a glass tube with a bell
 mouth and fed a thin streak of dye into the entrance. Below a critical
 speed the streak stayed a straight thread; above it the streak broke up
@@ -625,7 +816,7 @@ Trans. R. Soc.</em> 174 (1883) 935-982.</p>
   <div class="sphx-glr-thumbnail-title">Reynolds's dye experiment (1883)</div>
 </div></div></section>
 <section id="manning-s-open-channel-formula">
-<h2><a class="toc-backref" href="#id9" role="doc-backlink">1889 – Manning’s Open-Channel Formula</a><a class="headerlink" href="#manning-s-open-channel-formula" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id15" role="doc-backlink">1889 – Manning’s Open-Channel Formula</a><a class="headerlink" href="#manning-s-open-channel-formula" title="Link to this heading">#</a></h2>
 <p>Robert Manning, chief engineer of the Irish Board of Works, tested the
 many open-channel formulas of his day against the best measurements of
 canals and rivers. He found that Chézy’s coefficient grows roughly as the
@@ -646,8 +837,34 @@ pipes,” <em>Trans. Inst. Civil Eng. Ireland</em> 20 (1891) 161-207.</p>
 <p><a class="reference internal" href="../api/gallery/fluid_engineering/open_channel/plot_01_manning_formula.html"><span class="doc">Manning’s open-channel formula (1889)</span></a></p>
   <div class="sphx-glr-thumbnail-title">Manning's open-channel formula (1889)</div>
 </div></div></section>
+<section id="couette-s-rotating-cylinder-viscometer">
+<h2><a class="toc-backref" href="#id16" role="doc-backlink">1890 – Couette’s Rotating-Cylinder Viscometer</a><a class="headerlink" href="#couette-s-rotating-cylinder-viscometer" title="Link to this heading">#</a></h2>
+<p>Maurice Couette, in his doctoral work under Gabriel Lippmann at Paris,
+measured the viscosity of water between two coaxial cylinders, the outer
+one rotating and the inner one hung from a torsion wire. In a narrow gap
+the flow is plain shear between a fixed and a sliding wall, with a
+straight velocity profile and a uniform stress <span class="math notranslate nohighlight">\(\mu U/h\)</span>, so the
+torque on the inner cylinder gives the viscosity directly. He found the
+torque proportional to the speed until the flow became unstable, and his
+instrument is the ancestor of the rotational viscometers and rheometers
+used today. Arnulph Mallock built a similar apparatus at about the same
+time.</p>
+<p><em>Implementation:</em>
+<a class="reference internal" href="../api/fluid_engineering.html#engineeringkit.fluid_engineering.couette_viscometer_torque" title="engineeringkit.fluid_engineering.couette_viscometer_torque"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.fluid_engineering.couette_viscometer_torque()</span></code></a>,
+<a class="reference internal" href="../api/fluid_engineering.html#engineeringkit.fluid_engineering.couette_velocity" title="engineeringkit.fluid_engineering.couette_velocity"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.fluid_engineering.couette_velocity()</span></code></a>,
+<a class="reference internal" href="../api/fluid_engineering.html#engineeringkit.fluid_engineering.couette_flow_rate" title="engineeringkit.fluid_engineering.couette_flow_rate"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.fluid_engineering.couette_flow_rate()</span></code></a> and
+<a class="reference internal" href="../api/fluid_engineering.html#engineeringkit.fluid_engineering.couette_shear_stress" title="engineeringkit.fluid_engineering.couette_shear_stress"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.fluid_engineering.couette_shear_stress()</span></code></a>. The example
+reads a viscosity back from a measured torque and adds a pressure
+gradient to plane Couette flow.</p>
+<p><em>References:</em> M. Couette, “Études sur le frottement des liquides,” <em>Ann.
+Chim. Phys.</em>, 6th ser., 21 (1890) 433-510. The volume and pages are from
+secondary sources; the paper itself was not consulted.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Maurice Couette, in his 1890 thesis at Paris, measured the viscosity of water in the narrow gap between a fixed inner cylinder and a rotating outer one, from the torque on the inner cylinder. Rotating the outer cylinder keeps the flow laminar to high speeds. For a narrow gap the flow is the plane shear flow between a fixed and a sliding plate, with a straight velocity profile and uniform stress \mu U/h (~engineeringkit.fluid_engineering.couette_velocity, couette_shear_stress); the exact torque for any gap is couette_viscometer_torque. This example reads a viscosity back from a torque and adds a pressure gradient to the plane flow."><img alt="" src="../_images/sphx_glr_plot_01_couette_viscometer_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/fluid_engineering/viscous/plot_01_couette_viscometer.html"><span class="doc">Couette’s rotating-cylinder viscometer (1890)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Couette's rotating-cylinder viscometer (1890)</div>
+</div></div></section>
 <section id="joukowsky-s-water-hammer">
-<h2><a class="toc-backref" href="#id10" role="doc-backlink">1898 – Joukowsky’s Water Hammer</a><a class="headerlink" href="#joukowsky-s-water-hammer" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id17" role="doc-backlink">1898 – Joukowsky’s Water Hammer</a><a class="headerlink" href="#joukowsky-s-water-hammer" title="Link to this heading">#</a></h2>
 <p>Bursts in the new Moscow water mains led Nikolai Joukowsky to experiment
 on pipes up to 760 m long. He showed that a sudden valve closure raises the
 pressure by <span class="math notranslate nohighlight">\(\rho a\,\Delta v\)</span>, where <span class="math notranslate nohighlight">\(a\)</span> is the speed of the
@@ -671,8 +888,37 @@ Schalles in elastischen Röhren,” <em>Ann. Phys.</em> 241 (1878) 525-542.</p>
 <p><a class="reference internal" href="../api/gallery/fluid_engineering/transients/plot_01_joukowsky_water_hammer.html"><span class="doc">Joukowsky’s water hammer (1898)</span></a></p>
   <div class="sphx-glr-thumbnail-title">Joukowsky's water hammer (1898)</div>
 </div></div></section>
+<section id="bakhmeteff-s-specific-energy">
+<h2><a class="toc-backref" href="#id18" role="doc-backlink">1912 – Bakhmeteff’s Specific Energy</a><a class="headerlink" href="#bakhmeteff-s-specific-energy" title="Link to this heading">#</a></h2>
+<p>Boris Bakhmeteff, then teaching hydraulics at St Petersburg, measured the
+energy of an open-channel stream from its own bed rather than from a fixed
+datum. Plotted against depth, this specific energy
+<span class="math notranslate nohighlight">\(E = y + q^2/(2gy^2)\)</span> has a least value at the critical depth, where
+the Froude number is 1, and any larger energy can be carried at two
+alternate depths, one tranquil and one rapid. Bélanger had found the
+critical condition in 1828 as a singularity of the backwater equation;
+Bakhmeteff tied it to minimum energy, and the specific-energy diagram of
+his 1932 <em>Hydraulics of Open Channels</em> became the standard way to reason
+about gates, steps and contractions. Salas Edwards and Domínguez reached
+the same idea independently at about the same time.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/fluid_engineering.html#engineeringkit.fluid_engineering.specific_energy" title="engineeringkit.fluid_engineering.specific_energy"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.fluid_engineering.specific_energy()</span></code></a>,
+<a class="reference internal" href="../api/fluid_engineering.html#engineeringkit.fluid_engineering.critical_depth" title="engineeringkit.fluid_engineering.critical_depth"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.fluid_engineering.critical_depth()</span></code></a> and
+<a class="reference internal" href="../api/fluid_engineering.html#engineeringkit.fluid_engineering.alternate_depths" title="engineeringkit.fluid_engineering.alternate_depths"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.fluid_engineering.alternate_depths()</span></code></a>. The example
+draws the specific-energy diagram and finds the water surface over a
+raised step in the bed.</p>
+<p><em>References:</em> B. A. Bakhmeteff, <em>O neravnomernom dvizhenii zhidkosti v
+otkrytom rusle</em> [Varied flow of liquids in open channels] (St Petersburg,
+1912); B. A. Bakhmeteff, <em>Hydraulics of Open Channels</em> (New York:
+McGraw-Hill, 1932); O. Castro-Orgaz, H. Chanson et al., “Boris A.
+Bakhmeteff and the development of specific energy and momentum concepts,”
+<em>J. Hydraul. Eng.</em> (2018). The 1912 book was not consulted; its priority
+follows Castro-Orgaz and Chanson.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Boris Bakhmeteff, in a 1912 book on varied flow written at St Petersburg, measured the energy of a stream from the channel bed instead of from a fixed datum: the specific energy E = y + q^2/(2gy^2) (~engineeringkit.fluid_engineering.specific_energy). Plotted against depth, it has a least value at the critical depth y_c = (q^2/g)^{1/3} (~engineeringkit.fluid_engineering.critical_depth), where the Froude number is 1, and any larger energy can be carried at a subcritical and a supercritical alternate depth (~engineeringkit.fluid_engineering.alternate_depths). This example draws the specific-energy diagram and uses it to find the flow over a raised step in the bed."><img alt="" src="../_images/sphx_glr_plot_03_bakhmeteff_specific_energy_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/fluid_engineering/open_channel/plot_03_bakhmeteff_specific_energy.html"><span class="doc">Bakhmeteff’s specific energy (1912)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Bakhmeteff's specific energy (1912)</div>
+</div></div></section>
 <section id="buckingham-s-pi-theorem">
-<h2><a class="toc-backref" href="#id11" role="doc-backlink">1914 – Buckingham’s Pi Theorem</a><a class="headerlink" href="#buckingham-s-pi-theorem" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id19" role="doc-backlink">1914 – Buckingham’s Pi Theorem</a><a class="headerlink" href="#buckingham-s-pi-theorem" title="Link to this heading">#</a></h2>
 <p>Edgar Buckingham, a physicist at the US Bureau of Standards, proved that
 any physically meaningful relation among <span class="math notranslate nohighlight">\(n\)</span> quantities whose
 dimensions involve <span class="math notranslate nohighlight">\(r\)</span> independent base units can be written as a
@@ -694,7 +940,7 @@ of the use of dimensional equations,” <em>Phys. Rev.</em> 4 (1914) 345-376.</p
   <div class="sphx-glr-thumbnail-title">Buckingham's Pi theorem (1914)</div>
 </div></div></section>
 <section id="thoma-s-cavitation-parameter">
-<h2><a class="toc-backref" href="#id12" role="doc-backlink">1924 – Thoma’s Cavitation Parameter</a><a class="headerlink" href="#thoma-s-cavitation-parameter" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id20" role="doc-backlink">1924 – Thoma’s Cavitation Parameter</a><a class="headerlink" href="#thoma-s-cavitation-parameter" title="Link to this heading">#</a></h2>
 <p>Faster, lower-head water turbines of the early twentieth century had their
 runners pitted by cavitation: vapour bubbles that form where the pressure
 drops to the vapour pressure and collapse against the blades. Dieter
@@ -714,7 +960,7 @@ finds the largest suction lift of a pump at three water temperatures.</p>
   <div class="sphx-glr-thumbnail-title">Thoma's cavitation parameter (1924)</div>
 </div></div></section>
 <section id="nikuradse-s-sand-roughened-pipes">
-<h2><a class="toc-backref" href="#id13" role="doc-backlink">1933 – Nikuradse’s Sand-Roughened Pipes</a><a class="headerlink" href="#nikuradse-s-sand-roughened-pipes" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id21" role="doc-backlink">1933 – Nikuradse’s Sand-Roughened Pipes</a><a class="headerlink" href="#nikuradse-s-sand-roughened-pipes" title="Link to this heading">#</a></h2>
 <p>Johann Nikuradse, in Ludwig Prandtl’s institute at Göttingen, coated brass
 pipes with sieved sand of six grain sizes and measured their friction over
 a wide range of Reynolds numbers. After his smooth-pipe measurements of
@@ -735,7 +981,7 @@ turbulenten Strömung in glatten Rohren,” <em>VDI-Forschungsheft</em> 356 (193
   <div class="sphx-glr-thumbnail-title">Nikuradse's sand-roughened pipes (1933)</div>
 </div></div></section>
 <section id="hardy-cross-s-pipe-network-method">
-<h2><a class="toc-backref" href="#id14" role="doc-backlink">1936 – Hardy Cross’s Pipe-Network Method</a><a class="headerlink" href="#hardy-cross-s-pipe-network-method" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id22" role="doc-backlink">1936 – Hardy Cross’s Pipe-Network Method</a><a class="headerlink" href="#hardy-cross-s-pipe-network-method" title="Link to this heading">#</a></h2>
 <p>Hardy Cross, professor of structural engineering at the University of
 Illinois, had already relaxed the moments in frames one joint at a time.
 He applied the same idea to water distribution systems. Starting from
@@ -755,7 +1001,7 @@ conductors,” <em>Univ. Illinois Eng. Exp. Stn. Bull.</em> 286 (1936).</p>
   <div class="sphx-glr-thumbnail-title">Hardy Cross's method for pipe networks (1936)</div>
 </div></div></section>
 <section id="colebrook-s-turbulent-friction-factor">
-<h2><a class="toc-backref" href="#id15" role="doc-backlink">1939 – Colebrook’s Turbulent Friction Factor</a><a class="headerlink" href="#colebrook-s-turbulent-friction-factor" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id23" role="doc-backlink">1939 – Colebrook’s Turbulent Friction Factor</a><a class="headerlink" href="#colebrook-s-turbulent-friction-factor" title="Link to this heading">#</a></h2>
 <p>Commercial pipes do not have Nikuradse’s uniform sand, and their friction
 leaves the smooth law gradually instead of with his dip. Cyril Colebrook,
 after experiments with Cedric White on pipes coated with mixed grains,
@@ -777,7 +1023,7 @@ R. Soc. A</em> 161 (1937) 367-381.</p>
   <div class="sphx-glr-thumbnail-title">Colebrook's turbulent friction factor (1939)</div>
 </div></div></section>
 <section id="moody-s-diagram">
-<h2><a class="toc-backref" href="#id16" role="doc-backlink">1944 – Moody’s Diagram</a><a class="headerlink" href="#moody-s-diagram" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id24" role="doc-backlink">1944 – Moody’s Diagram</a><a class="headerlink" href="#moody-s-diagram" title="Link to this heading">#</a></h2>
 <p>Lewis Moody, professor of hydraulics at Princeton, plotted Colebrook’s
 equation for a range of relative roughnesses on one log-log chart with the
 laminar line, and tabulated equivalent roughnesses for commercial
@@ -798,7 +1044,7 @@ diameter problem.</p>
   <div class="sphx-glr-thumbnail-title">Moody's diagram (1944)</div>
 </div></div></section>
 <section id="swamee-and-jain-s-explicit-friction-factor">
-<h2><a class="toc-backref" href="#id17" role="doc-backlink">1976 – Swamee and Jain’s Explicit Friction Factor</a><a class="headerlink" href="#swamee-and-jain-s-explicit-friction-factor" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id25" role="doc-backlink">1976 – Swamee and Jain’s Explicit Friction Factor</a><a class="headerlink" href="#swamee-and-jain-s-explicit-friction-factor" title="Link to this heading">#</a></h2>
 <p>Iterating Colebrook’s equation was tedious on the programmable calculators
 of the 1970s. Prabhata Swamee and Akalank Jain fitted explicit formulas for
 the friction factor, the flow and the diameter of a pipe, each within a few
@@ -816,7 +1062,7 @@ pipe-flow problems,” <em>J. Hydraul. Div. ASCE</em> 102 (1976) 657-664.</p>
   <div class="sphx-glr-thumbnail-title">Swamee and Jain's explicit friction factor (1976)</div>
 </div></div></section>
 <section id="see-also">
-<h2><a class="toc-backref" href="#id18" role="doc-backlink">See Also</a><a class="headerlink" href="#see-also" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id26" role="doc-backlink">See Also</a><a class="headerlink" href="#see-also" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="../api/fluid_engineering.html"><span class="doc">engineeringkit.fluid_engineering</span></a></p></li>
 <li><p><a class="reference internal" href="../guides/fluid_engineering.html"><span class="doc">Fluid engineering: flow regimes and signed quantities</span></a></p></li>
@@ -875,14 +1121,22 @@ pipe-flow problems,” <em>J. Hydraul. Div. ASCE</em> 102 (1976) 657-664.</p>
     <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c-250-bc-archimedes-s-principle">c. 250 BC – Archimedes’s Principle</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stevin-s-hydrostatic-paradox">1586 – Stevin’s Hydrostatic Paradox</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#torricelli-s-law-of-efflux">1644 – Torricelli’s Law of Efflux</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pitot-s-tube">1732 – Pitot’s Tube</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#euler-s-turbine-equation">1754 – Euler’s Turbine Equation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#venturi-s-tube">1797 – Venturi’s Tube</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#belanger-s-hydraulic-jump">1828 – Bélanger’s Hydraulic Jump</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hagen-and-poiseuille-laminar-pipe-flow">1839-1840 – Hagen and Poiseuille: Laminar Pipe Flow</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#weisbach-and-darcy-head-loss-in-pipes">1845-1857 – Weisbach and Darcy: Head Loss in Pipes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stokes-s-drag-on-a-sphere">1851 – Stokes’s Drag on a Sphere</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#james-thomson-s-triangular-notch">1858 – James Thomson’s Triangular Notch</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#froude-s-ship-models">1868 – Froude’s Ship Models</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pelton-s-water-wheel">1880 – Pelton’s Water Wheel</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reynolds-s-dye-experiment">1883 – Reynolds’s Dye Experiment</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#manning-s-open-channel-formula">1889 – Manning’s Open-Channel Formula</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#couette-s-rotating-cylinder-viscometer">1890 – Couette’s Rotating-Cylinder Viscometer</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#joukowsky-s-water-hammer">1898 – Joukowsky’s Water Hammer</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bakhmeteff-s-specific-energy">1912 – Bakhmeteff’s Specific Energy</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#buckingham-s-pi-theorem">1914 – Buckingham’s Pi Theorem</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thoma-s-cavitation-parameter">1924 – Thoma’s Cavitation Parameter</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nikuradse-s-sand-roughened-pipes">1933 – Nikuradse’s Sand-Roughened Pipes</a></li>

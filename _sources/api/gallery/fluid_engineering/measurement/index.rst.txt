@@ -5,7 +5,7 @@
 Measurement
 -----------
 
-Flow speed and flow rate from pressure differences.
+Flow speed and flow rate from pressure differences, orifices and weirs.
 
 
 .. raw:: html
@@ -53,6 +53,40 @@ Flow speed and flow rate from pressure differences.
     </div>
 
 
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Evangelista Torricelli, Galileo&#x27;s successor at Florence, found that water spouts from a small hole in a vessel at the speed a body gains falling from the free surface, v = \sqrt{2gh}, and published it in the Opera geometrica of 1644. The jet narrows just past a sharp-edged hole (the vena contracta), so the flow is a discharge coefficient of about 0.61 times the ideal one (~engineeringkit.fluid_engineering.orifice_flow). This example drains a tank through an orifice (~engineeringkit.fluid_engineering.tank_drain_time) and checks the square-root law of the level against a step-by-step integration.">
+
+.. only:: html
+
+  .. image:: /api/gallery/fluid_engineering/measurement/images/thumb/sphx_glr_plot_03_torricelli_efflux_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/fluid_engineering/measurement/plot_03_torricelli_efflux`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Torricelli's law of efflux (1644)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="James Thomson, engineer and elder brother of Lord Kelvin, reported to the British Association in 1858 that a V-shaped notch measures small flows better than a rectangular weir. The flow section keeps the same shape as the head changes, so the discharge coefficient hardly varies, and the flow grows as H^{5/2} (~engineeringkit.fluid_engineering.v_notch_weir_flow) instead of H^{3/2} (~engineeringkit.fluid_engineering.rectangular_weir_flow), so a small flow still gives a readable head. This example compares the rating curves of the two weirs and finds how precisely each must be read.">
+
+.. only:: html
+
+  .. image:: /api/gallery/fluid_engineering/measurement/images/thumb/sphx_glr_plot_04_thomson_v_notch_weir_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/fluid_engineering/measurement/plot_04_thomson_v_notch_weir`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">James Thomson's triangular notch (1858)</div>
+    </div>
+
+
 .. thumbnail-parent-div-close
 
 .. raw:: html
@@ -65,4 +99,6 @@ Flow speed and flow rate from pressure differences.
 
    /api/gallery/fluid_engineering/measurement/plot_01_pitot_tube
    /api/gallery/fluid_engineering/measurement/plot_02_venturi_meter
+   /api/gallery/fluid_engineering/measurement/plot_03_torricelli_efflux
+   /api/gallery/fluid_engineering/measurement/plot_04_thomson_v_notch_weir
 

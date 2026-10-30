@@ -1,0 +1,68 @@
+
+
+.. _sphx_glr_api_gallery_communications_fading:
+
+Fading
+------
+
+Rayleigh fading from many scattered paths, and diversity combining.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Lord Rayleigh asked what amplitude results when a large number of vibrations of the same pitch but arbitrary phase are added, a question from optics and acoustics. The answer is a density f(r) = (2r/\Omega)e^{-r^2/\Omega}, now called the Rayleigh distribution (~engineeringkit.communications.rayleigh_pdf). Seventy years later it described the mobile radio channel: a signal reaching a car by many scattered paths fades deeply and often. Averaged over the fades, the bit-error rate of BPSK falls only as 1/4\bar\gamma (~engineeringkit.communications.ber_bpsk_rayleigh) instead of exponentially, so a fading link needs tens of decibels more power than a steady one.">
+
+.. only:: html
+
+  .. image:: /api/gallery/communications/fading/images/thumb/sphx_glr_plot_01_rayleigh_random_phasors_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/communications/fading/plot_01_rayleigh_random_phasors`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Rayleigh's sum of random phasors (1880)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Two antennas a few wavelengths apart rarely fade at the same moment. Short-wave receivers had long switched to whichever antenna was strongest (selection, selection_outage_probability). Leonard Kahn&#x27;s 1954 &quot;ratio squarer&quot; instead weighted each branch by its own signal strength before adding them. With complex weights equal to the conjugate channel gains this is maximal-ratio combining (~engineeringkit.communications.maximal_ratio_combine), whose output SNR is the sum of the branch SNRs. D. G. Brennan&#x27;s 1959 review compared selection, equal-gain and maximal-ratio combining and showed how close they come to one another. With L independent branches the error rate falls as \bar\gamma^{-L} (~engineeringkit.communications.ber_bpsk_mrc_rayleigh).">
+
+.. only:: html
+
+  .. image:: /api/gallery/communications/fading/images/thumb/sphx_glr_plot_02_diversity_combining_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/communications/fading/plot_02_diversity_combining`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Kahn and Brennan's diversity combining (1954-1959)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/communications/fading/plot_01_rayleigh_random_phasors
+   /api/gallery/communications/fading/plot_02_diversity_combining
+

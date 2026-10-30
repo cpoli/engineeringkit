@@ -5,7 +5,7 @@
 Stress
 ------
 
-Plane stress transformation.
+Plane stress transformation, three-dimensional principal stresses and strain-gauge rosettes.
 
 
 .. raw:: html
@@ -21,7 +21,7 @@ Plane stress transformation.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Otto Mohr (1882) showed that the normal and shear stresses on every plane through a point, plotted against each other, fall on a single circle. Its centre is the mean normal stress, its radius the largest in-plane shear stress, and its ends on the axis are the principal stresses (~engineeringkit.structural_engineering.mohr_circle). Turning the element by \theta moves the point by 2\theta around the circle (~engineeringkit.structural_engineering.stress_transformation). The example traces the circle by rotating an element, checks that the principal stresses are the eigenvalues of the stress tensor, and finds the plane of maximum shear.">
+    <div class="sphx-glr-thumbcontainer" tooltip="Otto Mohr (1882) showed that the normal and shear stresses on every plane through a point, plotted against each other, fall on a single circle. Its centre is the mean normal stress, its radius the largest in-plane shear stress, and its ends on the axis are the principal stresses (~engineeringkit.structural_engineering.mohr_circle). Turning the element by \theta moves the point by 2\theta around the circle (~engineeringkit.structural_engineering.stress_transformation). The same paper drew three circles for a three-dimensional state, through each pair of principal stresses (~engineeringkit.structural_engineering.principal_stresses_3d). The example traces the circle by rotating an element, checks that the principal stresses are the eigenvalues of the stress tensor, finds the plane of maximum shear, and shows that in a pressure vessel the largest shear stress acts out of the plane of the wall.">
 
 .. only:: html
 
@@ -36,6 +36,23 @@ Plane stress transformation.
     </div>
 
 
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Stress cannot be measured, only strain. In 1936 Edward Simmons at Caltech, and in April 1938 Arthur Ruge at MIT, independently cemented fine resistance wire to a specimen, so that its resistance changed with the strain of the surface beneath; their names became the &quot;SR-4&quot; gauge. One gauge measures strain in one direction; a rosette of three at known angles gives the whole plane strain state (~engineeringkit.structural_engineering.strain_rosette), and Hooke&#x27;s law turns it into stress (~engineeringkit.structural_engineering.plane_stress_from_strains). The example simulates a rosette on a shaft under bending and torsion and recovers the torque from the three readings.">
+
+.. only:: html
+
+  .. image:: /api/gallery/structural_engineering/stress/images/thumb/sphx_glr_plot_02_strain_gauge_rosette_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/structural_engineering/stress/plot_02_strain_gauge_rosette`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Simmons and Ruge's bonded strain gauge (1938)</div>
+    </div>
+
+
 .. thumbnail-parent-div-close
 
 .. raw:: html
@@ -47,4 +64,5 @@ Plane stress transformation.
    :hidden:
 
    /api/gallery/structural_engineering/stress/plot_01_mohr_circle
+   /api/gallery/structural_engineering/stress/plot_02_strain_gauge_rosette
 

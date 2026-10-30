@@ -1,0 +1,50 @@
+
+
+.. _sphx_glr_api_gallery_structural_engineering_vessels:
+
+Pressure vessels
+----------------
+
+Thin- and thick-walled cylinders under pressure.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="The hoop stress pr/t of a boiler shell (~engineeringkit.structural_engineering.thin_wall_vessel_stresses) assumes the stress is uniform through the wall. Gabriel Lamé and Émile Clapeyron, in their memoir on the equilibrium of elastic solids (written in Russia, published in Paris in 1833), solved the hollow cylinder exactly: \sigma_r = A - B/r^2 and \sigma_\theta = A + B/r^2 (~engineeringkit.structural_engineering.thick_wall_cylinder_stresses). The hoop stress is highest at the bore, and no thickness of wall can carry an internal pressure above the material&#x27;s strength. The example plots the stresses through a gun-barrel wall and finds the radius ratio at which the thin-wall formula is 5% low.">
+
+.. only:: html
+
+  .. image:: /api/gallery/structural_engineering/vessels/images/thumb/sphx_glr_plot_01_lame_thick_cylinder_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/structural_engineering/vessels/plot_01_lame_thick_cylinder`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Lamé's thick-walled cylinder (1833)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/structural_engineering/vessels/plot_01_lame_thick_cylinder
+

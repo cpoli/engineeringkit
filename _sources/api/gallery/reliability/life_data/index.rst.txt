@@ -1,0 +1,86 @@
+
+
+.. _sphx_glr_api_gallery_reliability_life_data:
+
+Life data
+---------
+
+Estimating a lifetime distribution or a failure rate from test and field data.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Where should the i-th of n failures be plotted? The population fraction failed at the i-th smallest life is itself random, with a \mathrm{Beta}(i, n - i + 1) distribution. Leonard Johnson (1951), working on bearing fatigue at General Motors, proposed its median, the median rank, as the plotting position, and Benard&#x27;s (i - 0.3)/(n + 0.4) approximates it closely (~engineeringkit.reliability.median_ranks). For censored data Johnson&#x27;s adjusted order numbers (~engineeringkit.reliability.adjusted_ranks) let units removed early still move the later ranks. A least-squares line on Weibull axes then gives \beta and \eta (~engineeringkit.reliability.weibull_rank_regression).">
+
+.. only:: html
+
+  .. image:: /api/gallery/reliability/life_data/images/thumb/sphx_glr_plot_01_johnson_median_ranks_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/reliability/life_data/plot_01_johnson_median_ranks`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Johnson's median ranks (1951)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A rank-regression line uses a censored unit only through the ranks of later failures. A. Clifford Cohen (1965) wrote out the maximum-likelihood equations of the Weibull distribution for complete, singly censored and progressively censored samples. Every unit contributes: a failure through its density, a survivor through R(t). The shape solves one equation in \beta alone, and \eta follows (~engineeringkit.reliability.weibull_mle). The example repeats a heavily censored test many times and compares the scatter of the two estimators.">
+
+.. only:: html
+
+  .. image:: /api/gallery/reliability/life_data/images/thumb/sphx_glr_plot_02_cohen_censored_mle_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/reliability/life_data/plot_02_cohen_censored_mle`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Cohen's maximum likelihood for censored Weibull data (1965)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Howard Raiffa and Robert Schlaifer (1961) named and catalogued conjugate priors, families that a likelihood maps into themselves. For failures that arrive as a Poisson process the conjugate family is the gamma distribution: a \mathrm{Gamma}(a, b) prior on the rate \lambda and r failures in time T give a \mathrm{Gamma}(a + r, b + T) posterior (~engineeringkit.reliability.bayesian_failure_rate). Handbook or similar-part data set the prior (~engineeringkit.reliability.gamma_prior_from_bounds), so a short test of a new part is not read in isolation.">
+
+.. only:: html
+
+  .. image:: /api/gallery/reliability/life_data/images/thumb/sphx_glr_plot_03_raiffa_schlaifer_bayesian_failure_rate_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/reliability/life_data/plot_03_raiffa_schlaifer_bayesian_failure_rate`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Raiffa and Schlaifer's conjugate prior for a failure rate (1961)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/reliability/life_data/plot_01_johnson_median_ranks
+   /api/gallery/reliability/life_data/plot_02_cohen_censored_mle
+   /api/gallery/reliability/life_data/plot_03_raiffa_schlaifer_bayesian_failure_rate
+

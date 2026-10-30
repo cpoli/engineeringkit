@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>engineeringkit.electrical_engineering.systems.stability &#8212; engineeringkit</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx_autodoc_typehints.css?v=057ac668" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/plot_directive.css" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Vibur" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/jupyterlite_sphinx.css?v=f676e775" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery.css?v=c83e6b79" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/engineeringkit.css?v=62935cec" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../../../_static/scripts/fontawesome.js?digest=18bd87630a240e9c25be"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be" />
+
+    <script src="../../../../_static/documentation_options.js?v=95e61db4"></script>
+    <script src="../../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../../_static/sg-tags.js?v=d80f6fa4"></script>
+    <script src="../../../../_static/jupyterlite_sphinx.js?v=96e329c5"></script>
+    <script src="../../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/engineeringkit/electrical_engineering/systems/stability';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <script async="async" data-goatcounter="https://cpoli.goatcounter.com/count" src="https://gc.zgo.at/count.js"></script>
+    <link rel="canonical" href="https://cpoli.github.io/engineeringkit/_modules/engineeringkit/electrical_engineering/systems/stability.html" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="color-scheme" content="light dark"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../../../_static/searchtools.js"></script>
+    <script src="../../../../_static/language_data.js"></script>
+    <script src="../../../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../_static/engineeringkit_logo_transparent.png" class="logo__image only-light" alt="engineeringkit logo"/>
+    <img src="../../../../_static/engineeringkit_logo_transparent.png" class="logo__image only-dark pst-js-only" alt="engineeringkit logo"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../subpackages/index.html">
+    Subpackages
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../history/index.html">
+    History
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../api/index.html">
+    API
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://cpoli.github.io/" title="Charles Poli" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-user fa-lg" aria-hidden="true"></i><span class="visually-hidden">Charles Poli</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../subpackages/index.html">
+    Subpackages
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../history/index.html">
+    History
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../api/index.html">
+    API
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://cpoli.github.io/" title="Charles Poli" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-user fa-lg" aria-hidden="true"></i><span class="visually-hidden">Charles Poli</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">engineeringkit.electrical_engineering.systems.stability</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for engineeringkit.electrical_engineering.systems.stability</h1><div class="highlight"><pre>
+<span></span><span class="sa">r</span><span class="sd">"""Transient stability: the swing equation and the equal-area criterion.</span>
+
+<span class="sd">A synchronous generator feeding an infinite bus through a reactance</span>
+<span class="sd">delivers :math:`P_e = P_{max}\sin\delta`. A fault lowers :math:`P_{max}`,</span>
+<span class="sd">the rotor accelerates under the unbalanced mechanical power, and once the</span>
+<span class="sd">fault is cleared it must give back the kinetic energy it gained before its</span>
+<span class="sd">angle passes the unstable equilibrium. Integrating the swing equation gives</span>
+<span class="sd">the swing curve; comparing the accelerating and decelerating areas under</span>
+<span class="sd">the power-angle curves gives the critical clearing angle without it.</span>
+<span class="sd">"""</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit._validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">finite</span> <span class="k">as</span> <span class="n">_finite</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit._validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">integer</span> <span class="k">as</span> <span class="n">_integer</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit._validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">nonnegative</span> <span class="k">as</span> <span class="n">_nonnegative</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit._validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">positive</span> <span class="k">as</span> <span class="n">_positive</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit.electrical_engineering.core.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">SwingResult</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit.integrators</span><span class="w"> </span><span class="kn">import</span> <span class="n">integrate_ode</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"equal_area_clearing_angle"</span><span class="p">,</span> <span class="s2">"critical_clearing_time"</span><span class="p">,</span> <span class="s2">"swing_response"</span><span class="p">]</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_check_powers</span><span class="p">(</span><span class="n">p_mech</span><span class="p">,</span> <span class="n">p_max_pre</span><span class="p">,</span> <span class="n">p_max_fault</span><span class="p">,</span> <span class="n">p_max_post</span><span class="p">):</span>
+    <span class="n">_finite</span><span class="p">(</span><span class="n">p_mech</span><span class="o">=</span><span class="n">p_mech</span><span class="p">,</span> <span class="n">p_max_pre</span><span class="o">=</span><span class="n">p_max_pre</span><span class="p">,</span> <span class="n">p_max_fault</span><span class="o">=</span><span class="n">p_max_fault</span><span class="p">,</span> <span class="n">p_max_post</span><span class="o">=</span><span class="n">p_max_post</span><span class="p">)</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">p_mech</span><span class="o">=</span><span class="n">p_mech</span><span class="p">)</span>
+    <span class="n">_nonnegative</span><span class="p">(</span><span class="n">p_max_fault</span><span class="o">=</span><span class="n">p_max_fault</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">p_max_pre</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">p_mech</span><span class="p">)</span> <span class="ow">or</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">p_max_post</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">p_mech</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"p_max_pre and p_max_post must exceed p_mech, or there is no stable operating point"</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">p_max_fault</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">p_max_post</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"p_max_fault must be below p_max_post"</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="equal_area_clearing_angle">
+<a class="viewcode-back" href="../../../../api/electrical_engineering.html#engineeringkit.electrical_engineering.equal_area_clearing_angle">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">equal_area_clearing_angle</span><span class="p">(</span><span class="n">p_mech</span><span class="p">,</span> <span class="n">p_max_pre</span><span class="p">,</span> <span class="n">p_max_fault</span><span class="p">,</span> <span class="n">p_max_post</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Initial and critical clearing rotor angles by the equal-area criterion.</span>
+
+<span class="sd">    The rotor starts at :math:`\delta_0 = \arcsin(P_m/P_1)` on the prefault</span>
+<span class="sd">    curve, accelerates along the fault curve :math:`P_2\sin\delta` and, once</span>
+<span class="sd">    cleared, decelerates along :math:`P_3\sin\delta` until at most</span>
+<span class="sd">    :math:`\delta_{max} = \pi - \arcsin(P_m/P_3)`. Equating the accelerating</span>
+<span class="sd">    and decelerating areas,</span>
+
+<span class="sd">    .. math::</span>
+
+<span class="sd">        \cos\delta_{cr} = \frac{P_m(\delta_{max} - \delta_0)</span>
+<span class="sd">        + P_3\cos\delta_{max} - P_2\cos\delta_0}{P_3 - P_2}.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    p_mech : float or array_like</span>
+<span class="sd">        Mechanical input power :math:`P_m` [pu], positive.</span>
+<span class="sd">    p_max_pre, p_max_fault, p_max_post : float or array_like</span>
+<span class="sd">        Amplitudes :math:`P_1, P_2, P_3` of the prefault, fault-on and</span>
+<span class="sd">        post-fault power-angle curves [pu]; :math:`P_1, P_3 &gt; P_m` and</span>
+<span class="sd">        :math:`0 \le P_2 &lt; P_3`.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    tuple of float or ndarray</span>
+<span class="sd">        ``(delta0, delta_critical)`` [rad]. If the fault-on curve keeps the</span>
+<span class="sd">        rotor from passing :math:`\delta_{max}` whenever it is cleared,</span>
+<span class="sd">        ``delta_critical`` is :math:`\delta_{max}`.</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    ValueError</span>
+<span class="sd">        For inconsistent powers, or if the post-fault system cannot hold the</span>
+<span class="sd">        rotor even when the fault is cleared at once.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Inputs are raw SI numbers with no dimensional metadata; see</span>
+<span class="sd">    :doc:`/guides/electrical_engineering`. Classical model: constant</span>
+<span class="sd">    voltage behind transient reactance, constant mechanical power, no</span>
+<span class="sd">    damping, one machine against an infinite bus.</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    R. D. Evans and C. F. Wagner, "Studies of transmission stability,"</span>
+<span class="sd">    *Trans. AIEE* 45 (1926); E. W. Kimbark, *Power System Stability*,</span>
+<span class="sd">    vol. 1 (New York: Wiley, 1948), ch. 4.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; d0, dcr = equal_area_clearing_angle(1.0, 2.0, 0.0, 2.0)</span>
+<span class="sd">    &gt;&gt;&gt; round(float(np.degrees(d0)), 2), round(float(np.degrees(dcr)), 2)</span>
+<span class="sd">    (30.0, 79.56)</span>
+<span class="sd">    """</span>
+    <span class="n">_check_powers</span><span class="p">(</span><span class="n">p_mech</span><span class="p">,</span> <span class="n">p_max_pre</span><span class="p">,</span> <span class="n">p_max_fault</span><span class="p">,</span> <span class="n">p_max_post</span><span class="p">)</span>
+    <span class="n">p_mech</span><span class="p">,</span> <span class="n">p_max_pre</span><span class="p">,</span> <span class="n">p_max_fault</span><span class="p">,</span> <span class="n">p_max_post</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">(</span><span class="n">p_mech</span><span class="p">,</span> <span class="n">p_max_pre</span><span class="p">,</span> <span class="n">p_max_fault</span><span class="p">,</span> <span class="n">p_max_post</span><span class="p">))</span>
+    <span class="n">delta0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arcsin</span><span class="p">(</span><span class="n">p_mech</span> <span class="o">/</span> <span class="n">p_max_pre</span><span class="p">)</span>
+    <span class="n">delta_max</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">arcsin</span><span class="p">(</span><span class="n">p_mech</span> <span class="o">/</span> <span class="n">p_max_post</span><span class="p">)</span>
+    <span class="n">cos_cr</span> <span class="o">=</span> <span class="p">(</span><span class="n">p_mech</span> <span class="o">*</span> <span class="p">(</span><span class="n">delta_max</span> <span class="o">-</span> <span class="n">delta0</span><span class="p">)</span> <span class="o">+</span> <span class="n">p_max_post</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">delta_max</span><span class="p">)</span> <span class="o">-</span> <span class="n">p_max_fault</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">delta0</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="n">p_max_post</span> <span class="o">-</span> <span class="n">p_max_fault</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">cos_cr</span> <span class="o">&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">delta0</span><span class="p">)):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"the post-fault system cannot recover even with instantaneous clearing"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">delta0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">arccos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="n">cos_cr</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">delta_max</span><span class="p">)))</span></div>
+
+
+
+<div class="viewcode-block" id="critical_clearing_time">
+<a class="viewcode-back" href="../../../../api/electrical_engineering.html#engineeringkit.electrical_engineering.critical_clearing_time">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">critical_clearing_time</span><span class="p">(</span><span class="n">inertia_constant</span><span class="p">,</span> <span class="n">p_mech</span><span class="p">,</span> <span class="n">p_max_pre</span><span class="p">,</span> <span class="n">frequency</span><span class="o">=</span><span class="mf">60.0</span><span class="p">,</span> <span class="n">p_max_post</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Critical clearing time of a bolted fault that drops the electrical power to zero.</span>
+
+<span class="sd">    With :math:`P_e = 0` during the fault the swing equation integrates to</span>
+<span class="sd">    :math:`\delta = \delta_0 + \omega_s P_m t^2/4H`, so the critical</span>
+<span class="sd">    clearing angle of :func:`equal_area_clearing_angle` is reached at</span>
+
+<span class="sd">    .. math::</span>
+
+<span class="sd">        t_{cr} = \sqrt{\frac{4H(\delta_{cr} - \delta_0)}{\omega_s P_m}},</span>
+<span class="sd">        \qquad \omega_s = 2\pi f.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    inertia_constant : float or array_like</span>
+<span class="sd">        Inertia constant :math:`H` [s] (stored kinetic energy per unit</span>
+<span class="sd">        rating), positive.</span>
+<span class="sd">    p_mech : float or array_like</span>
+<span class="sd">        Mechanical input power [pu], positive.</span>
+<span class="sd">    p_max_pre : float or array_like</span>
+<span class="sd">        Prefault power-angle amplitude [pu], above ``p_mech``.</span>
+<span class="sd">    frequency : float or array_like, optional</span>
+<span class="sd">        System frequency [Hz], positive.</span>
+<span class="sd">    p_max_post : float or array_like, optional</span>
+<span class="sd">        Post-fault amplitude [pu]; defaults to ``p_max_pre`` (the fault is</span>
+<span class="sd">        cleared without losing a line).</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float or ndarray</span>
+<span class="sd">        Critical clearing time [s].</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Inputs are raw SI numbers with no dimensional metadata; see</span>
+<span class="sd">    :doc:`/guides/electrical_engineering`. For a fault that leaves some</span>
+<span class="sd">    power flowing there is no closed form: integrate with</span>
+<span class="sd">    :func:`swing_response`.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; round(float(critical_clearing_time(5.0, 1.0, 2.0)), 4)</span>
+<span class="sd">    0.2142</span>
+<span class="sd">    """</span>
+    <span class="n">_finite</span><span class="p">(</span><span class="n">inertia_constant</span><span class="o">=</span><span class="n">inertia_constant</span><span class="p">,</span> <span class="n">frequency</span><span class="o">=</span><span class="n">frequency</span><span class="p">)</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">inertia_constant</span><span class="o">=</span><span class="n">inertia_constant</span><span class="p">,</span> <span class="n">frequency</span><span class="o">=</span><span class="n">frequency</span><span class="p">)</span>
+    <span class="n">p_max_post</span> <span class="o">=</span> <span class="n">p_max_pre</span> <span class="k">if</span> <span class="n">p_max_post</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">p_max_post</span>
+    <span class="n">inertia_constant</span><span class="p">,</span> <span class="n">frequency</span><span class="p">,</span> <span class="n">p_mech</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">(</span><span class="n">inertia_constant</span><span class="p">,</span> <span class="n">frequency</span><span class="p">,</span> <span class="n">p_mech</span><span class="p">))</span>
+    <span class="n">delta0</span><span class="p">,</span> <span class="n">delta_cr</span> <span class="o">=</span> <span class="n">equal_area_clearing_angle</span><span class="p">(</span><span class="n">p_mech</span><span class="p">,</span> <span class="n">p_max_pre</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">p_max_post</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">4</span> <span class="o">*</span> <span class="n">inertia_constant</span> <span class="o">*</span> <span class="p">(</span><span class="n">delta_cr</span> <span class="o">-</span> <span class="n">delta0</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">frequency</span> <span class="o">*</span> <span class="n">p_mech</span><span class="p">))</span></div>
+
+
+
+<div class="viewcode-block" id="swing_response">
+<a class="viewcode-back" href="../../../../api/electrical_engineering.html#engineeringkit.electrical_engineering.swing_response">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">swing_response</span><span class="p">(</span>
+    <span class="n">inertia_constant</span><span class="p">,</span> <span class="n">p_mech</span><span class="p">,</span> <span class="n">p_max_pre</span><span class="p">,</span> <span class="n">p_max_fault</span><span class="p">,</span> <span class="n">p_max_post</span><span class="p">,</span> <span class="n">clearing_time</span><span class="p">,</span> <span class="n">t_end</span><span class="p">,</span> <span class="n">frequency</span><span class="o">=</span><span class="mf">60.0</span><span class="p">,</span> <span class="n">damping</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">n_points</span><span class="o">=</span><span class="mi">2001</span>
+<span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Swing curve of a generator against an infinite bus through a cleared fault.</span>
+
+<span class="sd">    Integrates the swing equation</span>
+
+<span class="sd">    .. math::</span>
+
+<span class="sd">        \frac{2H}{\omega_s}\frac{d^2\delta}{dt^2} = P_m - P_{max}\sin\delta</span>
+<span class="sd">        - D\frac{d\delta}{dt}</span>
+
+<span class="sd">    from rest at :math:`\delta_0 = \arcsin(P_m/P_1)`, with</span>
+<span class="sd">    :math:`P_{max} = P_2` until ``clearing_time`` and :math:`P_3` after.</span>
+<span class="sd">    The two intervals are integrated separately, so the step change in</span>
+<span class="sd">    :math:`P_{max}` falls on a sample.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    inertia_constant : float</span>
+<span class="sd">        Inertia constant :math:`H` [s], positive.</span>
+<span class="sd">    p_mech : float</span>
+<span class="sd">        Mechanical input power [pu], positive.</span>
+<span class="sd">    p_max_pre, p_max_fault, p_max_post : float</span>
+<span class="sd">        Power-angle amplitudes before, during and after the fault [pu]; see</span>
+<span class="sd">        :func:`equal_area_clearing_angle`.</span>
+<span class="sd">    clearing_time : float</span>
+<span class="sd">        Fault duration [s], in :math:`(0, t_{end})`.</span>
+<span class="sd">    t_end : float</span>
+<span class="sd">        End of the simulation [s], positive.</span>
+<span class="sd">    frequency : float, optional</span>
+<span class="sd">        System frequency [Hz], positive.</span>
+<span class="sd">    damping : float, optional</span>
+<span class="sd">        Damping coefficient :math:`D` [pu power s/rad], nonnegative.</span>
+<span class="sd">    n_points : int, optional</span>
+<span class="sd">        Number of output samples over :math:`[0, t_{end}]`, at least three</span>
+<span class="sd">        (the clearing instant is added to them).</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    SwingResult</span>
+<span class="sd">        Rotor angle [rad] and speed deviation [rad/s] against time [s], with</span>
+<span class="sd">        a first-swing ``stable`` flag.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Inputs are raw SI numbers with no dimensional metadata; see</span>
+<span class="sd">    :doc:`/guides/electrical_engineering`. Integrated with</span>
+<span class="sd">    :func:`engineeringkit.integrators.integrate_ode` (RK45). All parameters</span>
+<span class="sd">    are scalar-only: the result is one swing curve.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; r = swing_response(5.0, 1.0, 2.0, 0.0, 2.0, 0.2, 1.5)</span>
+<span class="sd">    &gt;&gt;&gt; r.stable, round(float(np.degrees(r.delta.max())), 1)</span>
+<span class="sd">    (True, 119.4)</span>
+<span class="sd">    """</span>
+    <span class="n">_check_powers</span><span class="p">(</span><span class="n">p_mech</span><span class="p">,</span> <span class="n">p_max_pre</span><span class="p">,</span> <span class="n">p_max_fault</span><span class="p">,</span> <span class="n">p_max_post</span><span class="p">)</span>
+    <span class="n">_finite</span><span class="p">(</span><span class="n">inertia_constant</span><span class="o">=</span><span class="n">inertia_constant</span><span class="p">,</span> <span class="n">clearing_time</span><span class="o">=</span><span class="n">clearing_time</span><span class="p">,</span> <span class="n">t_end</span><span class="o">=</span><span class="n">t_end</span><span class="p">,</span> <span class="n">frequency</span><span class="o">=</span><span class="n">frequency</span><span class="p">,</span> <span class="n">damping</span><span class="o">=</span><span class="n">damping</span><span class="p">)</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">inertia_constant</span><span class="o">=</span><span class="n">inertia_constant</span><span class="p">,</span> <span class="n">t_end</span><span class="o">=</span><span class="n">t_end</span><span class="p">,</span> <span class="n">frequency</span><span class="o">=</span><span class="n">frequency</span><span class="p">)</span>
+    <span class="n">_nonnegative</span><span class="p">(</span><span class="n">damping</span><span class="o">=</span><span class="n">damping</span><span class="p">)</span>
+    <span class="n">_integer</span><span class="p">(</span><span class="s2">"n_points"</span><span class="p">,</span> <span class="n">n_points</span><span class="p">,</span> <span class="n">minimum</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="n">clearing_time</span> <span class="o">&lt;</span> <span class="n">t_end</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"clearing_time must lie in (0, t_end)"</span><span class="p">)</span>
+    <span class="n">omega_s</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">frequency</span>
+    <span class="n">delta0</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arcsin</span><span class="p">(</span><span class="n">p_mech</span> <span class="o">/</span> <span class="n">p_max_pre</span><span class="p">))</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">rhs</span><span class="p">(</span><span class="n">p_max</span><span class="p">):</span>
+        <span class="k">return</span> <span class="k">lambda</span> <span class="n">_</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="p">[</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">omega_s</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">inertia_constant</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">p_mech</span> <span class="o">-</span> <span class="n">p_max</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">-</span> <span class="n">damping</span> <span class="o">*</span> <span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">])]</span>
+
+    <span class="n">grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">t_end</span><span class="p">,</span> <span class="n">n_points</span><span class="p">)</span>
+    <span class="n">before</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">grid</span><span class="p">[</span><span class="n">grid</span> <span class="o">&lt;</span> <span class="n">clearing_time</span><span class="p">],</span> <span class="n">clearing_time</span><span class="p">)</span>
+    <span class="n">after</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">grid</span><span class="p">[</span><span class="n">grid</span> <span class="o">&gt;</span> <span class="n">clearing_time</span><span class="p">],</span> <span class="mi">0</span><span class="p">,</span> <span class="n">clearing_time</span><span class="p">)</span>
+    <span class="n">fault</span> <span class="o">=</span> <span class="n">integrate_ode</span><span class="p">(</span><span class="n">rhs</span><span class="p">(</span><span class="n">p_max_fault</span><span class="p">),</span> <span class="p">[</span><span class="n">delta0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span> <span class="n">before</span><span class="p">)</span>
+    <span class="n">post</span> <span class="o">=</span> <span class="n">integrate_ode</span><span class="p">(</span><span class="n">rhs</span><span class="p">(</span><span class="n">p_max_post</span><span class="p">),</span> <span class="n">fault</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">after</span><span class="p">)</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">before</span><span class="p">,</span> <span class="n">after</span><span class="p">[</span><span class="mi">1</span><span class="p">:]))</span>
+    <span class="n">history</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">fault</span><span class="o">.</span><span class="n">history</span><span class="p">,</span> <span class="n">post</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="mi">1</span><span class="p">:]))</span>
+    <span class="n">max_stable_angle</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">arcsin</span><span class="p">(</span><span class="n">p_mech</span> <span class="o">/</span> <span class="n">p_max_post</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">SwingResult</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">history</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">history</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="nb">float</span><span class="p">(</span><span class="n">clearing_time</span><span class="p">),</span> <span class="n">max_stable_angle</span><span class="p">)</span></div>
+
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../../_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be"></script>
+<script defer src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.1.
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.23.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

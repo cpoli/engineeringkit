@@ -5,7 +5,7 @@
 Detection
 ---------
 
-Bit-error rates of coherent BPSK and QPSK in Gaussian noise.
+The matched filter, and error rates of coherent BPSK, QPSK, M-PSK and M-QAM in Gaussian noise.
 
 
 .. raw:: html
@@ -53,6 +53,57 @@ Bit-error rates of coherent BPSK and QPSK in Gaussian noise.
     </div>
 
 
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Working on radar at RCA Laboratories, Dwight North asked which receiving filter makes a known pulse stand out best above white noise. His wartime report answered it: the filter whose impulse response is the pulse reversed in time (and conjugated), matched_filter. Sampled at the end of the pulse, its output signal-to-noise ratio is 2E/N_0 (~engineeringkit.communications.matched_filter_snr). That depends only on the pulse&#x27;s energy, not its shape, and no linear filter does better: the bound is the Cauchy-Schwarz inequality.">
+
+.. only:: html
+
+  .. image:: /api/gallery/communications/detection/images/thumb/sphx_glr_plot_03_north_matched_filter_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/communications/detection/plot_03_north_matched_filter`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">North's matched filter (1943)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Charles Cahn asked what happens when a carrier&#x27;s phase takes not two but M values, so that each symbol carries \log_2 M bits. The points sit on a circle (~engineeringkit.communications.psk_constellation) and crowd together as M grows: the distance between neighbours is 2\sin(\pi/M). Every doubling of M beyond four costs about 6 dB of E_s/N_0. Cahn concluded that multiphase signalling trades bandwidth for signal-to-noise ratio more efficiently than multilevel amplitude signalling. The exact symbol-error rate of minimum-distance detection (~engineeringkit.communications.minimum_distance_detect) is given by Craig&#x27;s integral (~engineeringkit.communications.ser_mpsk_awgn).">
+
+.. only:: html
+
+  .. image:: /api/gallery/communications/detection/images/thumb/sphx_glr_plot_04_cahn_mpsk_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/communications/detection/plot_04_cahn_mpsk`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Cahn's M-ary phase-shift keying (1959)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Phase-shift keying wastes the inside of the circle. C. N. Campopiano and B. G. Glazer modulated the amplitudes of two carriers in quadrature independently, so the points fill a square grid (~engineeringkit.communications.qam_constellation). Each rail is a \sqrt M-level amplitude decision, and the exact symbol-error rate follows from one rail&#x27;s error probability (~engineeringkit.communications.ser_mqam_awgn). At 16 points and above, square QAM needs several decibels less power than M-PSK, which is why every modem from the 1970s to Wi-Fi and 5G uses it.">
+
+.. only:: html
+
+  .. image:: /api/gallery/communications/detection/images/thumb/sphx_glr_plot_05_campopiano_glazer_qam_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/communications/detection/plot_05_campopiano_glazer_qam`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Campopiano and Glazer's square QAM (1962)</div>
+    </div>
+
+
 .. thumbnail-parent-div-close
 
 .. raw:: html
@@ -65,4 +116,7 @@ Bit-error rates of coherent BPSK and QPSK in Gaussian noise.
 
    /api/gallery/communications/detection/plot_01_kotelnikov_bpsk_detection
    /api/gallery/communications/detection/plot_02_cahn_quadrature_qpsk
+   /api/gallery/communications/detection/plot_03_north_matched_filter
+   /api/gallery/communications/detection/plot_04_cahn_mpsk
+   /api/gallery/communications/detection/plot_05_campopiano_glazer_qam
 

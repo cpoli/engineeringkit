@@ -5,7 +5,7 @@
 Compressible flow
 -----------------
 
-Sound speed, Mach waves, isentropic stagnation states, compressibility corrections, shocks and nozzles.
+Sound speed, Mach waves, isentropic stagnation states, compressibility corrections, normal and oblique shocks, Prandtl-Meyer expansions, nozzles, and Fanno and Rayleigh duct flow.
 
 
 .. raw:: html
@@ -121,6 +121,74 @@ Sound speed, Mach waves, isentropic stagnation states, compressibility correctio
     </div>
 
 
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Theodor Meyer&#x27;s 1908 Göttingen thesis showed that a supersonic stream turned into itself by a wedge passes through a straight oblique shock. Its wave angle \beta follows from the deflection \theta and the Mach number through the \theta-\beta-M relation (~engineeringkit.aerodynamics.oblique_shock_deflection). The jump itself is a normal shock in the velocity component normal to the wave (~engineeringkit.aerodynamics.oblique_shock). This example draws the chart, finds the weak and strong solutions for a 20° wedge at Mach 2, and shows the shock detaching once the wedge is steeper than \theta_{\max}.">
+
+.. only:: html
+
+  .. image:: /api/gallery/aerodynamics/compressible/images/thumb/sphx_glr_plot_07_meyer_oblique_shock_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/aerodynamics/compressible/plot_07_meyer_oblique_shock`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Meyer's oblique shock and the theta-beta-M relation (1908)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Ludwig Prandtl (1907) and his student Theodor Meyer (1908) showed that a supersonic stream turning away from itself around a corner expands isentropically through a centred fan of Mach waves. The turning angle that takes a sonic stream to Mach M is the Prandtl-Meyer function \nu(M) (~engineeringkit.aerodynamics.prandtl_meyer_angle), so a turn by \theta sets \nu(M_2) = \nu(M_1) + \theta (~engineeringkit.aerodynamics.prandtl_meyer_expansion). Combined with Meyer&#x27;s oblique shocks this gives shock-expansion theory, which this example applies to a flat plate at incidence and checks against Ackeret&#x27;s linear supersonic lift c_l = 4\alpha/\sqrt{M^2-1}.">
+
+.. only:: html
+
+  .. image:: /api/gallery/aerodynamics/compressible/images/thumb/sphx_glr_plot_08_prandtl_meyer_expansion_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/aerodynamics/compressible/plot_08_prandtl_meyer_expansion`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">The Prandtl-Meyer expansion fan (1907-1908)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Gino Fanno&#x27;s 1904 diploma thesis at the ETH Zürich, written under Aurel Stodola, followed an adiabatic gas along a constant-area pipe with wall friction. Friction drives the Mach number towards one, from below in subsonic flow and from above in supersonic flow, while the stagnation temperature stays fixed and the stagnation pressure falls. The states lie on a Fanno line in the temperature-entropy plane, whose point of maximum entropy is the sonic state. fanno_flow gives every ratio to that sonic state, and fanno_choking_length the pipe length that chokes it. This example marches the friction ODE down a pipe and checks the closed form.">
+
+.. only:: html
+
+  .. image:: /api/gallery/aerodynamics/compressible/images/thumb/sphx_glr_plot_09_fanno_flow_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/aerodynamics/compressible/plot_09_fanno_flow`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Fanno flow: friction chokes a duct (1904)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In &quot;Aerial plane waves of finite amplitude&quot; (1910), Lord Rayleigh combined the conservation of mass and momentum for a gas in steady one-dimensional flow. The states they allow form a straight line, p + \rho V^2 = const, in the pressure-specific-volume plane: the Rayleigh line. In a constant-area duct with heat transfer but no friction, the flow moves along it. rayleigh_flow gives the ratios to the sonic state on the line. Heating drives the Mach number towards one, and rayleigh_choking_heat is the heat that chokes a combustor. This example checks the conservation laws and finds the two special points of the line.">
+
+.. only:: html
+
+  .. image:: /api/gallery/aerodynamics/compressible/images/thumb/sphx_glr_plot_10_rayleigh_flow_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/aerodynamics/compressible/plot_10_rayleigh_flow`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Rayleigh flow: heat addition and thermal choking (1910)</div>
+    </div>
+
+
 .. thumbnail-parent-div-close
 
 .. raw:: html
@@ -137,4 +205,8 @@ Sound speed, Mach waves, isentropic stagnation states, compressibility correctio
    /api/gallery/aerodynamics/compressible/plot_04_prandtl_glauert
    /api/gallery/aerodynamics/compressible/plot_05_rankine_hugoniot_normal_shock
    /api/gallery/aerodynamics/compressible/plot_06_de_laval_nozzle
+   /api/gallery/aerodynamics/compressible/plot_07_meyer_oblique_shock
+   /api/gallery/aerodynamics/compressible/plot_08_prandtl_meyer_expansion
+   /api/gallery/aerodynamics/compressible/plot_09_fanno_flow
+   /api/gallery/aerodynamics/compressible/plot_10_rayleigh_flow
 

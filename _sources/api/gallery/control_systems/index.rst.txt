@@ -8,8 +8,9 @@ Examples
 This gallery walks through every public feature of
 ``engineeringkit.control_systems``, one breakthrough per script: feedback
 and PID control, algebraic and Lyapunov stability tests, frequency-response
-design, transient specifications, the root locus, sampled-data control,
-dead time, state-space design and optimal control and estimation.
+design and sensitivity, transient specifications, the root locus,
+sampled-data control, dead time, nonlinear loops, state-space design and
+optimal control and estimation.
 
 :doc:`Units, assumptions and numerical validation </guides/control_systems>`
 gives the validity limits. Each script is self-contained and can be run
@@ -20,10 +21,11 @@ Sections
 
 - **feedback** -- Watt's governor, Minorsky's PID, Black's feedback amplifier and Ziegler-Nichols tuning.
 - **stability** -- Maxwell's characteristic roots, Routh's array, Lyapunov's direct method and Hurwitz's determinants.
-- **frequency** -- Nyquist's criterion and Bode's stability margins over every crossover.
+- **frequency** -- Nyquist's criterion, Bode's stability margins over every crossover, Bode's sensitivity integral and the Nichols chart.
 - **time_response** -- Hazen's second-order servomechanism and Smith's predictor for dead time.
 - **root_locus** -- Evans's root locus.
-- **sampled** -- Ragazzini and Zadeh's zero-order-hold discretisation and Jury's stability test.
+- **sampled** -- Ragazzini and Zadeh's zero-order-hold discretisation, Jury's stability test and Tustin's bilinear transform.
+- **nonlinear** -- Andronov's phase plane and Kochenburger's describing function.
 - **state_space** -- Kalman's controllability, Luenberger's observer and Wonham's pole placement.
 - **optimal** -- Kalman's LQR and its discrete form, the Kalman-Bucy filter and Doyle's LQG counterexample.
 
@@ -139,7 +141,7 @@ Governors, feedback amplifiers and PID control.
 Frequency response
 ------------------
 
-The Nyquist criterion, Bode plots and stability margins.
+The Nyquist criterion, Bode plots and stability margins, sensitivity and the Nichols chart.
 
 
 .. raw:: html
@@ -184,6 +186,97 @@ The Nyquist criterion, Bode plots and stability margins.
 .. raw:: html
 
       <div class="sphx-glr-thumbnail-title">Bode's gain and phase margins (1940)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Hendrik Bode defined the sensitivity of a feedback loop, S = 1/(1 + L), as the fraction of a plant change that survives in the closed loop (~engineeringkit.control_systems.sensitivity), and its complement T = L/(1 + L) (~engineeringkit.control_systems.complementary_sensitivity) as the map from reference and sensor noise to the output. Since S + T = 1, the two cannot both be small at one frequency. Bode also showed that, for a stable loop that rolls off at least as 1/s^2, \int_0^\infty \ln|S(j\omega)|\,d\omega = 0. Sensitivity pushed down at low frequency pops up elsewhere, the waterbed effect. Freudenberg and Looze (1985) showed that each unstable open-loop pole p raises the integral to \pi\sum \mathrm{Re}\,p.">
+
+.. only:: html
+
+  .. image:: /api/gallery/control_systems/frequency/images/thumb/sphx_glr_plot_03_bode_sensitivity_integral_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/control_systems/frequency/plot_03_bode_sensitivity_integral`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Bode's sensitivity integral (1945)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Nathaniel Nichols, at the MIT Radiation Laboratory during the war, plotted the open-loop gain in decibels against its phase. On those axes the closed-loop gain of a unity-feedback loop, |L/(1+L)|, is a fixed family of contours (~engineeringkit.control_systems.nichols_closed_loop), so one curve shows both. The highest contour the locus touches is the closed-loop resonant peak M_r (~engineeringkit.control_systems.nichols), and reshaping the locus away from the critical point (-180^\circ, 0\text{ dB}) lowers it. The chart was published in James, Nichols and Phillips&#x27;s Theory of Servomechanisms (1947). Here a lead compensator (~engineeringkit.control_systems.design_lead) lifts the phase of L = 4/(s(s+1)(s+2)) near crossover and pulls the resonant peak down.">
+
+.. only:: html
+
+  .. image:: /api/gallery/control_systems/frequency/images/thumb/sphx_glr_plot_04_nichols_chart_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/control_systems/frequency/plot_04_nichols_chart`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">The Nichols chart (1947)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+Nonlinear loops
+---------------
+
+The phase plane and the describing function for relays and saturation.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Aleksandr Andronov&#x27;s school in Gorky studied self-sustained oscillations by eliminating time and drawing the motion of \ddot x = f(x, \dot x) as a curve in the plane (x, \dot x) (~engineeringkit.control_systems.phase_portrait). A relay servo, \ddot x = -M\,\mathrm{sign}(x), is not linear anywhere, yet its phase plane is read at a glance. Each half plane holds parabolas \dot x^2/2 + M|x| = E, which join into closed orbits: the servo oscillates for ever at the amplitude it started with. Feeding back the rate, \ddot x = -M\,\mathrm{sign}(x + \tau\dot x), tilts the switching line. Every orbit then loses energy at each switch, reaches the line and slides along it, \dot x = -x/\tau, into the origin.">
+
+.. only:: html
+
+  .. image:: /api/gallery/control_systems/nonlinear/images/thumb/sphx_glr_plot_01_andronov_phase_plane_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/control_systems/nonlinear/plot_01_andronov_phase_plane`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Andronov, Vitt and Khaikin's phase plane (1937)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Ralph Kochenburger, working on relay-driven propeller pitch controls, replaced a nonlinearity by the gain N(A) it offers to the fundamental of a sinusoid of amplitude A (~engineeringkit.control_systems.relay_describing_function, saturation_describing_function). A loop L(s) closed through it can then oscillate where L(j\omega) = -1/N(A): at a phase crossover, with N(A) equal to the gain margin (~engineeringkit.control_systems.limit_cycle). For an ideal relay N = 4M/(\pi A) and L = 1/(s+1)^3, the cycle is at \omega = \sqrt3 with A = M/(2\pi). This is also the relay experiment that autotuners use to find Ziegler and Nichols&#x27;s ultimate point. The method is approximate because the loop does not filter out the harmonics completely, so each prediction is checked against a simulation of the nonlinear loop.">
+
+.. only:: html
+
+  .. image:: /api/gallery/control_systems/nonlinear/images/thumb/sphx_glr_plot_02_kochenburger_describing_function_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/control_systems/nonlinear/plot_02_kochenburger_describing_function`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Kochenburger's describing function (1950)</div>
     </div>
 
 
@@ -310,7 +403,7 @@ Closed-loop poles as the loop gain varies.
 Sampled-data control
 --------------------
 
-Computer control with a zero-order hold, and stability inside the unit circle.
+Computer control with a zero-order hold or Tustin's transform, and stability inside the unit circle.
 
 
 .. raw:: html
@@ -355,6 +448,23 @@ Computer control with a zero-order hold, and stability inside the unit circle.
 .. raw:: html
 
       <div class="sphx-glr-thumbnail-title">Jury's stability test for sampled systems (1961)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Arnold Tustin, analysing servomechanisms at Metropolitan-Vickers, turned continuous dynamics into recurrences on sampled values by substituting s \to (2/T)(z - 1)/(z + 1), which integrates by the trapezoidal rule (~engineeringkit.control_systems.discretize_tustin). The whole left half-plane maps into the unit disc, so a stable model stays stable, but the frequency axis is compressed: a continuous frequency \omega appears at (2/T)\arctan(\omega T/2). A sharp resonance near the Nyquist frequency moves. Prewarping, substituting \omega_0/\tan(\omega_0T/2) for 2/T, puts it back exactly at \omega_0.">
+
+.. only:: html
+
+  .. image:: /api/gallery/control_systems/sampled/images/thumb/sphx_glr_plot_03_tustin_bilinear_transform_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/control_systems/sampled/plot_03_tustin_bilinear_transform`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Tustin's bilinear transform (1947)</div>
     </div>
 
 
@@ -594,6 +704,7 @@ Transient specifications of second-order servomechanisms, and dead time.
 
    /api/gallery/control_systems/feedback/index.rst
    /api/gallery/control_systems/frequency/index.rst
+   /api/gallery/control_systems/nonlinear/index.rst
    /api/gallery/control_systems/optimal/index.rst
    /api/gallery/control_systems/root_locus/index.rst
    /api/gallery/control_systems/sampled/index.rst

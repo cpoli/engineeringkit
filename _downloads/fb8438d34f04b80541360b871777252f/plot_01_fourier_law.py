@@ -13,7 +13,9 @@ behaves like an electrical resistor :math:`L/(kA)`
 walls add like resistors in series
 (:func:`~engineeringkit.heat_transfer.composite_wall`). Curved walls give
 logarithmic resistances, and with them the surprising critical radius of
-insulation.
+insulation. Where the heat spreads in two dimensions, the solution of
+Fourier's equation is packed into a conduction shape factor :math:`S`, with
+:math:`\dot Q = Sk\Delta T`.
 """
 
 # %%
@@ -30,6 +32,8 @@ from engineeringkit.heat_transfer import (
     fourier_heat_rate,
     overall_u,
     plane_wall_resistance,
+    shape_factor_buried_cylinder,
+    shape_factor_eccentric_cylinders,
     sphere_resistance,
 )
 
@@ -92,5 +96,23 @@ axes[1].plot(r * 1e3, 1 / total_resistance(r))
 axes[1].axvline(r_cr * 1e3, color="k", ls=":")
 axes[1].set(xlabel="outer radius [mm]", ylabel="heat loss per K [W/(m K)]", title="More insulation, more loss, at first")
 fig.tight_layout()
+
+# %%
+# Shape factors: a buried pipe and an off-centre core
+# ---------------------------------------------------
+#
+# A 0.5 m district-heating pipe at 350 K, its axis 1.5 m under ground at
+# 280 K (:math:`k = 1.2` W/(m K)), loses
+# :math:`Sk\Delta T` per metre with :math:`S = 2\pi/\cosh^{-1}(2z/D)`.
+# A cable whose core has slipped off-centre in its insulation conducts
+# better than a centred one; centred, the shape factor is Fourier's
+# logarithmic resistance again.
+
+S_pipe = shape_factor_buried_cylinder(0.5, 1.5)
+print(f"buried pipe: S = {S_pipe:.3f} per metre, loss {S_pipe * 1.2 * 70:.0f} W/m")
+S_centred = shape_factor_eccentric_cylinders(0.01, 0.03, 0.0)
+S_offset = shape_factor_eccentric_cylinders(0.01, 0.03, 0.007)
+print(f"cable: centred S = {S_centred:.3f}, core 7 mm off-centre S = {S_offset:.3f} per metre")
+assert np.isclose(1 / S_centred, cylinder_resistance(0.005, 0.015, 1.0)) and S_offset > S_centred
 
 plt.show()

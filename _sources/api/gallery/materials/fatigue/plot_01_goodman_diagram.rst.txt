@@ -31,17 +31,19 @@ endurance limit :math:`S_e` at zero mean to nothing at the ultimate strength
 .. math:: \frac{\sigma_a}{S_e} + \frac{\sigma_m}{S_{ut}} = \frac{1}{n}
 
 (:func:`~engineeringkit.materials.goodman_safety_factor`). The example
-compares it with Gerber's parabola (1874) and Soderberg's line (1930) and
+compares it with Gerber's parabola (1874,
+:func:`~engineeringkit.materials.gerber_safety_factor`) and Soderberg's
+line (1930, :func:`~engineeringkit.materials.soderberg_safety_factor`) and
 reads safety factors along a load line.
 
-.. GENERATED FROM PYTHON SOURCE LINES 20-25
+.. GENERATED FROM PYTHON SOURCE LINES 22-27
 
 .. code-block:: Python
 
     import matplotlib.pyplot as plt
     import numpy as np
 
-    from engineeringkit.materials import goodman_safety_factor
+    from engineeringkit.materials import gerber_safety_factor, goodman_safety_factor, soderberg_safety_factor
 
 
 
@@ -50,7 +52,7 @@ reads safety factors along a load line.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 26-33
+.. GENERATED FROM PYTHON SOURCE LINES 28-35
 
 A bolt with a preload
 ---------------------
@@ -60,7 +62,7 @@ rolled thread) carries a mean stress of 400 MPa from its preload and an
 alternating 40 MPa from the external load. Scaling both stresses by
 :math:`n` puts the point on the Goodman line.
 
-.. GENERATED FROM PYTHON SOURCE LINES 33-40
+.. GENERATED FROM PYTHON SOURCE LINES 35-42
 
 .. code-block:: Python
 
@@ -84,7 +86,7 @@ alternating 40 MPa from the external load. Scaling both stresses by
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 41-47
+.. GENERATED FROM PYTHON SOURCE LINES 43-49
 
 Three failure lines
 -------------------
@@ -93,7 +95,7 @@ Gerber's parabola :math:`\sigma_a/S_e + (\sigma_m/S_{ut})^2 = 1` follows
 test data through the middle; Goodman's line lies inside it, and
 Soderberg's, drawn to the yield strength, is the most conservative.
 
-.. GENERATED FROM PYTHON SOURCE LINES 47-69
+.. GENERATED FROM PYTHON SOURCE LINES 49-74
 
 .. code-block:: Python
 
@@ -103,6 +105,9 @@ Soderberg's, drawn to the yield strength, is the most conservative.
     gerber = Se * (1 - (mean / Sut) ** 2)
     soderberg = Se * np.clip(1 - mean / Sy, 0, None)
     assert np.all(soderberg <= goodman + 1e-6) and np.all(goodman <= gerber + 1e-6)
+    n_gerber, n_soderberg = gerber_safety_factor(sa, sm, Se, Sut), soderberg_safety_factor(sa, sm, Se, Sy)
+    print(f"bolt safety factors: Gerber {n_gerber:.3f}, Goodman {n:.3f}, Soderberg {n_soderberg:.3f}")
+    assert n_soderberg < n < n_gerber
     external = np.linspace(10e6, 80e6, 8)
     n_external = goodman_safety_factor(external, sm, Se, Sut)
     print("safety factor as the alternating stress grows:", np.round(n_external, 2).tolist())
@@ -132,6 +137,7 @@ Soderberg's, drawn to the yield strength, is the most conservative.
 
  .. code-block:: none
 
+    bolt safety factors: Gerber 1.516, Goodman 1.266, Soderberg 1.094
     safety factor as the alternating stress grows: [1.79, 1.57, 1.4, 1.27, 1.15, 1.06, 0.98, 0.91]
 
 
@@ -140,7 +146,7 @@ Soderberg's, drawn to the yield strength, is the most conservative.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.127 seconds)
+   **Total running time of the script:** (0 minutes 0.120 seconds)
 
 
 .. _sphx_glr_download_api_gallery_materials_fatigue_plot_01_goodman_diagram.py:

@@ -46,7 +46,7 @@
   <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be" />
 <link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be" />
 
-    <script src="../../../../_static/documentation_options.js?v=38b66d78"></script>
+    <script src="../../../../_static/documentation_options.js?v=95e61db4"></script>
     <script src="../../../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../../../_static/sg-tags.js?v=d80f6fa4"></script>
@@ -210,6 +210,21 @@
   </ul>
 </div></div>
       
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://cpoli.github.io/" title="Charles Poli" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-user fa-lg" aria-hidden="true"></i><span class="visually-hidden">Charles Poli</span></a>
+        </li>
+</ul></div>
+      
     </div>
     
   </div>
@@ -306,6 +321,21 @@
   </ul>
 </div></div>
         
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://cpoli.github.io/" title="Charles Poli" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-user fa-lg" aria-hidden="true"></i><span class="visually-hidden">Charles Poli</span></a>
+        </li>
+</ul></div>
+        
       </div>
     
   </div>
@@ -369,10 +399,11 @@
 <span></span><span class="sd">"""Result containers for engineeringkit.mechanical_engineering.</span>
 
 <span class="sd">Most mechanical models are closed-form relations that return plain floats or</span>
-<span class="sd">arrays. Models whose output is a response curve or a set of modes, the</span>
-<span class="sd">simulated oscillator, the vibration absorber, the Jeffcott rotor and Holzer's</span>
-<span class="sd">torsional modes, return the frozen dataclasses below so they can be</span>
-<span class="sd">summarised and plotted consistently.</span>
+<span class="sd">arrays. Models whose output is a response curve, a time history, a set of</span>
+<span class="sd">modes or a linked set of quantities, the simulated oscillators, the vibration</span>
+<span class="sd">absorber, the Jeffcott rotor, normal modes, the bolted joint, the balanced</span>
+<span class="sd">rotor, linkage and cam motions, return the frozen dataclasses below so they</span>
+<span class="sd">can be summarised and plotted consistently.</span>
 <span class="sd">"""</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
@@ -382,8 +413,21 @@
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit._validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">nonnegative</span> <span class="k">as</span> <span class="n">_nonnegative</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit._validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">positive</span> <span class="k">as</span> <span class="n">_positive</span>
 
-<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"SDOFResult"</span><span class="p">,</span> <span class="s2">"TunedMassDamper"</span><span class="p">,</span> <span class="s2">"JeffcottResult"</span><span class="p">,</span> <span class="s2">"HolzerResult"</span><span class="p">]</span>
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">"SDOFResult"</span><span class="p">,</span>
+    <span class="s2">"TunedMassDamper"</span><span class="p">,</span>
+    <span class="s2">"JeffcottResult"</span><span class="p">,</span>
+    <span class="s2">"HolzerResult"</span><span class="p">,</span>
+    <span class="s2">"ModalResult"</span><span class="p">,</span>
+    <span class="s2">"MDOFResult"</span><span class="p">,</span>
+    <span class="s2">"BoltedJoint"</span><span class="p">,</span>
+    <span class="s2">"BalanceResult"</span><span class="p">,</span>
+    <span class="s2">"FourBarMotion"</span><span class="p">,</span>
+    <span class="s2">"SliderCrankMotion"</span><span class="p">,</span>
+    <span class="s2">"CamMotion"</span><span class="p">,</span>
+<span class="p">]</span>
 
 
 <div class="viewcode-block" id="SDOFResult">
@@ -640,6 +684,381 @@
 
         <span class="n">ax</span> <span class="o">=</span> <span class="n">plot_mode_shapes</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mode_shapes</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">frequencies</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">ax</span><span class="o">.</span><span class="n">figure</span><span class="p">,</span> <span class="n">ax</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="ModalResult">
+<a class="viewcode-back" href="../../../../api/mechanical_engineering.html#engineeringkit.mechanical_engineering.ModalResult">[docs]</a>
+<span class="nd">@dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">ModalResult</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Natural frequencies and mass-normalised mode shapes of an undamped M-K system."""</span>
+
+    <span class="n">frequencies</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>
+<span class="w">    </span><span class="sd">"""ndarray: Natural frequencies in increasing order [rad/s]; zero for rigid-body modes."""</span>
+
+    <span class="n">mode_shapes</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>
+<span class="w">    </span><span class="sd">"""ndarray: One row per mode, scaled so :math:`\\phi^T M \\phi = 1` and the largest entry is positive."""</span>
+
+<div class="viewcode-block" id="ModalResult.summary">
+<a class="viewcode-back" href="../../../../api/mechanical_engineering.html#engineeringkit.mechanical_engineering.ModalResult.summary">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Number of modes and their frequencies [Hz]."""</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">"modes"</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">frequencies</span><span class="o">.</span><span class="n">size</span><span class="p">),</span> <span class="s2">"frequencies_hz"</span><span class="p">:</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">frequencies</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">))</span><span class="o">.</span><span class="n">tolist</span><span class="p">()}</span></div>
+
+
+<div class="viewcode-block" id="ModalResult.plot">
+<a class="viewcode-back" href="../../../../api/mechanical_engineering.html#engineeringkit.mechanical_engineering.ModalResult.plot">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">plot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Plot every mode shape against degree of freedom; return ``(fig, ax)``."""</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit.mechanical_engineering.visualizers.plots</span><span class="w"> </span><span class="kn">import</span> <span class="n">plot_mode_shapes</span>
+
+        <span class="n">ax</span> <span class="o">=</span> <span class="n">plot_mode_shapes</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mode_shapes</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">frequencies</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s2">"degree of freedom"</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s2">"mass-normalised amplitude"</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">ax</span><span class="o">.</span><span class="n">figure</span><span class="p">,</span> <span class="n">ax</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="MDOFResult">
+<a class="viewcode-back" href="../../../../api/mechanical_engineering.html#engineeringkit.mechanical_engineering.MDOFResult">[docs]</a>
+<span class="nd">@dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">MDOFResult</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Time history of a system with several (generalised) coordinates."""</span>
+
+    <span class="n">t</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>
+<span class="w">    </span><span class="sd">"""ndarray: Time samples [s]."""</span>
+
+    <span class="n">displacement</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>
+<span class="w">    </span><span class="sd">"""ndarray: Coordinates at each sample, shape ``(len(t), n)`` [m or rad]."""</span>
+
+    <span class="n">velocity</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>
+<span class="w">    </span><span class="sd">"""ndarray: Coordinate rates at each sample, shape ``(len(t), n)`` [m/s or rad/s]."""</span>
+
+<div class="viewcode-block" id="MDOFResult.summary">
+<a class="viewcode-back" href="../../../../api/mechanical_engineering.html#engineeringkit.mechanical_engineering.MDOFResult.summary">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Peak absolute value of each coordinate."""</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">"coordinates"</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">displacement</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="s2">"peak_displacement"</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">displacement</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">()}</span></div>
+
+
+<div class="viewcode-block" id="MDOFResult.plot">
+<a class="viewcode-back" href="../../../../api/mechanical_engineering.html#engineeringkit.mechanical_engineering.MDOFResult.plot">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">plot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Plot every coordinate against time; return ``(fig, ax)``."""</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit.visualizers</span><span class="w"> </span><span class="kn">import</span> <span class="n">plot_history</span>
+
+        <span class="k">return</span> <span class="n">plot_history</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">displacement</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="sa">f</span><span class="s2">"q</span><span class="si">{</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2">"</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">displacement</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])],</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="BoltedJoint">
+<a class="viewcode-back" href="../../../../api/mechanical_engineering.html#engineeringkit.mechanical_engineering.BoltedJoint">[docs]</a>
+<span class="nd">@dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">BoltedJoint</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""A preloaded bolt and the members it clamps, carrying an external separating load.</span>
+
+<span class="sd">    Built by :func:`engineeringkit.mechanical_engineering.bolted_joint`. Bolt</span>
+<span class="sd">    and members act as springs in parallel under the external load</span>
+<span class="sd">    :math:`P`: the bolt takes the share :math:`CP` of it, with joint constant</span>
+<span class="sd">    :math:`C = k_b/(k_b + k_m)`, and the members lose the rest of their</span>
+<span class="sd">    clamping force until they separate.</span>
+<span class="sd">    """</span>
+
+    <span class="n">bolt_stiffness</span><span class="p">:</span> <span class="nb">float</span>
+<span class="w">    </span><span class="sd">"""float: :math:`k_b` [N/m]."""</span>
+
+    <span class="n">member_stiffness</span><span class="p">:</span> <span class="nb">float</span>
+<span class="w">    </span><span class="sd">"""float: :math:`k_m` [N/m]."""</span>
+
+    <span class="n">preload</span><span class="p">:</span> <span class="nb">float</span>
+<span class="w">    </span><span class="sd">"""float: Initial clamping force :math:`F_i` [N]."""</span>
+
+    <span class="n">load</span><span class="p">:</span> <span class="nb">float</span>
+<span class="w">    </span><span class="sd">"""float: External separating load :math:`P` [N]."""</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">joint_constant</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""float: :math:`C = k_b/(k_b + k_m)` [-]."""</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">bolt_stiffness</span> <span class="o">/</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">bolt_stiffness</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">member_stiffness</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">separation_load</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""float: External load :math:`P_0 = F_i/(1 - C)` at which the members part [N]."""</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">preload</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">joint_constant</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">bolt_load</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""float: Bolt tension :math:`F_i + CP` [N]; once the members separate it carries the whole load :math:`P`."""</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">load</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">separation_load</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">load</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">preload</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">joint_constant</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">load</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">member_load</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""float: Member compression :math:`F_i - (1 - C)P` [N], zero once separated."""</span>
+        <span class="k">return</span> <span class="nb">max</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">preload</span> <span class="o">-</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">joint_constant</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">load</span><span class="p">)</span>
+
+<div class="viewcode-block" id="BoltedJoint.load_factor">
+<a class="viewcode-back" href="../../../../api/mechanical_engineering.html#engineeringkit.mechanical_engineering.BoltedJoint.load_factor">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">load_factor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">proof_load</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Factor on the external load before the bolt reaches its proof load.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        proof_load : float</span>
+<span class="sd">            :math:`F_p = S_p A_t` [N], positive and above the preload.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        float</span>
+<span class="sd">            :math:`n_L = (F_p - F_i)/(CP)` [-].</span>
+<span class="sd">        """</span>
+        <span class="n">_positive</span><span class="p">(</span><span class="n">proof_load</span><span class="o">=</span><span class="n">proof_load</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">proof_load</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">preload</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"proof_load must exceed the preload"</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">float</span><span class="p">((</span><span class="n">proof_load</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">preload</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">joint_constant</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">load</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="BoltedJoint.summary">
+<a class="viewcode-back" href="../../../../api/mechanical_engineering.html#engineeringkit.mechanical_engineering.BoltedJoint.summary">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Joint constant, bolt and member loads [N] and the separation factor :math:`P_0/P` [-]."""</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s2">"joint_constant"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">joint_constant</span><span class="p">,</span>
+            <span class="s2">"bolt_load_N"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">bolt_load</span><span class="p">,</span>
+            <span class="s2">"member_load_N"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">member_load</span><span class="p">,</span>
+            <span class="s2">"separation_load_N"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">separation_load</span><span class="p">,</span>
+            <span class="s2">"separation_factor"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">separation_load</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">load</span><span class="p">,</span>
+        <span class="p">}</span></div>
+
+
+<div class="viewcode-block" id="BoltedJoint.plot">
+<a class="viewcode-back" href="../../../../api/mechanical_engineering.html#engineeringkit.mechanical_engineering.BoltedJoint.plot">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">plot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Draw Rötscher's joint diagram, force against elongation; return ``(fig, ax)``."""</span>
+        <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+        <span class="k">if</span> <span class="n">ax</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">_</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+        <span class="n">kb</span><span class="p">,</span> <span class="n">km</span><span class="p">,</span> <span class="n">fi</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">bolt_stiffness</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">member_stiffness</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">preload</span>
+        <span class="n">db</span><span class="p">,</span> <span class="n">dm</span> <span class="o">=</span> <span class="n">fi</span> <span class="o">/</span> <span class="n">kb</span><span class="p">,</span> <span class="n">fi</span> <span class="o">/</span> <span class="n">km</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="n">db</span> <span class="o">+</span> <span class="n">dm</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">(</span><span class="n">db</span> <span class="o">+</span> <span class="n">dm</span><span class="p">)</span> <span class="o">*</span> <span class="n">kb</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s2">"bolt"</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">db</span><span class="p">,</span> <span class="n">db</span> <span class="o">+</span> <span class="n">dm</span><span class="p">],</span> <span class="p">[</span><span class="n">fi</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s2">"members"</span><span class="p">)</span>
+        <span class="n">delta</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">load</span> <span class="o">/</span> <span class="p">(</span><span class="n">kb</span> <span class="o">+</span> <span class="n">km</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">load</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">separation_load</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">load</span> <span class="o">/</span> <span class="n">kb</span> <span class="o">-</span> <span class="n">db</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">db</span> <span class="o">+</span> <span class="n">delta</span><span class="p">]</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">member_load</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">bolt_load</span><span class="p">],</span> <span class="s2">"k-"</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">"external load P = </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">load</span><span class="si">:</span><span class="s2">.3g</span><span class="si">}</span><span class="s2"> N"</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">fi</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"gray"</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s2">"elongation [m]"</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s2">"force [N]"</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span> <span class="n">ylim</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">ax</span><span class="o">.</span><span class="n">figure</span><span class="p">,</span> <span class="n">ax</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="BalanceResult">
+<a class="viewcode-back" href="../../../../api/mechanical_engineering.html#engineeringkit.mechanical_engineering.BalanceResult">[docs]</a>
+<span class="nd">@dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">BalanceResult</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Correction masses that balance a set of rotating masses on a shaft."""</span>
+
+    <span class="n">mass_radius</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>
+<span class="w">    </span><span class="sd">"""ndarray: Correction mass times its radius in each correction plane [kg m]."""</span>
+
+    <span class="n">angle</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>
+<span class="w">    </span><span class="sd">"""ndarray: Angular position of each correction [rad], in (-pi, pi]."""</span>
+
+    <span class="n">plane_positions</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>
+<span class="w">    </span><span class="sd">"""ndarray: Axial positions of the correction planes [m]; empty for static (one-plane) balance."""</span>
+
+<div class="viewcode-block" id="BalanceResult.summary">
+<a class="viewcode-back" href="../../../../api/mechanical_engineering.html#engineeringkit.mechanical_engineering.BalanceResult.summary">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Correction mass-radius products [kg m] and angles [deg]."""</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">"mass_radius_kg_m"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">mass_radius</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span> <span class="s2">"angle_deg"</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">degrees</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">angle</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">()}</span></div>
+
+
+<div class="viewcode-block" id="BalanceResult.plot">
+<a class="viewcode-back" href="../../../../api/mechanical_engineering.html#engineeringkit.mechanical_engineering.BalanceResult.plot">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">plot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Draw each correction as a vector in the plane of rotation; return ``(fig, ax)``."""</span>
+        <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+        <span class="k">if</span> <span class="n">ax</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">_</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">subplot_kw</span><span class="o">=</span><span class="p">{</span><span class="s2">"projection"</span><span class="p">:</span> <span class="s2">"polar"</span><span class="p">})</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">mr</span><span class="p">,</span> <span class="n">angle</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mass_radius</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">angle</span><span class="p">)):</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s2">""</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">angle</span><span class="p">,</span> <span class="n">mr</span><span class="p">),</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">arrowprops</span><span class="o">=</span><span class="p">{</span><span class="s2">"arrowstyle"</span><span class="p">:</span> <span class="s2">"-&gt;"</span><span class="p">,</span> <span class="s2">"color"</span><span class="p">:</span> <span class="sa">f</span><span class="s2">"C</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span> <span class="s2">"lw"</span><span class="p">:</span> <span class="mi">2</span><span class="p">})</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">angle</span><span class="p">],</span> <span class="p">[</span><span class="n">mr</span><span class="p">],</span> <span class="s2">"o"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="sa">f</span><span class="s2">"C</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">"plane </span><span class="si">{</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">mr</span><span class="si">:</span><span class="s2">.3g</span><span class="si">}</span><span class="s2"> kg m"</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_rmax</span><span class="p">(</span><span class="mf">1.15</span> <span class="o">*</span> <span class="nb">max</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mass_radius</span><span class="p">)),</span> <span class="mf">1e-300</span><span class="p">))</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">"lower left"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">ax</span><span class="o">.</span><span class="n">figure</span><span class="p">,</span> <span class="n">ax</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="FourBarMotion">
+<a class="viewcode-back" href="../../../../api/mechanical_engineering.html#engineeringkit.mechanical_engineering.FourBarMotion">[docs]</a>
+<span class="nd">@dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">FourBarMotion</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Positions, angular velocities and angular accelerations of a four-bar linkage."""</span>
+
+    <span class="n">theta2</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>
+<span class="w">    </span><span class="sd">"""ndarray: Input crank angle [rad]."""</span>
+
+    <span class="n">theta3</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>
+<span class="w">    </span><span class="sd">"""ndarray: Coupler angle [rad]."""</span>
+
+    <span class="n">theta4</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>
+<span class="w">    </span><span class="sd">"""ndarray: Output link angle [rad]."""</span>
+
+    <span class="n">omega3</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>
+<span class="w">    </span><span class="sd">"""ndarray: Coupler angular velocity [rad/s]."""</span>
+
+    <span class="n">omega4</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>
+<span class="w">    </span><span class="sd">"""ndarray: Output angular velocity [rad/s]."""</span>
+
+    <span class="n">alpha3</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>
+<span class="w">    </span><span class="sd">"""ndarray: Coupler angular acceleration [rad/s^2]."""</span>
+
+    <span class="n">alpha4</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>
+<span class="w">    </span><span class="sd">"""ndarray: Output angular acceleration [rad/s^2]."""</span>
+
+<div class="viewcode-block" id="FourBarMotion.summary">
+<a class="viewcode-back" href="../../../../api/mechanical_engineering.html#engineeringkit.mechanical_engineering.FourBarMotion.summary">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Peak absolute output angular velocity [rad/s] and acceleration [rad/s^2]."""</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">"peak_omega4_rad_s"</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">omega4</span><span class="p">))),</span> <span class="s2">"peak_alpha4_rad_s2"</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">alpha4</span><span class="p">)))}</span></div>
+
+
+<div class="viewcode-block" id="FourBarMotion.plot">
+<a class="viewcode-back" href="../../../../api/mechanical_engineering.html#engineeringkit.mechanical_engineering.FourBarMotion.plot">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">plot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Plot output angular velocity and acceleration against crank angle; return ``(fig, ax)``."""</span>
+        <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+        <span class="k">if</span> <span class="n">ax</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">_</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+        <span class="n">degrees</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">degrees</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">atleast_1d</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">theta2</span><span class="p">))</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">degrees</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">atleast_1d</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">omega4</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s2">"omega4 [rad/s]"</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">degrees</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">atleast_1d</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">alpha4</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s2">"alpha4 [rad/s^2]"</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s2">"crank angle [deg]"</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">ax</span><span class="o">.</span><span class="n">figure</span><span class="p">,</span> <span class="n">ax</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="SliderCrankMotion">
+<a class="viewcode-back" href="../../../../api/mechanical_engineering.html#engineeringkit.mechanical_engineering.SliderCrankMotion">[docs]</a>
+<span class="nd">@dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">SliderCrankMotion</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Slider and connecting-rod motion of an in-line slider-crank."""</span>
+
+    <span class="n">theta</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>
+<span class="w">    </span><span class="sd">"""ndarray: Crank angle from top dead centre [rad]."""</span>
+
+    <span class="n">position</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>
+<span class="w">    </span><span class="sd">"""ndarray: Slider position from the crank axis [m]."""</span>
+
+    <span class="n">velocity</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>
+<span class="w">    </span><span class="sd">"""ndarray: Slider velocity [m/s]."""</span>
+
+    <span class="n">acceleration</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>
+<span class="w">    </span><span class="sd">"""ndarray: Slider acceleration [m/s^2]."""</span>
+
+    <span class="n">rod_angle</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>
+<span class="w">    </span><span class="sd">"""ndarray: Connecting-rod angle to the line of stroke [rad]."""</span>
+
+    <span class="n">rod_angular_velocity</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>
+<span class="w">    </span><span class="sd">"""ndarray: Rate of change of ``rod_angle`` [rad/s]."""</span>
+
+    <span class="n">rod_angular_acceleration</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>
+<span class="w">    </span><span class="sd">"""ndarray: Second rate of change of ``rod_angle`` [rad/s^2]."""</span>
+
+<div class="viewcode-block" id="SliderCrankMotion.summary">
+<a class="viewcode-back" href="../../../../api/mechanical_engineering.html#engineeringkit.mechanical_engineering.SliderCrankMotion.summary">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Peak absolute slider velocity [m/s] and acceleration [m/s^2]."""</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s2">"peak_velocity_m_s"</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">velocity</span><span class="p">))),</span>
+            <span class="s2">"peak_acceleration_m_s2"</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">acceleration</span><span class="p">))),</span>
+        <span class="p">}</span></div>
+
+
+<div class="viewcode-block" id="SliderCrankMotion.plot">
+<a class="viewcode-back" href="../../../../api/mechanical_engineering.html#engineeringkit.mechanical_engineering.SliderCrankMotion.plot">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">plot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Plot slider velocity and acceleration against crank angle on twin axes; return ``(fig, ax)``."""</span>
+        <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+        <span class="k">if</span> <span class="n">ax</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">_</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+        <span class="n">degrees</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">degrees</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">atleast_1d</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">theta</span><span class="p">))</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">degrees</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">atleast_1d</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">velocity</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s2">"velocity"</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s2">"crank angle [deg]"</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s2">"slider velocity [m/s]"</span><span class="p">)</span>
+        <span class="n">twin</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
+        <span class="n">twin</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">degrees</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">atleast_1d</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">acceleration</span><span class="p">),</span> <span class="s2">"C1"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"acceleration"</span><span class="p">)</span>
+        <span class="n">twin</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">ylabel</span><span class="o">=</span><span class="s2">"slider acceleration [m/s^2]"</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">ax</span><span class="o">.</span><span class="n">figure</span><span class="p">,</span> <span class="n">ax</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="CamMotion">
+<a class="viewcode-back" href="../../../../api/mechanical_engineering.html#engineeringkit.mechanical_engineering.CamMotion">[docs]</a>
+<span class="nd">@dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">CamMotion</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Follower displacement and its derivatives with respect to cam angle over one rise."""</span>
+
+    <span class="n">theta</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>
+<span class="w">    </span><span class="sd">"""ndarray: Cam angle from the start of the rise [rad]."""</span>
+
+    <span class="n">displacement</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>
+<span class="w">    </span><span class="sd">"""ndarray: Follower lift [m]."""</span>
+
+    <span class="n">velocity</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>
+<span class="w">    </span><span class="sd">"""ndarray: :math:`ds/d\\theta` [m/rad]; multiply by :math:`\\omega` for m/s."""</span>
+
+    <span class="n">acceleration</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>
+<span class="w">    </span><span class="sd">"""ndarray: :math:`d^2s/d\\theta^2` [m/rad^2]; multiply by :math:`\\omega^2` for m/s^2."""</span>
+
+    <span class="n">jerk</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>
+<span class="w">    </span><span class="sd">"""ndarray: :math:`d^3s/d\\theta^3` [m/rad^3]; multiply by :math:`\\omega^3` for m/s^3."""</span>
+
+    <span class="n">law</span><span class="p">:</span> <span class="nb">str</span>
+<span class="w">    </span><span class="sd">"""str: Name of the displacement law."""</span>
+
+<div class="viewcode-block" id="CamMotion.summary">
+<a class="viewcode-back" href="../../../../api/mechanical_engineering.html#engineeringkit.mechanical_engineering.CamMotion.summary">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Law, lift [m] and peak absolute velocity, acceleration and jerk per radian of cam."""</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s2">"law"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">law</span><span class="p">,</span>
+            <span class="s2">"lift_m"</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">displacement</span><span class="p">)),</span>
+            <span class="s2">"peak_velocity_m_rad"</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">velocity</span><span class="p">))),</span>
+            <span class="s2">"peak_acceleration_m_rad2"</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">acceleration</span><span class="p">))),</span>
+            <span class="s2">"peak_jerk_m_rad3"</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">jerk</span><span class="p">))),</span>
+        <span class="p">}</span></div>
+
+
+<div class="viewcode-block" id="CamMotion.plot">
+<a class="viewcode-back" href="../../../../api/mechanical_engineering.html#engineeringkit.mechanical_engineering.CamMotion.plot">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">plot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">axs</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Draw the s-v-a-j diagram, one panel per derivative; return ``(fig, axs)``."""</span>
+        <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+        <span class="k">if</span> <span class="n">axs</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">_</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+        <span class="n">degrees</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">degrees</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">theta</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">ax</span><span class="p">,</span> <span class="n">values</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span>
+            <span class="n">axs</span><span class="p">,</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">displacement</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">velocity</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">acceleration</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">jerk</span><span class="p">),</span> <span class="p">(</span><span class="s2">"s [m]"</span><span class="p">,</span> <span class="s2">"v [m/rad]"</span><span class="p">,</span> <span class="s2">"a [m/rad^2]"</span><span class="p">,</span> <span class="s2">"j [m/rad^3]"</span><span class="p">)</span>
+        <span class="p">):</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">degrees</span><span class="p">,</span> <span class="n">values</span><span class="p">)</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">ylabel</span><span class="o">=</span><span class="n">label</span><span class="p">)</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+        <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">law</span><span class="si">}</span><span class="s2"> rise"</span><span class="p">)</span>
+        <span class="n">axs</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s2">"cam angle [deg]"</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">figure</span><span class="p">,</span> <span class="n">axs</span></div>
 </div>
 
 </pre></div>

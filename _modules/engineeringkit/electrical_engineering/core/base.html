@@ -46,7 +46,7 @@
   <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be" />
 <link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be" />
 
-    <script src="../../../../_static/documentation_options.js?v=38b66d78"></script>
+    <script src="../../../../_static/documentation_options.js?v=95e61db4"></script>
     <script src="../../../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../../../_static/sg-tags.js?v=d80f6fa4"></script>
@@ -210,6 +210,21 @@
   </ul>
 </div></div>
       
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://cpoli.github.io/" title="Charles Poli" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-user fa-lg" aria-hidden="true"></i><span class="visually-hidden">Charles Poli</span></a>
+        </li>
+</ul></div>
+      
     </div>
     
   </div>
@@ -306,6 +321,21 @@
   </ul>
 </div></div>
         
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://cpoli.github.io/" title="Charles Poli" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-user fa-lg" aria-hidden="true"></i><span class="visually-hidden">Charles Poli</span></a>
+        </li>
+</ul></div>
+        
       </div>
     
   </div>
@@ -369,9 +399,10 @@
 <span></span><span class="sd">"""Result containers for engineeringkit.electrical_engineering.</span>
 
 <span class="sd">Most circuit models are closed-form relations that return plain floats,</span>
-<span class="sd">complex numbers or arrays. The three solvers that produce structured output</span>
-<span class="sd">(a transient response, a nodal analysis and a load flow) return the frozen</span>
-<span class="sd">dataclasses below, each with ``summary()`` and ``plot()``.</span>
+<span class="sd">complex numbers or arrays. The solvers that produce structured output (a</span>
+<span class="sd">transient response, a nodal or mesh analysis, a load flow and a swing</span>
+<span class="sd">curve) return the frozen dataclasses below, each with ``summary()`` and</span>
+<span class="sd">``plot()``.</span>
 <span class="sd">"""</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
@@ -380,7 +411,7 @@
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
-<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"CircuitResult"</span><span class="p">,</span> <span class="s2">"NodalResult"</span><span class="p">,</span> <span class="s2">"LoadFlowResult"</span><span class="p">]</span>
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"CircuitResult"</span><span class="p">,</span> <span class="s2">"NodalResult"</span><span class="p">,</span> <span class="s2">"MeshResult"</span><span class="p">,</span> <span class="s2">"LoadFlowResult"</span><span class="p">,</span> <span class="s2">"SwingResult"</span><span class="p">]</span>
 
 
 <div class="viewcode-block" id="CircuitResult">
@@ -461,11 +492,53 @@
 
 
 
+<div class="viewcode-block" id="MeshResult">
+<a class="viewcode-back" href="../../../../api/electrical_engineering.html#engineeringkit.electrical_engineering.MeshResult">[docs]</a>
+<span class="nd">@dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">MeshResult</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Output of :func:`engineeringkit.electrical_engineering.mesh_analysis`."""</span>
+
+    <span class="n">mesh_currents</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>
+<span class="w">    </span><span class="sd">"""ndarray: Clockwise current in each mesh [A], index 0 is mesh 1."""</span>
+
+    <span class="n">resistor_currents</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>
+<span class="w">    </span><span class="sd">"""ndarray: Current in each resistor in the clockwise sense of its first mesh [A]."""</span>
+
+    <span class="n">kvl_residual</span><span class="p">:</span> <span class="nb">float</span>
+<span class="w">    </span><span class="sd">"""float: Largest net voltage around any mesh [V]; zero up to rounding."""</span>
+
+<div class="viewcode-block" id="MeshResult.summary">
+<a class="viewcode-back" href="../../../../api/electrical_engineering.html#engineeringkit.electrical_engineering.MeshResult.summary">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Number of meshes, largest mesh current magnitude [A] and the KVL residual [V]."""</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s2">"meshes"</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mesh_currents</span><span class="o">.</span><span class="n">size</span><span class="p">),</span>
+            <span class="s2">"max_current"</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mesh_currents</span><span class="p">))),</span>
+            <span class="s2">"kvl_residual"</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">kvl_residual</span><span class="p">),</span>
+        <span class="p">}</span></div>
+
+
+<div class="viewcode-block" id="MeshResult.plot">
+<a class="viewcode-back" href="../../../../api/electrical_engineering.html#engineeringkit.electrical_engineering.MeshResult.plot">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">plot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Bar chart of mesh currents; return ``(fig, ax)``."""</span>
+        <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+        <span class="k">if</span> <span class="n">ax</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">_</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">mesh_currents</span><span class="o">.</span><span class="n">size</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">mesh_currents</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s2">"mesh"</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s2">"mesh current [A]"</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">ax</span><span class="o">.</span><span class="n">figure</span><span class="p">,</span> <span class="n">ax</span></div>
+</div>
+
+
+
 <div class="viewcode-block" id="LoadFlowResult">
 <a class="viewcode-back" href="../../../../api/electrical_engineering.html#engineeringkit.electrical_engineering.LoadFlowResult">[docs]</a>
 <span class="nd">@dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">LoadFlowResult</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">"""Output of :func:`engineeringkit.electrical_engineering.gauss_seidel_load_flow`.</span>
+<span class="w">    </span><span class="sd">"""Output of :func:`engineeringkit.electrical_engineering.gauss_seidel_load_flow` and</span>
+<span class="sd">    :func:`engineeringkit.electrical_engineering.newton_raphson_load_flow`.</span>
 
 <span class="sd">    All quantities are per unit on the system base.</span>
 <span class="sd">    """</span>
@@ -477,13 +550,13 @@
 <span class="w">    </span><span class="sd">"""ndarray of complex: Net complex power injected at each bus, :math:`S_i = V_i I_i^*`."""</span>
 
     <span class="n">iterations</span><span class="p">:</span> <span class="nb">int</span>
-<span class="w">    </span><span class="sd">"""int: Gauss-Seidel sweeps performed."""</span>
+<span class="w">    </span><span class="sd">"""int: Gauss-Seidel sweeps or Newton-Raphson steps performed."""</span>
 
     <span class="n">converged</span><span class="p">:</span> <span class="nb">bool</span>
-<span class="w">    </span><span class="sd">"""bool: Whether the largest voltage update fell below the tolerance."""</span>
+<span class="w">    </span><span class="sd">"""bool: Whether the convergence measure in ``history`` fell below the tolerance."""</span>
 
     <span class="n">history</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>
-<span class="w">    </span><span class="sd">"""ndarray: Largest voltage update in each sweep."""</span>
+<span class="w">    </span><span class="sd">"""ndarray: Largest voltage update in each Gauss-Seidel sweep, or largest power mismatch before each Newton step."""</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">losses</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">complex</span><span class="p">:</span>
@@ -513,6 +586,55 @@
             <span class="n">_</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
         <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">voltages</span><span class="o">.</span><span class="n">size</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">voltages</span><span class="p">))</span>
         <span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s2">"bus"</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s2">"voltage magnitude [pu]"</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">ax</span><span class="o">.</span><span class="n">figure</span><span class="p">,</span> <span class="n">ax</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="SwingResult">
+<a class="viewcode-back" href="../../../../api/electrical_engineering.html#engineeringkit.electrical_engineering.SwingResult">[docs]</a>
+<span class="nd">@dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">SwingResult</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Output of :func:`engineeringkit.electrical_engineering.swing_response`."""</span>
+
+    <span class="n">t</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>
+<span class="w">    </span><span class="sd">"""ndarray: Time samples [s]."""</span>
+
+    <span class="n">delta</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>
+<span class="w">    </span><span class="sd">"""ndarray: Rotor angle against the infinite bus at each sample [rad]."""</span>
+
+    <span class="n">speed_deviation</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>
+<span class="w">    </span><span class="sd">"""ndarray: Rotor speed above synchronous speed at each sample [rad/s, electrical]."""</span>
+
+    <span class="n">clearing_time</span><span class="p">:</span> <span class="nb">float</span>
+<span class="w">    </span><span class="sd">"""float: Time at which the fault is cleared [s]."""</span>
+
+    <span class="n">max_stable_angle</span><span class="p">:</span> <span class="nb">float</span>
+<span class="w">    </span><span class="sd">"""float: Unstable equilibrium :math:`\\pi - \\arcsin(P_m/P_{max,post})` of the post-fault curve [rad]."""</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">stable</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Whether the rotor angle stays below the post-fault unstable equilibrium (first swing)."""</span>
+        <span class="k">return</span> <span class="nb">bool</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">delta</span><span class="p">)</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_stable_angle</span><span class="p">)</span>
+
+<div class="viewcode-block" id="SwingResult.summary">
+<a class="viewcode-back" href="../../../../api/electrical_engineering.html#engineeringkit.electrical_engineering.SwingResult.summary">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""First-swing stability, largest rotor angle [rad] and clearing time [s]."""</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">"stable"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">stable</span><span class="p">,</span> <span class="s2">"max_delta"</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">delta</span><span class="p">)),</span> <span class="s2">"clearing_time"</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">clearing_time</span><span class="p">)}</span></div>
+
+
+<div class="viewcode-block" id="SwingResult.plot">
+<a class="viewcode-back" href="../../../../api/electrical_engineering.html#engineeringkit.electrical_engineering.SwingResult.plot">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">plot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Plot the swing curve, rotor angle in degrees against time; return ``(fig, ax)``."""</span>
+        <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+        <span class="k">if</span> <span class="n">ax</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">_</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">degrees</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">delta</span><span class="p">))</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">clearing_time</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"gray"</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s2">"--"</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s2">"time [s]"</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s2">"rotor angle [deg]"</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">ax</span><span class="o">.</span><span class="n">figure</span><span class="p">,</span> <span class="n">ax</span></div>
 </div>
 

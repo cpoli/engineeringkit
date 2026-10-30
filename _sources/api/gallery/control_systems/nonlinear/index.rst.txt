@@ -1,0 +1,68 @@
+
+
+.. _sphx_glr_api_gallery_control_systems_nonlinear:
+
+Nonlinear loops
+---------------
+
+The phase plane and the describing function for relays and saturation.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Aleksandr Andronov&#x27;s school in Gorky studied self-sustained oscillations by eliminating time and drawing the motion of \ddot x = f(x, \dot x) as a curve in the plane (x, \dot x) (~engineeringkit.control_systems.phase_portrait). A relay servo, \ddot x = -M\,\mathrm{sign}(x), is not linear anywhere, yet its phase plane is read at a glance. Each half plane holds parabolas \dot x^2/2 + M|x| = E, which join into closed orbits: the servo oscillates for ever at the amplitude it started with. Feeding back the rate, \ddot x = -M\,\mathrm{sign}(x + \tau\dot x), tilts the switching line. Every orbit then loses energy at each switch, reaches the line and slides along it, \dot x = -x/\tau, into the origin.">
+
+.. only:: html
+
+  .. image:: /api/gallery/control_systems/nonlinear/images/thumb/sphx_glr_plot_01_andronov_phase_plane_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/control_systems/nonlinear/plot_01_andronov_phase_plane`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Andronov, Vitt and Khaikin's phase plane (1937)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Ralph Kochenburger, working on relay-driven propeller pitch controls, replaced a nonlinearity by the gain N(A) it offers to the fundamental of a sinusoid of amplitude A (~engineeringkit.control_systems.relay_describing_function, saturation_describing_function). A loop L(s) closed through it can then oscillate where L(j\omega) = -1/N(A): at a phase crossover, with N(A) equal to the gain margin (~engineeringkit.control_systems.limit_cycle). For an ideal relay N = 4M/(\pi A) and L = 1/(s+1)^3, the cycle is at \omega = \sqrt3 with A = M/(2\pi). This is also the relay experiment that autotuners use to find Ziegler and Nichols&#x27;s ultimate point. The method is approximate because the loop does not filter out the harmonics completely, so each prediction is checked against a simulation of the nonlinear loop.">
+
+.. only:: html
+
+  .. image:: /api/gallery/control_systems/nonlinear/images/thumb/sphx_glr_plot_02_kochenburger_describing_function_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/control_systems/nonlinear/plot_02_kochenburger_describing_function`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Kochenburger's describing function (1950)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/control_systems/nonlinear/plot_01_andronov_phase_plane
+   /api/gallery/control_systems/nonlinear/plot_02_kochenburger_describing_function
+

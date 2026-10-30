@@ -2,11 +2,25 @@
   "content": [
     {
       "content": null,
-      "created": "2026-10-30T06:17:37.672668Z",
+      "created": "2026-10-30T06:36:53.636008Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
-      "last_modified": "2026-10-30T06:17:34.012698Z",
+      "last_modified": "2026-10-30T06:36:51.340356Z",
+      "mimetype": null,
+      "name": "plot_02_dalby_balancing.ipynb",
+      "path": "jupyterlite_contents/api/gallery/mechanical_engineering/rotordynamics/plot_02_dalby_balancing.ipynb",
+      "size": 4779,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-30T06:36:53.635840Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-30T06:36:51.340240Z",
       "mimetype": null,
       "name": "plot_01_jeffcott_rotor.ipynb",
       "path": "jupyterlite_contents/api/gallery/mechanical_engineering/rotordynamics/plot_01_jeffcott_rotor.ipynb",
@@ -15,11 +29,11 @@
       "writable": true
     }
   ],
-  "created": "2026-10-30T06:17:37.672668Z",
+  "created": "2026-10-30T06:36:53.636008Z",
   "format": "json",
   "hash": null,
   "hash_algorithm": null,
-  "last_modified": "2026-10-30T06:17:37.672668Z",
+  "last_modified": "2026-10-30T06:36:53.636008Z",
   "mimetype": null,
   "name": "rotordynamics",
   "path": "jupyterlite_contents/api/gallery/mechanical_engineering/rotordynamics",

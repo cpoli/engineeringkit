@@ -5,7 +5,7 @@
 Rotordynamics
 -------------
 
-Unbalanced rotors and critical speeds.
+Unbalanced rotors, critical speeds and balancing.
 
 
 .. raw:: html
@@ -36,6 +36,23 @@ Unbalanced rotors and critical speeds.
     </div>
 
 
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Faster engines and turbines made unbalance a practical danger: a mass m at radius r pulls on the bearings with mr\omega^2, a force that grows with the square of speed. William Dalby&#x27;s The Balancing of Engines (1902) taught designers to balance any set of rotating masses with two correction masses in chosen planes. Taking moments about one correction plane, the reference plane, removes the unknown correction there and gives the other directly; the force balance then gives the first. A single correction can only make the shaft balance statically, resting in any position, and leaves a rocking couple. balance_rotating_masses finds the corrections and unbalance measures what remains. The example simulates the bearing reactions of a rigid rotor before and after balancing.">
+
+.. only:: html
+
+  .. image:: /api/gallery/mechanical_engineering/rotordynamics/images/thumb/sphx_glr_plot_02_dalby_balancing_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/mechanical_engineering/rotordynamics/plot_02_dalby_balancing`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Dalby's balancing of rotating masses (1902)</div>
+    </div>
+
+
 .. thumbnail-parent-div-close
 
 .. raw:: html
@@ -47,4 +64,5 @@ Unbalanced rotors and critical speeds.
    :hidden:
 
    /api/gallery/mechanical_engineering/rotordynamics/plot_01_jeffcott_rotor
+   /api/gallery/mechanical_engineering/rotordynamics/plot_02_dalby_balancing
 

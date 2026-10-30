@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.504** total execution time for 2 files **from api/gallery/mechanical_engineering/dynamics**:
+**00:01.039** total execution time for 3 files **from api/gallery/mechanical_engineering/dynamics**:
 
 .. container::
 
@@ -32,9 +32,12 @@ Computation times
    * - Example
      - Time
      - Mem (MB)
+   * - :ref:`sphx_glr_api_gallery_mechanical_engineering_dynamics_plot_03_lagrange_equations.py` (``plot_03_lagrange_equations.py``)
+     - 00:00.691
+     - 0.0
    * - :ref:`sphx_glr_api_gallery_mechanical_engineering_dynamics_plot_01_huygens_moment_of_inertia.py` (``plot_01_huygens_moment_of_inertia.py``)
-     - 00:00.326
+     - 00:00.240
      - 0.0
    * - :ref:`sphx_glr_api_gallery_mechanical_engineering_dynamics_plot_02_coriolis_work_energy.py` (``plot_02_coriolis_work_energy.py``)
-     - 00:00.179
+     - 00:00.108
      - 0.0

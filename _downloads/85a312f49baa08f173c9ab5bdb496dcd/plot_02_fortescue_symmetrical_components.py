@@ -11,15 +11,16 @@ positive-sequence set (a-b-c rotation) and a negative-sequence set (a-c-b)
 In a symmetrical network the three sequences do not interact, so each is
 solved as a single-phase circuit and the results recombined
 (:func:`~engineeringkit.electrical_engineering.phase_components`). This
-example decomposes an unbalanced set and computes a single-line-to-ground
-fault the way protection engineers still do.
+example decomposes an unbalanced set, computes a single-line-to-ground
+fault the way protection engineers still do and compares the four fault
+types (:func:`~engineeringkit.electrical_engineering.fault_currents`).
 """
 
 # %%
 import matplotlib.pyplot as plt
 import numpy as np
 
-from engineeringkit.electrical_engineering import phase_components, phasor, symmetrical_components
+from engineeringkit.electrical_engineering import fault_currents, phase_components, phasor, symmetrical_components
 from engineeringkit.electrical_engineering.visualizers import plot_phasors
 
 # %%
@@ -50,6 +51,20 @@ print(f"fault current |Ia| = {abs(Ia):.2f} pu (a three-phase fault would give {a
 print(f"healthy-phase voltages |Vb| = {abs(Vb):.3f}, |Vc| = {abs(Vc):.3f} pu")
 assert np.isclose(Ia, 3 * E / (Z0 + Z1 + Z2))
 assert abs(Ib) < 1e-12 and abs(Ic) < 1e-12 and abs(Va) < 1e-12
+assert np.allclose(fault_currents(E, Z1, Z2, Z0, "slg"), (Ia, Ib, Ic))
+
+# %%
+# The four fault types
+# --------------------
+#
+# The other faults connect the sequence networks differently. Here the
+# single-line-to-ground fault is the most severe, because the zero-sequence
+# impedance is below the positive-sequence one.
+
+for kind in ("3ph", "slg", "ll", "llg"):
+    currents = fault_currents(E, Z1, Z2, Z0, kind)
+    print(f"{kind:>4}: |Ia|, |Ib|, |Ic| = " + ", ".join(f"{abs(i):.2f}" for i in currents) + " pu")
+assert np.isclose(abs(fault_currents(E, Z1, Z2, Z0, "ll")[1]), np.sqrt(3) / 2 * abs(E / Z1))
 
 fig, axes = plt.subplots(1, 4, figsize=(14, 3.6))
 labels = ["a", "b", "c"]

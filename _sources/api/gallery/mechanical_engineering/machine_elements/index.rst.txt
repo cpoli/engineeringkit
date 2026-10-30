@@ -5,7 +5,7 @@
 Machine elements
 ----------------
 
-Power screws, journal bearings and rolling bearings.
+Power screws, journal bearings, rolling bearings, bolted joints and helical springs.
 
 
 .. raw:: html
@@ -87,6 +87,40 @@ Power screws, journal bearings and rolling bearings.
     </div>
 
 
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Nineteenth-century designers sized a bolt by dividing the load by its root area. Friedrich Rötscher&#x27;s Die Maschinenelemente (1927) drew the joint diagram that showed why a preloaded bolt does far better: bolt and clamped members are two springs, one stretched and one squeezed by the preload F_i, and an external load P stretches the bolt further only by as much as it relieves the members. The bolt sees only the fraction C = k_b/(k_b + k_m) of the load (~engineeringkit.mechanical_engineering.bolted_joint) until the members separate. The members&#x27; stiffness comes from cones of compressed material spreading from under the head and nut (~engineeringkit.mechanical_engineering.member_stiffness), the bolt&#x27;s from its shank and threads in series (~engineeringkit.mechanical_engineering.bolt_stiffness). Rötscher&#x27;s 1927 book could not be consulted; the date and attribution follow J. H. Bickford, An Introduction to the Design and Behavior of Bolted Joints, and the Bolt Council&#x27;s history of joint design.">
+
+.. only:: html
+
+  .. image:: /api/gallery/mechanical_engineering/machine_elements/images/thumb/sphx_glr_plot_05_rotscher_joint_diagram_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/mechanical_engineering/machine_elements/plot_05_rotscher_joint_diagram`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Rötscher's bolted-joint diagram (1927)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="The wire of a helical spring is a bar in torsion, twisted by the torque FD/2, so the nominal shear stress is 8FD/\pi d^3 and the rate k = Gd^4/8D^3N (~engineeringkit.mechanical_engineering.spring_rate). Springs broke in fatigue at loads this predicted to be safe. Arthur Wahl, at Westinghouse, analysed the wire as a curved bar: on the inside of the coil the fibres are shorter, so the same twist strains them more, and the direct shear of the load adds on that side too. His factor K_W = (4C - 1)/(4C - 4) + 0.615/C (~engineeringkit.mechanical_engineering.wahl_factor), with C = D/d, multiplies the nominal stress (~engineeringkit.mechanical_engineering.spring_shear_stress). The 1929 paper is cited from Wahl&#x27;s Mechanical Springs (1944) and Shigley.">
+
+.. only:: html
+
+  .. image:: /api/gallery/mechanical_engineering/machine_elements/images/thumb/sphx_glr_plot_06_wahl_spring_factor_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/mechanical_engineering/machine_elements/plot_06_wahl_spring_factor`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Wahl's curvature factor for helical springs (1929)</div>
+    </div>
+
+
 .. thumbnail-parent-div-close
 
 .. raw:: html
@@ -101,4 +135,6 @@ Power screws, journal bearings and rolling bearings.
    /api/gallery/mechanical_engineering/machine_elements/plot_02_petroff_bearing
    /api/gallery/mechanical_engineering/machine_elements/plot_03_reynolds_sommerfeld_lubrication
    /api/gallery/mechanical_engineering/machine_elements/plot_04_lundberg_palmgren_l10
+   /api/gallery/mechanical_engineering/machine_elements/plot_05_rotscher_joint_diagram
+   /api/gallery/mechanical_engineering/machine_elements/plot_06_wahl_spring_factor
 

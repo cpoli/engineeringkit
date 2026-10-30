@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>engineeringkit.control_systems.systems.compensators &#8212; engineeringkit</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx_autodoc_typehints.css?v=057ac668" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/plot_directive.css" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Vibur" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/jupyterlite_sphinx.css?v=f676e775" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery.css?v=c83e6b79" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/engineeringkit.css?v=62935cec" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../../../_static/scripts/fontawesome.js?digest=18bd87630a240e9c25be"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be" />
+
+    <script src="../../../../_static/documentation_options.js?v=95e61db4"></script>
+    <script src="../../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../../_static/sg-tags.js?v=d80f6fa4"></script>
+    <script src="../../../../_static/jupyterlite_sphinx.js?v=96e329c5"></script>
+    <script src="../../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/engineeringkit/control_systems/systems/compensators';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <script async="async" data-goatcounter="https://cpoli.goatcounter.com/count" src="https://gc.zgo.at/count.js"></script>
+    <link rel="canonical" href="https://cpoli.github.io/engineeringkit/_modules/engineeringkit/control_systems/systems/compensators.html" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="color-scheme" content="light dark"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../../../_static/searchtools.js"></script>
+    <script src="../../../../_static/language_data.js"></script>
+    <script src="../../../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../_static/engineeringkit_logo_transparent.png" class="logo__image only-light" alt="engineeringkit logo"/>
+    <img src="../../../../_static/engineeringkit_logo_transparent.png" class="logo__image only-dark pst-js-only" alt="engineeringkit logo"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../subpackages/index.html">
+    Subpackages
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../history/index.html">
+    History
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../api/index.html">
+    API
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://cpoli.github.io/" title="Charles Poli" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-user fa-lg" aria-hidden="true"></i><span class="visually-hidden">Charles Poli</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../subpackages/index.html">
+    Subpackages
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../history/index.html">
+    History
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../api/index.html">
+    API
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://cpoli.github.io/" title="Charles Poli" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-user fa-lg" aria-hidden="true"></i><span class="visually-hidden">Charles Poli</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">engineeringkit.control_systems.systems.compensators</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for engineeringkit.control_systems.systems.compensators</h1><div class="highlight"><pre>
+<span></span><span class="sa">r</span><span class="sd">"""Lead, lag and lead-lag compensators designed from the loop's frequency response.</span>
+
+<span class="sd">A first-order compensator :math:`C(s) = (Ts + 1)/(\alpha Ts + 1)` has unit</span>
+<span class="sd">gain at :math:`s = 0`, so it leaves the error constants alone. With</span>
+<span class="sd">:math:`\alpha &lt; 1` (lead) it adds up to</span>
+<span class="sd">:math:`\phi_m = \arcsin\frac{1-\alpha}{1+\alpha}` of phase at</span>
+<span class="sd">:math:`\omega_m = 1/(T\sqrt\alpha)`, where its gain is :math:`1/\sqrt\alpha`;</span>
+<span class="sd">with :math:`\alpha = \beta &gt; 1` (lag) it cuts the high-frequency gain by</span>
+<span class="sd">:math:`\beta` and moves the crossover down to where the loop has phase to</span>
+<span class="sd">spare. These are the textbook procedures of Ogata (*Modern Control</span>
+<span class="sd">Engineering*, ch. 7) and Franklin, Powell and Emami-Naeini (ch. 6).</span>
+<span class="sd">"""</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit._validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">interval</span> <span class="k">as</span> <span class="n">_interval</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit._validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">positive</span> <span class="k">as</span> <span class="n">_positive</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit.control_systems.core.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">CompensatorResult</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit.control_systems.systems.frequency</span><span class="w"> </span><span class="kn">import</span> <span class="n">_crossings</span><span class="p">,</span> <span class="n">nyquist</span><span class="p">,</span> <span class="n">stability_margins</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit.control_systems.systems.transfer</span><span class="w"> </span><span class="kn">import</span> <span class="n">transfer_function</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit.control_systems.utils.polynomials</span><span class="w"> </span><span class="kn">import</span> <span class="n">num_den</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"lead_compensator"</span><span class="p">,</span> <span class="s2">"lag_compensator"</span><span class="p">,</span> <span class="s2">"lead_lag_compensator"</span><span class="p">,</span> <span class="s2">"design_lead"</span><span class="p">,</span> <span class="s2">"design_lag"</span><span class="p">,</span> <span class="s2">"design_lead_lag"</span><span class="p">]</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_series</span><span class="p">(</span><span class="o">*</span><span class="n">systems</span><span class="p">):</span>
+    <span class="n">num</span><span class="p">,</span> <span class="n">den</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">])</span>
+    <span class="k">for</span> <span class="n">sys</span> <span class="ow">in</span> <span class="n">systems</span><span class="p">:</span>
+        <span class="n">n</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="n">num_den</span><span class="p">(</span><span class="n">sys</span><span class="p">)</span>
+        <span class="n">num</span><span class="p">,</span> <span class="n">den</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polymul</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">n</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">polymul</span><span class="p">(</span><span class="n">den</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">transfer_function</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">den</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_lead_alpha</span><span class="p">(</span><span class="n">phase_lead_deg</span><span class="p">):</span>
+    <span class="n">sin_phi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">phase_lead_deg</span><span class="p">))</span>
+    <span class="k">return</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">sin_phi</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">sin_phi</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="lead_compensator">
+<a class="viewcode-back" href="../../../../api/control_systems.html#engineeringkit.control_systems.lead_compensator">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">lead_compensator</span><span class="p">(</span><span class="n">phase_lead_deg</span><span class="p">,</span> <span class="n">frequency</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Phase-lead compensator :math:`(Ts + 1)/(\alpha Ts + 1)` with its peak lead at a given frequency.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    phase_lead_deg : float</span>
+<span class="sd">        Maximum phase lead :math:`\phi_m` [deg], strictly between 0 and 90.</span>
+<span class="sd">    frequency : float</span>
+<span class="sd">        Frequency of the maximum lead, :math:`\omega_m` [rad/s], positive.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    scipy.signal.TransferFunction</span>
+<span class="sd">        :math:`C(s)` with :math:`\alpha = (1 - \sin\phi_m)/(1 + \sin\phi_m)`</span>
+<span class="sd">        and :math:`T = 1/(\omega_m\sqrt\alpha)`: unit gain at DC, gain</span>
+<span class="sd">        :math:`1/\sqrt\alpha` at :math:`\omega_m` and :math:`1/\alpha` at</span>
+<span class="sd">        high frequency.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    The zero :math:`1/T` and pole :math:`1/(\alpha T)` sit symmetrically</span>
+<span class="sd">    about :math:`\omega_m` on a log scale. Inputs are raw SI numbers with no</span>
+<span class="sd">    dimensional metadata; see :doc:`/guides/control_systems`.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; C = lead_compensator(30.0, 2.0)</span>
+<span class="sd">    &gt;&gt;&gt; [round(float(c), 4) for c in C.num / C.den[-1]], [round(float(c), 4) for c in C.den / C.den[-1]]</span>
+<span class="sd">    ([0.866, 1.0], [0.2887, 1.0])</span>
+<span class="sd">    """</span>
+    <span class="n">_interval</span><span class="p">(</span><span class="s2">"phase_lead_deg"</span><span class="p">,</span> <span class="n">phase_lead_deg</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">frequency</span><span class="o">=</span><span class="n">frequency</span><span class="p">)</span>
+    <span class="n">alpha</span> <span class="o">=</span> <span class="n">_lead_alpha</span><span class="p">(</span><span class="n">phase_lead_deg</span><span class="p">)</span>
+    <span class="n">T</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="n">frequency</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">alpha</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">transfer_function</span><span class="p">([</span><span class="n">T</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span> <span class="p">[</span><span class="n">alpha</span> <span class="o">*</span> <span class="n">T</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span></div>
+
+
+
+<div class="viewcode-block" id="lag_compensator">
+<a class="viewcode-back" href="../../../../api/control_systems.html#engineeringkit.control_systems.lag_compensator">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">lag_compensator</span><span class="p">(</span><span class="n">beta</span><span class="p">,</span> <span class="n">zero_frequency</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Phase-lag compensator :math:`(Ts + 1)/(\beta Ts + 1)` that cuts the high-frequency gain by :math:`\beta`.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    beta : float</span>
+<span class="sd">        Pole-zero ratio :math:`\beta` [-], greater than 1.</span>
+<span class="sd">    zero_frequency : float</span>
+<span class="sd">        Zero :math:`1/T` [rad/s], positive; the pole is at</span>
+<span class="sd">        :math:`1/(\beta T)`.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    scipy.signal.TransferFunction</span>
+<span class="sd">        :math:`C(s)` with unit gain at DC and :math:`1/\beta` at high</span>
+<span class="sd">        frequency.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Placed a decade or so below the crossover, the lag lowers the loop gain</span>
+<span class="sd">    there by :math:`\beta` while adding only a few degrees of lag.</span>
+<span class="sd">    Equivalently, it raises the low-frequency gain, and so the error</span>
+<span class="sd">    constants, by :math:`\beta` relative to the crossover gain. Inputs are</span>
+<span class="sd">    raw SI numbers with no dimensional metadata; see</span>
+<span class="sd">    :doc:`/guides/control_systems`.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; C = lag_compensator(10.0, 0.1)</span>
+<span class="sd">    &gt;&gt;&gt; C.num.tolist(), C.den.tolist()</span>
+<span class="sd">    ([0.1, 0.01], [1.0, 0.01])</span>
+<span class="sd">    """</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">beta</span><span class="o">=</span><span class="n">beta</span><span class="p">,</span> <span class="n">zero_frequency</span><span class="o">=</span><span class="n">zero_frequency</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">beta</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"beta must be greater than 1"</span><span class="p">)</span>
+    <span class="n">T</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">zero_frequency</span>
+    <span class="k">return</span> <span class="n">transfer_function</span><span class="p">([</span><span class="n">T</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span> <span class="p">[</span><span class="n">beta</span> <span class="o">*</span> <span class="n">T</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span></div>
+
+
+
+<div class="viewcode-block" id="lead_lag_compensator">
+<a class="viewcode-back" href="../../../../api/control_systems.html#engineeringkit.control_systems.lead_lag_compensator">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">lead_lag_compensator</span><span class="p">(</span><span class="n">phase_lead_deg</span><span class="p">,</span> <span class="n">lead_frequency</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="n">lag_zero_frequency</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Series lead-lag compensator, the product of :func:`lead_compensator` and :func:`lag_compensator`.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    phase_lead_deg : float</span>
+<span class="sd">        Maximum phase lead of the lead part [deg], strictly between 0 and 90.</span>
+<span class="sd">    lead_frequency : float</span>
+<span class="sd">        Frequency of that maximum lead [rad/s], positive.</span>
+<span class="sd">    beta : float</span>
+<span class="sd">        Pole-zero ratio of the lag part [-], greater than 1.</span>
+<span class="sd">    lag_zero_frequency : float</span>
+<span class="sd">        Zero of the lag part [rad/s], positive.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    scipy.signal.TransferFunction</span>
+<span class="sd">        :math:`C(s)` with unit gain at DC.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Inputs are raw SI numbers with no dimensional metadata; see</span>
+<span class="sd">    :doc:`/guides/control_systems`.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; C = lead_lag_compensator(30.0, 2.0, 10.0, 0.1)</span>
+<span class="sd">    &gt;&gt;&gt; len(C.den) - 1</span>
+<span class="sd">    2</span>
+<span class="sd">    """</span>
+    <span class="k">return</span> <span class="n">_series</span><span class="p">(</span><span class="n">lead_compensator</span><span class="p">(</span><span class="n">phase_lead_deg</span><span class="p">,</span> <span class="n">lead_frequency</span><span class="p">),</span> <span class="n">lag_compensator</span><span class="p">(</span><span class="n">beta</span><span class="p">,</span> <span class="n">lag_zero_frequency</span><span class="p">))</span></div>
+
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_result</span><span class="p">(</span><span class="n">kind</span><span class="p">,</span> <span class="n">compensator</span><span class="p">,</span> <span class="n">loop</span><span class="p">,</span> <span class="n">w</span><span class="p">):</span>
+    <span class="n">compensated</span> <span class="o">=</span> <span class="n">_series</span><span class="p">(</span><span class="n">compensator</span><span class="p">,</span> <span class="n">loop</span><span class="p">)</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">stability_margins</span><span class="p">(</span><span class="n">compensated</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">CompensatorResult</span><span class="p">(</span><span class="n">kind</span><span class="p">,</span> <span class="n">compensator</span><span class="p">,</span> <span class="n">loop</span><span class="p">,</span> <span class="n">compensated</span><span class="p">,</span> <span class="n">m</span><span class="p">[</span><span class="s2">"phase_margin_deg"</span><span class="p">],</span> <span class="n">m</span><span class="p">[</span><span class="s2">"gain_cross_frequency"</span><span class="p">],</span> <span class="n">m</span><span class="p">[</span><span class="s2">"gain_margin"</span><span class="p">])</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_grid</span><span class="p">(</span><span class="n">w</span><span class="p">):</span>
+    <span class="n">w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">20000</span><span class="p">)</span> <span class="k">if</span> <span class="n">w</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="nb">float</span><span class="p">))</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">w</span><span class="o">=</span><span class="n">w</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">w</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_check_design_inputs</span><span class="p">(</span><span class="n">phase_margin_deg</span><span class="p">,</span> <span class="n">extra_deg</span><span class="p">):</span>
+    <span class="n">_interval</span><span class="p">(</span><span class="s2">"phase_margin_deg"</span><span class="p">,</span> <span class="n">phase_margin_deg</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">_interval</span><span class="p">(</span><span class="s2">"extra_deg"</span><span class="p">,</span> <span class="n">extra_deg</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">45</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="design_lead">
+<a class="viewcode-back" href="../../../../api/control_systems.html#engineeringkit.control_systems.design_lead">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">design_lead</span><span class="p">(</span><span class="n">loop</span><span class="p">,</span> <span class="n">phase_margin_deg</span><span class="p">,</span> <span class="n">extra_deg</span><span class="o">=</span><span class="mf">5.0</span><span class="p">,</span> <span class="n">w</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Lead compensator that raises a loop's phase margin, by Ogata's frequency-response procedure.</span>
+
+<span class="sd">    1. Read the present phase margin :math:`\gamma_0` of :math:`L`.</span>
+<span class="sd">    2. The lead must supply :math:`\phi_m = \gamma - \gamma_0 + \delta`,</span>
+<span class="sd">       where :math:`\delta` (``extra_deg``) pays for the extra lag at the</span>
+<span class="sd">       crossover, which moves up.</span>
+<span class="sd">    3. Put the peak lead at the frequency where :math:`|L| = \sqrt\alpha`,</span>
+<span class="sd">       so that the compensator's gain :math:`1/\sqrt\alpha` makes it the new</span>
+<span class="sd">       crossover.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    loop : scipy.signal.lti</span>
+<span class="sd">        Open-loop model :math:`L(s)`, with its gain already set for the</span>
+<span class="sd">        required error constant.</span>
+<span class="sd">    phase_margin_deg : float</span>
+<span class="sd">        Required phase margin :math:`\gamma` [deg], strictly between 0 and 90.</span>
+<span class="sd">    extra_deg : float, optional</span>
+<span class="sd">        Safety allowance :math:`\delta` [deg], between 0 and 45.</span>
+<span class="sd">    w : array_like, optional</span>
+<span class="sd">        Positive angular frequencies [rad/s] for reading the response;</span>
+<span class="sd">        defaults to 20000 points from :math:`10^{-4}` to :math:`10^4`.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    CompensatorResult</span>
+<span class="sd">        The compensator, both loops and the margins actually achieved.</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    ValueError</span>
+<span class="sd">        If the loop has no gain crossover, already meets the margin, or</span>
+<span class="sd">        needs 90° or more of lead from one stage.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    A single lead stage gives less than 90° and, in practice, about 60°;</span>
+<span class="sd">    beyond that use two stages or :func:`design_lead_lag`. The achieved</span>
+<span class="sd">    margin differs from :math:`\gamma` by however far :math:`\delta`</span>
+<span class="sd">    misjudges the extra lag. Inputs are raw SI numbers with no dimensional</span>
+<span class="sd">    metadata; see :doc:`/guides/control_systems`.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; from engineeringkit.control_systems import transfer_function</span>
+<span class="sd">    &gt;&gt;&gt; r = design_lead(transfer_function([40], [1, 2, 0]), 50.0)</span>
+<span class="sd">    &gt;&gt;&gt; round(r.phase_margin_deg, 1), round(r.gain_cross_frequency, 2)</span>
+<span class="sd">    (49.8, 8.85)</span>
+<span class="sd">    """</span>
+    <span class="n">_check_design_inputs</span><span class="p">(</span><span class="n">phase_margin_deg</span><span class="p">,</span> <span class="n">extra_deg</span><span class="p">)</span>
+    <span class="n">w</span> <span class="o">=</span> <span class="n">_grid</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
+    <span class="n">pm0</span> <span class="o">=</span> <span class="n">stability_margins</span><span class="p">(</span><span class="n">loop</span><span class="p">,</span> <span class="n">w</span><span class="p">)[</span><span class="s2">"phase_margin_deg"</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">pm0</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"the loop has no gain crossover on the frequency grid"</span><span class="p">)</span>
+    <span class="n">lead</span> <span class="o">=</span> <span class="n">phase_margin_deg</span> <span class="o">-</span> <span class="n">pm0</span> <span class="o">+</span> <span class="n">extra_deg</span>
+    <span class="k">if</span> <span class="n">lead</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"the loop already has a </span><span class="si">{</span><span class="n">pm0</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> deg phase margin"</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">lead</span> <span class="o">&gt;=</span> <span class="mi">90</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"one lead stage cannot supply </span><span class="si">{</span><span class="n">lead</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> deg; use two stages or design_lead_lag"</span><span class="p">)</span>
+    <span class="n">alpha</span> <span class="o">=</span> <span class="n">_lead_alpha</span><span class="p">(</span><span class="n">lead</span><span class="p">)</span>
+    <span class="n">log_mag</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">nyquist</span><span class="p">(</span><span class="n">loop</span><span class="p">,</span> <span class="n">w</span><span class="p">)))</span>
+    <span class="n">wm</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">_crossings</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">log_mag</span> <span class="o">-</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">alpha</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">_result</span><span class="p">(</span><span class="s2">"lead"</span><span class="p">,</span> <span class="n">lead_compensator</span><span class="p">(</span><span class="n">lead</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="n">wm</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])),</span> <span class="n">loop</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="design_lag">
+<a class="viewcode-back" href="../../../../api/control_systems.html#engineeringkit.control_systems.design_lag">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">design_lag</span><span class="p">(</span><span class="n">loop</span><span class="p">,</span> <span class="n">phase_margin_deg</span><span class="p">,</span> <span class="n">extra_deg</span><span class="o">=</span><span class="mf">5.0</span><span class="p">,</span> <span class="n">zero_ratio</span><span class="o">=</span><span class="mf">10.0</span><span class="p">,</span> <span class="n">w</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Lag compensator that lowers a loop's crossover to where it has the required phase margin.</span>
+
+<span class="sd">    1. Find the frequency :math:`\omega_c` where :math:`\angle L =</span>
+<span class="sd">       -180^\circ + \gamma + \delta`, the allowance :math:`\delta` paying</span>
+<span class="sd">       for the lag's residual phase there.</span>
+<span class="sd">    2. Choose :math:`\beta = |L(j\omega_c)|`, so that the lag's</span>
+<span class="sd">       high-frequency gain :math:`1/\beta` makes :math:`\omega_c` the new</span>
+<span class="sd">       crossover.</span>
+<span class="sd">    3. Put the lag zero at :math:`\omega_c/` ``zero_ratio``.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    loop : scipy.signal.lti</span>
+<span class="sd">        Open-loop model :math:`L(s)`, with its gain already set for the</span>
+<span class="sd">        required error constant.</span>
+<span class="sd">    phase_margin_deg : float</span>
+<span class="sd">        Required phase margin :math:`\gamma` [deg], strictly between 0 and 90.</span>
+<span class="sd">    extra_deg : float, optional</span>
+<span class="sd">        Allowance :math:`\delta` for the lag's phase at :math:`\omega_c`</span>
+<span class="sd">        [deg], between 0 and 45.</span>
+<span class="sd">    zero_ratio : float, optional</span>
+<span class="sd">        Ratio of :math:`\omega_c` to the lag zero [-], greater than 1.</span>
+<span class="sd">    w : array_like, optional</span>
+<span class="sd">        Positive angular frequencies [rad/s] for reading the response.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    CompensatorResult</span>
+<span class="sd">        The compensator, both loops and the margins actually achieved.</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    ValueError</span>
+<span class="sd">        If the phase never reaches the target, or the gain there is already</span>
+<span class="sd">        below one (a lag cannot raise it).</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    A zero a decade below :math:`\omega_c` costs about</span>
+<span class="sd">    :math:`\arctan 0.1 \approx 5.7^\circ` there, which is why</span>
+<span class="sd">    :math:`\delta = 5^\circ` is the usual allowance. The price is a slower</span>
+<span class="sd">    response: the crossover, and so the bandwidth, goes down. Inputs are raw</span>
+<span class="sd">    SI numbers with no dimensional metadata; see</span>
+<span class="sd">    :doc:`/guides/control_systems`.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; from engineeringkit.control_systems import transfer_function</span>
+<span class="sd">    &gt;&gt;&gt; r = design_lag(transfer_function([5], [0.5, 1.5, 1, 0]), 40.0)</span>
+<span class="sd">    &gt;&gt;&gt; round(r.phase_margin_deg, 1), round(r.gain_cross_frequency, 3)</span>
+<span class="sd">    (39.9, 0.564)</span>
+<span class="sd">    """</span>
+    <span class="n">_check_design_inputs</span><span class="p">(</span><span class="n">phase_margin_deg</span><span class="p">,</span> <span class="n">extra_deg</span><span class="p">)</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">zero_ratio</span><span class="o">=</span><span class="n">zero_ratio</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">zero_ratio</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"zero_ratio must be greater than 1"</span><span class="p">)</span>
+    <span class="n">w</span> <span class="o">=</span> <span class="n">_grid</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
+    <span class="n">h</span> <span class="o">=</span> <span class="n">nyquist</span><span class="p">(</span><span class="n">loop</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>
+    <span class="n">phase</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unwrap</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">angle</span><span class="p">(</span><span class="n">h</span><span class="p">))</span> <span class="o">*</span> <span class="mi">180</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span>
+    <span class="n">wc</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">_crossings</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">phase</span> <span class="o">+</span> <span class="mi">180</span> <span class="o">-</span> <span class="n">phase_margin_deg</span> <span class="o">-</span> <span class="n">extra_deg</span><span class="p">,</span> <span class="mf">360.0</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">wc</span><span class="o">.</span><span class="n">size</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"the loop phase never reaches the target on the frequency grid"</span><span class="p">)</span>
+    <span class="n">wc</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">wc</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">beta</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">nyquist</span><span class="p">(</span><span class="n">loop</span><span class="p">,</span> <span class="n">wc</span><span class="p">)))</span>
+    <span class="k">if</span> <span class="n">beta</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"the loop gain is already below one at the target crossover; a lag cannot raise it"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">_result</span><span class="p">(</span><span class="s2">"lag"</span><span class="p">,</span> <span class="n">lag_compensator</span><span class="p">(</span><span class="n">beta</span><span class="p">,</span> <span class="n">wc</span> <span class="o">/</span> <span class="n">zero_ratio</span><span class="p">),</span> <span class="n">loop</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="design_lead_lag">
+<a class="viewcode-back" href="../../../../api/control_systems.html#engineeringkit.control_systems.design_lead_lag">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">design_lead_lag</span><span class="p">(</span><span class="n">loop</span><span class="p">,</span> <span class="n">phase_margin_deg</span><span class="p">,</span> <span class="n">crossover_frequency</span><span class="p">,</span> <span class="n">extra_deg</span><span class="o">=</span><span class="mf">5.0</span><span class="p">,</span> <span class="n">zero_ratio</span><span class="o">=</span><span class="mf">10.0</span><span class="p">,</span> <span class="n">w</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Lead-lag compensator giving a chosen crossover frequency and phase margin.</span>
+
+<span class="sd">    The lead puts its peak at the chosen crossover :math:`\omega_c` and</span>
+<span class="sd">    supplies :math:`\phi_m = \gamma + \delta - 180^\circ - \angle</span>
+<span class="sd">    L(j\omega_c)`; the lag then sets :math:`\beta = |L(j\omega_c)|/\sqrt\alpha`</span>
+<span class="sd">    so that the total gain there is one.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    loop : scipy.signal.lti</span>
+<span class="sd">        Open-loop model :math:`L(s)`, with its gain already set for the</span>
+<span class="sd">        required error constant.</span>
+<span class="sd">    phase_margin_deg : float</span>
+<span class="sd">        Required phase margin :math:`\gamma` [deg], strictly between 0 and 90.</span>
+<span class="sd">    crossover_frequency : float</span>
+<span class="sd">        Required gain-crossover frequency :math:`\omega_c` [rad/s], positive.</span>
+<span class="sd">    extra_deg : float, optional</span>
+<span class="sd">        Allowance :math:`\delta` for the lag's phase at :math:`\omega_c`</span>
+<span class="sd">        [deg], between 0 and 45.</span>
+<span class="sd">    zero_ratio : float, optional</span>
+<span class="sd">        Ratio of :math:`\omega_c` to the lag zero [-], greater than 1.</span>
+<span class="sd">    w : array_like, optional</span>
+<span class="sd">        Positive angular frequencies [rad/s] for reading the achieved</span>
+<span class="sd">        margins.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    CompensatorResult</span>
+<span class="sd">        The compensator, both loops and the margins actually achieved.</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    ValueError</span>
+<span class="sd">        If the required lead is not between 0 and 90°, or the loop gain at</span>
+<span class="sd">        :math:`\omega_c` is too low for a lag to be needed (then use</span>
+<span class="sd">        :func:`design_lead`).</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    The lead buys phase at the crossover, the lag gives back the excess gain</span>
+<span class="sd">    the lead adds, so the error constants are unchanged and the crossover</span>
+<span class="sd">    lands where it was asked. The phase of :math:`L` is read in</span>
+<span class="sd">    :math:`[-360^\circ, 0^\circ)`. Inputs are raw SI numbers with no</span>
+<span class="sd">    dimensional metadata; see :doc:`/guides/control_systems`.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; from engineeringkit.control_systems import transfer_function</span>
+<span class="sd">    &gt;&gt;&gt; r = design_lead_lag(transfer_function([20], [1, 3, 2, 0]), 45.0, 1.0)</span>
+<span class="sd">    &gt;&gt;&gt; round(r.phase_margin_deg, 1), round(r.gain_cross_frequency, 3)</span>
+<span class="sd">    (44.6, 1.004)</span>
+<span class="sd">    """</span>
+    <span class="n">_check_design_inputs</span><span class="p">(</span><span class="n">phase_margin_deg</span><span class="p">,</span> <span class="n">extra_deg</span><span class="p">)</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">crossover_frequency</span><span class="o">=</span><span class="n">crossover_frequency</span><span class="p">,</span> <span class="n">zero_ratio</span><span class="o">=</span><span class="n">zero_ratio</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">zero_ratio</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"zero_ratio must be greater than 1"</span><span class="p">)</span>
+    <span class="n">h</span> <span class="o">=</span> <span class="nb">complex</span><span class="p">(</span><span class="n">nyquist</span><span class="p">(</span><span class="n">loop</span><span class="p">,</span> <span class="n">crossover_frequency</span><span class="p">))</span>
+    <span class="n">angle</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">degrees</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">angle</span><span class="p">(</span><span class="n">h</span><span class="p">))</span> <span class="o">%</span> <span class="mi">360</span> <span class="o">-</span> <span class="mi">360</span>
+    <span class="n">lead</span> <span class="o">=</span> <span class="n">phase_margin_deg</span> <span class="o">+</span> <span class="n">extra_deg</span> <span class="o">-</span> <span class="mi">180</span> <span class="o">-</span> <span class="n">angle</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="n">lead</span> <span class="o">&lt;</span> <span class="mi">90</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"the crossover needs </span><span class="si">{</span><span class="n">lead</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> deg of lead; one stage gives between 0 and 90"</span><span class="p">)</span>
+    <span class="n">beta</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">h</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">_lead_alpha</span><span class="p">(</span><span class="n">lead</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">beta</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"the loop gain at the crossover is too low for a lag; use design_lead"</span><span class="p">)</span>
+    <span class="n">C</span> <span class="o">=</span> <span class="n">lead_lag_compensator</span><span class="p">(</span><span class="n">lead</span><span class="p">,</span> <span class="n">crossover_frequency</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="n">crossover_frequency</span> <span class="o">/</span> <span class="n">zero_ratio</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">_result</span><span class="p">(</span><span class="s2">"lead-lag"</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">loop</span><span class="p">,</span> <span class="n">_grid</span><span class="p">(</span><span class="n">w</span><span class="p">))</span></div>
+
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../../_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be"></script>
+<script defer src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.1.
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.23.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

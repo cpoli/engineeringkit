@@ -5,7 +5,7 @@
 Properties
 ----------
 
-Equations of state, vapour pressure and the properties of water and steam.
+Equations of state, ideal-gas mixtures, vapour pressure and the properties of water, steam and refrigerants.
 
 
 .. raw:: html
@@ -121,6 +121,74 @@ Equations of state, vapour pressure and the properties of water and steam.
     </div>
 
 
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="John Dalton, a Manchester schoolteacher, read a set of essays to the city&#x27;s Literary and Philosophical Society in October 1801. He argued that each gas in a mixture presses on the walls as if the others were absent, so the total pressure of a mixture is the sum of the partial pressures, p = \sum p_i with p_i = y_i p (~engineeringkit.thermodynamics.partial_pressures). The rule underlies moist-air calculations, combustion products and every ideal-gas mixture: its molar mass is the mole-weighted mean (~engineeringkit.thermodynamics.mixture_molar_mass), and mixing different gases generates entropy (~engineeringkit.thermodynamics.entropy_of_mixing).">
+
+.. only:: html
+
+  .. image:: /api/gallery/thermodynamics/properties/images/thumb/sphx_glr_plot_07_dalton_partial_pressures_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/thermodynamics/properties/plot_07_dalton_partial_pressures`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Dalton's law of partial pressures (1801)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Van der Waals&#x27;s law of corresponding states says that all fluids share one compressibility chart in reduced temperature and pressure. That holds for argon, krypton and xenon but fails for larger, less spherical molecules. Kenneth Pitzer and his co-workers at Berkeley added a third parameter in 1955, the acentric factor \omega = -\log_{10}[p_s(0.7\,T_c)/p_c] - 1 (~engineeringkit.thermodynamics.pitzer_acentric_factor). It is zero for the simple fluids, whose reduced vapour pressure at T_r = 0.7 is almost exactly 0.1. The compressibility factor (~engineeringkit.thermodynamics.compressibility_factor) is then Z = Z^0 + \omega Z^1; at moderate pressure, the second-virial form (~engineeringkit.thermodynamics.pitzer_virial_compressibility).">
+
+.. only:: html
+
+  .. image:: /api/gallery/thermodynamics/properties/images/thumb/sphx_glr_plot_08_pitzer_acentric_factor_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/thermodynamics/properties/plot_08_pitzer_acentric_factor`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Pitzer's acentric factor (1955)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Ding-Yu Peng and Donald Robinson, at the University of Alberta, wanted one simple equation for the vapour-liquid equilibria of natural gas. They kept van der Waals&#x27;s two terms but changed the attraction&#x27;s volume dependence and made it fall with temperature through the acentric factor:">
+
+.. only:: html
+
+  .. image:: /api/gallery/thermodynamics/properties/images/thumb/sphx_glr_plot_09_peng_robinson_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/thermodynamics/properties/plot_09_peng_robinson`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Peng and Robinson's equation of state (1976)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Above 800 °C steam leaves the range of power-station boilers. It enters gas-turbine combustors and steam-injected turbines, where water is sprayed into the hot gas. IF97&#x27;s region 5 covers 1073.15 K to 2273.15 K, at pressures up to 50 MPa since the 2007 revision. Like region 2 it is a dimensionless Gibbs function, of p/1\,\mathrm{MPa} and 1000\,\mathrm{K}/T. steam_properties switches to it automatically and accepts arrays of states.">
+
+.. only:: html
+
+  .. image:: /api/gallery/thermodynamics/properties/images/thumb/sphx_glr_plot_10_iapws_if97_region5_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/thermodynamics/properties/plot_10_iapws_if97_region5`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">IAPWS-IF97 region 5: steam in gas turbines (1997)</div>
+    </div>
+
+
 .. thumbnail-parent-div-close
 
 .. raw:: html
@@ -137,4 +205,8 @@ Equations of state, vapour pressure and the properties of water and steam.
    /api/gallery/thermodynamics/properties/plot_04_van_der_waals
    /api/gallery/thermodynamics/properties/plot_05_antoine_equation
    /api/gallery/thermodynamics/properties/plot_06_iapws_if97
+   /api/gallery/thermodynamics/properties/plot_07_dalton_partial_pressures
+   /api/gallery/thermodynamics/properties/plot_08_pitzer_acentric_factor
+   /api/gallery/thermodynamics/properties/plot_09_peng_robinson
+   /api/gallery/thermodynamics/properties/plot_10_iapws_if97_region5
 

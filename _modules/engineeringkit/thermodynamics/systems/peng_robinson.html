@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>engineeringkit.thermodynamics.systems.peng_robinson &#8212; engineeringkit</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx_autodoc_typehints.css?v=057ac668" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/plot_directive.css" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Vibur" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/jupyterlite_sphinx.css?v=f676e775" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery.css?v=c83e6b79" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/engineeringkit.css?v=62935cec" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../../../_static/scripts/fontawesome.js?digest=18bd87630a240e9c25be"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be" />
+
+    <script src="../../../../_static/documentation_options.js?v=95e61db4"></script>
+    <script src="../../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../../_static/sg-tags.js?v=d80f6fa4"></script>
+    <script src="../../../../_static/jupyterlite_sphinx.js?v=96e329c5"></script>
+    <script src="../../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/engineeringkit/thermodynamics/systems/peng_robinson';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <script async="async" data-goatcounter="https://cpoli.goatcounter.com/count" src="https://gc.zgo.at/count.js"></script>
+    <link rel="canonical" href="https://cpoli.github.io/engineeringkit/_modules/engineeringkit/thermodynamics/systems/peng_robinson.html" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="color-scheme" content="light dark"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../../../_static/searchtools.js"></script>
+    <script src="../../../../_static/language_data.js"></script>
+    <script src="../../../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../_static/engineeringkit_logo_transparent.png" class="logo__image only-light" alt="engineeringkit logo"/>
+    <img src="../../../../_static/engineeringkit_logo_transparent.png" class="logo__image only-dark pst-js-only" alt="engineeringkit logo"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../subpackages/index.html">
+    Subpackages
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../history/index.html">
+    History
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../api/index.html">
+    API
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://cpoli.github.io/" title="Charles Poli" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-user fa-lg" aria-hidden="true"></i><span class="visually-hidden">Charles Poli</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../subpackages/index.html">
+    Subpackages
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../history/index.html">
+    History
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../api/index.html">
+    API
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://cpoli.github.io/" title="Charles Poli" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-user fa-lg" aria-hidden="true"></i><span class="visually-hidden">Charles Poli</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">engineeringkit.thermodynamics.systems.peng_robinson</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for engineeringkit.thermodynamics.systems.peng_robinson</h1><div class="highlight"><pre>
+<span></span><span class="sa">r</span><span class="sd">"""The Peng-Robinson cubic equation of state and refrigerant properties from it.</span>
+
+<span class="sd">Peng and Robinson kept van der Waals's form, a repulsive term and an</span>
+<span class="sd">attractive term, but chose the attraction so that one equation fits both the</span>
+<span class="sd">vapour pressure and the liquid density of hydrocarbons:</span>
+
+<span class="sd">.. math:: p = \frac{RT}{v - b} - \frac{a\,\alpha(T)}{v^2 + 2bv - b^2},</span>
+<span class="sd">   \qquad \alpha = [1 + \kappa(1 - \sqrt{T/T_c})]^2,</span>
+
+<span class="sd">with :math:`a` and :math:`b` fixed by the critical point and :math:`\kappa`</span>
+<span class="sd">by Pitzer's acentric factor. Saturation follows from equal fugacities of</span>
+<span class="sd">liquid and vapour, and enthalpy and entropy from the ideal gas plus departure</span>
+<span class="sd">functions. Three constants and an ideal-gas heat capacity are enough to run</span>
+<span class="sd">a refrigeration cycle on any fluid, with no property tables.</span>
+<span class="sd">"""</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">functools</span><span class="w"> </span><span class="kn">import</span> <span class="n">lru_cache</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.optimize</span><span class="w"> </span><span class="kn">import</span> <span class="n">brentq</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit._validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">finite</span> <span class="k">as</span> <span class="n">_finite</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit._validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">interval</span> <span class="k">as</span> <span class="n">_interval</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit._validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">positive</span> <span class="k">as</span> <span class="n">_positive</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit.thermodynamics.core.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">CubicFluid</span><span class="p">,</span> <span class="n">RefrigerantState</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">engineeringkit.thermodynamics.systems.gases</span><span class="w"> </span><span class="kn">import</span> <span class="n">R_UNIVERSAL</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">"R134A"</span><span class="p">,</span>
+    <span class="s2">"peng_robinson_pressure"</span><span class="p">,</span>
+    <span class="s2">"peng_robinson_compressibility"</span><span class="p">,</span>
+    <span class="s2">"peng_robinson_saturation_pressure"</span><span class="p">,</span>
+    <span class="s2">"refrigerant_properties"</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="n">R134A</span> <span class="o">=</span> <span class="n">CubicFluid</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">"R-134a"</span><span class="p">,</span> <span class="n">Tc</span><span class="o">=</span><span class="mf">374.2</span><span class="p">,</span> <span class="n">pc</span><span class="o">=</span><span class="mf">4.059e6</span><span class="p">,</span> <span class="n">omega</span><span class="o">=</span><span class="mf">0.327</span><span class="p">,</span> <span class="n">molar_mass</span><span class="o">=</span><span class="mf">0.10203</span><span class="p">,</span> <span class="n">cp0</span><span class="o">=</span><span class="mf">852.0</span><span class="p">)</span>
+<span class="sd">"""R-134a (1,1,1,2-tetrafluoroethane). Critical point, molar mass and</span>
+<span class="sd">ideal-gas :math:`c_p` at 300 K from Çengel and Boles, Tables A-1 and A-2a</span>
+<span class="sd">(the NIST WebBook averages are 374.1 ± 0.2 K and 4.06 ± 0.02 MPa); acentric</span>
+<span class="sd">factor from Poling, Prausnitz and O'Connell, *The Properties of Gases and</span>
+<span class="sd">Liquids*, 5th ed., Appendix A."""</span>
+
+<span class="n">_SQRT2</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">2.0</span><span class="p">)</span>
+<span class="n">_T_LOW</span> <span class="o">=</span> <span class="mf">0.45</span>  <span class="c1"># lowest reduced temperature handled (R-134a's triple point is 0.454 Tc)</span>
+<span class="n">_T_HIGH</span> <span class="o">=</span> <span class="mf">2.5</span>  <span class="c1"># highest reduced temperature searched when inverting s or h</span>
+<span class="n">_T_TOP</span> <span class="o">=</span> <span class="mf">0.9999</span>  <span class="c1"># highest reduced saturation temperature: the spinodals merge at the critical point</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_constants</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">Tc</span><span class="p">,</span> <span class="n">pc</span><span class="p">,</span> <span class="n">omega</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Molar :math:`a\\alpha(T)` [Pa m^6/mol^2], :math:`b` [m^3/mol] and :math:`d(a\\alpha)/dT`."""</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="mf">0.45724</span> <span class="o">*</span> <span class="p">(</span><span class="n">R_UNIVERSAL</span> <span class="o">*</span> <span class="n">Tc</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">/</span> <span class="n">pc</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="mf">0.07780</span> <span class="o">*</span> <span class="n">R_UNIVERSAL</span> <span class="o">*</span> <span class="n">Tc</span> <span class="o">/</span> <span class="n">pc</span>
+    <span class="n">kappa</span> <span class="o">=</span> <span class="mf">0.37464</span> <span class="o">+</span> <span class="mf">1.54226</span> <span class="o">*</span> <span class="n">omega</span> <span class="o">-</span> <span class="mf">0.26992</span> <span class="o">*</span> <span class="n">omega</span><span class="o">**</span><span class="mi">2</span>
+    <span class="n">root</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">kappa</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">T</span> <span class="o">/</span> <span class="n">Tc</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">*</span> <span class="n">root</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="o">-</span><span class="n">a</span> <span class="o">*</span> <span class="n">kappa</span> <span class="o">*</span> <span class="n">root</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">T</span> <span class="o">*</span> <span class="n">Tc</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_check</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">Tc</span><span class="p">,</span> <span class="n">pc</span><span class="p">,</span> <span class="n">omega</span><span class="p">):</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">T</span><span class="o">=</span><span class="n">T</span><span class="p">,</span> <span class="n">Tc</span><span class="o">=</span><span class="n">Tc</span><span class="p">,</span> <span class="n">pc</span><span class="o">=</span><span class="n">pc</span><span class="p">)</span>
+    <span class="n">_interval</span><span class="p">(</span><span class="s2">"omega"</span><span class="p">,</span> <span class="n">omega</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="peng_robinson_pressure">
+<a class="viewcode-back" href="../../../../api/thermodynamics.html#engineeringkit.thermodynamics.peng_robinson_pressure">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">peng_robinson_pressure</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">Tc</span><span class="p">,</span> <span class="n">pc</span><span class="p">,</span> <span class="n">omega</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Peng-Robinson pressure from temperature and molar volume.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    T : float or array_like</span>
+<span class="sd">        Absolute temperature [K], positive.</span>
+<span class="sd">    v : float or array_like</span>
+<span class="sd">        Molar volume [m^3/mol], larger than the co-volume</span>
+<span class="sd">        :math:`b = 0.07780\,RT_c/p_c`.</span>
+<span class="sd">    Tc : float</span>
+<span class="sd">        Critical temperature [K], positive.</span>
+<span class="sd">    pc : float</span>
+<span class="sd">        Critical pressure [Pa], positive.</span>
+<span class="sd">    omega : float</span>
+<span class="sd">        Acentric factor [-], in [-0.5, 1.5].</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float or ndarray</span>
+<span class="sd">        Pressure [Pa].</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    At the critical point the critical isotherm has a horizontal</span>
+<span class="sd">    inflection and the critical compressibility is 0.3074, nearer real</span>
+<span class="sd">    fluids than van der Waals's 3/8. Inputs are raw SI numbers with no</span>
+<span class="sd">    dimensional metadata; see :doc:`/guides/thermodynamics`.</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    D.-Y. Peng and D. B. Robinson, "A new two-constant equation of state,"</span>
+<span class="sd">    *Ind. Eng. Chem. Fundam.* 15 (1976) 59-64.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; round(float(peng_robinson_pressure(300.0, 0.024, 190.56, 4.599e6, 0.011)), -1)</span>
+<span class="sd">    103700.0</span>
+<span class="sd">    """</span>
+    <span class="n">_check</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">Tc</span><span class="p">,</span> <span class="n">pc</span><span class="p">,</span> <span class="n">omega</span><span class="p">)</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">v</span><span class="o">=</span><span class="n">v</span><span class="p">)</span>
+    <span class="n">a_alpha</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">_constants</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">),</span> <span class="n">Tc</span><span class="p">,</span> <span class="n">pc</span><span class="p">,</span> <span class="n">omega</span><span class="p">)</span>
+    <span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="o">**</span><span class="p">{</span><span class="s2">"v - b"</span><span class="p">:</span> <span class="n">v</span> <span class="o">-</span> <span class="n">b</span><span class="p">})</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">R_UNIVERSAL</span> <span class="o">*</span> <span class="n">T</span> <span class="o">/</span> <span class="p">(</span><span class="n">v</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span> <span class="o">-</span> <span class="n">a_alpha</span> <span class="o">/</span> <span class="p">(</span><span class="n">v</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">b</span> <span class="o">*</span> <span class="n">v</span> <span class="o">-</span> <span class="n">b</span><span class="o">**</span><span class="mi">2</span><span class="p">))[()]</span></div>
+
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_roots</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">Tc</span><span class="p">,</span> <span class="n">pc</span><span class="p">,</span> <span class="n">omega</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Real compressibility roots above :math:`B` at ``(T, p)``, ascending, with ``A`` and ``B``."""</span>
+    <span class="n">a_alpha</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">_constants</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">Tc</span><span class="p">,</span> <span class="n">pc</span><span class="p">,</span> <span class="n">omega</span><span class="p">)</span>
+    <span class="n">A</span><span class="p">,</span> <span class="n">B</span> <span class="o">=</span> <span class="n">a_alpha</span> <span class="o">*</span> <span class="n">p</span> <span class="o">/</span> <span class="p">(</span><span class="n">R_UNIVERSAL</span> <span class="o">*</span> <span class="n">T</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">,</span> <span class="n">b</span> <span class="o">*</span> <span class="n">p</span> <span class="o">/</span> <span class="p">(</span><span class="n">R_UNIVERSAL</span> <span class="o">*</span> <span class="n">T</span><span class="p">)</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">roots</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">B</span><span class="p">),</span> <span class="n">A</span> <span class="o">-</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">B</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">B</span><span class="p">,</span> <span class="o">-</span><span class="p">(</span><span class="n">A</span> <span class="o">*</span> <span class="n">B</span> <span class="o">-</span> <span class="n">B</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">B</span><span class="o">**</span><span class="mi">3</span><span class="p">)])</span>
+    <span class="n">real</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">z</span><span class="p">[(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">z</span><span class="o">.</span><span class="n">imag</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">1e-9</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">z</span><span class="o">.</span><span class="n">real</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">())</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">z</span><span class="o">.</span><span class="n">real</span> <span class="o">&gt;</span> <span class="n">B</span><span class="p">)]</span><span class="o">.</span><span class="n">real</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">real</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_log_fugacity_coefficient</span><span class="p">(</span><span class="n">Z</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">Z</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">Z</span> <span class="o">-</span> <span class="n">B</span><span class="p">)</span> <span class="o">-</span> <span class="n">A</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">_SQRT2</span> <span class="o">*</span> <span class="n">B</span><span class="p">)</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">((</span><span class="n">Z</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">_SQRT2</span><span class="p">)</span> <span class="o">*</span> <span class="n">B</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">Z</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">_SQRT2</span><span class="p">)</span> <span class="o">*</span> <span class="n">B</span><span class="p">))</span>
+
+
+<div class="viewcode-block" id="peng_robinson_compressibility">
+<a class="viewcode-back" href="../../../../api/thermodynamics.html#engineeringkit.thermodynamics.peng_robinson_compressibility">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">peng_robinson_compressibility</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">Tc</span><span class="p">,</span> <span class="n">pc</span><span class="p">,</span> <span class="n">omega</span><span class="p">,</span> <span class="n">phase</span><span class="o">=</span><span class="s2">"vapour"</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Compressibility factor :math:`Z = pv/(RT)` from the Peng-Robinson cubic.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    T : float</span>
+<span class="sd">        Absolute temperature [K], positive.</span>
+<span class="sd">    p : float</span>
+<span class="sd">        Pressure [Pa], positive.</span>
+<span class="sd">    Tc, pc, omega : float</span>
+<span class="sd">        Critical temperature [K], critical pressure [Pa] and acentric</span>
+<span class="sd">        factor [-].</span>
+<span class="sd">    phase : {"vapour", "liquid"}, optional</span>
+<span class="sd">        Which root to return where the cubic has three: the largest</span>
+<span class="sd">        (vapour) or the smallest (liquid). With one real root it is</span>
+<span class="sd">        returned for either.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float</span>
+<span class="sd">        Compressibility factor [-].</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    The cubic :math:`Z^3 - (1 - B)Z^2 + (A - 3B^2 - 2B)Z - (AB - B^2 - B^3) = 0`</span>
+<span class="sd">    with :math:`A = a\alpha p/(RT)^2` and :math:`B = bp/(RT)` is solved with</span>
+<span class="sd">    :func:`numpy.roots`. Which root is the stable phase is decided by the</span>
+<span class="sd">    saturation pressure (:func:`peng_robinson_saturation_pressure`). Every</span>
+<span class="sd">    parameter is scalar-only: a root is chosen for one state. Inputs</span>
+<span class="sd">    are raw SI numbers with no dimensional metadata; see</span>
+<span class="sd">    :doc:`/guides/thermodynamics`.</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    D.-Y. Peng and D. B. Robinson (1976), as above.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; round(peng_robinson_compressibility(300.0, 101325.0, 190.56, 4.599e6, 0.011), 4)</span>
+<span class="sd">    0.9978</span>
+<span class="sd">    """</span>
+    <span class="n">_check</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">Tc</span><span class="p">,</span> <span class="n">pc</span><span class="p">,</span> <span class="n">omega</span><span class="p">)</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="n">p</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">ndim</span><span class="p">(</span><span class="n">T</span><span class="p">)</span> <span class="ow">or</span> <span class="n">np</span><span class="o">.</span><span class="n">ndim</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"T and p must be scalars"</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">phase</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">"vapour"</span><span class="p">,</span> <span class="s2">"liquid"</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"phase must be 'vapour' or 'liquid'"</span><span class="p">)</span>
+    <span class="n">roots</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">_roots</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">T</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">p</span><span class="p">),</span> <span class="n">Tc</span><span class="p">,</span> <span class="n">pc</span><span class="p">,</span> <span class="n">omega</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">roots</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="n">phase</span> <span class="o">==</span> <span class="s2">"vapour"</span> <span class="k">else</span> <span class="n">roots</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span></div>
+
+
+
+<div class="viewcode-block" id="peng_robinson_saturation_pressure">
+<a class="viewcode-back" href="../../../../api/thermodynamics.html#engineeringkit.thermodynamics.peng_robinson_saturation_pressure">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">peng_robinson_saturation_pressure</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">Tc</span><span class="p">,</span> <span class="n">pc</span><span class="p">,</span> <span class="n">omega</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""Vapour pressure from the Peng-Robinson equation: equal liquid and vapour fugacities.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    T : float</span>
+<span class="sd">        Absolute temperature [K], from :math:`0.45\,T_c` to</span>
+<span class="sd">        :math:`0.9999\,T_c`.</span>
+<span class="sd">    Tc, pc, omega : float</span>
+<span class="sd">        Critical temperature [K], critical pressure [Pa] and acentric</span>
+<span class="sd">        factor [-].</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float</span>
+<span class="sd">        Saturation pressure [Pa].</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Between the two spinodal pressures, where :math:`(\partial p/\partial v)_T = 0`,</span>
+<span class="sd">    the cubic has a liquid and a vapour root; Brent's method finds the</span>
+<span class="sd">    pressure where their fugacity coefficients are equal. That is Maxwell's</span>
+<span class="sd">    equal-area rule in another form. Every parameter is scalar-only: the</span>
+<span class="sd">    search runs on one isotherm. Inputs are raw SI numbers with no</span>
+<span class="sd">    dimensional metadata; see :doc:`/guides/thermodynamics`.</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    D.-Y. Peng and D. B. Robinson (1976), as above.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; round(peng_robinson_saturation_pressure(0.7 * 190.56, 190.56, 4.599e6, 0.011) / 4.599e6, 4)</span>
+<span class="sd">    0.0981</span>
+<span class="sd">    """</span>
+    <span class="n">_check</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">Tc</span><span class="p">,</span> <span class="n">pc</span><span class="p">,</span> <span class="n">omega</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">ndim</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"T must be a scalar"</span><span class="p">)</span>
+    <span class="n">_interval</span><span class="p">(</span><span class="s2">"T"</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">_T_LOW</span> <span class="o">*</span> <span class="n">Tc</span><span class="p">,</span> <span class="n">_T_TOP</span> <span class="o">*</span> <span class="n">Tc</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">_saturation_pressure</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">T</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">Tc</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">pc</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">omega</span><span class="p">))</span></div>
+
+
+
+<span class="nd">@lru_cache</span><span class="p">(</span><span class="n">maxsize</span><span class="o">=</span><span class="mi">4096</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_saturation_pressure</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">Tc</span><span class="p">,</span> <span class="n">pc</span><span class="p">,</span> <span class="n">omega</span><span class="p">):</span>
+    <span class="n">a_alpha</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">_constants</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">Tc</span><span class="p">,</span> <span class="n">pc</span><span class="p">,</span> <span class="n">omega</span><span class="p">)</span>
+    <span class="n">RT</span> <span class="o">=</span> <span class="n">R_UNIVERSAL</span> <span class="o">*</span> <span class="n">T</span>
+    <span class="c1"># spinodals: RT (v^2 + 2bv - b^2)^2 = 2 a alpha (v + b)(v - b)^2</span>
+    <span class="n">quad</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polynomial</span><span class="o">.</span><span class="n">Polynomial</span><span class="p">([</span><span class="o">-</span><span class="p">(</span><span class="n">b</span><span class="o">**</span><span class="mi">2</span><span class="p">),</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">b</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span>
+    <span class="n">poly</span> <span class="o">=</span> <span class="n">RT</span> <span class="o">*</span> <span class="n">quad</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">a_alpha</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">polynomial</span><span class="o">.</span><span class="n">Polynomial</span><span class="p">([</span><span class="n">b</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">polynomial</span><span class="o">.</span><span class="n">Polynomial</span><span class="p">([</span><span class="o">-</span><span class="n">b</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span> <span class="o">**</span> <span class="mi">2</span>
+    <span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">([</span><span class="n">r</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">poly</span><span class="o">.</span><span class="n">roots</span><span class="p">()</span> <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">imag</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">1e-9</span> <span class="o">*</span> <span class="nb">abs</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">real</span><span class="p">)</span> <span class="ow">and</span> <span class="n">r</span><span class="o">.</span><span class="n">real</span> <span class="o">&gt;</span> <span class="n">b</span><span class="p">]))</span>
+    <span class="n">p_spin</span> <span class="o">=</span> <span class="n">RT</span> <span class="o">/</span> <span class="p">(</span><span class="n">v</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span> <span class="o">-</span> <span class="n">a_alpha</span> <span class="o">/</span> <span class="p">(</span><span class="n">v</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">b</span> <span class="o">*</span> <span class="n">v</span> <span class="o">-</span> <span class="n">b</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">low</span><span class="p">,</span> <span class="n">high</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">p_spin</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="mf">1e-12</span> <span class="o">*</span> <span class="n">pc</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">p_spin</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">residual</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+        <span class="n">roots</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span> <span class="o">=</span> <span class="n">_roots</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">Tc</span><span class="p">,</span> <span class="n">pc</span><span class="p">,</span> <span class="n">omega</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">_log_fugacity_coefficient</span><span class="p">(</span><span class="n">roots</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">)</span> <span class="o">-</span> <span class="n">_log_fugacity_coefficient</span><span class="p">(</span><span class="n">roots</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">)</span>
+
+    <span class="c1"># pull the brackets in by a hair so both roots still exist</span>
+    <span class="k">return</span> <span class="n">brentq</span><span class="p">(</span><span class="n">residual</span><span class="p">,</span> <span class="n">low</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mf">1e-9</span><span class="p">),</span> <span class="n">high</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="mf">1e-9</span><span class="p">),</span> <span class="n">xtol</span><span class="o">=</span><span class="mf">1e-12</span> <span class="o">*</span> <span class="n">pc</span><span class="p">,</span> <span class="n">rtol</span><span class="o">=</span><span class="mf">1e-12</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_saturation_temperature</span><span class="p">(</span><span class="n">fluid</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
+    <span class="n">T_low</span><span class="p">,</span> <span class="n">T_top</span> <span class="o">=</span> <span class="n">_T_LOW</span> <span class="o">*</span> <span class="n">fluid</span><span class="o">.</span><span class="n">Tc</span><span class="p">,</span> <span class="n">_T_TOP</span> <span class="o">*</span> <span class="n">fluid</span><span class="o">.</span><span class="n">Tc</span>
+    <span class="n">p_low</span><span class="p">,</span> <span class="n">p_top</span> <span class="o">=</span> <span class="p">(</span><span class="n">_saturation_pressure</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">fluid</span><span class="o">.</span><span class="n">Tc</span><span class="p">,</span> <span class="n">fluid</span><span class="o">.</span><span class="n">pc</span><span class="p">,</span> <span class="n">fluid</span><span class="o">.</span><span class="n">omega</span><span class="p">)</span> <span class="k">for</span> <span class="n">T</span> <span class="ow">in</span> <span class="p">(</span><span class="n">T_low</span><span class="p">,</span> <span class="n">T_top</span><span class="p">))</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">p_low</span> <span class="o">&lt;=</span> <span class="n">p</span> <span class="o">&lt;=</span> <span class="n">p_top</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"saturation needs </span><span class="si">{</span><span class="n">p_low</span><span class="si">:</span><span class="s2">.6g</span><span class="si">}</span><span class="s2"> Pa &lt;= p &lt;= </span><span class="si">{</span><span class="n">p_top</span><span class="si">:</span><span class="s2">.6g</span><span class="si">}</span><span class="s2"> Pa (0.45 to 0.9999 Tc)"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">brentq</span><span class="p">(</span><span class="k">lambda</span> <span class="n">T</span><span class="p">:</span> <span class="n">_saturation_pressure</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">fluid</span><span class="o">.</span><span class="n">Tc</span><span class="p">,</span> <span class="n">fluid</span><span class="o">.</span><span class="n">pc</span><span class="p">,</span> <span class="n">fluid</span><span class="o">.</span><span class="n">omega</span><span class="p">)</span> <span class="o">-</span> <span class="n">p</span><span class="p">,</span> <span class="n">T_low</span><span class="p">,</span> <span class="n">T_top</span><span class="p">,</span> <span class="n">xtol</span><span class="o">=</span><span class="mf">1e-10</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_raw</span><span class="p">(</span><span class="n">fluid</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">phase</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Volume, enthalpy and entropy (ideal gas zero at 273.15 K and 101325 Pa) of one root."""</span>
+    <span class="n">roots</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span> <span class="o">=</span> <span class="n">_roots</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">fluid</span><span class="o">.</span><span class="n">Tc</span><span class="p">,</span> <span class="n">fluid</span><span class="o">.</span><span class="n">pc</span><span class="p">,</span> <span class="n">fluid</span><span class="o">.</span><span class="n">omega</span><span class="p">)</span>
+    <span class="n">Z</span> <span class="o">=</span> <span class="n">roots</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="n">phase</span> <span class="o">==</span> <span class="s2">"liquid"</span> <span class="k">else</span> <span class="n">roots</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">a_alpha</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">da</span> <span class="o">=</span> <span class="n">_constants</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">fluid</span><span class="o">.</span><span class="n">Tc</span><span class="p">,</span> <span class="n">fluid</span><span class="o">.</span><span class="n">pc</span><span class="p">,</span> <span class="n">fluid</span><span class="o">.</span><span class="n">omega</span><span class="p">)</span>
+    <span class="n">log_term</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">((</span><span class="n">Z</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">_SQRT2</span><span class="p">)</span> <span class="o">*</span> <span class="n">B</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">Z</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">_SQRT2</span><span class="p">)</span> <span class="o">*</span> <span class="n">B</span><span class="p">))</span>
+    <span class="n">h_dep</span> <span class="o">=</span> <span class="n">R_UNIVERSAL</span> <span class="o">*</span> <span class="n">T</span> <span class="o">*</span> <span class="p">(</span><span class="n">Z</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">T</span> <span class="o">*</span> <span class="n">da</span> <span class="o">-</span> <span class="n">a_alpha</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">_SQRT2</span> <span class="o">*</span> <span class="n">b</span><span class="p">)</span> <span class="o">*</span> <span class="n">log_term</span>
+    <span class="n">s_dep</span> <span class="o">=</span> <span class="n">R_UNIVERSAL</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">Z</span> <span class="o">-</span> <span class="n">B</span><span class="p">)</span> <span class="o">+</span> <span class="n">da</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">_SQRT2</span> <span class="o">*</span> <span class="n">b</span><span class="p">)</span> <span class="o">*</span> <span class="n">log_term</span>
+    <span class="n">M</span> <span class="o">=</span> <span class="n">fluid</span><span class="o">.</span><span class="n">molar_mass</span>
+    <span class="n">h</span> <span class="o">=</span> <span class="n">fluid</span><span class="o">.</span><span class="n">cp0</span> <span class="o">*</span> <span class="p">(</span><span class="n">T</span> <span class="o">-</span> <span class="mf">273.15</span><span class="p">)</span> <span class="o">+</span> <span class="n">h_dep</span> <span class="o">/</span> <span class="n">M</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">fluid</span><span class="o">.</span><span class="n">cp0</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">T</span> <span class="o">/</span> <span class="mf">273.15</span><span class="p">)</span> <span class="o">-</span> <span class="n">R_UNIVERSAL</span> <span class="o">/</span> <span class="n">M</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">p</span> <span class="o">/</span> <span class="mf">101325.0</span><span class="p">)</span> <span class="o">+</span> <span class="n">s_dep</span> <span class="o">/</span> <span class="n">M</span>
+    <span class="k">return</span> <span class="n">Z</span> <span class="o">*</span> <span class="n">R_UNIVERSAL</span> <span class="o">*</span> <span class="n">T</span> <span class="o">/</span> <span class="p">(</span><span class="n">p</span> <span class="o">*</span> <span class="n">M</span><span class="p">),</span> <span class="n">h</span><span class="p">,</span> <span class="n">s</span>
+
+
+<span class="nd">@lru_cache</span><span class="p">(</span><span class="n">maxsize</span><span class="o">=</span><span class="mi">64</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_offset</span><span class="p">(</span><span class="n">fluid</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Shifts that put saturated liquid at 0 °C at h = 200 kJ/kg, s = 1 kJ/(kg K) (IIR)."""</span>
+    <span class="n">p0</span> <span class="o">=</span> <span class="n">_saturation_pressure</span><span class="p">(</span><span class="mf">273.15</span><span class="p">,</span> <span class="n">fluid</span><span class="o">.</span><span class="n">Tc</span><span class="p">,</span> <span class="n">fluid</span><span class="o">.</span><span class="n">pc</span><span class="p">,</span> <span class="n">fluid</span><span class="o">.</span><span class="n">omega</span><span class="p">)</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">s</span> <span class="o">=</span> <span class="n">_raw</span><span class="p">(</span><span class="n">fluid</span><span class="p">,</span> <span class="mf">273.15</span><span class="p">,</span> <span class="n">p0</span><span class="p">,</span> <span class="s2">"liquid"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="mf">200e3</span> <span class="o">-</span> <span class="n">h</span><span class="p">,</span> <span class="mf">1e3</span> <span class="o">-</span> <span class="n">s</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_single</span><span class="p">(</span><span class="n">fluid</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">phase</span><span class="p">):</span>
+    <span class="n">v</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">s</span> <span class="o">=</span> <span class="n">_raw</span><span class="p">(</span><span class="n">fluid</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="s2">"liquid"</span> <span class="k">if</span> <span class="n">phase</span> <span class="o">==</span> <span class="s2">"liquid"</span> <span class="k">else</span> <span class="s2">"vapour"</span><span class="p">)</span>
+    <span class="n">dh</span><span class="p">,</span> <span class="n">ds</span> <span class="o">=</span> <span class="n">_offset</span><span class="p">(</span><span class="n">fluid</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">RefrigerantState</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="n">p</span><span class="p">),</span> <span class="n">T</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="n">T</span><span class="p">),</span> <span class="n">v</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="n">v</span><span class="p">),</span> <span class="n">h</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="n">h</span> <span class="o">+</span> <span class="n">dh</span><span class="p">),</span> <span class="n">s</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="n">s</span> <span class="o">+</span> <span class="n">ds</span><span class="p">),</span> <span class="n">x</span><span class="o">=</span><span class="n">math</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">phase</span><span class="o">=</span><span class="n">phase</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_phase</span><span class="p">(</span><span class="n">fluid</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">T</span> <span class="o">&gt;=</span> <span class="n">fluid</span><span class="o">.</span><span class="n">Tc</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">"supercritical"</span>
+    <span class="k">return</span> <span class="s2">"liquid"</span> <span class="k">if</span> <span class="n">p</span> <span class="o">&gt;=</span> <span class="n">_saturation_pressure</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">fluid</span><span class="o">.</span><span class="n">Tc</span><span class="p">,</span> <span class="n">fluid</span><span class="o">.</span><span class="n">pc</span><span class="p">,</span> <span class="n">fluid</span><span class="o">.</span><span class="n">omega</span><span class="p">)</span> <span class="k">else</span> <span class="s2">"vapour"</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_wet</span><span class="p">(</span><span class="n">fluid</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="n">T</span> <span class="o">=</span> <span class="n">_saturation_temperature</span><span class="p">(</span><span class="n">fluid</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+    <span class="n">f</span><span class="p">,</span> <span class="n">g</span> <span class="o">=</span> <span class="n">_single</span><span class="p">(</span><span class="n">fluid</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="s2">"liquid"</span><span class="p">),</span> <span class="n">_single</span><span class="p">(</span><span class="n">fluid</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="s2">"vapour"</span><span class="p">)</span>
+    <span class="n">mix</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span> <span class="o">+</span> <span class="n">x</span> <span class="o">*</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">"v"</span><span class="p">,</span> <span class="s2">"h"</span><span class="p">,</span> <span class="s2">"s"</span><span class="p">)}</span>
+    <span class="k">return</span> <span class="n">RefrigerantState</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="n">p</span><span class="p">),</span> <span class="n">T</span><span class="o">=</span><span class="n">T</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">phase</span><span class="o">=</span><span class="s2">"mixture"</span><span class="p">,</span> <span class="o">**</span><span class="n">mix</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="refrigerant_properties">
+<a class="viewcode-back" href="../../../../api/thermodynamics.html#engineeringkit.thermodynamics.refrigerant_properties">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">refrigerant_properties</span><span class="p">(</span><span class="n">fluid</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">T</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""State of a Peng-Robinson fluid from pressure and one other property.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    fluid : CubicFluid</span>
+<span class="sd">        The fluid, e.g. :data:`R134A`.</span>
+<span class="sd">    p : float</span>
+<span class="sd">        Pressure [Pa], positive.</span>
+<span class="sd">    T : float, optional</span>
+<span class="sd">        Temperature [K], from :math:`0.45\,T_c` to :math:`2.5\,T_c`, for a</span>
+<span class="sd">        single-phase state.</span>
+<span class="sd">    x : float, optional</span>
+<span class="sd">        Vapour quality [-] in [0, 1] for a saturated mixture; needs ``p``</span>
+<span class="sd">        on the saturation line between :math:`0.45\,T_c` and</span>
+<span class="sd">        :math:`0.9999\,T_c` (up to about :math:`0.999\,p_c`).</span>
+<span class="sd">    s : float, optional</span>
+<span class="sd">        Specific entropy [J/(kg K)], e.g. after an isentropic compressor.</span>
+<span class="sd">    h : float, optional</span>
+<span class="sd">        Specific enthalpy [J/kg], e.g. after an expansion valve.</span>
+
+<span class="sd">    Exactly one of ``T``, ``x``, ``s`` and ``h`` is given.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    RefrigerantState</span>
+<span class="sd">        Pressure, temperature, specific volume, enthalpy, entropy, quality</span>
+<span class="sd">        (NaN outside the dome) and phase.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Enthalpy and entropy are the ideal gas with constant ``fluid.cp0``</span>
+<span class="sd">    plus the Peng-Robinson departure functions</span>
+
+<span class="sd">    .. math:: h - h^{ig} = RT(Z - 1) + \frac{T\,d(a\alpha)/dT - a\alpha}{2\sqrt2\,b}</span>
+<span class="sd">              \ln\frac{Z + (1 + \sqrt2)B}{Z + (1 - \sqrt2)B},</span>
+
+<span class="sd">    .. math:: s - s^{ig} = R\ln(Z - B) + \frac{d(a\alpha)/dT}{2\sqrt2\,b}</span>
+<span class="sd">              \ln\frac{Z + (1 + \sqrt2)B}{Z + (1 - \sqrt2)B},</span>
+
+<span class="sd">    shifted to the IIR reference (200 kJ/kg and 1 kJ/(kg K) for saturated</span>
+<span class="sd">    liquid at 0 °C). Given ``T``, the phase is liquid at or above the</span>
+<span class="sd">    saturation pressure and vapour below it. Given ``s`` or ``h``, the</span>
+<span class="sd">    temperature is found by Brent's method. Peng-Robinson liquid volumes</span>
+<span class="sd">    are typically 5-15% off; enthalpy differences are good to a few</span>
+<span class="sd">    percent. Inputs are raw SI numbers with no dimensional metadata; see</span>
+<span class="sd">    :doc:`/guides/thermodynamics`.</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    D.-Y. Peng and D. B. Robinson (1976), as above.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; st = refrigerant_properties(R134A, 0.14e6, x=1.0)</span>
+<span class="sd">    &gt;&gt;&gt; round(st.T - 273.15, 1), st.phase</span>
+<span class="sd">    (-18.7, 'mixture')</span>
+<span class="sd">    """</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">fluid</span><span class="p">,</span> <span class="n">CubicFluid</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"fluid must be a CubicFluid"</span><span class="p">)</span>
+    <span class="n">_positive</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="n">p</span><span class="p">)</span>
+    <span class="n">given</span> <span class="o">=</span> <span class="p">{</span><span class="n">name</span><span class="p">:</span> <span class="n">value</span> <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="p">((</span><span class="s2">"T"</span><span class="p">,</span> <span class="n">T</span><span class="p">),</span> <span class="p">(</span><span class="s2">"x"</span><span class="p">,</span> <span class="n">x</span><span class="p">),</span> <span class="p">(</span><span class="s2">"s"</span><span class="p">,</span> <span class="n">s</span><span class="p">),</span> <span class="p">(</span><span class="s2">"h"</span><span class="p">,</span> <span class="n">h</span><span class="p">))</span> <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">}</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">given</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"give exactly one of T, x, s or h"</span><span class="p">)</span>
+    <span class="p">((</span><span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">),)</span> <span class="o">=</span> <span class="n">given</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+    <span class="n">_finite</span><span class="p">(</span><span class="o">**</span><span class="p">{</span><span class="n">name</span><span class="p">:</span> <span class="n">value</span><span class="p">})</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">ndim</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="ow">or</span> <span class="n">np</span><span class="o">.</span><span class="n">ndim</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"p and the given property must be scalars"</span><span class="p">)</span>
+    <span class="n">p</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">p</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+    <span class="n">T_low</span><span class="p">,</span> <span class="n">T_high</span> <span class="o">=</span> <span class="n">_T_LOW</span> <span class="o">*</span> <span class="n">fluid</span><span class="o">.</span><span class="n">Tc</span><span class="p">,</span> <span class="n">_T_HIGH</span> <span class="o">*</span> <span class="n">fluid</span><span class="o">.</span><span class="n">Tc</span>
+    <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s2">"T"</span><span class="p">:</span>
+        <span class="n">_interval</span><span class="p">(</span><span class="s2">"T"</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">T_low</span><span class="p">,</span> <span class="n">T_high</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">_single</span><span class="p">(</span><span class="n">fluid</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">_phase</span><span class="p">(</span><span class="n">fluid</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">p</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s2">"x"</span><span class="p">:</span>
+        <span class="n">_interval</span><span class="p">(</span><span class="s2">"x"</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">_wet</span><span class="p">(</span><span class="n">fluid</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">p</span> <span class="o">&lt;</span> <span class="n">fluid</span><span class="o">.</span><span class="n">pc</span><span class="p">:</span>
+        <span class="n">T_sat</span> <span class="o">=</span> <span class="n">_saturation_temperature</span><span class="p">(</span><span class="n">fluid</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+        <span class="n">f</span><span class="p">,</span> <span class="n">g</span> <span class="o">=</span> <span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="n">_single</span><span class="p">(</span><span class="n">fluid</span><span class="p">,</span> <span class="n">T_sat</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">phase</span><span class="p">),</span> <span class="n">name</span><span class="p">)</span> <span class="k">for</span> <span class="n">phase</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">"liquid"</span><span class="p">,</span> <span class="s2">"vapour"</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">f</span> <span class="o">&lt;=</span> <span class="n">value</span> <span class="o">&lt;=</span> <span class="n">g</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">_wet</span><span class="p">(</span><span class="n">fluid</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="p">(</span><span class="n">value</span> <span class="o">-</span> <span class="n">f</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">g</span> <span class="o">-</span> <span class="n">f</span><span class="p">))</span>
+        <span class="n">low</span><span class="p">,</span> <span class="n">high</span><span class="p">,</span> <span class="n">phase</span> <span class="o">=</span> <span class="p">(</span><span class="n">T_low</span><span class="p">,</span> <span class="n">T_sat</span><span class="p">,</span> <span class="s2">"liquid"</span><span class="p">)</span> <span class="k">if</span> <span class="n">value</span> <span class="o">&lt;</span> <span class="n">f</span> <span class="k">else</span> <span class="p">(</span><span class="n">T_sat</span><span class="p">,</span> <span class="n">T_high</span><span class="p">,</span> <span class="s2">"vapour"</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">low</span><span class="p">,</span> <span class="n">high</span><span class="p">,</span> <span class="n">phase</span> <span class="o">=</span> <span class="n">T_low</span><span class="p">,</span> <span class="n">T_high</span><span class="p">,</span> <span class="s2">"supercritical"</span>
+    <span class="n">edge_low</span><span class="p">,</span> <span class="n">edge_high</span> <span class="o">=</span> <span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="n">_single</span><span class="p">(</span><span class="n">fluid</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">phase</span><span class="p">),</span> <span class="n">name</span><span class="p">)</span> <span class="o">-</span> <span class="n">value</span> <span class="k">for</span> <span class="n">T</span> <span class="ow">in</span> <span class="p">(</span><span class="n">low</span><span class="p">,</span> <span class="n">high</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">edge_low</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">edge_high</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> is outside the range covered at this pressure"</span><span class="p">)</span>
+    <span class="n">T</span> <span class="o">=</span> <span class="n">brentq</span><span class="p">(</span><span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">_single</span><span class="p">(</span><span class="n">fluid</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">phase</span><span class="p">),</span> <span class="n">name</span><span class="p">)</span> <span class="o">-</span> <span class="n">value</span><span class="p">,</span> <span class="n">low</span><span class="p">,</span> <span class="n">high</span><span class="p">,</span> <span class="n">xtol</span><span class="o">=</span><span class="mf">1e-10</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">_single</span><span class="p">(</span><span class="n">fluid</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">phase</span> <span class="k">if</span> <span class="n">phase</span> <span class="o">!=</span> <span class="s2">"supercritical"</span> <span class="k">else</span> <span class="n">_phase</span><span class="p">(</span><span class="n">fluid</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">p</span><span class="p">))</span></div>
+
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../../_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be"></script>
+<script defer src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.1.
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.23.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

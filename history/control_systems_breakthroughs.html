@@ -55,7 +55,7 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be" />
 
-    <script src="../_static/documentation_options.js?v=38b66d78"></script>
+    <script src="../_static/documentation_options.js?v=95e61db4"></script>
     <script src="../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/sg-tags.js?v=d80f6fa4"></script>
@@ -222,6 +222,21 @@
   </ul>
 </div></div>
       
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://cpoli.github.io/" title="Charles Poli" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-user fa-lg" aria-hidden="true"></i><span class="visually-hidden">Charles Poli</span></a>
+        </li>
+</ul></div>
+      
     </div>
     
   </div>
@@ -319,6 +334,21 @@
     <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
   </ul>
 </div></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://cpoli.github.io/" title="Charles Poli" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-user fa-lg" aria-hidden="true"></i><span class="visually-hidden">Charles Poli</span></a>
+        </li>
+</ul></div>
         
       </div>
     
@@ -425,8 +455,9 @@ driving-power or the resistance.”
 mathematical discipline when engines, amplifiers and gun directors pushed it
 to instability. Maxwell, Routh and Hurwitz found when a loop is stable;
 Bell Labs engineers read stability from frequency responses; Kalman and
-his contemporaries recast design in state space and as optimisation. The
-entries trace the ideas behind <a class="reference internal" href="../api/control_systems.html#module-engineeringkit.control_systems" title="engineeringkit.control_systems"><code class="xref py py-mod docutils literal notranslate"><span class="pre">engineeringkit.control_systems</span></code></a>. Each
+his contemporaries recast design in state space and as optimisation.
+Relays and saturating actuators, which no linear model describes, were
+handled in the phase plane and by describing functions. The entries trace the ideas behind <a class="reference internal" href="../api/control_systems.html#module-engineeringkit.control_systems" title="engineeringkit.control_systems"><code class="xref py py-mod docutils literal notranslate"><span class="pre">engineeringkit.control_systems</span></code></a>. Each
 links to the implementing function and to a gallery example devoted to it.</p>
 <nav class="contents local" id="timeline">
 <p class="topic-title">Timeline</p>
@@ -440,19 +471,24 @@ links to the implementing function and to a gallery example devoted to it.</p>
 <li><p><a class="reference internal" href="#black-s-negative-feedback-amplifier" id="id7">1927 – Black’s Negative-Feedback Amplifier</a></p></li>
 <li><p><a class="reference internal" href="#nyquist-s-stability-criterion" id="id8">1932 – Nyquist’s Stability Criterion</a></p></li>
 <li><p><a class="reference internal" href="#hazen-s-theory-of-servomechanisms" id="id9">1934 – Hazen’s Theory of Servomechanisms</a></p></li>
-<li><p><a class="reference internal" href="#bode-s-gain-and-phase-margins" id="id10">1940 – Bode’s Gain and Phase Margins</a></p></li>
-<li><p><a class="reference internal" href="#ziegler-nichols-tuning" id="id11">1942 – Ziegler-Nichols Tuning</a></p></li>
-<li><p><a class="reference internal" href="#evans-s-root-locus" id="id12">1948 – Evans’s Root Locus</a></p></li>
-<li><p><a class="reference internal" href="#ragazzini-and-zadeh-sampled-data-systems" id="id13">1952 – Ragazzini and Zadeh: Sampled-Data Systems</a></p></li>
-<li><p><a class="reference internal" href="#smith-s-predictor-for-dead-time" id="id14">1957 – Smith’s Predictor for Dead Time</a></p></li>
-<li><p><a class="reference internal" href="#kalman-s-controllability-and-observability" id="id15">1960 – Kalman’s Controllability and Observability</a></p></li>
-<li><p><a class="reference internal" href="#kalman-s-linear-quadratic-regulator" id="id16">1960 – Kalman’s Linear-Quadratic Regulator</a></p></li>
-<li><p><a class="reference internal" href="#jury-s-stability-test-for-sampled-systems" id="id17">1961 – Jury’s Stability Test for Sampled Systems</a></p></li>
-<li><p><a class="reference internal" href="#the-kalman-bucy-filter" id="id18">1961 – The Kalman-Bucy Filter</a></p></li>
-<li><p><a class="reference internal" href="#luenberger-s-observer" id="id19">1964 – Luenberger’s Observer</a></p></li>
-<li><p><a class="reference internal" href="#wonham-s-pole-assignment" id="id20">1967 – Wonham’s Pole Assignment</a></p></li>
-<li><p><a class="reference internal" href="#doyle-guaranteed-margins-for-lqg-there-are-none" id="id21">1978 – Doyle: Guaranteed Margins for LQG? There Are None</a></p></li>
-<li><p><a class="reference internal" href="#see-also" id="id22">See Also</a></p></li>
+<li><p><a class="reference internal" href="#andronov-vitt-and-khaikin-s-phase-plane" id="id10">1937 – Andronov, Vitt and Khaikin’s Phase Plane</a></p></li>
+<li><p><a class="reference internal" href="#bode-s-gain-and-phase-margins" id="id11">1940 – Bode’s Gain and Phase Margins</a></p></li>
+<li><p><a class="reference internal" href="#ziegler-nichols-tuning" id="id12">1942 – Ziegler-Nichols Tuning</a></p></li>
+<li><p><a class="reference internal" href="#bode-s-sensitivity-integral" id="id13">1945 – Bode’s Sensitivity Integral</a></p></li>
+<li><p><a class="reference internal" href="#the-nichols-chart" id="id14">1947 – The Nichols Chart</a></p></li>
+<li><p><a class="reference internal" href="#tustin-s-bilinear-transform" id="id15">1947 – Tustin’s Bilinear Transform</a></p></li>
+<li><p><a class="reference internal" href="#evans-s-root-locus" id="id16">1948 – Evans’s Root Locus</a></p></li>
+<li><p><a class="reference internal" href="#kochenburger-s-describing-function" id="id17">1950 – Kochenburger’s Describing Function</a></p></li>
+<li><p><a class="reference internal" href="#ragazzini-and-zadeh-sampled-data-systems" id="id18">1952 – Ragazzini and Zadeh: Sampled-Data Systems</a></p></li>
+<li><p><a class="reference internal" href="#smith-s-predictor-for-dead-time" id="id19">1957 – Smith’s Predictor for Dead Time</a></p></li>
+<li><p><a class="reference internal" href="#kalman-s-controllability-and-observability" id="id20">1960 – Kalman’s Controllability and Observability</a></p></li>
+<li><p><a class="reference internal" href="#kalman-s-linear-quadratic-regulator" id="id21">1960 – Kalman’s Linear-Quadratic Regulator</a></p></li>
+<li><p><a class="reference internal" href="#jury-s-stability-test-for-sampled-systems" id="id22">1961 – Jury’s Stability Test for Sampled Systems</a></p></li>
+<li><p><a class="reference internal" href="#the-kalman-bucy-filter" id="id23">1961 – The Kalman-Bucy Filter</a></p></li>
+<li><p><a class="reference internal" href="#luenberger-s-observer" id="id24">1964 – Luenberger’s Observer</a></p></li>
+<li><p><a class="reference internal" href="#wonham-s-pole-assignment" id="id25">1967 – Wonham’s Pole Assignment</a></p></li>
+<li><p><a class="reference internal" href="#doyle-guaranteed-margins-for-lqg-there-are-none" id="id26">1978 – Doyle: Guaranteed Margins for LQG? There Are None</a></p></li>
+<li><p><a class="reference internal" href="#see-also" id="id27">See Also</a></p></li>
 </ul>
 </nav>
 <section id="watt-s-centrifugal-governor">
@@ -636,8 +672,35 @@ the formulas.</p>
 <p><a class="reference internal" href="../api/gallery/control_systems/time_response/plot_01_hazen_servomechanism.html"><span class="doc">Hazen’s theory of servomechanisms (1934)</span></a></p>
   <div class="sphx-glr-thumbnail-title">Hazen's theory of servomechanisms (1934)</div>
 </div></div></section>
+<section id="andronov-vitt-and-khaikin-s-phase-plane">
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">1937 – Andronov, Vitt and Khaikin’s Phase Plane</a><a class="headerlink" href="#andronov-vitt-and-khaikin-s-phase-plane" title="Link to this heading">#</a></h2>
+<p>Relays, valves and clutches make control loops that are not linear
+anywhere, so transfer functions do not describe them. Aleksandr Andronov’s
+school in Gorky studied such systems by eliminating time and drawing the
+state of <span class="math notranslate nohighlight">\(\ddot x = f(x, \dot x)\)</span> as a curve in the plane
+<span class="math notranslate nohighlight">\((x, \dot x)\)</span>. Self-sustained oscillations, which they called
+auto-oscillations, appear there as isolated closed orbits, Poincaré’s limit
+cycles. A relay servo <span class="math notranslate nohighlight">\(\ddot x = -M\,\mathrm{sign}(x)\)</span> traces a
+family of closed orbits made of parabolas. With rate feedback the switching
+line tilts, and the motion reaches the line and slides along it to rest.
+Aleksandr Vitt was arrested as the book appeared, and his name was left off
+its first edition and restored in the second (1959).</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/control_systems.html#engineeringkit.control_systems.phase_portrait" title="engineeringkit.control_systems.phase_portrait"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.control_systems.phase_portrait()</span></code></a>.
+The example checks that the relay orbits conserve
+<span class="math notranslate nohighlight">\(\dot x^2/2 + M|x|\)</span>, and that with rate feedback the motion
+reaches the switching line and decays along it as <span class="math notranslate nohighlight">\(e^{-t/\tau}\)</span>.</p>
+<p><em>References:</em> A. A. Andronov and S. E. Khaikin, <em>Theory of Oscillations</em>
+(ONTI, Moscow, 1937; English translation, Princeton University Press,
+1949); A. A. Andronov, A. A. Vitt and S. E. Khaikin, <em>Theory of
+Oscillators</em> (2nd ed., 1959; Pergamon, 1966). The bibliographic details
+were checked against library catalogues. The account of Vitt’s name comes
+from secondary sources, and the 1937 text itself was not consulted.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Aleksandr Andronov&#x27;s school in Gorky studied self-sustained oscillations by eliminating time and drawing the motion of \ddot x = f(x, \dot x) as a curve in the plane (x, \dot x) (~engineeringkit.control_systems.phase_portrait). A relay servo, \ddot x = -M\,\mathrm{sign}(x), is not linear anywhere, yet its phase plane is read at a glance. Each half plane holds parabolas \dot x^2/2 + M|x| = E, which join into closed orbits: the servo oscillates for ever at the amplitude it started with. Feeding back the rate, \ddot x = -M\,\mathrm{sign}(x + \tau\dot x), tilts the switching line. Every orbit then loses energy at each switch, reaches the line and slides along it, \dot x = -x/\tau, into the origin."><img alt="" src="../_images/sphx_glr_plot_01_andronov_phase_plane_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/control_systems/nonlinear/plot_01_andronov_phase_plane.html"><span class="doc">Andronov, Vitt and Khaikin’s phase plane (1937)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Andronov, Vitt and Khaikin's phase plane (1937)</div>
+</div></div></section>
 <section id="bode-s-gain-and-phase-margins">
-<h2><a class="toc-backref" href="#id10" role="doc-backlink">1940 – Bode’s Gain and Phase Margins</a><a class="headerlink" href="#bode-s-gain-and-phase-margins" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id11" role="doc-backlink">1940 – Bode’s Gain and Phase Margins</a><a class="headerlink" href="#bode-s-gain-and-phase-margins" title="Link to this heading">#</a></h2>
 <p>Hendrik Bode showed that for a minimum-phase loop the gain and phase are
 not independent: the slope of the gain curve fixes the phase. Plotted
 against log-frequency, both curves become nearly straight lines, and the
@@ -659,7 +722,7 @@ Bode, <em>Network Analysis and Feedback Amplifier Design</em> (Van Nostrand, 194
   <div class="sphx-glr-thumbnail-title">Bode's gain and phase margins (1940)</div>
 </div></div></section>
 <section id="ziegler-nichols-tuning">
-<h2><a class="toc-backref" href="#id11" role="doc-backlink">1942 – Ziegler-Nichols Tuning</a><a class="headerlink" href="#ziegler-nichols-tuning" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id12" role="doc-backlink">1942 – Ziegler-Nichols Tuning</a><a class="headerlink" href="#ziegler-nichols-tuning" title="Link to this heading">#</a></h2>
 <p>Process plants had thousands of pneumatic controllers and no models of what
 they controlled. John Ziegler and Nathaniel Nichols of Taylor Instruments
 gave a recipe from one experiment. Raise a proportional gain until the loop
@@ -677,8 +740,88 @@ automatic controllers,” <em>Trans. ASME</em> 64 (1942) 759-768.</p>
 <p><a class="reference internal" href="../api/gallery/control_systems/feedback/plot_04_ziegler_nichols_tuning.html"><span class="doc">Ziegler and Nichols tune a PID from the edge of instability (1942)</span></a></p>
   <div class="sphx-glr-thumbnail-title">Ziegler and Nichols tune a PID from the edge of instability (1942)</div>
 </div></div></section>
+<section id="bode-s-sensitivity-integral">
+<h2><a class="toc-backref" href="#id13" role="doc-backlink">1945 – Bode’s Sensitivity Integral</a><a class="headerlink" href="#bode-s-sensitivity-integral" title="Link to this heading">#</a></h2>
+<p>In <em>Network Analysis and Feedback Amplifier Design</em> Hendrik Bode
+measured how much of a change in the plant survives in the closed loop,
+the sensitivity <span class="math notranslate nohighlight">\(S = 1/(1 + L)\)</span>. Its complement
+<span class="math notranslate nohighlight">\(T = L/(1 + L)\)</span> carries the reference and the sensor noise to the
+output, and since <span class="math notranslate nohighlight">\(S + T = 1\)</span> the two cannot both be small at one
+frequency. Bode also proved that a stable loop rolling off at least as
+<span class="math notranslate nohighlight">\(1/s^2\)</span> has <span class="math notranslate nohighlight">\(\int_0^\infty \ln|S(j\omega)|\,d\omega = 0\)</span>.
+Sensitivity pushed down over one band rises over another, the <em>waterbed
+effect</em>. Freudenberg and Looze (1985) showed that unstable open-loop poles
+raise the integral to <span class="math notranslate nohighlight">\(\pi\sum\mathrm{Re}\,p_i\)</span>, a cost that feedback
+cannot avoid. The peak <span class="math notranslate nohighlight">\(M_s = \max|S|\)</span> is the inverse distance from
+<span class="math notranslate nohighlight">\(-1\)</span> and bounds both stability margins.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/control_systems.html#engineeringkit.control_systems.sensitivity" title="engineeringkit.control_systems.sensitivity"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.control_systems.sensitivity()</span></code></a>,
+<a class="reference internal" href="../api/control_systems.html#engineeringkit.control_systems.complementary_sensitivity" title="engineeringkit.control_systems.complementary_sensitivity"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.control_systems.complementary_sensitivity()</span></code></a> and
+<a class="reference internal" href="../api/control_systems.html#engineeringkit.control_systems.sensitivity_peak" title="engineeringkit.control_systems.sensitivity_peak"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.control_systems.sensitivity_peak()</span></code></a>. The example
+integrates <span class="math notranslate nohighlight">\(\ln|S|\)</span> for a stable plant and for two unstable ones,
+checks the results 0, <span class="math notranslate nohighlight">\(\pi/2\)</span> and <span class="math notranslate nohighlight">\(2\pi\)</span>, and checks the phase
+margin against its <span class="math notranslate nohighlight">\(M_s\)</span> bound.</p>
+<p><em>References:</em> H. W. Bode, <em>Network Analysis and Feedback Amplifier Design</em>
+(Van Nostrand, 1945); J. S. Freudenberg and D. P. Looze, “Right half plane
+poles and zeros and design tradeoffs in feedback systems,” <em>IEEE Trans.
+Autom. Control</em> 30 (1985) 555-565.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Hendrik Bode defined the sensitivity of a feedback loop, S = 1/(1 + L), as the fraction of a plant change that survives in the closed loop (~engineeringkit.control_systems.sensitivity), and its complement T = L/(1 + L) (~engineeringkit.control_systems.complementary_sensitivity) as the map from reference and sensor noise to the output. Since S + T = 1, the two cannot both be small at one frequency. Bode also showed that, for a stable loop that rolls off at least as 1/s^2, \int_0^\infty \ln|S(j\omega)|\,d\omega = 0. Sensitivity pushed down at low frequency pops up elsewhere, the waterbed effect. Freudenberg and Looze (1985) showed that each unstable open-loop pole p raises the integral to \pi\sum \mathrm{Re}\,p."><img alt="" src="../_images/sphx_glr_plot_03_bode_sensitivity_integral_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/control_systems/frequency/plot_03_bode_sensitivity_integral.html"><span class="doc">Bode’s sensitivity integral (1945)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Bode's sensitivity integral (1945)</div>
+</div></div></section>
+<section id="the-nichols-chart">
+<h2><a class="toc-backref" href="#id14" role="doc-backlink">1947 – The Nichols Chart</a><a class="headerlink" href="#the-nichols-chart" title="Link to this heading">#</a></h2>
+<p>Radar fire-control servos built at the MIT Radiation Laboratory had to be
+designed for a closed-loop resonant peak, while the measurements were of
+the open loop. Nathaniel Nichols plotted the open-loop gain in decibels
+against its phase. On these axes the closed-loop gain <span class="math notranslate nohighlight">\(|L/(1 + L)|\)</span>
+of a unity-feedback loop is a fixed family of contours, so the closed-loop
+response can be read straight off the open-loop curve. The highest contour
+the locus touches is the resonant peak <span class="math notranslate nohighlight">\(M_r\)</span>. A change of gain slides
+the curve up or down unchanged, and a compensator reshapes it near the
+critical point <span class="math notranslate nohighlight">\((-180^\circ, 0\ \mathrm{dB})\)</span>. The chart appeared in
+the laboratory’s <em>Theory of Servomechanisms</em>.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/control_systems.html#engineeringkit.control_systems.nichols" title="engineeringkit.control_systems.nichols"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.control_systems.nichols()</span></code></a>,
+<a class="reference internal" href="../api/control_systems.html#engineeringkit.control_systems.nichols_closed_loop" title="engineeringkit.control_systems.nichols_closed_loop"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.control_systems.nichols_closed_loop()</span></code></a>,
+<a class="reference internal" href="../api/control_systems.html#engineeringkit.control_systems.visualizers.plot_nichols" title="engineeringkit.control_systems.visualizers.plot_nichols"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.control_systems.visualizers.plot_nichols()</span></code></a> and
+<a class="reference internal" href="../api/control_systems.html#engineeringkit.control_systems.design_lead" title="engineeringkit.control_systems.design_lead"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.control_systems.design_lead()</span></code></a>. The
+example draws <span class="math notranslate nohighlight">\(4/(s(s+1)(s+2))\)</span> before and after lead compensation,
+checks that the peak read from the chart equals the closed-loop Bode peak,
+and shows the lead lowering it from 14.7 dB to 5.5 dB.</p>
+<p><em>References:</em> H. M. James, N. B. Nichols and R. S. Phillips (eds.), <em>Theory
+of Servomechanisms</em>, MIT Radiation Laboratory Series 25 (McGraw-Hill,
+1947). The bibliographic details were checked against library catalogues.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Nathaniel Nichols, at the MIT Radiation Laboratory during the war, plotted the open-loop gain in decibels against its phase. On those axes the closed-loop gain of a unity-feedback loop, |L/(1+L)|, is a fixed family of contours (~engineeringkit.control_systems.nichols_closed_loop), so one curve shows both. The highest contour the locus touches is the closed-loop resonant peak M_r (~engineeringkit.control_systems.nichols), and reshaping the locus away from the critical point (-180^\circ, 0\text{ dB}) lowers it. The chart was published in James, Nichols and Phillips&#x27;s Theory of Servomechanisms (1947). Here a lead compensator (~engineeringkit.control_systems.design_lead) lifts the phase of L = 4/(s(s+1)(s+2)) near crossover and pulls the resonant peak down."><img alt="" src="../_images/sphx_glr_plot_04_nichols_chart_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/control_systems/frequency/plot_04_nichols_chart.html"><span class="doc">The Nichols chart (1947)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">The Nichols chart (1947)</div>
+</div></div></section>
+<section id="tustin-s-bilinear-transform">
+<h2><a class="toc-backref" href="#id15" role="doc-backlink">1947 – Tustin’s Bilinear Transform</a><a class="headerlink" href="#tustin-s-bilinear-transform" title="Link to this heading">#</a></h2>
+<p>Arnold Tustin, an engineer at Metropolitan-Vickers, described signals by
+their sampled values, “time series”, so that a linear system became a
+recurrence that could be worked by hand or machine. Replacing <span class="math notranslate nohighlight">\(s\)</span> by
+<span class="math notranslate nohighlight">\((2/T)(z - 1)/(z + 1)\)</span> is the trapezoidal rule for integration. It
+maps the left half-plane onto the inside of the unit circle, so a stable
+model gives a stable recurrence, and the imaginary axis onto the circle
+itself. The price is a compressed frequency axis: <span class="math notranslate nohighlight">\(\omega\)</span> appears at
+<span class="math notranslate nohighlight">\((2/T)\arctan(\omega T/2)\)</span>. Prewarping, which replaces <span class="math notranslate nohighlight">\(2/T\)</span> by
+<span class="math notranslate nohighlight">\(\omega_0/\tan(\omega_0T/2)\)</span>, makes the discrete response exact at
+one chosen frequency. It is still the usual way to put a continuous
+controller design into a digital controller.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/control_systems.html#engineeringkit.control_systems.discretize_tustin" title="engineeringkit.control_systems.discretize_tustin"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.control_systems.discretize_tustin()</span></code></a>.
+The example discretises a sharp resonance at 80% of the Nyquist frequency.
+It checks the pole map <span class="math notranslate nohighlight">\(z = (c + p)/(c - p)\)</span> and the shift of the
+peak to <span class="math notranslate nohighlight">\((2/T)\arctan(\omega_0T/2)\)</span>, and checks that prewarping puts
+the peak back at <span class="math notranslate nohighlight">\(\omega_0\)</span>.</p>
+<p><em>References:</em> A. Tustin, “A method of analysing the behaviour of linear
+systems in terms of time series,” <em>J. IEE Part IIA</em> 94 (1947) 130-142. The
+volume and pages were checked against citing papers, but not against the
+paper itself.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Arnold Tustin, analysing servomechanisms at Metropolitan-Vickers, turned continuous dynamics into recurrences on sampled values by substituting s \to (2/T)(z - 1)/(z + 1), which integrates by the trapezoidal rule (~engineeringkit.control_systems.discretize_tustin). The whole left half-plane maps into the unit disc, so a stable model stays stable, but the frequency axis is compressed: a continuous frequency \omega appears at (2/T)\arctan(\omega T/2). A sharp resonance near the Nyquist frequency moves. Prewarping, substituting \omega_0/\tan(\omega_0T/2) for 2/T, puts it back exactly at \omega_0."><img alt="" src="../_images/sphx_glr_plot_03_tustin_bilinear_transform_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/control_systems/sampled/plot_03_tustin_bilinear_transform.html"><span class="doc">Tustin’s bilinear transform (1947)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Tustin's bilinear transform (1947)</div>
+</div></div></section>
 <section id="evans-s-root-locus">
-<h2><a class="toc-backref" href="#id12" role="doc-backlink">1948 – Evans’s Root Locus</a><a class="headerlink" href="#evans-s-root-locus" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id16" role="doc-backlink">1948 – Evans’s Root Locus</a><a class="headerlink" href="#evans-s-root-locus" title="Link to this heading">#</a></h2>
 <p>Walter Evans at North American Aviation wanted to see how the closed-loop
 poles move as one gain changes, without factoring a polynomial for every
 gain. The poles are the roots of <span class="math notranslate nohighlight">\(D(s) + KN(s) = 0\)</span>, and Evans gave
@@ -697,8 +840,37 @@ locus method,” <em>Trans. AIEE</em> 69 (1950) 66-69.</p>
 <p><a class="reference internal" href="../api/gallery/control_systems/root_locus/plot_01_evans_root_locus.html"><span class="doc">Evans’s root locus (1948)</span></a></p>
   <div class="sphx-glr-thumbnail-title">Evans's root locus (1948)</div>
 </div></div></section>
+<section id="kochenburger-s-describing-function">
+<h2><a class="toc-backref" href="#id17" role="doc-backlink">1950 – Kochenburger’s Describing Function</a><a class="headerlink" href="#kochenburger-s-describing-function" title="Link to this heading">#</a></h2>
+<p>On-off “contactor” servos were cheap and strong, but they chattered or
+settled into steady oscillations that linear theory could not predict.
+Ralph Kochenburger replaced the nonlinearity by its describing function
+<span class="math notranslate nohighlight">\(N(A)\)</span>, the gain it offers to the fundamental of a sinusoid of
+amplitude <span class="math notranslate nohighlight">\(A\)</span>; for an ideal relay <span class="math notranslate nohighlight">\(N = 4M/(\pi A)\)</span>. The loop
+can then oscillate where <span class="math notranslate nohighlight">\(L(j\omega) = -1/N(A)\)</span>, so Nyquist’s
+picture predicts the amplitude and frequency of the limit cycle and
+whether it is stable. The result is approximate, because it assumes
+<span class="math notranslate nohighlight">\(L\)</span> filters out the harmonics. Åström and Hägglund’s relay autotuner
+(1984) uses the same balance to find the ultimate point for Ziegler-Nichols
+tuning.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/control_systems.html#engineeringkit.control_systems.describing_function" title="engineeringkit.control_systems.describing_function"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.control_systems.describing_function()</span></code></a>,
+<a class="reference internal" href="../api/control_systems.html#engineeringkit.control_systems.relay_describing_function" title="engineeringkit.control_systems.relay_describing_function"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.control_systems.relay_describing_function()</span></code></a>,
+<a class="reference internal" href="../api/control_systems.html#engineeringkit.control_systems.saturation_describing_function" title="engineeringkit.control_systems.saturation_describing_function"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.control_systems.saturation_describing_function()</span></code></a>,
+<a class="reference internal" href="../api/control_systems.html#engineeringkit.control_systems.dead_zone_describing_function" title="engineeringkit.control_systems.dead_zone_describing_function"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.control_systems.dead_zone_describing_function()</span></code></a> and
+<a class="reference internal" href="../api/control_systems.html#engineeringkit.control_systems.limit_cycle" title="engineeringkit.control_systems.limit_cycle"><code class="xref py py-func docutils literal notranslate"><span class="pre">engineeringkit.control_systems.limit_cycle()</span></code></a>. The example predicts
+the limit cycles of a relay around <span class="math notranslate nohighlight">\(1/(s+1)^3\)</span> and of a saturation
+around <span class="math notranslate nohighlight">\(10/(s(s+1)(s+2))\)</span>, then simulates both loops. The predicted
+amplitudes are within 4% of the simulated ones and the periods within 2%.</p>
+<p><em>References:</em> R. J. Kochenburger, “A frequency response method for
+analyzing and synthesizing contactor servomechanisms,” <em>Trans. AIEE</em> 69
+(1950) 270-284, <a class="extlink-doi reference external" href="https://doi.org/10.1109/T-AIEE.1950.5060149">doi:10.1109/T-AIEE.1950.5060149</a>. The volume, pages and DOI
+were checked against citing works.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Ralph Kochenburger, working on relay-driven propeller pitch controls, replaced a nonlinearity by the gain N(A) it offers to the fundamental of a sinusoid of amplitude A (~engineeringkit.control_systems.relay_describing_function, saturation_describing_function). A loop L(s) closed through it can then oscillate where L(j\omega) = -1/N(A): at a phase crossover, with N(A) equal to the gain margin (~engineeringkit.control_systems.limit_cycle). For an ideal relay N = 4M/(\pi A) and L = 1/(s+1)^3, the cycle is at \omega = \sqrt3 with A = M/(2\pi). This is also the relay experiment that autotuners use to find Ziegler and Nichols&#x27;s ultimate point. The method is approximate because the loop does not filter out the harmonics completely, so each prediction is checked against a simulation of the nonlinear loop."><img alt="" src="../_images/sphx_glr_plot_02_kochenburger_describing_function_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/control_systems/nonlinear/plot_02_kochenburger_describing_function.html"><span class="doc">Kochenburger’s describing function (1950)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Kochenburger's describing function (1950)</div>
+</div></div></section>
 <section id="ragazzini-and-zadeh-sampled-data-systems">
-<h2><a class="toc-backref" href="#id13" role="doc-backlink">1952 – Ragazzini and Zadeh: Sampled-Data Systems</a><a class="headerlink" href="#ragazzini-and-zadeh-sampled-data-systems" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id18" role="doc-backlink">1952 – Ragazzini and Zadeh: Sampled-Data Systems</a><a class="headerlink" href="#ragazzini-and-zadeh-sampled-data-systems" title="Link to this heading">#</a></h2>
 <p>Radar tracking and the first digital computers in the loop read the plant
 only at sampling instants and hold each command until the next. John
 Ragazzini and Lotfi Zadeh at Columbia gave the z-transform analysis of
@@ -717,7 +889,7 @@ systems,” <em>Trans. AIEE</em> 71 (1952) 225-234.</p>
   <div class="sphx-glr-thumbnail-title">Ragazzini and Zadeh's sampled-data systems (1952)</div>
 </div></div></section>
 <section id="smith-s-predictor-for-dead-time">
-<h2><a class="toc-backref" href="#id14" role="doc-backlink">1957 – Smith’s Predictor for Dead Time</a><a class="headerlink" href="#smith-s-predictor-for-dead-time" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id19" role="doc-backlink">1957 – Smith’s Predictor for Dead Time</a><a class="headerlink" href="#smith-s-predictor-for-dead-time" title="Link to this heading">#</a></h2>
 <p>In chemical plants the output is often measured only after a transport
 delay <span class="math notranslate nohighlight">\(\theta\)</span>. The delay adds phase lag <span class="math notranslate nohighlight">\(\omega\theta\)</span>
 without changing the gain, so a controller tuned for the delay-free plant
@@ -738,7 +910,7 @@ matches the delayed delay-free response.</p>
   <div class="sphx-glr-thumbnail-title">Smith's predictor for dead time (1957)</div>
 </div></div></section>
 <section id="kalman-s-controllability-and-observability">
-<h2><a class="toc-backref" href="#id15" role="doc-backlink">1960 – Kalman’s Controllability and Observability</a><a class="headerlink" href="#kalman-s-controllability-and-observability" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id20" role="doc-backlink">1960 – Kalman’s Controllability and Observability</a><a class="headerlink" href="#kalman-s-controllability-and-observability" title="Link to this heading">#</a></h2>
 <p>A transfer function describes only the part of a system that the input
 reaches and the output sees. Rudolf Kalman split the state of
 <span class="math notranslate nohighlight">\(\dot x = Ax + Bu,\ y = Cx\)</span> into the parts that are controllable and
@@ -760,7 +932,7 @@ exactly zero.</p>
   <div class="sphx-glr-thumbnail-title">Kalman's controllability and observability (1960)</div>
 </div></div></section>
 <section id="kalman-s-linear-quadratic-regulator">
-<h2><a class="toc-backref" href="#id16" role="doc-backlink">1960 – Kalman’s Linear-Quadratic Regulator</a><a class="headerlink" href="#kalman-s-linear-quadratic-regulator" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id21" role="doc-backlink">1960 – Kalman’s Linear-Quadratic Regulator</a><a class="headerlink" href="#kalman-s-linear-quadratic-regulator" title="Link to this heading">#</a></h2>
 <p>Kalman also asked for the state feedback <span class="math notranslate nohighlight">\(u = -Kx\)</span> that minimises
 <span class="math notranslate nohighlight">\(\int_0^\infty (x^\mathsf{T}Qx + u^\mathsf{T}Ru)\,dt\)</span>. The
 answer is <span class="math notranslate nohighlight">\(K = R^{-1}B^\mathsf{T}P\)</span>, where <span class="math notranslate nohighlight">\(P\)</span> solves an
@@ -782,7 +954,7 @@ Programming</em> (Princeton University Press, 1957).</p>
   <div class="sphx-glr-thumbnail-title">Kalman's linear-quadratic regulator (1960)</div>
 </div></div></section>
 <section id="jury-s-stability-test-for-sampled-systems">
-<h2><a class="toc-backref" href="#id17" role="doc-backlink">1961 – Jury’s Stability Test for Sampled Systems</a><a class="headerlink" href="#jury-s-stability-test-for-sampled-systems" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id22" role="doc-backlink">1961 – Jury’s Stability Test for Sampled Systems</a><a class="headerlink" href="#jury-s-stability-test-for-sampled-systems" title="Link to this heading">#</a></h2>
 <p>A sampled loop is stable when every root of its characteristic polynomial
 in <span class="math notranslate nohighlight">\(z\)</span> lies inside the unit circle, so Routh’s test does not apply.
 Eliahu Jury at Berkeley, with Blanchard, gave the discrete counterpart as a
@@ -801,7 +973,7 @@ discrete systems in table form,” <em>Proc. IRE</em> 49 (1961) 1947-1948.</p>
   <div class="sphx-glr-thumbnail-title">Jury's stability test for sampled systems (1961)</div>
 </div></div></section>
 <section id="the-kalman-bucy-filter">
-<h2><a class="toc-backref" href="#id18" role="doc-backlink">1961 – The Kalman-Bucy Filter</a><a class="headerlink" href="#the-kalman-bucy-filter" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id23" role="doc-backlink">1961 – The Kalman-Bucy Filter</a><a class="headerlink" href="#the-kalman-bucy-filter" title="Link to this heading">#</a></h2>
 <p>A state estimator has to trade trust in the model against trust in the
 measurement. Kalman’s discrete filter (1960) and its continuous-time form
 with Richard Bucy give the gain that minimises the estimation error for a
@@ -820,7 +992,7 @@ and prediction theory,” <em>J. Basic Eng.</em> 83 (1961) 95-108.</p>
   <div class="sphx-glr-thumbnail-title">The Kalman-Bucy filter (1961)</div>
 </div></div></section>
 <section id="luenberger-s-observer">
-<h2><a class="toc-backref" href="#id19" role="doc-backlink">1964 – Luenberger’s Observer</a><a class="headerlink" href="#luenberger-s-observer" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id24" role="doc-backlink">1964 – Luenberger’s Observer</a><a class="headerlink" href="#luenberger-s-observer" title="Link to this heading">#</a></h2>
 <p>State feedback needs every state, but sensors measure only some. David
 Luenberger, in his Stanford thesis, built the missing states from a copy of
 the model driven by the same input and corrected by the output error,
@@ -839,7 +1011,7 @@ and checks that the error follows <span class="math notranslate nohighlight">\(e
   <div class="sphx-glr-thumbnail-title">Luenberger's observer (1964)</div>
 </div></div></section>
 <section id="wonham-s-pole-assignment">
-<h2><a class="toc-backref" href="#id20" role="doc-backlink">1967 – Wonham’s Pole Assignment</a><a class="headerlink" href="#wonham-s-pole-assignment" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id25" role="doc-backlink">1967 – Wonham’s Pole Assignment</a><a class="headerlink" href="#wonham-s-pole-assignment" title="Link to this heading">#</a></h2>
 <p>For a single input, controllability lets state feedback place the poles of
 <span class="math notranslate nohighlight">\(A - BK\)</span> anywhere, with a unique gain. Murray Wonham proved the
 multi-input case: the closed-loop poles can be assigned arbitrarily if and
@@ -860,7 +1032,7 @@ linear systems,” <em>IEEE Trans. Autom. Control</em> 12 (1967) 660-665.</p>
   <div class="sphx-glr-thumbnail-title">Wonham's pole assignment (1967)</div>
 </div></div></section>
 <section id="doyle-guaranteed-margins-for-lqg-there-are-none">
-<h2><a class="toc-backref" href="#id21" role="doc-backlink">1978 – Doyle: Guaranteed Margins for LQG? There Are None</a><a class="headerlink" href="#doyle-guaranteed-margins-for-lqg-there-are-none" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id26" role="doc-backlink">1978 – Doyle: Guaranteed Margins for LQG? There Are None</a><a class="headerlink" href="#doyle-guaranteed-margins-for-lqg-there-are-none" title="Link to this heading">#</a></h2>
 <p>The LQR loop is robust. Its Nyquist plot stays outside the unit disc about
 <span class="math notranslate nohighlight">\(-1\)</span>, so it tolerates any gain in <span class="math notranslate nohighlight">\([1/2, \infty)\)</span> and at least
 60° of phase change. It seemed natural that an LQR gain fed by a
@@ -882,7 +1054,7 @@ Trans. Autom. Control</em> 23 (1978) 756-757.</p>
   <div class="sphx-glr-thumbnail-title">Doyle's guaranteed margins for LQG: there are none (1978)</div>
 </div></div></section>
 <section id="see-also">
-<h2><a class="toc-backref" href="#id22" role="doc-backlink">See Also</a><a class="headerlink" href="#see-also" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id27" role="doc-backlink">See Also</a><a class="headerlink" href="#see-also" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="../api/control_systems.html"><span class="doc">engineeringkit.control_systems</span></a></p></li>
 <li><p><a class="reference internal" href="../guides/control_systems.html"><span class="doc">Control systems: matrix contracts and numerical stability</span></a></p></li>
@@ -948,9 +1120,14 @@ Trans. Autom. Control</em> 23 (1978) 756-757.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#black-s-negative-feedback-amplifier">1927 – Black’s Negative-Feedback Amplifier</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nyquist-s-stability-criterion">1932 – Nyquist’s Stability Criterion</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hazen-s-theory-of-servomechanisms">1934 – Hazen’s Theory of Servomechanisms</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#andronov-vitt-and-khaikin-s-phase-plane">1937 – Andronov, Vitt and Khaikin’s Phase Plane</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bode-s-gain-and-phase-margins">1940 – Bode’s Gain and Phase Margins</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ziegler-nichols-tuning">1942 – Ziegler-Nichols Tuning</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bode-s-sensitivity-integral">1945 – Bode’s Sensitivity Integral</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-nichols-chart">1947 – The Nichols Chart</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tustin-s-bilinear-transform">1947 – Tustin’s Bilinear Transform</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evans-s-root-locus">1948 – Evans’s Root Locus</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kochenburger-s-describing-function">1950 – Kochenburger’s Describing Function</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ragazzini-and-zadeh-sampled-data-systems">1952 – Ragazzini and Zadeh: Sampled-Data Systems</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#smith-s-predictor-for-dead-time">1957 – Smith’s Predictor for Dead Time</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kalman-s-controllability-and-observability">1960 – Kalman’s Controllability and Observability</a></li>

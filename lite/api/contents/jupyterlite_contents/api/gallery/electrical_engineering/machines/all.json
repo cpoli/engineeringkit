@@ -1,0 +1,43 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-10-30T06:36:53.621203Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-30T06:36:51.326933Z",
+      "mimetype": null,
+      "name": "plot_01_hopkinson_dynamo.ipynb",
+      "path": "jupyterlite_contents/api/gallery/electrical_engineering/machines/plot_01_hopkinson_dynamo.ipynb",
+      "size": 4220,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-30T06:36:53.621324Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-30T06:36:51.327051Z",
+      "mimetype": null,
+      "name": "plot_02_steinmetz_induction_motor.ipynb",
+      "path": "jupyterlite_contents/api/gallery/electrical_engineering/machines/plot_02_steinmetz_induction_motor.ipynb",
+      "size": 4888,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2026-10-30T06:36:53.621324Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-10-30T06:36:53.621324Z",
+  "mimetype": null,
+  "name": "machines",
+  "path": "jupyterlite_contents/api/gallery/electrical_engineering/machines",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

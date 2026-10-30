@@ -1,0 +1,68 @@
+
+
+.. _sphx_glr_api_gallery_electrical_engineering_machines:
+
+Machines
+--------
+
+DC machine and induction motor equivalent circuits and their torque-speed curves.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="John Hopkinson introduced the characteristic curve of a dynamo, its EMF against field current at constant speed, in 1879, and with his brother Edward showed in 1886 how to predict it from the magnetic circuit of the iron. Underneath both lies the armature equation of every DC machine: an EMF E = k\Phi\omega proportional to flux and speed, behind the armature resistance R_a, with torque T = k\Phi I_a. As a motor on a fixed supply the torque-speed curve is then a straight line from the stall torque to the no-load speed (~engineeringkit.electrical_engineering.dc_motor_torque, dc_motor_speed); driven faster than that the same machine generates. This example draws the torque-speed lines for three armature voltages and checks the power balance at an operating point.">
+
+.. only:: html
+
+  .. image:: /api/gallery/electrical_engineering/machines/images/thumb/sphx_glr_plot_01_hopkinson_dynamo_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/electrical_engineering/machines/plot_01_hopkinson_dynamo`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">The Hopkinsons' dynamo and the DC machine (1886)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Tesla&#x27;s induction motor had no electrical connection to its rotor, which made it hard to calculate. Charles Proteus Steinmetz treated it as a transformer whose secondary is shorted through a resistance R_2/s that depends on the slip s between the rotating field and the rotor. The power absorbed by R_2/s is the air-gap power, and the torque follows from it (~engineeringkit.electrical_engineering.induction_motor_torque). The torque peaks at the breakdown slip, where R_2/s matches the impedance in front of it (~engineeringkit.electrical_engineering.induction_motor_breakdown), and the peak itself does not depend on the rotor resistance. This example draws the torque-speed curve of a four-pole, 50 Hz motor, checks the breakdown point and shows why wound-rotor motors add resistance to start.">
+
+.. only:: html
+
+  .. image:: /api/gallery/electrical_engineering/machines/images/thumb/sphx_glr_plot_02_steinmetz_induction_motor_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/electrical_engineering/machines/plot_02_steinmetz_induction_motor`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Steinmetz's induction motor equivalent circuit (1897)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/electrical_engineering/machines/plot_01_hopkinson_dynamo
+   /api/gallery/electrical_engineering/machines/plot_02_steinmetz_induction_motor
+

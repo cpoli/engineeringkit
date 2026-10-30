@@ -1,0 +1,43 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-10-30T06:36:53.612133Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-30T06:36:51.319573Z",
+      "mimetype": null,
+      "name": "plot_01_friis_effective_aperture.ipynb",
+      "path": "jupyterlite_contents/api/gallery/communications/antennas/plot_01_friis_effective_aperture.ipynb",
+      "size": 3908,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-30T06:36:53.612273Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-30T06:36:51.319686Z",
+      "mimetype": null,
+      "name": "plot_02_carter_half_wave_dipole.ipynb",
+      "path": "jupyterlite_contents/api/gallery/communications/antennas/plot_02_carter_half_wave_dipole.ipynb",
+      "size": 4381,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2026-10-30T06:36:53.612273Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-10-30T06:36:53.612273Z",
+  "mimetype": null,
+  "name": "antennas",
+  "path": "jupyterlite_contents/api/gallery/communications/antennas",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

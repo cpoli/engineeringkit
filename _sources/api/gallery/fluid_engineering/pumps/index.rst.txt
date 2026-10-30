@@ -5,7 +5,7 @@
 Pumps
 -----
 
-Pump power and cavitation.
+Turbomachine head, pump power and cavitation.
 
 
 .. raw:: html
@@ -36,6 +36,23 @@ Pump power and cavitation.
     </div>
 
 
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Leonhard Euler, studying Segner&#x27;s reaction water wheel at the Berlin academy, wrote the torque of a rotor as the change in the angular momentum of the water passing through it. Multiplied by the speed, it gives the head a pump adds or a turbine takes, H = (u_2V_{t2} - u_1V_{t1})/g (~engineeringkit.fluid_engineering.euler_turbomachine_head). This example draws the ideal head of a centrifugal impeller for backward, radial and forward blades, and shows that the head scales with the square of the speed, the affinity law (~engineeringkit.fluid_engineering.affinity_laws).">
+
+.. only:: html
+
+  .. image:: /api/gallery/fluid_engineering/pumps/images/thumb/sphx_glr_plot_02_euler_turbine_equation_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/fluid_engineering/pumps/plot_02_euler_turbine_equation`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Euler's turbine equation (1754)</div>
+    </div>
+
+
 .. thumbnail-parent-div-close
 
 .. raw:: html
@@ -47,4 +64,5 @@ Pump power and cavitation.
    :hidden:
 
    /api/gallery/fluid_engineering/pumps/plot_01_thoma_cavitation
+   /api/gallery/fluid_engineering/pumps/plot_02_euler_turbine_equation
 

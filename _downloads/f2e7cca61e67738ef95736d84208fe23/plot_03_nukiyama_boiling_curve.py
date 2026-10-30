@@ -21,7 +21,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from scipy.optimize import brentq
 
-from engineeringkit.heat_transfer import STEFAN_BOLTZMANN, zuber_critical_heat_flux
+from engineeringkit.heat_transfer import STEFAN_BOLTZMANN, rohsenow_boiling_heat_flux, zuber_critical_heat_flux
 
 # %%
 # Saturated water at 1 atm
@@ -39,12 +39,13 @@ assert 1.0e6 < q_max < 1.2e6
 # ---------------------------------
 #
 # :math:`q'' = \mu_l h_{fg}[g(\rho_l - \rho_v)/\sigma]^{1/2}[c_p\Delta T/(C_{sf}h_{fg}Pr_l)]^3`
-# with :math:`C_{sf} = 0.013` for water on clean metal. The cube makes the
-# flux climb steeply until it meets Zuber's limit.
+# with :math:`C_{sf} = 0.013` for water on clean metal
+# (:func:`~engineeringkit.heat_transfer.rohsenow_boiling_heat_flux`). The cube
+# makes the flux climb steeply until it meets Zuber's limit.
 
 
-def nucleate(dT, C_sf=0.013):
-    return mu_l * h_fg * np.sqrt(g * (rho_l - rho_v) / sigma) * (cp_l * dT / (C_sf * h_fg * Pr_l)) ** 3
+def nucleate(dT):
+    return rohsenow_boiling_heat_flux(mu_l, h_fg, rho_l, rho_v, sigma, cp_l, Pr_l, dT, C_sf=0.013, g=g)
 
 
 dT_max = brentq(lambda dT: nucleate(dT) - q_max, 1, 100)

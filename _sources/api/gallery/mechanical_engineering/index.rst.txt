@@ -7,8 +7,9 @@ Examples
 
 This gallery walks through every public feature of
 ``engineeringkit.mechanical_engineering``, one breakthrough per script:
-rigid-body dynamics, gears and belts, screws and bearings, linkages and robot
-arms, vibration and absorbers, and the whirling rotor.
+rigid-body dynamics, gears and belts, screws, bearings, bolts and springs,
+linkages and robot arms, vibration, normal modes and absorbers, and the whirling
+and balanced rotor.
 
 :doc:`Units, assumptions and numerical validation </guides/mechanical_engineering>`
 gives the physical validity limits. Each script is self-contained and can be
@@ -17,12 +18,15 @@ run directly with ``python examples/mechanical_engineering/<section>/<script>.py
 Sections
 --------
 
-- **dynamics** -- Huygens's moment of inertia and Coriolis's work and kinetic energy.
-- **transmission** -- Euler's involute gear and the Euler-Eytelwein belt-friction law.
-- **machine_elements** -- Coulomb's power screw, Petroff's and Sommerfeld's journal bearings and the L10 life of rolling bearings.
-- **mechanisms** -- Reuleaux's slider-crank, Grashof's condition, Freudenstein's synthesis and Denavit-Hartenberg kinematics.
-- **vibration** -- Rayleigh's free vibration, Frahm's absorber and Holzer's torsional method.
-- **rotordynamics** -- the Jeffcott rotor and its critical speed.
+- **dynamics** -- Huygens's moment of inertia, Coriolis's work and kinetic energy and Lagrange's equations.
+- **transmission** -- Euler's involute gear, the Euler-Eytelwein belt-friction law and Lewis's gear-tooth bending.
+- **machine_elements** -- Coulomb's power screw, Petroff's and Sommerfeld's journal bearings, the L10 life of rolling bearings,
+  Rötscher's bolted-joint diagram and Wahl's spring factor.
+- **mechanisms** -- Reuleaux's slider-crank, Grashof's condition, Freudenstein's synthesis, Denavit-Hartenberg kinematics and
+  Aronhold and Kennedy's instant centres.
+- **vibration** -- Rayleigh's free and forced vibration, Frahm's absorber, Holzer's torsional method, Bernoulli's normal modes and
+  Dunkerley's whirling shafts.
+- **rotordynamics** -- the Jeffcott rotor and its critical speed, and Dalby's balancing of rotating masses.
 
 
 .. raw:: html
@@ -45,7 +49,7 @@ Sections
 Dynamics
 --------
 
-Moments of inertia, work, kinetic energy and power.
+Moments of inertia, work, kinetic energy and power, and Lagrange's equations.
 
 
 .. raw:: html
@@ -93,6 +97,23 @@ Moments of inertia, work, kinetic energy and power.
     </div>
 
 
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Joseph-Louis Lagrange&#x27;s Mécanique analytique (1788) contains no figures. It derives the motion of any system from two scalar functions, the kinetic energy T and the potential energy V, written in whatever coordinates q fix its configuration. With L = T - V,">
+
+.. only:: html
+
+  .. image:: /api/gallery/mechanical_engineering/dynamics/images/thumb/sphx_glr_plot_03_lagrange_equations_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/mechanical_engineering/dynamics/plot_03_lagrange_equations`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Lagrange's equations of motion (1788)</div>
+    </div>
+
+
 .. thumbnail-parent-div-close
 
 .. raw:: html
@@ -102,7 +123,7 @@ Moments of inertia, work, kinetic energy and power.
 Machine elements
 ----------------
 
-Power screws, journal bearings and rolling bearings.
+Power screws, journal bearings, rolling bearings, bolted joints and helical springs.
 
 
 .. raw:: html
@@ -184,6 +205,40 @@ Power screws, journal bearings and rolling bearings.
     </div>
 
 
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Nineteenth-century designers sized a bolt by dividing the load by its root area. Friedrich Rötscher&#x27;s Die Maschinenelemente (1927) drew the joint diagram that showed why a preloaded bolt does far better: bolt and clamped members are two springs, one stretched and one squeezed by the preload F_i, and an external load P stretches the bolt further only by as much as it relieves the members. The bolt sees only the fraction C = k_b/(k_b + k_m) of the load (~engineeringkit.mechanical_engineering.bolted_joint) until the members separate. The members&#x27; stiffness comes from cones of compressed material spreading from under the head and nut (~engineeringkit.mechanical_engineering.member_stiffness), the bolt&#x27;s from its shank and threads in series (~engineeringkit.mechanical_engineering.bolt_stiffness). Rötscher&#x27;s 1927 book could not be consulted; the date and attribution follow J. H. Bickford, An Introduction to the Design and Behavior of Bolted Joints, and the Bolt Council&#x27;s history of joint design.">
+
+.. only:: html
+
+  .. image:: /api/gallery/mechanical_engineering/machine_elements/images/thumb/sphx_glr_plot_05_rotscher_joint_diagram_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/mechanical_engineering/machine_elements/plot_05_rotscher_joint_diagram`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Rötscher's bolted-joint diagram (1927)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="The wire of a helical spring is a bar in torsion, twisted by the torque FD/2, so the nominal shear stress is 8FD/\pi d^3 and the rate k = Gd^4/8D^3N (~engineeringkit.mechanical_engineering.spring_rate). Springs broke in fatigue at loads this predicted to be safe. Arthur Wahl, at Westinghouse, analysed the wire as a curved bar: on the inside of the coil the fibres are shorter, so the same twist strains them more, and the direct shear of the load adds on that side too. His factor K_W = (4C - 1)/(4C - 4) + 0.615/C (~engineeringkit.mechanical_engineering.wahl_factor), with C = D/d, multiplies the nominal stress (~engineeringkit.mechanical_engineering.spring_shear_stress). The 1929 paper is cited from Wahl&#x27;s Mechanical Springs (1944) and Shigley.">
+
+.. only:: html
+
+  .. image:: /api/gallery/mechanical_engineering/machine_elements/images/thumb/sphx_glr_plot_06_wahl_spring_factor_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/mechanical_engineering/machine_elements/plot_06_wahl_spring_factor`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Wahl's curvature factor for helical springs (1929)</div>
+    </div>
+
+
 .. thumbnail-parent-div-close
 
 .. raw:: html
@@ -193,7 +248,7 @@ Power screws, journal bearings and rolling bearings.
 Mechanisms
 ----------
 
-Slider-cranks, four-bar linkages and serial robot arms.
+Slider-cranks, four-bar linkages and their velocities and accelerations, and serial robot arms.
 
 
 .. raw:: html
@@ -275,6 +330,23 @@ Slider-cranks, four-bar linkages and serial robot arms.
     </div>
 
 
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Every pair of links in a plane mechanism has an instant centre, a point where neither moves relative to the other. Siegfried Aronhold (1872) and, independently, Alexander Kennedy (1886) proved that the three instant centres of any three links lie on a straight line. For a four-bar linkage the centre I_{24} of crank and rocker lies where the line through the ground pivots meets the line of the coupler, and the speed ratio is the ratio of its distances from the pivots, \omega_4/\omega_2 = I_{12}I_{24}/I_{14}I_{24}. The example checks this against the analytical velocity and acceleration analysis of fourbar_kinematics, and checks slider_crank_kinematics against its instant centre and against the engine designers&#x27; two-term acceleration series.">
+
+.. only:: html
+
+  .. image:: /api/gallery/mechanical_engineering/mechanisms/images/thumb/sphx_glr_plot_05_aronhold_kennedy_instant_centres_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/mechanical_engineering/mechanisms/plot_05_aronhold_kennedy_instant_centres`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Aronhold and Kennedy's theorem of three centres (1872-1886)</div>
+    </div>
+
+
 .. thumbnail-parent-div-close
 
 .. raw:: html
@@ -284,7 +356,7 @@ Slider-cranks, four-bar linkages and serial robot arms.
 Rotordynamics
 -------------
 
-Unbalanced rotors and critical speeds.
+Unbalanced rotors, critical speeds and balancing.
 
 
 .. raw:: html
@@ -315,6 +387,23 @@ Unbalanced rotors and critical speeds.
     </div>
 
 
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Faster engines and turbines made unbalance a practical danger: a mass m at radius r pulls on the bearings with mr\omega^2, a force that grows with the square of speed. William Dalby&#x27;s The Balancing of Engines (1902) taught designers to balance any set of rotating masses with two correction masses in chosen planes. Taking moments about one correction plane, the reference plane, removes the unknown correction there and gives the other directly; the force balance then gives the first. A single correction can only make the shaft balance statically, resting in any position, and leaves a rocking couple. balance_rotating_masses finds the corrections and unbalance measures what remains. The example simulates the bearing reactions of a rigid rotor before and after balancing.">
+
+.. only:: html
+
+  .. image:: /api/gallery/mechanical_engineering/rotordynamics/images/thumb/sphx_glr_plot_02_dalby_balancing_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/mechanical_engineering/rotordynamics/plot_02_dalby_balancing`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Dalby's balancing of rotating masses (1902)</div>
+    </div>
+
+
 .. thumbnail-parent-div-close
 
 .. raw:: html
@@ -324,7 +413,7 @@ Unbalanced rotors and critical speeds.
 Transmission
 ------------
 
-Gear trains and belt drives.
+Gear trains, gear-tooth strength and belt drives.
 
 
 .. raw:: html
@@ -372,6 +461,23 @@ Gear trains and belt drives.
     </div>
 
 
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Wilfred Lewis, of William Sellers and Co. in Philadelphia, gave the first rational strength calculation for gear teeth in a talk to the Engineers&#x27; Club of Philadelphia on 15 October 1892. He treated the tooth as a cantilever with the whole load at its tip and noticed that a parabola drawn from the load point, tangent to the tooth flanks at the root, is a beam of uniform strength. The root section where they touch is therefore the weakest, and the stress there is \sigma = W_t/(F m Y) (~engineeringkit.mechanical_engineering.lewis_bending_stress), with a form factor Y that depends only on the tooth shape and so on the number of teeth (~engineeringkit.mechanical_engineering.lewis_form_factor). Carl Barth&#x27;s factor raises the stress for the dynamic load at speed (~engineeringkit.mechanical_engineering.barth_velocity_factor). The AGMA bending equation still starts from Lewis&#x27;s.">
+
+.. only:: html
+
+  .. image:: /api/gallery/mechanical_engineering/transmission/images/thumb/sphx_glr_plot_03_lewis_gear_tooth_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/mechanical_engineering/transmission/plot_03_lewis_gear_tooth`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Lewis's gear-tooth bending formula (1892)</div>
+    </div>
+
+
 .. thumbnail-parent-div-close
 
 .. raw:: html
@@ -381,7 +487,7 @@ Gear trains and belt drives.
 Vibration
 ---------
 
-Free vibration, vibration absorbers and torsional modes.
+Free and forced vibration, normal modes, frequency bounds, vibration absorbers and torsional modes.
 
 
 .. raw:: html
@@ -443,6 +549,57 @@ Free vibration, vibration absorbers and torsional modes.
 .. raw:: html
 
       <div class="sphx-glr-thumbnail-title">Holzer's method for torsional vibration (1921)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="The third chapter of Rayleigh&#x27;s Theory of Sound drives the damped oscillator with a harmonic force, m\ddot x + c\dot x + kx = F_0\cos\omega t. Once the free motion has died away the mass moves at the forcing frequency with amplitude (F_0/k)\,M, the static deflection times the magnification factor (~engineeringkit.mechanical_engineering.magnification_factor), and lags the force by a phase (~engineeringkit.mechanical_engineering.phase_angle) that passes through 90 degrees at \omega = \omega_n whatever the damping. Below resonance the spring carries the force, at resonance only damping limits the motion, and above it the mass&#x27;s inertia does. The example compares a simulated run-up of three forcing frequencies with the closed form.">
+
+.. only:: html
+
+  .. image:: /api/gallery/mechanical_engineering/vibration/images/thumb/sphx_glr_plot_04_rayleigh_forced_vibration_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/mechanical_engineering/vibration/plot_04_rayleigh_forced_vibration`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Rayleigh's Theory of Sound: forced vibration and resonance (1877)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Daniel Bernoulli argued in 1753 that a vibrating string sounds many simple vibrations at once, each with its own shape and frequency, and that any motion is their sum. For masses joined by springs the simple vibrations are the solutions of the eigenproblem K\phi = \omega^2 M\phi (~engineeringkit.mechanical_engineering.normal_modes). The modes are orthogonal through M and K, so the equations M\ddot x + Kx = 0 split into independent oscillators, one per mode (~engineeringkit.mechanical_engineering.modal_response), and a harmonic force excites each mode in proportion to its share of the force (~engineeringkit.mechanical_engineering.harmonic_response). The example builds a three-storey shear frame and checks both superpositions against direct solutions.">
+
+.. only:: html
+
+  .. image:: /api/gallery/mechanical_engineering/vibration/images/thumb/sphx_glr_plot_05_bernoulli_normal_modes_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/mechanical_engineering/vibration/plot_05_bernoulli_normal_modes`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Daniel Bernoulli's superposition of normal modes (1753)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Stanley Dunkerley measured the whirling speeds of shafts carrying pulleys at Owens College, Manchester, and found an empirical rule: the inverse squares of the critical speeds of each pulley alone, and of the bare shaft, add up to the inverse square of the critical speed of the whole, 1/\omega^2 \approx \sum_i 1/\omega_i^2 (~engineeringkit.mechanical_engineering.dunkerley_frequency). The sum is the trace of the flexibility-mass matrix, the sum of the inverse squares of every natural frequency, so it always underestimates the fundamental. Rayleigh&#x27;s quotient with the static deflection as the trial shape (~engineeringkit.mechanical_engineering.rayleigh_frequency) always overestimates it. The example brackets the first critical speed of a simply supported shaft with three disks.">
+
+.. only:: html
+
+  .. image:: /api/gallery/mechanical_engineering/vibration/images/thumb/sphx_glr_plot_06_dunkerley_whirling_shaft_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/mechanical_engineering/vibration/plot_06_dunkerley_whirling_shaft`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Dunkerley's whirling shafts and Rayleigh's bound (1894)</div>
     </div>
 
 

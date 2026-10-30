@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.584** total execution time for 2 files **from api/gallery/materials/creep**:
+**00:00.335** total execution time for 2 files **from api/gallery/materials/creep**:
 
 .. container::
 
@@ -33,8 +33,8 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_materials_creep_plot_02_larson_miller.py` (``plot_02_larson_miller.py``)
-     - 00:00.345
+     - 00:00.199
      - 0.0
    * - :ref:`sphx_glr_api_gallery_materials_creep_plot_01_norton_creep.py` (``plot_01_norton_creep.py``)
-     - 00:00.238
+     - 00:00.135
      - 0.0

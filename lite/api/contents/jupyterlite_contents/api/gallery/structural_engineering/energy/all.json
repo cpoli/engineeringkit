@@ -2,11 +2,25 @@
   "content": [
     {
       "content": null,
-      "created": "2026-10-30T06:17:37.688519Z",
+      "created": "2026-10-30T06:36:53.645646Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
-      "last_modified": "2026-10-30T06:17:34.023884Z",
+      "last_modified": "2026-10-30T06:36:51.349312Z",
+      "mimetype": null,
+      "name": "plot_02_mohr_unit_load.ipynb",
+      "path": "jupyterlite_contents/api/gallery/structural_engineering/energy/plot_02_mohr_unit_load.ipynb",
+      "size": 4320,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-30T06:36:53.645508Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-30T06:36:51.349181Z",
       "mimetype": null,
       "name": "plot_01_castigliano.ipynb",
       "path": "jupyterlite_contents/api/gallery/structural_engineering/energy/plot_01_castigliano.ipynb",
@@ -15,11 +29,11 @@
       "writable": true
     }
   ],
-  "created": "2026-10-30T06:17:37.688519Z",
+  "created": "2026-10-30T06:36:53.645646Z",
   "format": "json",
   "hash": null,
   "hash_algorithm": null,
-  "last_modified": "2026-10-30T06:17:37.688519Z",
+  "last_modified": "2026-10-30T06:36:53.645646Z",
   "mimetype": null,
   "name": "energy",
   "path": "jupyterlite_contents/api/gallery/structural_engineering/energy",

@@ -5,7 +5,7 @@
 Fatigue
 -------
 
-Stress-life, mean stress, cumulative damage and strain-life.
+Stress-life, mean stress, cumulative damage, strain-life and notches.
 
 
 .. raw:: html
@@ -87,6 +87,23 @@ Stress-life, mean stress, cumulative damage and strain-life.
     </div>
 
 
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A notch raises the elastic stress at its root by K_t, but in a ductile part the root yields long before the nominal stress does, and K_t S overstates the stress and understates the strain. Heinz Neuber, at the Technical University of Munich, showed for a shear-loaded notch that the stress and strain concentration factors keep their geometric mean equal to K_t after yield, K_\sigma K_\varepsilon = K_t^2, so">
+
+.. only:: html
+
+  .. image:: /api/gallery/materials/fatigue/images/thumb/sphx_glr_plot_05_neuber_rule_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/materials/fatigue/plot_05_neuber_rule`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Neuber's rule for notches that yield (1961)</div>
+    </div>
+
+
 .. thumbnail-parent-div-close
 
 .. raw:: html
@@ -101,4 +118,5 @@ Stress-life, mean stress, cumulative damage and strain-life.
    /api/gallery/materials/fatigue/plot_02_basquin_sn_curve
    /api/gallery/materials/fatigue/plot_03_palmgren_miner
    /api/gallery/materials/fatigue/plot_04_coffin_manson
+   /api/gallery/materials/fatigue/plot_05_neuber_rule
 

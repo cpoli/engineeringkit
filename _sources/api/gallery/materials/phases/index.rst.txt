@@ -1,0 +1,50 @@
+
+
+.. _sphx_glr_api_gallery_materials_phases:
+
+Phases
+------
+
+The lever rule on a binary phase diagram and transformation kinetics.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Austenite turning to pearlite, cold-worked metal recrystallising and polymers crystallising all follow the same S-shaped curve. Melvin Avrami, then at Columbia, modelled nuclei that appear at random and grow until they run into each other: counting the &quot;extended&quot; volume they would fill if they could overlap, and removing the overlaps statistically, gives">
+
+.. only:: html
+
+  .. image:: /api/gallery/materials/phases/images/thumb/sphx_glr_plot_01_avrami_kinetics_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/materials/phases/plot_01_avrami_kinetics`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Avrami's transformation kinetics (1939)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/materials/phases/plot_01_avrami_kinetics
+

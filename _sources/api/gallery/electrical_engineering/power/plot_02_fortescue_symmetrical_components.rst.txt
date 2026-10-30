@@ -30,17 +30,18 @@ positive-sequence set (a-b-c rotation) and a negative-sequence set (a-c-b)
 In a symmetrical network the three sequences do not interact, so each is
 solved as a single-phase circuit and the results recombined
 (:func:`~engineeringkit.electrical_engineering.phase_components`). This
-example decomposes an unbalanced set and computes a single-line-to-ground
-fault the way protection engineers still do.
+example decomposes an unbalanced set, computes a single-line-to-ground
+fault the way protection engineers still do and compares the four fault
+types (:func:`~engineeringkit.electrical_engineering.fault_currents`).
 
-.. GENERATED FROM PYTHON SOURCE LINES 19-25
+.. GENERATED FROM PYTHON SOURCE LINES 20-26
 
 .. code-block:: Python
 
     import matplotlib.pyplot as plt
     import numpy as np
 
-    from engineeringkit.electrical_engineering import phase_components, phasor, symmetrical_components
+    from engineeringkit.electrical_engineering import fault_currents, phase_components, phasor, symmetrical_components
     from engineeringkit.electrical_engineering.visualizers import plot_phasors
 
 
@@ -50,12 +51,12 @@ fault the way protection engineers still do.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 26-28
+.. GENERATED FROM PYTHON SOURCE LINES 27-29
 
 Decomposing an unbalanced set
 -----------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 28-35
+.. GENERATED FROM PYTHON SOURCE LINES 29-36
 
 .. code-block:: Python
 
@@ -79,7 +80,7 @@ Decomposing an unbalanced set
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 36-43
+.. GENERATED FROM PYTHON SOURCE LINES 37-44
 
 A single-line-to-ground fault
 -----------------------------
@@ -89,7 +90,7 @@ Phase a shorts to ground at a bus whose sequence impedances are
 The boundary conditions :math:`I_b = I_c = 0`, :math:`V_a = 0` connect the
 three sequence networks in series: :math:`I_0 = I_1 = I_2 = E/(Z_0 + Z_1 + Z_2)`.
 
-.. GENERATED FROM PYTHON SOURCE LINES 43-66
+.. GENERATED FROM PYTHON SOURCE LINES 44-56
 
 .. code-block:: Python
 
@@ -103,6 +104,40 @@ three sequence networks in series: :math:`I_0 = I_1 = I_2 = E/(Z_0 + Z_1 + Z_2)`
     print(f"healthy-phase voltages |Vb| = {abs(Vb):.3f}, |Vc| = {abs(Vc):.3f} pu")
     assert np.isclose(Ia, 3 * E / (Z0 + Z1 + Z2))
     assert abs(Ib) < 1e-12 and abs(Ic) < 1e-12 and abs(Va) < 1e-12
+    assert np.allclose(fault_currents(E, Z1, Z2, Z0, "slg"), (Ia, Ib, Ic))
+
+
+
+
+
+.. rst-class:: sphx-glr-script-out
+
+ .. code-block:: none
+
+    fault current |Ia| = 6.00 pu (a three-phase fault would give 5.00 pu)
+    healthy-phase voltages |Vb| = 0.917, |Vc| = 0.917 pu
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 57-63
+
+The four fault types
+--------------------
+
+The other faults connect the sequence networks differently. Here the
+single-line-to-ground fault is the most severe, because the zero-sequence
+impedance is below the positive-sequence one.
+
+.. GENERATED FROM PYTHON SOURCE LINES 63-81
+
+.. code-block:: Python
+
+
+    for kind in ("3ph", "slg", "ll", "llg"):
+        currents = fault_currents(E, Z1, Z2, Z0, kind)
+        print(f"{kind:>4}: |Ia|, |Ib|, |Ic| = " + ", ".join(f"{abs(i):.2f}" for i in currents) + " pu")
+    assert np.isclose(abs(fault_currents(E, Z1, Z2, Z0, "ll")[1]), np.sqrt(3) / 2 * abs(E / Z1))
 
     fig, axes = plt.subplots(1, 4, figsize=(14, 3.6))
     labels = ["a", "b", "c"]
@@ -129,8 +164,10 @@ three sequence networks in series: :math:`I_0 = I_1 = I_2 = E/(Z_0 + Z_1 + Z_2)`
 
  .. code-block:: none
 
-    fault current |Ia| = 6.00 pu (a three-phase fault would give 5.00 pu)
-    healthy-phase voltages |Vb| = 0.917, |Vc| = 0.917 pu
+     3ph: |Ia|, |Ib|, |Ic| = 5.00, 5.00, 5.00 pu
+     slg: |Ia|, |Ib|, |Ic| = 6.00, 0.00, 0.00 pu
+      ll: |Ia|, |Ib|, |Ic| = 0.00, 4.33, 4.33 pu
+     llg: |Ia|, |Ib|, |Ic| = 0.00, 5.73, 5.73 pu
 
 
 
@@ -138,7 +175,7 @@ three sequence networks in series: :math:`I_0 = I_1 = I_2 = E/(Z_0 + Z_1 + Z_2)`
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.355 seconds)
+   **Total running time of the script:** (0 minutes 0.346 seconds)
 
 
 .. _sphx_glr_download_api_gallery_electrical_engineering_power_plot_02_fortescue_symmetrical_components.py:

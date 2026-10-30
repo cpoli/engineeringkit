@@ -1,7 +1,7 @@
 engineeringkit.signal_processing
 ================================
 
-Sampling and quantization, the FFT, spectral estimation, digital, optimal and adaptive filters, and wavelets.
+Sampling and rate conversion, the FFT and DCT, spectra and AR models, IIR and FIR design, adaptive filters.
 
 .. grid:: 1 2 3 3
    :gutter: 2

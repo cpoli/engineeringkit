@@ -1,0 +1,50 @@
+
+
+.. _sphx_glr_api_gallery_fluid_engineering_viscous:
+
+Viscous flow
+------------
+
+Exact laminar solutions between moving walls.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Maurice Couette, in his 1890 thesis at Paris, measured the viscosity of water in the narrow gap between a fixed inner cylinder and a rotating outer one, from the torque on the inner cylinder. Rotating the outer cylinder keeps the flow laminar to high speeds. For a narrow gap the flow is the plane shear flow between a fixed and a sliding plate, with a straight velocity profile and uniform stress \mu U/h (~engineeringkit.fluid_engineering.couette_velocity, couette_shear_stress); the exact torque for any gap is couette_viscometer_torque. This example reads a viscosity back from a torque and adds a pressure gradient to the plane flow.">
+
+.. only:: html
+
+  .. image:: /api/gallery/fluid_engineering/viscous/images/thumb/sphx_glr_plot_01_couette_viscometer_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/fluid_engineering/viscous/plot_01_couette_viscometer`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Couette's rotating-cylinder viscometer (1890)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/fluid_engineering/viscous/plot_01_couette_viscometer
+

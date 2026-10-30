@@ -121,6 +121,74 @@ Designing, analysing and implementing digital filters, from fixed designs to ada
     </div>
 
 
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Pafnuty Chebyshev, studying Watt&#x27;s linkage, asked which polynomial of degree n stays closest to zero on an interval. The answer, T_n(x) = \cos(n \arccos x), swings between \pm 1 exactly n + 1 times there and grows faster than any other outside it. Filter designers in the 1930s put it into the squared gain, |H|^2 = 1/(1 + \varepsilon^2 T_n^2(\Omega/\Omega_p)): the passband error is spread evenly instead of being piled up at the band edge, as in Butterworth&#x27;s maximally flat filter, and the transition gets steeper for the same order (~engineeringkit.signal_processing.chebyshev1_lowpass, chebyshev2_lowpass).">
+
+.. only:: html
+
+  .. image:: /api/gallery/signal_processing/filters/images/thumb/sphx_glr_plot_07_chebyshev_equiripple_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/signal_processing/filters/plot_07_chebyshev_equiripple`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Chebyshev's equiripple approximation (1854)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Chebyshev filters ripple in one band and are monotonic in the other. Wilhelm Cauer, working on telephone filters in Göttingen and at MIT, spread the error over both bands with rational functions built from Jacobi&#x27;s elliptic functions, and placed zeros of transmission just past the band edge. His book Siebschaltungen (1931) set out the theory. For a given ripple and attenuation, the elliptic filter has the narrowest transition of any filter of its order (~engineeringkit.signal_processing.elliptic_lowpass, iir_order). The date and attribution follow the book&#x27;s 1931 VDI-Verlag edition as cited in Cauer&#x27;s Swiss patent CH166337.">
+
+.. only:: html
+
+  .. image:: /api/gallery/signal_processing/filters/images/thumb/sphx_glr_plot_08_cauer_elliptic_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/signal_processing/filters/plot_08_cauer_elliptic`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Cauer's elliptic filter (1931)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A century of analog filter design was ready-made, and Bell Labs wanted it for sampled data. Roger Golden and James Kaiser (1964) used the bilinear substitution s = K(1 - z^{-1})/(1 + z^{-1}), which maps the whole left half s-plane into the unit circle, so a stable analog filter stays stable and keeps its ripple pattern. The price is a warped frequency axis, \Omega = K\tan(\omega/2), which they offset by designing the analog prototype at the prewarped band edges (~engineeringkit.signal_processing.bilinear_transform, prewarp_frequency). The authors, title and date were checked against Bell Labs&#x27; publication record.">
+
+.. only:: html
+
+  .. image:: /api/gallery/signal_processing/filters/images/thumb/sphx_glr_plot_09_golden_kaiser_bilinear_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/signal_processing/filters/plot_09_golden_kaiser_bilinear`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Golden and Kaiser's bilinear design with prewarping (1964)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A window design is easy but wasteful: its largest ripple sits next to the band edge and the ripple dies away from it, so most of the band is better than it needs to be. Thomas Parks and his student James McClellan at Rice University posed linear-phase FIR design as Chebyshev approximation: minimize the largest weighted error over the passband and stopband. The alternation theorem says the optimum&#x27;s error peaks with alternating signs at least L + 2 times, and Remez&#x27;s exchange algorithm finds those frequencies (~engineeringkit.signal_processing.equiripple_lowpass, equiripple_order).">
+
+.. only:: html
+
+  .. image:: /api/gallery/signal_processing/filters/images/thumb/sphx_glr_plot_10_parks_mcclellan_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/signal_processing/filters/plot_10_parks_mcclellan`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Parks and McClellan's equiripple FIR filter (1972)</div>
+    </div>
+
+
 .. thumbnail-parent-div-close
 
 .. raw:: html
@@ -137,4 +205,8 @@ Designing, analysing and implementing digital filters, from fixed designs to ada
    /api/gallery/signal_processing/filters/plot_04_widrow_hoff_lms
    /api/gallery/signal_processing/filters/plot_05_kaiser_fir
    /api/gallery/signal_processing/filters/plot_06_second_order_sections
+   /api/gallery/signal_processing/filters/plot_07_chebyshev_equiripple
+   /api/gallery/signal_processing/filters/plot_08_cauer_elliptic
+   /api/gallery/signal_processing/filters/plot_09_golden_kaiser_bilinear
+   /api/gallery/signal_processing/filters/plot_10_parks_mcclellan
 

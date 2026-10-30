@@ -5,7 +5,7 @@
 Transient conduction
 --------------------
 
-Lumped bodies, the semi-infinite solid and the plane wall.
+Lumped bodies, the semi-infinite solid, and the plane wall, cylinder and sphere.
 
 
 .. raw:: html
@@ -55,7 +55,7 @@ Lumped bodies, the semi-infinite solid and the plane wall.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Separation of variables gives the cooling of a plane wall as a Fourier series whose eigenvalues solve \zeta\tan\zeta = Bi. Before computers, nobody summed it by hand. In 1947 M. P. Heisler, working on induction heating, noticed that after a short time only the first term matters, and plotted that term as charts of centre temperature against the Fourier number for each Biot number. Generations of students read them with a ruler. plane_wall_transient sums the series (or its first term, terms=1); this example redraws the centre chart, measures the one-term error, and times the quench of a steel plate.">
+    <div class="sphx-glr-thumbcontainer" tooltip="Separation of variables gives the cooling of a plane wall as a Fourier series whose eigenvalues solve \zeta\tan\zeta = Bi. Before computers, nobody summed it by hand. In 1947 M. P. Heisler, working on induction heating, noticed that after a short time only the first term matters, and plotted that term as charts of centre temperature against the Fourier number for each Biot number. Generations of students read them with a ruler. plane_wall_transient sums the series (or its first term, terms=1), and cylinder_transient and sphere_transient do the same for his cylinder and sphere charts. This example redraws the centre chart, measures the one-term error, times the quench of a steel plate, and compares the three shapes.">
 
 .. only:: html
 

@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.096** total execution time for 1 file **from api/gallery/fluid_engineering/open_channel**:
+**00:00.265** total execution time for 3 files **from api/gallery/fluid_engineering/open_channel**:
 
 .. container::
 
@@ -32,6 +32,12 @@ Computation times
    * - Example
      - Time
      - Mem (MB)
+   * - :ref:`sphx_glr_api_gallery_fluid_engineering_open_channel_plot_03_bakhmeteff_specific_energy.py` (``plot_03_bakhmeteff_specific_energy.py``)
+     - 00:00.103
+     - 0.0
    * - :ref:`sphx_glr_api_gallery_fluid_engineering_open_channel_plot_01_manning_formula.py` (``plot_01_manning_formula.py``)
-     - 00:00.096
+     - 00:00.095
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_fluid_engineering_open_channel_plot_02_belanger_hydraulic_jump.py` (``plot_02_belanger_hydraulic_jump.py``)
+     - 00:00.067
      - 0.0

@@ -5,7 +5,7 @@
 Composites
 ----------
 
-Rules of mixtures and the bounds on a composite's stiffness.
+Rules of mixtures, the Halpin-Tsai equations and classical laminate theory.
 
 
 .. raw:: html
@@ -36,6 +36,40 @@ Rules of mixtures and the bounds on a composite's stiffness.
     </div>
 
 
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="The Voigt and Reuss bounds are far apart for fibre composites, and the exact elasticity solutions for fibre arrays were too complicated for design. John Halpin and Stephen Tsai, at the US Air Force Materials Laboratory, fitted those solutions with one interpolating formula,">
+
+.. only:: html
+
+  .. image:: /api/gallery/materials/composites/images/thumb/sphx_glr_plot_02_halpin_tsai_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/materials/composites/plot_02_halpin_tsai`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">The Halpin-Tsai equations (1969)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A ply of aligned fibres is stiff along them and soft across, so composite parts stack plies at several angles. Eric Reissner and Yehuda Stavsky, at MIT, extended Kirchhoff&#x27;s plate theory to such stacks and found that in an unsymmetric laminate stretching and bending are coupled: pulling it makes it curl. The laminate relates force and moment resultants to midplane strains and curvatures through three matrices,">
+
+.. only:: html
+
+  .. image:: /api/gallery/materials/composites/images/thumb/sphx_glr_plot_03_classical_laminate_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/materials/composites/plot_03_classical_laminate`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Reissner and Stavsky: classical laminate theory (1961)</div>
+    </div>
+
+
 .. thumbnail-parent-div-close
 
 .. raw:: html
@@ -47,4 +81,6 @@ Rules of mixtures and the bounds on a composite's stiffness.
    :hidden:
 
    /api/gallery/materials/composites/plot_01_voigt_reuss_bounds
+   /api/gallery/materials/composites/plot_02_halpin_tsai
+   /api/gallery/materials/composites/plot_03_classical_laminate
 
