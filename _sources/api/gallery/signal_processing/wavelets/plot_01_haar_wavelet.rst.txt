@@ -131,7 +131,7 @@ Fourier one rings around them (Gibbs's phenomenon).
     Haar   : RMS error keeping 51 of 1024 coefficients = 0.0144
     Fourier: RMS error keeping 51 of 1024 coefficients = 0.0790
 
-    <matplotlib.legend.Legend object at 0x7fc1b828c5c0>
+    <matplotlib.legend.Legend object at 0x7f1f18943d40>
 
 
 
@@ -172,7 +172,7 @@ The large detail coefficients cluster at the jumps, at every scale.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.077 seconds)
+   **Total running time of the script:** (0 minutes 0.141 seconds)
 
 
 .. _sphx_glr_download_api_gallery_signal_processing_wavelets_plot_01_haar_wavelet.py:

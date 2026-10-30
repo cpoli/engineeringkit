@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.213** total execution time for 3 files **from api/gallery/electrical_engineering/networks**:
+**00:00.411** total execution time for 3 files **from api/gallery/electrical_engineering/networks**:
 
 .. container::
 
@@ -33,11 +33,11 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_electrical_engineering_networks_plot_02_thevenin_equivalent.py` (``plot_02_thevenin_equivalent.py``)
-     - 00:00.072
+     - 00:00.141
      - 0.0
    * - :ref:`sphx_glr_api_gallery_electrical_engineering_networks_plot_01_jacobi_maximum_power.py` (``plot_01_jacobi_maximum_power.py``)
-     - 00:00.072
+     - 00:00.136
      - 0.0
    * - :ref:`sphx_glr_api_gallery_electrical_engineering_networks_plot_03_norton_equivalent.py` (``plot_03_norton_equivalent.py``)
-     - 00:00.069
+     - 00:00.134
      - 0.0

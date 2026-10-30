@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.319** total execution time for 3 files **from api/gallery/heat_transfer/phase_change**:
+**00:00.645** total execution time for 3 files **from api/gallery/heat_transfer/phase_change**:
 
 .. container::
 
@@ -33,11 +33,11 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_heat_transfer_phase_change_plot_01_stefan_problem.py` (``plot_01_stefan_problem.py``)
-     - 00:00.113
+     - 00:00.228
      - 0.0
    * - :ref:`sphx_glr_api_gallery_heat_transfer_phase_change_plot_03_nukiyama_boiling_curve.py` (``plot_03_nukiyama_boiling_curve.py``)
-     - 00:00.108
+     - 00:00.219
      - 0.0
    * - :ref:`sphx_glr_api_gallery_heat_transfer_phase_change_plot_02_nusselt_condensation.py` (``plot_02_nusselt_condensation.py``)
-     - 00:00.098
+     - 00:00.198
      - 0.0

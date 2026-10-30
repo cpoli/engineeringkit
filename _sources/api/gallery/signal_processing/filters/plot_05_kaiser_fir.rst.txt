@@ -97,7 +97,7 @@ attenuations from 30 to 90 dB. The cutoff is placed mid-transition.
     A = 70 dB:  88 taps, beta =  6.76, stopband  68.9 dB, passband ripple 2.7e-04
     A = 90 dB: 116 taps, beta =  8.96, stopband  89.4 dB, passband ripple 3.8e-05
 
-    <matplotlib.legend.Legend object at 0x7fc1b1c82480>
+    <matplotlib.legend.Legend object at 0x7f1f18f056a0>
 
 
 
@@ -174,7 +174,7 @@ Kaiser window reaches any attenuation by choosing :math:`\beta`.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.100 seconds)
+   **Total running time of the script:** (0 minutes 0.179 seconds)
 
 
 .. _sphx_glr_download_api_gallery_signal_processing_filters_plot_05_kaiser_fir.py:

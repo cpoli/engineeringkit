@@ -92,7 +92,7 @@ sidelobe sets how far below a strong tone a weak one can still be seen.
     hamming : main lobe half-width 2.0 bins, highest sidelobe  -42.4 dB
     blackman: main lobe half-width 3.0 bins, highest sidelobe  -58.1 dB
 
-    <matplotlib.legend.Legend object at 0x7fc1b3e7f980>
+    <matplotlib.legend.Legend object at 0x7f1f18f72390>
 
 
 
@@ -145,7 +145,7 @@ Blackman window reveals it.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.092 seconds)
+   **Total running time of the script:** (0 minutes 0.170 seconds)
 
 
 .. _sphx_glr_download_api_gallery_signal_processing_spectral_plot_04_blackman_tukey_windows.py:

@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.356** total execution time for 4 files **from api/gallery/control_systems/feedback**:
+**00:00.679** total execution time for 4 files **from api/gallery/control_systems/feedback**:
 
 .. container::
 
@@ -33,14 +33,14 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_control_systems_feedback_plot_03_black_negative_feedback_amplifier.py` (``plot_03_black_negative_feedback_amplifier.py``)
-     - 00:00.104
+     - 00:00.205
      - 0.0
    * - :ref:`sphx_glr_api_gallery_control_systems_feedback_plot_04_ziegler_nichols_tuning.py` (``plot_04_ziegler_nichols_tuning.py``)
-     - 00:00.095
+     - 00:00.181
      - 0.0
    * - :ref:`sphx_glr_api_gallery_control_systems_feedback_plot_02_minorsky_pid_ship_steering.py` (``plot_02_minorsky_pid_ship_steering.py``)
-     - 00:00.083
+     - 00:00.154
      - 0.0
    * - :ref:`sphx_glr_api_gallery_control_systems_feedback_plot_01_watt_centrifugal_governor.py` (``plot_01_watt_centrifugal_governor.py``)
-     - 00:00.075
+     - 00:00.139
      - 0.0

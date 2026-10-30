@@ -176,7 +176,7 @@ the water back to its inlet temperature.
 
     water temperature at the far end 300.0000 K (inlet 300.0 K)
 
-    <matplotlib.legend.Legend object at 0x7fc1b1da7980>
+    <matplotlib.legend.Legend object at 0x7f1f1b1a9e80>
 
 
 
@@ -216,7 +216,7 @@ Counterflow always beats parallel flow; parallel flow can never exceed
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.089 seconds)
+   **Total running time of the script:** (0 minutes 0.171 seconds)
 
 
 .. _sphx_glr_download_api_gallery_heat_transfer_exchangers_plot_01_kays_london_ntu.py:

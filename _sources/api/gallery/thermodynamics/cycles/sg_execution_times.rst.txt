@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.612** total execution time for 6 files **from api/gallery/thermodynamics/cycles**:
+**00:01.628** total execution time for 6 files **from api/gallery/thermodynamics/cycles**:
 
 .. container::
 
@@ -33,20 +33,20 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_thermodynamics_cycles_plot_02_rankine_cycle.py` (``plot_02_rankine_cycle.py``)
-     - 00:00.253
+     - 00:00.928
      - 0.0
    * - :ref:`sphx_glr_api_gallery_thermodynamics_cycles_plot_04_otto_cycle.py` (``plot_04_otto_cycle.py``)
-     - 00:00.100
+     - 00:00.186
      - 0.0
    * - :ref:`sphx_glr_api_gallery_thermodynamics_cycles_plot_05_diesel_cycle.py` (``plot_05_diesel_cycle.py``)
-     - 00:00.079
+     - 00:00.158
      - 0.0
    * - :ref:`sphx_glr_api_gallery_thermodynamics_cycles_plot_01_carnot_efficiency.py` (``plot_01_carnot_efficiency.py``)
-     - 00:00.062
+     - 00:00.123
      - 0.0
    * - :ref:`sphx_glr_api_gallery_thermodynamics_cycles_plot_03_brayton_cycle.py` (``plot_03_brayton_cycle.py``)
-     - 00:00.059
+     - 00:00.118
      - 0.0
    * - :ref:`sphx_glr_api_gallery_thermodynamics_cycles_plot_06_curzon_ahlborn.py` (``plot_06_curzon_ahlborn.py``)
-     - 00:00.059
+     - 00:00.115
      - 0.0
