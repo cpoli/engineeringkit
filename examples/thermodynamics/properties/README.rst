@@ -1,4 +1,4 @@
 Properties
 ----------
 
-Equations of state, vapour pressure and the properties of water and steam.
+Equations of state, ideal-gas mixtures, vapour pressure and the properties of water, steam and refrigerants.

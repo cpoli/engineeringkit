@@ -1,9 +1,10 @@
 """Result containers for engineeringkit.electrical_engineering.
 
 Most circuit models are closed-form relations that return plain floats,
-complex numbers or arrays. The three solvers that produce structured output
-(a transient response, a nodal analysis and a load flow) return the frozen
-dataclasses below, each with ``summary()`` and ``plot()``.
+complex numbers or arrays. The solvers that produce structured output (a
+transient response, a nodal or mesh analysis, a load flow and a swing
+curve) return the frozen dataclasses below, each with ``summary()`` and
+``plot()``.
 """
 
 from __future__ import annotations
@@ -12,7 +13,7 @@ from dataclasses import dataclass
 
 import numpy as np
 
-__all__ = ["CircuitResult", "NodalResult", "LoadFlowResult"]
+__all__ = ["CircuitResult", "NodalResult", "MeshResult", "LoadFlowResult", "SwingResult"]
 
 
 @dataclass(frozen=True)
@@ -76,8 +77,41 @@ class NodalResult:
 
 
 @dataclass(frozen=True)
+class MeshResult:
+    """Output of :func:`engineeringkit.electrical_engineering.mesh_analysis`."""
+
+    mesh_currents: np.ndarray
+    """ndarray: Clockwise current in each mesh [A], index 0 is mesh 1."""
+
+    resistor_currents: np.ndarray
+    """ndarray: Current in each resistor in the clockwise sense of its first mesh [A]."""
+
+    kvl_residual: float
+    """float: Largest net voltage around any mesh [V]; zero up to rounding."""
+
+    def summary(self) -> dict:
+        """Number of meshes, largest mesh current magnitude [A] and the KVL residual [V]."""
+        return {
+            "meshes": int(self.mesh_currents.size),
+            "max_current": float(np.max(np.abs(self.mesh_currents))),
+            "kvl_residual": float(self.kvl_residual),
+        }
+
+    def plot(self, ax=None):
+        """Bar chart of mesh currents; return ``(fig, ax)``."""
+        import matplotlib.pyplot as plt
+
+        if ax is None:
+            _, ax = plt.subplots()
+        ax.bar(np.arange(1, self.mesh_currents.size + 1), self.mesh_currents)
+        ax.set(xlabel="mesh", ylabel="mesh current [A]")
+        return ax.figure, ax
+
+
+@dataclass(frozen=True)
 class LoadFlowResult:
-    """Output of :func:`engineeringkit.electrical_engineering.gauss_seidel_load_flow`.
+    """Output of :func:`engineeringkit.electrical_engineering.gauss_seidel_load_flow` and
+    :func:`engineeringkit.electrical_engineering.newton_raphson_load_flow`.
 
     All quantities are per unit on the system base.
     """
@@ -89,13 +123,13 @@ class LoadFlowResult:
     """ndarray of complex: Net complex power injected at each bus, :math:`S_i = V_i I_i^*`."""
 
     iterations: int
-    """int: Gauss-Seidel sweeps performed."""
+    """int: Gauss-Seidel sweeps or Newton-Raphson steps performed."""
 
     converged: bool
-    """bool: Whether the largest voltage update fell below the tolerance."""
+    """bool: Whether the convergence measure in ``history`` fell below the tolerance."""
 
     history: np.ndarray
-    """ndarray: Largest voltage update in each sweep."""
+    """ndarray: Largest voltage update in each Gauss-Seidel sweep, or largest power mismatch before each Newton step."""
 
     @property
     def losses(self) -> complex:
@@ -120,4 +154,44 @@ class LoadFlowResult:
             _, ax = plt.subplots()
         ax.bar(np.arange(self.voltages.size), np.abs(self.voltages))
         ax.set(xlabel="bus", ylabel="voltage magnitude [pu]")
+        return ax.figure, ax
+
+
+@dataclass(frozen=True)
+class SwingResult:
+    """Output of :func:`engineeringkit.electrical_engineering.swing_response`."""
+
+    t: np.ndarray
+    """ndarray: Time samples [s]."""
+
+    delta: np.ndarray
+    """ndarray: Rotor angle against the infinite bus at each sample [rad]."""
+
+    speed_deviation: np.ndarray
+    """ndarray: Rotor speed above synchronous speed at each sample [rad/s, electrical]."""
+
+    clearing_time: float
+    """float: Time at which the fault is cleared [s]."""
+
+    max_stable_angle: float
+    """float: Unstable equilibrium :math:`\\pi - \\arcsin(P_m/P_{max,post})` of the post-fault curve [rad]."""
+
+    @property
+    def stable(self) -> bool:
+        """Whether the rotor angle stays below the post-fault unstable equilibrium (first swing)."""
+        return bool(np.max(self.delta) < self.max_stable_angle)
+
+    def summary(self) -> dict:
+        """First-swing stability, largest rotor angle [rad] and clearing time [s]."""
+        return {"stable": self.stable, "max_delta": float(np.max(self.delta)), "clearing_time": float(self.clearing_time)}
+
+    def plot(self, ax=None):
+        """Plot the swing curve, rotor angle in degrees against time; return ``(fig, ax)``."""
+        import matplotlib.pyplot as plt
+
+        if ax is None:
+            _, ax = plt.subplots()
+        ax.plot(self.t, np.degrees(self.delta))
+        ax.axvline(self.clearing_time, color="gray", ls="--", lw=0.8)
+        ax.set(xlabel="time [s]", ylabel="rotor angle [deg]")
         return ax.figure, ax

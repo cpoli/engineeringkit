@@ -33,3 +33,24 @@ def test_plot_atmosphere_returns_three_axes():
     assert len(axes) == 3
     fig, axes = state.plot()
     assert axes[0].figure is fig
+
+
+def test_new_result_plots_and_summaries():
+    from engineeringkit.aerodynamics import fanno_flow, lifting_line, oblique_shock, panel_method, rayleigh_flow
+    from engineeringkit.aerodynamics.visualizers import plot_theta_beta_mach
+
+    shock = oblique_shock(2.5, np.radians(12.0))
+    fig, ax = shock.plot()
+    assert ax.figure is fig and shock.summary()["mach2"] == shock.mach2
+    assert isinstance(plot_theta_beta_mach([1.5, 3.0]), matplotlib.axes.Axes)
+    M = np.linspace(0.3, 3.0, 50)
+    for state in (fanno_flow(M), rayleigh_flow(M)):
+        fig, ax = state.plot()
+        assert ax.figure is fig
+        assert state.summary()["mach"] == M[0]
+    wing = lifting_line(8.0, 1.0, 0.1)
+    fig, ax = wing.plot()
+    assert ax.figure is fig and wing.summary()["CL"] == wing.CL
+    panels = panel_method(naca4_airfoil("2412", 41), 0.05)
+    fig, ax = panels.plot()
+    assert ax.figure is fig and panels.summary()["panels"] == 80

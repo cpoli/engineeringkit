@@ -1,4 +1,4 @@
 Rotordynamics
 -------------
 
-Unbalanced rotors and critical speeds.
+Unbalanced rotors, critical speeds and balancing.

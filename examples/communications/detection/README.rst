@@ -1,4 +1,4 @@
 Detection
 ---------
 
-Bit-error rates of coherent BPSK and QPSK in Gaussian noise.
+The matched filter, and error rates of coherent BPSK, QPSK, M-PSK and M-QAM in Gaussian noise.

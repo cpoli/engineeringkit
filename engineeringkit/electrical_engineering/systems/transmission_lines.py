@@ -176,7 +176,8 @@ def distortionless_condition(R_per_m, L_per_m, G_per_m, C_per_m, rtol=1e-9):
     """
     _nonnegative(R_per_m=R_per_m, G_per_m=G_per_m, rtol=rtol)
     _positive(L_per_m=L_per_m, C_per_m=C_per_m)
-    return bool(np.isclose(R_per_m * C_per_m, G_per_m * L_per_m, rtol=rtol, atol=0))
+    distortionless = np.isclose(np.multiply(R_per_m, C_per_m), np.multiply(G_per_m, L_per_m), rtol=rtol, atol=0)
+    return bool(distortionless) if distortionless.ndim == 0 else distortionless
 
 
 def reflection_coefficient(z_load, z0):

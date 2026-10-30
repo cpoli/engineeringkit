@@ -31,6 +31,7 @@ __all__ = [
     "fin_parameter",
     "fin_efficiency_adiabatic",
     "fin_heat_rate_adiabatic",
+    "fin_heat_rate_convective_tip",
     "conduction_1d",
 ]
 
@@ -442,6 +443,69 @@ def fin_heat_rate_adiabatic(h, P, k, Ac, L, Tb, Tinf):
     _nonnegative(L=L, Tb=Tb, Tinf=Tinf)
     m = fin_parameter(h, P, k, Ac)
     return np.sqrt(h * P * k * Ac) * (Tb - Tinf) * np.tanh(m * L)
+
+
+def fin_heat_rate_convective_tip(h, P, k, Ac, L, Tb, Tinf, h_tip=None):
+    r"""Heat rate of a straight fin whose tip also loses heat by convection.
+
+    .. math::
+
+        \dot Q = \sqrt{hPkA_c}\,(T_b - T_\infty)\,
+        \frac{\sinh mL + (h_{tip}/mk)\cosh mL}{\cosh mL + (h_{tip}/mk)\sinh mL}
+
+    Parameters
+    ----------
+    h : float
+        Convection coefficient on the fin sides [W/(m^2 K)], positive.
+    P : float
+        Fin perimeter [m], positive.
+    k : float
+        Fin conductivity [W/(m K)], positive.
+    Ac : float
+        Cross-sectional area [m^2], positive.
+    L : float or array_like
+        Fin length [m], nonnegative.
+    Tb : float
+        Base temperature [K].
+    Tinf : float
+        Surrounding fluid temperature [K].
+    h_tip : float, optional
+        Convection coefficient on the tip face [W/(m^2 K)], nonnegative;
+        ``None`` takes it equal to ``h``. Zero gives the adiabatic tip.
+
+    Returns
+    -------
+    float or ndarray
+        Heat rate leaving the base [W]. At ``L = 0`` it is the bare
+        :math:`h_{tip}A_c(T_b - T_\infty)`.
+
+    Notes
+    -----
+    Inputs are raw SI numbers with no dimensional metadata; see
+    :doc:`/guides/heat_transfer`. The adiabatic formula
+    (:func:`fin_heat_rate_adiabatic`) with Harper and Brown's corrected
+    length :math:`L + A_c/P` approximates this one closely when
+    :math:`hA_c/(kP) \lesssim 0.0625`.
+
+    References
+    ----------
+    D. R. Harper and W. B. Brown, "Mathematical equations for heat
+    conduction in the fins of air-cooled engines," NACA Report 158 (1922).
+
+    Examples
+    --------
+    >>> round(float(fin_heat_rate_convective_tip(25.0, 0.04, 200.0, 5e-5, 0.1, 400.0, 300.0)), 3)
+    7.668
+    """
+    _finite(L=L, Tb=Tb, Tinf=Tinf)
+    _positive(h=h)
+    _nonnegative(L=L, Tb=Tb, Tinf=Tinf)
+    h_tip = h if h_tip is None else h_tip
+    _nonnegative(h_tip=h_tip)
+    m = fin_parameter(h, P, k, Ac)
+    ratio = h_tip / (m * k)
+    mL = m * np.asarray(L, dtype=float)
+    return np.sqrt(h * P * k * Ac) * (Tb - Tinf) * (np.sinh(mL) + ratio * np.cosh(mL)) / (np.cosh(mL) + ratio * np.sinh(mL))
 
 
 _THETA = {"explicit": 0.0, "crank_nicolson": 0.5, "implicit": 1.0}

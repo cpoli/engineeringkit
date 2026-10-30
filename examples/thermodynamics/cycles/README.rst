@@ -1,4 +1,4 @@
 Cycles
 ------
 
-Heat engines: Carnot's bound and the idealized cycles of real engines.
+Heat engines: Carnot's bound, the idealized cycles of real engines and power plants analysed state by state.

@@ -18,12 +18,15 @@ categories and descriptions. A builder hook creates `_generated/vars.rst`,
 category grids, individual hub pages and per-domain cross-link strips. All generated
 source is ignored by git. API and history pages include the same cross-link strip.
 
-Scripts live in `examples/<domain>/plot_<domain>_models.py`, with a `README.rst`
-header for each domain. Sphinx-Gallery runs the scripts and produces
-`source/api/gallery/<domain>/`, including figures, thumbnails, downloadable Python
-files and notebooks. History pages use `minigallery` links to those scripts.
-Failures abort the build. The twelve domain galleries contain 24 scripts demonstrating representative
-models; they do not yet walk through every public API feature.
+Scripts live in `examples/<domain>/<topic>/plot_NN_<breakthrough>.py`, with a
+`README.rst` header for each domain and each topic subsection. Sphinx-Gallery runs
+the scripts and produces `source/api/gallery/<domain>/`, including figures,
+thumbnails, downloadable Python files and notebooks. Each history page lists at
+least 15 dated breakthroughs, and each breakthrough uses `minigallery` links to its
+own scripts; every script is titled after its breakthrough, ends in a check of the
+result it illustrates and is linked from exactly one breakthrough
+(`engineeringkit/tests/test_history_conventions.py` enforces the linking).
+Failures abort the build. The twelve domain galleries contain 213 scripts.
 
 The PyData theme, grouped Sphinx-Design cards, NumPy docstrings, viewcode,
 autodoc type descriptions and domain-first navigation follow MathematicsKit.
@@ -44,9 +47,9 @@ engineeringkit from PyPI, so they need a published release.
 
 ```bash
 python -m pip install -e '.[docs]'
-MPLBACKEND=Agg python -m sphinx -E -W --keep-going -b html docs/source docs/_build/html
+cd docs && make html
 ```
 
-Open `docs/_build/html/index.html`. The offline documentation archive places
+Open `docs/build/html/index.html`. The offline documentation archive places
 `index.html` at its root; extract the entire archive before opening it so CSS,
 JavaScript, plots and downloadable examples remain available.

@@ -1,4 +1,4 @@
 Pumps
 -----
 
-Pump power and cavitation.
+Turbomachine head, pump power and cavitation.

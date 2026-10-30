@@ -52,3 +52,10 @@ def test_result_plots_return_figure_and_axes():
     fig, ax = growth.plot()
     assert ax.get_ylabel() == "crack length [mm]"
     plt.close("all")
+
+
+def test_laminate_plot_draws_one_band_per_ply():
+    lam = m.classical_laminate(140e9, 10e9, 0.3, 5e9, np.radians([0, 90, 90, 0]), 0.125e-3)
+    fig, ax = lam.plot()
+    assert ax.figure is fig and len(ax.collections) == 4 and ax.get_ylabel() == "z [mm]"
+    plt.close("all")

@@ -1,4 +1,4 @@
 Conduction
 ----------
 
-Fourier's law, thermal resistances, fins and finite-difference conduction.
+Fourier's law, thermal resistances, shape factors, fins and finite-difference conduction in one and two dimensions.

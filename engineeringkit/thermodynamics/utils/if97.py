@@ -1,9 +1,9 @@
-r"""IAPWS-IF97 basic equations for regions 1 to 4, in reduced variables.
+r"""IAPWS-IF97 basic equations for regions 1 to 5, in reduced variables.
 
 The coefficients are those of the IAPWS release (Lucerne 2007 revision of
 the 1997 formulation): region 1 is compressed liquid, region 2 superheated
-vapour, region 3 the near-critical fluid and region 4 the saturation line.
-Regions 1 and 2 are dimensionless Gibbs free energies
+vapour, region 3 the near-critical fluid, region 4 the saturation line and
+region 5 the high-temperature steam of gas turbines. Regions 1, 2 and 5 are dimensionless Gibbs free energies
 :math:`\gamma(\pi, \tau)` and region 3 a dimensionless Helmholtz free
 energy :math:`\phi(\delta, \tau)`; every property follows from the
 function and its derivatives. Pressures are in MPa and temperatures in
@@ -24,6 +24,7 @@ __all__ = [
     "region2",
     "region3",
     "region3_density",
+    "region5",
     "saturation_pressure_mpa",
     "saturation_temperature_k",
     "b23_pressure_mpa",
@@ -192,6 +193,28 @@ _R3 = np.array(
     ]
 )
 
+# Region 5 (Tables 37 and 38 of the 2007 revision, valid to 50 MPa): ideal part J0, n0; residual I, J, n.
+_R5_IDEAL = np.array(
+    [
+        (0, -0.13179983674201e2),
+        (1, 0.68540841634434e1),
+        (-3, -0.24805148933466e-1),
+        (-2, 0.36901534980333),
+        (-1, -0.31161318213925e1),
+        (2, -0.32961626538917),
+    ]
+)
+_R5_RES = np.array(
+    [
+        (1, 1, 0.15736404855259e-2),
+        (1, 2, 0.90153761673944e-3),
+        (1, 3, -0.50270077677648e-2),
+        (2, 3, 0.22440037409485e-5),
+        (2, 9, -0.41163275453471e-5),
+        (3, 7, 0.37919454822955e-7),
+    ]
+)
+
 # Region 4 saturation line (Table 34): n1 ... n10.
 _R4 = np.array(
     [
@@ -279,6 +302,35 @@ def region2(T, p_mpa):
     g_p = 1.0 / pi + np.sum(n * I * P ** (I - 1) * t**J, axis=-1)
     g_t = np.sum(n0 * J0 * t0 ** (J0 - 1), axis=-1) + np.sum(n * P**I * J * t ** (J - 1), axis=-1)
     g_tt = np.sum(n0 * J0 * (J0 - 1) * t0 ** (J0 - 2), axis=-1) + np.sum(n * P**I * J * (J - 1) * t ** (J - 2), axis=-1)
+    return _props(T, p_mpa, g, g_p, g_t, g_tt, pi, tau)
+
+
+def region5(T, p_mpa):
+    """Region 5 (high-temperature steam) properties from the IF97 Gibbs function.
+
+    Parameters
+    ----------
+    T : float or array_like
+        Temperature [K], 1073.15 K to 2273.15 K.
+    p_mpa : float or array_like
+        Pressure [MPa], positive and at most 50 MPa.
+
+    Returns
+    -------
+    dict of ndarray
+        Specific volume ``v`` [m^3/kg], enthalpy ``h`` [J/kg], internal
+        energy ``u`` [J/kg], entropy ``s`` [J/(kg K)] and isobaric heat
+        capacity ``cp`` [J/(kg K)], broadcast over ``T`` and ``p_mpa``.
+    """
+    T, p_mpa = np.broadcast_arrays(np.asarray(T, dtype=float), np.asarray(p_mpa, dtype=float))
+    pi, tau = p_mpa / 1.0, 1000.0 / T
+    J0, n0 = _R5_IDEAL[:, 0], _R5_IDEAL[:, 1]
+    I, J, n = _R5_RES[:, 0], _R5_RES[:, 1], _R5_RES[:, 2]
+    t, P = tau[..., None], pi[..., None]
+    g = np.log(pi) + np.sum(n0 * t**J0, axis=-1) + np.sum(n * P**I * t**J, axis=-1)
+    g_p = 1.0 / pi + np.sum(n * I * P ** (I - 1) * t**J, axis=-1)
+    g_t = np.sum(n0 * J0 * t ** (J0 - 1), axis=-1) + np.sum(n * P**I * J * t ** (J - 1), axis=-1)
+    g_tt = np.sum(n0 * J0 * (J0 - 1) * t ** (J0 - 2), axis=-1) + np.sum(n * P**I * J * (J - 1) * t ** (J - 2), axis=-1)
     return _props(T, p_mpa, g, g_p, g_t, g_tt, pi, tau)
 
 

@@ -9,14 +9,16 @@ for the heat equation that was both stable and accurate. The explicit scheme is 
 always stable but only first order in time. Averaging the two, they got an
 unconditionally stable, second-order method
 (:func:`~engineeringkit.heat_transfer.conduction_1d`). This example measures
-the order of each scheme and watches the explicit one blow up.
+the order of each scheme, watches the explicit one blow up, and closes with
+the steady two-dimensional problem the same finite differences solve
+(:func:`~engineeringkit.heat_transfer.conduction_2d`).
 """
 
 # %%
 import matplotlib.pyplot as plt
 import numpy as np
 
-from engineeringkit.heat_transfer import conduction_1d
+from engineeringkit.heat_transfer import conduction_1d, conduction_2d
 
 # %%
 # A decaying sine mode
@@ -85,5 +87,33 @@ axes[1].plot(x * 1e3, crank.T[-1], label="Crank-Nicolson")
 axes[1].set(xlabel="position [mm]", ylabel="temperature [K]", title=f"After 110 steps at r = {explicit.mesh_fourier:.1f}")
 axes[1].legend()
 fig.tight_layout()
+
+# %%
+# Steady conduction in two dimensions
+# -----------------------------------
+#
+# Without time, the five-point stencil turns Laplace's equation into one
+# sparse linear system. A 2 m by 1 m plate with three edges at 300 K and the
+# top at 400 K has a Fourier-series solution (Incropera et al., eq. 4.19) to
+# check the centre against; the error falls as :math:`\Delta x^2`, and the
+# heat entering through the top leaves through the other three edges.
+
+
+def series(xc, yc, width=2.0, height=1.0):
+    n = np.arange(1, 400, 2)
+    return 300 + 100 * 4 / np.pi * np.sum(
+        np.sin(n * np.pi * xc / width) * np.sinh(n * np.pi * yc / width) / (n * np.sinh(n * np.pi * height / width))
+    )
+
+
+errors = []
+for nodes in (11, 21, 41):
+    plate = conduction_2d(2.0, 1.0, 2 * nodes - 1, nodes, 300.0, 300.0, 300.0, 400.0, k=15.0)
+    errors.append(abs(plate.T[(nodes - 1) // 2, nodes - 1] - series(1.0, 0.5)))
+print(f"centre error {errors[0]:.4f}, {errors[1]:.4f}, {errors[2]:.5f} K: ratios {errors[0] / errors[1]:.2f}, {errors[1] / errors[2]:.2f}")
+print(f"edge heat rates [W/m]: {', '.join(f'{edge} {rate:.0f}' for edge, rate in plate.heat_rates.items())}")
+assert 3.6 < errors[1] / errors[2] < 4.4 and abs(plate.summary()["imbalance_W_per_m"]) < 1e-8
+fig, ax = plate.plot()
+ax.set_title("Steady 2-D conduction, top edge at 400 K")
 
 plt.show()

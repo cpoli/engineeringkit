@@ -1,5 +1,6 @@
 """MathematicsKit-style domain hubs, cross-links and executed example galleries."""
 
+import os
 import sys
 from pathlib import Path
 
@@ -15,6 +16,7 @@ extensions = [
     "sphinx.ext.mathjax",
     "sphinx.ext.doctest",
     "sphinx.ext.viewcode",
+    "sphinx.ext.extlinks",
     "sphinx_autodoc_typehints",
     "sphinx_gallery.gen_gallery",
     "sphinx_design",
@@ -66,6 +68,14 @@ html_js_files = [
 ]
 html_logo = "_static/images/engineeringkit_logo_transparent.png"
 html_theme_options = {
+    "icon_links": [
+        {
+            "name": "Charles Poli",
+            "url": "https://cpoli.github.io/",
+            "icon": "fa-solid fa-user",
+            "type": "fontawesome",
+        },
+    ],
     "navbar_end": ["theme-switcher", "navbar-icon-links"],
     "show_toc_level": 2,
     "navigation_with_keys": True,
@@ -74,60 +84,69 @@ html_theme_options = {
         "alt_text": "engineeringkit logo",
     },
 }
-exclude_patterns = ["_build", "_generated/nav/*", "_generated/grid_*.rst", "_generated/vars.rst"]
+exclude_patterns = ["_build", "build", "_generated/nav/*", "_generated/grid_*.rst", "_generated/vars.rst"]
 
 SUBPACKAGES = [
     {
         "name": "structural_engineering",
         "category": "Structures and Machines",
-        "blurb": "Axial and torsional members, beams, columns, Mohr's circle, energy methods, trusses, plastic collapse and frames.",
+        "blurb": (
+            "Members, sections, beams on any supports, columns, stress and strain at a point, "
+            "pressure vessels, energy methods, trusses, frames, cables and arches."
+        ),
     },
     {
         "name": "mechanical_engineering",
         "category": "Structures and Machines",
-        "blurb": "Rigid-body motion, gears, mechanisms and inspectable vibration histories.",
+        "blurb": "Rigid-body motion, Lagrange's equations, machine elements, mechanisms, cams and multi-degree-of-freedom vibration.",
     },
     {
         "name": "thermodynamics",
         "category": "Energy and Flow",
-        "blurb": "Ideal and real gases, the two laws, engine and refrigeration cycles, exergy, steam properties and psychrometrics.",
+        "blurb": (
+            "Ideal and real gases, mixtures, the two laws, steady-flow devices, engine and refrigeration cycles, "
+            "exergy, steam properties, psychrometrics and combustion."
+        ),
     },
     {
         "name": "fluid_engineering",
         "category": "Energy and Flow",
-        "blurb": "Hydrostatics, flow measurement, pipe friction, similarity, open channels, water hammer, pumps and networks.",
+        "blurb": "Hydrostatics, flow measurement, momentum, pipe friction, drag, similarity, open channels, pumps and networks.",
     },
     {"name": "heat_transfer", "category": "Energy and Flow", "blurb": "Conduction, convection, radiation, fins and heat exchangers."},
     {"name": "aerodynamics", "category": "Energy and Flow", "blurb": "Airfoil and wing baselines, drag polars and compressible flow."},
     {
         "name": "electrical_engineering",
         "category": "Circuits, Signals and Control",
-        "blurb": "DC and AC circuits, transients, RLC resonance and electrical power.",
+        "blurb": "DC and AC circuits, transients, electronics, machines and power systems.",
     },
     {
         "name": "control_systems",
         "category": "Circuits, Signals and Control",
-        "blurb": "Classical stability, PID responses, state feedback, LQR and estimation.",
+        "blurb": "Classical stability, compensator design, PID with anti-windup, nonlinear loops, state feedback, LQR and estimation.",
     },
     {
         "name": "signal_processing",
         "category": "Circuits, Signals and Control",
-        "blurb": "Sampling and quantization, the FFT, spectral estimation, digital, optimal and adaptive filters, and wavelets.",
+        "blurb": "Sampling and rate conversion, the FFT and DCT, spectra and AR models, IIR and FIR design, adaptive filters.",
     },
     {
         "name": "communications",
         "category": "Circuits, Signals and Control",
-        "blurb": "Modulation, noise, channel capacity, detection and link budgets.",
+        "blurb": "Modulation and pulse shaping, noise, capacity, detection, PCM, source and channel coding, fading and link budgets.",
     },
     {
         "name": "materials",
         "category": "Materials and Reliability",
-        "blurb": "Elastic constants, yield criteria, composites, fatigue, fracture, creep and dislocation plasticity.",
+        "blurb": (
+            "Crystals and diffusion, elastic constants, hardness, yield criteria, composites and "
+            "laminates, fatigue and notches, fracture, creep and dislocation plasticity."
+        ),
     },
     {
         "name": "reliability",
         "category": "Materials and Reliability",
-        "blurb": "Lifetime distributions, redundancy, structural reliability, fault and event trees, availability and replacement.",
+        "blurb": "Lifetimes and life data, accelerated testing, networks, structural reliability, FMEA, fault trees and maintenance.",
     },
 ]
 
@@ -162,6 +181,9 @@ sphinx_gallery_conf = {
         "use_jupyter_lab": True,
         "notebook_modification_function": _jupyterlite_install_cell,
     },
+    # Run the examples in one worker process per core; ENGINEERINGKIT_GALLERY_JOBS=1
+    # runs them one at a time in the Sphinx process instead.
+    "parallel": int(os.environ.get("ENGINEERINGKIT_GALLERY_JOBS", os.cpu_count() or 1)),
 }
 
 # The quickstart notebook also ships in the JupyterLite site, so the "Try it
@@ -179,6 +201,28 @@ plot_html_show_source_link = False
 plot_html_show_formats = False
 plot_formats = [("png", 110)]
 plot_pre_code = ""
+
+# :doi:`10.xxxx/yyyy` renders as the plain "doi:10.xxxx/yyyy" text the
+# history pages cite, but as a link, so `make linkcheck` checks it.
+extlinks = {"doi": ("https://doi.org/%s", "doi:%s")}
+
+# make linkcheck (.github/workflows/linkcheck.yml, weekly). linkcheck_ignore
+# matches the URL as written, so a publisher that answers bots with 403 is
+# skipped by its DOI registrant prefix; DOIs from other publishers are
+# followed through doi.org to the article. Anchors on the generated pages
+# are not real headings, so only each page itself is checked.
+linkcheck_ignore = [
+    r"(\.\./)*lite/",  # the JupyterLite site, written by the html build
+    r"https://doi\.org/10\.1002/",  # Wiley
+    r"https://doi\.org/10\.1021/",  # ACS
+    r"https://doi\.org/10\.1061/",  # ASCE
+    r"https://doi\.org/10\.1098/",  # Royal Society
+    r"https://doi\.org/10\.1145/",  # ACM
+]
+linkcheck_anchors = False
+linkcheck_timeout = 30
+linkcheck_retries = 3
+linkcheck_rate_limit_timeout = 120
 
 # The JupyterLite hook above makes sphinx_gallery_conf unpicklable, which only
 # disables Sphinx's config cache.

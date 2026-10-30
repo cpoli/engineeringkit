@@ -59,8 +59,8 @@ jobs:
           python-version: "3.12"
           cache: pip
       - run: pip install -e ".[dev]"
-      # Only the integrators for now; ROADMAP.md item 2 widens this.
-      - run: mypy engineeringkit/integrators --ignore-missing-imports --follow-imports=silent
+      # Settings, including files=["engineeringkit"], are in pyproject.toml.
+      - run: python -m mypy
 
   build:
     name: Build wheel and sdist

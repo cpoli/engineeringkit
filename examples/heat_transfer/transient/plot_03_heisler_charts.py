@@ -9,8 +9,12 @@ induction heating, noticed that after a short time only the first term
 matters, and plotted that term as charts of centre temperature against the
 Fourier number for each Biot number. Generations of students read them with
 a ruler. :func:`~engineeringkit.heat_transfer.plane_wall_transient` sums the
-series (or its first term, ``terms=1``); this example redraws the centre
-chart, measures the one-term error, and times the quench of a steel plate.
+series (or its first term, ``terms=1``), and
+:func:`~engineeringkit.heat_transfer.cylinder_transient` and
+:func:`~engineeringkit.heat_transfer.sphere_transient` do the same for his
+cylinder and sphere charts. This example redraws the centre chart, measures
+the one-term error, times the quench of a steel plate, and compares the
+three shapes.
 """
 
 # %%
@@ -18,7 +22,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from scipy.optimize import brentq
 
-from engineeringkit.heat_transfer import biot_number, fourier_number, plane_wall_transient
+from engineeringkit.heat_transfer import biot_number, cylinder_transient, fourier_number, plane_wall_transient, sphere_transient
 
 # %%
 # The centre-temperature chart
@@ -73,5 +77,34 @@ print(f"Bi = {Bi:.3f}, Fo = {Fo_target:.3f}: the centre reaches 600 K after {t_t
 assert np.isclose(fourier_number(alpha, t_target, L), Fo_target)
 surface = Tinf + (Ti - Tinf) * plane_wall_transient(Fo_target, Bi, 1.0)
 print(f"the surface is then at {surface:.0f} K")
+
+# %%
+# Slab, cylinder and sphere
+# -------------------------
+#
+# A sphere has the most surface per unit volume, a slab the least, so at the
+# same Biot and Fourier numbers (on the half-thickness or radius) the sphere's
+# centre cools first. For small Biot numbers all three become lumped bodies,
+# :math:`\theta = \exp[-(V/A)\,hAt/(\rho c V)]`, which on the radius is
+# :math:`e^{-Bi\,Fo}`, :math:`e^{-2Bi\,Fo}` and :math:`e^{-3Bi\,Fo}`. The
+# example steel ball is a 50 mm bearing ball in the same oil bath.
+
+Bi_small, Fo_long = 0.01, 50.0
+for transient, factor, name in ((plane_wall_transient, 1, "slab"), (cylinder_transient, 2, "cylinder"), (sphere_transient, 3, "sphere")):
+    exact = transient(Fo_long, Bi_small)
+    print(f"{name:8s}: centre {exact:.4f}, lumped {np.exp(-factor * Bi_small * Fo_long):.4f}")
+    assert abs(exact / np.exp(-factor * Bi_small * Fo_long) - 1) < 0.01
+
+Bi_ball = biot_number(h, L, k)
+Fo_ball = brentq(lambda F: sphere_transient(F, Bi_ball) - theta_target, 0.01, 50)
+print(f"a 50 mm ball reaches 600 K at its centre after {Fo_ball * L**2 / alpha:.0f} s, against {t_target:.0f} s for the plate")
+assert Fo_ball < Fo_target
+
+fig, ax = plt.subplots(figsize=(6, 4))
+for transient, name in ((plane_wall_transient, "slab"), (cylinder_transient, "long cylinder"), (sphere_transient, "sphere")):
+    ax.semilogy(Fo, transient(Fo, 1.0, 0.0, terms=200), label=name)
+ax.set(xlabel="Fourier number", ylabel="centre excess temperature", ylim=(1e-3, 1.1), title="Bi = 1: the three Heisler shapes")
+ax.legend()
+fig.tight_layout()
 
 plt.show()

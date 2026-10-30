@@ -1,0 +1,198 @@
+r"""Ideal-gas mixtures: Dalton's law of partial pressures and the entropy of mixing.
+
+Dalton found that each gas in a mixture exerts the pressure it would exert
+alone in the whole volume, so the total pressure is the sum of the partial
+pressures, :math:`p_i = y_i p`. Mixture properties are mole- or
+mass-weighted averages, and mixing two different gases at the same
+temperature and pressure generates entropy :math:`-R\sum y_i \ln y_i` per
+mole.
+"""
+
+from __future__ import annotations
+
+import numpy as np
+
+from engineeringkit._validation import nonnegative as _nonnegative
+from engineeringkit._validation import positive as _positive
+from engineeringkit._validation import vector as _vector
+from engineeringkit.thermodynamics.systems.gases import R_UNIVERSAL
+
+__all__ = ["mole_fractions", "mass_fractions", "mixture_molar_mass", "partial_pressures", "entropy_of_mixing"]
+
+
+def _fractions(name, values):
+    f = _vector(name, values)
+    _nonnegative(**{name: f})
+    if not np.isclose(f.sum(), 1.0, rtol=0, atol=1e-9):
+        raise ValueError(f"{name} must sum to one")
+    return f
+
+
+def _pair(fractions_name, fractions, molar_masses):
+    f = _fractions(fractions_name, fractions)
+    M = _vector("molar_masses", molar_masses)
+    _positive(molar_masses=M)
+    if f.shape != M.shape:
+        raise ValueError(f"{fractions_name} and molar_masses must have the same length")
+    return f, M
+
+
+def mole_fractions(mass_fractions, molar_masses):
+    r"""Mole fractions from mass fractions, :math:`y_i = (x_i/M_i)/\sum_j (x_j/M_j)`.
+
+    Parameters
+    ----------
+    mass_fractions : array_like
+        Mass fraction of each component [-], nonnegative, summing to one.
+    molar_masses : array_like
+        Molar mass of each component [kg/mol], positive, same length.
+
+    Returns
+    -------
+    ndarray
+        Mole fractions [-].
+
+    Notes
+    -----
+    Inputs are raw SI numbers with no dimensional metadata; see
+    :doc:`/guides/thermodynamics`.
+
+    Examples
+    --------
+    >>> mole_fractions([0.5, 0.5], [0.002, 0.032]).round(4).tolist()
+    [0.9412, 0.0588]
+    """
+    x, M = _pair("mass_fractions", mass_fractions, molar_masses)
+    moles = x / M
+    return moles / moles.sum()
+
+
+def mass_fractions(mole_fractions, molar_masses):
+    r"""Mass fractions from mole fractions, :math:`x_i = y_i M_i/\sum_j y_j M_j`.
+
+    Parameters
+    ----------
+    mole_fractions : array_like
+        Mole fraction of each component [-], nonnegative, summing to one.
+    molar_masses : array_like
+        Molar mass of each component [kg/mol], positive, same length.
+
+    Returns
+    -------
+    ndarray
+        Mass fractions [-].
+
+    Notes
+    -----
+    Inputs are raw SI numbers with no dimensional metadata; see
+    :doc:`/guides/thermodynamics`.
+
+    Examples
+    --------
+    >>> mass_fractions([0.79, 0.21], [0.028013, 0.031999]).round(4).tolist()
+    [0.7671, 0.2329]
+    """
+    y, M = _pair("mole_fractions", mole_fractions, molar_masses)
+    return y * M / (y @ M)
+
+
+def mixture_molar_mass(mole_fractions, molar_masses):
+    r"""Apparent molar mass of a mixture, :math:`M = \sum y_i M_i`.
+
+    Parameters
+    ----------
+    mole_fractions : array_like
+        Mole fraction of each component [-], nonnegative, summing to one.
+    molar_masses : array_like
+        Molar mass of each component [kg/mol], positive, same length.
+
+    Returns
+    -------
+    float
+        Molar mass [kg/mol]; the mixture's gas constant is
+        :math:`R_u/M` [J/(kg K)].
+
+    Notes
+    -----
+    Inputs are raw SI numbers with no dimensional metadata; see
+    :doc:`/guides/thermodynamics`.
+
+    Examples
+    --------
+    >>> round(mixture_molar_mass([0.79, 0.21], [0.028013, 0.031999]), 5)
+    0.02885
+    """
+    y, M = _pair("mole_fractions", mole_fractions, molar_masses)
+    return float(y @ M)
+
+
+def partial_pressures(mole_fractions, p):
+    r"""Dalton's partial pressures, :math:`p_i = y_i p`.
+
+    Parameters
+    ----------
+    mole_fractions : array_like
+        Mole fraction of each component [-], nonnegative, summing to one.
+    p : float
+        Total pressure [Pa], positive.
+
+    Returns
+    -------
+    ndarray
+        Partial pressure of each component [Pa], summing to ``p``.
+
+    Notes
+    -----
+    Each component behaves as if it alone filled the volume at the mixture
+    temperature. Inputs are raw SI numbers with no dimensional metadata;
+    see :doc:`/guides/thermodynamics`.
+
+    References
+    ----------
+    J. Dalton, "Experimental essays on the constitution of mixed gases,"
+    *Mem. Lit. Phil. Soc. Manchester* 5 (1802) 535-602.
+
+    Examples
+    --------
+    >>> partial_pressures([0.79, 0.21], 100e3).round(1).tolist()
+    [79000.0, 21000.0]
+    """
+    y = _fractions("mole_fractions", mole_fractions)
+    _positive(p=p)
+    return y * p
+
+
+def entropy_of_mixing(mole_fractions, n=1.0):
+    r"""Entropy generated by mixing ideal gases at equal temperature and pressure, :math:`-nR\sum y_i\ln y_i`.
+
+    Parameters
+    ----------
+    mole_fractions : array_like
+        Mole fraction of each component in the mixture [-], nonnegative,
+        summing to one.
+    n : float, optional
+        Total amount [mol], positive.
+
+    Returns
+    -------
+    float
+        Entropy increase [J/K]; zero for a pure gas, :math:`nR\ln 2` for
+        equal amounts of two gases.
+
+    Notes
+    -----
+    Each gas expands from its own volume into the whole at constant
+    temperature, from :math:`p` to its partial pressure :math:`y_i p`.
+    Mixing a gas with itself generates nothing (Gibbs's paradox). Inputs
+    are raw SI numbers with no dimensional metadata; see
+    :doc:`/guides/thermodynamics`.
+
+    Examples
+    --------
+    >>> round(entropy_of_mixing([0.5, 0.5]), 4)
+    5.7631
+    """
+    y = _fractions("mole_fractions", mole_fractions)
+    _positive(n=n)
+    present = y[y > 0]
+    return float(-n * R_UNIVERSAL * np.sum(present * np.log(present)))

@@ -1,9 +1,12 @@
-r"""Axial and torsional members: Hooke's law, Poisson's ratio and Coulomb's torsion.
+r"""Axial and torsional members: Hooke's law, Poisson's ratio, Coulomb's torsion and Bredt's thin-walled tubes.
 
 A bar of length :math:`L`, area :math:`A` and modulus :math:`E` under axial
 force :math:`P` stretches :math:`\delta = PL/(EA)` and stores
 :math:`U = P^2L/(2EA)`. A circular shaft under torque :math:`T` carries
-shear stress :math:`\tau = Tr/J` and twists :math:`\phi = TL/(GJ)`.
+shear stress :math:`\tau = Tr/J` and twists :math:`\phi = TL/(GJ)`. A closed
+thin-walled tube of any shape carries a constant shear flow
+:math:`q = T/(2A_m)` around its wall, :math:`A_m` being the area enclosed by
+the wall's centreline.
 """
 
 from __future__ import annotations
@@ -23,6 +26,8 @@ __all__ = [
     "poisson_lateral_strain",
     "torsion_shear_stress",
     "torsion_angle",
+    "thin_walled_torsion_shear_stress",
+    "thin_walled_torsion_angle",
 ]
 
 
@@ -233,3 +238,86 @@ def torsion_angle(T, L, G, J):
     _finite(T=T, L=L, G=G, J=J)
     _positive(L=L, G=G, J=J)
     return np.asarray(T) * L / (np.asarray(G) * J)
+
+
+def thin_walled_torsion_shear_stress(T, enclosed_area, t):
+    r"""Shear stress in a closed thin-walled tube, Bredt's first formula :math:`\tau = T/(2A_mt)`.
+
+    The shear flow :math:`q = \tau t = T/(2A_m)` is the same all round the
+    wall, so the stress is largest where the wall is thinnest.
+
+    Parameters
+    ----------
+    T : float or array_like
+        Torque [N m].
+    enclosed_area : float or array_like
+        Area :math:`A_m` enclosed by the centreline of the wall [m^2], positive.
+    t : float or array_like
+        Wall thickness at the point of interest [m], positive.
+
+    Returns
+    -------
+    float or ndarray
+        Shear stress [Pa].
+
+    Notes
+    -----
+    Assumptions, governing equations and validity limits are discussed in
+    :doc:`/guides/structural_engineering`. SI inputs are required; raw numbers carry no
+    dimensional metadata. The wall must be thin compared with the size of
+    the tube and the section free to warp; stress concentrations at
+    re-entrant corners are not included.
+
+    References
+    ----------
+    R. Bredt, "Kritische Bemerkungen zur Drehungselastizität," *Zeitschrift
+    des Vereines deutscher Ingenieure* 40 (1896) 785ff.
+    """
+    _finite(T=T, enclosed_area=enclosed_area, t=t)
+    _positive(enclosed_area=enclosed_area, t=t)
+    return np.asarray(T) / (2 * np.asarray(enclosed_area) * t)
+
+
+def thin_walled_torsion_angle(T, L, G, enclosed_area, ds_over_t):
+    r"""Twist of a closed thin-walled tube, Bredt's second formula.
+
+    .. math::
+
+        \phi = \frac{TL}{4A_m^2G}\oint\frac{ds}{t},
+
+    so the torsion constant is :math:`J = 4A_m^2/\oint ds/t`; for a
+    uniform wall, :math:`\oint ds/t = s/t` with :math:`s` the centreline
+    perimeter.
+
+    Parameters
+    ----------
+    T : float or array_like
+        Torque [N m].
+    L : float or array_like
+        Length [m], positive.
+    G : float or array_like
+        Shear modulus [Pa], positive.
+    enclosed_area : float or array_like
+        Area enclosed by the centreline of the wall [m^2], positive.
+    ds_over_t : float or array_like
+        :math:`\oint ds/t` around the centreline [-], positive.
+
+    Returns
+    -------
+    float or ndarray
+        Angle of twist [rad].
+
+    Notes
+    -----
+    Assumptions, governing equations and validity limits are discussed in
+    :doc:`/guides/structural_engineering`. SI inputs are required; raw numbers carry no
+    dimensional metadata.
+
+    References
+    ----------
+    R. Bredt, "Kritische Bemerkungen zur Drehungselastizität," *Zeitschrift
+    des Vereines deutscher Ingenieure* 40 (1896) 785ff.
+    """
+    _finite(T=T, L=L, G=G, enclosed_area=enclosed_area, ds_over_t=ds_over_t)
+    _positive(L=L, G=G, enclosed_area=enclosed_area, ds_over_t=ds_over_t)
+    return np.asarray(T) * L * ds_over_t / (4 * np.asarray(enclosed_area) ** 2 * G)

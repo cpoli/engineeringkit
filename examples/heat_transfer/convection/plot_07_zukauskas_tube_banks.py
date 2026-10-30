@@ -1,0 +1,88 @@
+r"""
+Žukauskas's tube banks in crossflow (1972)
+==========================================
+
+Boilers, air heaters and the cores of most shell-and-tube exchangers are
+banks of tubes in crossflow. The first rows see the free stream; deeper
+rows sit in the wakes of the ones ahead, whose turbulence raises their heat
+transfer. Algirdas Žukauskas, at the Lithuanian Academy of Sciences in
+Kaunas, gathered decades of his laboratory's measurements on aligned and
+staggered banks into one form, :math:`\bar{Nu} = C_2 C Re_{max}^m Pr^{0.36}
+(Pr/Pr_s)^{1/4}`, with constants for each layout and Reynolds range and a
+correction :math:`C_2` for banks of fewer than 20 rows
+(:func:`~engineeringkit.heat_transfer.zukauskas_nusselt`, with
+:func:`~engineeringkit.heat_transfer.tube_bank_max_velocity`). This example
+sizes an air heater with it and compares the two layouts.
+"""
+
+# %%
+import matplotlib.pyplot as plt
+import numpy as np
+
+from engineeringkit.heat_transfer import churchill_bernstein_nusselt, tube_bank_max_velocity, zukauskas_nusselt
+
+# %%
+# An air heater
+# -------------
+#
+# Air at 15 °C and 6 m/s crosses a staggered bank of 7 rows of 16.4 mm tubes
+# (:math:`S_T = 31.3` mm, :math:`S_L = 34.3` mm) held at 70 °C by
+# condensing steam (Incropera et al., Example 7.7). Air properties at the
+# mean temperature; :math:`Pr_s` at the surface.
+
+D, ST, SL, V, rows = 0.0164, 0.0313, 0.0343, 6.0, 7
+nu, k, Pr, Pr_s = 14.82e-6, 0.0253, 0.710, 0.701
+V_max = tube_bank_max_velocity(V, D, ST, SL, "staggered")
+Re = V_max * D / nu
+Nu = zukauskas_nusselt(Re, Pr, ST, SL, "staggered", rows=rows, Pr_s=Pr_s)
+h = Nu * k / D
+print(f"V_max = {V_max:.2f} m/s, Re = {Re:.0f}, Nu = {Nu:.1f}, h = {h:.1f} W/(m² K)")
+# The book rounds C = 0.35 (S_T/S_L)^0.2 to 0.34 and finds Nu = 87.9 and h = 135.6 W/(m² K).
+assert abs(h / 135.6 - 1) < 0.02
+
+# %%
+# Air temperature through the bank
+# --------------------------------
+#
+# With :math:`N_T` tubes per row, the outlet temperature follows from an
+# energy balance on a log-mean temperature difference,
+# :math:`(T_s - T_o)/(T_s - T_i) = \exp[-\pi DNh/(\rho VN_TS_Tc_p)]`.
+
+rho, cp, Ts, Ti, NT = 1.217, 1007.0, 70.0, 15.0, 8
+N = rows * NT
+To = Ts - (Ts - Ti) * np.exp(-np.pi * D * N * h / (rho * V * NT * ST * cp))
+dT_lm = ((Ts - Ti) - (Ts - To)) / np.log((Ts - Ti) / (Ts - To))
+q = N * h * np.pi * D * dT_lm
+print(f"outlet {To:.1f} °C, heat rate {q / 1000:.1f} kW per metre of tube length")
+assert np.isclose(q, rho * V * NT * ST * cp * (To - Ti), rtol=1e-12)
+
+# %%
+# Deeper banks and the two layouts
+# --------------------------------
+#
+# Each extra row helps less, and beyond 20 the average no longer changes.
+# Both layouts transfer about twice as much as a lone tube in the same
+# stream. At this Reynolds number the aligned bank's coefficient is within a
+# few per cent of the staggered one's; staggering pays at low Reynolds
+# numbers, where the aligned bank's inner rows hide in the wakes of the
+# first.
+
+n_rows = np.arange(1, 25)
+staggered = [zukauskas_nusselt(Re, Pr, ST, SL, "staggered", rows=int(n), Pr_s=Pr_s) for n in n_rows]
+aligned = [zukauskas_nusselt(Re, Pr, ST, SL, "aligned", rows=int(n), Pr_s=Pr_s) for n in n_rows]
+single = churchill_bernstein_nusselt(V * D / nu, Pr)
+low = zukauskas_nusselt(50.0, Pr, ST, SL, "aligned") / zukauskas_nusselt(50.0, Pr, ST, SL, "staggered")
+print(f"20 rows: staggered Nu = {staggered[19]:.1f}, aligned Nu = {aligned[19]:.1f}; single tube {single:.1f}")
+print(f"at Re = 50 the aligned bank reaches {low:.0%} of the staggered one")
+assert staggered[19] == staggered[-1] and abs(aligned[19] / staggered[19] - 1) < 0.06
+assert min(aligned[19], staggered[19]) > 2 * single and low < 0.9
+
+fig, ax = plt.subplots(figsize=(6, 3.8))
+ax.plot(n_rows, staggered, "o-", label="staggered")
+ax.plot(n_rows, aligned, "s-", label="aligned")
+ax.axhline(single, color="gray", ls="--", label="single tube (Churchill-Bernstein)")
+ax.set(xlabel="number of rows", ylabel="average Nusselt number", title=f"Tube bank at Re_max = {Re:.0f}")
+ax.legend()
+fig.tight_layout()
+
+plt.show()

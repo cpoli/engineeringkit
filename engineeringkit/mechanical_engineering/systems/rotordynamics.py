@@ -86,6 +86,9 @@ def jeffcott_response(m, k, e, omega, c=0.0) -> JeffcottResult:
 
     Notes
     -----
+    ``m``, ``k``, ``e`` and ``c`` are scalar-only, since the result describes
+    one rotor; ``omega`` broadcasts.
+
     Gyroscopic effects, internal damping and bearing flexibility are
     neglected. Inputs are raw SI numbers with no dimensional metadata; see
     :doc:`/guides/mechanical_engineering`.

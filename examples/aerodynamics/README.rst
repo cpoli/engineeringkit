@@ -18,10 +18,13 @@ Sections
 - **forces** -- Bernoulli's dynamic pressure, Cayley's lift/drag split,
   Lilienthal's coefficients and the Wrights' correction of Smeaton's coefficient.
 - **circulation** -- the Kutta-Joukowski theorem on a spinning cylinder.
-- **airfoils** -- NACA four-digit sections and thin-airfoil theory.
-- **wings** -- Prandtl's lifting line, induced drag and the Oswald drag polar.
-- **performance** -- the Breguet range equation.
+- **airfoils** -- NACA four-digit sections, thin-airfoil lift and pitching
+  moment, and the Hess-Smith panel method.
+- **wings** -- Prandtl's lifting line, Glauert's Fourier solution, induced
+  drag and the Oswald drag polar.
+- **performance** -- the jet and propeller Breguet range equations.
 - **boundary_layer** -- Reynolds similarity, the Blasius layer and turbulent skin friction.
 - **compressible** -- sound speed, the Mach cone, stagnation states,
-  Prandtl-Glauert, normal shocks and the de Laval nozzle.
+  Prandtl-Glauert, normal and oblique shocks, the Prandtl-Meyer expansion,
+  the de Laval nozzle, and Fanno and Rayleigh duct flow.
 - **atmosphere** -- the International Standard Atmosphere.

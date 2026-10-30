@@ -14,19 +14,50 @@ Breakthroughs in Signal Processing
 Signal processing grew out of the search for hidden periodicities in
 scientific records, and out of the telephone, radio and radar engineering
 of the first half of the twentieth century. Fourier series and the
-periodogram described signals by their frequencies. Analogue filter design
+periodogram described signals by their frequencies, and Chebyshev's
+approximation theory and Hilbert's conjugate functions supplied tools the
+field would need later. Analogue filter design
 and the theory of sampled servomechanisms prepared the ground for digital
 filters, while the war and its aftermath brought optimal filtering,
 quantization and the sampling theorem. In the 1960s cheap computation
-arrived: the fast Fourier transform, adaptive filters, window design and
-the cascaded sections that make recursive filters work in finite
-precision. The entries trace the ideas behind
+arrived: the fast Fourier transform and fast convolution, adaptive
+filters, autoregressive fitting, the cepstrum, digital filter design from
+analog prototypes, window and equiripple FIR design, and the cascaded
+sections that make recursive filters work in finite precision. The early
+1970s added multirate processing and the discrete cosine transform. The entries trace the ideas behind
 :mod:`engineeringkit.signal_processing`. Each links to the implementing
 function and to a gallery example devoted to it.
 
 .. contents:: Timeline
    :local:
    :depth: 1
+
+1854 -- Chebyshev's Equiripple Approximation
+--------------------------------------------
+
+Pafnuty Chebyshev, analysing the error of Watt's parallel-motion linkage,
+asked which polynomial of degree :math:`n` with leading coefficient 1 stays
+closest to zero on an interval. The answer is
+:math:`T_n(x)/2^{n-1}` with :math:`T_n(x) = \cos(n\arccos x)`, whose error
+reaches its maximum :math:`n + 1` times with alternating sign; the
+alternation characterizes every best uniform approximation. Network
+theorists of the 1930s put :math:`T_n` into the squared gain of a filter,
+:math:`1/(1 + \varepsilon^2 T_n^2)`, spreading the passband error evenly
+and buying a steeper cutoff than Butterworth's for the same order. The
+filter application is checked against Oppenheim and Schafer, a textbook.
+
+*Implementation:* :func:`engineeringkit.signal_processing.chebyshev1_lowpass`,
+:func:`engineeringkit.signal_processing.chebyshev2_lowpass` and
+:func:`engineeringkit.signal_processing.iir_order`. The example checks the
+minimax property of :math:`T_n`, the equiripple passband and the order
+saved against Butterworth.
+
+*References:* P. L. Chebyshev, "Théorie des mécanismes connus sous le nom
+de parallélogrammes," *Mém. Acad. Sci. St.-Pétersbourg, Savants étrangers*
+7 (1854) 539-568; A. V. Oppenheim and R. W. Schafer, *Discrete-Time Signal
+Processing*, 3rd ed. (Pearson, 2010), sec. 7.3.
+
+.. minigallery:: ../../examples/signal_processing/filters/plot_07_chebyshev_equiripple.py
 
 1898 -- Schuster's Periodogram
 ------------------------------
@@ -74,6 +105,38 @@ Dublin Math. J.* 3 (1848) 198-201.
 
 .. minigallery:: ../../examples/signal_processing/fourier/plot_01_gibbs_phenomenon.py
 
+1905 -- Hilbert's Conjugate Functions
+-------------------------------------
+
+In the third of his communications on linear integral equations, David
+Hilbert paired a function on the unit circle with its conjugate, the
+boundary values of the real and imaginary parts of a single analytic
+function, through a singular integral with kernel
+:math:`\cot\frac{s-t}{2}`; G. H. Hardy later named the pairing the Hilbert
+transform. On the frequency axis it multiplies by
+:math:`-j\operatorname{sgn}\omega`, a -90° shift of every component.
+Gabor (1946) used it to build the analytic signal
+:math:`x + j\mathcal{H}x`, whose magnitude is the envelope and whose phase
+gives the instantaneous frequency. The date and pages are from the
+Göttingen *Nachrichten* record; that the transform appears there is taken
+from King's monograph, a secondary source.
+
+*Implementation:* :func:`engineeringkit.signal_processing.hilbert_transform`,
+:func:`engineeringkit.signal_processing.analytic_signal`,
+:func:`engineeringkit.signal_processing.envelope`,
+:func:`engineeringkit.signal_processing.instantaneous_frequency` and
+:func:`engineeringkit.signal_processing.hilbert_fir`. The example checks
+the -90° shift, recovers the envelope and sweep of a modulated chirp and
+compares a 61-tap FIR transformer with the FFT method.
+
+*References:* D. Hilbert, "Grundzüge einer allgemeinen Theorie der
+linearen Integralgleichungen (Dritte Mitteilung)," *Nachr. Ges. Wiss.
+Göttingen, Math.-Phys. Kl.* (1905) 307-338; F. W. King, *Hilbert
+Transforms*, vol. 1 (Cambridge University Press, 2009), ch. 1; D. Gabor,
+"Theory of communication," *J. IEE* 93, part III (1946) 429-457.
+
+.. minigallery:: ../../examples/signal_processing/fourier/plot_03_hilbert_analytic_signal.py
+
 1910 -- Haar's Wavelet
 ----------------------
 
@@ -96,6 +159,33 @@ piecewise signal better than a Fourier basis does.
 
 .. minigallery:: ../../examples/signal_processing/wavelets/plot_01_haar_wavelet.py
 
+1927 -- Yule's Autoregressive Model
+-----------------------------------
+
+George Udny Yule doubted that Wolfer's sunspot numbers hid a strict
+periodicity. He pictured instead a pendulum "pelted with peas": a damped
+oscillator kept going by random shocks,
+:math:`x_n = -a_1 x_{n-1} - a_2 x_{n-2} + e_n`, whose cycle drifts in
+phase and amplitude. He fitted the two coefficients from the record's
+correlations and found a period of about ten years. Gilbert Walker (1931)
+wrote the equations for any order. Autoregression replaced the search for
+hidden sines with a model of the process, and its spectrum
+:math:`\sigma^2/|A(e^{j\omega})|^2` is smooth where the periodogram is
+ragged.
+
+*Implementation:* :func:`engineeringkit.signal_processing.yule_walker` and
+:class:`engineeringkit.signal_processing.ARModel`. The example fits a
+disturbed 11-year oscillator and compares the AR spectrum with the
+periodogram and the true spectrum.
+
+*References:* G. U. Yule, "On a method of investigating periodicities in
+disturbed series, with special reference to Wolfer's sunspot numbers,"
+*Phil. Trans. R. Soc. A* 226 (1927) 267-298, :doi:`10.1098/rsta.1927.0007`;
+G. Walker, "On periodicity in series of related terms," *Proc. R. Soc. A*
+131 (1931) 518-532.
+
+.. minigallery:: ../../examples/signal_processing/spectral/plot_07_yule_autoregression.py
+
 1930 -- Butterworth's Maximally Flat Filter
 -------------------------------------------
 
@@ -117,6 +207,30 @@ complementarity of a low-pass and high-pass pair.
 *Wireless Engineer* 7 (1930) 536-541.
 
 .. minigallery:: ../../examples/signal_processing/filters/plot_01_butterworth.py
+
+1931 -- Cauer's Elliptic Filter
+-------------------------------
+
+Wilhelm Cauer, who had studied network synthesis in Göttingen and at MIT,
+asked for the filter with the narrowest transition band for a given order,
+passband ripple and stopband attenuation. His answer used rational
+functions built from Jacobi's elliptic functions, which ripple evenly in
+both bands and put zeros of transmission on the frequency axis just past
+the band edge. *Siebschaltungen* (1931) set out the theory, and his patents
+of the 1930s covered the circuits. Elliptic filters need the lowest order
+of any classical design, at the cost of the most nonlinear phase. The date
+follows the book's VDI-Verlag edition as cited in Cauer's own Swiss patent.
+
+*Implementation:* :func:`engineeringkit.signal_processing.elliptic_lowpass`
+and :func:`engineeringkit.signal_processing.iir_order`. The example meets
+one specification with Butterworth, Chebyshev and elliptic filters, and
+checks the elliptic ripple bounds and its zeros on the unit circle.
+
+*References:* W. Cauer, *Siebschaltungen* (VDI-Verlag, Berlin, 1931);
+W. Cauer, Swiss patent CH 166 337, "Siebschaltung"; W. Cauer, *Synthesis
+of Linear Communication Networks* (McGraw-Hill, New York, 1958).
+
+.. minigallery:: ../../examples/signal_processing/filters/plot_08_cauer_elliptic.py
 
 1934 -- The Wiener-Khinchin Theorem
 -----------------------------------
@@ -322,6 +436,80 @@ Wiener solution, and tracks a sudden change.
 
 .. minigallery:: ../../examples/signal_processing/filters/plot_04_widrow_hoff_lms.py
 
+1960 -- Durbin's Recursion for Autoregressive Fitting
+-----------------------------------------------------
+
+The Yule-Walker equations have a Toeplitz matrix. Norman Levinson had
+solved such systems in 1947 by a recursion on the order, for Wiener's
+filter, and James Durbin recast it for fitting autoregressions: the model
+of order :math:`m` is that of order :math:`m-1` plus a correction weighted
+by a reflection coefficient :math:`k_m`, and the prediction error shrinks
+by :math:`1 - k_m^2`. The recursion costs :math:`p^2` operations instead of
+:math:`p^3`, yields every lower order on the way, and :math:`|k_m| < 1`
+guarantees a stable model. Linear predictive coding of speech, and the
+lattice filters built from reflection coefficients, rest on it.
+
+*Implementation:* :func:`engineeringkit.signal_processing.levinson_durbin`.
+The example checks the recursion against a direct Toeplitz solve, watches
+the prediction error flatten at the true order and compares the cost with
+elimination.
+
+*References:* J. Durbin, "The fitting of time-series models," *Rev. Int.
+Stat. Inst.* 28 (1960) 233-244, :doi:`10.2307/1401322`; N. Levinson, "The
+Wiener RMS (root mean square) error criterion in filter design and
+prediction," *J. Math. Phys.* 25 (1947) 261-278.
+
+.. minigallery:: ../../examples/signal_processing/spectral/plot_08_levinson_durbin.py
+
+1963 -- Bogert, Healy and Tukey's Cepstrum
+------------------------------------------
+
+To measure the depth of an earthquake, seismologists look for the echo of
+a wave off the Earth's surface. An echo multiplies the spectrum by
+:math:`1 + \alpha e^{-j\omega d}`, which puts a periodic ripple of
+"frequency" :math:`d` into the log spectrum. Bruce Bogert, Michael Healy
+and John Tukey took the spectrum of the log spectrum and found the echo as
+a peak at its delay. Their paper's title shows the vocabulary they coined
+by reversing letters: cepstrum, quefrency, alanysis, liftering. Taking
+logarithms turns a convolution into a sum, which later made the cepstrum
+the standard tool for separating pitch from the vocal tract in speech.
+
+*Implementation:* :func:`engineeringkit.signal_processing.real_cepstrum`.
+The example finds a 37 ms echo at height :math:`\alpha/2` and the pitch
+period of a pulse train through a resonance.
+
+*References:* B. P. Bogert, M. J. R. Healy and J. W. Tukey, "The quefrency
+alanysis of time series for echoes: cepstrum, pseudo-autocovariance,
+cross-cepstrum and saphe cracking," in M. Rosenblatt (ed.), *Proceedings
+of the Symposium on Time Series Analysis* (Wiley, New York, 1963) 209-243.
+
+.. minigallery:: ../../examples/signal_processing/spectral/plot_09_bogert_healy_tukey_cepstrum.py
+
+1964 -- Golden and Kaiser's Bilinear Design with Prewarping
+-----------------------------------------------------------
+
+Analog filter design had decades of tables and formulas behind it. Roger
+Golden and James Kaiser of Bell Laboratories carried them into sampled
+data with the bilinear substitution
+:math:`s = K(1 - z^{-1})/(1 + z^{-1})`, which maps the left half
+:math:`s`-plane into the unit circle, so stable analog filters stay stable
+and their equiripple or maximally flat character survives. The frequency
+axis is warped, :math:`\Omega = K\tan(\omega/2)`, so they designed the
+analog prototype at prewarped band edges that the transform carries back
+to the intended ones. Tustin (1947) had used the same substitution for
+sampled control loops. Authors, title and date are checked against the
+Bell Labs publication record.
+
+*Implementation:* :func:`engineeringkit.signal_processing.bilinear_transform`
+and :func:`engineeringkit.signal_processing.prewarp_frequency`. The example
+draws the warp, shows a 200 Hz edge landing at 179 Hz without prewarping
+and at 200 Hz with it, and recovers SciPy's digital Butterworth.
+
+*References:* R. M. Golden and J. F. Kaiser, "Design of wideband
+sampled-data filters," *Bell Syst. Tech. J.* 43 (1964) 1533-1546.
+
+.. minigallery:: ../../examples/signal_processing/filters/plot_09_golden_kaiser_bilinear.py
+
 1965 -- Cooley and Tukey's Fast Fourier Transform
 -------------------------------------------------
 
@@ -372,6 +560,31 @@ I0-sinh window function," *Proc. IEEE Int. Symp. Circuits Syst.* (1974)
 
 .. minigallery:: ../../examples/signal_processing/filters/plot_05_kaiser_fir.py
 
+1966 -- Stockham's High-Speed Convolution
+-----------------------------------------
+
+Within a year of the Cooley-Tukey paper, Thomas Stockham of MIT's Project
+MAC showed how to use the FFT for filtering. The product of two DFTs is a
+circular convolution, whose tail wraps round onto its start; zero-padding
+both sequences to :math:`N_x + N_h - 1` samples makes it the linear
+convolution. A long record is cut into blocks, each convolved through the
+FFT, and the overlapping tails are added: overlap-add. The cost per output
+sample grows with the logarithm of the block length instead of the filter
+length, and fast convolution became the way long FIR filters, reverberation
+and correlation are computed.
+
+*Implementation:* :func:`engineeringkit.signal_processing.circular_convolution`
+and :func:`engineeringkit.signal_processing.overlap_add`. The example shows
+time aliasing and its removal by padding, filters a million samples in
+blocks, and shows that zero padding a spectrum interpolates it without
+resolving two close tones.
+
+*References:* T. G. Stockham Jr., "High-speed convolution and
+correlation," *AFIPS Conf. Proc.* 28 (Spring Joint Computer Conference,
+1966) 229-233, :doi:`10.1145/1464182.1464209`.
+
+.. minigallery:: ../../examples/signal_processing/fourier/plot_04_stockham_fast_convolution.py
+
 1967 -- Welch's Averaged Periodogram
 ------------------------------------
 
@@ -416,6 +629,83 @@ dynamic range in digital filters," *Bell Syst. Tech. J.* 49 (1970)
 159-184.
 
 .. minigallery:: ../../examples/signal_processing/filters/plot_06_second_order_sections.py
+
+1972 -- Parks and McClellan's Equiripple FIR Filter
+---------------------------------------------------
+
+Window designs waste length: their worst ripple sits next to the band edge
+and dies away from it. Thomas Parks and his student James McClellan at
+Rice University posed linear-phase FIR design as Chebyshev approximation,
+minimizing the largest weighted error over the passband and stopband
+together. The alternation theorem characterizes the optimum, whose error
+peaks with alternating signs at least :math:`L + 2` times, and Remez's
+exchange algorithm finds those frequencies. Their Fortran program, published
+with Rabiner in 1973, made the design routine; it is still the default
+FIR design in most toolboxes.
+
+*Implementation:* :func:`engineeringkit.signal_processing.equiripple_lowpass`
+and :func:`engineeringkit.signal_processing.equiripple_order`. The example
+beats a Kaiser window of the same length, counts the alternations and sets
+the ratio of the two deviations with the weight.
+
+*References:* T. W. Parks and J. H. McClellan, "Chebyshev approximation
+for nonrecursive digital filters with linear phase," *IEEE Trans. Circuit
+Theory* 19 (1972) 189-194, :doi:`10.1109/TCT.1972.1083419`; J. H. McClellan,
+T. W. Parks and L. R. Rabiner, "A computer program for designing optimum
+FIR linear phase digital filters," *IEEE Trans. Audio Electroacoust.* 21
+(1973) 506-526.
+
+.. minigallery:: ../../examples/signal_processing/filters/plot_10_parks_mcclellan.py
+
+1973 -- Schafer and Rabiner's Digital Interpolation
+---------------------------------------------------
+
+Changing a sampling rate once meant converting to analog and resampling.
+Ronald Schafer and Lawrence Rabiner of Bell Laboratories treated it as
+digital filtering. Inserting :math:`L - 1` zeros between samples raises
+the rate but leaves images of the spectrum, which a low-pass filter of
+gain :math:`L` removes; lowering the rate by :math:`M` needs a low-pass
+filter first, so that nothing aliases when samples are dropped. A
+windowed-sinc interpolator passes the original samples unchanged. The
+paper founded multirate signal processing, from sample-rate converters in
+audio to the filter banks of subband coders.
+
+*Implementation:* :func:`engineeringkit.signal_processing.upsample`,
+:func:`engineeringkit.signal_processing.interpolate`,
+:func:`engineeringkit.signal_processing.downsample` and
+:func:`engineeringkit.signal_processing.decimate`. The example removes the
+images of a fourfold interpolation and shows a 230 Hz interferer folding
+onto 20 Hz unless the signal is decimated.
+
+*References:* R. W. Schafer and L. R. Rabiner, "A digital signal
+processing approach to interpolation," *Proc. IEEE* 61 (1973) 692-702,
+:doi:`10.1109/PROC.1973.9150`.
+
+.. minigallery:: ../../examples/signal_processing/sampling/plot_03_schafer_rabiner_interpolation.py
+
+1974 -- Ahmed, Natarajan and Rao's Discrete Cosine Transform
+------------------------------------------------------------
+
+The Karhunen-Loève transform packs the most energy of a random signal
+into the fewest coefficients, but its basis depends on the signal's
+covariance and has no fast algorithm. Nasir Ahmed, T. Natarajan and
+K. R. Rao proposed a fixed basis of sampled cosines and showed that for a
+first-order Markov process it performs almost as well. The DCT implicitly
+extends the record by its mirror image, so a smooth signal has no jump at
+the ends and its coefficients decay fast, where the DFT's periodic
+extension leaks. Blocks of 8 × 8 DCT coefficients became the core of JPEG
+and MPEG.
+
+*Implementation:* :func:`engineeringkit.signal_processing.dct` and
+:func:`engineeringkit.signal_processing.idct`. The example checks
+orthonormality, compares the energy compaction of the DCT, DFT and KLT, and
+codes a smooth signal with 8 numbers.
+
+*References:* N. Ahmed, T. Natarajan and K. R. Rao, "Discrete cosine
+transform," *IEEE Trans. Comput.* C-23 (1974) 90-93,
+:doi:`10.1109/T-C.1974.223784`.
+
+.. minigallery:: ../../examples/signal_processing/fourier/plot_05_ahmed_natarajan_rao_dct.py
 
 See Also
 --------

@@ -1,4 +1,4 @@
-r"""Energy methods: bending strain energy, Castigliano's theorem and Maxwell-Betti reciprocity.
+r"""Energy methods: bending strain energy, Castigliano's theorem, the unit-load method and Maxwell-Betti reciprocity.
 
 Castigliano's second theorem gives the deflection under a load :math:`P` as
 the derivative of the strain energy, :math:`\delta = \partial U/\partial P`.
@@ -7,6 +7,12 @@ For a beam in bending this is
 .. math::
 
     \delta = \int_0^L \frac{M}{EI}\,\frac{\partial M}{\partial P}\,dx.
+
+The unit-load method of virtual work reaches the same integrals from the
+principle of virtual forces: a unit load at the point of interest, with
+internal forces :math:`n` or :math:`m`, does external work :math:`1\cdot\delta`
+equal to the internal work :math:`\sum nNL/(AE)` in a truss or
+:math:`\int mM/(EI)\,dx` in a beam.
 """
 
 from __future__ import annotations
@@ -18,7 +24,13 @@ from engineeringkit._validation import finite as _finite
 from engineeringkit._validation import positive as _positive
 from engineeringkit._validation import vector as _vector
 
-__all__ = ["strain_energy_bending_constant_moment", "castigliano_deflection", "maxwell_betti_reciprocity"]
+__all__ = [
+    "strain_energy_bending_constant_moment",
+    "castigliano_deflection",
+    "unit_load_truss_deflection",
+    "unit_load_beam_deflection",
+    "maxwell_betti_reciprocity",
+]
 
 
 def strain_energy_bending_constant_moment(moment, length, E, I):
@@ -118,6 +130,91 @@ def castigliano_deflection(dU_dP=None, *, x=None, moment=None, dmoment_dP=None, 
     return float(simpson(integrand, x=xs))
 
 
+def unit_load_truss_deflection(forces, virtual_forces, lengths, area, E):
+    r"""Joint displacement of a truss by the unit-load method, :math:`\delta = \sum nNL/(AE)`.
+
+    Parameters
+    ----------
+    forces : array_like
+        Member forces :math:`N` under the real loads [N], tension positive.
+    virtual_forces : array_like
+        Member forces :math:`n` under a unit load at the joint, in the
+        direction of the wanted displacement [-] (N/N).
+    lengths : array_like
+        Member lengths [m], positive.
+    area : float or array_like
+        Member areas [m^2], positive.
+    E : float or array_like
+        Young's moduli [Pa], positive.
+
+    Returns
+    -------
+    float
+        Displacement of the joint in the direction of the unit load [m].
+
+    Notes
+    -----
+    Assumptions, governing equations and validity limits are discussed in
+    :doc:`/guides/structural_engineering`. SI inputs are required; raw numbers carry no
+    dimensional metadata. The virtual forces need only satisfy
+    equilibrium; in a statically indeterminate truss the real forces must
+    be those of the compatible solution (:class:`PlanarTruss`).
+
+    References
+    ----------
+    O. Mohr, "Beitrag zur Theorie des Fachwerks," *Zeitschrift des
+    Architekten- und Ingenieur-Vereins zu Hannover* 20 (1874) 509-526.
+    """
+    N = _vector("forces", forces)
+    n = _vector("virtual_forces", virtual_forces)
+    L = _vector("lengths", lengths)
+    if not N.size == n.size == L.size:
+        raise ValueError("forces, virtual_forces and lengths must have one entry per member")
+    _positive(lengths=L, area=area, E=E)
+    return float(np.sum(n * N * L / (np.asarray(area) * E)))
+
+
+def unit_load_beam_deflection(x, moment, virtual_moment, E, I):
+    r"""Beam deflection by the unit-load method, :math:`\delta = \int mM/(EI)\,dx`.
+
+    The same integral as the keyword form of :func:`castigliano_deflection`,
+    with :math:`\partial M/\partial P` read as the moment :math:`m` of a
+    unit (virtual) load, integrated by Simpson's rule.
+
+    Parameters
+    ----------
+    x : array_like
+        Stations along the beam [m], strictly increasing.
+    moment : array_like
+        Bending moment :math:`M` under the real loads [N m].
+    virtual_moment : array_like
+        Bending moment :math:`m` under a unit load at the point and in the
+        direction of the wanted deflection [m] (N m/N); a unit couple gives
+        a rotation instead.
+    E : float or array_like
+        Young's modulus [Pa], positive.
+    I : float or array_like
+        Second moment of area [m^4], positive; may vary along the beam.
+
+    Returns
+    -------
+    float
+        Deflection [m] (or rotation [rad] for a unit couple).
+
+    Notes
+    -----
+    Assumptions, governing equations and validity limits are discussed in
+    :doc:`/guides/structural_engineering`. SI inputs are required; raw numbers carry no
+    dimensional metadata. Only bending is included.
+
+    References
+    ----------
+    O. Mohr, "Beitrag zur Theorie des Fachwerks," *Zeitschrift des
+    Architekten- und Ingenieur-Vereins zu Hannover* 20 (1874) 509-526.
+    """
+    return castigliano_deflection(x=x, moment=moment, dmoment_dP=virtual_moment, E=E, I=I)
+
+
 def maxwell_betti_reciprocity(delta_ij, delta_ji, rtol=1e-9, atol=1e-12):
     """Check Maxwell's reciprocal theorem, :math:`\\delta_{ij} = \\delta_{ji}`.
 
@@ -153,4 +250,5 @@ def maxwell_betti_reciprocity(delta_ij, delta_ji, rtol=1e-9, atol=1e-12):
     7-8 (1872) 5-21.
     """
     _finite(delta_ij=delta_ij, delta_ji=delta_ji)
-    return bool(np.isclose(delta_ij, delta_ji, rtol=rtol, atol=atol))
+    reciprocal = np.isclose(delta_ij, delta_ji, rtol=rtol, atol=atol)
+    return bool(reciprocal) if reciprocal.ndim == 0 else reciprocal

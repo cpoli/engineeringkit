@@ -1,22 +1,39 @@
-"""Concrete thermodynamic models: gases, laws, cycles, refrigeration, exergy, saturation, steam, psychrometrics."""
+"""Concrete thermodynamic models.
 
+Gases, mixtures, property relations, laws, steady-flow devices, cycles, refrigeration, exergy, saturation, steam,
+psychrometrics and combustion.
+"""
+
+from engineeringkit.thermodynamics.systems.combustion import (
+    MOLAR_MASS_AIR,
+    adiabatic_flame_temperature,
+    combustion_products,
+    fuel_molar_mass,
+    heating_value,
+    stoichiometric_air_fuel_ratio,
+)
 from engineeringkit.thermodynamics.systems.cycles import (
     OttoCycle,
     brayton_efficiency,
     carnot_efficiency,
     curzon_ahlborn_efficiency,
     diesel_efficiency,
+    dual_efficiency,
     heat_engine_work,
     otto_efficiency,
     rankine_ideal_efficiency,
+    stirling_efficiency,
     thermal_efficiency,
 )
 from engineeringkit.thermodynamics.systems.exergy import exergy_destruction, exergy_heat
 from engineeringkit.thermodynamics.systems.gases import (
     R_UNIVERSAL,
+    compressibility_factor,
     ideal_gas_pressure,
     ideal_gas_temperature,
     joule_thomson_coefficient_vdw,
+    pitzer_acentric_factor,
+    pitzer_virial_compressibility,
     van_der_waals_critical_point,
     van_der_waals_pressure,
 )
@@ -30,14 +47,58 @@ from engineeringkit.thermodynamics.systems.laws import (
     specific_enthalpy_ideal_gas,
     specific_internal_energy_ideal_gas,
 )
-from engineeringkit.thermodynamics.systems.psychrometrics import MOLAR_MASS_RATIO, dew_point, humidity_ratio, relative_humidity
+from engineeringkit.thermodynamics.systems.mixtures import (
+    entropy_of_mixing,
+    mass_fractions,
+    mixture_molar_mass,
+    mole_fractions,
+    partial_pressures,
+)
+from engineeringkit.thermodynamics.systems.peng_robinson import (
+    R134A,
+    peng_robinson_compressibility,
+    peng_robinson_pressure,
+    peng_robinson_saturation_pressure,
+    refrigerant_properties,
+)
+from engineeringkit.thermodynamics.systems.power_cycles import (
+    brayton_cycle,
+    rankine_cycle,
+)
+from engineeringkit.thermodynamics.systems.psychrometrics import (
+    MOLAR_MASS_RATIO,
+    adiabatic_mixing,
+    adiabatic_saturation_temperature,
+    cooling_coil,
+    cooling_tower,
+    dew_point,
+    humidity_ratio,
+    moist_air_enthalpy,
+    relative_humidity,
+)
 from engineeringkit.thermodynamics.systems.refrigeration import (
     carnot_cop_heat_pump,
     carnot_cop_refrigerator,
     heat_pump_cop,
     refrigeration_cop,
+    vapor_compression_cycle,
+)
+from engineeringkit.thermodynamics.systems.relations import (
+    cp_minus_cv,
+    joule_thomson_coefficient,
 )
 from engineeringkit.thermodynamics.systems.saturation import antoine_vapor_pressure, clausius_clapeyron_pressure
+from engineeringkit.thermodynamics.systems.steady_flow import (
+    compression_outlet_enthalpy,
+    compressor_isentropic_efficiency,
+    expansion_outlet_enthalpy,
+    mixing_chamber,
+    nozzle_exit_velocity,
+    nozzle_isentropic_efficiency,
+    steady_flow_work,
+    throttle_steam,
+    turbine_isentropic_efficiency,
+)
 from engineeringkit.thermodynamics.systems.steam import saturation_pressure, saturation_temperature, steam_properties
 
 __all__ = [
@@ -79,4 +140,44 @@ __all__ = [
     "humidity_ratio",
     "relative_humidity",
     "dew_point",
+    "dual_efficiency",
+    "stirling_efficiency",
+    "compressibility_factor",
+    "pitzer_acentric_factor",
+    "pitzer_virial_compressibility",
+    "moist_air_enthalpy",
+    "adiabatic_saturation_temperature",
+    "adiabatic_mixing",
+    "cooling_coil",
+    "cooling_tower",
+    "vapor_compression_cycle",
+    "steady_flow_work",
+    "nozzle_exit_velocity",
+    "turbine_isentropic_efficiency",
+    "compressor_isentropic_efficiency",
+    "nozzle_isentropic_efficiency",
+    "expansion_outlet_enthalpy",
+    "compression_outlet_enthalpy",
+    "mixing_chamber",
+    "throttle_steam",
+    "rankine_cycle",
+    "brayton_cycle",
+    "R134A",
+    "peng_robinson_pressure",
+    "peng_robinson_compressibility",
+    "peng_robinson_saturation_pressure",
+    "refrigerant_properties",
+    "mole_fractions",
+    "mass_fractions",
+    "mixture_molar_mass",
+    "partial_pressures",
+    "entropy_of_mixing",
+    "cp_minus_cv",
+    "joule_thomson_coefficient",
+    "MOLAR_MASS_AIR",
+    "fuel_molar_mass",
+    "stoichiometric_air_fuel_ratio",
+    "combustion_products",
+    "heating_value",
+    "adiabatic_flame_temperature",
 ]

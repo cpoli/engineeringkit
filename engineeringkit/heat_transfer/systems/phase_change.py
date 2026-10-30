@@ -3,7 +3,8 @@ r"""Phase change: moving melt fronts, film condensation and the boiling crisis.
 Stefan (1891) analysed the growth of polar sea ice, a conduction problem
 whose boundary moves as latent heat is released; Neumann's similarity
 solution makes the front advance as :math:`\sqrt t`. Nusselt (1916) solved
-laminar film condensation on a vertical wall, and Zuber (1958) explained
+laminar film condensation on a vertical wall, Rohsenow (1952) correlated
+nucleate boiling with a single surface-fluid constant, and Zuber (1958) explained
 the maximum heat flux of Nukiyama's (1934) boiling curve as a
 hydrodynamic instability.
 """
@@ -18,7 +19,13 @@ from engineeringkit._validation import nonnegative as _nonnegative
 from engineeringkit._validation import positive as _positive
 from engineeringkit.heat_transfer.utils.constants import STANDARD_GRAVITY
 
-__all__ = ["stefan_number", "neumann_stefan_front", "nusselt_film_condensation", "zuber_critical_heat_flux"]
+__all__ = [
+    "stefan_number",
+    "neumann_stefan_front",
+    "nusselt_film_condensation",
+    "rohsenow_boiling_heat_flux",
+    "zuber_critical_heat_flux",
+]
 
 
 def stefan_number(cp, dT, latent_heat):
@@ -93,6 +100,9 @@ def neumann_stefan_front(t, alpha, Ste):
 
     Notes
     -----
+    ``Ste`` is scalar-only, since the front coefficient is a root found for
+    one Stefan number; ``t`` and ``alpha`` broadcast.
+
     Inputs are raw SI numbers with no dimensional metadata; see
     :doc:`/guides/heat_transfer`. Densities of the two phases are taken
     equal, and the original phase does not conduct.
@@ -175,6 +185,72 @@ def nusselt_film_condensation(rho_l, rho_v, mu_l, k_l, h_fg, Tsat, Ts, L, g=STAN
     if np.any(dT <= 0):
         raise ValueError("Ts must be below Tsat")
     return 0.943 * (g * rho_l * (rho_l - rho_v) * k_l**3 * h_fg / (mu_l * np.asarray(L, dtype=float) * dT)) ** 0.25
+
+
+def rohsenow_boiling_heat_flux(mu_l, h_fg, rho_l, rho_v, sigma, cp_l, Pr_l, dT_excess, C_sf=0.013, n=1.0, g=STANDARD_GRAVITY):
+    r"""Rohsenow's heat flux in nucleate pool boiling.
+
+    .. math::
+
+        q''_s = \mu_l h_{fg}\left[\frac{g(\rho_l - \rho_v)}{\sigma}\right]^{1/2}
+        \left(\frac{c_{p,l}\,\Delta T_e}{C_{s,f}\,h_{fg}\,Pr_l^{\,n}}\right)^3
+
+    Parameters
+    ----------
+    mu_l : float
+        Liquid dynamic viscosity [Pa s], positive.
+    h_fg : float
+        Latent heat of vaporisation [J/kg], positive.
+    rho_l, rho_v : float
+        Liquid and vapour densities [kg/m^3], with ``rho_l > rho_v >= 0``.
+    sigma : float
+        Surface tension [N/m], positive.
+    cp_l : float
+        Liquid specific heat [J/(kg K)], positive.
+    Pr_l : float
+        Liquid Prandtl number [-], positive.
+    dT_excess : float or array_like
+        Excess temperature :math:`T_s - T_{sat}` [K], nonnegative.
+    C_sf : float, optional
+        Surface-fluid constant [-], positive; 0.013 for water on polished
+        copper or stainless steel, 0.0060 on brass.
+    n : float, optional
+        Prandtl exponent [-], positive: 1.0 for water, 1.7 for other liquids.
+    g : float, optional
+        Gravitational acceleration [m/s^2], positive.
+
+    Returns
+    -------
+    float or ndarray
+        Heat flux from the heater to the liquid [W/m^2]; it grows as
+        :math:`\Delta T_e^3`, up to the critical flux of
+        :func:`zuber_critical_heat_flux`.
+
+    Notes
+    -----
+    Inputs are raw SI numbers with no dimensional metadata; see
+    :doc:`/guides/heat_transfer`. Saturated pool boiling in the nucleate
+    regime, liquid properties at saturation. Errors of up to 100% in the
+    flux (about 25% in :math:`\Delta T_e` for a given flux) are common;
+    most of the uncertainty is in :math:`C_{s,f}`.
+
+    References
+    ----------
+    W. M. Rohsenow, "A method of correlating heat-transfer data for surface
+    boiling of liquids," *Trans. ASME* 74 (1952) 969-976 (MIT Heat Transfer
+    Laboratory report 5, 1951).
+
+    Examples
+    --------
+    >>> round(float(rohsenow_boiling_heat_flux(279e-6, 2.257e6, 957.9, 0.5955, 58.9e-3, 4217.0, 1.76, 18.0)) / 1e3)
+    798
+    """
+    _positive(mu_l=mu_l, h_fg=h_fg, rho_l=rho_l, sigma=sigma, cp_l=cp_l, Pr_l=Pr_l, C_sf=C_sf, n=n, g=g)
+    _nonnegative(rho_v=rho_v, dT_excess=dT_excess)
+    if rho_v >= rho_l:
+        raise ValueError("rho_l must exceed rho_v")
+    group = cp_l * np.asarray(dT_excess, dtype=float) / (C_sf * h_fg * Pr_l**n)
+    return mu_l * h_fg * np.sqrt(g * (rho_l - rho_v) / sigma) * group**3
 
 
 def zuber_critical_heat_flux(rho_l, rho_v, h_fg, sigma, g=STANDARD_GRAVITY, C=np.pi / 24):

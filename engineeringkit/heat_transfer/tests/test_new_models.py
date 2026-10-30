@@ -122,3 +122,136 @@ def test_vectorized_legacy_helpers():
     assert r.shape == (2,)
     with pytest.raises(ValueError):
         h.sphere_resistance(0.01, np.array([0.02, 0.005]), 1.0)
+
+
+def test_flat_plate_average_is_the_integral_of_the_local_value():
+    for Re_L in [2e5, 3e6]:
+        Re_c = 5e5
+        local = lambda Re: h.flat_plate_nusselt(Re, 0.7, local=True) / Re  # noqa: E731
+        points = [Re_c] if Re_L > Re_c else None
+        # 0.037 = 0.0296/0.8: the average of the turbulent law, laminar part kept exact.
+        integral = integrate.quad(local, 0, Re_L, points=points, limit=200)[0]
+        assert h.flat_plate_nusselt(Re_L, 0.7) == pytest.approx(integral, rel=2e-3)
+    assert h.flat_plate_nusselt(1e6, 1.0, Re_c=0.0) == pytest.approx(0.037 * 1e6**0.8)
+    assert h.flat_plate_nusselt(1e6, 1.0, Re_c=np.inf) == pytest.approx(0.664 * 1e3)
+    assert h.flat_plate_nusselt(np.array([1e4, 1e6]), 0.7).shape == (2,)
+
+
+def test_cylinder_and_tube_bank_correlations():
+    assert h.churchill_bernstein_nusselt(0.0, 0.7) == 0.3
+    assert h.churchill_bernstein_nusselt(6071.0, 0.7) == pytest.approx(40.6, abs=0.05)
+    # Incropera Example 7.7 (staggered bank, 7 rows); the book rounds C to 0.34 and gets 87.9.
+    Nu = h.zukauskas_nusselt(13943.0, 0.71, 0.0313, 0.0343, "staggered", rows=7, Pr_s=0.70)
+    assert Nu == pytest.approx(87.9, rel=0.015)
+    deep = h.zukauskas_nusselt(5e4, 0.7, 0.03, 0.03, rows=25)
+    assert deep == pytest.approx(0.27 * 5e4**0.63 * 0.7**0.36)
+    assert h.zukauskas_nusselt(5e4, 0.7, 0.03, 0.03, rows=6) == pytest.approx(deep * 0.935)
+    assert h.zukauskas_nusselt(5e4, 0.7, 0.07, 0.03, "staggered") == pytest.approx(0.40 * 5e4**0.6 * 0.7**0.36)
+    assert h.zukauskas_nusselt(np.array([50.0, 500.0, 5e5]), 0.7, 0.03, 0.03).shape == (3,)
+    # Staggered with a tight diagonal: the diagonal gap sets the maximum velocity.
+    V = h.tube_bank_max_velocity(1.0, 0.01, 0.03, 0.005, "staggered")
+    assert V == pytest.approx(0.03 / (2 * (np.hypot(0.005, 0.015) - 0.01)))
+    assert h.tube_bank_max_velocity(1.0, 0.01, 0.03, 0.03, "staggered") == pytest.approx(1.5)
+
+
+@pytest.mark.parametrize(
+    "call",
+    [
+        lambda: h.flat_plate_nusselt(1e5, 0.7, Re_c=-1.0),
+        lambda: h.flat_plate_nusselt(1e5, 0.7, Re_c=np.nan),
+        lambda: h.zukauskas_nusselt(5.0, 0.7, 0.03, 0.03),
+        lambda: h.zukauskas_nusselt(1e4, 0.7, 0.03, 0.03, "inline"),
+        lambda: h.zukauskas_nusselt(1e4, 0.7, 0.03, 0.03, rows=0),
+        lambda: h.tube_bank_max_velocity(1.0, 0.01, 0.01, 0.03),
+        lambda: h.tube_bank_max_velocity(1.0, 0.01, 0.03, 0.03, "inline"),
+        lambda: h.tube_bank_max_velocity(1.0, 0.02, 0.025, 0.001, "staggered"),
+        lambda: h.laminar_tube_nusselt("wall"),
+        lambda: h.exchanger_effectiveness_crossflow(1.0, 0.5, "both"),
+        lambda: h.lmtd_correction_factor(0.8, 1.5),
+        lambda: h.lmtd_correction_factor(0.6, 1.5, 2),
+        lambda: h.lmtd_correction_factor(1.0, 0.5),
+        lambda: h.rohsenow_boiling_heat_flux(2.8e-4, 2.257e6, 1.0, 2.0, 0.0589, 4217.0, 1.76, 10.0),
+        lambda: h.shape_factor_buried_sphere(1.0, 0.4),
+        lambda: h.shape_factor_buried_cylinder(1.0, 0.5),
+        lambda: h.shape_factor_eccentric_cylinders(0.1, 0.2, 0.06),
+        lambda: h.shape_factor_parallel_cylinders(0.2, 0.2, 0.1),
+        lambda: h.view_factor_reciprocity(0.5, 4.0, 1.0),
+        lambda: h.two_surface_radiation(500.0, 300.0, 0.0, 0.5, 1.0, 1.0),
+        lambda: h.radiation_shield_heat_flux(500.0, 300.0, 0.5, 0.5, [(0.5, 0.0)]),
+        lambda: h.radiation_enclosure([500.0, 300.0], [0.5, 0.5], [1.0, 1.0], [[0.0, 0.9], [0.9, 0.0]]),
+        lambda: h.radiation_enclosure([500.0, 300.0], [0.5, 0.5], [1.0, 2.0], [[0.0, 1.0], [1.0, 0.0]]),
+        lambda: h.radiation_enclosure([500.0, 300.0], [0.5, 0.5], [1.0], [[0.0, 1.0], [1.0, 0.0]]),
+        lambda: h.radiation_enclosure([500.0, 300.0], [0.5, 0.5], [1.0, 1.0], [[0.0, 1.0], [1.0, 0.0]], reradiating=[True]),
+        lambda: h.conduction_2d(1.0, 1.0, 2, 5, 300.0, 300.0, 300.0, 400.0),
+        lambda: h.conduction_2d(1.0, 1.0, 5, 5, 300.0, 300.0, -1.0, 400.0),
+        lambda: h.cylinder_transient(0.1, 1.0, 1.5),
+        lambda: h.sphere_transient(-0.1, 1.0),
+    ],
+)
+def test_curriculum_models_reject_bad_input(call):
+    with pytest.raises(ValueError):
+        call()
+
+
+def test_internal_flow_and_the_heat_mass_analogy():
+    assert h.laminar_tube_nusselt() == pytest.approx(4.364, abs=1e-3)
+    assert h.hausen_nusselt(1000.0, 5.0, 0.01, 1e9) == pytest.approx(3.66, abs=1e-6)
+    assert h.hausen_nusselt(1000.0, 5.0, 0.01, 0.1) > h.hausen_nusselt(1000.0, 5.0, 0.01, 1.0)
+    assert h.entry_length(1000.0, 0.01) == pytest.approx(0.5)
+    assert h.entry_length(1e4, 0.01, 7.0) == pytest.approx(0.1)
+    assert h.lewis_number(2.0, 4.0) == 0.5
+    # Laminar flat plate: Sh from the Sc^(1/3) correlation equals the analogy exactly.
+    nu, alpha, D_AB, k, rho, L, Re = 1.5e-5, 2.2e-5, 2.6e-5, 0.026, 1.16, 0.5, 1e5
+    cp = k / (rho * alpha)
+    h_heat = h.flat_plate_nusselt(Re, nu / alpha) * k / L
+    h_mass = h.flat_plate_nusselt(Re, nu / D_AB) * D_AB / L
+    assert h.chilton_colburn_mass_transfer(h_heat, rho, cp, h.lewis_number(alpha, D_AB)) == pytest.approx(h_mass, rel=1e-12)
+
+
+def test_new_exchanger_arrangements():
+    for mixed in ["none", "cmax", "cmin"]:
+        assert h.exchanger_effectiveness_crossflow(2.0, 0.0, mixed) == pytest.approx(1 - np.exp(-2.0))
+        cross = h.exchanger_effectiveness_crossflow(2.0, 0.5, mixed)
+        assert h.exchanger_effectiveness_parallel(2.0, 0.5) < cross < h.exchanger_effectiveness_counterflow(2.0, 0.5)
+    # With equal capacity rates it does not matter which stream is mixed.
+    assert h.exchanger_effectiveness_crossflow(1.3, 1.0, "cmax") == pytest.approx(h.exchanger_effectiveness_crossflow(1.3, 1.0, "cmin"))
+    assert h.exchanger_effectiveness_shell_tube(0.0, 0.5) == 0.0
+    assert h.exchanger_effectiveness_shell_tube(np.array([0.0, 1.0]), 0.5, 2).shape == (2,)
+    assert h.exchanger_effectiveness_shell_tube(3.0, 0.0) == pytest.approx(1 - np.exp(-3.0))
+    many = h.exchanger_effectiveness_shell_tube(2.0, 0.7, 60)
+    assert many == pytest.approx(h.exchanger_effectiveness_counterflow(2.0, 0.7), rel=1e-3)
+    assert h.lmtd_correction_factor(0.0, 2.0) == 1.0
+    assert h.lmtd_correction_factor(0.4, 1.5) == pytest.approx(h.lmtd_correction_factor(0.6, 1 / 1.5))
+    assert h.lmtd_correction_factor(0.3, 1.0, 2) > h.lmtd_correction_factor(0.3, 1.0)
+
+
+def test_fin_with_convecting_tip_and_rohsenow():
+    args = (25.0, 0.04, 200.0, 5e-5)
+    assert h.fin_heat_rate_convective_tip(*args, 0.1, 400.0, 300.0, h_tip=0.0) == pytest.approx(
+        h.fin_heat_rate_adiabatic(*args, 0.1, 400.0, 300.0)
+    )
+    assert h.fin_heat_rate_convective_tip(*args, 0.0, 400.0, 300.0) == pytest.approx(25.0 * 5e-5 * 100.0)
+    corrected = h.fin_heat_rate_adiabatic(*args, 0.1 + 5e-5 / 0.04, 400.0, 300.0)
+    assert h.fin_heat_rate_convective_tip(*args, 0.1, 400.0, 300.0) == pytest.approx(corrected, rel=1e-5)
+    props = (2.79e-4, 2.257e6, 957.9, 0.5955, 0.0589, 4217.0, 1.76)
+    q = h.rohsenow_boiling_heat_flux(*props, np.array([10.0, 20.0]))
+    assert q[1] / q[0] == pytest.approx(8.0)
+    assert h.rohsenow_boiling_heat_flux(*props, 10.0, C_sf=0.0065) == pytest.approx(q[0] * 8)
+    assert h.rohsenow_boiling_heat_flux(*props, 0.0) == 0.0
+
+
+def test_transient_eigenvalues_and_view_factor_reciprocity():
+    from scipy import special
+
+    from engineeringkit.heat_transfer.utils import cylinder_eigenvalues, sphere_eigenvalues
+
+    for Bi in [1e-6, 0.01, 1.0, 100.0]:
+        z = cylinder_eigenvalues(Bi, 15)
+        assert np.allclose(z * special.j1(z), Bi * special.j0(z), atol=1e-10 * max(Bi, 1))
+        z = sphere_eigenvalues(Bi, 15)
+        assert np.all((z > np.arange(15) * np.pi) & (z < np.arange(1, 16) * np.pi))
+        assert np.allclose(z * np.cos(z) + (Bi - 1) * np.sin(z), 0, atol=1e-10 * max(Bi, 1))
+    assert sphere_eigenvalues(1e-6, 1)[0] ** 2 == pytest.approx(3e-6, rel=1e-5)
+    assert h.cylinder_transient(np.array([0.1, 1.0]), 1.0, np.array([0.0, 1.0])).shape == (2,)
+    F21 = h.view_factor_reciprocity(h.view_factor_coaxial_disks(0.5, 1.0, 0.4), np.pi * 0.25, np.pi)
+    assert F21 == pytest.approx(h.view_factor_coaxial_disks(1.0, 0.5, 0.4))

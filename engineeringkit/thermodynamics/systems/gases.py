@@ -3,10 +3,14 @@ r"""Equations of state: the ideal gas, van der Waals's real gas and the Joule-Th
 Clapeyron combined Boyle's and Gay-Lussac's laws into :math:`pV = nRT`;
 van der Waals corrected it for the volume of the molecules and their mutual
 attraction, which also explains the critical point and why a throttled gas
-cools below its inversion temperature.
+cools below its inversion temperature. The compressibility factor
+:math:`Z = pv/(RT)` measures the departure from the ideal gas; Pitzer's
+acentric factor adds a third parameter to the law of corresponding states.
 """
 
 from __future__ import annotations
+
+import numpy as np
 
 from engineeringkit._validation import finite as _finite
 from engineeringkit._validation import nonnegative as _nonnegative
@@ -19,6 +23,9 @@ __all__ = [
     "van_der_waals_pressure",
     "van_der_waals_critical_point",
     "joule_thomson_coefficient_vdw",
+    "compressibility_factor",
+    "pitzer_acentric_factor",
+    "pitzer_virial_compressibility",
 ]
 
 R_UNIVERSAL = 8.31446261815324
@@ -210,3 +217,122 @@ def joule_thomson_coefficient_vdw(T, a, b, cp_molar):
     _positive(T=T, cp_molar=cp_molar)
     _nonnegative(a=a, b=b)
     return (2 * a / (R_UNIVERSAL * T) - b) / cp_molar
+
+
+def compressibility_factor(p, T, v):
+    r"""Compressibility factor :math:`Z = pv/(RT)`.
+
+    Parameters
+    ----------
+    p : float or array_like
+        Pressure [Pa], positive.
+    T : float or array_like
+        Absolute temperature [K], positive.
+    v : float or array_like
+        Molar volume [m^3/mol], positive.
+
+    Returns
+    -------
+    float or ndarray
+        :math:`Z` [-]: one for an ideal gas, below one where attraction
+        dominates, above one where the molecules' own volume does.
+
+    Notes
+    -----
+    Inputs are raw SI numbers with no dimensional metadata; see
+    :doc:`/guides/thermodynamics`.
+
+    Examples
+    --------
+    >>> round(float(compressibility_factor(101325.0, 273.15, 0.022414)), 4)
+    1.0
+    """
+    _positive(p=p, T=T, v=v)
+    return p * v / (R_UNIVERSAL * T)
+
+
+def pitzer_acentric_factor(p_sat_07, pc):
+    r"""Pitzer's acentric factor, :math:`\omega = -\log_{10}[p_s(0.7\,T_c)/p_c] - 1`.
+
+    Parameters
+    ----------
+    p_sat_07 : float or array_like
+        Vapour pressure at :math:`0.7\,T_c` [Pa], positive.
+    pc : float or array_like
+        Critical pressure [Pa], positive.
+
+    Returns
+    -------
+    float or ndarray
+        Acentric factor [-]: zero for the simple fluids argon, krypton and
+        xenon, whose reduced vapour pressure at :math:`T_r = 0.7` is
+        0.1, and larger for less spherical molecules.
+
+    Notes
+    -----
+    Inputs are raw SI numbers with no dimensional metadata; see
+    :doc:`/guides/thermodynamics`.
+
+    References
+    ----------
+    K. S. Pitzer, D. Z. Lippmann, R. F. Curl, C. M. Huggins and D. E.
+    Petersen, "The volumetric and thermodynamic properties of fluids. II.
+    Compressibility factor, vapor pressure and entropy of vaporization,"
+    *J. Am. Chem. Soc.* 77 (1955) 3433-3440.
+
+    Examples
+    --------
+    >>> round(float(pitzer_acentric_factor(0.1 * 4.86e6, 4.86e6)), 12)
+    0.0
+    """
+    _positive(p_sat_07=p_sat_07, pc=pc)
+    return -np.log10(np.asarray(p_sat_07, dtype=float) / pc)[()] - 1
+
+
+def pitzer_virial_compressibility(T, p, Tc, pc, omega):
+    r"""Generalized second-virial compressibility, :math:`Z = 1 + (B^0 + \omega B^1)\,p_r/T_r`.
+
+    Parameters
+    ----------
+    T : float or array_like
+        Absolute temperature [K], positive.
+    p : float or array_like
+        Pressure [Pa], positive.
+    Tc : float
+        Critical temperature [K], positive.
+    pc : float
+        Critical pressure [Pa], positive.
+    omega : float
+        Acentric factor [-].
+
+    Returns
+    -------
+    float or ndarray
+        Compressibility factor [-].
+
+    Notes
+    -----
+    Abbott's fits :math:`B^0 = 0.083 - 0.422/T_r^{1.6}` and
+    :math:`B^1 = 0.139 - 0.172/T_r^{4.2}` of the Pitzer correlation for the
+    second virial coefficient. Truncated after the second virial
+    coefficient, it holds for gases at low to moderate reduced pressure
+    (roughly :math:`v_r > 2`), not for liquids. Inputs are raw SI numbers
+    with no dimensional metadata; see :doc:`/guides/thermodynamics`.
+
+    References
+    ----------
+    J. M. Smith, H. C. Van Ness and M. M. Abbott, *Introduction to Chemical
+    Engineering Thermodynamics*, 7th ed., New York: McGraw-Hill (2005),
+    Sec. 3.7.
+
+    Examples
+    --------
+    >>> round(float(pitzer_virial_compressibility(510.0, 2.5e6, 425.1, 3.796e6, 0.2)), 4)
+    0.8789
+    """
+    _positive(T=T, p=p, Tc=Tc, pc=pc)
+    _finite(omega=omega)
+    Tr = np.asarray(T, dtype=float) / Tc
+    B0 = 0.083 - 0.422 / Tr**1.6
+    B1 = 0.139 - 0.172 / Tr**4.2
+    return (1 + (B0 + omega * B1) * (np.asarray(p, dtype=float) / pc) / Tr)[()]

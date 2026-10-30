@@ -50,7 +50,7 @@ python -m pip install -e '.[dev]'
 MPLBACKEND=Agg python -m pytest --cov=engineeringkit --cov-report=term-missing
 python -m ruff check .
 python -m ruff format --check .
-python -m sphinx -W --keep-going -b html docs/source docs/_build/html
+make -C docs html
 python -m build
 ```
 

@@ -38,7 +38,11 @@ def test_plot_smith_chart_returns_axes():
 def test_result_plots():
     nodal = e.nodal_analysis(1, [(1, 0, 1.0)], current_sources=[(0, 1, 1.0)])
     flow = e.gauss_seidel_load_flow(e.admittance_matrix(2, [(0, 1, 0.1j)]), [0.5], [0.1])
-    for result in (nodal, flow, e.SeriesRLC(2, 1, 0.25).step_response()):
+    mesh = e.mesh_analysis(1, [(1, 0, 2.0)], voltage_sources=[(1, 0, 4.0)])
+    swing = e.swing_response(5.0, 1.0, 2.0, 0.0, 2.0, 0.1, 1.0)
+    assert swing.summary() == {"stable": True, "max_delta": float(swing.delta.max()), "clearing_time": 0.1}
+    assert mesh.summary()["max_current"] == 2.0
+    for result in (nodal, flow, mesh, swing, e.SeriesRLC(2, 1, 0.25).step_response()):
         fig, ax = result.plot()
         assert isinstance(ax, matplotlib.axes.Axes)
     _, ax = plt.subplots()

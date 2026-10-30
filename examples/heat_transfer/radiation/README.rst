@@ -1,4 +1,4 @@
 Radiation
 ---------
 
-Blackbody laws, gray-surface exchange and view factors.
+Blackbody laws, gray-surface exchange, view factors and radiation networks.

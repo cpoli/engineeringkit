@@ -23,6 +23,29 @@ and to a gallery example devoted to it.
    :local:
    :depth: 1
 
+1880 -- Rayleigh's Sum of Random Phasors
+----------------------------------------
+
+Lord Rayleigh asked, for optics and acoustics, what amplitude results from
+adding a large number of vibrations of the same pitch and arbitrary phase.
+He found that the resultant's amplitude has the density
+:math:`(2r/\Omega)e^{-r^2/\Omega}` and its intensity is exponentially
+distributed, with mean equal to the sum of the components' intensities.
+The same law describes a radio signal reaching a receiver by many scattered
+paths. Its envelope fades deeply and often, and the average bit-error rate
+of BPSK falls only as :math:`1/4\bar\gamma` instead of exponentially.
+
+*Implementation:* :func:`engineeringkit.communications.rayleigh_pdf` and
+:func:`engineeringkit.communications.ber_bpsk_rayleigh`. The example adds
+50 random phasors, recovers the Rayleigh density, and measures the extra
+power a fading link needs.
+
+*References:* Lord Rayleigh, "On the resultant of a large number of
+vibrations of the same pitch and of arbitrary phase," *Phil. Mag.* (5) 10,
+no. 60 (1880) 73-78.
+
+.. minigallery:: ../../examples/communications/fading/plot_01_rayleigh_random_phasors.py
+
 1887-1888 -- Hertz Generates and Measures Radio Waves
 -----------------------------------------------------
 
@@ -120,13 +143,21 @@ The same paper contains the seed of the sampling theorem and the Nyquist
 criterion for pulse shaping still used in every modem.
 
 *Implementation:* :func:`engineeringkit.communications.nyquist_symbol_rate`
-and :func:`engineeringkit.communications.symbol_rate`. The example sends
-BPSK sinc pulses at and above :math:`2B` and measures the interference.
+and :func:`engineeringkit.communications.symbol_rate`, and the
+raised-cosine family that meets the criterion with excess bandwidth,
+:func:`engineeringkit.communications.raised_cosine_pulse`,
+:func:`engineeringkit.communications.raised_cosine_spectrum`,
+:func:`engineeringkit.communications.root_raised_cosine_pulse` and
+:func:`engineeringkit.communications.raised_cosine_bandwidth`, plotted with
+:func:`engineeringkit.communications.visualizers.plot_eye_diagram`. The
+first example sends BPSK sinc pulses at and above :math:`2B` and measures
+the interference; the second checks the folded-spectrum criterion and opens
+the eye of a root-raised-cosine link.
 
 *References:* H. Nyquist, "Certain topics in telegraph transmission
 theory," *Trans. AIEE* 47 (1928) 617-644.
 
-.. minigallery:: ../../examples/communications/information/plot_01_nyquist_signalling_rate.py
+.. minigallery:: ../../examples/communications/information/plot_01_nyquist_signalling_rate.py ../../examples/communications/information/plot_05_nyquist_raised_cosine.py
 
 1928 -- Hartley's Law
 ---------------------
@@ -170,6 +201,36 @@ of electric charge in conductors," *Phys. Rev.* 32 (1928) 110-113.
 
 .. minigallery:: ../../examples/communications/noise/plot_01_johnson_nyquist_noise.py
 
+1932 -- Carter's Half-Wave Dipole
+---------------------------------
+
+The half-wave dipole is the reference antenna of radio engineering. With a
+sinusoidal current along the wire its far field varies as
+:math:`\cos(\tfrac\pi2\cos\theta)/\sin\theta`, and integrating the
+radiated power gives a directivity of 1.64 (2.15 dBi) and a radiation
+resistance of about 73 ohms. Philip S. Carter of RCA put such calculations
+into circuit form. His induced-EMF method gave the self-impedance of a
+dipole and the mutual impedance between dipoles, from which arrays could be
+designed like networks. The 73-ohm value itself was computed in the 1920s
+from the far-field power. Its first appearance could be checked only in
+textbooks, not in a primary source, so this entry credits Carter only with
+the circuit method.
+
+*Implementation:* :func:`engineeringkit.communications.half_wave_dipole_pattern`,
+:func:`engineeringkit.communications.half_wave_dipole_directivity`,
+:func:`engineeringkit.communications.half_wave_dipole_resistance` and
+:func:`engineeringkit.communications.directivity`, plotted with
+:func:`engineeringkit.communications.visualizers.plot_antenna_pattern`. The
+example integrates the pattern for the directivity, radiation resistance and
+78° beamwidth.
+
+*References:* P. S. Carter, "Circuit relations in radiating systems and
+applications to antenna problems," *Proc. IRE* 20, no. 6 (1932) 1004-1041.
+The issue and date are checked against later citations; the page range
+could not be confirmed.
+
+.. minigallery:: ../../examples/communications/antennas/plot_02_carter_half_wave_dipole.py
+
 1933-1936 -- Armstrong's Wideband FM
 ------------------------------------
 
@@ -192,6 +253,84 @@ signaling by a system of frequency modulation," *Proc. IRE* 24 (1936)
 (1922) 57-64.
 
 .. minigallery:: ../../examples/communications/modulation/plot_03_armstrong_frequency_modulation.py
+
+1937 -- Crosby's Noise Analysis of FM and AM
+--------------------------------------------
+
+Armstrong's demonstrations showed that wideband FM was quieter than AM, but
+not by how much, or when. Murray G. Crosby of RCA worked it out. Measured
+against the SNR :math:`\gamma = P_R/N_0W` of baseband transmission with the
+same power, an envelope-detected AM receiver delivers at most
+:math:`\gamma/3`, because two thirds of its power sits in the carrier. A
+limiter-discriminator delivers :math:`3\beta^2 P_m \gamma`, so each doubling
+of the deviation buys 6 dB. Crosby also found the threshold: when the
+carrier-to-noise ratio in the FM band falls below about 10 dB, noise spikes
+appear and the advantage collapses.
+
+*Implementation:* :func:`engineeringkit.communications.baseband_snr`,
+:func:`engineeringkit.communications.am_output_snr`,
+:func:`engineeringkit.communications.fm_output_snr` and
+:func:`engineeringkit.communications.fm_threshold_snr`. The example simulates
+an envelope detector and a discriminator over a range of SNR and finds the
+threshold.
+
+*References:* M. G. Crosby, "Frequency modulation noise characteristics,"
+*Proc. IRE* 25, no. 4 (1937) 472-514.
+
+.. minigallery:: ../../examples/communications/modulation/plot_04_crosby_fm_noise.py
+
+1937-1938 -- Reeves's Pulse-Code Modulation
+-------------------------------------------
+
+Alec H. Reeves of International Telephone and Telegraph's Paris laboratory
+proposed sampling speech, rounding each sample to one of :math:`2^N`
+levels, and sending the level as :math:`N` on-off pulses. Rounding adds a
+fixed noise, about :math:`6.02N + 1.76` dB below a full-scale sine. In
+return a repeater has only to decide whether each pulse is present, so noise
+no longer accumulates along a chain of repeaters. Vacuum tubes made PCM
+impractical in 1938. It entered the telephone network with the transistor
+and the Bell System's T1 carrier of 1962, which used mu-law companding to
+keep quiet speech above the quantization noise. The 1937 date of the idea
+comes from later accounts. The French filing of 1938 is checked against
+citations of the patent, not the patent itself.
+
+*Implementation:* :func:`engineeringkit.communications.pcm_encode`,
+:func:`engineeringkit.communications.pcm_decode`,
+:func:`engineeringkit.communications.pcm_sqnr_db`,
+:func:`engineeringkit.communications.mu_law_compress` and
+:func:`engineeringkit.communications.mu_law_expand`. The example measures 6 dB
+per bit, compares PCM and analog repeater chains, and shows companding at
+low levels.
+
+*References:* A. H. Reeves, French Patent 852,183 (filed 1938, published
+1939); U.S. Patent 2,272,070 (1942); B. M. Oliver, J. R. Pierce and C. E.
+Shannon, "The philosophy of PCM," *Proc. IRE* 36 (1948) 1324-1331.
+
+.. minigallery:: ../../examples/communications/digitization/plot_01_reeves_pcm.py
+
+1943 -- North's Matched Filter
+------------------------------
+
+Dwight O. North at RCA Laboratories asked which receiving filter makes a
+known radar pulse stand out best above white noise. His wartime report
+answered: the filter whose impulse response is the pulse reversed in time.
+Sampled at the end of the pulse its output signal-to-noise ratio is
+:math:`2E/N_0`. That depends only on the pulse energy, not its shape, and by
+the Cauchy-Schwarz inequality no linear filter does better. The report
+circulated privately and was printed only in 1963. The same receiver
+appears in Kotel'nikov's thesis and in every digital demodulator.
+
+*Implementation:* :func:`engineeringkit.communications.matched_filter` and
+:func:`engineeringkit.communications.matched_filter_snr`. The example finds
+a chirp buried in noise and compares the matched filter with random
+filters.
+
+*References:* D. O. North, "An analysis of the factors which determine
+signal/noise discrimination in pulsed-carrier systems," RCA Laboratories
+Report PTR-6C (25 June 1943); reprinted in *Proc. IEEE* 51 (1963)
+1016-1027.
+
+.. minigallery:: ../../examples/communications/detection/plot_03_north_matched_filter.py
 
 1944 -- Friis's Noise Figure
 ----------------------------
@@ -226,14 +365,40 @@ of every radio link budget.
 
 *Implementation:* :func:`engineeringkit.communications.friis_received_power`,
 :func:`engineeringkit.communications.free_space_path_loss` and
-:func:`engineeringkit.communications.free_space_path_loss_db`. The example
+:func:`engineeringkit.communications.free_space_path_loss_db`, and in
+Friis's own area form :func:`engineeringkit.communications.effective_aperture`
+and :func:`engineeringkit.communications.aperture_gain`. The first example
 verifies the spreading-times-aperture interpretation and the 6 dB loss per
-doubling of distance.
+doubling of distance; the second writes a satellite link with effective
+areas and shows how dish gain grows with frequency.
 
 *References:* H. T. Friis, "A note on a simple transmission formula," *Proc.
 IRE* 34 (1946) 254-256.
 
-.. minigallery:: ../../examples/communications/propagation/plot_02_friis_transmission.py
+.. minigallery:: ../../examples/communications/propagation/plot_02_friis_transmission.py ../../examples/communications/antennas/plot_01_friis_effective_aperture.py
+
+1946-1952 -- Delta Modulation
+-----------------------------
+
+Delta modulation replaces PCM's multilevel coder with one comparator. The
+encoder keeps a staircase copy of the signal and sends one bit per sample,
+1 to step up by :math:`\Delta` and 0 to step down. The idea appears in a
+French patent of 1946 by Maurice Deloraine and colleagues at ITT's Paris
+laboratory. Frank de Jager of Philips Research gave the first full analysis
+in English in 1952. The step size must balance two errors: *slope
+overload* when the signal changes faster than :math:`\Delta f_s`, and
+*granular noise* when it is flat. The co-inventors of the patent could be
+found only in secondary sources, so they are not named here.
+
+*Implementation:* :func:`engineeringkit.communications.delta_modulate`,
+:func:`engineeringkit.communications.delta_demodulate` and
+:func:`engineeringkit.communications.delta_slope_limit`. The example shows
+overload and tracking, and finds the step that minimises the error.
+
+*References:* F. de Jager, "Delta modulation, a method of P.C.M.
+transmission using the 1-unit code," *Philips Res. Rep.* 7 (1952) 442-466.
+
+.. minigallery:: ../../examples/communications/digitization/plot_02_delta_modulation.py
 
 1947 -- Kotel'nikov's Theory of Optimum Noise Immunity
 ------------------------------------------------------
@@ -322,6 +487,102 @@ every single-bit error and compares coded and uncoded block error rates.
 
 .. minigallery:: ../../examples/communications/coding/plot_01_hamming_code.py
 
+1952 -- Huffman's Minimum-Redundancy Code
+-----------------------------------------
+
+Offered a term paper in place of Robert Fano's final exam at MIT, David A.
+Huffman was asked to find the most efficient binary code for a source with
+known probabilities. Shannon and Fano had split the symbols top-down, which
+is not always optimal. Huffman worked bottom-up. He merged the two least
+likely symbols into one and repeated until one remained. The resulting
+prefix code has the least average length of any symbol-by-symbol code,
+within one bit of the entropy, and equal to it when every probability is a
+power of one half. Huffman codes still sit inside JPEG, MP3 and DEFLATE.
+
+*Implementation:* :func:`engineeringkit.communications.huffman_code`
+(returning a :class:`~engineeringkit.communications.HuffmanCode` that
+encodes and decodes) and :func:`engineeringkit.communications.entropy`. The
+example codes the letters of English and a dyadic source.
+
+*References:* D. A. Huffman, "A method for the construction of
+minimum-redundancy codes," *Proc. IRE* 40 (1952) 1098-1101.
+
+.. minigallery:: ../../examples/communications/information/plot_06_huffman_code.py
+
+1954-1959 -- Kahn and Brennan's Diversity Combining
+---------------------------------------------------
+
+Two antennas a few wavelengths apart seldom fade at the same moment.
+Short-wave receivers had long switched to whichever antenna was strongest.
+Leonard R. Kahn's 1954 "ratio squarer" instead weighted each branch by its
+own signal strength before adding them. With weights equal to the
+conjugate channel gains this is maximal-ratio combining, whose output SNR is
+the sum of the branch SNRs. D. G. Brennan's 1959 review analysed selection,
+equal-gain and maximal-ratio combining together and showed how little
+separates them. With :math:`L` independent branches the error rate falls as
+:math:`\bar\gamma^{-L}`.
+
+*Implementation:* :func:`engineeringkit.communications.maximal_ratio_combine`,
+:func:`engineeringkit.communications.ber_bpsk_mrc_rayleigh` and
+:func:`engineeringkit.communications.selection_outage_probability`. The
+example simulates one, two and four branches and measures the diversity
+order and the selection outage.
+
+*References:* L. R. Kahn, "Ratio squarer," *Proc. IRE* 42, no. 11 (1954)
+1704; D. G. Brennan, "Linear diversity combining techniques," *Proc. IRE*
+47 (1959) 1075-1102.
+
+.. minigallery:: ../../examples/communications/fading/plot_02_diversity_combining.py
+
+1955 -- Elias's Convolutional Codes
+-----------------------------------
+
+Peter Elias's "Coding for noisy channels" showed that a code need not cut
+the data into blocks. A shift register slides along the bit stream, and each
+input bit produces :math:`n` output bits, sums modulo two of the register's
+taps. Elias proved that these convolutional codes are at least as good as
+block codes. Their error-correcting power is the *free distance*, the least
+weight of a path that leaves the all-zero state of the encoder and returns
+to it. It is 5 for the constraint-length-3 code with generators 7 and 5
+(octal), and 10 for the constraint-length-7 code of deep-space and Wi-Fi
+links.
+
+*Implementation:* :func:`engineeringkit.communications.convolutional_encode`
+and :func:`engineeringkit.communications.convolutional_free_distance`. The
+example encodes with the (7, 5) code, checks linearity, and computes the
+free distance of the best rate-1/2 codes.
+
+*References:* P. Elias, "Coding for noisy channels," *IRE Convention
+Record* 3, part 4 (1955) 37-46.
+
+.. minigallery:: ../../examples/communications/coding/plot_02_elias_convolutional_codes.py
+
+1959 -- Cahn's M-ary Phase-Shift Keying
+---------------------------------------
+
+Charles R. Cahn asked what happens when a carrier's phase takes :math:`M`
+values instead of two, so that each symbol carries :math:`\log_2 M` bits.
+The points sit on a circle and crowd together as :math:`M` grows: the
+distance between neighbours is :math:`2\sin(\pi/M)`, and beyond four
+phases each doubling of :math:`M` costs about 6 dB. Cahn considered both
+coherent detection and detection by comparison with the previous phase. He
+concluded that multiphase signalling trades bandwidth for signal-to-noise
+ratio more efficiently than multilevel amplitude signalling. With Gray
+labels, neighbouring phases differ in one bit.
+
+*Implementation:* :func:`engineeringkit.communications.psk_constellation`,
+:func:`engineeringkit.communications.ser_mpsk_awgn` (Craig's exact integral)
+and :func:`engineeringkit.communications.minimum_distance_detect`. The
+example simulates 2-, 4-, 8- and 16-PSK.
+
+*References:* C. R. Cahn, "Performance of digital phase-modulation
+communication systems," *IRE Trans. Commun. Syst.* 7 (1959) 3-6; J. W.
+Craig, "A new, simple and exact result for calculating the probability of
+error for two-dimensional signal constellations," *IEEE MILCOM* (1991)
+571-575.
+
+.. minigallery:: ../../examples/communications/detection/plot_04_cahn_mpsk.py
+
 1960 -- Quadrature Modulation
 -----------------------------
 
@@ -343,6 +604,52 @@ a passband waveform.
 communication systems," *IRE Trans. Commun. Syst.* 8 (1960) 150-155.
 
 .. minigallery:: ../../examples/communications/detection/plot_02_cahn_quadrature_qpsk.py
+
+1961 -- Peterson and Brown's Cyclic Redundancy Check
+----------------------------------------------------
+
+W. Wesley Peterson and D. T. Brown showed how to detect errors with a few
+shift-register stages and exclusive-OR gates. The message is treated as a
+polynomial over GF(2), multiplied by :math:`x^r` and divided by a generator
+of degree :math:`r`, and the remainder is sent after it. The receiver
+divides again and declares an error if anything is left. Every burst of
+:math:`r` or fewer errors is caught, and a random error pattern passes with
+probability :math:`2^{-r}`. Cyclic redundancy checks now guard Ethernet
+frames, disk sectors and USB packets.
+
+*Implementation:* :func:`engineeringkit.communications.crc_remainder`,
+:func:`engineeringkit.communications.crc_encode`,
+:func:`engineeringkit.communications.crc_check` and the CRC-16-CCITT
+generator :data:`engineeringkit.communications.CRC16_CCITT`. The example
+reproduces the catalogue check value and tests every short burst.
+
+*References:* W. W. Peterson and D. T. Brown, "Cyclic codes for error
+detection," *Proc. IRE* 49, no. 1 (1961) 228-235.
+
+.. minigallery:: ../../examples/communications/coding/plot_03_peterson_brown_crc.py
+
+1962 -- Campopiano and Glazer's Square QAM
+------------------------------------------
+
+Phase-shift keying leaves the inside of the circle empty. C. N. Campopiano
+and B. G. Glazer modulated the amplitudes of two carriers in quadrature
+independently, so the signal points fill a square grid. Each rail is a
+:math:`\sqrt M`-level amplitude decision, and the symbol-error rate follows
+exactly from one rail's error probability. At 16 points and above, square
+QAM needs several decibels less power than PSK for the same error rate, and
+it has carried data in voiceband modems, cable, Wi-Fi and cellular systems
+ever since.
+
+*Implementation:* :func:`engineeringkit.communications.qam_constellation`
+and :func:`engineeringkit.communications.ser_mqam_awgn`. The example
+simulates 4-, 16- and 64-QAM and measures the 4 dB advantage of 16-QAM over
+16-PSK.
+
+*References:* C. N. Campopiano and B. G. Glazer, "A coherent digital
+amplitude and phase modulation scheme," *IRE Trans. Commun. Syst.* 10,
+no. 1 (1962) 90-95.
+
+.. minigallery:: ../../examples/communications/detection/plot_05_campopiano_glazer_qam.py
 
 1962 -- Telstar and the Satellite Link Budget
 ---------------------------------------------
@@ -389,6 +696,30 @@ multiplexing using the discrete Fourier transform," *IEEE Trans. Commun.
 Technol.* 19 (1971) 628-634.
 
 .. minigallery:: ../../examples/communications/multiplexing/plot_01_ofdm_cyclic_prefix.py
+
+1967 -- Viterbi's Decoding Algorithm
+------------------------------------
+
+Decoding a convolutional code by brute force means comparing the received
+sequence with every possible codeword. Andrew J. Viterbi saw that two paths
+entering the same encoder state at the same time share the same future, so
+only the better of them, the *survivor*, need be kept. The work then grows
+linearly with the message length. Viterbi introduced the algorithm to prove
+error bounds. J. K. Omura and G. D. Forney soon showed that it is
+maximum-likelihood decoding. It went on to decode deep-space telemetry, GSM
+telephones and dial-up modems. Using the received values before slicing
+(soft decisions) gains about 2 dB over hard bits.
+
+*Implementation:* :func:`engineeringkit.communications.viterbi_decode`
+(returning a :class:`~engineeringkit.communications.ViterbiDecodeResult`).
+The example checks the survivor metric against exhaustive search and
+measures the coding gain of the constraint-length-7 code.
+
+*References:* A. J. Viterbi, "Error bounds for convolutional codes and an
+asymptotically optimum decoding algorithm," *IEEE Trans. Inf. Theory* 13
+(1967) 260-269.
+
+.. minigallery:: ../../examples/communications/coding/plot_04_viterbi_algorithm.py
 
 See Also
 --------

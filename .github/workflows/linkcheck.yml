@@ -1,0 +1,25 @@
+name: Linkcheck
+
+# The history pages cite papers by DOI and URL; this checks every external
+# link once a week, and on demand, without failing ordinary pushes when a
+# publisher is down.
+on:
+  schedule:
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
+
+jobs:
+  linkcheck:
+    name: Check external links
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -e ".[docs]"
+      # Links do not depend on the examples' output, so they are not run.
+      - run: make -C docs linkcheck O="-D plot_gallery=0"
+      - if: always()
+        run: cat docs/build/linkcheck/output.txt >> "$GITHUB_STEP_SUMMARY"

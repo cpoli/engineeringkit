@@ -40,3 +40,21 @@ def test_conduction_result_plot():
     fig, ax = result.plot(profiles=3)
     assert len(ax.get_lines()) == 3
     plt.close(fig)
+
+
+def test_conduction_2d_and_enclosure_results():
+    from engineeringkit.heat_transfer import conduction_2d, radiation_enclosure
+
+    result = conduction_2d(1.0, 0.5, 9, 5, 300.0, 310.0, 320.0, 400.0)
+    summary = result.summary()
+    assert summary["nodes"] == 45 and summary["max_K"] == 400.0
+    assert abs(summary["imbalance_W_per_m"]) < 1e-9
+    fig, ax = result.plot(levels=5)
+    assert ax.get_xlabel() == "x [m]"
+    plt.close(fig)
+    enclosure = radiation_enclosure([500.0, 300.0], [0.8, 0.8], [1.0, 1.0], [[0.0, 1.0], [1.0, 0.0]])
+    assert abs(enclosure.summary()["imbalance_W"]) < 1e-9
+    assert enclosure.summary()["temperature_K"] == [500.0, 300.0]
+    fig, ax = enclosure.plot()
+    assert len(ax.patches) == 2
+    plt.close(fig)

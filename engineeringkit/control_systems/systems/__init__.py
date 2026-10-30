@@ -1,12 +1,40 @@
 """Concrete control models: transfer functions, frequency response, stability, state space, optimal control and PID."""
 
+from engineeringkit.control_systems.systems.compensators import (
+    design_lag,
+    design_lead,
+    design_lead_lag,
+    lag_compensator,
+    lead_compensator,
+    lead_lag_compensator,
+)
 from engineeringkit.control_systems.systems.delay import pade_delay, smith_predictor
-from engineeringkit.control_systems.systems.frequency import bode, nyquist, nyquist_encirclements, stability_margins
+from engineeringkit.control_systems.systems.frequency import (
+    bode,
+    nichols,
+    nichols_closed_loop,
+    nyquist,
+    nyquist_encirclements,
+    stability_margins,
+)
+from engineeringkit.control_systems.systems.nonlinear import (
+    dead_zone_describing_function,
+    describing_function,
+    limit_cycle,
+    phase_portrait,
+    relay_describing_function,
+    saturation_describing_function,
+)
 from engineeringkit.control_systems.systems.optimal import dlqr, kalman_gain, lqr
 from engineeringkit.control_systems.systems.pid import PID, ziegler_nichols
 from engineeringkit.control_systems.systems.root_locus import root_locus
-from engineeringkit.control_systems.systems.sampled import discretize_zoh, jury_stable
+from engineeringkit.control_systems.systems.sampled import discretize_tustin, discretize_zoh, jury_stable
 from engineeringkit.control_systems.systems.second_order import second_order_metrics
+from engineeringkit.control_systems.systems.sensitivity import (
+    complementary_sensitivity,
+    sensitivity,
+    sensitivity_peak,
+)
 from engineeringkit.control_systems.systems.stability import (
     hurwitz_determinants,
     lyapunov_equation,
@@ -23,6 +51,10 @@ from engineeringkit.control_systems.systems.state_space import (
     observer_gain,
     state_feedback_poles,
     state_space,
+)
+from engineeringkit.control_systems.systems.steady_state import (
+    error_constants,
+    system_type,
 )
 from engineeringkit.control_systems.systems.transfer import (
     dc_gain,
@@ -46,6 +78,8 @@ __all__ = [
     "nyquist",
     "nyquist_encirclements",
     "stability_margins",
+    "nichols",
+    "nichols_closed_loop",
     "routh_first_column",
     "routh_stable",
     "hurwitz_determinants",
@@ -66,8 +100,26 @@ __all__ = [
     "observer_gain",
     "feedforward_gain",
     "discretize_zoh",
+    "discretize_tustin",
     "jury_stable",
     "lqr",
     "dlqr",
     "kalman_gain",
+    "lead_compensator",
+    "lag_compensator",
+    "lead_lag_compensator",
+    "design_lead",
+    "design_lag",
+    "design_lead_lag",
+    "system_type",
+    "error_constants",
+    "sensitivity",
+    "complementary_sensitivity",
+    "sensitivity_peak",
+    "describing_function",
+    "relay_describing_function",
+    "saturation_describing_function",
+    "dead_zone_describing_function",
+    "limit_cycle",
+    "phase_portrait",
 ]

@@ -183,6 +183,9 @@ def crack_growth_life(C, m, delta_sigma, a0, af, Y: float | Callable = 1.0, poin
 
     Notes
     -----
+    All parameters are scalar-only: the result is one integrated crack-growth
+    history.
+
     The trapezoid rule on a geometric grid; with a constant ``Y`` and
     :math:`m \ne 2` the closed form
     :math:`N = 2(a_0^{1-m/2} - a_f^{1-m/2}) / ((m - 2) C (Y\Delta\sigma\sqrt\pi)^m)`

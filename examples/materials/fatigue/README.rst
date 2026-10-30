@@ -1,4 +1,4 @@
 Fatigue
 -------
 
-Stress-life, mean stress, cumulative damage and strain-life.
+Stress-life, mean stress, cumulative damage, strain-life and notches.

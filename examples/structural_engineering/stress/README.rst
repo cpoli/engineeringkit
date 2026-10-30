@@ -1,4 +1,4 @@
 Stress
 ------
 
-Plane stress transformation.
+Plane stress transformation, three-dimensional principal stresses and strain-gauge rosettes.

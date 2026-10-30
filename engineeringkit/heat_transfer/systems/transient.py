@@ -4,7 +4,7 @@ Biot (1804) saw that a heated bar's temperature profile depends on the
 competition between internal conduction and surface loss, the ratio now
 called the Biot number. Kelvin (1862) used the error-function solution for a
 semi-infinite solid to estimate the age of the Earth, and Heisler (1947)
-charted the series solution for slabs, cylinders and spheres.
+charted the series solutions for slabs, long cylinders and spheres.
 """
 
 from __future__ import annotations
@@ -16,9 +16,17 @@ from engineeringkit._validation import finite as _finite
 from engineeringkit._validation import interval as _interval
 from engineeringkit._validation import nonnegative as _nonnegative
 from engineeringkit._validation import positive as _positive
-from engineeringkit.heat_transfer.utils.eigenvalues import plane_wall_eigenvalues
+from engineeringkit.heat_transfer.utils.eigenvalues import cylinder_eigenvalues, plane_wall_eigenvalues, sphere_eigenvalues
 
-__all__ = ["biot_number", "fourier_number", "lumped_temperature", "semi_infinite_temperature", "plane_wall_transient"]
+__all__ = [
+    "biot_number",
+    "fourier_number",
+    "lumped_temperature",
+    "semi_infinite_temperature",
+    "plane_wall_transient",
+    "cylinder_transient",
+    "sphere_transient",
+]
 
 
 def biot_number(h, Lc, k):
@@ -219,6 +227,9 @@ def plane_wall_transient(Fo, Bi, x_star=0.0, terms=100):
 
     Notes
     -----
+    ``Bi`` is scalar-only, since the eigenvalues are roots found for one Biot
+    number; ``Fo`` and ``x_star`` broadcast.
+
     Inputs are raw SI numbers with no dimensional metadata; see
     :doc:`/guides/heat_transfer`. Near :math:`Fo = 0` the truncated series
     oscillates about the initial value; use more terms there.
@@ -239,4 +250,110 @@ def plane_wall_transient(Fo, Bi, x_star=0.0, terms=100):
     C = 4 * np.sin(zeta) / (2 * zeta + np.sin(2 * zeta))
     Fo, x_star = np.broadcast_arrays(np.asarray(Fo, dtype=float), np.asarray(x_star, dtype=float))
     modes = C * np.exp(-(zeta**2) * Fo[..., None]) * np.cos(zeta * x_star[..., None])
+    return modes.sum(axis=-1)[()]
+
+
+def cylinder_transient(Fo, Bi, r_star=0.0, terms=100):
+    r"""Dimensionless temperature of a long cylinder cooled by convection (Heisler's charts).
+
+    .. math::
+
+        \theta^* = \sum_{n=1}^{N} C_n e^{-\zeta_n^2 Fo} J_0(\zeta_n r^*),
+        \qquad C_n = \frac{2}{\zeta_n}\frac{J_1(\zeta_n)}{J_0^2(\zeta_n) + J_1^2(\zeta_n)},
+
+    with :math:`\zeta_n J_1(\zeta_n)/J_0(\zeta_n) = Bi`.
+
+    Parameters
+    ----------
+    Fo : float or array_like
+        Fourier number :math:`\alpha t/r_o^2` on the outer radius [-], nonnegative.
+    Bi : float
+        Biot number :math:`hr_o/k` on the outer radius [-], positive.
+    r_star : float or array_like, optional
+        Radial position :math:`r/r_o` [-], in [0, 1]; 0 is the axis.
+    terms : int, optional
+        Number of series terms :math:`N`, at least one; ``terms=1`` is
+        Heisler's one-term chart, good for :math:`Fo > 0.2`.
+
+    Returns
+    -------
+    float or ndarray
+        :math:`\theta^* = (T - T_\infty)/(T_i - T_\infty)` [-], broadcast over ``Fo`` and ``r_star``.
+
+    Notes
+    -----
+    Inputs are raw SI numbers with no dimensional metadata; see
+    :doc:`/guides/heat_transfer`. The cylinder is infinitely long (no end
+    losses); near :math:`Fo = 0` use more terms.
+
+    References
+    ----------
+    M. P. Heisler, "Temperature charts for induction and constant-temperature
+    heating," *Trans. ASME* 69 (1947) 227-236.
+
+    Examples
+    --------
+    >>> round(float(cylinder_transient(0.5, 1.0)), 4)
+    0.5486
+    """
+    _nonnegative(Fo=Fo)
+    _interval("r_star", r_star, 0, 1)
+    zeta = cylinder_eigenvalues(Bi, terms)
+    j0, j1 = special.j0(zeta), special.j1(zeta)
+    C = 2 / zeta * j1 / (j0**2 + j1**2)
+    Fo, r_star = np.broadcast_arrays(np.asarray(Fo, dtype=float), np.asarray(r_star, dtype=float))
+    modes = C * np.exp(-(zeta**2) * Fo[..., None]) * special.j0(zeta * r_star[..., None])
+    return modes.sum(axis=-1)[()]
+
+
+def sphere_transient(Fo, Bi, r_star=0.0, terms=100):
+    r"""Dimensionless temperature of a sphere cooled by convection (Heisler's charts).
+
+    .. math::
+
+        \theta^* = \sum_{n=1}^{N} C_n e^{-\zeta_n^2 Fo}\,\frac{\sin(\zeta_n r^*)}{\zeta_n r^*},
+        \qquad C_n = \frac{4(\sin\zeta_n - \zeta_n\cos\zeta_n)}{2\zeta_n - \sin 2\zeta_n},
+
+    with :math:`1 - \zeta_n\cot\zeta_n = Bi`; at the centre
+    :math:`\sin(\zeta r^*)/(\zeta r^*) = 1`.
+
+    Parameters
+    ----------
+    Fo : float or array_like
+        Fourier number :math:`\alpha t/r_o^2` on the outer radius [-], nonnegative.
+    Bi : float
+        Biot number :math:`hr_o/k` on the outer radius [-], positive.
+    r_star : float or array_like, optional
+        Radial position :math:`r/r_o` [-], in [0, 1]; 0 is the centre.
+    terms : int, optional
+        Number of series terms :math:`N`, at least one; ``terms=1`` is
+        Heisler's one-term chart, good for :math:`Fo > 0.2`.
+
+    Returns
+    -------
+    float or ndarray
+        :math:`\theta^* = (T - T_\infty)/(T_i - T_\infty)` [-], broadcast over ``Fo`` and ``r_star``.
+
+    Notes
+    -----
+    Inputs are raw SI numbers with no dimensional metadata; see
+    :doc:`/guides/heat_transfer`. Near :math:`Fo = 0` use more terms.
+
+    References
+    ----------
+    M. P. Heisler, "Temperature charts for induction and constant-temperature
+    heating," *Trans. ASME* 69 (1947) 227-236.
+
+    Examples
+    --------
+    >>> round(float(sphere_transient(0.5, 1.0)), 4)
+    0.3708
+    """
+    _nonnegative(Fo=Fo)
+    _interval("r_star", r_star, 0, 1)
+    zeta = sphere_eigenvalues(Bi, terms)
+    C = 4 * (np.sin(zeta) - zeta * np.cos(zeta)) / (2 * zeta - np.sin(2 * zeta))
+    Fo, r_star = np.broadcast_arrays(np.asarray(Fo, dtype=float), np.asarray(r_star, dtype=float))
+    # np.sinc(x) = sin(pi x)/(pi x) is 1 at x = 0, so the centre needs no special case.
+    modes = C * np.exp(-(zeta**2) * Fo[..., None]) * np.sinc(zeta * r_star[..., None] / np.pi)
     return modes.sum(axis=-1)[()]

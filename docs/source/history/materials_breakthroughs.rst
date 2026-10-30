@@ -10,7 +10,8 @@ Breakthroughs in Materials
    -- Robert Hooke, *Lectures de Potentia Restitutiva*, 1678
 
 The strength of materials began as a list of breaking loads and became a
-science in three stages. The nineteenth century gave elasticity its
+science in three stages, while X-ray diffraction, diffusion and
+transformation kinetics opened up the structure inside. The nineteenth century gave elasticity its
 constants and its thermal stresses, and gave plasticity its first yield
 criterion. Around 1900 engineers learned that parts fail by fatigue and
 creep long before they reach their static strength, and wrote empirical
@@ -98,6 +99,31 @@ des corps solides* (Bachelier, Paris, 1852).
 
 .. minigallery:: ../../examples/materials/elasticity/plot_03_lame_constants.py
 
+1855 -- Fick's Laws of Diffusion
+--------------------------------
+
+Adolf Fick, prosector in anatomy at Zürich, measured salt diffusing up
+tall columns of water and described it with Fourier's law of heat
+conduction: the flux is proportional to the concentration gradient,
+:math:`J = -D\,\partial C/\partial x`, and conservation gives
+:math:`\partial C/\partial t = D\,\partial^2 C/\partial x^2`. Roberts-Austen
+measured diffusion of gold in solid lead in 1896, and Arrhenius-type
+diffusivities, :math:`D = D_0 e^{-Q_d/RT}`, made Fick's second law the tool
+for timing heat treatments. Its error-function solution for a surface held
+at fixed concentration sets the furnace time for case carburizing.
+
+*Implementation:* :func:`engineeringkit.materials.fick_flux`,
+:func:`engineeringkit.materials.diffusion_coefficient`,
+:func:`engineeringkit.materials.semi_infinite_concentration` and
+:func:`engineeringkit.materials.diffusion_time`. The example computes a
+steady flux and the carburizing time of a gear at three temperatures.
+
+*References:* A. Fick, "Ueber Diffusion," *Ann. Phys.* 170 (1855) 59-86;
+W. C. Roberts-Austen, "On the diffusion of metals," *Phil. Trans. R. Soc.
+Lond. A* 187 (1896) 383-415.
+
+.. minigallery:: ../../examples/materials/diffusion/plot_01_fick_carburizing.py
+
 1864 -- Tresca's Maximum-Shear Yield Criterion
 ----------------------------------------------
 
@@ -157,14 +183,44 @@ endurance limit at zero mean stress to the ultimate strength at zero
 amplitude, :math:`\sigma_a/S_e + \sigma_m/S_{ut} = 1/n`. The line is slightly
 conservative, easy to use, and still the default in machine design.
 
-*Implementation:* :func:`engineeringkit.materials.goodman_safety_factor`.
-The example finds the safety factor of a preloaded bolt and compares the
+*Implementation:* :func:`engineeringkit.materials.goodman_safety_factor`,
+with :func:`engineeringkit.materials.gerber_safety_factor` and
+:func:`engineeringkit.materials.soderberg_safety_factor` for the rival
+lines. The example finds the safety factor of a preloaded bolt and compares the
 Gerber, Goodman and Soderberg lines.
 
 *References:* J. Goodman, *Mechanics Applied to Engineering* (Longmans,
 Green, London, 1899).
 
 .. minigallery:: ../../examples/materials/fatigue/plot_01_goodman_diagram.py
+
+1900 -- Brinell's Hardness Test
+-------------------------------
+
+Johan August Brinell, chief engineer at the Fagersta ironworks, needed a
+quick check of the steels he was heat-treating. He pressed a 10 mm
+hardened steel ball into the surface under a fixed load and divided the
+load by the curved area of the dent. He presented the test at the
+International Congress for Testing Materials at the 1900 Paris
+Exposition, and Axel Wahlberg's English account (1901) spread it. Because
+an indentation is constrained plastic flow, the number tracks the tensile
+strength, :math:`S_{ut} \approx 3.45\,\mathrm{HB}` MPa for steels, so a
+small mark on a finished part estimates its strength. Smith and
+Sandland's Vickers diamond (1922) extended the scale to hardened steel.
+
+*Implementation:* :func:`engineeringkit.materials.brinell_hardness`,
+:func:`engineeringkit.materials.brinell_tensile_strength` and
+:func:`engineeringkit.materials.vickers_hardness`. The example converts a
+dent to HB and HB to strength across the range of steels.
+
+*References:* J. A. Brinell, "Mémoire sur les épreuves à bille en acier,"
+*Congrès International des Méthodes d'Essai des Matériaux de
+Construction* (Paris, 1900), vol. 2, 83-94; A. Wahlberg, "Brinell's method
+of determining hardness and other properties of iron and steel," *J. Iron
+Steel Inst.* 59 (1901) 243-298. The page ranges were taken from secondary
+sources.
+
+.. minigallery:: ../../examples/materials/hardness/plot_01_brinell_hardness.py
 
 1910 -- Basquin's S-N Law
 -------------------------
@@ -186,6 +242,36 @@ law to scattered endurance tests and recovers its constants.
 
 .. minigallery:: ../../examples/materials/fatigue/plot_02_basquin_sn_curve.py
 
+1913 -- The Braggs' Law of X-ray Diffraction
+--------------------------------------------
+
+Max von Laue, Walter Friedrich and Paul Knipping showed in 1912 that
+crystals diffract X-rays. William Lawrence Bragg, a research student at
+Cambridge, explained the spots as reflections from planes of atoms that
+reinforce when :math:`n\lambda = 2d\sin\theta`; his paper was read in
+November 1912 and printed in 1913. With the X-ray spectrometer of his
+father, William Henry Bragg, the two solved the structures of rock salt,
+diamond and the metals, and showed that iron is body-centred and copper
+face-centred cubic. The packing of spheres in those cells fixes the
+density of a perfect crystal. Father and son shared the 1915 Nobel Prize
+in Physics.
+
+*Implementation:* :func:`engineeringkit.materials.bragg_angle`,
+:func:`engineeringkit.materials.interplanar_spacing`,
+:func:`engineeringkit.materials.diffraction_peaks`,
+:func:`engineeringkit.materials.cubic_lattice_parameter`,
+:func:`engineeringkit.materials.atomic_packing_factor` and
+:func:`engineeringkit.materials.theoretical_density`. The example builds
+the powder patterns of iron and copper and reads copper's density back
+from its first peak.
+
+*References:* W. L. Bragg, "The diffraction of short electromagnetic waves
+by a crystal," *Proc. Camb. Phil. Soc.* 17 (1913) 43-57; W. H. Bragg and
+W. L. Bragg, "The reflection of X-rays by crystals," *Proc. R. Soc. Lond.
+A* 88 (1913) 428-438.
+
+.. minigallery:: ../../examples/materials/crystals/plot_01_bragg_diffraction.py
+
 1913 -- Von Mises's Yield Criterion
 -----------------------------------
 
@@ -198,10 +284,13 @@ of distortion. The criterion predicts shear yield at
 Quinney's tension-torsion tests on tubes of copper, aluminium and steel
 (1931) fell closer to it.
 
-*Implementation:* :func:`engineeringkit.materials.von_mises_plane_stress`
-and :func:`engineeringkit.materials.visualizers.plot_yield_surfaces`. The
-example checks the distortion-energy form and compares the two criteria for
-a tube in tension and torsion.
+*Implementation:* :func:`engineeringkit.materials.von_mises_plane_stress`,
+:func:`engineeringkit.materials.von_mises_stress`,
+:func:`engineeringkit.materials.principal_stresses` and
+:func:`engineeringkit.materials.visualizers.plot_yield_surfaces`. The
+example checks the distortion-energy form, shows that a hydrostatic stress
+leaves a three-dimensional state's equivalent stress unchanged, and
+compares the two criteria for a tube in tension and torsion.
 
 *References:* R. von Mises, "Mechanik der festen Körper im
 plastisch-deformablen Zustand," *Nachr. Ges. Wiss. Göttingen,
@@ -281,6 +370,61 @@ Phys. Soc.* 52 (1940) 34-37; F. R. N. Nabarro, "Dislocations in a simple
 cubic lattice," *Proc. Phys. Soc.* 59 (1947) 256-272.
 
 .. minigallery:: ../../examples/materials/plasticity/plot_01_dislocations.py
+
+1939 -- Avrami's Transformation Kinetics
+----------------------------------------
+
+Recrystallization, pearlite growing from austenite and the crystallization
+of polymers all follow an S-shaped curve in time. Melvin Avrami took
+nuclei that appear at random and grow until they impinge, counted the
+volume they would fill if they could overlap, and removed the overlap
+statistically: the fraction transformed is :math:`y = 1 - e^{-kt^n}`, with
+:math:`n` from 1 to 4 set by the modes of nucleation and growth.
+Kolmogorov (1937) and Johnson and Mehl (1939) derived the same law, so it
+is also called JMAK. Its isothermal curves, read at 1% and 99%, are the
+time-temperature-transformation diagrams of heat treatment, and the lever
+rule on the phase diagram gives the amount they approach.
+
+*Implementation:* :func:`engineeringkit.materials.avrami_fraction`,
+:func:`engineeringkit.materials.avrami_time`,
+:func:`engineeringkit.materials.avrami_fit` and
+:func:`engineeringkit.materials.lever_rule`. The example simulates random
+nuclei on a grid, recovers :math:`n \approx 3`, and finds the pearlite
+fraction of a 0.40% carbon steel.
+
+*References:* M. Avrami, "Kinetics of phase change. I. General theory,"
+*J. Chem. Phys.* 7 (1939) 1103-1112; A. N. Kolmogorov, "On the statistical
+theory of the crystallization of metals," *Izv. Akad. Nauk SSSR, Ser.
+Mat.* 1 (1937) 355-359; W. A. Johnson and R. F. Mehl, "Reaction kinetics
+in processes of nucleation and growth," *Trans. AIME* 135 (1939) 416-442.
+
+.. minigallery:: ../../examples/materials/phases/plot_01_avrami_kinetics.py
+
+1939 -- Weibull's Strength of Brittle Materials
+-----------------------------------------------
+
+Waloddi Weibull, professor at the Royal Institute of Technology in
+Stockholm, explained why brittle solids scatter in strength and why
+large ones are weaker. A part fails at its weakest flaw, so its survival
+probability is the product of those of its volume elements,
+:math:`1 - P_f = \exp[-(V/V_0)(\sigma/\sigma_0)^m]`. The Weibull modulus
+:math:`m` measures the scatter, and a part 1000 times the size of a test
+bar is weaker by :math:`1000^{1/m}`. Weibull generalised the distribution
+in 1951, and it became the standard lifetime model of reliability
+engineering (:doc:`/history/reliability_breakthroughs`).
+
+*Implementation:* :func:`engineeringkit.materials.weibull_failure_probability`,
+:func:`engineeringkit.materials.weibull_size_effect` and
+:func:`engineeringkit.materials.weibull_mean_strength`, which evaluate
+:func:`engineeringkit.reliability.weibull_cdf` and
+:func:`engineeringkit.reliability.weibull_mttf`. The example fits the
+modulus to bend-bar strengths and scales the strength to a larger part.
+
+*References:* W. Weibull, "A statistical theory of the strength of
+materials," *Ingeniörsvetenskapsakademiens Handlingar* 151 (Stockholm,
+1939).
+
+.. minigallery:: ../../examples/materials/fracture/plot_04_weibull_strength.py
 
 1943 -- Ramberg and Osgood's Stress-Strain Curve
 ------------------------------------------------
@@ -415,6 +559,64 @@ of a crack traversing a plate," *J. Appl. Mech.* 24 (1957) 361-364.
 
 .. minigallery:: ../../examples/materials/fracture/plot_02_irwin_stress_intensity.py
 
+1961 -- Neuber's Rule
+---------------------
+
+Kirsch (1898) found the factor of 3 at a circular hole and Inglis (1913)
+the factor :math:`1 + 2a/b` at an elliptical one, but in fatigue sharp
+notches hurt less than these elastic factors suggest, and in ductile
+parts the notch root yields. Peterson and Neuber described the first
+effect with a notch sensitivity, :math:`K_f = 1 + q(K_t - 1)`. Heinz
+Neuber, at the Technical University of Munich, solved the second for
+shear-loaded notches of any nonlinear material and found that the stress
+and strain concentrations keep :math:`K_\sigma K_\varepsilon = K_t^2`.
+With the cyclic stress-strain curve, :math:`\sigma\varepsilon = (K_t S)^2/E`
+gives the local strain that strain-life fatigue analysis needs, and it is
+used for notches under any loading.
+
+*Implementation:* :func:`engineeringkit.materials.neuber_notch_stress`,
+:func:`engineeringkit.materials.elliptical_hole_concentration`,
+:func:`engineeringkit.materials.peterson_notch_sensitivity`,
+:func:`engineeringkit.materials.neuber_notch_sensitivity` and
+:func:`engineeringkit.materials.fatigue_notch_factor`. The example finds
+the fatigue notch factor of a hole and intersects the Neuber hyperbola
+with a Ramberg-Osgood curve.
+
+*References:* H. Neuber, "Theory of stress concentration for
+shear-strained prismatical bodies with arbitrary nonlinear stress-strain
+law," *J. Appl. Mech.* 28 (1961) 544-550; C. E. Inglis, "Stresses in a
+plate due to the presence of cracks and sharp corners," *Trans. Inst.
+Naval Archit.* 55 (1913) 219-241.
+
+.. minigallery:: ../../examples/materials/fatigue/plot_05_neuber_rule.py
+
+1961 -- Reissner and Stavsky: Classical Laminate Theory
+-------------------------------------------------------
+
+Fibre-reinforced plastics are stiff along the fibres and soft across, so
+parts are laid up from plies at several angles. Eric Reissner and Yehuda
+Stavsky, at MIT, extended Kirchhoff's plate theory to such stacks and
+showed that a laminate that is not symmetric about its midplane couples
+stretching to bending: the :math:`\mathbf B` matrix of
+:math:`[\mathbf N; \mathbf M] = [\mathbf A, \mathbf B; \mathbf B, \mathbf D][\boldsymbol\varepsilon^0; \boldsymbol\kappa]`.
+Pister and Dong (1959) had treated layered plates earlier. Summing each
+ply's rotated stiffness through the thickness gives the laminate's
+response and every ply's stress, the starting point of composite design.
+
+*Implementation:* :func:`engineeringkit.materials.lamina_stiffness`,
+:func:`engineeringkit.materials.transformed_stiffness`,
+:func:`engineeringkit.materials.classical_laminate` and
+:class:`engineeringkit.materials.Laminate`. The example checks a
+quasi-isotropic carbon-epoxy laminate and shows a cross-ply one curling
+under tension.
+
+*References:* E. Reissner and Y. Stavsky, "Bending and stretching of
+certain types of heterogeneous aeolotropic elastic plates," *J. Appl.
+Mech.* 28 (1961) 402-408; K. S. Pister and S. B. Dong, "Elastic bending of
+layered plates," *J. Eng. Mech. Div. ASCE* 85 (1959) 1-10.
+
+.. minigallery:: ../../examples/materials/composites/plot_03_classical_laminate.py
+
 1963 -- Paris's Crack-Growth Law
 --------------------------------
 
@@ -439,6 +641,30 @@ P. Paris and F. Erdogan, "A critical analysis of crack propagation laws,"
 *J. Basic Eng.* 85 (1963) 528-533.
 
 .. minigallery:: ../../examples/materials/fracture/plot_03_paris_law.py
+
+1969 -- The Halpin-Tsai Equations
+---------------------------------
+
+The Voigt and Reuss bounds lie far apart for fibre composites, and the
+elasticity solutions for regular fibre arrays were too complicated for
+design. John Halpin and Stephen Tsai, at the US Air Force Materials
+Laboratory, interpolated those solutions with one formula,
+:math:`P/P_m = (1 + \xi\eta V_f)/(1 - \eta V_f)`, whose parameter
+:math:`\xi` runs from the Reuss bound at zero to the Voigt bound at
+infinity: about 2 for the transverse modulus of round fibres, 1 for the
+shear modulus and :math:`2\ell/d` for short fibres. The report was never
+published in a journal; Halpin and Kardos reviewed the equations in 1976.
+
+*Implementation:* :func:`engineeringkit.materials.halpin_tsai`. The
+example estimates the transverse and shear moduli of glass-epoxy and the
+stiffness of aligned short fibres.
+
+*References:* J. C. Halpin and S. W. Tsai, "Effects of environmental
+factors on composite materials," AFML-TR-67-423, Air Force Materials
+Laboratory (1969); J. C. Halpin and J. L. Kardos, "The Halpin-Tsai
+equations: a review," *Polym. Eng. Sci.* 16 (1976) 344-352.
+
+.. minigallery:: ../../examples/materials/composites/plot_02_halpin_tsai.py
 
 See Also
 --------

@@ -4,7 +4,10 @@ Reuleaux reduced machines to kinematic chains of rigid links and pairs.
 Grashof's condition says which four-bar chains have a link that turns fully.
 Freudenstein wrote the four-bar's loop closure as an equation linear in
 three coefficients, so a linkage can be synthesised from three input-output
-angle pairs by solving a 3 by 3 system. Denavit and Hartenberg described any
+angle pairs by solving a 3 by 3 system. Differentiating the loop-closure
+equation once and twice gives linear equations for the angular velocities
+and accelerations; Aronhold and Kennedy read the velocity ratios off the
+instant centres, which lie three by three on straight lines. Denavit and Hartenberg described any
 lower-pair chain with four parameters per joint and a 4 by 4 matrix.
 """
 
@@ -15,11 +18,14 @@ import numpy as np
 from engineeringkit._validation import finite as _finite
 from engineeringkit._validation import positive as _positive
 from engineeringkit._validation import vector as _vector
+from engineeringkit.mechanical_engineering.core.base import FourBarMotion, SliderCrankMotion
 
 __all__ = [
     "slider_crank_displacement",
+    "slider_crank_kinematics",
     "fourbar_grashof",
     "fourbar_output_angle",
+    "fourbar_kinematics",
     "freudenstein_coefficients",
     "freudenstein_link_lengths",
     "dh_transform",
@@ -66,6 +72,73 @@ def slider_crank_displacement(r, l, theta):
     if np.any(np.asarray(l) < r):
         raise ValueError("connecting rod l must be >= crank radius r")
     return r * np.cos(theta) + np.sqrt(l * l - r * r * np.sin(theta) ** 2)
+
+
+def slider_crank_kinematics(r, l, theta, omega, alpha=0.0) -> SliderCrankMotion:
+    r"""Exact slider velocity and acceleration of an in-line slider-crank.
+
+    With the rod at angle :math:`\beta` to the line of stroke,
+    :math:`l\sin\beta = r\sin\theta` and :math:`x = r\cos\theta + l\cos\beta`.
+    Differentiating,
+
+    .. math::
+
+        \dot\beta = \frac{r\omega\cos\theta}{l\cos\beta}, \qquad
+        \dot x = -r\omega\sin\theta - l\dot\beta\sin\beta,
+
+    and once more for :math:`\ddot\beta` and :math:`\ddot x`. For a rod long
+    compared with the crank,
+    :math:`\ddot x \approx -r\omega^2(\cos\theta + (r/l)\cos 2\theta)`.
+
+    Parameters
+    ----------
+    r : float
+        Crank radius [m], positive.
+    l : float
+        Connecting-rod length [m], greater than ``r``.
+    theta : float or array_like
+        Crank angle from top dead centre [rad].
+    omega : float
+        Crank angular velocity [rad/s].
+    alpha : float, optional
+        Crank angular acceleration [rad/s^2].
+
+    Returns
+    -------
+    SliderCrankMotion
+        Slider position [m], velocity [m/s] and acceleration [m/s^2], and the
+        rod's angle [rad], angular velocity [rad/s] and acceleration
+        [rad/s^2].
+
+    Notes
+    -----
+    Inputs are raw SI numbers with no dimensional metadata; see
+    :doc:`/guides/mechanical_engineering`.
+
+    Examples
+    --------
+    >>> motion = slider_crank_kinematics(0.05, 0.2, 0.0, 100.0)
+    >>> round(float(motion.acceleration), 6)
+    -625.0
+    """
+    _finite(theta=theta, omega=omega, alpha=alpha)
+    _positive(r=r, l=l)
+    if l <= r:
+        raise ValueError("connecting rod l must be longer than the crank radius r")
+    t = np.asarray(theta, dtype=float)
+    beta = np.arcsin(r * np.sin(t) / l)
+    cb, sb = np.cos(beta), np.sin(beta)
+    beta_dot = r * omega * np.cos(t) / (l * cb)
+    beta_ddot = (r * alpha * np.cos(t) - r * omega**2 * np.sin(t) + l * beta_dot**2 * sb) / (l * cb)
+    return SliderCrankMotion(
+        theta=t,
+        position=r * np.cos(t) + l * cb,
+        velocity=-r * omega * np.sin(t) - l * beta_dot * sb,
+        acceleration=-r * alpha * np.sin(t) - r * omega**2 * np.cos(t) - l * beta_ddot * sb - l * beta_dot**2 * cb,
+        rod_angle=beta,
+        rod_angular_velocity=beta_dot,
+        rod_angular_acceleration=beta_ddot,
+    )
 
 
 def fourbar_grashof(lengths):
@@ -155,6 +228,82 @@ def fourbar_output_angle(a, b, c, d, theta2, crossed=False):
     theta4 = np.arctan2(B, A) + (-1 if crossed else 1) * np.arccos(np.clip(ratio, -1, 1))
     theta4 = np.angle(np.exp(1j * theta4))
     return float(theta4) if t.ndim == 0 else theta4
+
+
+def _solve_pair(u, v, w):
+    # Real x, y with x u + y v = w for complex u, v, w (two real equations).
+    return np.imag(np.conj(v) * w) / np.imag(np.conj(v) * u), np.imag(np.conj(u) * w) / np.imag(np.conj(u) * v)
+
+
+def fourbar_kinematics(a, b, c, d, theta2, omega2, alpha2=0.0, crossed=False) -> FourBarMotion:
+    r"""Angles, angular velocities and angular accelerations of a four-bar linkage.
+
+    Differentiating the loop closure
+    :math:`a e^{i\theta_2} + b e^{i\theta_3} = d + c e^{i\theta_4}` gives
+
+    .. math::
+
+        i b\omega_3 e^{i\theta_3} - i c\omega_4 e^{i\theta_4} = -i a\omega_2 e^{i\theta_2}
+
+    and, once more,
+
+    .. math::
+
+        i b\alpha_3 e^{i\theta_3} - i c\alpha_4 e^{i\theta_4} =
+        -(i\alpha_2 - \omega_2^2) a e^{i\theta_2} + b\omega_3^2 e^{i\theta_3} - c\omega_4^2 e^{i\theta_4},
+
+    each a pair of real linear equations. The velocity solution is
+    :math:`\omega_4/\omega_2 = a\sin(\theta_3 - \theta_2)/(c\sin(\theta_3 - \theta_4))`.
+
+    Parameters
+    ----------
+    a, b, c, d : float
+        Input, coupler, output and ground link lengths [m], positive, as for
+        :func:`fourbar_output_angle`.
+    theta2 : float or array_like
+        Input crank angle [rad].
+    omega2 : float
+        Input angular velocity [rad/s].
+    alpha2 : float, optional
+        Input angular acceleration [rad/s^2].
+    crossed : bool, optional
+        False for the open circuit, True for the crossed circuit.
+
+    Returns
+    -------
+    FourBarMotion
+        :math:`\theta_{2,3,4}` [rad], :math:`\omega_{3,4}` [rad/s] and
+        :math:`\alpha_{3,4}` [rad/s^2]; infinite at a change point, where
+        coupler and output are in line.
+
+    Raises
+    ------
+    ValueError
+        If the linkage cannot be assembled at some ``theta2``.
+
+    Notes
+    -----
+    Inputs are raw SI numbers with no dimensional metadata; see
+    :doc:`/guides/mechanical_engineering`.
+
+    Examples
+    --------
+    >>> motion = fourbar_kinematics(1.0, 3.0, 2.0, 3.0, np.pi / 2, 1.0)
+    >>> round(float(motion.omega4), 6)
+    0.487298
+    """
+    _finite(omega2=omega2, alpha2=alpha2)
+    theta4 = np.asarray(fourbar_output_angle(a, b, c, d, theta2, crossed=crossed), dtype=float)
+    t2 = np.asarray(theta2, dtype=float)
+    e2, e4 = np.exp(1j * t2), np.exp(1j * theta4)
+    e3 = (d + c * e4 - a * e2) / b
+    theta3 = np.angle(e3)
+    e3 = np.exp(1j * theta3)
+    with np.errstate(divide="ignore", invalid="ignore"):
+        omega3, omega4 = _solve_pair(1j * b * e3, -1j * c * e4, -1j * a * omega2 * e2)
+        rhs = -(1j * alpha2 - omega2**2) * a * e2 + b * omega3**2 * e3 - c * omega4**2 * e4
+        alpha3, alpha4 = _solve_pair(1j * b * e3, -1j * c * e4, rhs)
+    return FourBarMotion(theta2=t2, theta3=theta3, theta4=theta4, omega3=omega3, omega4=omega4, alpha3=alpha3, alpha4=alpha4)
 
 
 def freudenstein_coefficients(input_angles, output_angles):

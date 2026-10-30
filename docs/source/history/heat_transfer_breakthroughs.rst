@@ -14,7 +14,8 @@ Heat moves by conduction, convection and radiation, and each became
 computable at a different time. Conduction had its law and its equation by
 1822. Radiation waited for the blackbody laws of the late nineteenth
 century, and convection, which mixes heat transfer with fluid mechanics,
-for the dimensionless correlations of the twentieth. Phase change and heat
+for the boundary-layer solutions and dimensionless correlations of the
+twentieth. Phase change and heat
 exchangers turned these pieces into the design rules of power stations,
 engines and refrigerators. The entries trace the ideas behind
 :mod:`engineeringkit.heat_transfer`. Each links to the implementing function
@@ -81,10 +82,16 @@ below which insulation increases heat loss.
 *Implementation:* :func:`engineeringkit.heat_transfer.fourier_heat_rate`,
 :func:`engineeringkit.heat_transfer.plane_wall_resistance`,
 :func:`engineeringkit.heat_transfer.composite_wall`,
-:func:`engineeringkit.heat_transfer.cylinder_resistance` and
-:func:`engineeringkit.heat_transfer.critical_insulation_radius_cylinder`.
-The example solves a furnace wall as a resistor chain and finds the critical
-radius of wire insulation numerically.
+:func:`engineeringkit.heat_transfer.cylinder_resistance`,
+:func:`engineeringkit.heat_transfer.critical_insulation_radius_cylinder`
+and the conduction shape factors
+(:func:`engineeringkit.heat_transfer.shape_factor_buried_cylinder`,
+:func:`engineeringkit.heat_transfer.shape_factor_buried_sphere`,
+:func:`engineeringkit.heat_transfer.shape_factor_eccentric_cylinders`,
+:func:`engineeringkit.heat_transfer.shape_factor_parallel_cylinders`). The
+example solves a furnace wall as a resistor chain, finds the critical
+radius of wire insulation numerically, and works out the heat lost by a
+buried pipe.
 
 *References:* J. Fourier, *Théorie analytique de la chaleur* (Paris:
 Firmin Didot, 1822).
@@ -158,6 +165,32 @@ electromagnetischen Lichttheorie," *Ann. Phys. Chem.* 22 (1884) 291-294.
 
 .. minigallery:: ../../examples/heat_transfer/radiation/plot_02_stefan_boltzmann.py
 
+1883 -- Graetz's Laminar Tube Flow
+----------------------------------
+
+Leo Graetz, measuring the thermal conductivity of liquids in Munich, ran
+them through heated capillaries and needed the temperature of a fluid in
+Poiseuille flow entering a tube whose wall is at a new temperature. He
+solved it as a series of eigenfunctions of the radius. Far downstream only
+the first survives, and the Nusselt number settles at 3.657; a uniform wall
+flux gives 48/11. Near the inlet the thin thermal layer gives more, and the
+profile is fully developed after the entry length :math:`0.05\,Re\,Pr\,D`.
+Hausen (1943) fitted the mean over the entry region against the number
+:math:`Re\,Pr\,D/L` that now carries Graetz's name; that paper was checked
+only through Incropera et al.
+
+*Implementation:* :func:`engineeringkit.heat_transfer.laminar_tube_nusselt`,
+:func:`engineeringkit.heat_transfer.entry_length` and
+:func:`engineeringkit.heat_transfer.hausen_nusselt`. The example marches
+Graetz's problem down the tube by finite differences and recovers the
+limit, the entry length and Hausen's average.
+
+*References:* L. Graetz, "Über die Wärmeleitungsfähigkeit von
+Flüssigkeiten," *Ann. Phys. Chem.* 18 (1883) 79-94, continued in 25 (1885)
+337-357.
+
+.. minigallery:: ../../examples/heat_transfer/convection/plot_04_graetz_tube_flow.py
+
 1891 -- Stefan's Problem: A Moving Freezing Front
 -------------------------------------------------
 
@@ -222,6 +255,30 @@ Wasserdampfes," *Z. VDI* 60 (1916) 541-546, 569-575.
 
 .. minigallery:: ../../examples/heat_transfer/phase_change/plot_02_nusselt_condensation.py
 
+1921 -- Pohlhausen's Thermal Boundary Layer
+-------------------------------------------
+
+Blasius had reduced Prandtl's laminar boundary layer on a flat plate to
+the equation :math:`f''' + \tfrac12 ff'' = 0` in 1908. Ernst Pohlhausen, in
+the first volume of the *Zeitschrift für angewandte Mathematik und
+Mechanik*, added the energy equation. With the same similarity variable it
+becomes :math:`\theta'' + \tfrac12 Pr\,f\theta' = 0`, which integrates in
+closed form once :math:`f` is known; the wall gradient is close to
+:math:`0.332\,Pr^{1/3}`, so :math:`Nu_x = 0.332\,Re_x^{1/2}Pr^{1/3}`. With
+the turbulent :math:`0.0296\,Re_x^{4/5}Pr^{1/3}` beyond transition, it
+gives the flat-plate results every convection course starts from.
+
+*Implementation:* :func:`engineeringkit.heat_transfer.flat_plate_nusselt`.
+The example solves the Blasius and Pohlhausen equations, measures the
+:math:`Pr^{1/3}` fit, and integrates the local coefficient over a plate
+whose boundary layer turns turbulent.
+
+*References:* E. Pohlhausen, "Der Wärmeaustausch zwischen festen Körpern
+und Flüssigkeiten mit kleiner Reibung und kleiner Wärmeleitung," *Z.
+Angew. Math. Mech.* 1 (1921) 115-121.
+
+.. minigallery:: ../../examples/heat_transfer/convection/plot_05_pohlhausen_flat_plate.py
+
 1922 -- Harper and Brown's Fin Efficiency
 -----------------------------------------
 
@@ -233,8 +290,9 @@ accounted for by lengthening the fin by half its thickness. Their
 efficiency curves are still how fins are sized.
 
 *Implementation:* :func:`engineeringkit.heat_transfer.fin_parameter`,
-:func:`engineeringkit.heat_transfer.fin_efficiency_adiabatic` and
-:func:`engineeringkit.heat_transfer.fin_heat_rate_adiabatic`. The example
+:func:`engineeringkit.heat_transfer.fin_efficiency_adiabatic`,
+:func:`engineeringkit.heat_transfer.fin_heat_rate_adiabatic` and
+:func:`engineeringkit.heat_transfer.fin_heat_rate_convective_tip`. The example
 solves the fin equation with a convecting tip numerically and checks the
 corrected length.
 
@@ -313,6 +371,57 @@ transfer," *Trans. ASME* 80 (1958) 711-720.
 
 .. minigallery:: ../../examples/heat_transfer/phase_change/plot_03_nukiyama_boiling_curve.py
 
+1934 -- The Chilton-Colburn Analogy
+-----------------------------------
+
+Allan Colburn, at DuPont, showed in 1933 that turbulent heat transfer data
+collapse when the Stanton number is multiplied by :math:`Pr^{2/3}`, and
+that this :math:`j` factor equals half the friction factor. With Thomas
+Chilton he extended it to mass transfer in 1934: equal :math:`j` factors
+give the mass transfer coefficient from the heat transfer coefficient,
+:math:`h_m = h/(\rho c_p Le^{2/3})`. One measurement then stands for three,
+and evaporation, sublimation and absorption can be designed from heat
+transfer data.
+
+*Implementation:*
+:func:`engineeringkit.heat_transfer.chilton_colburn_mass_transfer` and
+:func:`engineeringkit.heat_transfer.lewis_number`. The example checks the
+three :math:`j` factors of the laminar flat plate and computes a wet-bulb
+temperature that does not depend on the air speed.
+
+*References:* A. P. Colburn, "A method of correlating forced convection
+heat transfer data and a comparison with fluid friction," *Trans. AIChE*
+29 (1933) 174-210; T. H. Chilton and A. P. Colburn, "Mass transfer
+(absorption) coefficients: prediction from data on heat transfer and fluid
+friction," *Ind. Eng. Chem.* 26 (1934) 1183-1187.
+
+.. minigallery:: ../../examples/heat_transfer/convection/plot_06_chilton_colburn_analogy.py
+
+1940 -- Bowman, Mueller and Nagle: the LMTD Correction Factor
+-------------------------------------------------------------
+
+The log-mean temperature difference is exact only for pure counterflow or
+parallel flow. R. A. Bowman, A. C. Mueller and W. M. Nagle collected the
+analyses of multipass and crossflow exchangers made in the 1930s, Nagle's
+and Bowman's among them, into one correction factor :math:`F` on the
+counterflow LMTD, charted against the effectiveness :math:`P` of one stream
+and the capacity ratio :math:`R`. Their charts are still in every
+exchanger handbook. The effectiveness-NTU relations of the same
+arrangements carry the same information in another form.
+
+*Implementation:*
+:func:`engineeringkit.heat_transfer.lmtd_correction_factor`,
+:func:`engineeringkit.heat_transfer.exchanger_effectiveness_shell_tube` and
+:func:`engineeringkit.heat_transfer.exchanger_effectiveness_crossflow`. The
+example redraws the one-shell chart, checks the F-LMTD and
+effectiveness-NTU methods against each other, and rates a two-shell oil
+cooler.
+
+*References:* R. A. Bowman, A. C. Mueller and W. M. Nagle, "Mean
+temperature difference in design," *Trans. ASME* 62 (1940) 283-294.
+
+.. minigallery:: ../../examples/heat_transfer/exchangers/plot_02_bowman_correction_factor.py
+
 1947 -- Heisler's Transient Conduction Charts
 ---------------------------------------------
 
@@ -325,10 +434,12 @@ charts were the standard tool for transient conduction until computers made
 the series trivial.
 
 *Implementation:*
-:func:`engineeringkit.heat_transfer.plane_wall_transient` and
+:func:`engineeringkit.heat_transfer.plane_wall_transient`,
+:func:`engineeringkit.heat_transfer.cylinder_transient`,
+:func:`engineeringkit.heat_transfer.sphere_transient` and
 :func:`engineeringkit.heat_transfer.fourier_number`. The example redraws the
-centre chart, measures the one-term error and times the quench of a steel
-plate.
+centre chart, measures the one-term error, times the quench of a steel
+plate and compares the slab, cylinder and sphere.
 
 *References:* M. P. Heisler, "Temperature charts for induction and
 constant-temperature heating," *Trans. ASME* 69 (1947) 227-236.
@@ -346,15 +457,41 @@ obtained a scheme that is both unconditionally stable and second order in
 time. It remains the default for diffusion problems, from heat conduction
 to option pricing.
 
-*Implementation:* :func:`engineeringkit.heat_transfer.conduction_1d`. The
-example measures the order of accuracy of the implicit and Crank-Nicolson
-schemes and watches the explicit one blow up above :math:`r = 1/2`.
+*Implementation:* :func:`engineeringkit.heat_transfer.conduction_1d` and,
+for steady two-dimensional conduction with the same finite differences,
+:func:`engineeringkit.heat_transfer.conduction_2d`. The example measures the
+order of accuracy of the implicit and Crank-Nicolson schemes, watches the
+explicit one blow up above :math:`r = 1/2`, and checks a 2-D plate against
+its Fourier series.
 
 *References:* J. Crank and P. Nicolson, "A practical method for numerical
 evaluation of solutions of partial differential equations of the
 heat-conduction type," *Proc. Cambridge Phil. Soc.* 43 (1947) 50-67.
 
 .. minigallery:: ../../examples/heat_transfer/conduction/plot_03_crank_nicolson.py
+
+1952 -- Rohsenow's Nucleate Boiling Correlation
+-----------------------------------------------
+
+In nucleate boiling the flux climbs steeply with the wall superheat, and
+the data for different liquids and surfaces seemed to share nothing.
+Warren Rohsenow at MIT treated each departing bubble as the agent of a
+convection process and correlated them all with dimensionless groups, one
+empirical surface-fluid constant :math:`C_{s,f}` and a cube law,
+:math:`q'' \propto \Delta T_e^3`. The work circulated as an MIT report in
+1951 and appeared in the *Transactions of the ASME* in 1952. Errors in the
+flux of up to 100% are common, but because of the cube they mean only about
+25% in the superheat.
+
+*Implementation:*
+:func:`engineeringkit.heat_transfer.rohsenow_boiling_heat_flux`. The
+example boils water in a pan, shows the cube law and the effect of the
+surface, and finds where the curve meets the critical heat flux.
+
+*References:* W. M. Rohsenow, "A method of correlating heat-transfer data
+for surface boiling of liquids," *Trans. ASME* 74 (1952) 969-976.
+
+.. minigallery:: ../../examples/heat_transfer/phase_change/plot_04_rohsenow_nucleate_boiling.py
 
 1955 -- Kays and London: Effectiveness-NTU
 ------------------------------------------
@@ -380,6 +517,55 @@ cooler by both methods and integrates the stream temperatures along it.
 
 .. minigallery:: ../../examples/heat_transfer/exchangers/plot_01_kays_london_ntu.py
 
+1956 -- Oppenheim's Radiation Network
+-------------------------------------
+
+Between gray surfaces, radiation is reflected back and forth, so every
+surface's exchange depends on every other. Antoni Oppenheim, at Berkeley,
+drew it as an electrical circuit. Each surface's blackbody emissive power
+drives current through a surface resistance
+:math:`(1 - \varepsilon)/(\varepsilon A)` to a node at its radiosity, and
+the radiosity nodes are joined by space resistances :math:`1/(A_iF_{ij})`.
+The network is linear in the radiosities. Insulated walls become floating
+nodes, radiation shields add resistances in series, and the view factors
+must obey reciprocity, :math:`A_iF_{ij} = A_jF_{ji}`, and summation,
+:math:`\sum_jF_{ij} = 1`.
+
+*Implementation:* :func:`engineeringkit.heat_transfer.radiation_enclosure`,
+:func:`engineeringkit.heat_transfer.two_surface_radiation`,
+:func:`engineeringkit.heat_transfer.radiation_shield_heat_flux` and
+:func:`engineeringkit.heat_transfer.view_factor_reciprocity`. The example
+builds a furnace's view factors from the two rules, solves its network by
+hand and by matrix, and adds foil shields to a cryogenic line.
+
+*References:* A. K. Oppenheim, "Radiation analysis by the network method,"
+*Trans. ASME* 78 (1956) 725-735.
+
+.. minigallery:: ../../examples/heat_transfer/radiation/plot_05_oppenheim_network.py
+
+1972 -- Žukauskas's Tube Banks in Crossflow
+-------------------------------------------
+
+Boilers, air heaters and the shells of most exchangers are banks of tubes
+in crossflow. The first row sees the free stream; deeper rows sit in the
+wakes of those ahead, whose turbulence raises their heat transfer. Algirdas
+Žukauskas, at the Lithuanian Academy of Sciences in Kaunas, gathered his
+laboratory's measurements on aligned and staggered banks into one form,
+:math:`\bar{Nu} = C_2CRe_{max}^mPr^{0.36}(Pr/Pr_s)^{1/4}`, with constants for
+each layout and Reynolds range and a correction for banks of fewer than 20
+rows. The constants used here are those tabulated by Incropera et al.; the
+1972 review was located but its tables were not checked against them.
+
+*Implementation:* :func:`engineeringkit.heat_transfer.zukauskas_nusselt`
+and :func:`engineeringkit.heat_transfer.tube_bank_max_velocity`. The
+example sizes an air heater, follows the air temperature through the bank,
+and compares row counts and layouts.
+
+*References:* A. Žukauskas, "Heat transfer from tubes in crossflow," *Adv.
+Heat Transfer* 8 (1972) 93-160.
+
+.. minigallery:: ../../examples/heat_transfer/convection/plot_07_zukauskas_tube_banks.py
+
 1975 -- Churchill and Chu: Natural Convection over All Rayleigh Numbers
 -----------------------------------------------------------------------
 
@@ -400,6 +586,27 @@ laminar and turbulent free convection from a vertical plate," *Int. J. Heat
 Mass Transfer* 18 (1975) 1323-1329.
 
 .. minigallery:: ../../examples/heat_transfer/convection/plot_03_churchill_chu.py
+
+1977 -- Churchill and Bernstein: the Cylinder in Crossflow
+----------------------------------------------------------
+
+Heat transfer from a cylinder in crossflow was given by power laws fitted
+range by range; Hilpert's of 1933 has five, each with its own constants.
+Stuart Churchill and M. Bernstein applied the blending of asymptotes that
+Churchill had used for free convection and wrote one expression from
+creeping flow past the drag crisis. They described it as a slight
+underestimate of most of the data it was fitted to.
+
+*Implementation:*
+:func:`engineeringkit.heat_transfer.churchill_bernstein_nusselt`. The
+example compares it with Hilpert's table and calibrates a hot-wire
+anemometer, recovering King's law of 1914.
+
+*References:* S. W. Churchill and M. Bernstein, "A correlating equation for
+forced convection from gases and liquids to a circular cylinder in
+crossflow," *J. Heat Transfer* 99 (1977) 300-306.
+
+.. minigallery:: ../../examples/heat_transfer/convection/plot_08_churchill_bernstein_cylinder.py
 
 See Also
 --------

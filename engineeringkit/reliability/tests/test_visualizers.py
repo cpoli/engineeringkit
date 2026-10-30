@@ -32,3 +32,17 @@ def test_plot_hazard_linear_and_log():
     with pytest.raises(ValueError):
         plot_hazard([], [])
     plt.close("all")
+
+
+def test_plot_weibull_probability_points_line_and_errors():
+    from engineeringkit.reliability.visualizers import plot_weibull_probability
+
+    ax = plot_weibull_probability([10, 20, 40], [0.2, 0.5, 0.8])
+    assert len(ax.lines) == 1 and ax.get_legend() is None
+    plot_weibull_probability([10, 20, 40], [0.2, 0.5, 0.8], eta=25, beta=1.5, ax=ax)
+    x, y = ax.lines[-1].get_data()
+    np.testing.assert_allclose(y, 1.5 * (x - np.log(25)))
+    for times, f, kwargs in (([0, 1], [0.2, 0.5], {}), ([1, 2], [0.2, 1.0], {}), ([1, 2], [0.2, 0.5], {"eta": 3})):
+        with pytest.raises(ValueError):
+            plot_weibull_probability(times, f, **kwargs)
+    plt.close("all")

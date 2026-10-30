@@ -14,8 +14,9 @@ centuries. Bernoulli and Newton supplied the conservation laws; Cayley,
 Lilienthal and the Wright brothers reduced flight to measurable force
 coefficients; Kutta, Joukowski and Prandtl explained where lift and drag
 come from; and the compressible-flow results of Saint-Venant, Rankine,
-Hugoniot, Mach and de Laval prepared the ground for transonic and
-supersonic flight. This chronology traces the ideas behind
+Hugoniot, Mach, de Laval, Fanno, Meyer and Rayleigh prepared the ground
+for transonic and supersonic flight; and Glauert's series and the panel
+method of Hess and Smith turned the theory into computation. This chronology traces the ideas behind
 :mod:`engineeringkit.aerodynamics`. Each entry links to the function that
 implements the result and to a gallery example devoted to it.
 
@@ -280,6 +281,32 @@ Aérodynamique de Koutchino* 1 (1906).
 
 .. minigallery:: ../../examples/aerodynamics/circulation/plot_01_kutta_joukowski_spinning_cylinder.py
 
+1904 -- Fanno: Friction Chokes a Duct
+-------------------------------------
+
+Gino Fanno's diploma thesis at the ETH Zürich, written in 1904 under Aurel
+Stodola, followed an adiabatic gas along a constant-area pipe with wall
+friction. Friction does not slow a compressible flow down. It drives the
+Mach number towards one, accelerating subsonic flow and decelerating
+supersonic flow, while the stagnation temperature stays constant and the
+stagnation pressure falls. The states lie on a *Fanno line* whose point of
+maximum entropy is sonic, so a pipe longer than the choking length
+:math:`L^*` cannot pass the inlet mass flow. Natural-gas pipelines and the
+ducts of supersonic wind tunnels are sized with it.
+
+*Implementation:* :func:`engineeringkit.aerodynamics.fanno_flow` returns a
+:class:`~engineeringkit.aerodynamics.DuctFlowState`, and
+:func:`engineeringkit.aerodynamics.fanno_choking_length` gives :math:`L^*`.
+The example marches the friction ODE down a pipe to the sonic point and
+draws the Fanno line.
+
+*References:* G. Fanno, *Die Strömung eines Gases in einem Rohre mit
+Reibung*, Diplomarbeit, ETH Zürich (1904); J. D. Anderson, *Modern
+Compressible Flow*, 3rd ed. (McGraw-Hill, 2003), sec. 3.9. The date and
+attribution follow Anderson; the thesis itself was not consulted.
+
+.. minigallery:: ../../examples/aerodynamics/compressible/plot_09_fanno_flow.py
+
 1904-1908 -- Prandtl's Boundary Layer and the Blasius Solution
 --------------------------------------------------------------
 
@@ -304,6 +331,89 @@ Heidelberg 1904* (Leipzig: Teubner, 1905) 484-491; H. Blasius,
 Mathematik und Physik* 56 (1908) 1-37.
 
 .. minigallery:: ../../examples/aerodynamics/boundary_layer/plot_02_prandtl_blasius_boundary_layer.py
+
+1907-1908 -- The Prandtl-Meyer Expansion
+----------------------------------------
+
+Ludwig Prandtl (1907), studying the supersonic jets from steam nozzles, and
+his student Theodor Meyer (1908) showed how a supersonic stream turns away
+from itself round a convex corner. It expands isentropically through a
+centred fan of Mach waves, and the turning angle that takes a sonic stream
+to Mach :math:`M` is a single function :math:`\nu(M)`. A turn by
+:math:`\theta` therefore sets :math:`\nu(M_2) = \nu(M_1) + \theta`.
+With Meyer's oblique shocks this gives *shock-expansion theory*, the exact
+inviscid solution for supersonic airfoils made of straight segments.
+
+*Implementation:* :func:`engineeringkit.aerodynamics.prandtl_meyer_angle`,
+:func:`engineeringkit.aerodynamics.inverse_prandtl_meyer` and
+:func:`engineeringkit.aerodynamics.prandtl_meyer_expansion`. The example
+expands a Mach 1.5 stream round a 20° corner and computes the lift of a
+flat plate by shock-expansion theory against Ackeret's linear result.
+
+*References:* L. Prandtl, "Neue Untersuchungen über die strömende
+Bewegung der Gase und Dämpfe," *Physikalische Zeitschrift* 8 (1907)
+23-30; T. Meyer, "Über zweidimensionale Bewegungsvorgänge in einem Gas,
+das mit Überschallgeschwindigkeit strömt," *Mitteilungen über
+Forschungsarbeiten auf dem Gebiete des Ingenieurwesens* (VDI) 62 (1908)
+31-67. The citations follow Anderson, *Modern Compressible Flow*, ch. 4;
+the original papers were not consulted.
+
+.. minigallery:: ../../examples/aerodynamics/compressible/plot_08_prandtl_meyer_expansion.py
+
+1908 -- Meyer's Oblique Shock Relations
+---------------------------------------
+
+The same 1908 thesis treated the opposite case: a supersonic stream turned
+into itself by a wedge passes through a straight *oblique* shock. Meyer
+saw that the jump is a normal shock in the velocity component normal to
+the wave, while the tangential component is unchanged. That fixes the
+wave angle :math:`\beta` from the deflection :math:`\theta` and the Mach
+number through the :math:`\theta`-:math:`\beta`-:math:`M` relation. For
+each Mach number there is a maximum deflection. Below it there are two
+solutions, a weak and a strong shock; above it the shock detaches and
+stands off the nose as a curved bow wave.
+
+*Implementation:* :func:`engineeringkit.aerodynamics.oblique_shock_deflection`,
+:func:`engineeringkit.aerodynamics.oblique_shock_angle` (Thompson's closed
+form for the cubic, 1950),
+:func:`engineeringkit.aerodynamics.oblique_shock_max_deflection` and
+:func:`engineeringkit.aerodynamics.oblique_shock`, which returns an
+:class:`~engineeringkit.aerodynamics.ObliqueShockResult`. The chart is
+drawn by :func:`engineeringkit.aerodynamics.visualizers.plot_theta_beta_mach`.
+The example finds both solutions for a 20° wedge at Mach 2.
+
+*References:* T. Meyer, *Mitteilungen über Forschungsarbeiten* (VDI) 62
+(1908) 31-67, as cited by J. D. Anderson, *Modern Compressible Flow*, 3rd
+ed. (McGraw-Hill, 2003), ch. 4; M. J. Thompson, "A note on the
+calculation of oblique shock-wave characteristics," *Journal of the
+Aeronautical Sciences* 17 (1950) 744.
+
+.. minigallery:: ../../examples/aerodynamics/compressible/plot_07_meyer_oblique_shock.py
+
+1910 -- Rayleigh Flow and Thermal Choking
+-----------------------------------------
+
+In "Aerial plane waves of finite amplitude," Lord Rayleigh combined the
+conservation of mass and momentum for steady one-dimensional flow. The
+states they allow lie on a straight line, :math:`p + \rho V^2 =`
+const, in the pressure-volume plane: the *Rayleigh line*. A gas heated or
+cooled in a frictionless constant-area duct moves along it. Heating
+drives the Mach number towards one from either side. The stagnation
+temperature is largest at the sonic point, so an inlet state can absorb
+only a finite heat before the duct chokes. That limit governs combustors,
+afterburners and ramjets.
+
+*Implementation:* :func:`engineeringkit.aerodynamics.rayleigh_flow` and
+:func:`engineeringkit.aerodynamics.rayleigh_choking_heat`. The example
+checks mass and momentum along the line and finds its points of maximum
+entropy (:math:`M = 1`) and maximum temperature
+(:math:`M = 1/\sqrt{\gamma}`).
+
+*References:* Lord Rayleigh, "Aerial plane waves of finite amplitude,"
+*Proceedings of the Royal Society of London A* 84 (1910) 247-284,
+:doi:`10.1098/rspa.1910.0075`.
+
+.. minigallery:: ../../examples/aerodynamics/compressible/plot_10_rayleigh_flow.py
 
 1918 -- Prandtl's Lifting-Line Theory
 -------------------------------------
@@ -386,14 +496,19 @@ camber-line slope.
 
 *Implementation:* :func:`engineeringkit.aerodynamics.thin_airfoil_cl` and
 :func:`engineeringkit.aerodynamics.naca4_zero_lift_angle`, which evaluates
-Glauert's integral by quadrature. The example reproduces the textbook
-value :math:`\alpha_{L=0} = -2.08°` for the NACA 2412.
+Glauert's integral by quadrature, and
+:func:`engineeringkit.aerodynamics.naca4_moment_coefficient` and
+:func:`engineeringkit.aerodynamics.aerodynamic_center` for the pitching
+moment, which is constant about the quarter chord. The first example
+reproduces the textbook value :math:`\alpha_{L=0} = -2.08°` for the NACA
+2412; the second its :math:`c_{m,c/4} = -0.053` and the aerodynamic
+centre.
 
 *References:* M. M. Munk, "General theory of thin wing sections," NACA
 Report 142 (1922); H. Glauert, *The Elements of Aerofoil and Airscrew
 Theory* (Cambridge University Press, 1926).
 
-.. minigallery:: ../../examples/aerodynamics/airfoils/plot_02_thin_airfoil_theory.py
+.. minigallery:: ../../examples/aerodynamics/airfoils/plot_02_thin_airfoil_theory.py ../../examples/aerodynamics/airfoils/plot_04_thin_airfoil_pitching_moment.py
 
 c. 1920 -- The Breguet Range Equation
 -------------------------------------
@@ -405,17 +520,48 @@ engine's specific fuel consumption. Integrating the weight loss gives
 :math:`R = \frac{V}{g c_T}\frac{L}{D}\ln\frac{W_i}{W_f}`. Range is thus a
 product of three efficiencies: the engine's, the airframe's
 aerodynamics, and the structure's (through the fuel fraction). The
-equation still frames every long-range aircraft design.
+equation still frames every long-range aircraft design. Breguet wrote
+it for propeller aircraft, whose engines are rated by power rather than
+thrust. There :math:`R = \frac{\eta_{pr}}{g c_P}\frac{L}{D}\ln\frac{W_i}{W_f}`,
+and speed drops out.
 
 *Implementation:* :func:`engineeringkit.aerodynamics.breguet_range`, with
 :func:`engineeringkit.aerodynamics.best_glide_cl` giving the lift
-coefficient that maximises :math:`L/D`. The example checks the formula
-against a time-stepped cruise.
+coefficient that maximises :math:`L/D`, and
+:func:`engineeringkit.aerodynamics.breguet_range_propeller`. The examples
+check both forms against a time-stepped cruise.
 
 *References:* J. D. Anderson, *Aircraft Performance and Design*
 (McGraw-Hill, 1999), sec. 5.13.
 
-.. minigallery:: ../../examples/aerodynamics/performance/plot_01_breguet_range.py
+.. minigallery:: ../../examples/aerodynamics/performance/plot_01_breguet_range.py ../../examples/aerodynamics/performance/plot_02_breguet_propeller_range.py
+
+1926 -- Glauert's Fourier Solution of the Lifting Line
+------------------------------------------------------
+
+Prandtl's lifting-line equation could be solved by hand only for the
+elliptic wing. In *The Elements of Aerofoil and Airscrew Theory* Hermann
+Glauert turned it into linear algebra. He wrote the circulation as a
+Fourier sine series in the angle :math:`\theta` with
+:math:`y = -\tfrac b2\cos\theta`, and enforced the equation at as many
+spanwise stations as there are terms. The first coefficient alone fixes
+the lift, :math:`C_L = \pi AR\,A_1`, and the others only add drag, so
+the span efficiency is :math:`e = 1/(1 + \delta)` with
+:math:`\delta = \sum_{n>1} nA_n^2/A_1^2`. Glauert's charts of
+:math:`\delta` against taper ratio showed that a straight wing tapered to
+about 0.4 is almost as good as an ellipse and much easier to build.
+
+*Implementation:* :func:`engineeringkit.aerodynamics.lifting_line` takes
+any chord, twist and zero-lift distribution and returns a
+:class:`~engineeringkit.aerodynamics.LiftingLineResult`, drawn by
+:func:`engineeringkit.aerodynamics.visualizers.plot_spanwise_loading`. The
+example recovers :math:`e = 1` for the ellipse and sweeps the taper ratio.
+
+*References:* H. Glauert, *The Elements of Aerofoil and Airscrew Theory*
+(Cambridge University Press, 1926), ch. 11; J. D. Anderson,
+*Fundamentals of Aerodynamics*, 6th ed. (McGraw-Hill, 2017), sec. 5.3.
+
+.. minigallery:: ../../examples/aerodynamics/wings/plot_04_glauert_fourier_lifting_line.py
 
 1927 -- Prandtl's Turbulent Flat-Plate Friction
 -----------------------------------------------
@@ -506,6 +652,32 @@ tangents.
 calculation of airplane performance," NACA Report 408 (1933).
 
 .. minigallery:: ../../examples/aerodynamics/wings/plot_03_oswald_drag_polar.py
+
+1967 -- Hess and Smith: the Panel Method
+----------------------------------------
+
+At the Douglas Aircraft Company, John Hess and A. M. O. Smith replaced a
+body of any shape by straight surface panels, each with its own uniform
+source strength, and solved the linear system that makes the surface a
+streamline. Their 1967 review added a vortex strength shared by every
+panel, fixed by the Kutta condition at the trailing edge, so the method
+could carry lift. It was among the first computational aerodynamics tools
+in industrial use. Unlike thin-airfoil theory it keeps the real
+thickness, and so predicts the leading-edge suction peak and the extra
+lift slope of a thick section. Panel methods were the industry's
+workhorse until the 1980s and still size wings in conceptual design.
+
+*Implementation:* :func:`engineeringkit.aerodynamics.panel_method`
+returns a :class:`~engineeringkit.aerodynamics.PanelResult`, drawn by
+:func:`engineeringkit.aerodynamics.visualizers.plot_pressure_coefficient`.
+The example matches the exact pressure on a circular cylinder and the
+lift slope :math:`2\pi(1 + 0.77\,t/c)` of symmetric NACA sections.
+
+*References:* J. L. Hess and A. M. O. Smith, "Calculation of potential
+flow about arbitrary bodies," *Progress in Aerospace Sciences* 8 (1967)
+1-138, :doi:`10.1016/0376-0421(67)90003-6`.
+
+.. minigallery:: ../../examples/aerodynamics/airfoils/plot_03_hess_smith_panel_method.py
 
 See Also
 --------

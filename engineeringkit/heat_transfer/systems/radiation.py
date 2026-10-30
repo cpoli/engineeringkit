@@ -5,7 +5,9 @@ which makes the blackbody the universal reference. Stefan (1879) and
 Boltzmann (1884) found its total emissive power :math:`\sigma T^4`; Wien
 (1893) showed its spectrum shifts as :math:`\lambda_{max}T = b`; Planck
 (1900) gave its exact shape. Nusselt (1928) reduced the geometry of
-exchange between surfaces to a projection on a unit sphere.
+exchange between surfaces to a projection on a unit sphere, and Oppenheim
+(1956) the exchange between gray surfaces to an electrical network of
+surface and space resistances.
 """
 
 from __future__ import annotations
@@ -16,6 +18,8 @@ from engineeringkit._validation import finite as _finite
 from engineeringkit._validation import interval as _interval
 from engineeringkit._validation import nonnegative as _nonnegative
 from engineeringkit._validation import positive as _positive
+from engineeringkit._validation import vector as _vector
+from engineeringkit.heat_transfer.core.base import EnclosureResult
 from engineeringkit.heat_transfer.utils.constants import BOLTZMANN, PLANCK, SPEED_OF_LIGHT, STEFAN_BOLTZMANN, WIEN_DISPLACEMENT
 
 __all__ = [
@@ -26,6 +30,10 @@ __all__ = [
     "planck_spectral_emissive_power",
     "view_factor_parallel_plates",
     "view_factor_coaxial_disks",
+    "view_factor_reciprocity",
+    "two_surface_radiation",
+    "radiation_shield_heat_flux",
+    "radiation_enclosure",
 ]
 
 
@@ -322,3 +330,248 @@ def view_factor_coaxial_disks(r1, r2, L):
     R1, R2 = r1 / L, r2 / L
     S = 1 + (1 + R2**2) / R1**2
     return 0.5 * (S - np.sqrt(S**2 - 4 * (r2 / r1) ** 2))
+
+
+def view_factor_reciprocity(F_ij, A_i, A_j):
+    r"""View factor :math:`F_{ji}` from its reverse by reciprocity, :math:`A_iF_{ij} = A_jF_{ji}`.
+
+    Parameters
+    ----------
+    F_ij : float or array_like
+        View factor from surface :math:`i` to surface :math:`j` [-], in [0, 1].
+    A_i, A_j : float or array_like
+        Areas of the two surfaces [m^2], positive.
+
+    Returns
+    -------
+    float or ndarray
+        View factor :math:`F_{ji}` [-].
+
+    Raises
+    ------
+    ValueError
+        If the result exceeds one, which no pair of real surfaces allows.
+
+    Notes
+    -----
+    Inputs are raw SI numbers with no dimensional metadata; see
+    :doc:`/guides/heat_transfer`. With the summation rule
+    :math:`\sum_j F_{ij} = 1` over an enclosure, reciprocity gives every view
+    factor of a two- or three-surface enclosure from its areas.
+
+    Examples
+    --------
+    >>> float(view_factor_reciprocity(1.0, 1.0, 4.0))
+    0.25
+    """
+    _interval("F_ij", F_ij, 0, 1)
+    _positive(A_i=A_i, A_j=A_j)
+    F_ji = A_i * np.asarray(F_ij, dtype=float) / A_j
+    if np.any(F_ji > 1 + 1e-12):
+        raise ValueError("reciprocity gives F_ji > 1: check F_ij and the areas")
+    return F_ji[()]
+
+
+def two_surface_radiation(T1, T2, eps1, eps2, A1, A2, F12=1.0, sigma=STEFAN_BOLTZMANN):
+    r"""Net radiation exchange in a two-surface gray enclosure.
+
+    .. math::
+
+        \dot Q_{12} = \frac{\sigma(T_1^4 - T_2^4)}
+        {\dfrac{1 - \varepsilon_1}{\varepsilon_1A_1} + \dfrac{1}{A_1F_{12}} + \dfrac{1 - \varepsilon_2}{\varepsilon_2A_2}}
+
+    Parameters
+    ----------
+    T1, T2 : float or array_like
+        Absolute temperatures of the two surfaces [K], nonnegative.
+    eps1, eps2 : float
+        Emissivities [-], in (0, 1].
+    A1, A2 : float
+        Areas [m^2], positive.
+    F12 : float, optional
+        View factor from surface 1 to surface 2 [-], in (0, 1].
+    sigma : float, optional
+        Stefan-Boltzmann constant [W/(m^2 K^4)].
+
+    Returns
+    -------
+    float or ndarray
+        Net heat rate from surface 1 to surface 2 [W].
+
+    Notes
+    -----
+    Inputs are raw SI numbers with no dimensional metadata; see
+    :doc:`/guides/heat_transfer`. Diffuse gray surfaces, each isothermal
+    with uniform radiosity. Large parallel plates have :math:`A_1 = A_2` and
+    :math:`F_{12} = 1`; a convex body inside a large enclosure
+    (:math:`A_1/A_2 \to 0`) recovers :func:`radiation_heat_rate`.
+
+    References
+    ----------
+    A. K. Oppenheim, "Radiation analysis by the network method," *Trans.
+    ASME* 78 (1956) 725-735.
+
+    Examples
+    --------
+    >>> round(float(two_surface_radiation(500.0, 300.0, 0.8, 0.8, 1.0, 1.0)), 1)
+    2056.5
+    """
+    _finite(T1=T1, T2=T2, sigma=sigma)
+    _nonnegative(T1=T1, T2=T2)
+    _interval("eps1", eps1, 0, 1, closed="right")
+    _interval("eps2", eps2, 0, 1, closed="right")
+    _interval("F12", F12, 0, 1, closed="right")
+    _positive(A1=A1, A2=A2, sigma=sigma)
+    resistance = (1 - eps1) / (eps1 * A1) + 1 / (A1 * F12) + (1 - eps2) / (eps2 * A2)
+    return sigma * (np.asarray(T1, dtype=float) ** 4 - np.asarray(T2, dtype=float) ** 4) / resistance
+
+
+def radiation_shield_heat_flux(T1, T2, eps1, eps2, shields=(), sigma=STEFAN_BOLTZMANN):
+    r"""Radiation flux between large parallel plates separated by thin radiation shields.
+
+    Each gap adds a resistance :math:`1/\varepsilon_a + 1/\varepsilon_b - 1`
+    per unit area, so with shields whose faces have emissivities
+    :math:`\varepsilon_{k,a}` and :math:`\varepsilon_{k,b}`
+
+    .. math::
+
+        q'' = \frac{\sigma(T_1^4 - T_2^4)}{\dfrac{1}{\varepsilon_1} + \dfrac{1}{\varepsilon_2} - 1
+              + \sum_k\left(\dfrac{1}{\varepsilon_{k,a}} + \dfrac{1}{\varepsilon_{k,b}} - 1\right)}.
+
+    Parameters
+    ----------
+    T1, T2 : float or array_like
+        Absolute temperatures of the two plates [K], nonnegative.
+    eps1, eps2 : float
+        Plate emissivities [-], in (0, 1].
+    shields : sequence of float or (float, float), optional
+        One entry per shield: a single emissivity for both faces, or the pair
+        ``(eps_a, eps_b)`` of the faces towards plate 1 and plate 2, each in
+        (0, 1]. Empty means no shield.
+    sigma : float, optional
+        Stefan-Boltzmann constant [W/(m^2 K^4)].
+
+    Returns
+    -------
+    float or ndarray
+        Net heat flux from plate 1 to plate 2 [W/m^2]. :math:`N` shields with
+        the plates' emissivity divide it by :math:`N + 1`.
+
+    Notes
+    -----
+    Inputs are raw SI numbers with no dimensional metadata; see
+    :doc:`/guides/heat_transfer`. Shields are thin, conduct well across their
+    thickness and fill the gap (all view factors one). Shield temperatures
+    follow from the flux, one resistance at a time.
+
+    References
+    ----------
+    A. K. Oppenheim, "Radiation analysis by the network method," *Trans.
+    ASME* 78 (1956) 725-735.
+
+    Examples
+    --------
+    >>> round(float(radiation_shield_heat_flux(500.0, 300.0, 0.8, 0.8, [0.05])), 1)
+    76.2
+    """
+    _finite(T1=T1, T2=T2, sigma=sigma)
+    _nonnegative(T1=T1, T2=T2)
+    _positive(sigma=sigma)
+    faces = [eps1, eps2]
+    for shield in shields:
+        faces += list(shield) if np.ndim(shield) else [shield, shield]
+    for eps in faces:
+        _interval("emissivity", eps, 0, 1, closed="right")
+    resistance = sum(1 / eps for eps in faces) - (1 + len(shields))
+    return sigma * (np.asarray(T1, dtype=float) ** 4 - np.asarray(T2, dtype=float) ** 4) / resistance
+
+
+def radiation_enclosure(T, epsilon, A, F, reradiating=None, sigma=STEFAN_BOLTZMANN):
+    r"""Net radiation exchange in an enclosure of diffuse gray surfaces (Oppenheim's network).
+
+    Each surface's radiosity :math:`J_i` is linked to its blackbody emissive
+    power by the surface resistance :math:`(1 - \varepsilon_i)/(\varepsilon_iA_i)`
+    and to every other radiosity by the space resistance :math:`1/(A_iF_{ij})`.
+    The node equations reduce to
+
+    .. math::
+
+        J_i - (1 - \varepsilon_i)\sum_j F_{ij}J_j = \varepsilon_i\sigma T_i^4,
+
+    with :math:`\varepsilon_i` replaced by 0 for a reradiating (insulated)
+    surface, and the net radiation leaving surface :math:`i` is
+    :math:`\dot Q_i = A_i(J_i - \sum_j F_{ij}J_j)`.
+
+    Parameters
+    ----------
+    T : array_like
+        Absolute temperature of each surface [K], nonnegative; ignored for
+        reradiating surfaces. ``n`` surfaces, at least two.
+    epsilon : array_like
+        Emissivity of each surface [-], in [0, 1]; 1 is black.
+    A : array_like
+        Area of each surface [m^2], positive.
+    F : array_like
+        View-factor matrix [-], shape ``(n, n)``; ``F[i, j]`` is :math:`F_{ij}`.
+        Each row must sum to one (the enclosure is closed) and
+        :math:`A_iF_{ij} = A_jF_{ji}` must hold, both to 1e-6.
+    reradiating : array_like of bool, optional
+        Surfaces that are insulated (net radiation zero); their temperature
+        is solved for.
+    sigma : float, optional
+        Stefan-Boltzmann constant [W/(m^2 K^4)].
+
+    Returns
+    -------
+    EnclosureResult
+        Radiosities [W/m^2], net heat rates [W] summing to zero, and the
+        temperatures [K] with the reradiating ones filled in.
+
+    Raises
+    ------
+    ValueError
+        If the shapes disagree, a view factor lies outside [0, 1], or the
+        summation or reciprocity rule fails.
+
+    Notes
+    -----
+    Inputs are raw SI numbers with no dimensional metadata; see
+    :doc:`/guides/heat_transfer`. Each surface is isothermal, diffuse and
+    gray with uniform radiosity; the medium between them does not
+    participate.
+
+    References
+    ----------
+    A. K. Oppenheim, "Radiation analysis by the network method," *Trans.
+    ASME* 78 (1956) 725-735.
+
+    Examples
+    --------
+    >>> F = [[0.0, 1.0], [0.25, 0.75]]
+    >>> result = radiation_enclosure([500.0, 300.0], [0.8, 0.8], [1.0, 4.0], F)
+    >>> round(float(result.heat_rate[0]), 1)
+    2350.2
+    """
+    T = _vector("T", T, min_length=2)
+    n = T.size
+    epsilon, A = _vector("epsilon", epsilon), _vector("A", A)
+    F = np.asarray(F, dtype=float)
+    if epsilon.size != n or A.size != n or F.shape != (n, n):
+        raise ValueError("T, epsilon and A need one entry per surface and F shape (n, n)")
+    _nonnegative(T=T)
+    _interval("epsilon", epsilon, 0, 1)
+    _positive(A=A, sigma=sigma)
+    _interval("F", F, 0, 1)
+    if not np.allclose(F.sum(axis=1), 1.0, rtol=0, atol=1e-6):
+        raise ValueError("each row of F must sum to one (summation rule)")
+    exchange = A[:, None] * F
+    if not np.allclose(exchange, exchange.T, rtol=0, atol=1e-6 * A.max()):
+        raise ValueError("F must satisfy A_i F_ij = A_j F_ji (reciprocity)")
+    insulated = np.zeros(n, dtype=bool) if reradiating is None else np.asarray(reradiating, dtype=bool)
+    if insulated.shape != (n,):
+        raise ValueError("reradiating needs one entry per surface")
+    eps = np.where(insulated, 0.0, epsilon)
+    J = np.linalg.solve(np.eye(n) - (1 - eps)[:, None] * F, eps * sigma * T**4)
+    heat_rate = A * (J - F @ J)
+    temperature = np.where(insulated, (np.maximum(J, 0.0) / sigma) ** 0.25, T)
+    return EnclosureResult(J, heat_rate, temperature)

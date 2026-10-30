@@ -8,6 +8,8 @@ power from it matches that resistance (Jacobi).
 
 from __future__ import annotations
 
+import numpy as np
+
 from engineeringkit._validation import finite as _finite
 from engineeringkit._validation import nonnegative as _nonnegative
 from engineeringkit._validation import positive as _positive
@@ -54,7 +56,7 @@ def thevenin_from_source(vs, rs):
     """
     _finite(vs=vs, rs=rs)
     _nonnegative(rs=rs)
-    return float(vs), float(rs)
+    return np.asarray(vs, dtype=float)[()], np.asarray(rs, dtype=float)[()]
 
 
 def norton_from_thevenin(vth, rth):

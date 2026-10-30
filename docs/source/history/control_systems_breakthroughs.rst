@@ -14,8 +14,9 @@ Feedback control began as brass mechanisms on steam engines and became a
 mathematical discipline when engines, amplifiers and gun directors pushed it
 to instability. Maxwell, Routh and Hurwitz found when a loop is stable;
 Bell Labs engineers read stability from frequency responses; Kalman and
-his contemporaries recast design in state space and as optimisation. The
-entries trace the ideas behind :mod:`engineeringkit.control_systems`. Each
+his contemporaries recast design in state space and as optimisation.
+Relays and saturating actuators, which no linear model describes, were
+handled in the phase plane and by describing functions. The entries trace the ideas behind :mod:`engineeringkit.control_systems`. Each
 links to the implementing function and to a gallery example devoted to it.
 
 .. contents:: Timeline
@@ -221,6 +222,35 @@ the formulas.
 
 .. minigallery:: ../../examples/control_systems/time_response/plot_01_hazen_servomechanism.py
 
+1937 -- Andronov, Vitt and Khaikin's Phase Plane
+------------------------------------------------
+
+Relays, valves and clutches make control loops that are not linear
+anywhere, so transfer functions do not describe them. Aleksandr Andronov's
+school in Gorky studied such systems by eliminating time and drawing the
+state of :math:`\ddot x = f(x, \dot x)` as a curve in the plane
+:math:`(x, \dot x)`. Self-sustained oscillations, which they called
+auto-oscillations, appear there as isolated closed orbits, Poincaré's limit
+cycles. A relay servo :math:`\ddot x = -M\,\mathrm{sign}(x)` traces a
+family of closed orbits made of parabolas. With rate feedback the switching
+line tilts, and the motion reaches the line and slides along it to rest.
+Aleksandr Vitt was arrested as the book appeared, and his name was left off
+its first edition and restored in the second (1959).
+
+*Implementation:* :func:`engineeringkit.control_systems.phase_portrait`.
+The example checks that the relay orbits conserve
+:math:`\dot x^2/2 + M|x|`, and that with rate feedback the motion
+reaches the switching line and decays along it as :math:`e^{-t/\tau}`.
+
+*References:* A. A. Andronov and S. E. Khaikin, *Theory of Oscillations*
+(ONTI, Moscow, 1937; English translation, Princeton University Press,
+1949); A. A. Andronov, A. A. Vitt and S. E. Khaikin, *Theory of
+Oscillators* (2nd ed., 1959; Pergamon, 1966). The bibliographic details
+were checked against library catalogues. The account of Vitt's name comes
+from secondary sources, and the 1937 text itself was not consulted.
+
+.. minigallery:: ../../examples/control_systems/nonlinear/plot_01_andronov_phase_plane.py
+
 1940 -- Bode's Gain and Phase Margins
 -------------------------------------
 
@@ -266,6 +296,92 @@ automatic controllers," *Trans. ASME* 64 (1942) 759-768.
 
 .. minigallery:: ../../examples/control_systems/feedback/plot_04_ziegler_nichols_tuning.py
 
+1945 -- Bode's Sensitivity Integral
+-----------------------------------
+
+In *Network Analysis and Feedback Amplifier Design* Hendrik Bode
+measured how much of a change in the plant survives in the closed loop,
+the sensitivity :math:`S = 1/(1 + L)`. Its complement
+:math:`T = L/(1 + L)` carries the reference and the sensor noise to the
+output, and since :math:`S + T = 1` the two cannot both be small at one
+frequency. Bode also proved that a stable loop rolling off at least as
+:math:`1/s^2` has :math:`\int_0^\infty \ln|S(j\omega)|\,d\omega = 0`.
+Sensitivity pushed down over one band rises over another, the *waterbed
+effect*. Freudenberg and Looze (1985) showed that unstable open-loop poles
+raise the integral to :math:`\pi\sum\mathrm{Re}\,p_i`, a cost that feedback
+cannot avoid. The peak :math:`M_s = \max|S|` is the inverse distance from
+:math:`-1` and bounds both stability margins.
+
+*Implementation:* :func:`engineeringkit.control_systems.sensitivity`,
+:func:`engineeringkit.control_systems.complementary_sensitivity` and
+:func:`engineeringkit.control_systems.sensitivity_peak`. The example
+integrates :math:`\ln|S|` for a stable plant and for two unstable ones,
+checks the results 0, :math:`\pi/2` and :math:`2\pi`, and checks the phase
+margin against its :math:`M_s` bound.
+
+*References:* H. W. Bode, *Network Analysis and Feedback Amplifier Design*
+(Van Nostrand, 1945); J. S. Freudenberg and D. P. Looze, "Right half plane
+poles and zeros and design tradeoffs in feedback systems," *IEEE Trans.
+Autom. Control* 30 (1985) 555-565.
+
+.. minigallery:: ../../examples/control_systems/frequency/plot_03_bode_sensitivity_integral.py
+
+1947 -- The Nichols Chart
+-------------------------
+
+Radar fire-control servos built at the MIT Radiation Laboratory had to be
+designed for a closed-loop resonant peak, while the measurements were of
+the open loop. Nathaniel Nichols plotted the open-loop gain in decibels
+against its phase. On these axes the closed-loop gain :math:`|L/(1 + L)|`
+of a unity-feedback loop is a fixed family of contours, so the closed-loop
+response can be read straight off the open-loop curve. The highest contour
+the locus touches is the resonant peak :math:`M_r`. A change of gain slides
+the curve up or down unchanged, and a compensator reshapes it near the
+critical point :math:`(-180^\circ, 0\ \mathrm{dB})`. The chart appeared in
+the laboratory's *Theory of Servomechanisms*.
+
+*Implementation:* :func:`engineeringkit.control_systems.nichols`,
+:func:`engineeringkit.control_systems.nichols_closed_loop`,
+:func:`engineeringkit.control_systems.visualizers.plot_nichols` and
+:func:`engineeringkit.control_systems.design_lead`. The
+example draws :math:`4/(s(s+1)(s+2))` before and after lead compensation,
+checks that the peak read from the chart equals the closed-loop Bode peak,
+and shows the lead lowering it from 14.7 dB to 5.5 dB.
+
+*References:* H. M. James, N. B. Nichols and R. S. Phillips (eds.), *Theory
+of Servomechanisms*, MIT Radiation Laboratory Series 25 (McGraw-Hill,
+1947). The bibliographic details were checked against library catalogues.
+
+.. minigallery:: ../../examples/control_systems/frequency/plot_04_nichols_chart.py
+
+1947 -- Tustin's Bilinear Transform
+-----------------------------------
+
+Arnold Tustin, an engineer at Metropolitan-Vickers, described signals by
+their sampled values, "time series", so that a linear system became a
+recurrence that could be worked by hand or machine. Replacing :math:`s` by
+:math:`(2/T)(z - 1)/(z + 1)` is the trapezoidal rule for integration. It
+maps the left half-plane onto the inside of the unit circle, so a stable
+model gives a stable recurrence, and the imaginary axis onto the circle
+itself. The price is a compressed frequency axis: :math:`\omega` appears at
+:math:`(2/T)\arctan(\omega T/2)`. Prewarping, which replaces :math:`2/T` by
+:math:`\omega_0/\tan(\omega_0T/2)`, makes the discrete response exact at
+one chosen frequency. It is still the usual way to put a continuous
+controller design into a digital controller.
+
+*Implementation:* :func:`engineeringkit.control_systems.discretize_tustin`.
+The example discretises a sharp resonance at 80% of the Nyquist frequency.
+It checks the pole map :math:`z = (c + p)/(c - p)` and the shift of the
+peak to :math:`(2/T)\arctan(\omega_0T/2)`, and checks that prewarping puts
+the peak back at :math:`\omega_0`.
+
+*References:* A. Tustin, "A method of analysing the behaviour of linear
+systems in terms of time series," *J. IEE Part IIA* 94 (1947) 130-142. The
+volume and pages were checked against citing papers, but not against the
+paper itself.
+
+.. minigallery:: ../../examples/control_systems/sampled/plot_03_tustin_bilinear_transform.py
+
 1948 -- Evans's Root Locus
 --------------------------
 
@@ -287,6 +403,37 @@ AIEE* 67 (1948) 547-551; W. R. Evans, "Control system synthesis by root
 locus method," *Trans. AIEE* 69 (1950) 66-69.
 
 .. minigallery:: ../../examples/control_systems/root_locus/plot_01_evans_root_locus.py
+
+1950 -- Kochenburger's Describing Function
+------------------------------------------
+
+On-off "contactor" servos were cheap and strong, but they chattered or
+settled into steady oscillations that linear theory could not predict.
+Ralph Kochenburger replaced the nonlinearity by its describing function
+:math:`N(A)`, the gain it offers to the fundamental of a sinusoid of
+amplitude :math:`A`; for an ideal relay :math:`N = 4M/(\pi A)`. The loop
+can then oscillate where :math:`L(j\omega) = -1/N(A)`, so Nyquist's
+picture predicts the amplitude and frequency of the limit cycle and
+whether it is stable. The result is approximate, because it assumes
+:math:`L` filters out the harmonics. Åström and Hägglund's relay autotuner
+(1984) uses the same balance to find the ultimate point for Ziegler-Nichols
+tuning.
+
+*Implementation:* :func:`engineeringkit.control_systems.describing_function`,
+:func:`engineeringkit.control_systems.relay_describing_function`,
+:func:`engineeringkit.control_systems.saturation_describing_function`,
+:func:`engineeringkit.control_systems.dead_zone_describing_function` and
+:func:`engineeringkit.control_systems.limit_cycle`. The example predicts
+the limit cycles of a relay around :math:`1/(s+1)^3` and of a saturation
+around :math:`10/(s(s+1)(s+2))`, then simulates both loops. The predicted
+amplitudes are within 4% of the simulated ones and the periods within 2%.
+
+*References:* R. J. Kochenburger, "A frequency response method for
+analyzing and synthesizing contactor servomechanisms," *Trans. AIEE* 69
+(1950) 270-284, :doi:`10.1109/T-AIEE.1950.5060149`. The volume, pages and DOI
+were checked against citing works.
+
+.. minigallery:: ../../examples/control_systems/nonlinear/plot_02_kochenburger_describing_function.py
 
 1952 -- Ragazzini and Zadeh: Sampled-Data Systems
 -------------------------------------------------

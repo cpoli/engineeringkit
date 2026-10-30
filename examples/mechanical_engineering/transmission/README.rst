@@ -1,4 +1,4 @@
 Transmission
 ------------
 
-Gear trains and belt drives.
+Gear trains, gear-tooth strength and belt drives.

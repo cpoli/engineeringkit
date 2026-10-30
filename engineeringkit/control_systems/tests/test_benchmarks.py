@@ -44,3 +44,31 @@ def test_state_matrices_accept_lists_and_reject_shapes():
         c.controllability_matrix([[0, 1]], [[1]])
     with pytest.raises(ValueError):
         c.observability_matrix([[0]], [[1, 0]])
+
+
+def test_tustin_against_scipy_bilinear():
+    from scipy import signal
+
+    num, den = [2.0, 3.0, 1.0], [1.0, 4.0, 5.0, 2.0]
+    dt = 0.05
+    Gd = c.discretize_tustin(c.transfer_function(num, den), dt)
+    bz, az = signal.bilinear(num, den, fs=1 / dt)
+    np.testing.assert_allclose(Gd.num, bz / az[0], rtol=1e-10, atol=1e-14)
+    np.testing.assert_allclose(Gd.den, az / az[0], rtol=1e-10)
+    # Prewarping at w0 is the bilinear transform with fs = w0 / (2 tan(w0 dt / 2)).
+    w0 = 20.0
+    Gp = c.discretize_tustin(c.transfer_function(num, den), dt, prewarp_frequency=w0)
+    bz, az = signal.bilinear(num, den, fs=w0 / (2 * np.tan(w0 * dt / 2)))
+    np.testing.assert_allclose(Gp.den, az / az[0], rtol=1e-10)
+
+
+@pytest.mark.parametrize("p", [-1.0, 0.5, 2.0])
+def test_bode_sensitivity_integral(p):
+    # Relative degree two: the integral of ln|S| over (0, inf) is pi times the sum of the unstable open-loop poles.
+    from scipy import integrate
+
+    L = c.transfer_function([30, 30], np.polymul([1, -p], [1, 7, 10]))
+    assert np.all(c.poles(c.feedback(L)).real < 0)
+    integrand = lambda w: np.log(abs(1 / (1 + c.nyquist(L, w))))  # noqa: E731
+    value = sum(integrate.quad(integrand, a, b, limit=400)[0] for a, b in [(0, 1), (1, 100), (100, np.inf)])
+    assert value == pytest.approx(np.pi * max(p, 0), abs=2e-4)

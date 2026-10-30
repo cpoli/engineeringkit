@@ -38,3 +38,69 @@ def test_rlc_resonance_and_lossless_line_identity():
 def test_rlc_invalid_components(R, L, C):
     with pytest.raises(ValueError):
         e.SeriesRLC(R, L, C)
+
+
+@pytest.mark.parametrize("R", [0.5, 2.0, 5.0])
+def test_rlc_step_voltage_against_scipy_and_series_rlc_current(R):
+    from scipy import signal
+
+    L, C = 1.0, 1.0
+    t = np.linspace(0, 15, 3001)
+    _, v_ref = signal.step(signal.TransferFunction([1], [L * C, R * C, 1]), T=t)
+    v = e.rlc_step_voltage(1.0, R, L, C, t)
+    np.testing.assert_allclose(v, v_ref, atol=1e-6)
+    # Loop current i = C dv/dt is what SeriesRLC.step_response returns.
+    current = e.SeriesRLC(R, L, C).step_response(t).response
+    np.testing.assert_allclose((C * np.gradient(v, t))[1:-1], current[1:-1], atol=5e-5)
+
+
+def test_diode_operating_point_against_lambert_w():
+    from scipy.special import lambertw
+
+    Vs, R, Is, n = 3.0, 220.0, 2e-9, 1.8
+    nvt = n * e.thermal_voltage(300.0)
+    # Closed form of the load line crossing the Shockley curve.
+    i_exact = nvt / R * lambertw(Is * R / nvt * np.exp((Vs + Is * R) / nvt)).real - Is
+    v, i = e.diode_operating_point(Vs, R, Is, ideality=n)
+    assert i == pytest.approx(i_exact, rel=1e-10)
+
+
+def test_newton_raphson_matches_gauss_seidel_on_a_meshed_network():
+    lines = [
+        (0, 1, 0.02 + 0.06j, 0.06j),
+        (0, 2, 0.08 + 0.24j, 0.05j),
+        (1, 2, 0.06 + 0.18j, 0.04j),
+        (1, 3, 0.06 + 0.18j, 0.04j),
+        (2, 3, 0.01 + 0.03j, 0.02j),
+    ]
+    Y = e.admittance_matrix(4, lines)
+    p, q = [0.2, 0.45, 0.4], [0.1, 0.15, 0.05]
+    gs = e.gauss_seidel_load_flow(Y, p, q, tol=1e-12, max_iter=5000)
+    nr = e.newton_raphson_load_flow(Y, p, q, tol=1e-12)
+    assert gs.converged and nr.converged and nr.iterations < 8 < gs.iterations
+    np.testing.assert_allclose(nr.voltages, gs.voltages, atol=1e-10)
+    # Power balance: the bus injections sum to the line losses, which are positive.
+    assert nr.losses.real > 0 and nr.power[1:].real == pytest.approx(-np.array(p))
+
+
+def test_swing_curve_conserves_energy_and_brackets_critical_clearing_time():
+    H, Pm, P1, P3, f = 4.0, 0.8, 1.6, 1.6, 60.0
+    ws = 2 * np.pi * f
+    tcr = e.critical_clearing_time(H, Pm, P1, frequency=f, p_max_post=P3)
+    assert e.swing_response(H, Pm, P1, 0.0, P3, 0.97 * tcr, 2.0, frequency=f).stable
+    assert not e.swing_response(H, Pm, P1, 0.0, P3, 1.03 * tcr, 2.0, frequency=f).stable
+    # After clearing, kinetic plus potential energy is constant without damping.
+    r = e.swing_response(H, Pm, P1, 0.0, P3, 0.8 * tcr, 2.0, frequency=f)
+    post = r.t > r.clearing_time
+    energy = H / ws * r.speed_deviation[post] ** 2 - Pm * r.delta[post] - P3 * np.cos(r.delta[post])
+    assert np.ptp(energy) < 1e-6
+    # During a bolted fault the angle is a parabola.
+    fault = r.t <= r.clearing_time
+    np.testing.assert_allclose(r.delta[fault], r.delta[0] + ws * Pm * r.t[fault] ** 2 / (4 * H), atol=1e-8)
+    # Damping lowers the first swing.
+    damped = e.swing_response(H, Pm, P1, 0.0, P3, 0.8 * tcr, 2.0, frequency=f, damping=0.05)
+    assert damped.delta.max() < r.delta.max()
+    for kwargs in [{"clearing_time": 0.0}, {"clearing_time": 2.0}, {"n_points": 2}, {"damping": -1.0}]:
+        args = dict(inertia_constant=H, p_mech=Pm, p_max_pre=P1, p_max_fault=0.0, p_max_post=P3, clearing_time=0.1, t_end=2.0) | kwargs
+        with pytest.raises(ValueError):
+            e.swing_response(**args)

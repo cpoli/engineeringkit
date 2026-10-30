@@ -82,20 +82,18 @@ def test_steam_inverse_from_entropy_and_enthalpy_round_trips_every_branch():
     "kwargs",
     [
         {"p": 10e6, "s": -500.0},  # below 0 °C liquid
-        {"p": 10e3, "h": 5e6},  # above 1073.15 K
+        {"p": 10e3, "h": 9e6},  # above 2273.15 K
         {"p": 1e5},
         {"p": 1e5, "T": 400.0, "x": 1.0},
         {"p": 1e5, "T": 200.0},
         {"p": 25e6, "x": 0.5},  # above the critical pressure
         {"p": 1e5, "x": 1.5},
-        {"p": [1e5, 2e5], "T": 400.0},
         {"p": 200e6, "T": 400.0},
-        {"p": 1e5, "T": [400.0, 500.0]},
         {"p": 1e5, "s": math.nan},
         {"p": -1.0, "T": 400.0},
     ],
 )
-def test_steam_properties_rejects_states_outside_regions_1_to_4(kwargs):
+def test_steam_properties_rejects_states_outside_if97(kwargs):
     p = kwargs.pop("p")
     with pytest.raises(ValueError):
         t.steam_properties(p, **kwargs)

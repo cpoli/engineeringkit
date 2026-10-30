@@ -1,9 +1,11 @@
-r"""Frequency response: Bode plots, the Nyquist criterion and stability margins.
+r"""Frequency response: Bode plots, the Nyquist criterion, stability margins and the Nichols chart.
 
 Evaluating :math:`L(j\omega)` along the imaginary axis tells how a loop
 amplifies and delays sinusoids. Nyquist's criterion counts encirclements of
 :math:`-1` to find closed-loop instability; Bode's gain and phase margins
-measure how far the loop is from it.
+measure how far the loop is from it. Nichols plotted the open-loop gain in
+decibels against its phase, where the closed-loop gain of a unity-feedback
+loop is a fixed grid of contours.
 """
 
 from __future__ import annotations
@@ -14,7 +16,7 @@ from scipy import signal
 from engineeringkit._validation import positive as _positive
 from engineeringkit.control_systems.utils.polynomials import num_den
 
-__all__ = ["bode", "nyquist", "nyquist_encirclements", "stability_margins"]
+__all__ = ["bode", "nyquist", "nyquist_encirclements", "stability_margins", "nichols", "nichols_closed_loop"]
 
 
 def bode(sys, w=None):
@@ -237,4 +239,105 @@ def stability_margins(sys, w=None):
         "phase_cross_frequencies": wp,
         "phase_margins_deg": pm,
         "gain_cross_frequencies": wg,
+    }
+
+
+def nichols_closed_loop(gain_db, phase_deg):
+    r"""Closed-loop gain and phase of a unity-feedback loop from its open-loop Nichols coordinates.
+
+    Parameters
+    ----------
+    gain_db : float or array_like
+        Open-loop gain :math:`20\log_{10}|L|` [dB].
+    phase_deg : float or array_like
+        Open-loop phase :math:`\angle L` [deg].
+
+    Returns
+    -------
+    tuple of ndarray
+        ``(closed_gain_db, closed_phase_deg)`` of :math:`T = L/(1 + L)`, the
+        phase in :math:`(-180^\circ, 180^\circ]`. The gain grows without
+        bound towards the critical point :math:`L = -1`.
+
+    Notes
+    -----
+    The contours of constant :math:`|T|` drawn in these coordinates are the
+    M-contours of the Nichols chart; they repeat every :math:`360^\circ` of
+    open-loop phase. Inputs are raw SI numbers with no dimensional metadata;
+    see :doc:`/guides/control_systems`.
+
+    References
+    ----------
+    H. M. James, N. B. Nichols and R. S. Phillips, *Theory of
+    Servomechanisms*, MIT Radiation Laboratory Series 25 (McGraw-Hill, 1947).
+
+    Examples
+    --------
+    >>> m, p = nichols_closed_loop(0.0, -90.0)
+    >>> round(float(m), 3), round(float(p), 1)
+    (-3.01, -45.0)
+    """
+    gain_db, phase_deg = np.asarray(gain_db, float), np.asarray(phase_deg, float)
+    if not (np.all(np.isfinite(gain_db)) and np.all(np.isfinite(phase_deg))):
+        raise ValueError("gain_db and phase_deg must be finite")
+    L = 10 ** (gain_db / 20) * np.exp(1j * np.radians(phase_deg))
+    T = L / (1 + L)
+    return 20 * np.log10(np.abs(T)), np.degrees(np.angle(T))
+
+
+def nichols(sys, w=None):
+    r"""Open-loop Nichols locus of a loop, with the closed-loop response and resonant peak it implies.
+
+    Parameters
+    ----------
+    sys : scipy.signal.lti
+        SISO open-loop model :math:`L(s)`.
+    w : array_like, optional
+        Positive angular frequencies [rad/s]; defaults to 4000 points from
+        :math:`10^{-3}` to :math:`10^3`.
+
+    Returns
+    -------
+    dict
+        ``w`` [rad/s]; the open-loop ``gain_db`` [dB] and continuous
+        ``phase_deg`` [deg]; the closed-loop ``closed_gain_db`` [dB] and
+        ``closed_phase_deg`` [deg] of :math:`L/(1 + L)`; and the resonant
+        peak ``resonant_peak_db`` [dB] with its ``resonant_frequency``
+        [rad/s], the largest closed-loop gain on the grid.
+
+    Notes
+    -----
+    The resonant peak is the highest M-contour the locus touches. The
+    open-loop phase is unwrapped from the lowest frequency, so it can leave
+    :math:`[-360^\circ, 0^\circ]`. Inputs are raw SI numbers with no
+    dimensional metadata; see :doc:`/guides/control_systems`.
+
+    References
+    ----------
+    H. M. James, N. B. Nichols and R. S. Phillips, *Theory of
+    Servomechanisms*, MIT Radiation Laboratory Series 25 (McGraw-Hill, 1947).
+
+    Examples
+    --------
+    >>> from engineeringkit.control_systems import transfer_function
+    >>> n = nichols(transfer_function([1], [1, 1, 0]))
+    >>> round(n["resonant_peak_db"], 2), round(n["resonant_frequency"], 3)
+    (1.25, 0.707)
+    """
+    w = np.logspace(-3, 3, 4000) if w is None else np.sort(np.asarray(w, float))
+    _positive(w=w)
+    h = nyquist(sys, w)
+    gain_db = 20 * np.log10(np.abs(h))
+    phase_deg = np.degrees(np.unwrap(np.angle(h)))
+    T = h / (1 + h)
+    closed_gain_db = 20 * np.log10(np.abs(T))
+    i = int(np.argmax(closed_gain_db))
+    return {
+        "w": w,
+        "gain_db": gain_db,
+        "phase_deg": phase_deg,
+        "closed_gain_db": closed_gain_db,
+        "closed_phase_deg": np.degrees(np.unwrap(np.angle(T))),
+        "resonant_peak_db": float(closed_gain_db[i]),
+        "resonant_frequency": float(w[i]),
     }

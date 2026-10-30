@@ -2,7 +2,8 @@ r"""Analog and digital modulation.
 
 Amplitude modulation (Fessenden), suppressed-carrier modulation (Carson),
 wideband frequency modulation (Armstrong) with Carson's bandwidth rule, and
-binary/quadrature phase-shift keying.
+binary/quadrature phase-shift keying, and the Gray-labelled M-PSK and
+square M-QAM constellations.
 """
 
 from __future__ import annotations
@@ -11,9 +12,10 @@ import numpy as np
 from scipy.integrate import cumulative_trapezoid
 
 from engineeringkit._validation import finite as _finite
+from engineeringkit._validation import integer as _integer
 from engineeringkit._validation import nonnegative as _nonnegative
 
-__all__ = ["am_signal", "dsb_sc", "fm_signal", "carson_bandwidth", "bpsk", "qpsk"]
+__all__ = ["am_signal", "dsb_sc", "fm_signal", "carson_bandwidth", "bpsk", "qpsk", "psk_constellation", "qam_constellation"]
 
 
 def _binary(bits, name="bits"):
@@ -238,3 +240,96 @@ def qpsk(bit_pairs):
         raise ValueError("QPSK requires an even number of binary bits")
     b = _binary(raw, "bit_pairs").reshape(-1, 2)
     return (2 * b[:, 0] - 1 + 1j * (2 * b[:, 1] - 1)) / np.sqrt(2)
+
+
+def _gray(n):
+    return n ^ (n >> 1)
+
+
+def psk_constellation(M, phase_offset=0.0):
+    r"""Gray-labelled M-ary phase-shift-keying constellation on the unit circle.
+
+    Parameters
+    ----------
+    M : int
+        Number of phases, a power of two, at least 2.
+    phase_offset : float, optional
+        Phase of the first point [rad].
+
+    Returns
+    -------
+    ndarray of complex
+        ``M`` unit-energy points, indexed by label: entry ``k`` is the symbol
+        sent for the bit pattern ``k``. Neighbouring phases carry labels that
+        differ in one bit, so a symbol error to a neighbour costs one bit.
+
+    Notes
+    -----
+    The point at phase :math:`2\pi i/M + \phi_0` carries the Gray label
+    :math:`i \oplus \lfloor i/2 \rfloor`. See :doc:`/guides/communications`.
+
+    References
+    ----------
+    C. R. Cahn, "Performance of digital phase-modulation communication
+    systems," *IRE Trans. Commun. Syst.* 7 (1959) 3-6.
+
+    Examples
+    --------
+    >>> np.round(np.angle(psk_constellation(4), deg=True)).tolist()
+    [0.0, 90.0, -90.0, 180.0]
+    """
+    _integer("M", M, 2)
+    if M & (M - 1):
+        raise ValueError("M must be a power of two")
+    _finite(phase_offset=phase_offset)
+    i = np.arange(M)
+    points = np.empty(M, dtype=complex)
+    points[_gray(i)] = np.exp(1j * (2 * np.pi * i / M + phase_offset))
+    return points
+
+
+def qam_constellation(M):
+    r"""Gray-labelled square M-ary quadrature-amplitude-modulation constellation with unit average energy.
+
+    The in-phase and quadrature rails each carry :math:`\sqrt M` equally
+    spaced levels :math:`\pm 1, \pm 3, \ldots`, scaled by
+    :math:`\sqrt{3/2(M-1)}` so that the average symbol energy is one.
+
+    Parameters
+    ----------
+    M : int
+        Number of points, a power of four, at least 4 (4, 16, 64, ...).
+
+    Returns
+    -------
+    ndarray of complex
+        ``M`` points indexed by label; the high half of the label's bits is
+        the Gray code of the in-phase level and the low half that of the
+        quadrature level.
+
+    Notes
+    -----
+    See :doc:`/guides/communications`.
+
+    References
+    ----------
+    C. N. Campopiano and B. G. Glazer, "A coherent digital amplitude and
+    phase modulation scheme," *IRE Trans. Commun. Syst.* 10 (1962) 90-95.
+
+    Examples
+    --------
+    >>> points = qam_constellation(16)
+    >>> round(float(np.mean(np.abs(points) ** 2)), 12)
+    1.0
+    """
+    _integer("M", M, 4)
+    k = int(M).bit_length() - 1
+    if M & (M - 1) or k % 2:
+        raise ValueError("M must be a power of four")
+    side = 1 << (k // 2)
+    i = np.arange(side)
+    levels = np.empty(side)
+    levels[_gray(i)] = 2 * i - (side - 1)
+    labels = np.arange(M)
+    points = levels[labels >> (k // 2)] + 1j * levels[labels & (side - 1)]
+    return points * np.sqrt(3 / (2 * (M - 1)))

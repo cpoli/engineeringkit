@@ -1,23 +1,42 @@
-"""engineeringkit.materials: elasticity, yielding, fracture, fatigue, creep, plasticity and composites.
+"""engineeringkit.materials: structure, diffusion, phases, elasticity, yielding, fatigue, fracture, creep and composites.
 
-Young's modulus, Lamé's isotropic constants and Duhamel's thermal stress;
-Tresca's and von Mises's yield criteria; the Voigt and Reuss bounds on a
-composite; Basquin's S-N law, Goodman's mean-stress line, the Coffin-Manson
-strain-life law and Palmgren-Miner damage; Griffith's and Irwin's fracture
-mechanics and Paris's crack growth; Norton creep and the Larson-Miller
+Crystal packing, theoretical density and Bragg diffraction; Fick's laws and
+carburizing; the lever rule and Avrami kinetics; Young's modulus, Lamé's
+isotropic constants and Duhamel's thermal stress; Brinell and Vickers
+hardness; principal stresses and Tresca's and von Mises's yield criteria;
+the Voigt, Reuss and Halpin-Tsai composite moduli and classical laminate
+theory; Basquin's S-N law, the Gerber, Goodman and Soderberg mean-stress
+lines, Marin's endurance-limit factors, the Coffin-Manson strain-life law
+and Palmgren-Miner damage; stress concentration, notch sensitivity and
+Neuber's rule; Griffith's and Irwin's fracture mechanics, Paris's crack
+growth and Weibull's brittle strength; Norton creep and the Larson-Miller
 parameter; Frenkel's ideal strength, the Peierls stress, Hall-Petch
 strengthening and the Ramberg-Osgood curve. Models are hand-written closed
 forms; SciPy's trapezoid rules integrate measured curves and crack growth.
 """
 
 from engineeringkit import __version__
-from engineeringkit.materials.core.base import CrackGrowthResult, StressStrainCurve
+from engineeringkit.materials.core.base import CrackGrowthResult, Laminate, StressStrainCurve
+from engineeringkit.materials.systems.brittle import weibull_failure_probability, weibull_mean_strength, weibull_size_effect
 from engineeringkit.materials.systems.composites import (
+    classical_laminate,
     density_rule_of_mixtures,
+    halpin_tsai,
+    lamina_stiffness,
     rule_of_mixtures_E_longitudinal,
     rule_of_mixtures_E_transverse,
+    transformed_stiffness,
 )
 from engineeringkit.materials.systems.creep import arrhenius_creep_rate, larson_miller_parameter, larson_miller_rupture_time
+from engineeringkit.materials.systems.crystals import (
+    atomic_packing_factor,
+    bragg_angle,
+    cubic_lattice_parameter,
+    diffraction_peaks,
+    interplanar_spacing,
+    theoretical_density,
+)
+from engineeringkit.materials.systems.diffusion import diffusion_coefficient, diffusion_time, fick_flux, semi_infinite_concentration
 from engineeringkit.materials.systems.elasticity import (
     bulk_modulus,
     constrained_thermal_stress,
@@ -33,8 +52,16 @@ from engineeringkit.materials.systems.elasticity import (
 from engineeringkit.materials.systems.fatigue import (
     basquin_cycles,
     coffin_manson_cycles,
+    endurance_limit_estimate,
+    gerber_safety_factor,
     goodman_safety_factor,
+    marin_endurance_limit,
+    marin_load_factor,
+    marin_reliability_factor,
+    marin_size_factor,
+    marin_surface_factor,
     miner_damage,
+    soderberg_safety_factor,
     strain_life_amplitude,
 )
 from engineeringkit.materials.systems.fracture import (
@@ -44,13 +71,29 @@ from engineeringkit.materials.systems.fracture import (
     paris_crack_growth,
     stress_intensity,
 )
+from engineeringkit.materials.systems.hardness import brinell_hardness, brinell_tensile_strength, vickers_hardness
+from engineeringkit.materials.systems.notches import (
+    elliptical_hole_concentration,
+    fatigue_notch_factor,
+    neuber_notch_sensitivity,
+    neuber_notch_stress,
+    peterson_notch_sensitivity,
+)
+from engineeringkit.materials.systems.phases import avrami_fit, avrami_fraction, avrami_time, lever_rule
 from engineeringkit.materials.systems.plasticity import hall_petch, ideal_shear_strength, peierls_stress, ramberg_osgood_strain
-from engineeringkit.materials.systems.yielding import factor_of_safety, tresca_equivalent, von_mises_plane_stress
+from engineeringkit.materials.systems.yielding import (
+    factor_of_safety,
+    principal_stresses,
+    tresca_equivalent,
+    von_mises_plane_stress,
+    von_mises_stress,
+)
 
 __all__ = [
     "__version__",
     "StressStrainCurve",
     "CrackGrowthResult",
+    "Laminate",
     "normal_stress",
     "normal_strain",
     "hooke_stress",
@@ -84,4 +127,43 @@ __all__ = [
     "peierls_stress",
     "hall_petch",
     "ramberg_osgood_strain",
+    "cubic_lattice_parameter",
+    "atomic_packing_factor",
+    "theoretical_density",
+    "interplanar_spacing",
+    "bragg_angle",
+    "diffraction_peaks",
+    "diffusion_coefficient",
+    "fick_flux",
+    "semi_infinite_concentration",
+    "diffusion_time",
+    "lever_rule",
+    "avrami_fraction",
+    "avrami_time",
+    "avrami_fit",
+    "brinell_hardness",
+    "vickers_hardness",
+    "brinell_tensile_strength",
+    "gerber_safety_factor",
+    "soderberg_safety_factor",
+    "endurance_limit_estimate",
+    "marin_surface_factor",
+    "marin_size_factor",
+    "marin_load_factor",
+    "marin_reliability_factor",
+    "marin_endurance_limit",
+    "elliptical_hole_concentration",
+    "peterson_notch_sensitivity",
+    "neuber_notch_sensitivity",
+    "fatigue_notch_factor",
+    "neuber_notch_stress",
+    "principal_stresses",
+    "von_mises_stress",
+    "halpin_tsai",
+    "lamina_stiffness",
+    "transformed_stiffness",
+    "classical_laminate",
+    "weibull_failure_probability",
+    "weibull_size_effect",
+    "weibull_mean_strength",
 ]

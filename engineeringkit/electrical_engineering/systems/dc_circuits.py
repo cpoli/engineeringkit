@@ -2,7 +2,8 @@ r"""Direct-current circuits: Ohm's law, equivalent resistance, bridges and nodal
 
 Ohm made current proportional to voltage, Wheatstone balanced two ratios of
 resistances to measure an unknown one, and Kirchhoff's current and voltage
-laws turned any resistive network into a linear system of equations.
+laws turned any resistive network into a linear system of equations, written
+either for the node voltages or for the mesh currents of a planar circuit.
 """
 
 from __future__ import annotations
@@ -13,7 +14,7 @@ from engineeringkit._validation import finite as _finite
 from engineeringkit._validation import integer as _integer
 from engineeringkit._validation import nonnegative as _nonnegative
 from engineeringkit._validation import positive as _positive
-from engineeringkit.electrical_engineering.core.base import NodalResult
+from engineeringkit.electrical_engineering.core.base import MeshResult, NodalResult
 
 __all__ = [
     "ohms_law",
@@ -23,6 +24,7 @@ __all__ = [
     "capacitors_series",
     "wheatstone_balanced",
     "nodal_analysis",
+    "mesh_analysis",
 ]
 
 
@@ -219,7 +221,8 @@ def wheatstone_balanced(r1, r2, r3, r4, rtol=1e-9):
     _finite(r1=r1, r2=r2, r3=r3, r4=r4, rtol=rtol)
     _positive(r1=r1, r2=r2, r3=r3, r4=r4)
     _nonnegative(rtol=rtol)
-    return bool(np.isclose(r1 / r2, r3 / r4, rtol=rtol))
+    balanced = np.isclose(np.divide(r1, r2), np.divide(r3, r4), rtol=rtol)
+    return bool(balanced) if balanced.ndim == 0 else balanced
 
 
 def _check_node(name, node, n_nodes):
@@ -343,3 +346,100 @@ def nodal_analysis(n_nodes, resistors, current_sources=(), voltage_sources=()):
         leaving[plus] -= i
         leaving[minus] += i
     return NodalResult(voltages, resistor_currents, source_currents, float(np.max(np.abs(leaving[1:]))))
+
+
+def mesh_analysis(n_meshes, resistors, voltage_sources=()):
+    r"""Solve a planar resistive DC network by mesh analysis.
+
+    Each mesh (window) of the planar circuit carries a clockwise mesh
+    current. Kirchhoff's voltage law around every mesh, with Ohm's law for
+    every resistor, gives the resistance system :math:`R\mathbf{i} =
+    \mathbf{v}`: :math:`R_{kk}` is the total resistance around mesh
+    :math:`k`, :math:`R_{kl}` minus the resistance mesh :math:`k` shares with
+    mesh :math:`l`, and :math:`v_k` the sum of the source EMFs driving
+    clockwise around mesh :math:`k`. It is the dual of
+    :func:`nodal_analysis`.
+
+    Parameters
+    ----------
+    n_meshes : int
+        Number of meshes, at least one. Meshes are numbered
+        ``1..n_meshes``; ``0`` stands for the outside of the circuit.
+    resistors : sequence of (int, int, float)
+        ``(a, b, R)`` for each resistor on the boundary between meshes
+        ``a`` and ``b`` (``b = 0`` for an outer branch), with :math:`R`
+        [ohm] positive.
+    voltage_sources : sequence of (int, int, float), optional
+        ``(a, b, V)``: an ideal source on the boundary between meshes ``a``
+        and ``b`` whose EMF :math:`V` [V] drives current clockwise around
+        mesh ``a`` (and so anticlockwise around mesh ``b``).
+
+    Returns
+    -------
+    MeshResult
+        Mesh currents [A], resistor currents in the clockwise sense of their
+        first mesh [A] and the KVL residual [V].
+
+    Raises
+    ------
+    ValueError
+        For bad mesh indices or values, or if the network has no unique
+        solution (a mesh with no resistance).
+
+    Notes
+    -----
+    Inputs are raw SI numbers with no dimensional metadata; see
+    :doc:`/guides/electrical_engineering`. Current sources are not
+    accepted: replace one by its Thévenin equivalent, or use
+    :func:`nodal_analysis`.
+
+    References
+    ----------
+    W. H. Hayt, J. E. Kemmerly and S. M. Durbin, *Engineering Circuit
+    Analysis*, 8th ed. (New York: McGraw-Hill, 2012), ch. 4.
+
+    Examples
+    --------
+    >>> r = mesh_analysis(2, [(1, 0, 2.0), (1, 2, 4.0), (2, 0, 4.0)], voltage_sources=[(1, 0, 12.0)])
+    >>> [round(float(i), 6) for i in r.mesh_currents]
+    [3.0, 1.5]
+    """
+    _integer("n_meshes", n_meshes, minimum=1)
+    resistors, voltage_sources = list(resistors), list(voltage_sources)
+    if not resistors:
+        raise ValueError("resistors must contain at least one resistor")
+    for group, kind in ((resistors, "resistor"), (voltage_sources, "voltage source")):
+        for element in group:
+            if len(element) != 3:
+                raise ValueError(f"each {kind} must be a (mesh, mesh, value) triple")
+            _check_node(f"{kind} mesh", element[0], n_meshes)
+            _check_node(f"{kind} mesh", element[1], n_meshes)
+            _finite(**{f"{kind} value": element[2]})
+            if element[0] == element[1]:
+                raise ValueError(f"a {kind} must lie between two different meshes")
+    _positive(resistance=[r for *_, r in resistors])
+
+    A = np.zeros((n_meshes, n_meshes))
+    v = np.zeros(n_meshes)
+    for a, b, R in resistors:
+        for row, col, value in ((a, a, R), (b, b, R), (a, b, -R), (b, a, -R)):
+            if row and col:
+                A[row - 1, col - 1] += value
+    for a, b, V in voltage_sources:
+        if a:
+            v[a - 1] += V
+        if b:
+            v[b - 1] -= V
+    if np.linalg.cond(A) > 1e12:
+        raise ValueError("the network has no unique solution (a mesh with no resistance)")
+    currents = np.concatenate(([0.0], np.linalg.solve(A, v)))
+
+    resistor_currents = np.array([currents[a] - currents[b] for a, b, _ in resistors])
+    loop = np.zeros(n_meshes + 1)
+    for (a, b, R), i in zip(resistors, resistor_currents):
+        loop[a] -= R * i
+        loop[b] += R * i
+    for a, b, V in voltage_sources:
+        loop[a] += V
+        loop[b] -= V
+    return MeshResult(currents[1:], resistor_currents, float(np.max(np.abs(loop[1:]))))

@@ -1,8 +1,9 @@
 """Result containers for engineeringkit.signal_processing.
 
 Most models return plain arrays. A one-sided spectrum, a short-time Fourier
-transform and an adaptive filter run carry several related arrays, so each
-gets a frozen dataclass with ``summary()`` and ``plot()``.
+transform, an adaptive filter run and an autoregressive model carry several
+related arrays, so each gets a frozen dataclass with ``summary()`` and
+``plot()``.
 """
 
 from __future__ import annotations
@@ -14,7 +15,7 @@ import numpy as np
 from engineeringkit._validation import finite as _finite
 from engineeringkit._validation import positive as _positive
 
-__all__ = ["Spectrum", "STFTResult", "LMSResult"]
+__all__ = ["Spectrum", "STFTResult", "LMSResult", "ARModel"]
 
 
 @dataclass(frozen=True)
@@ -130,4 +131,72 @@ class LMSResult:
         fig, ax = plt.subplots() if ax is None else (ax.figure, ax)
         ax.semilogy(np.maximum(np.abs(self.error) ** 2, 1e-300))
         ax.set(xlabel="sample", ylabel="squared error")
+        return fig, ax
+
+
+@dataclass(frozen=True)
+class ARModel:
+    r"""Autoregressive model :math:`x_n + \sum_{k=1}^{p} a_k x_{n-k} = e_n`.
+
+    Returned by :func:`engineeringkit.signal_processing.levinson_durbin` and
+    :func:`engineeringkit.signal_processing.yule_walker`.
+    """
+
+    coefficients: np.ndarray
+    """ndarray: :math:`[1, a_1, \\ldots, a_p]`, the prediction-error filter :math:`A(z)` [-]."""
+
+    noise_variance: float
+    """float: Variance :math:`\\sigma^2 = E_p` of the white input :math:`e_n` [signal units squared]."""
+
+    reflection_coefficients: np.ndarray
+    """ndarray: :math:`k_1..k_p`, all inside (-1, 1) for a stable model [-]."""
+
+    prediction_errors: np.ndarray
+    """ndarray: Mean squared prediction error :math:`E_0..E_p` of each order [signal units squared]."""
+
+    @property
+    def order(self) -> int:
+        """int: Model order :math:`p`."""
+        return int(self.coefficients.size - 1)
+
+    def psd(self, fs=1.0, n=512):
+        r"""One-sided power spectral density :math:`P(f) = 2\sigma^2/(f_s|A(e^{j2\pi f/f_s})|^2)`.
+
+        Parameters
+        ----------
+        fs : float, optional
+            Sampling rate [Hz], positive.
+        n : int, optional
+            Number of frequencies from 0 to :math:`f_s/2`, at least 2.
+
+        Returns
+        -------
+        tuple of ndarray
+            ``(frequency, psd)`` [Hz] and [signal units squared per Hz]; its
+            integral over :math:`[0, f_s/2]` is the model's variance.
+        """
+        _positive(fs=fs)
+        if isinstance(n, bool) or not isinstance(n, (int, np.integer)) or n < 2:
+            raise ValueError("n must be an integer >= 2")
+        f = np.linspace(0, fs / 2, n)
+        A = np.exp(-2j * np.pi * np.outer(f / fs, np.arange(self.coefficients.size))) @ self.coefficients
+        return f, 2 * self.noise_variance / (fs * np.abs(A) ** 2)
+
+    def summary(self) -> dict:
+        """Order, noise variance, prediction gain :math:`E_0/E_p` and whether every :math:`|k_m| < 1`."""
+        return {
+            "order": self.order,
+            "noise_variance": float(self.noise_variance),
+            "prediction_gain": float(self.prediction_errors[0] / self.prediction_errors[-1]),
+            "stable": bool(np.all(np.abs(self.reflection_coefficients) < 1)),
+        }
+
+    def plot(self, ax=None, fs=1.0):
+        """Model spectrum in decibels against frequency; returns ``(fig, ax)``."""
+        import matplotlib.pyplot as plt
+
+        fig, ax = plt.subplots() if ax is None else (ax.figure, ax)
+        f, P = self.psd(fs)
+        ax.plot(f, 10 * np.log10(P))
+        ax.set(xlabel="frequency [Hz]", ylabel="PSD [dB]")
         return fig, ax

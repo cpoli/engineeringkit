@@ -1,4 +1,4 @@
 Transients
 ----------
 
-First-order charging and the RC time constant.
+First-order charging, the RL current rise and the second-order RLC step.

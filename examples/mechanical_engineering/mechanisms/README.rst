@@ -1,4 +1,4 @@
 Mechanisms
 ----------
 
-Slider-cranks, four-bar linkages and serial robot arms.
+Slider-cranks, four-bar linkages and their velocities and accelerations, and serial robot arms.

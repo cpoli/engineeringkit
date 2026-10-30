@@ -93,10 +93,10 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install ".[docs]"
-      - run: MPLBACKEND=Agg python -m sphinx -W --keep-going -b html docs/source docs/_build/html
-      - run: touch docs/_build/html/.nojekyll
+      - run: cd docs && make html
+      - run: touch docs/build/html/.nojekyll
       - uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ github.token }}
-          publish_dir: docs/_build/html
+          publish_dir: docs/build/html
           commit_message: "Rebuild docs for ${{ github.ref_name }}"

@@ -9,7 +9,13 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pytest
 
-from engineeringkit.thermodynamics import isentropic_pressure_volume, steam_properties
+from engineeringkit.thermodynamics import (
+    brayton_cycle,
+    isentropic_pressure_volume,
+    rankine_cycle,
+    steam_properties,
+    vapor_compression_cycle,
+)
 from engineeringkit.thermodynamics.visualizers import plot_pv_diagram, plot_saturation_dome, plot_ts_diagram
 
 
@@ -37,4 +43,19 @@ def test_plot_ts_diagram_draws_the_dome_and_path():
         plot_saturation_dome(T_min=200.0)
     with pytest.raises(ValueError):
         plot_ts_diagram([], [])
+    plt.close("all")
+
+
+def test_cycle_results_plot_their_state_diagrams():
+    res = rankine_cycle(15e6, 10e3, 873.15, reheat_pressure=4e6, T_reheat=873.15, feedwater_pressure=1.2e6)
+    fig, ax = res.plot()
+    # dome (2 lines), one segment per process of the main loop, and the state markers
+    assert len(ax.lines) == 2 + (len(res.labels) - 1) + 1 and ax.get_title().startswith("Rankine")
+    gas = brayton_cycle(8.0, 300.0, 1300.0, regenerator_effectiveness=0.7, compressor_stages=2)
+    _, ax = gas.plot()
+    assert len(gas.labels) == 8 and len(ax.lines) == len(gas.labels) + 1  # a closed loop of 8 processes and the markers
+    _, given = plt.subplots()
+    fig, ax = vapor_compression_cycle(0.14e6, 0.8e6).plot(ax=given)
+    assert ax is given and ax.get_yscale() == "log" and len(ax.lines) == 3
+    assert len(vapor_compression_cycle(0.2e6, 1e6).plot()[1].lines) == 3
     plt.close("all")

@@ -36,7 +36,7 @@ python -m ruff format --check .
 python -m mypy   # whole package, settings in pyproject.toml; blocking in CI
 
 # docs
-python -m sphinx -W --keep-going -b html docs/source docs/_build/html
+make -C docs html
 
 # build
 python -m build

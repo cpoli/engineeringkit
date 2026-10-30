@@ -1,9 +1,9 @@
 """Result containers for engineeringkit.fluid_engineering.
 
 Most fluid models are closed forms that return plain floats or arrays.
-Buckingham's dimensional analysis and Hardy Cross's network iteration return
-more than one number, so they get frozen dataclasses with the usual
-``summary()`` and ``plot()``.
+Buckingham's dimensional analysis, Hardy Cross's network iteration and the
+pump operating point return more than one number, so they get frozen
+dataclasses with the usual ``summary()`` and ``plot()``.
 """
 
 from __future__ import annotations
@@ -12,7 +12,7 @@ from dataclasses import dataclass
 
 import numpy as np
 
-__all__ = ["PiGroups", "NetworkResult"]
+__all__ = ["PiGroups", "NetworkResult", "OperatingPoint"]
 
 
 @dataclass(frozen=True)
@@ -102,4 +102,69 @@ class NetworkResult:
             _, ax = plt.subplots()
         ax.semilogy(np.arange(1, self.corrections.size + 1), self.corrections, marker="o")
         ax.set(xlabel="sweep", ylabel="largest correction [m³/s]", title="Hardy Cross convergence")
+        return ax.figure, ax
+
+
+@dataclass(frozen=True)
+class OperatingPoint:
+    """Output of :func:`engineeringkit.fluid_engineering.pump_operating_point`."""
+
+    flow: float
+    """float: Volume flow where the pump and system curves cross [m^3/s]."""
+
+    head: float
+    """float: Head at the operating point [m]."""
+
+    shutoff_head: float
+    """float: Head of one pump at zero flow, :math:`H_0` [m]."""
+
+    a: float
+    """float: Quadratic coefficient of one pump's curve [s^2/m^5]."""
+
+    b: float
+    """float: Linear coefficient of one pump's curve [s/m^2]."""
+
+    static_head: float
+    """float: Static lift of the system [m]."""
+
+    k: float
+    """float: Loss coefficient of the system curve [s^2/m^5]."""
+
+    series: int
+    """int: Number of identical pumps in series."""
+
+    parallel: int
+    """int: Number of identical pumps (or series strings) in parallel."""
+
+    def pump_head(self, Q):
+        """Head of the combined pumps at flow ``Q`` [m^3/s], in m."""
+        q = np.asarray(Q, dtype=float) / self.parallel
+        return self.series * (self.shutoff_head + self.b * q - self.a * q * q)
+
+    def system_head(self, Q):
+        """Head the system needs at flow ``Q`` [m^3/s], in m."""
+        Q = np.asarray(Q, dtype=float)
+        return self.static_head + self.k * Q * Q
+
+    def summary(self) -> dict:
+        """Flow, head and the pump arrangement."""
+        return {
+            "flow_m3_s": float(self.flow),
+            "head_m": float(self.head),
+            "series": self.series,
+            "parallel": self.parallel,
+        }
+
+    def plot(self, ax=None):
+        """Draw the combined pump curve, the system curve and their crossing; return ``(fig, ax)``."""
+        import matplotlib.pyplot as plt
+
+        if ax is None:
+            _, ax = plt.subplots()
+        Q = np.linspace(0, 1.4 * self.flow, 100)
+        ax.plot(Q, self.pump_head(Q), label=f"pumps ({self.series} in series, {self.parallel} in parallel)")
+        ax.plot(Q, self.system_head(Q), label="system")
+        ax.plot(self.flow, self.head, "ko")
+        ax.set(xlabel="flow [m³/s]", ylabel="head [m]", title="pump operating point")
+        ax.legend()
         return ax.figure, ax

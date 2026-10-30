@@ -1,4 +1,4 @@
 Open channels
 -------------
 
-Uniform flow with a free surface.
+Flow with a free surface: uniform flow, specific energy and the hydraulic jump.

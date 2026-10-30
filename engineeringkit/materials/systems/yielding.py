@@ -4,7 +4,8 @@ Tresca found that metals forced through dies flow when the largest shear
 stress reaches a constant, :math:`\sigma_1 - \sigma_3 = \sigma_y`. Von Mises
 replaced the hexagonal prism this gives in principal-stress space with the
 smooth cylinder through its corners, the second deviatoric invariant
-:math:`J_2 = \sigma_y^2/3`.
+:math:`J_2 = \sigma_y^2/3`. Both are written in principal stresses, the
+eigenvalues of the symmetric stress tensor.
 """
 
 from __future__ import annotations
@@ -14,7 +15,85 @@ import numpy as np
 from engineeringkit._validation import finite as _finite
 from engineeringkit._validation import positive as _positive
 
-__all__ = ["von_mises_plane_stress", "tresca_equivalent", "factor_of_safety"]
+__all__ = ["principal_stresses", "von_mises_stress", "von_mises_plane_stress", "tresca_equivalent", "factor_of_safety"]
+
+
+def _stress_components(sx, sy, sz, txy, tyz, tzx):
+    _finite(sx=sx, sy=sy, sz=sz, txy=txy, tyz=tyz, tzx=tzx)
+    return np.broadcast_arrays(*(np.asarray(c, float) for c in (sx, sy, sz, txy, tyz, tzx)))
+
+
+def principal_stresses(sx, sy, sz, txy=0.0, tyz=0.0, tzx=0.0):
+    r"""Principal stresses of a three-dimensional stress state, largest first.
+
+    The eigenvalues of
+
+    .. math:: \boldsymbol\sigma = \begin{pmatrix} \sigma_x & \tau_{xy} & \tau_{zx} \\
+              \tau_{xy} & \sigma_y & \tau_{yz} \\ \tau_{zx} & \tau_{yz} & \sigma_z \end{pmatrix}
+
+    Parameters
+    ----------
+    sx, sy, sz : float or array_like
+        Normal stresses [Pa].
+    txy, tyz, tzx : float or array_like, optional
+        Shear stresses [Pa].
+
+    Returns
+    -------
+    ndarray
+        :math:`(\sigma_1, \sigma_2, \sigma_3)` [Pa] along the last axis,
+        :math:`\sigma_1 \ge \sigma_2 \ge \sigma_3`; pass them to
+        :func:`tresca_equivalent`.
+
+    Notes
+    -----
+    ``numpy.linalg.eigvalsh`` finds the eigenvalues of each symmetric tensor,
+    the roots of :math:`\sigma^3 - I_1\sigma^2 + I_2\sigma - I_3 = 0`.
+    Inputs are raw SI numbers with no dimensional metadata; see
+    :doc:`/guides/materials`.
+
+    Examples
+    --------
+    >>> principal_stresses(0.0, 0.0, 0.0, txy=50.0).round(9).tolist()
+    [50.0, 0.0, -50.0]
+    """
+    sx, sy, sz, txy, tyz, tzx = _stress_components(sx, sy, sz, txy, tyz, tzx)
+    tensor = np.stack([np.stack([sx, txy, tzx], -1), np.stack([txy, sy, tyz], -1), np.stack([tzx, tyz, sz], -1)], -2)
+    return np.linalg.eigvalsh(tensor)[..., ::-1]
+
+
+def von_mises_stress(sx, sy, sz, txy=0.0, tyz=0.0, tzx=0.0):
+    r"""Von Mises equivalent stress of a three-dimensional stress state.
+
+    .. math:: \sigma_{vM} = \sqrt{\tfrac12\left[(\sigma_x - \sigma_y)^2 + (\sigma_y - \sigma_z)^2
+              + (\sigma_z - \sigma_x)^2\right] + 3(\tau_{xy}^2 + \tau_{yz}^2 + \tau_{zx}^2)} = \sqrt{3J_2}
+
+    Parameters
+    ----------
+    sx, sy, sz : float or array_like
+        Normal stresses [Pa].
+    txy, tyz, tzx : float or array_like, optional
+        Shear stresses [Pa].
+
+    Returns
+    -------
+    float or ndarray
+        Equivalent stress [Pa], unchanged by a hydrostatic stress.
+
+    Notes
+    -----
+    With :math:`\sigma_z = \tau_{yz} = \tau_{zx} = 0` it reduces to
+    :func:`von_mises_plane_stress`. Inputs are raw SI numbers with no
+    dimensional metadata; see :doc:`/guides/materials`.
+
+    Examples
+    --------
+    >>> float(von_mises_stress(100.0, 100.0, 100.0))
+    0.0
+    """
+    sx, sy, sz, txy, tyz, tzx = _stress_components(sx, sy, sz, txy, tyz, tzx)
+    normal = 0.5 * ((sx - sy) ** 2 + (sy - sz) ** 2 + (sz - sx) ** 2)
+    return np.sqrt(normal + 3 * (txy * txy + tyz * tyz + tzx * tzx))
 
 
 def von_mises_plane_stress(sx, sy, txy):

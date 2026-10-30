@@ -2,7 +2,9 @@ r"""Vibration: the damped oscillator, the tuned absorber and torsional chains.
 
 Rayleigh's *Theory of Sound* set out the free and forced vibration of linear
 systems with natural frequency :math:`\omega_n = \sqrt{k/m}` and damping
-ratio :math:`\zeta = c/2\sqrt{km}`. Frahm hung a small tuned oscillator on a
+ratio :math:`\zeta = c/2\sqrt{km}`; driven harmonically, its amplitude is
+the static deflection times the magnification factor, and it lags the force
+by a phase that passes through 90 degrees at resonance. Frahm hung a small tuned oscillator on a
 vibrating body to cancel its motion, and Den Hartog chose the absorber's
 tuning and damping to flatten the response. Holzer found the torsional
 frequencies of a shaft line by marching a trial twist from disk to disk.
@@ -27,6 +29,8 @@ __all__ = [
     "damping_ratio",
     "damped_frequency",
     "transmissibility",
+    "magnification_factor",
+    "phase_angle",
     "simulate_sdof",
     "tuned_mass_damper",
     "holzer_residual",
@@ -196,6 +200,82 @@ def transmissibility(r, zeta):
         return np.sqrt(np.divide(1 + (2 * zeta * r) ** 2, (1 - r * r) ** 2 + (2 * zeta * r) ** 2))
 
 
+def magnification_factor(r, zeta):
+    r"""Steady-state amplitude of a harmonically forced oscillator over its static deflection.
+
+    For :math:`m\ddot x + c\dot x + kx = F_0\cos\omega t`, the steady
+    amplitude is :math:`X = (F_0/k)\,M` with
+
+    .. math:: M = \frac{1}{\sqrt{(1 - r^2)^2 + (2\zeta r)^2}}, \qquad r = \omega/\omega_n
+
+    Parameters
+    ----------
+    r : float or array_like
+        Forcing frequency over natural frequency [-], nonnegative.
+    zeta : float or array_like
+        Damping ratio [-], nonnegative.
+
+    Returns
+    -------
+    float or ndarray
+        Magnification factor [-]: one at :math:`r = 0`, peaking at
+        :math:`1/(2\zeta\sqrt{1 - \zeta^2})` at
+        :math:`r = \sqrt{1 - 2\zeta^2}` when :math:`\zeta < 1/\sqrt 2`, and
+        infinite at undamped resonance.
+
+    Notes
+    -----
+    Inputs are raw SI numbers with no dimensional metadata; see
+    :doc:`/guides/mechanical_engineering`.
+
+    References
+    ----------
+    J. W. Strutt, Baron Rayleigh, *The Theory of Sound*, vol. 1 (Macmillan,
+    London, 1877), chapter III.
+
+    Examples
+    --------
+    >>> float(magnification_factor(1.0, 0.25))
+    2.0
+    """
+    _nonnegative(r=r, zeta=zeta)
+    with np.errstate(divide="ignore"):
+        return 1 / np.hypot(1 - np.asarray(r, dtype=float) ** 2, 2 * np.asarray(zeta) * r)
+
+
+def phase_angle(r, zeta):
+    r"""Angle by which the steady displacement of a forced oscillator lags the force.
+
+    .. math:: \phi = \operatorname{atan2}(2\zeta r,\ 1 - r^2)
+
+    Parameters
+    ----------
+    r : float or array_like
+        Forcing frequency over natural frequency [-], nonnegative.
+    zeta : float or array_like
+        Damping ratio [-], nonnegative.
+
+    Returns
+    -------
+    float or ndarray
+        Phase lag [rad] in [0, pi]: zero below resonance, pi/2 at
+        :math:`r = 1` for any damping, tending to pi above.
+
+    Notes
+    -----
+    Inputs are raw SI numbers with no dimensional metadata; see
+    :doc:`/guides/mechanical_engineering`.
+
+    Examples
+    --------
+    >>> round(float(phase_angle(1.0, 0.1)), 12)
+    1.570796326795
+    """
+    _nonnegative(r=r, zeta=zeta)
+    r = np.asarray(r, dtype=float)
+    return np.arctan2(2 * np.asarray(zeta) * r, 1 - r * r)
+
+
 def simulate_sdof(m, c, k, x0=0, v0=0, t=None, force=None):
     r"""Integrate :math:`m\ddot x + c\dot x + kx = F(t)` for a passive linear oscillator.
 
@@ -281,6 +361,8 @@ def tuned_mass_damper(m, k, mass_ratio, frequency_ratio=None, damping_ratio=None
 
     Notes
     -----
+    All parameters are scalar-only: the result is one absorber design.
+
     Inputs are raw SI numbers with no dimensional metadata; see
     :doc:`/guides/mechanical_engineering`.
 

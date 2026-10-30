@@ -12,9 +12,10 @@ with an insulated tip it carries
 (:func:`~engineeringkit.heat_transfer.fin_heat_rate_adiabatic`), a fraction
 :math:`\tanh(mL)/mL` of what an isothermal fin would
 (:func:`~engineeringkit.heat_transfer.fin_efficiency_adiabatic`). Their
-practical trick: a convecting tip is accounted for by lengthening the fin
-by half its thickness. This example solves the fin equation numerically and
-checks both.
+exact result for a convecting tip
+(:func:`~engineeringkit.heat_transfer.fin_heat_rate_convective_tip`) is
+well approximated by lengthening the adiabatic fin by half its thickness.
+This example solves the fin equation numerically and checks both.
 """
 
 # %%
@@ -22,7 +23,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from scipy.integrate import solve_bvp
 
-from engineeringkit.heat_transfer import fin_efficiency_adiabatic, fin_heat_rate_adiabatic, fin_parameter
+from engineeringkit.heat_transfer import fin_efficiency_adiabatic, fin_heat_rate_adiabatic, fin_heat_rate_convective_tip, fin_parameter
 
 # %%
 # A cylinder-head fin
@@ -62,8 +63,7 @@ q_numeric = -k * Ac * sol.sol(0.0)[1]
 # Exact, adiabatic and corrected-length heat rates
 # ------------------------------------------------
 
-hk = h / (m * k)
-q_exact = np.sqrt(h * P * k * Ac) * theta_b * (np.sinh(m * L) + hk * np.cosh(m * L)) / (np.cosh(m * L) + hk * np.sinh(m * L))
+q_exact = fin_heat_rate_convective_tip(h, P, k, Ac, L, Tb, Tinf)
 q_adiabatic = fin_heat_rate_adiabatic(h, P, k, Ac, L, Tb, Tinf)
 q_corrected = fin_heat_rate_adiabatic(h, P, k, Ac, L + t / 2, Tb, Tinf)
 print(f"numerical {q_numeric:.2f} W, exact {q_exact:.2f} W")

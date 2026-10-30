@@ -1,25 +1,52 @@
-"""Concrete signal-processing models: sampling, Fourier analysis, convolution, spectra, filters, optimal filters, wavelets."""
+"""Concrete signal-processing models: sampling, Fourier analysis, convolution, spectra, AR models, Hilbert, filters, wavelets."""
 
-from engineeringkit.signal_processing.systems.convolution import convolution, correlation, moving_average
+from engineeringkit.signal_processing.systems.autoregressive import levinson_durbin, yule_walker
+from engineeringkit.signal_processing.systems.convolution import circular_convolution, convolution, correlation, moving_average, overlap_add
 from engineeringkit.signal_processing.systems.filters import (
+    bilinear_transform,
     butterworth_highpass,
     butterworth_lowpass,
+    chebyshev1_lowpass,
+    chebyshev2_lowpass,
+    elliptic_lowpass,
+    equiripple_lowpass,
+    equiripple_order,
     filter_signal,
     fir_lowpass,
     frequency_response,
+    iir_order,
     kaiser_order,
+    prewarp_frequency,
 )
-from engineeringkit.signal_processing.systems.fourier import dft, fft_frequencies, fourier_partial_sum, idft, radix2_fft
+from engineeringkit.signal_processing.systems.fourier import dct, dft, fft_frequencies, fourier_partial_sum, idct, idft, radix2_fft
+from engineeringkit.signal_processing.systems.hilbert import (
+    analytic_signal,
+    envelope,
+    hilbert_fir,
+    hilbert_transform,
+    instantaneous_frequency,
+)
 from engineeringkit.signal_processing.systems.optimal import lms_filter, wiener_filter
 from engineeringkit.signal_processing.systems.sampling import (
     alias_frequency,
+    decimate,
+    downsample,
+    interpolate,
     nyquist_frequency,
     quantization_step,
     quantize,
     sampling_period,
     sinc_reconstruct,
+    upsample,
 )
-from engineeringkit.signal_processing.systems.spectral import goertzel, power_spectral_density, stft, welch_psd, windowed_spectrum
+from engineeringkit.signal_processing.systems.spectral import (
+    goertzel,
+    power_spectral_density,
+    real_cepstrum,
+    stft,
+    welch_psd,
+    windowed_spectrum,
+)
 from engineeringkit.signal_processing.systems.wavelets import haar_transform, inverse_haar_transform
 
 __all__ = [
@@ -29,12 +56,20 @@ __all__ = [
     "sinc_reconstruct",
     "quantization_step",
     "quantize",
+    "downsample",
+    "upsample",
+    "decimate",
+    "interpolate",
     "dft",
     "idft",
     "fft_frequencies",
     "radix2_fft",
     "fourier_partial_sum",
+    "dct",
+    "idct",
     "convolution",
+    "circular_convolution",
+    "overlap_add",
     "correlation",
     "moving_average",
     "power_spectral_density",
@@ -42,10 +77,26 @@ __all__ = [
     "welch_psd",
     "stft",
     "goertzel",
+    "real_cepstrum",
+    "levinson_durbin",
+    "yule_walker",
+    "analytic_signal",
+    "hilbert_transform",
+    "envelope",
+    "instantaneous_frequency",
+    "hilbert_fir",
     "butterworth_lowpass",
     "butterworth_highpass",
+    "chebyshev1_lowpass",
+    "chebyshev2_lowpass",
+    "elliptic_lowpass",
+    "iir_order",
+    "prewarp_frequency",
+    "bilinear_transform",
     "fir_lowpass",
     "kaiser_order",
+    "equiripple_lowpass",
+    "equiripple_order",
     "filter_signal",
     "frequency_response",
     "wiener_filter",

@@ -15,7 +15,8 @@ Circuit theory began as a branch of physics, with Ohm's wires and
 Kirchhoff's junctions. The telegraph, the electric light and the telephone
 then turned it into engineering: equivalent circuits, impedance and the
 transmission line were invented by telegraph and power engineers to answer
-practical questions. The entries trace the ideas behind
+practical questions, and electronics and the power grid added amplifiers,
+semiconductors, machines and stability. The entries trace the ideas behind
 :mod:`engineeringkit.electrical_engineering`, from a thermocouple and a
 galvanometer to a digital computer solving the power grid. Each links to the
 implementing function and to a gallery example devoted to it.
@@ -119,6 +120,55 @@ nodal approach to network analysis," *IEEE Trans. Circuits Syst.* 22
 
 .. minigallery:: ../../examples/electrical_engineering/dc_circuits/plot_03_kirchhoff_nodal_analysis.py
 
+1851 -- Helmholtz's Inductive Current Rise
+------------------------------------------
+
+Faraday's induction meant that a coil opposes any change of its own
+current, so switching a battery onto it cannot set up Ohm's current at
+once. Hermann Helmholtz, then measuring the speed of nerve impulses in
+Königsberg, needed to know how long such induced currents last. In 1851 he
+gave their law: in a circuit of resistance :math:`R` and self-induction
+:math:`L` the current approaches :math:`V/R` as :math:`1 - e^{-Rt/L}`, and on
+opening it dies away with the same time constant :math:`L/R`. He confirmed
+it with a pendulum interrupter that broke the circuit at chosen instants.
+The exponential rise and decay is the first-order transient of every relay
+coil, solenoid and motor winding.
+
+*Implementation:* :func:`engineeringkit.electrical_engineering.rl_current`
+and :func:`engineeringkit.electrical_engineering.rl_time_constant`. The
+example switches a relay coil on and off and checks that the supplied
+energy is dissipated or stored as :math:`\tfrac12 Li^2`.
+
+*References:* H. Helmholtz, "Ueber die Dauer und den Verlauf der durch
+Stromesschwankungen inducirten elektrischen Ströme," *Ann. Phys.* 83
+(1851) 505-540.
+
+.. minigallery:: ../../examples/electrical_engineering/transients/plot_02_helmholtz_rl_current.py
+
+1853 -- Kelvin's Oscillatory Discharge: the Second-Order RLC Circuit
+--------------------------------------------------------------------
+
+Felix Savary in 1827 and Joseph Henry in 1842 found that a Leyden jar
+discharged through a coil magnetised steel needles now one way, now the
+other, as if the current reversed. William Thomson, later Lord Kelvin, gave
+the explanation in 1853. A capacitance discharging through a resistance and
+an inductance obeys a second-order equation, and its discharge is a single
+surge when :math:`R > 2\sqrt{L/C}` but an oscillation of period close to
+:math:`2\pi\sqrt{LC}` when the resistance is smaller. Feddersen's
+photographs of the spark (1857-1862) showed the oscillation, and Hertz used
+it in 1887 to make radio waves. The over-, critically and underdamped step
+responses of the series RLC circuit are Thomson's three cases.
+
+*Implementation:* :func:`engineeringkit.electrical_engineering.rlc_damping`
+and :func:`engineeringkit.electrical_engineering.rlc_step_voltage`. The
+example plots the three regimes and checks the ringing period and the
+exponential decay of the underdamped response.
+
+*References:* W. Thomson, "On transient electric currents," *Phil. Mag.* 5
+(1853) 393-405.
+
+.. minigallery:: ../../examples/electrical_engineering/transients/plot_03_kelvin_oscillatory_discharge.py
+
 1855 -- Kelvin's Telegraph Cable and the RC Time Constant
 ---------------------------------------------------------
 
@@ -214,6 +264,30 @@ The example checks the power and impedance transformation and the
 
 .. minigallery:: ../../examples/electrical_engineering/ac_circuits/plot_01_stanley_transformer.py
 
+1886 -- The Hopkinsons' Dynamo Theory and the DC Machine
+--------------------------------------------------------
+
+Early dynamos were designed by trial and error. John Hopkinson introduced
+their *characteristic*, the EMF against field current at constant speed,
+in 1879, and in 1886 he and his brother Edward showed how to predict it
+from the iron's magnetic circuit before the machine was built. Underneath
+both is the armature equation of every DC machine: an EMF
+:math:`E = k\Phi\omega` proportional to flux and speed, behind the
+armature resistance, and a torque :math:`k\Phi I_a`. Run as a motor on a
+fixed voltage it slows in a straight line as the load torque rises, and
+driven above its no-load speed it becomes a generator. The Royal Society's
+referee called the paper the link between the theory of magnetism and
+dynamo design.
+
+*Implementation:* :func:`engineeringkit.electrical_engineering.dc_motor_torque`
+and :func:`engineeringkit.electrical_engineering.dc_motor_speed`. The
+example draws the torque-speed lines and checks the power balance.
+
+*References:* J. Hopkinson and E. Hopkinson, "Dynamo-electric machinery,"
+*Phil. Trans. R. Soc.* 177 (1886) 331.
+
+.. minigallery:: ../../examples/electrical_engineering/machines/plot_01_hopkinson_dynamo.py
+
 1888 -- Tesla's Polyphase System
 --------------------------------
 
@@ -284,6 +358,32 @@ line wires," British Patent 11,575 (1897).
 
 .. minigallery:: ../../examples/electrical_engineering/ac_circuits/plot_03_lodge_resonance.py
 
+1897 -- Steinmetz's Induction Motor Equivalent Circuit
+------------------------------------------------------
+
+Tesla's induction motor had no connection to its rotor, so designers could
+not calculate it. Charles Proteus Steinmetz treated it as a transformer
+whose secondary winding is the rotor, shorted through a resistance
+:math:`R_2/s` that grows as the slip :math:`s` between the rotating field
+and the rotor falls. The power absorbed in :math:`R_2/s` is the power
+crossing the air gap, and the torque follows from it. The resulting
+torque-speed curve rises to a breakdown torque that does not depend on the
+rotor resistance, which only sets the slip where it occurs. Wound-rotor
+motors exploit this by adding resistance to start at full torque. The
+"Steinmetz circuit" remains the textbook model of the motor that drives
+most of the world's machinery.
+
+*Implementation:* :func:`engineeringkit.electrical_engineering.induction_motor_torque`
+and :func:`engineeringkit.electrical_engineering.induction_motor_breakdown`.
+The example draws the torque-speed curve of a four-pole motor and moves its
+breakdown torque to standstill.
+
+*References:* C. P. Steinmetz, "The alternating current induction motor,"
+*Trans. AIEE* 14 (1897) 183-217. The citation was checked against
+bibliographies of Steinmetz's work, not a copy of the paper.
+
+.. minigallery:: ../../examples/electrical_engineering/machines/plot_02_steinmetz_induction_motor.py
+
 1918 -- Fortescue's Symmetrical Components
 ------------------------------------------
 
@@ -295,9 +395,11 @@ problem splits into three single-phase ones. His 114-page paper became the
 basis of fault analysis and protective relaying. A single line-to-ground
 fault, for instance, connects the three sequence networks in series.
 
-*Implementation:* :func:`engineeringkit.electrical_engineering.symmetrical_components`
-and :func:`engineeringkit.electrical_engineering.phase_components`. The
-example decomposes an unbalanced set and computes a line-to-ground fault.
+*Implementation:* :func:`engineeringkit.electrical_engineering.symmetrical_components`,
+:func:`engineeringkit.electrical_engineering.phase_components` and
+:func:`engineeringkit.electrical_engineering.fault_currents`. The example
+decomposes an unbalanced set, computes a line-to-ground fault and compares
+the four fault types.
 
 *References:* C. L. Fortescue, "Method of symmetrical co-ordinates applied
 to the solution of polyphase networks," *Trans. AIEE* 37 (1918)
@@ -327,6 +429,37 @@ TM26-0-1860 (1926); H. F. Mayer, "Ueber das Ersatzschema der
 Verstärkerröhre," *Telegraphen- und Fernsprech-Technik* 15 (1926) 335-337.
 
 .. minigallery:: ../../examples/electrical_engineering/networks/plot_03_norton_equivalent.py
+
+1926 -- Swing Curves and the Equal-Area Criterion
+-------------------------------------------------
+
+Long lines brought a new failure: after a fault, the generators at the two
+ends could swing apart and fall out of step. Engineers at Westinghouse,
+R. D. Evans and C. F. Wagner among them, computed the rotor angle against
+time by integrating the swing equation
+:math:`(2H/\omega_s)\ddot\delta = P_m - P_{max}\sin\delta` step by step,
+by hand. For one machine against an infinite bus there is a shortcut. The
+kinetic energy the rotor gains while the fault holds the electrical power
+down must be given back after clearing, before the angle passes the
+unstable equilibrium. Equating the accelerating and decelerating areas
+under the power-angle curves gives the critical clearing angle without any
+integration. The criterion still sets the clearing times that protection
+must meet.
+
+*Implementation:* :func:`engineeringkit.electrical_engineering.swing_response`,
+returning a :class:`~engineeringkit.electrical_engineering.SwingResult`,
+:func:`engineeringkit.electrical_engineering.equal_area_clearing_angle`
+and :func:`engineeringkit.electrical_engineering.critical_clearing_time`.
+The example finds the critical clearing time from the swing curves and
+checks it against the equal-area angle.
+
+*References:* R. D. Evans and C. F. Wagner, "Studies of transmission
+stability," *Trans. AIEE* 45 (1926); E. W. Kimbark, *Power System
+Stability*, vol. 1 (New York: Wiley, 1948). The 1926 paper could not be
+checked while writing this entry: the attribution and date follow the
+power-system stability textbooks.
+
+.. minigallery:: ../../examples/electrical_engineering/power/plot_05_swing_equation_equal_area.py
 
 1927 -- Budeanu's Reactive Power and the Power Factor
 -----------------------------------------------------
@@ -377,6 +510,59 @@ The example designs a single-stub match.
 
 .. minigallery:: ../../examples/electrical_engineering/transmission_lines/plot_02_smith_chart.py
 
+1947 -- Ragazzini's Operational Amplifier
+-----------------------------------------
+
+Wartime gun directors and the analog computers that followed them solved
+differential equations with high-gain DC amplifiers wrapped in feedback.
+John Ragazzini, Robert Randall and Frederick Russell of Columbia
+University analysed these circuits in 1947 and called them *operational
+amplifiers*, because each performed one mathematical operation. With
+enough gain the feedback holds the inverting input at a virtual ground, so
+the output depends only on the feedback network: a ratio of resistors
+scales, a feedback capacitor integrates. Integrated circuits made the op
+amp a cheap building block in the 1960s, and the same ideal-amplifier
+analysis is still the first circuit students learn after Ohm and
+Kirchhoff.
+
+*Implementation:* :func:`engineeringkit.electrical_engineering.inverting_amplifier_gain`,
+:func:`engineeringkit.electrical_engineering.noninverting_amplifier_gain`
+and :func:`engineeringkit.electrical_engineering.op_amp_integrator`. The
+example compares ideal and finite-gain amplifiers and builds an analog
+computer that solves :math:`\ddot y = -\omega^2 y`.
+
+*References:* J. R. Ragazzini, R. H. Randall and F. A. Russell, "Analysis
+of problems in dynamics by electronic circuits," *Proc. IRE* 35 (1947)
+444-452.
+
+.. minigallery:: ../../examples/electrical_engineering/electronics/plot_01_ragazzini_operational_amplifier.py
+
+1949 -- Shockley's Diode Equation
+---------------------------------
+
+William Shockley of Bell Labs explained the p-n junction a year after the
+point-contact transistor. Minority carriers injected across the junction
+diffuse away and recombine, at a rate that grows as :math:`e^{qv/kT}` with
+the applied voltage, so the current is
+:math:`i = I_S\left(e^{v/V_T} - 1\right)`, with :math:`V_T = kT/q` about
+26 mV at room temperature. The equation explains why a diode conducts one
+way, why its forward voltage rises about 60 mV per decade of current and
+falls with temperature, and it is the basis of the junction transistor
+model in the same paper. In a circuit the diode's exponential meets the
+straight load line of the resistor in series with it at the operating
+point.
+
+*Implementation:* :func:`engineeringkit.electrical_engineering.shockley_diode_current`,
+:func:`engineeringkit.electrical_engineering.thermal_voltage` and
+:func:`engineeringkit.electrical_engineering.diode_operating_point`. The
+example solves a load line and checks the slope per decade and the
+temperature coefficient.
+
+*References:* W. Shockley, "The theory of p-n junctions in semiconductors
+and p-n junction transistors," *Bell Syst. Tech. J.* 28 (1949) 435-489.
+
+.. minigallery:: ../../examples/electrical_engineering/electronics/plot_02_shockley_diode.py
+
 1956 -- Ward and Hale's Digital Load Flow
 -----------------------------------------
 
@@ -399,6 +585,30 @@ nonlinear solver.
 power-flow problems," *Trans. AIEE Part III* 75 (1956) 398-404.
 
 .. minigallery:: ../../examples/electrical_engineering/power/plot_04_ward_hale_load_flow.py
+
+1967 -- Tinney and Hart's Newton-Raphson Load Flow
+--------------------------------------------------
+
+Gauss-Seidel load flow converged slowly, and on large or heavily loaded
+networks not at all. Newton's method converges quadratically, but its
+Jacobian has as many entries as the square of the number of buses, too
+many for the computers of the 1960s. William Tinney and Clifford Hart of
+the Bonneville Power Administration noticed that the Jacobian of a power
+network is almost all zeros. With the buses ordered so that its
+factorization stays sparse, a Newton step costs little more than a
+Gauss-Seidel sweep, and five steps solve the problem. Generator buses that
+hold their voltage magnitude (PV buses) are handled naturally. Newton-
+Raphson has been the standard power flow method since.
+
+*Implementation:* :func:`engineeringkit.electrical_engineering.newton_raphson_load_flow`,
+returning a :class:`~engineeringkit.electrical_engineering.LoadFlowResult`.
+The example solves a five-bus network with a generator bus and compares the
+convergence with Gauss-Seidel.
+
+*References:* W. F. Tinney and C. E. Hart, "Power flow solution by
+Newton's method," *IEEE Trans. Power App. Syst.* PAS-86 (1967) 1449-1460.
+
+.. minigallery:: ../../examples/electrical_engineering/power/plot_06_tinney_hart_newton_load_flow.py
 
 See Also
 --------

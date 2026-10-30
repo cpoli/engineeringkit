@@ -19,17 +19,27 @@ jobs:
       cancel-in-progress: false
     steps:
       - uses: actions/checkout@v7
+      # The key covers everything an example's output can depend on, so a
+      # hit means a passing build already ran this exact gallery and
+      # sphinx-gallery skips every example; any change runs them all.
+      - name: Restore executed gallery
+        uses: actions/cache@v5
+        with:
+          path: |
+            docs/source/api/gallery
+            docs/source/gen_modules
+          key: gallery-${{ hashFiles('engineeringkit/**', 'examples/**', 'docs/source/conf.py', 'pyproject.toml', '.github/workflows/docs.yml') }}
       - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
           cache: pip
       - run: pip install -e ".[docs]"
-      - run: MPLBACKEND=Agg python -m sphinx -W --keep-going -b html docs/source docs/_build/html
+      - run: cd docs && make html
       - if: github.event_name == 'push'
-        run: touch docs/_build/html/.nojekyll
+        run: touch docs/build/html/.nojekyll
       - if: github.event_name == 'push'
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ github.token }}
-          publish_dir: docs/_build/html
+          publish_dir: docs/build/html
           commit_message: "Deploy docs for ${{ github.sha }}"

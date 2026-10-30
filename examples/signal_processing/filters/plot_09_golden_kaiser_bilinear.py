@@ -1,0 +1,78 @@
+r"""
+Golden and Kaiser's bilinear design with prewarping (1964)
+==========================================================
+
+A century of analog filter design was ready-made, and Bell Labs wanted it
+for sampled data. Roger Golden and James Kaiser (1964) used the bilinear
+substitution :math:`s = K(1 - z^{-1})/(1 + z^{-1})`, which maps the whole
+left half :math:`s`-plane into the unit circle, so a stable analog filter
+stays stable and keeps its ripple pattern. The price is a warped frequency
+axis, :math:`\Omega = K\tan(\omega/2)`, which they offset by designing the
+analog prototype at the *prewarped* band edges
+(:func:`~engineeringkit.signal_processing.bilinear_transform`,
+:func:`~engineeringkit.signal_processing.prewarp_frequency`). The authors,
+title and date were checked against Bell Labs' publication record.
+"""
+
+# %%
+import matplotlib.pyplot as plt
+import numpy as np
+from scipy import signal
+
+from engineeringkit.signal_processing import bilinear_transform, db20, frequency_response, prewarp_frequency
+
+# %%
+# The frequency warp
+# ------------------
+#
+# The analog axis :math:`[0, \infty)` is squeezed into :math:`[0, f_s/2)`.
+# Below about :math:`f_s/10` the two scales agree within 3%.
+
+fs = 1000.0
+f_digital = np.linspace(0, 480, 200)
+f_analog = prewarp_frequency(f_digital, fs)
+fig, axes = plt.subplots(1, 2, figsize=(10, 4))
+axes[0].plot(f_digital, f_analog, label="$f_a = (f_s/\\pi)\\tan(\\pi f/f_s)$")
+axes[0].plot(f_digital, f_digital, "--", color="0.5", label="no warping")
+axes[0].set(xlabel="digital frequency [Hz]", ylabel="analog frequency [Hz]", ylim=(0, 2000), title="Warping")
+axes[0].legend()
+assert np.all(np.abs(f_analog[f_digital <= 100] / np.maximum(f_digital[f_digital <= 100], 1e-9) - 1)[1:] < 0.035)
+
+# %%
+# Design a band edge, with and without prewarping
+# -----------------------------------------------
+#
+# A third-order analog Butterworth low-pass with a 200 Hz cutoff. Taken
+# straight through the transform, its -3 dB point lands at 179 Hz.
+# Designing the prototype at the prewarped 231 Hz puts it back at 200 Hz.
+
+f_c = 200.0
+for label, f_design in (("prototype at 200 Hz", f_c), (f"prewarped, {prewarp_frequency(f_c, fs):.0f} Hz", prewarp_frequency(f_c, fs))):
+    b, a = signal.butter(3, 2 * np.pi * f_design, analog=True)
+    bz, az = bilinear_transform(b, a, fs)
+    f, H = frequency_response(bz, az, worN=2048, fs=fs)
+    gain = db20(np.maximum(np.abs(H), 1e-9))
+    crossing = float(np.interp(-10 * np.log10(2), gain[::-1], f[::-1]))
+    print(f"{label:24s}: -3 dB at {crossing:6.1f} Hz")
+    axes[1].plot(f, gain, label=f"{label}: -3 dB at {crossing:.0f} Hz")
+    last = crossing
+_, H_analog = signal.freqs(*signal.butter(3, 2 * np.pi * f_c, analog=True), worN=2 * np.pi * f)
+axes[1].plot(f, db20(np.abs(H_analog)), ":", color="k", label="analog filter")
+axes[1].axvline(f_c, color="0.6", lw=0.8)
+axes[1].set(xlabel="frequency [Hz]", ylabel="gain [dB]", ylim=(-60, 3), title="Third-order Butterworth")
+axes[1].legend(fontsize=8)
+fig.tight_layout()
+assert np.isclose(last, f_c, atol=0.5)
+
+# %%
+# The ``prewarp`` argument does the same with a single prototype: it
+# scales :math:`K` so that the chosen frequency maps exactly, and the
+# result is SciPy's digital Butterworth.
+
+b, a = signal.butter(3, 2 * np.pi * f_c, analog=True)
+bz, az = bilinear_transform(b, a, fs, prewarp=f_c)
+bd, ad = signal.butter(3, f_c, fs=fs)
+assert np.allclose(bz, bd) and np.allclose(az, ad)
+assert np.all(np.abs(np.roots(az)) < 1)
+
+plt.show()

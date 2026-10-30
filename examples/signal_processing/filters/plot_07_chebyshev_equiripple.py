@@ -1,0 +1,97 @@
+r"""
+Chebyshev's equiripple approximation (1854)
+===========================================
+
+Pafnuty Chebyshev, studying Watt's linkage, asked which polynomial of
+degree :math:`n` stays closest to zero on an interval. The answer,
+:math:`T_n(x) = \cos(n \arccos x)`, swings between :math:`\pm 1` exactly
+:math:`n + 1` times there and grows faster than any other outside it.
+Filter designers in the 1930s put it into the squared gain,
+:math:`|H|^2 = 1/(1 + \varepsilon^2 T_n^2(\Omega/\Omega_p))`: the passband
+error is spread evenly instead of being piled up at the band edge, as in
+Butterworth's maximally flat filter, and the transition gets steeper for
+the same order
+(:func:`~engineeringkit.signal_processing.chebyshev1_lowpass`,
+:func:`~engineeringkit.signal_processing.chebyshev2_lowpass`).
+"""
+
+# %%
+import matplotlib.pyplot as plt
+import numpy as np
+
+from engineeringkit.signal_processing import (
+    butterworth_lowpass,
+    chebyshev1_lowpass,
+    chebyshev2_lowpass,
+    db20,
+    frequency_response,
+    iir_order,
+)
+
+# %%
+# The equiripple polynomial
+# -------------------------
+#
+# :math:`T_n` touches :math:`\pm 1` at :math:`n + 1` points of
+# :math:`[-1, 1]`; no other monic polynomial has a smaller maximum there
+# than :math:`T_n/2^{n-1}`.
+
+x = np.linspace(-1.2, 1.2, 2001)
+fig, axes = plt.subplots(1, 3, figsize=(13, 3.8))
+for n in (2, 3, 5):
+    T = np.polynomial.chebyshev.Chebyshev.basis(n)(x)
+    axes[0].plot(x, T, label=f"$T_{n}$")
+    inside = np.abs(x) <= 1
+    assert np.isclose(np.abs(T[inside]).max(), 1.0)
+    rival = np.polynomial.legendre.Legendre.basis(n)(x)
+    rival = rival / np.polynomial.legendre.leg2poly(np.eye(n + 1)[n])[-1]
+    assert np.abs(T[inside]).max() / 2 ** (n - 1) < np.abs(rival[inside]).max()
+axes[0].set(xlabel="x", ylim=(-2, 2), title="Chebyshev polynomials")
+axes[0].legend()
+
+# %%
+# Same order, three error distributions
+# -------------------------------------
+#
+# Fifth-order low-pass filters at 1 kHz sampling: Butterworth (flat),
+# Chebyshev I (1 dB passband ripple) and Chebyshev II (40 dB stopband
+# floor).
+
+fs = 1000.0
+designs = {
+    "Butterworth": butterworth_lowpass(5, 100.0, fs),
+    "Chebyshev I, 1 dB": chebyshev1_lowpass(5, 1.0, 100.0, fs),
+    "Chebyshev II, 40 dB": chebyshev2_lowpass(5, 40.0, 150.0, fs),
+}
+at_150 = {}
+for name, (b, a) in designs.items():
+    f, H = frequency_response(b, a, worN=4096, fs=fs)
+    gain = db20(np.maximum(np.abs(H), 1e-6))
+    axes[1].plot(f, gain, label=name)
+    axes[2].plot(f, gain, label=name)
+    at_150[name] = float(np.interp(150.0, f, gain))
+    print(f"{name:20s}: {at_150[name]:6.1f} dB at 150 Hz")
+axes[1].set(xlabel="frequency [Hz]", ylabel="gain [dB]", ylim=(-80, 5), title="Order 5")
+axes[1].legend(fontsize=8)
+axes[2].set(xlim=(0, 130), ylim=(-3.5, 0.5), xlabel="frequency [Hz]", title="Passband")
+fig.tight_layout()
+
+# %%
+# The ripple buys order
+# ---------------------
+#
+# To pass 100 Hz within 1 dB and stop 150 Hz by 60 dB, Chebyshev needs about
+# half Butterworth's order.
+
+n_butter = iir_order(100.0, 150.0, 1.0, 60.0, fs, "butterworth")
+n_cheby = iir_order(100.0, 150.0, 1.0, 60.0, fs, "chebyshev")
+print(f"orders for the same specification: Butterworth {n_butter}, Chebyshev {n_cheby}")
+b, a = chebyshev1_lowpass(n_cheby, 1.0, 100.0, fs)
+f, H = frequency_response(b, a, worN=np.linspace(0, 100, 500), fs=fs)
+passband = db20(np.abs(H))
+# The passband ripples between 0 and -1 dB, n times.
+assert np.isclose(passband.min(), -1.0, atol=1e-3) and passband.max() < 1e-9
+assert at_150["Chebyshev I, 1 dB"] < at_150["Butterworth"]
+assert n_cheby < n_butter
+
+plt.show()

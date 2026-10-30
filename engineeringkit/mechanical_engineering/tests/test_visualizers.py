@@ -42,3 +42,23 @@ def test_result_plots_return_figure_and_axes():
     fig, ax = m.holzer_frequencies([1.0, 1.0, 1.0], [1.0, 1.0], 5.0).plot()
     assert len(ax.get_legend().get_texts()) == 2
     plt.close("all")
+
+
+def test_curriculum_result_plots():
+    M, K = np.diag([1.0, 2.0]), np.array([[300.0, -100.0], [-100.0, 100.0]])
+    fig, ax = m.normal_modes(M, K).plot()
+    assert ax.get_xlabel() == "degree of freedom"
+    fig, ax = m.modal_response(M, K, [0.01, 0.0], t=np.linspace(0, 1, 11)).plot()
+    assert len(ax.lines) == 2
+    for load in (8e3, 1e5):  # in contact, and separated
+        fig, ax = m.bolted_joint(1e9, 3e9, 20e3, load).plot()
+        assert len(ax.lines) == 4
+    fig, ax = m.balance_rotating_masses([1.0, 2.0], [0.1, 0.1], [0.0, 2.0], [0.1, 0.3], [0.0, 0.4]).plot()
+    assert len(ax.get_legend().get_texts()) == 2
+    fig, ax = m.fourbar_kinematics(1.0, 3.0, 2.0, 3.0, np.linspace(0, 2 * np.pi, 13), 1.0).plot()
+    assert len(ax.lines) == 2
+    fig, ax = m.slider_crank_kinematics(0.05, 0.2, np.linspace(0, 2 * np.pi, 13), 100.0).plot()
+    assert ax.get_ylabel() == "slider velocity [m/s]"
+    fig, axs = m.cam_follower_motion(np.linspace(0, 1, 11), 0.01, 1.0).plot()
+    assert len(axs) == 4 and axs[0].get_title() == "cycloidal rise"
+    plt.close("all")

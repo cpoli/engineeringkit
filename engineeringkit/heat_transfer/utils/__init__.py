@@ -8,7 +8,7 @@ from engineeringkit.heat_transfer.utils.constants import (
     STEFAN_BOLTZMANN,
     WIEN_DISPLACEMENT,
 )
-from engineeringkit.heat_transfer.utils.eigenvalues import plane_wall_eigenvalues
+from engineeringkit.heat_transfer.utils.eigenvalues import cylinder_eigenvalues, plane_wall_eigenvalues, sphere_eigenvalues
 
 __all__ = [
     "STEFAN_BOLTZMANN",
@@ -18,4 +18,6 @@ __all__ = [
     "BOLTZMANN",
     "STANDARD_GRAVITY",
     "plane_wall_eigenvalues",
+    "cylinder_eigenvalues",
+    "sphere_eigenvalues",
 ]

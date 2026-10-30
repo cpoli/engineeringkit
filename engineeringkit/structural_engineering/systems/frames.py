@@ -1,4 +1,8 @@
-r"""Rigid-jointed frames: Hardy Cross's moment distribution and the plane-frame stiffness method.
+r"""Rigid-jointed frames: Maney's slope-deflection, Hardy Cross's moment distribution and the plane-frame stiffness method.
+
+Slope-deflection writes each member-end moment in terms of the joint
+rotations, :math:`M_{ij} = (2EI/L)(2\theta_i + \theta_j - 3\psi) + M^F_{ij}`, and
+solves the joint equilibrium equations for the rotations at once.
 
 Moment distribution locks every joint, applies the fixed-end moments, then
 releases the joints in turn: each unbalanced joint moment is shared among
@@ -17,7 +21,8 @@ import numpy as np
 from engineeringkit._validation import finite as _finite
 from engineeringkit._validation import integer as _integer
 from engineeringkit._validation import positive as _positive
-from engineeringkit.structural_engineering.core.base import FrameResult, MomentDistributionResult
+from engineeringkit._validation import vector as _vector
+from engineeringkit.structural_engineering.core.base import FrameResult, MomentDistributionResult, SlopeDeflectionResult
 from engineeringkit.structural_engineering.utils.stiffness import (
     fixed_dof_vector,
     frame_rotation_matrix,
@@ -26,7 +31,107 @@ from engineeringkit.structural_engineering.utils.stiffness import (
     solve_reduced,
 )
 
-__all__ = ["moment_distribution", "PlanarFrame"]
+__all__ = ["slope_deflection", "moment_distribution", "PlanarFrame"]
+
+
+def _braced_members(members, fixed_joints):
+    """Validate ``(i, j, length, EI, w)`` members; return end joints, properties, joints and the fixed set."""
+    if not len(members):
+        raise ValueError("at least one member is required")
+    ends = np.zeros((len(members), 2), int)
+    props = np.zeros((len(members), 3))
+    for k, member in enumerate(members):
+        if len(member) != 5:
+            raise ValueError("each member must be (i, j, length, EI, w)")
+        i, j, length, EI, w = member
+        _integer("member joint", i, 0)
+        _integer("member joint", j, 0)
+        if i == j:
+            raise ValueError("a member must join two different joints")
+        _positive(length=length, EI=EI)
+        _finite(w=w)
+        ends[k] = i, j
+        props[k] = length, EI, w
+    joints = np.unique(ends)
+    fixed = set()
+    for joint in fixed_joints:
+        _integer("fixed joint", joint, 0)
+        if joint not in joints:
+            raise ValueError(f"fixed joint {joint} is not connected to any member")
+        fixed.add(int(joint))
+    return ends, props, joints, fixed
+
+
+def slope_deflection(members, fixed_joints=(), chord_rotations=None):
+    r"""Member-end moments of a continuous beam or braced frame by Maney's slope-deflection method.
+
+    With clockwise moments and rotations positive, the moment at end
+    :math:`i` of a member :math:`ij` is
+
+    .. math::
+
+        M_{ij} = \frac{2EI}{L}\left(2\theta_i + \theta_j - 3\psi\right) + M^F_{ij},
+
+    where :math:`\psi` is the clockwise rotation of the chord (a support
+    settlement :math:`\Delta` of the far end gives :math:`\psi = \Delta/L`)
+    and :math:`M^F = \mp wL^2/12` the fixed-end moments of a uniform load.
+    The moments at each free joint must sum to zero; these equations are
+    solved for the unknown rotations, and the rotations give the moments.
+    It is the same problem :func:`moment_distribution` solves by iteration.
+
+    Parameters
+    ----------
+    members : sequence of (int, int, float, float, float)
+        ``(i, j, length, EI, w)`` for each member, as in
+        :func:`moment_distribution`.
+    fixed_joints : sequence of int, optional
+        Joints restrained against rotation.
+    chord_rotations : array_like, optional
+        Known chord rotation :math:`\psi` of each member [rad], clockwise
+        positive; zero by default (no settlement, no sway).
+
+    Returns
+    -------
+    SlopeDeflectionResult
+        End moments [N m] and joint rotations [rad], clockwise positive.
+
+    Notes
+    -----
+    Assumptions, governing equations and validity limits are discussed in
+    :doc:`/guides/structural_engineering`. SI inputs are required; raw numbers carry no
+    dimensional metadata. Joint translations other than the given chord
+    rotations are not solved for: sway frames need one more equilibrium
+    equation per storey, as in :class:`PlanarFrame`.
+
+    References
+    ----------
+    G. A. Maney, "Secondary stresses in rigid frames," *Studies in
+    Engineering* (Minneapolis: University of Minnesota, 1915).
+    """
+    ends, props, joints, fixed = _braced_members(members, fixed_joints)
+    L, EI, w = props.T
+    psi = np.zeros(len(members)) if chord_rotations is None else _vector("chord_rotations", chord_rotations)
+    if psi.size != len(members):
+        raise ValueError("chord_rotations must have one entry per member")
+    free = [int(joint) for joint in joints if joint not in fixed]
+    index = {joint: k for k, joint in enumerate(free)}
+    k = 2 * EI / L
+    # end moments with every joint locked: fixed-end moments plus the chord rotation
+    locked = np.column_stack([-w * L**2 / 12 - 3 * k * psi, w * L**2 / 12 - 3 * k * psi])
+    K = np.zeros((len(free), len(free)))
+    rhs = np.zeros(len(free))
+    for m, (i, j) in enumerate(ends):
+        for near, far, end in ((i, j, 0), (j, i, 1)):
+            if near in index:
+                K[index[near], index[near]] += 2 * k[m]
+                if far in index:
+                    K[index[near], index[far]] += k[m]
+                rhs[index[near]] -= locked[m, end]
+    theta = np.zeros(int(joints.max()) + 1)
+    theta[free] = np.linalg.solve(K, rhs)
+    ti, tj = theta[ends[:, 0]], theta[ends[:, 1]]
+    end_moments = locked + np.column_stack([k * (2 * ti + tj), k * (2 * tj + ti)])
+    return SlopeDeflectionResult(end_moments, theta)
 
 
 def moment_distribution(members, fixed_joints=(), *, tol=1e-10, max_iterations=10_000):
@@ -80,31 +185,9 @@ def moment_distribution(members, fixed_joints=(), *, tol=1e-10, max_iterations=1
     H. Cross, "Analysis of continuous frames by distributing fixed-end
     moments," *Proc. ASCE* 56 (1930) 919-928.
     """
-    if not len(members):
-        raise ValueError("at least one member is required")
-    ends = np.zeros((len(members), 2), int)
-    props = np.zeros((len(members), 3))
-    for k, member in enumerate(members):
-        if len(member) != 5:
-            raise ValueError("each member must be (i, j, length, EI, w)")
-        i, j, length, EI, w = member
-        _integer("member joint", i, 0)
-        _integer("member joint", j, 0)
-        if i == j:
-            raise ValueError("a member must join two different joints")
-        _positive(length=length, EI=EI)
-        _finite(w=w)
-        ends[k] = i, j
-        props[k] = length, EI, w
+    ends, props, joints, fixed = _braced_members(members, fixed_joints)
     _positive(tol=tol)
     _integer("max_iterations", max_iterations, 1)
-    joints = np.unique(ends)
-    fixed = set()
-    for joint in fixed_joints:
-        _integer("fixed joint", joint, 0)
-        if joint not in joints:
-            raise ValueError(f"fixed joint {joint} is not connected to any member")
-        fixed.add(int(joint))
     L, EI, w = props.T
     stiffness = 4 * EI / L
     moments = np.column_stack([-w * L**2 / 12, w * L**2 / 12])

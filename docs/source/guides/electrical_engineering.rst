@@ -53,6 +53,64 @@ condition number exceeds 1e12 rather than returning a meaningless answer.
 The result's ``kcl_residual`` is the largest net current leaving any node,
 an independent check of the solve.
 
+Mesh analysis
+-------------
+
+``mesh_analysis`` is the dual of nodal analysis for a planar circuit of
+resistors and ideal voltage sources. Meshes (the windows of the drawn
+circuit) are numbered 1..n and carry clockwise currents; 0 stands for the
+outside. A resistor ``(a, b, R)`` lies on the boundary between meshes ``a``
+and ``b`` (``b = 0`` on the outer edge), and a voltage source ``(a, b, V)``
+drives current clockwise around mesh ``a`` and therefore anticlockwise
+around mesh ``b``. Resistor currents are reported in the clockwise sense of
+their first mesh, ``i_a - i_b``. Current sources are not accepted (they
+would need supermeshes); convert them to Thévenin form or use
+``nodal_analysis``. The tests solve the same ladder both ways.
+
+Second-order transients
+-----------------------
+
+``rl_current`` is Helmholtz's first-order rise or decay through ``L/R``.
+``rlc_damping`` returns the neper frequency alpha = R/2L, the resonant
+frequency omega0 = 1/sqrt(LC) [rad/s] and the regime of a *series* RLC
+circuit (for a parallel circuit alpha = 1/2RC instead). The comparison
+alpha = omega0 is made within a relative 1e-9, inside which the critical
+formula is used, so circuits a hair away from critical damping do not lose
+accuracy to cancellation. ``rlc_step_voltage`` is the capacitor voltage from
+rest; the loop current is C dv/dt, which ``SeriesRLC.step_response``
+returns, and the benchmark tests check both against ``scipy.signal.step``.
+R, L and C are scalar-only.
+
+Electronics
+-----------
+
+The op-amp helpers are ideal: infinite gain and input resistance, zero
+output resistance, no rail limits, offset or bandwidth.
+``op_amp_integrator`` integrates a sampled input by the trapezoidal rule, so
+its accuracy depends on the sampling. ``shockley_diode_current`` covers
+forward and reverse bias but not breakdown, series resistance or high
+injection; it refuses voltages above 40 n V_T, where the current would be
+about e^40 times I_S and no real diode is still described. The
+temperature enters only through V_T: I_S is an input, though in a real
+diode it grows steeply with temperature. ``diode_operating_point`` brackets
+the load-line crossing and solves it with Brent's method: on the current for
+forward bias, where the diode voltage n V_T ln(1 + i/I_S) cannot overflow,
+and on the voltage for reverse bias. A Lambert-W closed form checks it.
+
+Machines
+--------
+
+``dc_motor_torque`` and ``dc_motor_speed`` describe a separately excited
+(or permanent-magnet) DC machine with constant flux k*Phi; series and
+shunt field interaction, armature reaction and brush drop are left out.
+``induction_motor_torque`` uses the per-phase T circuit (stator R1 + jX1,
+magnetizing jXm, rotor R2/s + jX2, all referred to the stator) without a
+core-loss resistance; the synchronous speed is the *mechanical* speed
+2 pi f/(poles/2). The torque is computed multiplied through by s^2, so slip
+0 gives zero torque instead of a division by zero, negative slip is
+generating and slip above 1 is plugging. Deep-bar and double-cage rotors,
+whose resistance changes with slip, are not modelled.
+
 Transmission lines
 ------------------
 
@@ -82,3 +140,41 @@ check ``converged`` and ``history``. An acceleration factor of 1.4-1.6
 usually cuts the number of sweeps, but too large a value slows or prevents
 convergence. Tests check the two-bus case against its closed form and the
 example checks a five-bus network against ``scipy.optimize.root``.
+
+``newton_raphson_load_flow`` solves the same problem in polar coordinates
+and adds PV buses, ``{bus: |V|}``: their real power comes from ``p_load``
+(negative for a generator), their ``q_load`` entry is ignored and their
+reactive output is reported in ``power``. Its ``history`` is the largest
+power mismatch before each step, so the last entry is below ``tol`` on
+convergence. The Jacobian is dense, which is fine for teaching networks of a
+few dozen buses. Generator reactive limits are not enforced. The tests check
+quadratic convergence and agreement with Gauss-Seidel.
+
+``per_unit_base`` returns the base impedance and current for a base power
+(three-phase total) and a base voltage (line to line); ``change_base`` moves
+a nameplate impedance to the system base. ``fault_currents`` computes the
+phase currents of three-phase, single-line-to-ground (phase a),
+line-to-line (b-c) and double-line-to-ground faults from the Thévenin
+sequence impedances at the bus, with optional fault impedance; prefault load
+current is neglected. Use one unit system, per unit or volts and ohms,
+throughout.
+
+Transient stability
+-------------------
+
+``swing_response`` integrates the classical single-machine, infinite-bus
+swing equation (constant voltage behind transient reactance, constant
+mechanical power) with ``integrate_ode``, switching from the fault-on to the
+post-fault power-angle curve at the clearing time. ``H`` is the inertia
+constant on the machine base and powers are per unit on the same base. The
+``stable`` flag is a first-swing check: the angle stays below the post-fault
+unstable equilibrium pi - arcsin(Pm/P3). Later swings, governor and
+excitation action and multi-machine effects are outside the model.
+``equal_area_clearing_angle`` returns the prefault angle and the critical
+clearing angle; when the fault-on curve keeps the rotor from ever passing
+the unstable equilibrium it returns that equilibrium, and when the
+post-fault network cannot hold the rotor at all it raises ``ValueError``.
+``critical_clearing_time`` has a closed form only for a fault that drops the
+electrical power to zero; otherwise bisect on ``swing_response``, as the
+example does. Tests check equal areas, energy conservation after clearing
+and that the critical time separates stable from unstable swings.

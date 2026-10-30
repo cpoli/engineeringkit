@@ -42,3 +42,13 @@ def test_result_plots():
     fig, ax = pi.plot()
     assert len(ax.texts) == 4
     plt.close(fig)
+
+
+def test_operating_point_plot():
+    from engineeringkit.fluid_engineering import pump_operating_point
+
+    op = pump_operating_point(40.0, 1000.0, 10.0, 2000.0, parallel=2)
+    fig, ax = op.plot()
+    assert len(ax.get_lines()) == 3
+    assert np.allclose(ax.get_lines()[2].get_xydata(), [[op.flow, op.head]])
+    plt.close(fig)

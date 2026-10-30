@@ -17,7 +17,7 @@ tubes (1931) fell closer to von Mises than to Tresca.
 import matplotlib.pyplot as plt
 import numpy as np
 
-from engineeringkit.materials import tresca_equivalent, von_mises_plane_stress
+from engineeringkit.materials import principal_stresses, tresca_equivalent, von_mises_plane_stress, von_mises_stress
 from engineeringkit.materials.visualizers import plot_yield_surfaces
 
 # %%
@@ -37,6 +37,25 @@ J2 = 0.5 * np.einsum("kij,kij->k", deviator, deviator)
 U_d = J2 / (2 * G)
 equivalent = von_mises_plane_stress(sx, sy_, txy)
 assert np.allclose(U_d, equivalent**2 / (6 * G))
+
+# %%
+# Three dimensions and hydrostatic pressure
+# -----------------------------------------
+#
+# In a general stress state (:func:`~engineeringkit.materials.von_mises_stress`)
+# the criterion depends only on differences of the principal stresses
+# (:func:`~engineeringkit.materials.principal_stresses`), so adding a
+# hydrostatic pressure changes neither it nor Tresca's: metals deep in the
+# sea do not yield. The plane-stress formula is the special case
+# :math:`\sigma_z = \tau_{yz} = \tau_{zx} = 0`.
+
+state = dict(sx=120e6, sy=-40e6, sz=60e6, txy=50e6, tyz=-30e6, tzx=20e6)
+principal = principal_stresses(**state)
+pressed = {**state, "sx": state["sx"] - 500e6, "sy": state["sy"] - 500e6, "sz": state["sz"] - 500e6}
+vm, vm_pressed = von_mises_stress(**state), von_mises_stress(**pressed)
+print(f"principal stresses {np.round(principal / 1e6, 1).tolist()} MPa, von Mises {vm / 1e6:.1f} MPa")
+assert np.isclose(vm, vm_pressed) and np.isclose(tresca_equivalent(principal), tresca_equivalent(principal_stresses(**pressed)))
+assert np.isclose(von_mises_stress(sx[0], sy_[0], 0.0, txy[0]), equivalent[0])
 
 # %%
 # Tension and torsion of a thin tube

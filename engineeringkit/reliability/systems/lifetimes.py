@@ -1,7 +1,9 @@
 r"""Lifetime distributions, failure counts and life-test estimates.
 
 Halley's life table turned survivor counts into age-specific death rates;
-Poisson counted rare events; Weibull gave a two-parameter law flexible
+Poisson counted rare events; McAlister's lognormal law and the gamma
+distribution describe wear-out by many small multiplicative or additive
+damage steps; Weibull gave a two-parameter law flexible
 enough for fatigue, bearings and electronics; Epstein and Sobel put
 confidence limits on exponential life tests; and Kaplan and Meier estimated
 a survival curve from tests in which some units never failed. Times are in
@@ -33,6 +35,14 @@ __all__ = [
     "weibull_cdf",
     "weibull_hazard",
     "weibull_mttf",
+    "lognormal_reliability",
+    "lognormal_cdf",
+    "lognormal_hazard",
+    "lognormal_mttf",
+    "gamma_reliability",
+    "gamma_cdf",
+    "gamma_hazard",
+    "gamma_mttf",
     "bathtub_hazard",
     "life_table_hazard",
     "expected_failures",
@@ -323,6 +333,289 @@ def weibull_mttf(eta, beta):
     return np.asarray(eta) * special.gamma(1 + 1 / np.asarray(beta))
 
 
+def _lognormal_z(t, mu, sigma):
+    """Standardised log time (ln t - mu)/sigma, minus infinity at ``t = 0``."""
+    with np.errstate(divide="ignore"):
+        return (np.log(np.asarray(t, dtype=float)) - mu) / sigma
+
+
+def lognormal_reliability(t, mu, sigma):
+    r"""Lognormal survival probability :math:`R(t) = \Phi\left(-(\ln t - \mu)/\sigma\right)`.
+
+    Parameters
+    ----------
+    t : float or array_like
+        Time [s], nonnegative.
+    mu : float or array_like
+        Mean of :math:`\ln t`, the log of the median life in seconds
+        [ln s].
+    sigma : float or array_like
+        Standard deviation of :math:`\ln t` [-], positive.
+
+    Returns
+    -------
+    float or ndarray
+        Reliability [-].
+
+    Notes
+    -----
+    Inputs are raw SI numbers with no dimensional metadata; see
+    :doc:`/guides/reliability`.
+
+    References
+    ----------
+    D. McAlister, "The law of the geometric mean," *Proc. R. Soc. Lond.* 29
+    (1879) 367-376.
+
+    Examples
+    --------
+    >>> float(lognormal_reliability(100.0, np.log(100.0), 0.5))
+    0.5
+    """
+    _finite(t=t, mu=mu, sigma=sigma)
+    _nonnegative(t=t)
+    _positive(sigma=sigma)
+    return special.ndtr(-_lognormal_z(t, mu, sigma))
+
+
+def lognormal_cdf(t, mu, sigma):
+    r"""Lognormal failure probability :math:`F(t) = \Phi\left((\ln t - \mu)/\sigma\right)`.
+
+    Parameters
+    ----------
+    t : float or array_like
+        Time [s], nonnegative.
+    mu : float or array_like
+        Mean of :math:`\ln t` [ln s].
+    sigma : float or array_like
+        Standard deviation of :math:`\ln t` [-], positive.
+
+    Returns
+    -------
+    float or ndarray
+        Probability of failure by time ``t`` [-].
+
+    Notes
+    -----
+    Inputs are raw SI numbers with no dimensional metadata; see
+    :doc:`/guides/reliability`.
+
+    Examples
+    --------
+    >>> round(float(lognormal_cdf(np.e, 0.0, 1.0)), 4)
+    0.8413
+    """
+    _finite(t=t, mu=mu, sigma=sigma)
+    _nonnegative(t=t)
+    _positive(sigma=sigma)
+    return special.ndtr(_lognormal_z(t, mu, sigma))
+
+
+def lognormal_hazard(t, mu, sigma):
+    r"""Lognormal hazard rate :math:`h(t) = \phi(z)/(\sigma t\,\Phi(-z))`, :math:`z = (\ln t - \mu)/\sigma`.
+
+    Parameters
+    ----------
+    t : float or array_like
+        Time [s], nonnegative.
+    mu : float or array_like
+        Mean of :math:`\ln t` [ln s].
+    sigma : float or array_like
+        Standard deviation of :math:`\ln t` [-], positive.
+
+    Returns
+    -------
+    float or ndarray
+        Hazard rate [1/s]; zero at ``t = 0``.
+
+    Notes
+    -----
+    The hazard rises from zero to a maximum and then falls slowly back
+    toward zero, so a lognormal life never wears out for good. The ratio is
+    formed in log space (``log_ndtr``) to stay finite far into the tail.
+    Inputs are raw SI numbers with no dimensional metadata; see
+    :doc:`/guides/reliability`.
+
+    Examples
+    --------
+    >>> round(float(lognormal_hazard(1.0, 0.0, 1.0)), 4)
+    0.7979
+    """
+    _finite(t=t, mu=mu, sigma=sigma)
+    _nonnegative(t=t)
+    _positive(sigma=sigma)
+    t = np.asarray(t, dtype=float)
+    z = _lognormal_z(t, mu, sigma)
+    safe_t = np.where(t > 0, t, 1.0)
+    log_h = -0.5 * z**2 - 0.5 * np.log(2 * np.pi) - np.log(sigma * safe_t) - special.log_ndtr(-z)
+    return np.where(t > 0, np.exp(log_h), 0.0)
+
+
+def lognormal_mttf(mu, sigma):
+    r"""Lognormal mean life :math:`e^{\mu + \sigma^2/2}`.
+
+    Parameters
+    ----------
+    mu : float or array_like
+        Mean of :math:`\ln t` [ln s].
+    sigma : float or array_like
+        Standard deviation of :math:`\ln t` [-], positive.
+
+    Returns
+    -------
+    float or ndarray
+        Mean time to failure [s], longer than the median :math:`e^\mu`.
+
+    Notes
+    -----
+    Inputs are raw SI numbers with no dimensional metadata; see
+    :doc:`/guides/reliability`.
+
+    Examples
+    --------
+    >>> round(float(lognormal_mttf(0.0, 1.0)), 4)
+    1.6487
+    """
+    _finite(mu=mu, sigma=sigma)
+    _positive(sigma=sigma)
+    return np.exp(mu + np.asarray(sigma) ** 2 / 2)
+
+
+def gamma_reliability(t, shape, scale):
+    r"""Gamma survival probability :math:`R(t) = Q(k, t/\theta)`, the regularised upper incomplete gamma function.
+
+    Parameters
+    ----------
+    t : float or array_like
+        Time [s], nonnegative.
+    shape : float or array_like
+        Shape :math:`k` [-], positive; an integer :math:`k` is the life of
+        :math:`k` exponential stages in sequence (the Erlang distribution).
+    scale : float or array_like
+        Scale :math:`\theta` [s], positive; the mean life of one stage.
+
+    Returns
+    -------
+    float or ndarray
+        Reliability [-].
+
+    Notes
+    -----
+    Inputs are raw SI numbers with no dimensional metadata; see
+    :doc:`/guides/reliability`.
+
+    Examples
+    --------
+    >>> round(float(gamma_reliability(1.0, 2.0, 1.0)), 4)
+    0.7358
+    """
+    _finite(t=t, shape=shape, scale=scale)
+    _nonnegative(t=t)
+    _positive(shape=shape, scale=scale)
+    return special.gammaincc(shape, np.asarray(t) / scale)
+
+
+def gamma_cdf(t, shape, scale):
+    r"""Gamma failure probability :math:`F(t) = P(k, t/\theta)`, the regularised lower incomplete gamma function.
+
+    Parameters
+    ----------
+    t : float or array_like
+        Time [s], nonnegative.
+    shape : float or array_like
+        Shape :math:`k` [-], positive.
+    scale : float or array_like
+        Scale :math:`\theta` [s], positive.
+
+    Returns
+    -------
+    float or ndarray
+        Probability of failure by time ``t`` [-].
+
+    Notes
+    -----
+    Inputs are raw SI numbers with no dimensional metadata; see
+    :doc:`/guides/reliability`.
+
+    Examples
+    --------
+    >>> round(float(gamma_cdf(1.0, 1.0, 1.0)), 4)
+    0.6321
+    """
+    _finite(t=t, shape=shape, scale=scale)
+    _nonnegative(t=t)
+    _positive(shape=shape, scale=scale)
+    return special.gammainc(shape, np.asarray(t) / scale)
+
+
+def gamma_hazard(t, shape, scale):
+    r"""Gamma hazard rate :math:`h(t) = f(t)/R(t)`.
+
+    Parameters
+    ----------
+    t : float or array_like
+        Time [s], nonnegative.
+    shape : float or array_like
+        Shape :math:`k` [-], positive.
+    scale : float or array_like
+        Scale :math:`\theta` [s], positive.
+
+    Returns
+    -------
+    float or ndarray
+        Hazard rate [1/s]. At ``t = 0`` it is infinite for :math:`k < 1`,
+        :math:`1/\theta` for :math:`k = 1` and zero for :math:`k > 1`; it
+        tends to :math:`1/\theta` as :math:`t \to \infty` for every shape.
+
+    Notes
+    -----
+    Inputs are raw SI numbers with no dimensional metadata; see
+    :doc:`/guides/reliability`.
+
+    Examples
+    --------
+    >>> round(float(gamma_hazard(1.0, 2.0, 1.0)), 4)
+    0.5
+    """
+    _finite(t=t, shape=shape, scale=scale)
+    _nonnegative(t=t)
+    _positive(shape=shape, scale=scale)
+    x = np.asarray(t, dtype=float) / scale
+    with np.errstate(divide="ignore"):
+        log_f = special.xlogy(np.asarray(shape) - 1, x) - x - special.gammaln(shape) - np.log(scale)
+        return np.exp(log_f - np.log(special.gammaincc(shape, x)))
+
+
+def gamma_mttf(shape, scale):
+    r"""Gamma mean life :math:`k\theta`.
+
+    Parameters
+    ----------
+    shape : float or array_like
+        Shape :math:`k` [-], positive.
+    scale : float or array_like
+        Scale :math:`\theta` [s], positive.
+
+    Returns
+    -------
+    float or ndarray
+        Mean time to failure [s].
+
+    Notes
+    -----
+    Inputs are raw SI numbers with no dimensional metadata; see
+    :doc:`/guides/reliability`.
+
+    Examples
+    --------
+    >>> gamma_mttf(3.0, 2.0)
+    6.0
+    """
+    _finite(shape=shape, scale=scale)
+    _positive(shape=shape, scale=scale)
+    return shape * scale
+
+
 def bathtub_hazard(t, early_scale=1, early_rate=1, random_rate=0.01, wear_scale=1e-6, wear_power=2):
     r"""Bathtub-shaped hazard: decaying infant mortality, a constant floor and power-law wear-out.
 
@@ -479,7 +772,7 @@ def poisson_failures_probability(k, lam, total_time):
     _integer("k", k, 0)
     _nonnegative(lam=lam, total_time=total_time)
     mean = lam * total_time
-    return float(np.exp(special.xlogy(k, mean) - mean - special.gammaln(k + 1)))
+    return np.exp(special.xlogy(k, mean) - mean - special.gammaln(k + 1))
 
 
 def mtbf_confidence_bounds(total_time, failures, confidence=0.9, time_terminated=False):
@@ -531,8 +824,8 @@ def mtbf_confidence_bounds(total_time, failures, confidence=0.9, time_terminated
     _interval("confidence", confidence, 0, 1, closed=False)
     tail = (1 - confidence) / 2
     lower = 2 * total_time / stats.chi2.ppf(1 - tail, 2 * failures + (2 if time_terminated else 0))
-    upper = 2 * total_time / stats.chi2.ppf(tail, 2 * failures) if failures else math.inf
-    return float(lower), float(upper)
+    upper = 2 * total_time / stats.chi2.ppf(tail, 2 * failures) if failures else np.full_like(lower, math.inf)[()]
+    return lower, upper
 
 
 def kaplan_meier(times, failed=None):

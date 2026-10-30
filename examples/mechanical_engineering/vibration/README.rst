@@ -1,4 +1,4 @@
 Vibration
 ---------
 
-Free vibration, vibration absorbers and torsional modes.
+Free and forced vibration, normal modes, frequency bounds, vibration absorbers and torsional modes.

@@ -4,7 +4,9 @@ Minorsky (1922) analysed automatic ship steering and showed that a
 controller combining the heading error, its integral and its rate of change,
 :math:`u = K_p e + K_i\int e\,dt + K_d\dot e`, both holds course and removes
 the steady offset caused by a constant disturbance. Ziegler and Nichols
-(1942) gave rules for choosing the gains from a single experiment.
+(1942) gave rules for choosing the gains from a single experiment. A real
+actuator saturates, and while it does the integrator keeps charging on an
+error the loop cannot act on; anti-windup stops it.
 """
 
 from __future__ import annotations
@@ -18,6 +20,7 @@ from engineeringkit._validation import finite as _finite
 from engineeringkit._validation import positive as _positive
 from engineeringkit.control_systems.core.base import ResponseResult
 from engineeringkit.control_systems.utils.polynomials import num_den
+from engineeringkit.integrators import integrate_ode
 
 __all__ = ["PID", "ziegler_nichols"]
 
@@ -26,8 +29,9 @@ __all__ = ["PID", "ziegler_nichols"]
 class PID:
     r"""Ideal parallel PID controller :math:`C(s) = K_p + K_i/s + K_d s`.
 
-    Derivative action is ideal (no roll-off filter), and there is no actuator
-    saturation or anti-windup. With ``ki == 0`` no integrator is included.
+    Derivative action is ideal (no roll-off filter). The linear methods have
+    no actuator limit; :meth:`simulate_saturated` adds one, with optional
+    anti-windup. With ``ki == 0`` no integrator is included.
 
     Examples
     --------
@@ -100,6 +104,117 @@ class PID:
         t, y = signal.step(self.closed_loop(plant), T=T)
         return ResponseResult(t, y)
 
+    def simulate_saturated(self, plant, T, u_min, u_max, anti_windup=None, tracking_time=None, reference=1.0):
+        r"""Step response with a saturating actuator, without or with anti-windup.
+
+        The controller computes :math:`v = K_p e + z - K_d\dot y`, the
+        actuator delivers :math:`u = \min(\max(v, u_{min}), u_{max})`, and
+        the integrator state :math:`z` obeys
+
+        - ``None``: :math:`\dot z = K_i e`, which winds up while
+          :math:`u \ne v`;
+        - ``"clamping"`` (conditional integration): :math:`\dot z = 0`
+          while the actuator is saturated and :math:`K_i e` would drive it
+          further, else :math:`K_i e`;
+        - ``"back_calculation"``: :math:`\dot z = K_i e + (u - v)/T_t`,
+          bleeding the integrator off at the tracking time constant
+          :math:`T_t`.
+
+        Parameters
+        ----------
+        plant : scipy.signal.TransferFunction or tuple
+            Strictly proper plant :math:`G(s)`; with ``kd != 0`` its
+            relative degree must be at least 2.
+        T : array_like
+            At least two increasing sample times [s], fine enough for a
+            fixed-step RK4 integration.
+        u_min, u_max : float
+            Actuator limits [input units], ``u_min < u_max``.
+        anti_windup : {None, "clamping", "back_calculation"}, optional
+            Integrator protection.
+        tracking_time : float, optional
+            :math:`T_t` [s] for back-calculation; defaults to
+            :math:`\sqrt{T_iT_d}` with :math:`T_i = K_p/K_i`,
+            :math:`T_d = K_d/K_p`, or :math:`T_i` without derivative action.
+        reference : float, optional
+            Height of the reference step [output units].
+
+        Returns
+        -------
+        ResponseResult
+            Time [s], output and actuator output ``u``.
+
+        Raises
+        ------
+        ValueError
+            For an improper or biproper plant, a derivative on a plant of
+            relative degree one, bad limits or an unknown anti-windup mode.
+
+        Notes
+        -----
+        Derivative action acts on the measurement, so the reference step
+        gives no derivative kick; within the limits the response then
+        differs from :meth:`simulate` by that kick only. Without an integral
+        gain the integrator is absent and ``anti_windup`` has no effect.
+        Inputs are raw SI numbers with no dimensional metadata; see
+        :doc:`/guides/control_systems`.
+
+        References
+        ----------
+        K. J. Åström and T. Hägglund, *PID Controllers: Theory, Design, and
+        Tuning*, 2nd ed. (ISA, 1995), sec. 3.5.
+
+        Examples
+        --------
+        >>> from engineeringkit.control_systems import transfer_function
+        >>> G = transfer_function([1], [1, 0])
+        >>> r = PID(2, 1).simulate_saturated(G, np.linspace(0, 20, 2001), -0.5, 0.5, "back_calculation")
+        >>> round(r.summary()["final"], 3), r.summary()["input_max"]
+        (1.0, 0.5)
+        """
+        if anti_windup not in (None, "clamping", "back_calculation"):
+            raise ValueError("anti_windup must be None, 'clamping' or 'back_calculation'")
+        _finite(u_min=u_min, u_max=u_max, reference=reference)
+        if not u_min < u_max:
+            raise ValueError("u_min must be below u_max")
+        num, den = num_den(plant)
+        if len(num) >= len(den):
+            raise ValueError("the plant must be strictly proper")
+        if self.kd != 0 and len(den) - len(num) < 2:
+            raise ValueError("derivative action needs a plant of relative degree at least 2")
+        if anti_windup == "back_calculation" and self.ki != 0:
+            if tracking_time is None:
+                if self.kp <= 0:
+                    raise ValueError("give tracking_time when kp is not positive")
+                ti = self.kp / self.ki
+                tracking_time = np.sqrt(ti * self.kd / self.kp) if self.kd > 0 else ti
+            _positive(tracking_time=tracking_time)
+        A, B, C, _ = signal.tf2ss(num, den)
+        CA, n = (C @ A).ravel(), A.shape[0]
+
+        def control(state):
+            x, z = state[:n], state[n]
+            y = float(C.ravel() @ x)
+            e = reference - y
+            v = self.kp * e + z - self.kd * float(CA @ x)
+            return x, e, v, min(max(v, u_min), u_max), y
+
+        def rhs(_, state):
+            x, e, v, u, _ = control(state)
+            if self.ki == 0:
+                zdot = 0.0
+            elif anti_windup == "back_calculation":
+                zdot = self.ki * e + (u - v) / tracking_time
+            elif anti_windup == "clamping" and ((v > u_max and self.ki * e > 0) or (v < u_min and self.ki * e < 0)):
+                zdot = 0.0
+            else:
+                zdot = self.ki * e
+            return np.append(A @ x + B.ravel() * u, zdot)
+
+        sol = integrate_ode(rhs, np.zeros(n + 1), T, method="rk4")
+        signals = np.array([control(state)[3:] for state in sol.history])
+        return ResponseResult(sol.t, signals[:, 1], u=signals[:, 0])
+
 
 _ZN_RULES = {"P": (0.5, None, None), "PI": (0.45, 1 / 1.2, None), "PID": (0.6, 0.5, 0.125)}
 
@@ -155,7 +270,8 @@ def ziegler_nichols(ku, tu, controller="PID"):
     if controller not in _ZN_RULES:
         raise ValueError("controller must be 'P', 'PI' or 'PID'")
     kp_ratio, ti_ratio, td_ratio = _ZN_RULES[controller]
+    ku, tu = np.broadcast_arrays(np.asarray(ku, dtype=float), np.asarray(tu, dtype=float))
     kp = kp_ratio * ku
-    ki = 0.0 if ti_ratio is None else kp / (ti_ratio * tu)
-    kd = 0.0 if td_ratio is None else kp * td_ratio * tu
-    return PID(float(kp), float(ki), float(kd))
+    ki = np.zeros_like(kp) if ti_ratio is None else kp / (ti_ratio * tu)
+    kd = np.zeros_like(kp) if td_ratio is None else kp * td_ratio * tu
+    return PID(kp[()], ki[()], kd[()])

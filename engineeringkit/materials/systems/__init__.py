@@ -1,11 +1,25 @@
-"""Concrete materials models: elasticity, yielding, composites, fatigue, fracture, creep and plasticity."""
+"""Concrete materials models, one module per topic: crystals to creep, composites and brittle strength."""
 
+from engineeringkit.materials.systems.brittle import weibull_failure_probability, weibull_mean_strength, weibull_size_effect
 from engineeringkit.materials.systems.composites import (
+    classical_laminate,
     density_rule_of_mixtures,
+    halpin_tsai,
+    lamina_stiffness,
     rule_of_mixtures_E_longitudinal,
     rule_of_mixtures_E_transverse,
+    transformed_stiffness,
 )
 from engineeringkit.materials.systems.creep import arrhenius_creep_rate, larson_miller_parameter, larson_miller_rupture_time
+from engineeringkit.materials.systems.crystals import (
+    atomic_packing_factor,
+    bragg_angle,
+    cubic_lattice_parameter,
+    diffraction_peaks,
+    interplanar_spacing,
+    theoretical_density,
+)
+from engineeringkit.materials.systems.diffusion import diffusion_coefficient, diffusion_time, fick_flux, semi_infinite_concentration
 from engineeringkit.materials.systems.elasticity import (
     bulk_modulus,
     constrained_thermal_stress,
@@ -21,8 +35,16 @@ from engineeringkit.materials.systems.elasticity import (
 from engineeringkit.materials.systems.fatigue import (
     basquin_cycles,
     coffin_manson_cycles,
+    endurance_limit_estimate,
+    gerber_safety_factor,
     goodman_safety_factor,
+    marin_endurance_limit,
+    marin_load_factor,
+    marin_reliability_factor,
+    marin_size_factor,
+    marin_surface_factor,
     miner_damage,
+    soderberg_safety_factor,
     strain_life_amplitude,
 )
 from engineeringkit.materials.systems.fracture import (
@@ -32,8 +54,23 @@ from engineeringkit.materials.systems.fracture import (
     paris_crack_growth,
     stress_intensity,
 )
+from engineeringkit.materials.systems.hardness import brinell_hardness, brinell_tensile_strength, vickers_hardness
+from engineeringkit.materials.systems.notches import (
+    elliptical_hole_concentration,
+    fatigue_notch_factor,
+    neuber_notch_sensitivity,
+    neuber_notch_stress,
+    peterson_notch_sensitivity,
+)
+from engineeringkit.materials.systems.phases import avrami_fit, avrami_fraction, avrami_time, lever_rule
 from engineeringkit.materials.systems.plasticity import hall_petch, ideal_shear_strength, peierls_stress, ramberg_osgood_strain
-from engineeringkit.materials.systems.yielding import factor_of_safety, tresca_equivalent, von_mises_plane_stress
+from engineeringkit.materials.systems.yielding import (
+    factor_of_safety,
+    principal_stresses,
+    tresca_equivalent,
+    von_mises_plane_stress,
+    von_mises_stress,
+)
 
 __all__ = [
     "normal_stress",
@@ -69,4 +106,43 @@ __all__ = [
     "peierls_stress",
     "hall_petch",
     "ramberg_osgood_strain",
+    "cubic_lattice_parameter",
+    "atomic_packing_factor",
+    "theoretical_density",
+    "interplanar_spacing",
+    "bragg_angle",
+    "diffraction_peaks",
+    "diffusion_coefficient",
+    "fick_flux",
+    "semi_infinite_concentration",
+    "diffusion_time",
+    "lever_rule",
+    "avrami_fraction",
+    "avrami_time",
+    "avrami_fit",
+    "brinell_hardness",
+    "vickers_hardness",
+    "brinell_tensile_strength",
+    "gerber_safety_factor",
+    "soderberg_safety_factor",
+    "endurance_limit_estimate",
+    "marin_surface_factor",
+    "marin_size_factor",
+    "marin_load_factor",
+    "marin_reliability_factor",
+    "marin_endurance_limit",
+    "elliptical_hole_concentration",
+    "peterson_notch_sensitivity",
+    "neuber_notch_sensitivity",
+    "fatigue_notch_factor",
+    "neuber_notch_stress",
+    "principal_stresses",
+    "von_mises_stress",
+    "halpin_tsai",
+    "lamina_stiffness",
+    "transformed_stiffness",
+    "classical_laminate",
+    "weibull_failure_probability",
+    "weibull_size_effect",
+    "weibull_mean_strength",
 ]

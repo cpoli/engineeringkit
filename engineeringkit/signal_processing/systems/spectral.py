@@ -1,4 +1,4 @@
-r"""Spectral estimation: the periodogram, windows, Welch averaging, the STFT and Goertzel's single bin.
+r"""Spectral estimation: the periodogram, windows, Welch averaging, the STFT, Goertzel's single bin and the cepstrum.
 
 Schuster (1898) searched records for hidden periodicities with the
 periodogram :math:`|X_k|^2/N`. Its variance does not fall as the record
@@ -7,7 +7,9 @@ segments to trade resolution for variance. Windows (Blackman and Tukey,
 1958) taper each record to reduce leakage, and Gabor's (1946) short-time
 transform slides a window along the signal to show how its spectrum
 changes. Goertzel (1958) computes a single DFT bin with one real
-multiplication per sample.
+multiplication per sample. Bogert, Healy and Tukey (1963) took the spectrum
+of the log spectrum, the cepstrum, in which an echo becomes a single peak at
+its delay.
 """
 
 from __future__ import annotations
@@ -20,7 +22,7 @@ from engineeringkit._validation import integer as _integer
 from engineeringkit._validation import positive as _positive
 from engineeringkit.signal_processing.core.base import STFTResult
 
-__all__ = ["power_spectral_density", "windowed_spectrum", "welch_psd", "stft", "goertzel"]
+__all__ = ["power_spectral_density", "windowed_spectrum", "welch_psd", "stft", "goertzel", "real_cepstrum"]
 
 
 def _real_signal(x, minimum=1):
@@ -283,3 +285,56 @@ def goertzel(x, frequency, fs):
     for sample in np.append(x, 0.0):
         s1, s2 = sample + coefficient * s1 - s2, s1
     return (np.exp(-1j * omega * x.size) * (s1 - np.exp(-1j * omega) * s2))[()]
+
+
+def real_cepstrum(x, n_fft=None):
+    r"""Real cepstrum :math:`c_n = \mathrm{IDFT}(\ln|\mathrm{DFT}(x)|)`, indexed by quefrency :math:`n/f_s`.
+
+    Parameters
+    ----------
+    x : array_like
+        Real 1D samples [signal units].
+    n_fft : int, optional
+        Transform length, at least ``len(x)``; zero-padding reduces the
+        wrap-around of the cepstrum. Defaults to ``len(x)``.
+
+    Returns
+    -------
+    ndarray
+        Real, even cepstrum of length ``n_fft`` [-]; sample :math:`n` is
+        quefrency :math:`n/f_s` [s].
+
+    Notes
+    -----
+    An echo :math:`x_n + \alpha x_{n-d}` multiplies the spectrum by
+    :math:`1 + \alpha e^{-j\omega d}`, a ripple in :math:`\ln|X|` with
+    "frequency" :math:`d`; its log expands as
+    :math:`\sum_m (-1)^{m+1}(\alpha^m/m)\cos(m\omega d)`, so for
+    :math:`|\alpha| < 1` the cepstrum adds :math:`\alpha/2` at :math:`n = d`
+    (and smaller peaks at multiples of :math:`d`) to that of :math:`x`.
+    Convolution becomes addition, which is how speech is split into pitch
+    and vocal tract. A zero in the spectrum has no logarithm and raises
+    :class:`ValueError`. See :doc:`/guides/signal_processing`.
+
+    References
+    ----------
+    B. P. Bogert, M. J. R. Healy and J. W. Tukey, "The quefrency alanysis
+    of time series for echoes: cepstrum, pseudo-autocovariance,
+    cross-cepstrum and saphe cracking," in M. Rosenblatt (ed.),
+    *Proceedings of the Symposium on Time Series Analysis*, Wiley (1963)
+    209-243.
+
+    Examples
+    --------
+    >>> x = np.zeros(64)
+    >>> x[0], x[10] = 1.0, 0.5
+    >>> round(float(real_cepstrum(x)[10]), 6)
+    0.25
+    """
+    x = _real_signal(x)
+    n = x.size if n_fft is None else n_fft
+    _integer("n_fft", n, x.size)
+    magnitude = np.abs(np.fft.rfft(x, n))
+    if np.any(magnitude <= np.finfo(float).tiny):
+        raise ValueError("the spectrum of x has a zero, so its logarithm is undefined")
+    return np.fft.irfft(np.log(magnitude), n)

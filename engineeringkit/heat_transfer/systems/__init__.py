@@ -8,6 +8,7 @@ from engineeringkit.heat_transfer.systems.conduction import (
     cylinder_resistance,
     fin_efficiency_adiabatic,
     fin_heat_rate_adiabatic,
+    fin_heat_rate_convective_tip,
     fin_parameter,
     fourier_heat_rate,
     overall_u,
@@ -23,13 +24,35 @@ from engineeringkit.heat_transfer.systems.convection import (
 )
 from engineeringkit.heat_transfer.systems.exchangers import (
     exchanger_effectiveness_counterflow,
+    exchanger_effectiveness_crossflow,
     exchanger_effectiveness_parallel,
+    exchanger_effectiveness_shell_tube,
     heat_exchanger_rate,
+    lmtd_correction_factor,
     log_mean_temperature_difference,
+)
+from engineeringkit.heat_transfer.systems.forced_convection import (
+    chilton_colburn_mass_transfer,
+    churchill_bernstein_nusselt,
+    entry_length,
+    flat_plate_nusselt,
+    hausen_nusselt,
+    laminar_tube_nusselt,
+    lewis_number,
+    tube_bank_max_velocity,
+    zukauskas_nusselt,
+)
+from engineeringkit.heat_transfer.systems.multidimensional import (
+    conduction_2d,
+    shape_factor_buried_cylinder,
+    shape_factor_buried_sphere,
+    shape_factor_eccentric_cylinders,
+    shape_factor_parallel_cylinders,
 )
 from engineeringkit.heat_transfer.systems.phase_change import (
     neumann_stefan_front,
     nusselt_film_condensation,
+    rohsenow_boiling_heat_flux,
     stefan_number,
     zuber_critical_heat_flux,
 )
@@ -37,17 +60,23 @@ from engineeringkit.heat_transfer.systems.radiation import (
     blackbody_peak_wavelength,
     planck_spectral_emissive_power,
     radiation_coefficient,
+    radiation_enclosure,
     radiation_heat_rate,
+    radiation_shield_heat_flux,
     stefan_boltzmann_emissive_power,
+    two_surface_radiation,
     view_factor_coaxial_disks,
     view_factor_parallel_plates,
+    view_factor_reciprocity,
 )
 from engineeringkit.heat_transfer.systems.transient import (
     biot_number,
+    cylinder_transient,
     fourier_number,
     lumped_temperature,
     plane_wall_transient,
     semi_infinite_temperature,
+    sphere_transient,
 )
 
 __all__ = [
@@ -88,4 +117,29 @@ __all__ = [
     "heat_exchanger_rate",
     "exchanger_effectiveness_parallel",
     "exchanger_effectiveness_counterflow",
+    "fin_heat_rate_convective_tip",
+    "conduction_2d",
+    "shape_factor_buried_sphere",
+    "shape_factor_buried_cylinder",
+    "shape_factor_eccentric_cylinders",
+    "shape_factor_parallel_cylinders",
+    "flat_plate_nusselt",
+    "churchill_bernstein_nusselt",
+    "tube_bank_max_velocity",
+    "zukauskas_nusselt",
+    "laminar_tube_nusselt",
+    "entry_length",
+    "hausen_nusselt",
+    "lewis_number",
+    "chilton_colburn_mass_transfer",
+    "exchanger_effectiveness_crossflow",
+    "exchanger_effectiveness_shell_tube",
+    "lmtd_correction_factor",
+    "rohsenow_boiling_heat_flux",
+    "view_factor_reciprocity",
+    "two_surface_radiation",
+    "radiation_shield_heat_flux",
+    "radiation_enclosure",
+    "cylinder_transient",
+    "sphere_transient",
 ]

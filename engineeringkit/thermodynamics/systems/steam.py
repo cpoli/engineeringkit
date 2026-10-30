@@ -1,15 +1,16 @@
 r"""Properties of water and steam from the IAPWS-IF97 industrial formulation.
 
-Regions 1 (compressed liquid), 2 (vapour), 3 (near the critical point) and
-4 (saturation line) are implemented; the high-temperature region 5 is not.
-That covers 273.15 K to 1073.15 K up to 100 MPa: subcritical and
-supercritical Rankine cycles, condensers, boilers and psychrometrics above
-0 °C.
+All five regions are implemented: 1 (compressed liquid), 2 (vapour), 3
+(near the critical point), 4 (saturation line) and 5 (high-temperature
+steam). That covers 273.15 K to 1073.15 K up to 100 MPa, and on to
+2273.15 K up to 50 MPa: subcritical and supercritical Rankine cycles,
+condensers, boilers, psychrometrics above 0 °C and steam in gas turbines.
 """
 
 from __future__ import annotations
 
 import math
+from typing import Any
 
 import numpy as np
 from scipy.optimize import brentq
@@ -22,8 +23,8 @@ from engineeringkit.thermodynamics.utils import if97
 
 __all__ = ["saturation_pressure", "saturation_temperature", "steam_properties"]
 
-_T_MIN, _T_MAX, _T_13 = 273.15, 1073.15, 623.15
-_P_MAX = 100e6
+_T_MIN, _T_25, _T_MAX, _T_13 = 273.15, 1073.15, 2273.15, 623.15
+_P_MAX, _P_MAX_5 = 100e6, 50e6
 _P_TRIPLE = 611.213
 _P_SAT_13 = float(if97.saturation_pressure_mpa(_T_13)) * 1e6
 
@@ -109,6 +110,8 @@ def _region3(phase):
 
 def _single_phase(p, T):
     p_mpa = p / 1e6
+    if T > _T_25:
+        return _state(5, p, T, if97.region5(T, p_mpa))
     vapour = T < if97.T_CRIT and p < float(if97.saturation_pressure_mpa(T)) * 1e6
     if T <= _T_13:
         if vapour:
@@ -138,10 +141,10 @@ def _from_property(p, name, value):
     """Invert ``name`` (``"h"`` or ``"s"``), which rises with temperature at fixed pressure."""
     # (region, properties(T, p_mpa), lowest T, highest T) along the isobar, in order of temperature
     if p < _P_TRIPLE:
-        segments = [(2, if97.region2, _T_MIN, _T_MAX)]
+        segments = [(2, if97.region2, _T_MIN, _T_25)]
     elif p <= _P_SAT_13:
         T_sat = float(if97.saturation_temperature_k(p / 1e6))
-        segments = [(1, if97.region1, _T_MIN, T_sat), (2, if97.region2, T_sat, _T_MAX)]
+        segments = [(1, if97.region1, _T_MIN, T_sat), (2, if97.region2, T_sat, _T_25)]
     else:
         T_23 = float(if97.b23_temperature_k(p / 1e6))
         if p <= if97.P_CRIT:
@@ -149,7 +152,9 @@ def _from_property(p, name, value):
             near_critical = [(3, _region3("liquid"), _T_13, T_sat), (3, _region3("vapour"), T_sat, T_23)]
         else:
             near_critical = [(3, _region3("liquid"), _T_13, T_23)]
-        segments = [(1, if97.region1, _T_MIN, _T_13), *near_critical, (2, if97.region2, T_23, _T_MAX)]
+        segments = [(1, if97.region1, _T_MIN, _T_13), *near_critical, (2, if97.region2, T_23, _T_25)]
+    if p <= _P_MAX_5:
+        segments.append((5, if97.region5, _T_25, _T_MAX))
     if _P_TRIPLE <= p <= if97.P_CRIT:
         _, liquid, vapour = _saturated(p)
         f, g = float(liquid[name]), float(vapour[name])
@@ -166,31 +171,45 @@ def _from_property(p, name, value):
     return _state(region, p, T, props(T, p / 1e6))
 
 
+def _scalar_state(p, name, value):
+    if name == "T":
+        if value > _T_25 and p > _P_MAX_5:
+            raise ValueError("above 1073.15 K (IF97 region 5) p must be at most 50 MPa")
+        return _single_phase(p, value)
+    if name == "x":
+        _interval("p", p, _P_TRIPLE, if97.P_CRIT)
+        return _wet(p, value)
+    return _from_property(p, name, value)
+
+
 def steam_properties(p, T=None, *, x=None, s=None, h=None):
     r"""State of water or steam from pressure and one other property (IAPWS-IF97).
 
     Parameters
     ----------
-    p : float
-        Pressure [Pa], positive and at most 100 MPa.
-    T : float, optional
-        Temperature [K], 273.15 K to 1073.15 K, for a single-phase state.
-    x : float, optional
+    p : float or array_like
+        Pressure [Pa], positive and at most 100 MPa (50 MPa above
+        1073.15 K).
+    T : float or array_like, optional
+        Temperature [K], 273.15 K to 2273.15 K, for a single-phase state.
+    x : float or array_like, optional
         Vapour quality [-] in [0, 1] for a saturated mixture; needs
         611.213 Pa <= ``p`` <= 22.064 MPa (the critical pressure).
-    s : float, optional
+    s : float or array_like, optional
         Specific entropy [J/(kg K)], e.g. after an isentropic turbine.
-    h : float, optional
+    h : float or array_like, optional
         Specific enthalpy [J/kg], e.g. after a throttling valve.
 
-    Exactly one of ``T``, ``x``, ``s`` and ``h`` is given.
+    Exactly one of ``T``, ``x``, ``s`` and ``h`` is given. Arrays broadcast
+    against ``p``.
 
     Returns
     -------
     SteamState
         Pressure, temperature, specific volume, enthalpy, entropy, internal
         energy, isobaric heat capacity (NaN in the dome), quality (NaN outside
-        it) and the IF97 region.
+        it) and the IF97 region. Scalar inputs give float fields; array
+        inputs give arrays of the broadcast shape, one state per element.
 
     Notes
     -----
@@ -200,38 +219,43 @@ def steam_properties(p, T=None, *, x=None, s=None, h=None):
     pressure) is a Helmholtz function of density and temperature, so its
     density is found by Brent's method on the isotherm, taking the liquid or
     vapour root of its van der Waals loop below the critical temperature.
-    Given ``s`` or ``h``, the temperature is found by Brent's method, since
-    both rise monotonically with temperature at fixed pressure. Inputs are
-    raw SI numbers with no dimensional metadata; see
+    Region 5 (above 1073.15 K) is a Gibbs function like region 2, valid to
+    50 MPa. Given ``s`` or ``h``, the temperature is found by Brent's
+    method, since both rise monotonically with temperature at fixed
+    pressure. Array inputs are evaluated element by element. Inputs are raw
+    SI numbers with no dimensional metadata; see
     :doc:`/guides/thermodynamics`.
 
     References
     ----------
     W. Wagner et al., "The IAPWS Industrial Formulation 1997 for the
     thermodynamic properties of water and steam," *J. Eng. Gas Turbines
-    Power* 122 (2000) 150-182.
+    Power* 122 (2000) 150-182; IAPWS, *Revised Release on the IAPWS
+    Industrial Formulation 1997*, R7-97 (2007, 2012), for region 5 to 50 MPa.
 
     Examples
     --------
     >>> st = steam_properties(10e6, 773.15)
     >>> round(st.h / 1e3, 1), round(st.s / 1e3, 4), st.region
     (3375.1, 6.5993, 2)
+    >>> steam_properties(1e5, [300.0, 400.0, 1500.0]).region.tolist()
+    [1, 2, 5]
     """
     _positive(p=p)
-    if np.ndim(p) or p > _P_MAX:
-        raise ValueError("p must be a scalar of at most 100 MPa")
+    if np.any(np.asarray(p) > _P_MAX):
+        raise ValueError("p must be at most 100 MPa")
     given = {name: value for name, value in (("T", T), ("x", x), ("s", s), ("h", h)) if value is not None}
     if len(given) != 1:
         raise ValueError("give exactly one of T, x, s or h")
     ((name, value),) = given.items()
     _finite(**{name: value})
-    if np.ndim(value):
-        raise ValueError(f"{name} must be a scalar")
     if name == "T":
         _interval("T", value, _T_MIN, _T_MAX)
-        return _single_phase(p, value)
-    if name == "x":
+    elif name == "x":
         _interval("x", value, 0, 1)
-        _interval("p", p, _P_TRIPLE, if97.P_CRIT)
-        return _wet(p, value)
-    return _from_property(p, name, value)
+    if not np.ndim(p) and not np.ndim(value):
+        return _scalar_state(float(p), name, float(value))
+    pp, vv = np.broadcast_arrays(np.asarray(p, dtype=float), np.asarray(value, dtype=float))
+    states = [_scalar_state(float(a), name, float(b)) for a, b in zip(pp.ravel(), vv.ravel())]
+    fields: dict[str, Any] = {f: np.array([getattr(st, f) for st in states]).reshape(pp.shape) for f in SteamState.__dataclass_fields__}
+    return SteamState(**fields)

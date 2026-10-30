@@ -1,24 +1,34 @@
-"""engineeringkit.fluid_engineering: hydrostatics, pipe flow, similarity, open channels, transients, pumps and networks.
+"""engineeringkit.fluid_engineering: hydrostatics, momentum, pipe flow, drag, similarity, open channels, pumps and networks.
 
 Stevin's hydrostatic pressure and the force on submerged surfaces,
 Archimedes's buoyancy; Bernoulli's equation and continuity, with Pitot and
-Venturi meters; Reynolds's regimes, Hagen-Poiseuille laminar flow,
+Venturi meters, Torricelli's orifice and sharp-crested weirs; the momentum
+equation for jets, bends and Pelton's wheel; Couette flow and Stokes's drag
+with the sphere drag curve; Reynolds's regimes, Hagen-Poiseuille laminar flow,
 Darcy-Weisbach losses and the turbulent friction factors of Nikuradse,
 Colebrook and Swamee-Jain; Froude, Euler, Weber and Mach numbers and
 Buckingham's Pi theorem by exact rational row reduction; Manning's
-open-channel formula; Joukowsky's water hammer with Korteweg's wave speed;
-pump power, specific speed, NPSH and Thoma's cavitation parameter; and
+open-channel formula, specific energy, critical depth and Bélanger's
+hydraulic jump; Joukowsky's water hammer with Korteweg's wave speed;
+Euler's turbomachine head, pump and system curves, the affinity laws, pump
+power, specific speed, NPSH and Thoma's cavitation parameter; and
 Hardy Cross's balancing of looped pipe networks. Models are hand-written
 closed forms; SciPy supplies root bracketing.
 """
 
 from engineeringkit import __version__
-from engineeringkit.fluid_engineering.core.base import NetworkResult, PiGroups
+from engineeringkit.fluid_engineering.core.base import NetworkResult, OperatingPoint, PiGroups
 from engineeringkit.fluid_engineering.systems.bernoulli import (
     bernoulli_pressure,
     continuity_velocity,
     dynamic_pressure,
     velocity_head,
+)
+from engineeringkit.fluid_engineering.systems.drag import (
+    sphere_drag_coefficient,
+    stokes_drag,
+    stokes_settling_velocity,
+    terminal_velocity,
 )
 from engineeringkit.fluid_engineering.systems.hydrostatics import (
     buoyancy_force,
@@ -28,16 +38,31 @@ from engineeringkit.fluid_engineering.systems.hydrostatics import (
     pressure_head,
 )
 from engineeringkit.fluid_engineering.systems.measurement import (
+    orifice_flow,
     pitot_velocity,
+    rectangular_weir_flow,
+    rehbock_discharge_coefficient,
+    tank_drain_time,
+    v_notch_weir_flow,
     venturi_flow,
+)
+from engineeringkit.fluid_engineering.systems.momentum import (
+    bend_force,
+    jet_force,
+    pelton_wheel_power,
 )
 from engineeringkit.fluid_engineering.systems.networks import (
     hardy_cross,
 )
 from engineeringkit.fluid_engineering.systems.open_channel import (
+    alternate_depths,
+    critical_depth,
+    hydraulic_jump_head_loss,
     hydraulic_radius,
     manning_flow,
     manning_velocity,
+    sequent_depth,
+    specific_energy,
 )
 from engineeringkit.fluid_engineering.systems.pipe_flow import (
     colebrook_friction_factor,
@@ -54,11 +79,16 @@ from engineeringkit.fluid_engineering.systems.pipe_flow import (
     swamee_jain_friction_factor,
 )
 from engineeringkit.fluid_engineering.systems.pumps import (
+    affinity_laws,
     cavitation_number,
+    euler_turbomachine_head,
     npsh_available,
+    pump_curve_head,
     pump_hydraulic_power,
     pump_input_power,
+    pump_operating_point,
     pump_specific_speed,
+    system_curve_head,
     thoma_sigma,
 )
 from engineeringkit.fluid_engineering.systems.similarity import (
@@ -73,12 +103,19 @@ from engineeringkit.fluid_engineering.systems.transients import (
     pipe_wave_speed,
     water_hammer_pressure,
 )
+from engineeringkit.fluid_engineering.systems.viscous import (
+    couette_flow_rate,
+    couette_shear_stress,
+    couette_velocity,
+    couette_viscometer_torque,
+)
 from engineeringkit.fluid_engineering.utils.constants import STANDARD_GRAVITY, G
 
 __all__ = [
     "__version__",
     "PiGroups",
     "NetworkResult",
+    "OperatingPoint",
     "G",
     "STANDARD_GRAVITY",
     "hydrostatic_pressure",
@@ -92,6 +129,11 @@ __all__ = [
     "velocity_head",
     "pitot_velocity",
     "venturi_flow",
+    "orifice_flow",
+    "tank_drain_time",
+    "rectangular_weir_flow",
+    "rehbock_discharge_coefficient",
+    "v_notch_weir_flow",
     "reynolds_number",
     "hydraulic_diameter",
     "poiseuille_flow",
@@ -112,6 +154,11 @@ __all__ = [
     "hydraulic_radius",
     "manning_velocity",
     "manning_flow",
+    "specific_energy",
+    "critical_depth",
+    "alternate_depths",
+    "sequent_depth",
+    "hydraulic_jump_head_loss",
     "water_hammer_pressure",
     "pipe_wave_speed",
     "critical_closure_time",
@@ -121,5 +168,21 @@ __all__ = [
     "cavitation_number",
     "npsh_available",
     "thoma_sigma",
+    "euler_turbomachine_head",
+    "pump_curve_head",
+    "system_curve_head",
+    "pump_operating_point",
+    "affinity_laws",
     "hardy_cross",
+    "jet_force",
+    "bend_force",
+    "pelton_wheel_power",
+    "stokes_drag",
+    "stokes_settling_velocity",
+    "sphere_drag_coefficient",
+    "terminal_velocity",
+    "couette_velocity",
+    "couette_flow_rate",
+    "couette_shear_stress",
+    "couette_viscometer_torque",
 ]

@@ -10,7 +10,7 @@ For development::
     python -m pip install -e '.[dev]'
     MPLBACKEND=Agg python -m pytest
     python -m ruff check .
-    python -m sphinx -W --keep-going -b html docs/source docs/_build/html
+    make -C docs html
     python -m build
 
 Beam response

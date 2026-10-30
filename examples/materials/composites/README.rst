@@ -1,4 +1,4 @@
 Composites
 ----------
 
-Rules of mixtures and the bounds on a composite's stiffness.
+Rules of mixtures, the Halpin-Tsai equations and classical laminate theory.
