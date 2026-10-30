@@ -12,9 +12,10 @@ right engineering.
 Checked on 2026-10-20 against commit `854575c` plus the uncommitted working
 tree.
 
-- 0.1.0 is on PyPI (2026-10-18), with a GitHub Release, docs at
+- 0.2.0 is on PyPI (2026-10-30), with a GitHub Release, docs at
   https://cpoli.github.io/engineeringkit/ and the version DOI
-  10.5281/zenodo.23452015 (concept record 23452014).
+  10.5281/zenodo.23795071 (concept record 23452014). 0.1.0
+  (2026-10-18) is 10.5281/zenodo.23452015.
 - 725 tests pass in about 5 s. Production **statement** coverage is 100%
   and enforced. **Branch** coverage is 99% (936 branches, 44 partial) and
   not measured in CI.
@@ -226,12 +227,6 @@ visible. It can be written before section D and updated by it.
 
 ### G. Releases
 
-**G1. Release 0.2.0.** **After** section A. Bump the version in
-`engineeringkit/__init__.py`, `pyproject.toml` and `CITATION.cff`, rename
-`## [Unreleased]` in CHANGELOG.md, tag `v0.2.0`, then add the release's
-own Zenodo version DOI (not the concept DOI) to `CITATION.cff` and the
-README badge.
-
 **G2. conda-forge.** Submit a `recipe.yaml` to `conda-forge/staged-recipes`
 built from the PyPI sdist, with only `version` in `context`, and
 `name: engineeringkit` and the source URL written out. Add the conda
@@ -262,6 +257,13 @@ Finished items move here with the release they shipped in, as in
 CHANGELOG.md.
 
 ### Unreleased
+
+### 0.2.0 (2026-10-30)
+
+- **G1. Release 0.2.0** (2026-10-30). Tagged `v0.2.0`; PyPI, the GitHub
+  Release and the docs rebuild came from `release.yml`, and Zenodo minted
+  the version DOI 10.5281/zenodo.23795071, now in `CITATION.cff` and the
+  README badge.
 
 - **B3. External links checked weekly** (2026-10-25). The
   `Linkcheck` workflow runs `make -C docs linkcheck` every Monday and on
