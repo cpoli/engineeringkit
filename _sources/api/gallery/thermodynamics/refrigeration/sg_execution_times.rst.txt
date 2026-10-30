@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.977** total execution time for 3 files **from api/gallery/thermodynamics/refrigeration**:
+**00:02.267** total execution time for 3 files **from api/gallery/thermodynamics/refrigeration**:
 
 .. container::
 
@@ -32,12 +32,12 @@ Computation times
    * - Example
      - Time
      - Mem (MB)
-   * - :ref:`sphx_glr_api_gallery_thermodynamics_refrigeration_plot_03_perkins_r134a_cycle.py` (``plot_03_perkins_r134a_cycle.py``)
-     - 00:00.429
-     - 0.0
    * - :ref:`sphx_glr_api_gallery_thermodynamics_refrigeration_plot_01_perkins_vapor_compression.py` (``plot_01_perkins_vapor_compression.py``)
-     - 00:00.349
+     - 00:00.976
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_thermodynamics_refrigeration_plot_03_perkins_r134a_cycle.py` (``plot_03_perkins_r134a_cycle.py``)
+     - 00:00.924
      - 0.0
    * - :ref:`sphx_glr_api_gallery_thermodynamics_refrigeration_plot_02_kelvin_heat_pump.py` (``plot_02_kelvin_heat_pump.py``)
-     - 00:00.199
+     - 00:00.367
      - 0.0

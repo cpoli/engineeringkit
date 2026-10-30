@@ -102,7 +102,7 @@ added by combustion.
 
  .. code-block:: none
 
-    {'compression_ratio': 8.0, 'gamma': 1.4, 'efficiency': np.float64(0.5647247183519379)}
+    {'compression_ratio': 8.0, 'gamma': 1.4, 'efficiency': np.float64(0.5647247183519378)}
     peak temperature 1804 K, peak pressure 4.8 MPa
     efficiency from the four states 0.5647
 
@@ -148,7 +148,7 @@ compression ratios.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.173 seconds)
+   **Total running time of the script:** (0 minutes 0.313 seconds)
 
 
 .. _sphx_glr_download_api_gallery_thermodynamics_cycles_plot_04_otto_cycle.py:

@@ -101,7 +101,7 @@ with the Darcy friction factor :math:`f`.
     M1 = 2.0: L* = 3.050 m, Mach after 0.999 L* = 1.000
     M1 = 3.0: L* = 5.222 m, Mach after 0.999 L* = 1.000
 
-    <matplotlib.legend.Legend object at 0x7fd5b65bb830>
+    <matplotlib.legend.Legend object at 0x7faa52de5730>
 
 
 
@@ -143,7 +143,7 @@ maximum, where friction can do no more, is at :math:`M = 1`.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.192 seconds)
+   **Total running time of the script:** (0 minutes 0.427 seconds)
 
 
 .. _sphx_glr_download_api_gallery_aerodynamics_compressible_plot_09_fanno_flow.py:

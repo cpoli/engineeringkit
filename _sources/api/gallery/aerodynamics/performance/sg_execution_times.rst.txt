@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.184** total execution time for 2 files **from api/gallery/aerodynamics/performance**:
+**00:00.333** total execution time for 2 files **from api/gallery/aerodynamics/performance**:
 
 .. container::
 
@@ -33,8 +33,8 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_aerodynamics_performance_plot_01_breguet_range.py` (``plot_01_breguet_range.py``)
-     - 00:00.114
+     - 00:00.206
      - 0.0
    * - :ref:`sphx_glr_api_gallery_aerodynamics_performance_plot_02_breguet_propeller_range.py` (``plot_02_breguet_propeller_range.py``)
-     - 00:00.070
+     - 00:00.127
      - 0.0

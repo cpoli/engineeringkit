@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:01.962** total execution time for 9 files **from api/gallery/signal_processing/spectral**:
+**00:03.494** total execution time for 9 files **from api/gallery/signal_processing/spectral**:
 
 .. container::
 
@@ -33,29 +33,29 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_signal_processing_spectral_plot_02_wiener_khinchin.py` (``plot_02_wiener_khinchin.py``)
-     - 00:00.372
+     - 00:00.643
      - 0.0
    * - :ref:`sphx_glr_api_gallery_signal_processing_spectral_plot_08_levinson_durbin.py` (``plot_08_levinson_durbin.py``)
-     - 00:00.296
+     - 00:00.525
      - 0.0
    * - :ref:`sphx_glr_api_gallery_signal_processing_spectral_plot_06_welch_psd.py` (``plot_06_welch_psd.py``)
-     - 00:00.257
+     - 00:00.483
      - 0.0
    * - :ref:`sphx_glr_api_gallery_signal_processing_spectral_plot_03_gabor_stft.py` (``plot_03_gabor_stft.py``)
-     - 00:00.229
+     - 00:00.428
      - 0.0
    * - :ref:`sphx_glr_api_gallery_signal_processing_spectral_plot_07_yule_autoregression.py` (``plot_07_yule_autoregression.py``)
-     - 00:00.200
-     - 0.0
-   * - :ref:`sphx_glr_api_gallery_signal_processing_spectral_plot_01_schuster_periodogram.py` (``plot_01_schuster_periodogram.py``)
-     - 00:00.185
+     - 00:00.357
      - 0.0
    * - :ref:`sphx_glr_api_gallery_signal_processing_spectral_plot_09_bogert_healy_tukey_cepstrum.py` (``plot_09_bogert_healy_tukey_cepstrum.py``)
-     - 00:00.171
+     - 00:00.312
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_signal_processing_spectral_plot_01_schuster_periodogram.py` (``plot_01_schuster_periodogram.py``)
+     - 00:00.302
      - 0.0
    * - :ref:`sphx_glr_api_gallery_signal_processing_spectral_plot_04_blackman_tukey_windows.py` (``plot_04_blackman_tukey_windows.py``)
-     - 00:00.164
+     - 00:00.283
      - 0.0
    * - :ref:`sphx_glr_api_gallery_signal_processing_spectral_plot_05_goertzel.py` (``plot_05_goertzel.py``)
-     - 00:00.089
+     - 00:00.161
      - 0.0

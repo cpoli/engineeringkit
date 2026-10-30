@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:02.119** total execution time for 10 files **from api/gallery/thermodynamics/properties**:
+**00:04.675** total execution time for 10 files **from api/gallery/thermodynamics/properties**:
 
 .. container::
 
@@ -33,32 +33,32 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_thermodynamics_properties_plot_06_iapws_if97.py` (``plot_06_iapws_if97.py``)
-     - 00:00.607
+     - 00:01.937
      - 0.0
    * - :ref:`sphx_glr_api_gallery_thermodynamics_properties_plot_02_clausius_clapeyron.py` (``plot_02_clausius_clapeyron.py``)
-     - 00:00.266
-     - 0.0
-   * - :ref:`sphx_glr_api_gallery_thermodynamics_properties_plot_09_peng_robinson.py` (``plot_09_peng_robinson.py``)
-     - 00:00.221
+     - 00:00.509
      - 0.0
    * - :ref:`sphx_glr_api_gallery_thermodynamics_properties_plot_10_iapws_if97_region5.py` (``plot_10_iapws_if97_region5.py``)
-     - 00:00.213
-     - 0.0
-   * - :ref:`sphx_glr_api_gallery_thermodynamics_properties_plot_05_antoine_equation.py` (``plot_05_antoine_equation.py``)
-     - 00:00.162
+     - 00:00.455
      - 0.0
    * - :ref:`sphx_glr_api_gallery_thermodynamics_properties_plot_03_joule_thomson.py` (``plot_03_joule_thomson.py``)
-     - 00:00.151
+     - 00:00.312
      - 0.0
-   * - :ref:`sphx_glr_api_gallery_thermodynamics_properties_plot_01_clapeyron_ideal_gas.py` (``plot_01_clapeyron_ideal_gas.py``)
-     - 00:00.145
+   * - :ref:`sphx_glr_api_gallery_thermodynamics_properties_plot_05_antoine_equation.py` (``plot_05_antoine_equation.py``)
+     - 00:00.303
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_thermodynamics_properties_plot_09_peng_robinson.py` (``plot_09_peng_robinson.py``)
+     - 00:00.298
      - 0.0
    * - :ref:`sphx_glr_api_gallery_thermodynamics_properties_plot_04_van_der_waals.py` (``plot_04_van_der_waals.py``)
-     - 00:00.128
+     - 00:00.253
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_thermodynamics_properties_plot_01_clapeyron_ideal_gas.py` (``plot_01_clapeyron_ideal_gas.py``)
+     - 00:00.249
      - 0.0
    * - :ref:`sphx_glr_api_gallery_thermodynamics_properties_plot_07_dalton_partial_pressures.py` (``plot_07_dalton_partial_pressures.py``)
-     - 00:00.117
+     - 00:00.180
      - 0.0
    * - :ref:`sphx_glr_api_gallery_thermodynamics_properties_plot_08_pitzer_acentric_factor.py` (``plot_08_pitzer_acentric_factor.py``)
-     - 00:00.108
+     - 00:00.177
      - 0.0

@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.581** total execution time for 3 files **from api/gallery/structural_engineering/frames**:
+**00:01.035** total execution time for 3 files **from api/gallery/structural_engineering/frames**:
 
 .. container::
 
@@ -33,11 +33,11 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_structural_engineering_frames_plot_02_planar_frame.py` (``plot_02_planar_frame.py``)
-     - 00:00.246
+     - 00:00.493
      - 0.0
    * - :ref:`sphx_glr_api_gallery_structural_engineering_frames_plot_01_hardy_cross_moment_distribution.py` (``plot_01_hardy_cross_moment_distribution.py``)
-     - 00:00.212
+     - 00:00.374
      - 0.0
    * - :ref:`sphx_glr_api_gallery_structural_engineering_frames_plot_03_maney_slope_deflection.py` (``plot_03_maney_slope_deflection.py``)
-     - 00:00.122
+     - 00:00.168
      - 0.0

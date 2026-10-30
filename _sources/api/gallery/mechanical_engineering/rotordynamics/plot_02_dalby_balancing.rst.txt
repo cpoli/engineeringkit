@@ -84,7 +84,7 @@ Four masses on a shaft
 
     before: force unbalance 10.73 g m, couple unbalance 3.61 g m^2
     static correction: {'mass_radius_kg_m': [0.01073385070569282], 'angle_deg': [-113.11644661423342]}
-    two-plane corrections: {'mass_radius_kg_m': [0.01355920958764438, 0.004809993011868052], 'angle_deg': [-131.6852843733348, 3.028472457886462]}
+    two-plane corrections: {'mass_radius_kg_m': [0.01355920958764438, 0.004809993011868052], 'angle_deg': [-131.68528437333478, 3.028472457886462]}
 
 
 
@@ -151,7 +151,7 @@ still push in opposite directions; two-plane balance removes both.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.069 seconds)
+   **Total running time of the script:** (0 minutes 0.120 seconds)
 
 
 .. _sphx_glr_download_api_gallery_mechanical_engineering_rotordynamics_plot_02_dalby_balancing.py:

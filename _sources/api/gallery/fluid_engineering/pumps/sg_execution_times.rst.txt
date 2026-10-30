@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.177** total execution time for 2 files **from api/gallery/fluid_engineering/pumps**:
+**00:00.258** total execution time for 2 files **from api/gallery/fluid_engineering/pumps**:
 
 .. container::
 
@@ -32,9 +32,9 @@ Computation times
    * - Example
      - Time
      - Mem (MB)
-   * - :ref:`sphx_glr_api_gallery_fluid_engineering_pumps_plot_01_thoma_cavitation.py` (``plot_01_thoma_cavitation.py``)
-     - 00:00.090
-     - 0.0
    * - :ref:`sphx_glr_api_gallery_fluid_engineering_pumps_plot_02_euler_turbine_equation.py` (``plot_02_euler_turbine_equation.py``)
-     - 00:00.087
+     - 00:00.133
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_fluid_engineering_pumps_plot_01_thoma_cavitation.py` (``plot_01_thoma_cavitation.py``)
+     - 00:00.125
      - 0.0

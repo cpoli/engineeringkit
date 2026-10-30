@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:01.941** total execution time for 6 files **from api/gallery/electrical_engineering/power**:
+**00:03.769** total execution time for 6 files **from api/gallery/electrical_engineering/power**:
 
 .. container::
 
@@ -33,20 +33,20 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_electrical_engineering_power_plot_05_swing_equation_equal_area.py` (``plot_05_swing_equation_equal_area.py``)
-     - 00:00.697
-     - 0.0
-   * - :ref:`sphx_glr_api_gallery_electrical_engineering_power_plot_02_fortescue_symmetrical_components.py` (``plot_02_fortescue_symmetrical_components.py``)
-     - 00:00.346
+     - 00:01.494
      - 0.0
    * - :ref:`sphx_glr_api_gallery_electrical_engineering_power_plot_04_ward_hale_load_flow.py` (``plot_04_ward_hale_load_flow.py``)
-     - 00:00.325
+     - 00:00.629
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_electrical_engineering_power_plot_02_fortescue_symmetrical_components.py` (``plot_02_fortescue_symmetrical_components.py``)
+     - 00:00.607
      - 0.0
    * - :ref:`sphx_glr_api_gallery_electrical_engineering_power_plot_03_budeanu_reactive_power.py` (``plot_03_budeanu_reactive_power.py``)
-     - 00:00.211
+     - 00:00.407
      - 0.0
    * - :ref:`sphx_glr_api_gallery_electrical_engineering_power_plot_01_tesla_three_phase.py` (``plot_01_tesla_three_phase.py``)
-     - 00:00.189
+     - 00:00.335
      - 0.0
    * - :ref:`sphx_glr_api_gallery_electrical_engineering_power_plot_06_tinney_hart_newton_load_flow.py` (``plot_06_tinney_hart_newton_load_flow.py``)
-     - 00:00.172
+     - 00:00.298
      - 0.0

@@ -99,7 +99,7 @@ The square wave of period 1 and amplitude :math:`\pm 1` has
     K = 125: peak 1.17900 at t = 0.00398 s
     K = 625: peak 1.17898 at t = 0.00080 s
 
-    <matplotlib.legend.Legend object at 0x7f1aededfec0>
+    <matplotlib.legend.Legend object at 0x7ff84fee76e0>
 
 
 
@@ -172,7 +172,7 @@ series converge in energy even where they never converge uniformly.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 1.189 seconds)
+   **Total running time of the script:** (0 minutes 1.715 seconds)
 
 
 .. _sphx_glr_download_api_gallery_signal_processing_fourier_plot_01_gibbs_phenomenon.py:

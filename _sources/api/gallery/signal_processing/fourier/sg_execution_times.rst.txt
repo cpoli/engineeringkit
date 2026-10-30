@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:02.292** total execution time for 5 files **from api/gallery/signal_processing/fourier**:
+**00:03.611** total execution time for 5 files **from api/gallery/signal_processing/fourier**:
 
 .. container::
 
@@ -33,17 +33,17 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_signal_processing_fourier_plot_01_gibbs_phenomenon.py` (``plot_01_gibbs_phenomenon.py``)
-     - 00:01.189
+     - 00:01.715
      - 0.0
    * - :ref:`sphx_glr_api_gallery_signal_processing_fourier_plot_04_stockham_fast_convolution.py` (``plot_04_stockham_fast_convolution.py``)
-     - 00:00.369
+     - 00:00.638
      - 0.0
    * - :ref:`sphx_glr_api_gallery_signal_processing_fourier_plot_02_cooley_tukey_fft.py` (``plot_02_cooley_tukey_fft.py``)
-     - 00:00.348
+     - 00:00.584
      - 0.0
    * - :ref:`sphx_glr_api_gallery_signal_processing_fourier_plot_03_hilbert_analytic_signal.py` (``plot_03_hilbert_analytic_signal.py``)
-     - 00:00.249
+     - 00:00.440
      - 0.0
    * - :ref:`sphx_glr_api_gallery_signal_processing_fourier_plot_05_ahmed_natarajan_rao_dct.py` (``plot_05_ahmed_natarajan_rao_dct.py``)
-     - 00:00.137
+     - 00:00.234
      - 0.0

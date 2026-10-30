@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.138** total execution time for 2 files **from api/gallery/thermodynamics/psychrometrics**:
+**00:00.244** total execution time for 2 files **from api/gallery/thermodynamics/psychrometrics**:
 
 .. container::
 
@@ -33,8 +33,8 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_thermodynamics_psychrometrics_plot_02_carrier_air_conditioning.py` (``plot_02_carrier_air_conditioning.py``)
-     - 00:00.070
+     - 00:00.122
      - 0.0
    * - :ref:`sphx_glr_api_gallery_thermodynamics_psychrometrics_plot_01_carrier_psychrometrics.py` (``plot_01_carrier_psychrometrics.py``)
-     - 00:00.068
+     - 00:00.122
      - 0.0

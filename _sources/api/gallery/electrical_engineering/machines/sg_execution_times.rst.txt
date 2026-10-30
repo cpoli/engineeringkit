@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.116** total execution time for 2 files **from api/gallery/electrical_engineering/machines**:
+**00:00.200** total execution time for 2 files **from api/gallery/electrical_engineering/machines**:
 
 .. container::
 
@@ -33,8 +33,8 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_electrical_engineering_machines_plot_02_steinmetz_induction_motor.py` (``plot_02_steinmetz_induction_motor.py``)
-     - 00:00.071
+     - 00:00.124
      - 0.0
    * - :ref:`sphx_glr_api_gallery_electrical_engineering_machines_plot_01_hopkinson_dynamo.py` (``plot_01_hopkinson_dynamo.py``)
-     - 00:00.045
+     - 00:00.076
      - 0.0

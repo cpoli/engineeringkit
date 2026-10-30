@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.528** total execution time for 2 files **from api/gallery/communications/digitization**:
+**00:00.874** total execution time for 2 files **from api/gallery/communications/digitization**:
 
 .. container::
 
@@ -33,8 +33,8 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_communications_digitization_plot_01_reeves_pcm.py` (``plot_01_reeves_pcm.py``)
-     - 00:00.348
+     - 00:00.539
      - 0.0
    * - :ref:`sphx_glr_api_gallery_communications_digitization_plot_02_delta_modulation.py` (``plot_02_delta_modulation.py``)
-     - 00:00.180
+     - 00:00.335
      - 0.0

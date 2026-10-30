@@ -101,7 +101,7 @@ Pass 0-1 kHz within 0.5 dB, stop above 1.2 kHz by 60 dB, at 8 kHz.
 
     {'butterworth': 39, 'chebyshev': 13, 'elliptic': 7}
 
-    <matplotlib.legend.Legend object at 0x7f978075fd10>
+    <matplotlib.legend.Legend object at 0x7f38542c5100>
 
 
 
@@ -152,7 +152,7 @@ the unit circle.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.190 seconds)
+   **Total running time of the script:** (0 minutes 0.334 seconds)
 
 
 .. _sphx_glr_download_api_gallery_signal_processing_filters_plot_08_cauer_elliptic.py:

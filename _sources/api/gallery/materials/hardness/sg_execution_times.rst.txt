@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.090** total execution time for 1 file **from api/gallery/materials/hardness**:
+**00:00.166** total execution time for 1 file **from api/gallery/materials/hardness**:
 
 .. container::
 
@@ -33,5 +33,5 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_materials_hardness_plot_01_brinell_hardness.py` (``plot_01_brinell_hardness.py``)
-     - 00:00.090
+     - 00:00.166
      - 0.0

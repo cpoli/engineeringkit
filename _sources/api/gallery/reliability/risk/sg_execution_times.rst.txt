@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.853** total execution time for 4 files **from api/gallery/reliability/risk**:
+**00:01.425** total execution time for 4 files **from api/gallery/reliability/risk**:
 
 .. container::
 
@@ -33,14 +33,14 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_reliability_risk_plot_03_iec61508_sil.py` (``plot_03_iec61508_sil.py``)
-     - 00:00.313
+     - 00:00.557
      - 0.0
    * - :ref:`sphx_glr_api_gallery_reliability_risk_plot_01_watson_fault_tree.py` (``plot_01_watson_fault_tree.py``)
-     - 00:00.228
+     - 00:00.365
      - 0.0
    * - :ref:`sphx_glr_api_gallery_reliability_risk_plot_04_mil_p_1629_fmea.py` (``plot_04_mil_p_1629_fmea.py``)
-     - 00:00.165
+     - 00:00.267
      - 0.0
    * - :ref:`sphx_glr_api_gallery_reliability_risk_plot_02_wash1400_event_tree.py` (``plot_02_wash1400_event_tree.py``)
-     - 00:00.147
+     - 00:00.236
      - 0.0

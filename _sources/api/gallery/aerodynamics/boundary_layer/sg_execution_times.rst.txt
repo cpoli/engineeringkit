@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.615** total execution time for 3 files **from api/gallery/aerodynamics/boundary_layer**:
+**00:01.193** total execution time for 3 files **from api/gallery/aerodynamics/boundary_layer**:
 
 .. container::
 
@@ -32,12 +32,12 @@ Computation times
    * - Example
      - Time
      - Mem (MB)
-   * - :ref:`sphx_glr_api_gallery_aerodynamics_boundary_layer_plot_02_prandtl_blasius_boundary_layer.py` (``plot_02_prandtl_blasius_boundary_layer.py``)
-     - 00:00.231
-     - 0.0
    * - :ref:`sphx_glr_api_gallery_aerodynamics_boundary_layer_plot_01_reynolds_similarity.py` (``plot_01_reynolds_similarity.py``)
-     - 00:00.224
+     - 00:00.442
      - 0.0
    * - :ref:`sphx_glr_api_gallery_aerodynamics_boundary_layer_plot_03_turbulent_skin_friction.py` (``plot_03_turbulent_skin_friction.py``)
-     - 00:00.159
+     - 00:00.429
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_aerodynamics_boundary_layer_plot_02_prandtl_blasius_boundary_layer.py` (``plot_02_prandtl_blasius_boundary_layer.py``)
+     - 00:00.322
      - 0.0

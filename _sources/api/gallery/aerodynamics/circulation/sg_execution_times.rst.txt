@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.117** total execution time for 1 file **from api/gallery/aerodynamics/circulation**:
+**00:00.201** total execution time for 1 file **from api/gallery/aerodynamics/circulation**:
 
 .. container::
 
@@ -33,5 +33,5 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_aerodynamics_circulation_plot_01_kutta_joukowski_spinning_cylinder.py` (``plot_01_kutta_joukowski_spinning_cylinder.py``)
-     - 00:00.117
+     - 00:00.201
      - 0.0

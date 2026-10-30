@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:02.619** total execution time for 6 files **from api/gallery/mechanical_engineering/vibration**:
+**00:05.540** total execution time for 6 files **from api/gallery/mechanical_engineering/vibration**:
 
 .. container::
 
@@ -33,20 +33,20 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_mechanical_engineering_vibration_plot_04_rayleigh_forced_vibration.py` (``plot_04_rayleigh_forced_vibration.py``)
-     - 00:00.998
+     - 00:02.306
      - 0.0
    * - :ref:`sphx_glr_api_gallery_mechanical_engineering_vibration_plot_05_bernoulli_normal_modes.py` (``plot_05_bernoulli_normal_modes.py``)
-     - 00:00.576
+     - 00:01.270
      - 0.0
    * - :ref:`sphx_glr_api_gallery_mechanical_engineering_vibration_plot_01_rayleigh_free_vibration.py` (``plot_01_rayleigh_free_vibration.py``)
-     - 00:00.408
+     - 00:00.793
      - 0.0
    * - :ref:`sphx_glr_api_gallery_mechanical_engineering_vibration_plot_02_frahm_absorber.py` (``plot_02_frahm_absorber.py``)
-     - 00:00.339
+     - 00:00.665
      - 0.0
    * - :ref:`sphx_glr_api_gallery_mechanical_engineering_vibration_plot_03_holzer_torsional.py` (``plot_03_holzer_torsional.py``)
-     - 00:00.217
+     - 00:00.406
      - 0.0
    * - :ref:`sphx_glr_api_gallery_mechanical_engineering_vibration_plot_06_dunkerley_whirling_shaft.py` (``plot_06_dunkerley_whirling_shaft.py``)
-     - 00:00.081
+     - 00:00.100
      - 0.0
