@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:02.748** total execution time for 5 files **from api/gallery/communications/detection**:
+**00:01.695** total execution time for 5 files **from api/gallery/communications/detection**:
 
 .. container::
 
@@ -33,17 +33,17 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_communications_detection_plot_05_campopiano_glazer_qam.py` (``plot_05_campopiano_glazer_qam.py``)
-     - 00:00.938
+     - 00:00.601
      - 0.0
    * - :ref:`sphx_glr_api_gallery_communications_detection_plot_04_cahn_mpsk.py` (``plot_04_cahn_mpsk.py``)
-     - 00:00.712
+     - 00:00.447
      - 0.0
    * - :ref:`sphx_glr_api_gallery_communications_detection_plot_03_north_matched_filter.py` (``plot_03_north_matched_filter.py``)
-     - 00:00.431
+     - 00:00.239
      - 0.0
    * - :ref:`sphx_glr_api_gallery_communications_detection_plot_01_kotelnikov_bpsk_detection.py` (``plot_01_kotelnikov_bpsk_detection.py``)
-     - 00:00.369
+     - 00:00.231
      - 0.0
    * - :ref:`sphx_glr_api_gallery_communications_detection_plot_02_cahn_quadrature_qpsk.py` (``plot_02_cahn_quadrature_qpsk.py``)
-     - 00:00.299
+     - 00:00.177
      - 0.0

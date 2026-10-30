@@ -83,7 +83,7 @@ output.
 
     LMS weights:    [ 0.6   -0.399  0.25   0.15  -0.1    0.05   0.031 -0.02 ]
     plant:          [ 0.6  -0.4   0.25  0.15 -0.1   0.05  0.03 -0.02]
-    summary: {'taps': 8, 'initial_mse': 0.05393009852910215, 'final_mse': 9.203628763109435e-05}
+    summary: {'taps': 8, 'initial_mse': 0.05393009852910216, 'final_mse': 9.203628763109435e-05}
 
 
 
@@ -151,7 +151,7 @@ A larger step learns faster but leaves more excess error.
     mu = 0.010: misalignment after 500 samples 2.9e-05, final MSE 9.20e-05
     mu = 0.050: misalignment after 500 samples 2.8e-05, final MSE 1.11e-04
 
-    <matplotlib.legend.Legend object at 0x7fd7433548f0>
+    <matplotlib.legend.Legend object at 0x7f97803feea0>
 
 
 
@@ -187,7 +187,7 @@ relearns it.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.865 seconds)
+   **Total running time of the script:** (0 minutes 0.419 seconds)
 
 
 .. _sphx_glr_download_api_gallery_signal_processing_filters_plot_04_widrow_hoff_lms.py:

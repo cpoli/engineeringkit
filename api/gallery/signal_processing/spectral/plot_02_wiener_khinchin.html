@@ -643,7 +643,7 @@ lag zero to the front and taking a DFT of length <span class="math notranslate n
 </span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="s2">largest difference: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">from_correlation</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">from_signal</span><span class="p">)</span><span class="p">)</span><span class="si">:</span><span class="s2">.2e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span><span class="w">
 </span><span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">from_correlation</span><span class="p">,</span> <span class="n">from_signal</span><span class="p">)</span><span class="w">
 </span></pre></div></div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>largest difference: 2.22e-15
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>largest difference: 2.66e-15
 </pre></div>
 </div>
 </section>
@@ -686,7 +686,7 @@ of <span class="math notranslate nohighlight">\(f_s\)</span>. The sample autocor
 <img src="../../../../_images/sphx_glr_plot_02_wiener_khinchin_001.png" srcset="../../../../_images/sphx_glr_plot_02_wiener_khinchin_001.png" alt="Correlation, Spectrum" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>smoothed periodogram / theory over the band: 0.922 to 1.096
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.643 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.372 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-api-gallery-signal-processing-spectral-plot-02-wiener-khinchin-py">
 <div class="lite-badge docutils container">
 <a class="reference external image-reference" href="../../../../lite/lab/index.html?path=api/gallery/signal_processing/spectral/plot_02_wiener_khinchin.ipynb"><img alt="Launch JupyterLite" src="../../../../_images/jupyterlite_badge_logo81.svg" style="width: 150px;" />

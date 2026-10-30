@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.326** total execution time for 2 files **from api/gallery/structural_engineering/energy**:
+**00:00.185** total execution time for 2 files **from api/gallery/structural_engineering/energy**:
 
 .. container::
 
@@ -33,8 +33,8 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_structural_engineering_energy_plot_01_castigliano.py` (``plot_01_castigliano.py``)
-     - 00:00.202
+     - 00:00.116
      - 0.0
    * - :ref:`sphx_glr_api_gallery_structural_engineering_energy_plot_02_mohr_unit_load.py` (``plot_02_mohr_unit_load.py``)
-     - 00:00.124
+     - 00:00.069
      - 0.0

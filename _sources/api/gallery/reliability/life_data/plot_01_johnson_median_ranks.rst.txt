@@ -98,7 +98,7 @@ statistic number three of ten.
     i =  5: simulated 0.4518, beta median 0.4517, Benard 0.4519, i/n 0.50
     i = 10: simulated 0.9330, beta median 0.9330, Benard 0.9327, i/n 1.00
 
-    <matplotlib.legend.Legend object at 0x7fd745623830>
+    <matplotlib.legend.Legend object at 0x7f1af869e5a0>
 
 
 
@@ -148,7 +148,7 @@ the order numbers of the failures that follow.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.223 seconds)
+   **Total running time of the script:** (0 minutes 0.180 seconds)
 
 
 .. _sphx_glr_download_api_gallery_reliability_life_data_plot_01_johnson_median_ranks.py:

@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:02.010** total execution time for 3 files **from api/gallery/reliability/life_data**:
+**00:01.019** total execution time for 3 files **from api/gallery/reliability/life_data**:
 
 .. container::
 
@@ -33,11 +33,11 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_reliability_life_data_plot_02_cohen_censored_mle.py` (``plot_02_cohen_censored_mle.py``)
-     - 00:01.573
+     - 00:00.729
      - 0.0
    * - :ref:`sphx_glr_api_gallery_reliability_life_data_plot_01_johnson_median_ranks.py` (``plot_01_johnson_median_ranks.py``)
-     - 00:00.223
+     - 00:00.180
      - 0.0
    * - :ref:`sphx_glr_api_gallery_reliability_life_data_plot_03_raiffa_schlaifer_bayesian_failure_rate.py` (``plot_03_raiffa_schlaifer_bayesian_failure_rate.py``)
-     - 00:00.214
+     - 00:00.110
      - 0.0

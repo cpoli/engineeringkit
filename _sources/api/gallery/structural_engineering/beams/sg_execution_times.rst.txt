@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:07.754** total execution time for 5 files **from api/gallery/structural_engineering/beams**:
+**00:04.258** total execution time for 5 files **from api/gallery/structural_engineering/beams**:
 
 .. container::
 
@@ -33,17 +33,17 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_structural_engineering_beams_plot_04_winkler_influence_lines.py` (``plot_04_winkler_influence_lines.py``)
-     - 00:02.068
+     - 00:01.104
      - 0.0
    * - :ref:`sphx_glr_api_gallery_structural_engineering_beams_plot_02_navier_beam.py` (``plot_02_navier_beam.py``)
-     - 00:01.894
-     - 0.0
-   * - :ref:`sphx_glr_api_gallery_structural_engineering_beams_plot_03_clapeyron_three_moment.py` (``plot_03_clapeyron_three_moment.py``)
-     - 00:01.770
+     - 00:01.052
      - 0.0
    * - :ref:`sphx_glr_api_gallery_structural_engineering_beams_plot_01_galileo_cantilever.py` (``plot_01_galileo_cantilever.py``)
-     - 00:01.754
+     - 00:01.004
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_structural_engineering_beams_plot_03_clapeyron_three_moment.py` (``plot_03_clapeyron_three_moment.py``)
+     - 00:00.972
      - 0.0
    * - :ref:`sphx_glr_api_gallery_structural_engineering_beams_plot_05_macaulay_singularity_functions.py` (``plot_05_macaulay_singularity_functions.py``)
-     - 00:00.268
+     - 00:00.125
      - 0.0

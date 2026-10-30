@@ -91,7 +91,7 @@ Pass 0-100 Hz, stop from 150 Hz, at 1 kHz, with 41 taps each.
     Parks-McClellan : stopband  39.3 dB, passband deviation 0.0108
     Kaiser window   : stopband  24.1 dB, passband deviation 0.0632
 
-    <matplotlib.legend.Legend object at 0x7faa5099fb00>
+    <matplotlib.legend.Legend object at 0x7fd5b62f59a0>
 
 
 
@@ -187,7 +187,7 @@ deviations, and a few more taps would close the gap.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.167 seconds)
+   **Total running time of the script:** (0 minutes 0.095 seconds)
 
 
 .. _sphx_glr_download_api_gallery_signal_processing_filters_plot_10_parks_mcclellan.py:

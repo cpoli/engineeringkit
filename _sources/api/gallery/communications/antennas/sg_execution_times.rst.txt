@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.753** total execution time for 2 files **from api/gallery/communications/antennas**:
+**00:00.410** total execution time for 2 files **from api/gallery/communications/antennas**:
 
 .. container::
 
@@ -33,8 +33,8 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_communications_antennas_plot_01_friis_effective_aperture.py` (``plot_01_friis_effective_aperture.py``)
-     - 00:00.492
+     - 00:00.262
      - 0.0
    * - :ref:`sphx_glr_api_gallery_communications_antennas_plot_02_carter_half_wave_dipole.py` (``plot_02_carter_half_wave_dipole.py``)
-     - 00:00.261
+     - 00:00.148
      - 0.0

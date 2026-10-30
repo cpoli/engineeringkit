@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.808** total execution time for 1 file **from api/gallery/materials/phases**:
+**00:00.612** total execution time for 1 file **from api/gallery/materials/phases**:
 
 .. container::
 
@@ -33,5 +33,5 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_materials_phases_plot_01_avrami_kinetics.py` (``plot_01_avrami_kinetics.py``)
-     - 00:00.808
+     - 00:00.612
      - 0.0

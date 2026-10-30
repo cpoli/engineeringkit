@@ -126,7 +126,7 @@ The KLT is the optimum; the DCT nearly matches it, the DFT does not.
 
     {'KLT': 0.9559, 'DCT': 0.9557, 'DFT': 0.9311} of the energy in 4 of 16 coefficients
 
-    <matplotlib.legend.Legend object at 0x7fd74332a8a0>
+    <matplotlib.legend.Legend object at 0x7fa1ee656d20>
 
 
 
@@ -173,7 +173,7 @@ DFT sees a jump from :math:`e` back to 1 at the period boundary and rings.
 
  .. code-block:: none
 
-    {'DCT': 0.010893222395450281, 'DFT': 0.2084665812781259}
+    {'DCT': 0.010893222395450246, 'DFT': 0.20846658127812592}
 
 
 
@@ -181,7 +181,7 @@ DFT sees a jump from :math:`e` back to 1 at the period boundary and rings.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.234 seconds)
+   **Total running time of the script:** (0 minutes 0.137 seconds)
 
 
 .. _sphx_glr_download_api_gallery_signal_processing_fourier_plot_05_ahmed_natarajan_rao_dct.py:

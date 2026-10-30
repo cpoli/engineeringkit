@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:02.112** total execution time for 6 files **from api/gallery/mechanical_engineering/machine_elements**:
+**00:01.217** total execution time for 6 files **from api/gallery/mechanical_engineering/machine_elements**:
 
 .. container::
 
@@ -33,20 +33,20 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_mechanical_engineering_machine_elements_plot_04_lundberg_palmgren_l10.py` (``plot_04_lundberg_palmgren_l10.py``)
-     - 00:00.694
+     - 00:00.408
      - 0.0
    * - :ref:`sphx_glr_api_gallery_mechanical_engineering_machine_elements_plot_03_reynolds_sommerfeld_lubrication.py` (``plot_03_reynolds_sommerfeld_lubrication.py``)
-     - 00:00.525
+     - 00:00.313
      - 0.0
    * - :ref:`sphx_glr_api_gallery_mechanical_engineering_machine_elements_plot_05_rotscher_joint_diagram.py` (``plot_05_rotscher_joint_diagram.py``)
-     - 00:00.322
-     - 0.0
-   * - :ref:`sphx_glr_api_gallery_mechanical_engineering_machine_elements_plot_01_coulomb_power_screw.py` (``plot_01_coulomb_power_screw.py``)
-     - 00:00.225
+     - 00:00.198
      - 0.0
    * - :ref:`sphx_glr_api_gallery_mechanical_engineering_machine_elements_plot_02_petroff_bearing.py` (``plot_02_petroff_bearing.py``)
-     - 00:00.220
+     - 00:00.119
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_mechanical_engineering_machine_elements_plot_01_coulomb_power_screw.py` (``plot_01_coulomb_power_screw.py``)
+     - 00:00.110
      - 0.0
    * - :ref:`sphx_glr_api_gallery_mechanical_engineering_machine_elements_plot_06_wahl_spring_factor.py` (``plot_06_wahl_spring_factor.py``)
-     - 00:00.126
+     - 00:00.069
      - 0.0

@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.353** total execution time for 1 file **from api/gallery/fluid_engineering/drag**:
+**00:00.188** total execution time for 1 file **from api/gallery/fluid_engineering/drag**:
 
 .. container::
 
@@ -33,5 +33,5 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_fluid_engineering_drag_plot_01_stokes_drag.py` (``plot_01_stokes_drag.py``)
-     - 00:00.353
+     - 00:00.188
      - 0.0

@@ -155,7 +155,7 @@ steps for what takes Gauss-Seidel dozens of sweeps.
  .. code-block:: none
 
     Newton-Raphson: 4 steps; Gauss-Seidel: 83 sweeps
-    Newton mismatches: 6.0e-01 3.5e-02 2.7e-04 1.4e-08 2.6e-15
+    Newton mismatches: 6.0e-01 3.5e-02 2.7e-04 1.4e-08 8.8e-15
 
 
 
@@ -163,7 +163,7 @@ steps for what takes Gauss-Seidel dozens of sweeps.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.298 seconds)
+   **Total running time of the script:** (0 minutes 0.172 seconds)
 
 
 .. _sphx_glr_download_api_gallery_electrical_engineering_power_plot_06_tinney_hart_newton_load_flow.py:

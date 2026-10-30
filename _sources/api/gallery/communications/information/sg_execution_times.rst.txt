@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:02.559** total execution time for 6 files **from api/gallery/communications/information**:
+**00:01.446** total execution time for 6 files **from api/gallery/communications/information**:
 
 .. container::
 
@@ -33,20 +33,20 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_communications_information_plot_02_hartley_law.py` (``plot_02_hartley_law.py``)
-     - 00:00.753
+     - 00:00.422
      - 0.0
    * - :ref:`sphx_glr_api_gallery_communications_information_plot_04_shannon_hartley_capacity.py` (``plot_04_shannon_hartley_capacity.py``)
-     - 00:00.469
+     - 00:00.262
      - 0.0
    * - :ref:`sphx_glr_api_gallery_communications_information_plot_03_shannon_entropy.py` (``plot_03_shannon_entropy.py``)
-     - 00:00.414
+     - 00:00.227
      - 0.0
    * - :ref:`sphx_glr_api_gallery_communications_information_plot_05_nyquist_raised_cosine.py` (``plot_05_nyquist_raised_cosine.py``)
-     - 00:00.337
+     - 00:00.197
      - 0.0
    * - :ref:`sphx_glr_api_gallery_communications_information_plot_06_huffman_code.py` (``plot_06_huffman_code.py``)
-     - 00:00.329
+     - 00:00.184
      - 0.0
    * - :ref:`sphx_glr_api_gallery_communications_information_plot_01_nyquist_signalling_rate.py` (``plot_01_nyquist_signalling_rate.py``)
-     - 00:00.256
+     - 00:00.154
      - 0.0

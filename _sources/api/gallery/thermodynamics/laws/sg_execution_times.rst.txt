@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.798** total execution time for 4 files **from api/gallery/thermodynamics/laws**:
+**00:00.465** total execution time for 4 files **from api/gallery/thermodynamics/laws**:
 
 .. container::
 
@@ -33,14 +33,14 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_thermodynamics_laws_plot_04_joule_steady_flow_devices.py` (``plot_04_joule_steady_flow_devices.py``)
-     - 00:00.268
+     - 00:00.154
      - 0.0
    * - :ref:`sphx_glr_api_gallery_thermodynamics_laws_plot_03_maxwell_relations.py` (``plot_03_maxwell_relations.py``)
-     - 00:00.211
+     - 00:00.126
      - 0.0
    * - :ref:`sphx_glr_api_gallery_thermodynamics_laws_plot_01_joule_first_law.py` (``plot_01_joule_first_law.py``)
-     - 00:00.167
+     - 00:00.100
      - 0.0
    * - :ref:`sphx_glr_api_gallery_thermodynamics_laws_plot_02_clausius_entropy.py` (``plot_02_clausius_entropy.py``)
-     - 00:00.152
+     - 00:00.085
      - 0.0

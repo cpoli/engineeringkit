@@ -95,7 +95,7 @@ Bessel sidebands of a tone-modulated carrier
     beta = 0.5: Carson bandwidth 3 kHz holds 99.8% of the power
     beta = 5.0: Carson bandwidth 12 kHz holds 99.4% of the power
 
-    <matplotlib.legend.Legend object at 0x7faa5f1cfb60>
+    <matplotlib.legend.Legend object at 0x7fa1ee1bdc70>
 
 
 
@@ -129,7 +129,7 @@ spaced 200 kHz apart.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.352 seconds)
+   **Total running time of the script:** (0 minutes 0.224 seconds)
 
 
 .. _sphx_glr_download_api_gallery_communications_modulation_plot_03_armstrong_frequency_modulation.py:

@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:01.166** total execution time for 3 files **from api/gallery/reliability/structural**:
+**00:00.893** total execution time for 3 files **from api/gallery/reliability/structural**:
 
 .. container::
 
@@ -33,11 +33,11 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_reliability_structural_plot_03_metropolis_ulam_monte_carlo.py` (``plot_03_metropolis_ulam_monte_carlo.py``)
-     - 00:00.462
+     - 00:00.426
      - 0.0
    * - :ref:`sphx_glr_api_gallery_reliability_structural_plot_01_freudenthal_interference.py` (``plot_01_freudenthal_interference.py``)
-     - 00:00.394
+     - 00:00.250
      - 0.0
    * - :ref:`sphx_glr_api_gallery_reliability_structural_plot_02_hasofer_lind.py` (``plot_02_hasofer_lind.py``)
-     - 00:00.310
+     - 00:00.218
      - 0.0

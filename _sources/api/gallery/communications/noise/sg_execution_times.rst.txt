@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.399** total execution time for 2 files **from api/gallery/communications/noise**:
+**00:00.235** total execution time for 2 files **from api/gallery/communications/noise**:
 
 .. container::
 
@@ -33,8 +33,8 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_communications_noise_plot_01_johnson_nyquist_noise.py` (``plot_01_johnson_nyquist_noise.py``)
-     - 00:00.303
+     - 00:00.173
      - 0.0
    * - :ref:`sphx_glr_api_gallery_communications_noise_plot_02_friis_cascaded_noise.py` (``plot_02_friis_cascaded_noise.py``)
-     - 00:00.096
+     - 00:00.062
      - 0.0

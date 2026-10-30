@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.557** total execution time for 3 files **from api/gallery/electrical_engineering/dc_circuits**:
+**00:00.293** total execution time for 3 files **from api/gallery/electrical_engineering/dc_circuits**:
 
 .. container::
 
@@ -33,11 +33,11 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_electrical_engineering_dc_circuits_plot_01_ohm_law.py` (``plot_01_ohm_law.py``)
-     - 00:00.212
-     - 0.0
-   * - :ref:`sphx_glr_api_gallery_electrical_engineering_dc_circuits_plot_02_wheatstone_bridge.py` (``plot_02_wheatstone_bridge.py``)
-     - 00:00.204
+     - 00:00.151
      - 0.0
    * - :ref:`sphx_glr_api_gallery_electrical_engineering_dc_circuits_plot_03_kirchhoff_nodal_analysis.py` (``plot_03_kirchhoff_nodal_analysis.py``)
-     - 00:00.141
+     - 00:00.074
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_electrical_engineering_dc_circuits_plot_02_wheatstone_bridge.py` (``plot_02_wheatstone_bridge.py``)
+     - 00:00.068
      - 0.0

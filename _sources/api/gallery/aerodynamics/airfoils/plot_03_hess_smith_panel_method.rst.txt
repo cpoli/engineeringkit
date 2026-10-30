@@ -72,7 +72,7 @@ The circular cylinder is exact
 
  .. code-block:: none
 
-    cylinder, 48 panels: max |Cp - (1 - 4 sin^2)| = 4.9e-15
+    cylinder, 48 panels: max |Cp - (1 - 4 sin^2)| = 3.6e-15
 
 
 
@@ -110,7 +110,7 @@ Pressure on the NACA 0012 and 2412
  .. code-block:: none
 
 
-    <matplotlib.legend.Legend object at 0x7fd743216240>
+    <matplotlib.legend.Legend object at 0x7fa1ee1f7d40>
 
 
 
@@ -159,7 +159,7 @@ the panel method gives about :math:`2\pi(1 + 0.77\,t/c)`.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.596 seconds)
+   **Total running time of the script:** (0 minutes 0.309 seconds)
 
 
 .. _sphx_glr_download_api_gallery_aerodynamics_airfoils_plot_03_hess_smith_panel_method.py:
