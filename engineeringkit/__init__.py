@@ -12,7 +12,7 @@ conversion, constants and solver-independent visualizers.
 
 # Defined before the subpackage imports: each subpackage re-exports it via
 # ``from engineeringkit import __version__`` while this module is still loading.
-__version__ = "0.1.0"
+__version__ = "0.2.0"
 
 from engineeringkit import (  # noqa: E402
     aerodynamics,

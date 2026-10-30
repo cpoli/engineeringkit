@@ -5,6 +5,8 @@ section, so keep that heading format.
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-10-30
+
 - A weekly `Linkcheck` workflow checks every external link in the docs,
   and the history pages' DOIs are links to doi.org (ROADMAP B3).
 - The CI `typecheck` job runs `python -m mypy` on the whole package with

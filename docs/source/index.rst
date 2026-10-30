@@ -102,7 +102,7 @@ domains: :doc:`/tutorials/beam_to_fatigue_life`,
 :doc:`exercises </exercises/index>` with worked solutions. The domain guides describe
 units, sign conventions and model assumptions; :doc:`validation` records the
 benchmark policy, and :doc:`limitations` identifies remaining scope limits.
-Version 0.1.0 includes all twelve domains and enforces 100% production statement
+Version 0.2.0 includes all twelve domains and enforces 100% production statement
 coverage. That metric does not prove scientific correctness or model applicability.
 
 .. code-block:: python

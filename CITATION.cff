@@ -2,9 +2,8 @@ cff-version: 1.2.0
 message: "If you use engineeringkit in your research or teaching, please cite it as below."
 title: "engineeringkit: inspectable computational engineering for learning and teaching"
 type: software
-version: 0.1.0
-date-released: 2026-10-18
-doi: 10.5281/zenodo.23452015
+version: 0.2.0
+date-released: 2026-10-30
 license: MIT
 repository-code: "https://github.com/cpoli/engineeringkit"
 url: "https://cpoli.github.io/engineeringkit/"
