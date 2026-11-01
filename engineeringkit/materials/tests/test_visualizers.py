@@ -59,3 +59,15 @@ def test_laminate_plot_draws_one_band_per_ply():
     fig, ax = lam.plot()
     assert ax.figure is fig and len(ax.collections) == 4 and ax.get_ylabel() == "z [mm]"
     plt.close("all")
+
+
+def test_plots_draw_on_the_axes_given():
+    plt.close("all")
+    _, ax = plt.subplots()
+    assert plot_stress_strain([0.0, 0.001], [0.0, 200e6], ax=ax) is ax
+    assert plot_yield_surfaces(250e6, ax=ax) is ax
+    assert plot_crack_growth([0.0, 100.0], [1e-3, 2e-3], ax=ax) is ax
+    lam = m.classical_laminate(140e9, 10e9, 0.3, 5e9, np.radians([0, 90, 90, 0]), 0.125e-3)
+    assert lam.plot(ax=ax)[1] is ax
+    assert len(plt.get_fignums()) == 1
+    plt.close("all")

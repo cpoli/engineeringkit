@@ -16,9 +16,8 @@ tree.
   https://cpoli.github.io/engineeringkit/ and the version DOI
   10.5281/zenodo.23795071 (concept record 23452014). 0.1.0
   (2026-10-18) is 10.5281/zenodo.23452015.
-- 725 tests pass in about 5 s. Production **statement** coverage is 100%
-  and enforced. **Branch** coverage is 99% (936 branches, 44 partial) and
-  not measured in CI.
+- 1730 tests pass in about 10 s. Production statement and branch coverage
+  (1856 branches) are 100% and enforced in CI.
 - `python -m mypy` is clean on the whole package (341 files), and the CI
   `typecheck` job runs exactly that.
 - Twelve domains, all rebuilt to the `core/ systems/ utils/ visualizers/
@@ -64,8 +63,8 @@ Every item is done when:
 The project conventions apply to everything: SI inputs validated in
 `_validation.py`, NumPy-style docstrings with units and the guide Notes
 block, an analytical or benchmark test for every new model, 100%
-production statement coverage, `filterwarnings = ["error"]`, the public
-API kept backward compatible through each domain's `__init__.py`, and,
+production statement and branch coverage, `filterwarnings = ["error"]`,
+the public API kept backward compatible through each domain's `__init__.py`, and,
 for each new breakthrough, a dated history entry with its own gallery
 example, titled after it, that ends in a check of the result it
 illustrates and is linked from no other entry. A history page must never
@@ -82,11 +81,6 @@ them just before editing and change only your item's lines.
 All items are done; see Done.
 
 ### B. Quality gates
-
-**B1. Branch coverage.** Set `branch = true` under `[tool.coverage.run]`,
-cover the 44 partial branches with real tests (no pragmas), and keep
-`fail_under = 100`. A branch that cannot be reached is a sign to simplify
-the code. *Done when* CI enforces 100% branch coverage.
 
 **B2. Test the supported dependency range.** `pyproject.toml` promises
 NumPy ≥ 1.24, SciPy ≥ 1.10 and Matplotlib ≥ 3.6, but CI only installs the
@@ -229,6 +223,18 @@ Finished items move here with the release they shipped in, as in
 CHANGELOG.md.
 
 ### Unreleased
+
+- **B1. Branch coverage** (2026-10-31). `branch = true` is set, so the
+  CI coverage job's `fail_under = 100` now fails on a partial branch. By
+  0.2.0 the 44 partials had grown to 72, all covered with real tests and
+  no pragmas. Most were plots never handed an existing axes or drawn
+  without a label. Four found or forced code changes: the Neuber notch
+  solver stalled at its 100-step cap for large n (n = 200 returned
+  σε = 6e82 instead of 8e5) and now runs Newton on ln σ until it
+  converges; `method_of_joints` names improper (parallel or concurrent)
+  supports instead of reporting a stall; and the Newton-Raphson load
+  flow and moment distribution loops no longer have an exit only `break`
+  could take.
 
 - **A2. No generated plot images in the source tree** (2026-10-31).
   The current build (matplotlib 3.11 plot directive) writes `.. plot::`

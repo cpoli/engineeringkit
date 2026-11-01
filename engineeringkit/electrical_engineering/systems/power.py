@@ -697,20 +697,19 @@ def newton_raphson_load_flow(Y, p_load, q_load, v_slack=1.0, pv_buses=None, tol=
         if history[-1] < tol:
             converged = True
             break
-        if step == max_iter:
-            break
-        # Derivatives of S = V (Y V)^* with respect to the angles and magnitudes.
-        dS_dtheta = 1j * np.diag(V) @ (np.diag(current) - Y @ np.diag(V)).conjugate()
-        dS_dmag = np.diag(V) @ (Y @ np.diag(V / magnitude)).conjugate() + np.diag(current.conjugate() * V / magnitude)
-        J = np.block(
-            [
-                [dS_dtheta.real[np.ix_(angle_buses, angle_buses)], dS_dmag.real[np.ix_(angle_buses, pq)]],
-                [dS_dtheta.imag[np.ix_(pq, angle_buses)], dS_dmag.imag[np.ix_(pq, pq)]],
-            ]
-        )
-        dx = np.linalg.solve(J, f)
-        theta[angle_buses] += dx[: n - 1]
-        magnitude[pq] += dx[n - 1 :]
+        if step < max_iter:
+            # Derivatives of S = V (Y V)^* with respect to the angles and magnitudes.
+            dS_dtheta = 1j * np.diag(V) @ (np.diag(current) - Y @ np.diag(V)).conjugate()
+            dS_dmag = np.diag(V) @ (Y @ np.diag(V / magnitude)).conjugate() + np.diag(current.conjugate() * V / magnitude)
+            J = np.block(
+                [
+                    [dS_dtheta.real[np.ix_(angle_buses, angle_buses)], dS_dmag.real[np.ix_(angle_buses, pq)]],
+                    [dS_dtheta.imag[np.ix_(pq, angle_buses)], dS_dmag.imag[np.ix_(pq, pq)]],
+                ]
+            )
+            dx = np.linalg.solve(J, f)
+            theta[angle_buses] += dx[: n - 1]
+            magnitude[pq] += dx[n - 1 :]
     V = magnitude * np.exp(1j * theta)
     power = V * (Y @ V).conjugate()
     return LoadFlowResult(V, power, len(history) - 1, converged, np.array(history))

@@ -54,3 +54,29 @@ def test_new_result_plots_and_summaries():
     panels = panel_method(naca4_airfoil("2412", 41), 0.05)
     fig, ax = panels.plot()
     assert ax.figure is fig and panels.summary()["panels"] == 80
+
+
+def test_plots_draw_on_the_axes_given():
+    import matplotlib.pyplot as plt
+
+    from engineeringkit.aerodynamics import fanno_flow, lifting_line, panel_method
+    from engineeringkit.aerodynamics.visualizers import (
+        plot_duct_flow,
+        plot_pressure_coefficient,
+        plot_spanwise_loading,
+        plot_theta_beta_mach,
+    )
+
+    plt.close("all")
+    _, ax = plt.subplots()
+    cl = np.linspace(-0.5, 1.5, 81)
+    assert plot_drag_polar(cl, drag_polar(cl, 0.02, 8, 0.8), ax=ax) is ax and ax.get_legend() is None
+    assert plot_airfoil(naca4_airfoil("4412"), ax=ax) is ax
+    assert plot_theta_beta_mach([1.5, 3.0], ax=ax) is ax
+    assert plot_duct_flow(fanno_flow(np.linspace(0.3, 3.0, 50)), ax=ax) is ax
+    assert plot_spanwise_loading(lifting_line(8.0, 1.0, 0.1), ax=ax) is ax
+    assert plot_pressure_coefficient(panel_method(naca4_airfoil("2412", 41), 0.05), ax=ax) is ax
+    _, axes = plt.subplots(1, 3)
+    assert plot_atmosphere(isa_atmosphere(np.linspace(0, 20000, 41)), axes=axes) is axes
+    assert len(plt.get_fignums()) == 2
+    plt.close("all")

@@ -63,11 +63,12 @@ by using SciPy trapezoid for stress-strain integration.
 Coverage gate
 -------------
 
-The release suite covers all executable production statements. Coverage excludes
-only test code; production validation, plotting, constants and unit helpers are
-included. The report's fail_under=100 gate fails on any missed statement. This
-is statement coverage; branch coverage is not configured. An executed statement
-can still contain an error or rely on an invalid model assumption, so analytical
+The test suite covers all executable production statements and branches: every
+``if`` and loop is seen taking each way out. Coverage excludes only test code;
+production validation, plotting, constants and unit helpers are included, and no
+production code carries a coverage-ignore pragma. The report's fail_under=100
+gate fails on any missed statement or branch. An executed branch can still
+contain an error or rely on an invalid model assumption, so analytical
 benchmarks and the domain guides remain essential.
 
 Reproducing the checks

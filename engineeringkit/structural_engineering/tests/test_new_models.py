@@ -99,6 +99,11 @@ def test_method_of_joints_rejects_indeterminate_and_stalled_trusses():
     # two collinear bars pinned at both ends: every joint has too many or dependent unknowns
     with pytest.raises(ValueError, match="stalls"):
         s.method_of_joints([[0, 0], [1, 0], [2, 0]], ((0, 1), (1, 2)), [0, 0, 0, -1, 0, 0], [0, 1, 4, 5])
+    # Maxwell's count is zero, but the reactions cannot resist every rigid-body motion.
+    triangle, bars = [[0, 0], [4, 0], [2, 3]], ((0, 1), (1, 2), (0, 2))
+    for supports in ([1, 3, 5], [0, 1, 2]):  # three parallel rollers; three reactions through joint 0
+        with pytest.raises(ValueError, match="improper"):
+            s.method_of_joints(triangle, bars, [0, 0, 0, 0, 0, -10], supports)
 
 
 def test_truss_conditioning_diagnostics():

@@ -17,6 +17,8 @@ def test_classical_first_order_responses_and_frequency():
     w, mag, phase = c.bode(sys, [2])
     assert np.isclose(mag[0], 20 * np.log10(1 / np.sqrt(2)))
     assert np.isclose(phase[0], -45)
+    w, mag, _ = c.bode(sys)  # SciPy's own grid
+    np.testing.assert_allclose(mag, -10 * np.log10(1 + (w / 2) ** 2), atol=1e-10)
     np.testing.assert_allclose(c.nyquist(sys, [2]), [0.5 - 0.5j])
     ss = c.state_space([[-2]], [[2]], [[1]], [[0]])
     assert (-ss.C @ np.linalg.solve(ss.A, ss.B) + ss.D).item() == 1

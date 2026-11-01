@@ -145,17 +145,18 @@ python -m build
 
 ## Coverage requirement
 
-Run the suite with production statement coverage:
+Run the suite with production statement and branch coverage:
 
 ```bash
 MPLBACKEND=Agg python -m pytest --cov=engineeringkit --cov-report=term-missing
 ```
 
-The report enforces 100% statement coverage. Test modules are excluded from the
-coverage denominator; all production modules, private validation helpers,
-constants, units, plotting and integration code are included. No production
-statements are marked with coverage-ignore pragmas. This measures statement
-execution, not 100% branch coverage or proof of scientific correctness.
+The report enforces 100% statement and branch coverage: every statement runs,
+and every `if` and loop is seen taking each way out. Test modules are excluded
+from the coverage denominator; all production modules, private validation
+helpers, constants, units, plotting and integration code are included. No
+production code is marked with coverage-ignore pragmas. Coverage measures
+execution, not scientific correctness.
 
 ## Documentation navigation
 

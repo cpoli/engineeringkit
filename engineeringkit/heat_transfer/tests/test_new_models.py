@@ -152,6 +152,8 @@ def test_cylinder_and_tube_bank_correlations():
     V = h.tube_bank_max_velocity(1.0, 0.01, 0.03, 0.005, "staggered")
     assert V == pytest.approx(0.03 / (2 * (np.hypot(0.005, 0.015) - 0.01)))
     assert h.tube_bank_max_velocity(1.0, 0.01, 0.03, 0.03, "staggered") == pytest.approx(1.5)
+    # Aligned: only the transverse gap counts, however tight the rows.
+    assert h.tube_bank_max_velocity(1.0, 0.01, 0.03, 0.005) == pytest.approx(1.5)
 
 
 @pytest.mark.parametrize(

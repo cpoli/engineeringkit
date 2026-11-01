@@ -180,9 +180,10 @@ def neuber_notch_stress(nominal_stress, Kt, E, sigma_y, n, offset=0.002):
 
     Notes
     -----
-    Newton's method from the elastic stress :math:`K_t S` converges
-    monotonically, since :math:`\sigma\varepsilon(\sigma)` is increasing and
-    convex. Inputs are raw SI numbers with no dimensional metadata; see
+    Newton's method in :math:`\ln\sigma` from the elastic stress
+    :math:`K_t S` converges monotonically and in a few steps for any
+    :math:`n`, since :math:`\ln(\sigma\varepsilon)` is increasing, convex
+    and nearly linear in :math:`\ln\sigma`. Inputs are raw SI numbers with no dimensional metadata; see
     :doc:`/guides/materials`.
 
     References
@@ -203,17 +204,21 @@ def neuber_notch_stress(nominal_stress, Kt, E, sigma_y, n, offset=0.002):
     _interval("n", n, 1, np.inf)
     S = np.asarray(nominal_stress, float)
     elastic = np.asarray(Kt) * np.abs(S)
-    target = elastic * elastic / E
-    # sigma = 0 only where S = 0, which is already the root; dividing by 1 there keeps the step zero.
-    sigma = elastic * np.ones(np.broadcast(elastic, E, sigma_y, n, offset).shape)
-    for _ in range(100):
-        eps = ramberg_osgood_strain(sigma, E, sigma_y, n, offset)
-        plastic = eps - sigma / E
-        slope = 2 * sigma / E + plastic * (n + 1)
-        step = (sigma * eps - target) / np.where(slope > 0, slope, 1)
-        sigma = sigma - step
-        if np.all(np.abs(step) <= 1e-12 * np.asarray(sigma_y)):
-            break
+    n = np.asarray(n, float)
+    log_E, log_sigma_y, log_offset = np.log(E), np.log(sigma_y), np.log(offset)
+    # Newton on u = ln(sigma). sigma = 0 only where S = 0, which is already the root;
+    # solving for sigma = 1 there instead keeps the logarithms finite.
+    loaded = elastic > 0
+    u = np.log(np.where(loaded, elastic, 1.0)) * np.ones(np.broadcast(elastic, E, sigma_y, n, offset).shape)
+    target = 2 * u - log_E
+    step = np.inf
+    while np.any(np.abs(step) > 1e-12):
+        elastic_part = 2 * u - log_E
+        plastic_part = log_offset + (n + 1) * u - n * log_sigma_y
+        log_work = np.logaddexp(elastic_part, plastic_part)
+        step = (log_work - target) / (2 * np.exp(elastic_part - log_work) + (n + 1) * np.exp(plastic_part - log_work))
+        u = u - step
+    sigma = np.where(loaded, np.exp(u), 0.0)
     strain = ramberg_osgood_strain(sigma, E, sigma_y, n, offset)
     sign = np.where(S < 0, -1.0, 1.0)
     return sign * sigma, sign * strain

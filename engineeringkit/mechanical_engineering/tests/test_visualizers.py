@@ -62,3 +62,23 @@ def test_curriculum_result_plots():
     fig, axs = m.cam_follower_motion(np.linspace(0, 1, 11), 0.01, 1.0).plot()
     assert len(axs) == 4 and axs[0].get_title() == "cycloidal rise"
     plt.close("all")
+
+
+def test_plots_draw_on_the_axes_given():
+    plt.close("all")
+    _, ax = plt.subplots()
+    assert plot_mode_shapes([[1.0, -0.5], [0.2, 1.0]], [10.0, 20.0], ax=ax) is ax
+    assert plot_linkage([[0, 0], [1, 1], [2, 0]], ax=ax) is ax
+    for result in (
+        m.bolted_joint(1e9, 3e9, 20e3, 8e3),
+        m.fourbar_kinematics(1.0, 3.0, 2.0, 3.0, np.linspace(0, 2 * np.pi, 13), 1.0),
+        m.slider_crank_kinematics(0.05, 0.2, np.linspace(0, 2 * np.pi, 13), 100.0),
+    ):
+        assert result.plot(ax=ax)[1] is ax
+    _, polar = plt.subplots(subplot_kw={"projection": "polar"})
+    balance = m.balance_rotating_masses([1.0, 2.0], [0.1, 0.1], [0.0, 2.0], [0.1, 0.3], [0.0, 0.4])
+    assert balance.plot(ax=polar)[1] is polar
+    _, axs = plt.subplots(4, 1)
+    assert m.cam_follower_motion(np.linspace(0, 1, 11), 0.01, 1.0).plot(axs=axs)[1] is axs
+    assert len(plt.get_fignums()) == 3
+    plt.close("all")

@@ -46,3 +46,16 @@ def test_plot_weibull_probability_points_line_and_errors():
         with pytest.raises(ValueError):
             plot_weibull_probability(times, f, **kwargs)
     plt.close("all")
+
+
+def test_plots_draw_on_the_axes_given():
+    from engineeringkit.reliability import bayesian_failure_rate, fmea_ranking
+
+    plt.close("all")
+    _, ax = plt.subplots()
+    t = np.linspace(0.1, 5, 11)
+    assert plot_hazard(t, weibull_hazard(t, 2, 2), ax=ax) is ax
+    assert fmea_ranking({"a": (3, 5, 4), "b": (5, 4, 3)}).plot(ax=ax)[1] is ax
+    assert bayesian_failure_rate(1.5, 1e6, 0, 3e6).plot(ax=ax)[1] is ax
+    assert len(plt.get_fignums()) == 1
+    plt.close("all")

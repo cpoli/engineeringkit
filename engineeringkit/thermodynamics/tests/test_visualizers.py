@@ -59,3 +59,15 @@ def test_cycle_results_plot_their_state_diagrams():
     assert ax is given and ax.get_yscale() == "log" and len(ax.lines) == 3
     assert len(vapor_compression_cycle(0.2e6, 1e6).plot()[1].lines) == 3
     plt.close("all")
+
+
+def test_plots_draw_on_the_axes_given():
+    plt.close("all")
+    _, ax = plt.subplots()
+    v = np.linspace(1.0, 0.125, 20)
+    assert plot_pv_diagram(v, isentropic_pressure_volume(1e5, 1.0, v), ax=ax) is ax and ax.get_legend() is None
+    assert plot_ts_diagram([0.0, 1.0], [300.0, 300.0], ax=ax, dome=False) is ax
+    assert rankine_cycle(15e6, 10e3, 873.15).plot(ax=ax)[1] is ax
+    assert brayton_cycle(8.0, 300.0, 1300.0).plot(ax=ax)[1] is ax
+    assert len(plt.get_fignums()) == 1
+    plt.close("all")

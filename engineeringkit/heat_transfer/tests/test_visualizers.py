@@ -58,3 +58,17 @@ def test_conduction_2d_and_enclosure_results():
     fig, ax = enclosure.plot()
     assert len(ax.patches) == 2
     plt.close(fig)
+
+
+def test_plots_draw_on_the_axes_given():
+    from engineeringkit.heat_transfer import composite_wall, conduction_2d, radiation_enclosure
+
+    plt.close("all")
+    _, ax = plt.subplots()
+    assert plot_temperature_profiles(np.linspace(0, 1, 5), [300, 310, 320, 310, 300], ax=ax) is ax
+    assert composite_wall(400, 300, [(0.1, 1), (0.2, 2)]).plot(ax=ax)[1] is ax
+    assert conduction_2d(1.0, 0.5, 9, 5, 300.0, 310.0, 320.0, 400.0).plot(ax=ax)[1] is ax
+    enclosure = radiation_enclosure([500.0, 300.0], [0.8, 0.8], [1.0, 1.0], [[0.0, 1.0], [1.0, 0.0]])
+    assert enclosure.plot(ax=ax)[1] is ax
+    assert len(plt.get_fignums()) == 1
+    plt.close("all")

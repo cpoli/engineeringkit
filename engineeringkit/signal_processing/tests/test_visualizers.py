@@ -35,3 +35,12 @@ def test_plot_pole_zero_places_roots_in_z():
     with pytest.raises(ValueError):
         plot_pole_zero([0.0], [1.0])
     plt.close("all")
+
+
+def test_plot_pole_zero_draws_on_the_axes_given():
+    plt.close("all")
+    plt.close("all")
+    _, ax = plt.subplots()
+    assert plot_pole_zero([1.0, 0.0, -1.0], [1.0, -0.5], ax=ax) is ax
+    assert len(plt.get_fignums()) == 1
+    plt.close("all")

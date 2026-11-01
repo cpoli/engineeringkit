@@ -162,6 +162,15 @@ def test_neuber_rule_conserves_the_elastic_energy_product():
     assert abs(stress[-1]) < sy * 1.2 < Kt * S[-1]
 
 
+@pytest.mark.parametrize("n", [200.0, 1e4])
+def test_neuber_rule_converges_for_a_nearly_flat_plastic_curve(n):
+    # Newton in sigma took about n steps from the elastic guess here; in ln(sigma) it takes a few.
+    E, sy, Kt, S = 200e9, 100e6, 2.0, 200e6
+    stress, strain = m.neuber_notch_stress(S, Kt, E, sy, n)
+    assert abs(stress * strain / ((Kt * S) ** 2 / E) - 1) < 1e-10
+    assert sy < stress < 1.01 * sy
+
+
 def test_principal_stresses_and_three_dimensional_von_mises():
     p = m.principal_stresses(50.0, -20.0, 10.0, txy=30.0, tyz=-15.0, tzx=5.0)
     assert np.isclose(p.sum(), 40.0) and np.all(np.diff(p) <= 0)

@@ -46,3 +46,18 @@ def test_mohr_circle_marks_faces_and_principal_stresses():
     assert ax.yaxis_inverted()
     assert len(ax.get_legend().get_texts()) == 2
     plt.close("all")
+
+
+def test_plots_draw_on_the_axes_given():
+    plt.close("all")
+    _, ax = plt.subplots()
+    assert plot_truss([[0, 0], [1, 0], [0.5, 1]], ((0, 1), (0, 2), (1, 2)), ax=ax) is ax
+    md = s.moment_distribution([(0, 1, 5.0, 1e7, 1e3), (1, 2, 5.0, 1e7, 1e3)], fixed_joints=(0, 2))
+    assert md.plot(ax=ax)[1] is ax
+    assert s.angle_section(0.15, 0.1, 0.01).plot(ax=ax)[1] is ax
+    # A second circle on the same axes keeps the shear axis pointing down.
+    _, ax = plt.subplots()
+    plot_mohr_circle(80e6, -20e6, 30e6, ax=ax)
+    assert plot_mohr_circle(10e6, 40e6, -5e6, ax=ax) is ax and ax.yaxis_inverted()
+    assert len(plt.get_fignums()) == 2
+    plt.close("all")

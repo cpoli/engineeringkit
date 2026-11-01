@@ -205,13 +205,12 @@ def moment_distribution(members, fixed_joints=(), *, tol=1e-10, max_iterations=1
         history.append(worst)
         if worst <= tol * scale:
             return MomentDistributionResult(moments, iteration, np.array(history))
-        if iteration == max_iterations:
-            break
-        distributed = np.zeros_like(moments)
-        for joint, value in unbalanced.items():
-            at = ends == joint
-            distributed[at] = -factors[at] * value
-        moments = moments + distributed + 0.5 * distributed[:, ::-1]
+        if iteration < max_iterations:
+            distributed = np.zeros_like(moments)
+            for joint, value in unbalanced.items():
+                at = ends == joint
+                distributed[at] = -factors[at] * value
+            moments = moments + distributed + 0.5 * distributed[:, ::-1]
     raise RuntimeError(f"moment distribution did not converge in {max_iterations} cycles")
 
 

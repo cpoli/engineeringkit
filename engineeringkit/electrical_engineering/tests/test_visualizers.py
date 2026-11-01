@@ -48,3 +48,17 @@ def test_result_plots():
     _, ax = plt.subplots()
     assert nodal.plot(ax=ax)[1] is ax
     plt.close("all")
+
+
+def test_plots_draw_on_the_axes_given():
+    plt.close("all")
+    _, ax = plt.subplots()
+    flow = e.gauss_seidel_load_flow(e.admittance_matrix(2, [(0, 1, 0.1j)]), [0.5], [0.1])
+    mesh = e.mesh_analysis(1, [(1, 0, 2.0)], voltage_sources=[(1, 0, 4.0)])
+    swing = e.swing_response(5.0, 1.0, 2.0, 0.0, 2.0, 0.1, 1.0)
+    for result in (flow, mesh, swing, e.SeriesRLC(2, 1, 0.25).step_response()):
+        assert result.plot(ax=ax)[1] is ax
+    assert plot_phasors(e.phase_components(0, 1, 0), ax=ax) is ax
+    assert plot_smith_chart(0.5, ax=ax) is ax
+    assert len(plt.get_fignums()) == 1
+    plt.close("all")

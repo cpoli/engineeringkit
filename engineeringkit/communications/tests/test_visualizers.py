@@ -62,3 +62,23 @@ def test_huffman_code_plot():
 
     fig, ax = huffman_code([0.5, 0.3, 0.2, 0.0]).plot()
     assert ax.figure is fig and len(ax.patches) == 4 + 3
+
+
+def test_plots_draw_on_the_axes_given():
+    import matplotlib.pyplot as plt
+
+    from engineeringkit.communications import half_wave_dipole_pattern, huffman_code
+    from engineeringkit.communications.visualizers import plot_antenna_pattern, plot_eye_diagram
+
+    plt.close("all")
+    _, ax = plt.subplots()
+    assert plot_constellation(qpsk([0, 0, 0, 1, 1, 0, 1, 1]), ax=ax) is ax and ax.get_legend() is None
+    x = np.linspace(0, 10, 11)
+    assert plot_ber_curve(x, ber_bpsk_awgn(10 ** (x / 10)), ax=ax) is ax and ax.get_legend() is None
+    assert plot_eye_diagram(np.repeat(bpsk([0, 1, 1, 0, 1, 0]), 8), 8, ax=ax) is ax
+    assert huffman_code([0.5, 0.3, 0.2]).plot(ax=ax)[1] is ax
+    _, polar = plt.subplots(subplot_kw={"projection": "polar"})
+    theta = np.linspace(0, 2 * np.pi, 361)
+    assert plot_antenna_pattern(theta, half_wave_dipole_pattern(theta) ** 2, ax=polar) is polar
+    assert len(plt.get_fignums()) == 2
+    plt.close("all")

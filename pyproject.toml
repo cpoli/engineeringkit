@@ -55,6 +55,7 @@ ignore=["E741"] # Conventional engineering symbols I (inertia), l (length).
 engineeringkit=["py.typed"]
 
 [tool.coverage.run]
+branch=true
 omit=["*/test_*.py", "*/tests/*"]
 [tool.coverage.report]
 show_missing=true

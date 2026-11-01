@@ -104,7 +104,8 @@ def method_of_joints(nodes, members, loads, fixed_dofs):
     Raises
     ------
     ValueError
-        If Maxwell's count is not zero, or if the procedure stalls because
+        If Maxwell's count is not zero, if three reactions are parallel or
+        concurrent (an unstable truss), or if the procedure stalls because
         every remaining joint has three or more unknowns, or two unknown
         members that are collinear (use :class:`PlanarTruss`, or the method
         of sections, for such trusses).
@@ -140,9 +141,10 @@ def method_of_joints(nodes, members, loads, fixed_dofs):
         rows[1, 1::2] = 1.0
         rows[2, 0::2], rows[2, 1::2] = -xy[:, 1], xy[:, 0]
         G = rows @ A[:, m:]
-        if np.linalg.matrix_rank(G) == 3:
-            x[m:] = np.linalg.solve(G, rows @ rhs)
-            known[m:] = True
+        if np.linalg.matrix_rank(G) < 3:
+            raise ValueError("the supports are improper: the three reactions are parallel or concurrent")
+        x[m:] = np.linalg.solve(G, rows @ rhs)
+        known[m:] = True
     order: list[int] = []
     remaining = list(range(len(xy)))
     while remaining:

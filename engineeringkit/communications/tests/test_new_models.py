@@ -62,6 +62,9 @@ def test_ofdm_cyclic_prefix_diagonalises_a_multipath_channel():
     equalised = c.ofdm_demodulate(rx, n, cp).reshape(-1, n) / response
     assert np.allclose(equalised.reshape(-1), symbols)
     assert np.mean(np.abs(tx[cp : cp + n]) ** 2) == pytest.approx(np.mean(np.abs(symbols[:n]) ** 2))
+    # Without a cyclic prefix the samples are just the blockwise inverse DFT.
+    bare = c.ofdm_modulate(symbols, n)
+    assert bare.size == symbols.size and np.allclose(c.ofdm_demodulate(bare, n), symbols)
 
 
 @pytest.mark.parametrize(

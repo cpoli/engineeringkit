@@ -14,6 +14,14 @@ section, so keep that heading format.
   and README no longer describe the package as unreleased (ROADMAP A4).
 - CHANGELOG.md records the dated gallery example titles and the
   Linux-only exercise fix under 0.2.0, where they shipped (ROADMAP A5).
+- CI enforces 100% branch coverage as well as statement coverage
+  (ROADMAP B1).
+- `neuber_notch_stress` converges for any hardening exponent: it used
+  to stop at 100 Newton steps and return a wrong stress for a nearly
+  flat curve (large n), and now iterates on ln σ.
+- `method_of_joints` raises "the supports are improper" when three
+  reactions are parallel or concurrent, instead of a misleading "stalls"
+  error.
 
 ## [0.2.0] - 2026-10-30
 

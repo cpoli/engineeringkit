@@ -52,3 +52,21 @@ def test_operating_point_plot():
     assert len(ax.get_lines()) == 3
     assert np.allclose(ax.get_lines()[2].get_xydata(), [[op.flow, op.head]])
     plt.close(fig)
+
+
+def test_plots_draw_on_the_axes_given():
+    from engineeringkit.fluid_engineering import pump_operating_point
+
+    plt.close("all")
+    _, ax = plt.subplots()
+    assert plot_moody_diagram(0.001, ax=ax) is ax
+    assert plot_grade_lines(np.linspace(0, 100, 5), np.zeros(5), np.linspace(10, 8, 5), np.full(5, 0.2), ax=ax) is ax
+    assert hardy_cross([1.0, 4.0], [[1, -1]], [0.15, 0.15]).plot(ax=ax)[1] is ax
+    assert pump_operating_point(40.0, 1000.0, 10.0, 2000.0).plot(ax=ax)[1] is ax
+    # The pipe length L forms the group L/D, whose rho, V and mu exponents are zero and left unlabelled.
+    pi = buckingham_pi({"rho": {"M": 1, "L": -3}, "V": {"L": 1, "T": -1}, "D": {"L": 1}, "mu": {"M": 1, "L": -1, "T": -1}, "L": {"L": 1}})
+    _, ax = plt.subplots()
+    assert pi.plot(ax=ax)[1] is ax
+    assert 0 < len(ax.texts) == np.count_nonzero(pi.exponents) < pi.exponents.size
+    assert len(plt.get_fignums()) == 2
+    plt.close("all")

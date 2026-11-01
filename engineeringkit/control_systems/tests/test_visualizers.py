@@ -65,3 +65,21 @@ def test_plot_phase_portrait_checks_shapes_and_labels():
     with pytest.raises(ValueError):
         plot_phase_portrait([0, 1], [0])
     plt.close("all")
+
+
+def test_plots_draw_on_the_axes_given():
+    from engineeringkit.control_systems.visualizers import plot_nichols, plot_phase_portrait
+
+    plt.close("all")
+    _, ax = plt.subplots()
+    t, y = step_response(G, np.linspace(0, 5, 51))
+    assert plot_response(t, y, ax=ax) is ax
+    assert plot_nyquist(G, ax=ax) is ax and ax.get_legend() is None
+    assert plot_root_locus([1], [1, 3, 2, 0], np.linspace(0, 10, 11), ax=ax) is ax
+    assert plot_nichols(transfer_function([1], [1, 1, 0]), ax=ax) is ax
+    assert plot_phase_portrait([1, 0, -1], [0, -1, 0], ax=ax) is ax
+    _, axes = plt.subplots(2, 1)
+    ax_mag, ax_phase = plot_bode(G, axes=axes)
+    assert ax_mag is axes[0] and ax_phase is axes[1] and ax_mag.get_legend() is None
+    assert len(plt.get_fignums()) == 2
+    plt.close("all")

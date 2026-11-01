@@ -37,6 +37,8 @@ def test_nodal_analysis_current_sources_and_superposition():
     r = e.nodal_analysis(2, [(1, 0, 1.0), (2, 0, 1.0)], current_sources=[(1, 2, 1.0)])
     np.testing.assert_allclose(r.voltages, [0, -1, 1])
     assert r.kcl_residual < 1e-15
+    # A source drawing current out of a node into ground pulls it below ground.
+    np.testing.assert_allclose(e.nodal_analysis(1, [(1, 0, 1.0)], current_sources=[(1, 0, 1.0)]).voltages, [0, -1])
 
 
 @pytest.mark.parametrize(
@@ -201,6 +203,8 @@ def test_mesh_analysis_matches_nodal_analysis():
     # A source on a shared branch drives the two meshes in opposite senses.
     r = e.mesh_analysis(2, [(1, 0, 1.0), (2, 0, 1.0)], voltage_sources=[(1, 2, 2.0)])
     np.testing.assert_allclose(r.mesh_currents, [2.0, -2.0])
+    # A source on the outer branch, entered from the outside, drives its mesh backwards.
+    assert e.mesh_analysis(1, [(1, 0, 2.0)], voltage_sources=[(0, 1, 4.0)]).mesh_currents[0] == -2.0
 
 
 @pytest.mark.parametrize(
