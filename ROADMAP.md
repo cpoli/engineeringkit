@@ -79,9 +79,7 @@ them just before editing and change only your item's lines.
 
 ### A. Repository hygiene
 
-**A5. Add an `## [Unreleased]` section to CHANGELOG.md** for the two
-commits after `v0.1.0` (dated example titles; Linux-only exercise check),
-so the release workflow and the "Done" rule above have somewhere to write.
+All items are done; see Done.
 
 ### B. Quality gates
 
@@ -247,6 +245,12 @@ CHANGELOG.md.
   `docs/source/validation.rst`. `limitations.rst` no longer says nothing
   is on PyPI, and the README's "Release scope (v0.1)" is now "Scope and
   checks".
+
+- **A5. Unreleased section in CHANGELOG.md** (2026-10-31). The
+  `## [Unreleased]` heading went in with 0.2.0. The two commits the item
+  named (60ee4ee5, dated gallery example titles; 1f8cda4b, the Linux-only
+  control exercise check) shipped in 0.2.0, so their lines are under
+  `## [0.2.0]`, not Unreleased.
 
 ### 0.2.0 (2026-10-30)
 

@@ -12,6 +12,8 @@ section, so keep that heading format.
 - `VERIFICATION.md`, which described 0.1.0, is gone; the checks and
   today's numbers are in the validation page, and the limitations page
   and README no longer describe the package as unreleased (ROADMAP A4).
+- CHANGELOG.md records the dated gallery example titles and the
+  Linux-only exercise fix under 0.2.0, where they shipped (ROADMAP A5).
 
 ## [0.2.0] - 2026-10-30
 
@@ -302,6 +304,10 @@ section, so keep that heading format.
   Metropolis and Ulam 1949, MIL-P-1629 1949, Johnson 1951, Raiffa and
   Schlaifer 1961, Esary and Proschan 1963, Cohen 1965), each with its own
   gallery example. Existing calls are unchanged.
+- Each history breakthrough's gallery example titles end in its date, as
+  in earthsciencekit and blockchainkit.
+- The control systems exercise prints a pole's real part the same on
+  every platform; it printed `-0.` on Linux and `0.` on macOS.
 
 ## [0.1.0] - 2026-10-18
 
