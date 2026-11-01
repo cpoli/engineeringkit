@@ -82,12 +82,6 @@ All items are done; see Done.
 
 ### B. Quality gates
 
-**B2. Test the supported dependency range.** `pyproject.toml` promises
-NumPy ≥ 1.24, SciPy ≥ 1.10 and Matplotlib ≥ 3.6, but CI only installs the
-latest. Add a job on Python 3.10 with those minimum versions pinned, and
-a `windows-latest` row to the test matrix (students use Windows). Fix
-what fails or raise the floors. *Done when* both jobs are green.
-
 **B4. Textbook reference problems, one domain per session.** 0.1.0 named
 "reference problems" as the next step after statement coverage, and it
 was never scheduled. For the domain named in the prompt, add
@@ -223,6 +217,18 @@ Finished items move here with the release they shipped in, as in
 CHANGELOG.md.
 
 ### Unreleased
+
+- **B2. Dependency floors and Windows tested** (2026-10-31). CI has a
+  `test-min-deps` job on Python 3.10 with NumPy 1.24, SciPy 1.10 and
+  Matplotlib 3.6 pinned (and pyparsing 3.0, which matplotlib 3.6 needs
+  under warnings-as-errors), and `windows-latest` joins the test matrix.
+  The floors hold: only two tests and two gallery examples called
+  `np.trapezoid` (NumPy 2.0) and now use SciPy's; all tests and all 327
+  examples pass locally at the floors. For Windows, four test
+  `read_text()` calls on UTF-8 pages now pass `encoding="utf-8"` (cp1252
+  is Windows' default), and `MPLBACKEND` moved to the job's `env`, since
+  PowerShell rejects `VAR=x cmd`. The Windows row has not run yet: it
+  first runs on the next push.
 
 - **B1. Branch coverage** (2026-10-31). `branch = true` is set, so the
   CI coverage job's `fail_under = 100` now fails on a partial branch. By

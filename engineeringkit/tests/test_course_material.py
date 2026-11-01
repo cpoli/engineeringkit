@@ -91,7 +91,7 @@ def test_pages_exist():
 
 @pytest.mark.parametrize("page", [p for p in PAGES if p.stem != "index"], ids=lambda p: f"{p.parent.name}/{p.stem}")
 def test_page_runs_and_prints_what_it_says(page):
-    blocks = list(_plot_blocks(page.read_text()))
+    blocks = list(_plot_blocks(page.read_text(encoding="utf-8")))
     assert blocks, f"{page.name} has no executed code"
     assert blocks[0][0].get("context") == "reset", f"{page.name}: the first block must reset the context"
     namespace = {}
@@ -104,7 +104,7 @@ def test_page_runs_and_prints_what_it_says(page):
 
 
 def test_quickstart_notebook_runs():
-    notebook = json.loads(NOTEBOOK.read_text())
+    notebook = json.loads(NOTEBOOK.read_text(encoding="utf-8"))
     assert "colab.research.google.com" in "".join(notebook["cells"][0]["source"])
     namespace = {}
     for cell in notebook["cells"]:

@@ -23,7 +23,7 @@ _HEADING = re.compile(r"^(?P<title>[^\n]+)\n-{3,}\n", re.M)
 
 
 def _breakthroughs(domain):
-    text = (HISTORY / f"{domain}_breakthroughs.rst").read_text()
+    text = (HISTORY / f"{domain}_breakthroughs.rst").read_text(encoding="utf-8")
     matches = list(_HEADING.finditer(text))
     sections = []
     for i, match in enumerate(matches):

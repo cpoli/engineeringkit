@@ -9,6 +9,7 @@ import numpy as np
 import pytest
 from scipy import fft as sfft
 from scipy import signal
+from scipy.integrate import trapezoid
 
 from engineeringkit import signal_processing as s
 
@@ -254,7 +255,7 @@ def test_yule_walker_recovers_an_ar2_process_and_its_spectrum():
     assert np.isclose(model.noise_variance, 1.0, rtol=0.03)
     f, P = model.psd(fs=2.0, n=4001)
     # The model spectrum integrates to the record's variance (it matches r_0).
-    assert np.isclose(np.trapezoid(P, f), np.var(x), rtol=1e-3)
+    assert np.isclose(trapezoid(P, f), np.var(x), rtol=1e-3)
     peak = f[np.argmax(P)]
     assert np.isclose(peak, np.arccos(1.5 * 1.9 / (4 * 0.9)) / np.pi, atol=0.005)
     summary = model.summary()

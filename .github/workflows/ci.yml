@@ -31,8 +31,11 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, macos-latest]
+        os: [ubuntu-latest, macos-latest, windows-latest]
         python-version: ["3.10", "3.11", "3.12", "3.13", "3.14"]
+    # Set here, not inline in `run`: Windows runs steps in PowerShell.
+    env:
+      MPLBACKEND: Agg
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-python@v7
@@ -42,12 +45,36 @@ jobs:
           cache: pip
       - run: pip install -e ".[test]"
       # fail_under = 100 in pyproject.toml makes the coverage report blocking.
-      - run: MPLBACKEND=Agg pytest -q --cov=engineeringkit --cov-report=term-missing
+      - run: pytest -q --cov=engineeringkit --cov-report=term-missing
       - name: Coverage summary
         if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.12'
         run: |
           echo "## Coverage" >> "$GITHUB_STEP_SUMMARY"
           coverage report --format=markdown >> "$GITHUB_STEP_SUMMARY"
+
+  test-min-deps:
+    # The test matrix installs the latest releases; this job holds every
+    # dependency at the floor pyproject.toml promises, on the oldest
+    # supported Python. Keep these pins in step with `dependencies`.
+    # pyparsing is matplotlib's: releases after 3.0 deprecate the API
+    # matplotlib 3.6 calls on import, which the warnings-as-errors suite
+    # would reject.
+    name: Test minimum dependencies (py3.10)
+    runs-on: ubuntu-latest
+    env:
+      MPLBACKEND: Agg
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.10"
+          cache: pip
+      - run: >-
+          pip install -e ".[test]"
+          "numpy==1.24.*" "scipy==1.10.*" "matplotlib==3.6.*"
+          "pyparsing==3.0.*"
+      - run: pip list
+      - run: pytest -q
 
   typecheck:
     name: Type check (mypy)

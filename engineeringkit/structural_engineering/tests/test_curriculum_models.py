@@ -10,7 +10,7 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
 import pytest
-from scipy.integrate import quad
+from scipy.integrate import quad, trapezoid
 
 from engineeringkit import structural_engineering as s
 
@@ -265,7 +265,7 @@ def test_lame_stresses_satisfy_equilibrium_and_boundary_conditions():
     # thin-wall limit: the mean hoop stress is p r / t with r the inner radius
     hoop_thin, long_thin = s.thin_wall_vessel_stresses(1e6, 1.0, 0.005)
     rr = np.linspace(1.0, 1.005, 101)
-    mean_hoop = np.trapezoid(s.thick_wall_cylinder_stresses(rr, 1.0, 1.005, 1e6)[1], rr) / 0.005
+    mean_hoop = trapezoid(s.thick_wall_cylinder_stresses(rr, 1.0, 1.005, 1e6)[1], rr) / 0.005
     assert np.isclose(mean_hoop, hoop_thin) and np.isclose(long_thin, hoop_thin / 2)
     assert s.thin_wall_vessel_stresses(1e6, 1.0, 0.005, "sphere") == pytest.approx((1e8, 1e8))
     with pytest.raises(ValueError):

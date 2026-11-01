@@ -22,6 +22,11 @@ section, so keep that heading format.
 - `method_of_joints` raises "the supports are improper" when three
   reactions are parallel or concurrent, instead of a misleading "stalls"
   error.
+- CI tests the dependency floors (Python 3.10 with NumPy 1.24, SciPy
+  1.10 and Matplotlib 3.6) and Windows. Two tests and two gallery
+  examples used `np.trapezoid`, which needs NumPy 2.0, and now use
+  `scipy.integrate.trapezoid`; the tests read UTF-8 pages with an
+  explicit encoding (ROADMAP B2).
 
 ## [0.2.0] - 2026-10-30
 

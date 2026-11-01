@@ -983,7 +983,7 @@ def _check_broadcasts(name, scalar=()):
 def _tested(name):
     """Whether any domain test calls ``name`` (functions still being written get their case with their tests)."""
     domain, attr = name.split(".")
-    sources = [path.read_text() for path in (Path(__file__).parents[1] / domain / "tests").glob("test_*.py")]
+    sources = [path.read_text(encoding="utf-8") for path in (Path(__file__).parents[1] / domain / "tests").glob("test_*.py")]
     return any(re.search(rf"\b{attr}\(", text) for text in sources)
 
 
