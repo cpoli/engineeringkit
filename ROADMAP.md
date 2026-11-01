@@ -79,22 +79,6 @@ them just before editing and change only your item's lines.
 
 ### A. Repository hygiene
 
-**A1. Commit or revert the pending working tree.** `docs.yml` and
-`release.yml` now run `cd docs && make html` and publish `docs/build/html`,
-but `docs/Makefile` and `docs/make.bat` are untracked. Pushing the
-workflows without them breaks the docs deploy and the release job. Review
-the diff (it also changes CLAUDE.md, AGENTS.md, README.md, VERIFICATION.md,
-`docs/README.md`, `conf.py`, `quickstart.rst`, `pyproject.toml` and four
-aerodynamics examples), commit what is intended, and drop the rest.
-*Done when* `git status` is clean and the Docs workflow is green on `main`.
-
-**A2. Stop generated plot images landing in the source tree.** Building the
-docs writes `<page>-N.png` files from `.. plot::` blocks into
-`docs/source/exercises/` and `docs/source/tutorials/`. Find out why
-(`plot_html_show_source_link`, `plot_working_directory` or the build
-target) and stop it; if that is not possible, add them to `.gitignore`.
-*Done when* a clean docs build leaves `git status` clean.
-
 **A4. Remove stale release and verification text.** `limitations.rst`
 ("Release status": nothing on PyPI, Colab and JupyterLite links do not
 work), `VERIFICATION.md` (398 tests, 1878 statements, "JupyterLite launch
@@ -258,7 +242,22 @@ CHANGELOG.md.
 
 ### Unreleased
 
+- **A2. No generated plot images in the source tree** (2026-10-31).
+  The current build (matplotlib 3.11 plot directive) writes `.. plot::`
+  figures only under `docs/build/plot_directive/` and `_images/`; neither
+  `make html` nor `make html-noplot` puts anything in `docs/source/`. The
+  14 `<page>-N.png` files committed in c953e721 were stale leftovers from
+  an earlier build that no page referenced, so they are deleted, and
+  `.gitignore` ignores `<page>-N.png` in `exercises/` and `tutorials/` in
+  case an older toolchain writes them again.
+
 ### 0.2.0 (2026-10-30)
+
+- **A1. Pending working tree committed** (2026-10-30). `docs/Makefile`
+  and `docs/make.bat` went in with the `docs.yml` and `release.yml`
+  changes that call `cd docs && make html` (428268e9), and the 14
+  exercise and tutorial plot PNGs followed in c953e721. `git status` is
+  clean and the Docs workflow is green on `main` (run 41043990280).
 
 - **G1. Release 0.2.0** (2026-10-30). Tagged `v0.2.0`; PyPI, the GitHub
   Release and the docs rebuild came from `release.yml`, and Zenodo minted

@@ -24,3 +24,7 @@ docs/source/_generated/
 docs/source/.jupyterlite.doit.db
 docs/source/_contents/
 docs/source/jupyterlite_contents/
+
+# .. plot:: figures belong under docs/build/; keep any stray copies out of the source tree
+docs/source/exercises/*-[0-9]*.png
+docs/source/tutorials/*-[0-9]*.png

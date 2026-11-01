@@ -5,6 +5,11 @@ section, so keep that heading format.
 
 ## [Unreleased]
 
+- The 14 generated `<page>-N.png` plot images under
+  `docs/source/exercises/` and `docs/source/tutorials/` are deleted and
+  ignored; the docs build writes those figures under `docs/build/`
+  (ROADMAP A2).
+
 ## [0.2.0] - 2026-10-30
 
 - A weekly `Linkcheck` workflow checks every external link in the docs,
