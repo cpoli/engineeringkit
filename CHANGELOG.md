@@ -9,6 +9,9 @@ section, so keep that heading format.
   `docs/source/exercises/` and `docs/source/tutorials/` are deleted and
   ignored; the docs build writes those figures under `docs/build/`
   (ROADMAP A2).
+- `VERIFICATION.md`, which described 0.1.0, is gone; the checks and
+  today's numbers are in the validation page, and the limitations page
+  and README no longer describe the package as unreleased (ROADMAP A4).
 
 ## [0.2.0] - 2026-10-30
 

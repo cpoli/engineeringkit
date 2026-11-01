@@ -59,12 +59,11 @@ range of validity without any warning. The probabilistic models in
 ``reliability`` are not forecasts for a real system unless they are fitted
 to data from it.
 
-Release status
---------------
+Releases
+--------
 
-Nothing has been released to PyPI yet, so the Colab and JupyterLite links
-of the tutorials and quickstart notebook do not work until the first
-release. Releases are published to PyPI only from a ``vX.Y.Z`` tag
-(``.github/workflows/release.yml``). The CI configuration shows which
-checks run, not that the multi-version matrix has passed on a given
-commit.
+Releases are published to PyPI only from a ``vX.Y.Z`` tag
+(``.github/workflows/release.yml``), so ``main`` can be ahead of the
+latest release. The Colab and JupyterLite notebooks install the latest
+release from PyPI, not ``main``. The CI configuration shows which checks
+run, not that the multi-version matrix has passed on a given commit.

@@ -108,14 +108,15 @@ Re = reynolds_number(998, 2, 0.05, 1.002e-3)
 f = colebrook_friction_factor(Re, 1e-4)
 ```
 
-## Release scope (v0.1)
+## Scope and checks
 
-All twelve domains include executable educational models. Version 0.1 adds
-physical input validation, independent conservation/analytical/distribution
-benchmarks, public scalar API units, and twelve detailed model guides. It also
-corrects RLC current response, FM phase integration and unsigned modulation,
-and improves numerical limiting cases. See `docs/source/guides/` for model
-assumptions and `VERIFICATION.md` for the actual test/build evidence.
+Every domain has physical input validation, SI units in the public API, a
+model guide in `docs/source/guides/` with its assumptions, and tests
+against analytical values, conservation balances and benchmarks.
+[Validation](https://cpoli.github.io/engineeringkit/validation.html) lists
+that evidence and how to rerun the checks, and
+[Limitations](https://cpoli.github.io/engineeringkit/limitations.html)
+lists what is still open.
 
 Documentation: <https://cpoli.github.io/engineeringkit/>. To cite
 engineeringkit, use `CITATION.cff` (GitHub's "Cite this repository").

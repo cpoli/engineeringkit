@@ -79,16 +79,6 @@ them just before editing and change only your item's lines.
 
 ### A. Repository hygiene
 
-**A4. Remove stale release and verification text.** `limitations.rst`
-("Release status": nothing on PyPI, Colab and JupyterLite links do not
-work), `VERIFICATION.md` (398 tests, 1878 statements, "JupyterLite launch
-is intentionally not configured for this unpublished package") and any
-README or guide text written before 0.1.0 describe a state that no longer
-holds. Rewrite `VERIFICATION.md` as a short reproducible check list with
-today's numbers, or fold it into `docs/source/validation.rst` and delete
-it. *Done when* `grep -ri "unpublished\|not been released\|first release"`
-finds nothing stale.
-
 **A5. Add an `## [Unreleased]` section to CHANGELOG.md** for the two
 commits after `v0.1.0` (dated example titles; Linux-only exercise check),
 so the release workflow and the "Done" rule above have somewhere to write.
@@ -250,6 +240,13 @@ CHANGELOG.md.
   an earlier build that no page referenced, so they are deleted, and
   `.gitignore` ignores `<page>-N.png` in `exercises/` and `tutorials/` in
   case an older toolchain writes them again.
+
+- **A4. Stale release and verification text removed** (2026-10-31).
+  `VERIFICATION.md` (0.1.0-era numbers) is deleted, and its check list,
+  with today's numbers, is "Reproducing the checks" in
+  `docs/source/validation.rst`. `limitations.rst` no longer says nothing
+  is on PyPI, and the README's "Release scope (v0.1)" is now "Scope and
+  checks".
 
 ### 0.2.0 (2026-10-30)
 
