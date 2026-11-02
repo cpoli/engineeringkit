@@ -40,7 +40,7 @@ Independent benchmark matrix
    * - Communications
      - Analytic FM phase, unsigned bit handling, linear/log link budgets and noise limits, Haykin worked examples
    * - Reliability
-     - Survival integral, SciPy distributions, exhaustive independent system states, sensitivities, Monte Carlo fault trees, interference and Kaplan-Meier, Markov matrix exponential, beta-median ranks, SciPy and censored-likelihood Weibull fits, flood-fill network states, simulated standby, Monte Carlo against FORM, numerical gamma-Poisson posterior
+     - Survival integral, SciPy distributions, exhaustive independent system states, sensitivities, Monte Carlo fault trees, interference and Kaplan-Meier, Markov matrix exponential, beta-median ranks, SciPy and censored-likelihood Weibull fits, flood-fill network states, simulated standby, Monte Carlo against FORM, numerical gamma-Poisson posterior, NIST e-Handbook worked examples
 
 Tests use analytical values, invariants, independent quadrature and established
 SciPy distributions. Where a governing-equation residual is checked, it verifies

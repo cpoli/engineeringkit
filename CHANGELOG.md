@@ -88,6 +88,13 @@ section, so keep that heading format.
   All agree; the guide records that Haykin's PCM 6n - 7.2 dB loads the
   quantizer to four times the rms signal, 9.03 dB below
   `pcm_sqnr_db`'s full-scale sine (ROADMAP B4.communications).
+- `reliability` has reference tests: eight worked examples from the
+  NIST/SEMATECH e-Handbook of Statistical Methods, ch. 8 (sections
+  8.1.5.1, 8.2.1.5, 8.2.2.1, 8.2.5, 8.4.1.3, 8.4.3, 8.4.5.1 and 8.4.6),
+  each checked to the precision the handbook prints, in place of
+  Ebeling and O'Connor-Kleyner, which were not at hand. All agree; the
+  guide notes where the handbook's rounded constants and intermediates
+  move its printed answers (ROADMAP B4.reliability).
 
 ## [0.2.0] - 2026-10-30
 

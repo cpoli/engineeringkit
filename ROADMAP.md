@@ -240,6 +240,23 @@ Finished items move here with the release they shipped in, as in
 CHANGELOG.md.
 
 ### Unreleased
+- **B4.reliability. Reference problems** (2026-11-02).
+  `reliability/tests/test_reference_problems.py` checks eight worked
+  examples of the NIST/SEMATECH e-Handbook of Statistical Methods, ch. 8,
+  against the printed answers, since no legitimate copy of Ebeling or
+  O'Connor and Kleyner was at hand: 8.1.5.1 (Arrhenius factors 133 and
+  17,597), 8.4.5.1 (800 h, 2 failures: MTBF bounds 127 and 2251 h; 267 h
+  with none), 8.4.1.3 (censored Weibull MLE, eta = 606.5280 h, beta =
+  1.7208, AIC 154.27), 8.2.2.1 (probability plot, slope 1.46), 8.2.5
+  (gamma prior a = 2.863, b = 1522.46 h), 8.4.6 (posterior MTBF bounds
+  495, 600, 901 and 1897 h), 8.2.1.5 (Kaplan-Meier products) and 8.4.3
+  (lognormal F = 0.014). All agree; nothing needed fixing. The guide
+  records where the handbook's rounding moves a printed number: 17,597
+  needs 1/k = 11605 K/eV and 273.16 K, the plot's 657 h comes from a
+  rounded slope (the fit gives 667 h), and its MLE scale and prior rate
+  stop short of the optima. Textbook examples from Ebeling and O'Connor
+  and Kleyner can be added later.
+
 - **B4.communications. Textbook reference problems** (2026-11-02).
   `communications/tests/test_reference_problems.py` checks six worked
   examples of Haykin, *Digital Communications* (Wiley, 1988), against
