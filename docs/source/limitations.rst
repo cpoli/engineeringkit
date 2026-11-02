@@ -51,11 +51,14 @@ Documentation gaps
 Using the models
 ----------------
 
-The models are ideal, and their assumptions are stated, not enforced:
-laminar development, Biot-number limits, small-angle attached flow,
-far-field antennas, independent failures, linear elasticity and so on.
-Each domain guide lists them. A result can be computed outside a model's
-range of validity without any warning. The probabilistic models in
+The models are ideal, and their assumptions are stated, mostly not
+enforced: laminar development, Biot-number limits, small-angle attached
+flow, far-field antennas, independent failures, linear elasticity and so
+on. Each domain guide lists them. In ``heat_transfer`` and
+``fluid_engineering`` the correlations issue an
+``engineeringkit.ValidityWarning`` when an input leaves the range their
+docstring states; elsewhere a result can still be computed outside a
+model's range of validity without any warning. The probabilistic models in
 ``reliability`` are not forecasts for a real system unless they are fitted
 to data from it.
 

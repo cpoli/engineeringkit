@@ -10,6 +10,36 @@ fails CI. Library code is checked with `check_untyped_defs`,
 functions are checked too. Tests are checked at the signature level only.
 All settings are in `[tool.mypy]` in `pyproject.toml`.
 
+## Range of validity
+
+A model that still returns a number outside the range its docstring states
+(a correlation used beyond the Reynolds or Prandtl numbers it was fitted
+to) calls `validity(model, name, value, low, high)` from
+`engineeringkit/_validation.py` after its `ValueError` checks. That issues
+an `engineeringkit.ValidityWarning` (a `UserWarning`) and leaves the
+result unchanged. State the range in the parameter or Notes text, say that
+it warns, and test both sides of it: `pytest.warns(ValidityWarning)`
+outside, and no warning at the ends. Inputs with no physical answer still
+raise `ValueError`.
+
+Since pytest runs with `filterwarnings = ["error"]`, a test or gallery
+example that goes outside a range on purpose must say so with
+`pytest.warns` or `warnings.catch_warnings`.
+
+To silence the warning in your own code:
+
+```python
+import warnings
+
+import engineeringkit as ek
+
+warnings.filterwarnings("ignore", category=ek.ValidityWarning)  # everywhere
+
+with warnings.catch_warnings():  # or only around one call
+    warnings.simplefilter("ignore", ek.ValidityWarning)
+    Nu = ek.heat_transfer.dittus_boelter_nusselt(500.0, 0.7)
+```
+
 ## Array inputs
 
 A public function whose parameters are all scalars (documented as

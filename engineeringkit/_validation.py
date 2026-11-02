@@ -4,13 +4,19 @@ Each helper raises :class:`ValueError` with the offending argument's name, so
 a public function states its physical contract in one line at the top of its
 body instead of relying on downstream NumPy/SciPy errors. All checks are
 elementwise and therefore work for scalars and arrays alike.
+
+:func:`validity` is the exception: an input that is physically possible but
+outside the range a correlation was fitted to still gets an answer, with a
+:class:`ValidityWarning`.
 """
 
 from __future__ import annotations
 
+import warnings
+
 import numpy as np
 
-__all__ = ["finite", "positive", "nonnegative", "interval", "integer", "vector"]
+__all__ = ["finite", "positive", "nonnegative", "interval", "integer", "vector", "ValidityWarning", "validity"]
 
 
 def finite(**values):
@@ -89,3 +95,43 @@ def vector(name, value, *, min_length=1):
     if np.iscomplexobj(a):
         raise ValueError(f"{name} must be real")
     return a.astype(float)
+
+
+class ValidityWarning(UserWarning):
+    """Issued when an input lies outside the range a model's docstring states.
+
+    The result is still returned, but the model was not fitted or derived
+    for that input, so it may be far off (Dittus-Boelter at Re = 500, for
+    example). Silence it with :func:`warnings.filterwarnings` or
+    :class:`warnings.catch_warnings`, filtering on this class.
+    """
+
+
+def validity(model, name, value, low=-np.inf, high=np.inf, *, stacklevel=3):
+    """Warn with :class:`ValidityWarning` if any element of ``value`` lies outside ``[low, high]``.
+
+    Parameters
+    ----------
+    model : str
+        Name of the public function, used in the message.
+    name : str
+        Name of the checked quantity (an argument or a group such as ``"Re*Pr"``).
+    value : float or array_like
+        Value or values to check; already validated as finite.
+    low, high : float
+        Bounds of the stated range; either may be infinite.
+    stacklevel : int
+        Passed to :func:`warnings.warn`; the default 3 points at the caller
+        of the public function that calls this helper.
+    """
+    a = np.asarray(value, dtype=float)
+    outside = (a < low) | (a > high)
+    if np.any(outside):
+        if np.isinf(low):
+            stated = f"{name} <= {high:g}"
+        elif np.isinf(high):
+            stated = f"{name} >= {low:g}"
+        else:
+            stated = f"{low:g} <= {name} <= {high:g}"
+        first = float(a[outside].flat[0])
+        warnings.warn(f"{model} is meant for {stated}; got {name} = {first:g}", ValidityWarning, stacklevel=stacklevel)

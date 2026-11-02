@@ -63,7 +63,7 @@ assert worst < 0.27
 
 D, length, Tw, Ta = 5e-6, 1e-3, 523.15, 293.15
 k, nu = 0.0336, 2.6e-5  # air at the 135 °C film temperature
-speeds = np.linspace(0.5, 30, 40)
+speeds = np.linspace(1.5, 30, 40)  # Re Pr >= 0.2, the correlation's lower limit
 power = churchill_bernstein_nusselt(speeds * D / nu, Pr) * k / D * np.pi * D * length * (Tw - Ta)
 B, A = np.polyfit(np.sqrt(speeds), power, 1)
 king = A + B * np.sqrt(speeds)
@@ -72,7 +72,7 @@ assert np.max(np.abs(king / power - 1)) < 0.01
 
 # Invert: read a speed from a measured power.
 measured = 0.025
-speed = brentq(lambda V: churchill_bernstein_nusselt(V * D / nu, Pr) * k * np.pi * length * (Tw - Ta) - measured, 0.01, 100)
+speed = brentq(lambda V: churchill_bernstein_nusselt(V * D / nu, Pr) * k * np.pi * length * (Tw - Ta) - measured, speeds[0], speeds[-1])
 print(f"a wire drawing {measured * 1e3:.0f} mW sits in air moving at {speed:.1f} m/s")
 assert np.isclose(speed, ((measured - A) / B) ** 2, rtol=0.01)
 

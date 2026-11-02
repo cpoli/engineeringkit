@@ -17,6 +17,7 @@ from scipy import optimize
 from engineeringkit._validation import finite as _finite
 from engineeringkit._validation import nonnegative as _nonnegative
 from engineeringkit._validation import positive as _positive
+from engineeringkit._validation import validity as _validity
 from engineeringkit.fluid_engineering.utils.constants import STANDARD_GRAVITY as G
 
 __all__ = ["stokes_drag", "stokes_settling_velocity", "sphere_drag_coefficient", "terminal_velocity"]
@@ -91,8 +92,9 @@ def stokes_settling_velocity(d, rho_particle, rho, mu, g=G):
     Notes
     -----
     Inputs are raw SI numbers with no dimensional metadata; see
-    :doc:`/guides/fluid_engineering`. Check that the Reynolds number of
-    the result is below about 1; otherwise use :func:`terminal_velocity`.
+    :doc:`/guides/fluid_engineering`. Valid while the Reynolds number
+    :math:`\rho |V| d/\mu` of the result is at most 1; above it a
+    ``ValidityWarning`` is issued, and :func:`terminal_velocity` applies.
 
     Examples
     --------
@@ -102,7 +104,9 @@ def stokes_settling_velocity(d, rho_particle, rho, mu, g=G):
     _finite(d=d, rho_particle=rho_particle, rho=rho, mu=mu, g=g)
     _positive(d=d, rho_particle=rho_particle, mu=mu, g=g)
     _nonnegative(rho=rho)
-    return (rho_particle - rho) * g * d * d / (18 * mu)
+    v = (rho_particle - rho) * g * d * d / (18 * mu)
+    _validity("stokes_settling_velocity", "Re", rho * np.abs(v) * d / mu, high=1)
+    return v
 
 
 def sphere_drag_coefficient(Re):

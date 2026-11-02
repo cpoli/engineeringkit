@@ -6,6 +6,14 @@ convection coefficient W/(m^2 K), heat rate W, and resistance K/W. Radiation
 uses absolute fourth powers; passing Celsius silently changes the physics.
 Geometry and properties are constant, and the equations are ideal baselines.
 
+The correlations warn with ``engineeringkit.ValidityWarning`` when an input
+leaves the range they were fitted to, and still return the number:
+dittus_boelter_nusselt (Re >= 1e4, 0.6 <= Pr <= 160), flat_plate_nusselt
+(0.6 <= Pr <= 60), churchill_bernstein_nusselt (Re*Pr >= 0.2),
+zukauskas_nusselt (0.7 <= Pr <= 500, and ST/SL >= 0.7 for aligned banks),
+hausen_nusselt (Re <= 2300), the laminar churchill_chu_nusselt (Ra <= 1e9)
+and nusselt_film_condensation (film Reynolds number <= 1800).
+
 Conduction and convection
 -------------------------
 

@@ -52,11 +52,11 @@ assert abs(curvature - 0.33206) < 1e-5
 # :math:`\theta(\infty) = 1` fixes :math:`\theta'(0)`.
 
 F = cumulative_trapezoid(f, eta, initial=0)
-Prs = np.geomspace(0.6, 100, 25)
+Prs = np.geomspace(0.6, 60, 25)
 gradient = np.array([1 / trapezoid(np.exp(-Pr / 2 * F), eta) for Pr in Prs])
 fit = flat_plate_nusselt(1.0, Prs, local=True)  # 0.332 Pr^(1/3) at Re_x = 1
 worst = np.max(np.abs(fit / gradient - 1))
-print(f"0.332 Pr^(1/3) against the exact wall gradient for 0.6 < Pr < 100: within {worst:.1%}")
+print(f"0.332 Pr^(1/3) against the exact wall gradient for 0.6 < Pr < 60: within {worst:.1%}")
 assert worst < 0.025
 
 fig, axes = plt.subplots(1, 2, figsize=(10, 3.8))

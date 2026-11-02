@@ -31,8 +31,10 @@ from engineeringkit import (  # noqa: E402
     thermodynamics,
     units,
 )
+from engineeringkit._validation import ValidityWarning  # noqa: E402
 
 __all__ = [
+    "ValidityWarning",
     "aerodynamics",
     "communications",
     "constants",

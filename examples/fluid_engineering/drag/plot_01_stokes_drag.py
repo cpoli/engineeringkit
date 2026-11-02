@@ -17,9 +17,12 @@ different sizes fall through water
 """
 
 # %%
+import warnings
+
 import matplotlib.pyplot as plt
 import numpy as np
 
+from engineeringkit import ValidityWarning
 from engineeringkit.fluid_engineering import (
     reynolds_number,
     sphere_drag_coefficient,
@@ -49,12 +52,16 @@ fig.tight_layout()
 # -------------
 #
 # Quartz sand (2650 kg/m³) falling through water at 20 °C. Stokes's
-# velocity is accurate for silt but overestimates coarse sand badly.
+# velocity is accurate for silt but overestimates coarse sand badly. Above
+# :math:`Re = 1` it issues a ``ValidityWarning``, silenced here because
+# the comparison is the point.
 
 rho, mu, rho_p = 998.0, 1.0e-3, 2650.0
 for d in [20e-6, 100e-6, 500e-6, 2e-3]:
     V = terminal_velocity(d, rho_p, rho, mu)
-    V_stokes = stokes_settling_velocity(d, rho_p, rho, mu)
+    with warnings.catch_warnings():
+        warnings.simplefilter("ignore", ValidityWarning)
+        V_stokes = stokes_settling_velocity(d, rho_p, rho, mu)
     print(f"d = {d * 1e6:6.0f} µm: V = {V * 1000:7.3f} mm/s, Stokes {V_stokes * 1000:9.3f} mm/s, Re = {reynolds_number(rho, V, d, mu):.3g}")
 
 # %%
@@ -67,6 +74,6 @@ weight = (rho_p - rho) * 9.80665 * np.pi * d**3 / 6
 
 assert np.isclose(stokes_drag(mu, V, d), weight)
 assert np.isclose(terminal_velocity(d, rho_p, rho, mu), V, rtol=1e-2)
-assert terminal_velocity(2e-3, rho_p, rho, mu) < 0.2 * stokes_settling_velocity(2e-3, rho_p, rho, mu)
+assert terminal_velocity(2e-3, rho_p, rho, mu) < 0.2 * V_stokes  # V_stokes is the 2 mm grain's
 
 plt.show()

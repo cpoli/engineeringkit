@@ -14,6 +14,7 @@ import numpy as np
 from engineeringkit._validation import finite as _finite
 from engineeringkit._validation import nonnegative as _nonnegative
 from engineeringkit._validation import positive as _positive
+from engineeringkit._validation import validity as _validity
 
 __all__ = ["water_hammer_pressure", "pipe_wave_speed", "critical_closure_time"]
 
@@ -90,7 +91,8 @@ def pipe_wave_speed(bulk_modulus, rho, D, wall_thickness, E, c1=1.0):
     Notes
     -----
     Inputs are raw SI numbers with no dimensional metadata; see
-    :doc:`/guides/fluid_engineering`. Thin-walled pipe, :math:`D/e \gtrsim 25`.
+    :doc:`/guides/fluid_engineering`. Thin-walled pipe, :math:`D/e \ge 25`;
+    a ``ValidityWarning`` is issued for thicker walls.
 
     References
     ----------
@@ -105,6 +107,7 @@ def pipe_wave_speed(bulk_modulus, rho, D, wall_thickness, E, c1=1.0):
     _finite(bulk_modulus=bulk_modulus, rho=rho, D=D, wall_thickness=wall_thickness, E=E, c1=c1)
     _positive(bulk_modulus=bulk_modulus, rho=rho, D=D, wall_thickness=wall_thickness, E=E)
     _nonnegative(c1=c1)
+    _validity("pipe_wave_speed", "D/e", np.asarray(D, dtype=float) / wall_thickness, 25)
     stiffness = np.asarray(E, dtype=float) * np.asarray(wall_thickness, dtype=float)
     return np.sqrt((bulk_modulus / rho) / (1 + c1 * bulk_modulus * np.asarray(D, dtype=float) / stiffness))
 

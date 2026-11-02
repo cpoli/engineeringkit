@@ -4,6 +4,7 @@ import numpy as np
 import pytest
 from scipy import integrate, special
 
+from engineeringkit import ValidityWarning
 from engineeringkit import heat_transfer as h
 from engineeringkit.heat_transfer.utils import plane_wall_eigenvalues
 
@@ -138,7 +139,8 @@ def test_flat_plate_average_is_the_integral_of_the_local_value():
 
 
 def test_cylinder_and_tube_bank_correlations():
-    assert h.churchill_bernstein_nusselt(0.0, 0.7) == 0.3
+    with pytest.warns(ValidityWarning, match="Re\\*Pr >= 0.2"):
+        assert h.churchill_bernstein_nusselt(0.0, 0.7) == 0.3
     assert h.churchill_bernstein_nusselt(6071.0, 0.7) == pytest.approx(40.6, abs=0.05)
     # Incropera Example 7.7 (staggered bank, 7 rows); the book rounds C to 0.34 and gets 87.9.
     Nu = h.zukauskas_nusselt(13943.0, 0.71, 0.0313, 0.0343, "staggered", rows=7, Pr_s=0.70)
@@ -203,7 +205,7 @@ def test_internal_flow_and_the_heat_mass_analogy():
     assert h.entry_length(1e4, 0.01, 7.0) == pytest.approx(0.1)
     assert h.lewis_number(2.0, 4.0) == 0.5
     # Laminar flat plate: Sh from the Sc^(1/3) correlation equals the analogy exactly.
-    nu, alpha, D_AB, k, rho, L, Re = 1.5e-5, 2.2e-5, 2.6e-5, 0.026, 1.16, 0.5, 1e5
+    nu, alpha, D_AB, k, rho, L, Re = 1.5e-5, 2.2e-5, 2.4e-5, 0.026, 1.16, 0.5, 1e5
     cp = k / (rho * alpha)
     h_heat = h.flat_plate_nusselt(Re, nu / alpha) * k / L
     h_mass = h.flat_plate_nusselt(Re, nu / D_AB) * D_AB / L

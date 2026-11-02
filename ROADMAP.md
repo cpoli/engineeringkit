@@ -92,16 +92,39 @@ the published answer to the precision the book prints. A disagreement is
 either a bug to fix or a difference of method to document in the guide.
 Twelve sub-items: B4.aerodynamics ... B4.thermodynamics.
 
-**B5. Warn outside a model's range of validity.** `limitations.rst` says
-assumptions "are stated, not enforced": Dittus-Boelter at Re = 500,
-Colebrook in laminar flow or Prandtl-Glauert at M = 0.95 return a number
-without a word. Add a `ValidityWarning(UserWarning)` to `_validation.py`
-and a helper that emits it when an input leaves the range the docstring
-states. Pilot it in `heat_transfer` and `fluid_engineering` (correlations
-first), with `pytest.warns` tests, and document in CONTRIBUTING.md how to
-silence it. New warnings are a behaviour change: record it in the
-CHANGELOG. *Done when* the pilot domains warn and the other ten each have
-a follow-up line (B5.<domain>) under this item.
+**B5. Warn outside a model's range of validity, one domain per session.**
+The pilot is done (see Done): `_validation.validity()` issues an
+`engineeringkit.ValidityWarning` when an input leaves the range a
+docstring states, as CONTRIBUTING.md ("Range of validity") describes. For
+the domain named in the prompt, find the models whose docstrings or guide
+state a range that is not checked, wire `validity()` into those whose
+inputs are enough to test it, add `pytest.warns` tests on both sides of
+each range, fix the tests and gallery examples that now warn, and record
+the new warnings in the CHANGELOG. A docstring search on 2026-11-01 found
+these candidates:
+
+- **B5.aerodynamics**: `prandtl_glauert_cp` above M = 0.7 (the docstring
+  says unreliable there), `skin_friction_laminar` above Re = 5e5, and the
+  lifting-line wing's aspect-ratio and sweep limits.
+- **B5.communications**: the envelope-detector noise model at low
+  carrier-to-noise ratio and FM output SNR below `fm_threshold_snr`.
+- **B5.control_systems**: no stated range found by the search; audit the
+  guide's assumptions (linearisation, Padé delay orders).
+- **B5.electrical_engineering**: no stated range found by the search;
+  audit short- and medium-line models against line length.
+- **B5.materials**: `brinell_hardness` outside 0.24D < d < 0.6D, and
+  linear-elastic fracture where the plastic zone is not small.
+- **B5.mechanical_engineering**: first-cycle yielding in the shaft fatigue
+  models (`shafts.py`).
+- **B5.reliability**: no stated range found by the search; audit the
+  acceleration models (Arrhenius, Peck) against their fitted ranges.
+- **B5.signal_processing**: no stated range found by the search; audit the
+  window and filter-design approximations.
+- **B5.structural_engineering**: Euler buckling above the proportional
+  limit (`stability.py`).
+- **B5.thermodynamics**: no stated range found by the search; audit the
+  ideal-gas models at high reduced pressure and the psychrometric
+  temperature range.
 
 ### C. API consistency (before 1.0)
 
@@ -217,6 +240,28 @@ Finished items move here with the release they shipped in, as in
 CHANGELOG.md.
 
 ### Unreleased
+- **B5. ValidityWarning, piloted in heat_transfer and fluid_engineering**
+  (2026-11-01). `_validation.py` has `ValidityWarning(UserWarning)`,
+  exported as `engineeringkit.ValidityWarning`, and `validity(model,
+  name, value, low, high)`, which warns with the stated range and the
+  first offending value and leaves the result unchanged. Eleven checks in
+  ten functions: `dittus_boelter_nusselt` (Re >= 1e4, 0.6 <= Pr <= 160),
+  `flat_plate_nusselt` (0.6 <= Pr <= 60), `churchill_bernstein_nusselt`
+  (Re Pr >= 0.2), `zukauskas_nusselt` (0.7 <= Pr <= 500; ST/SL >= 0.7 for
+  aligned banks), `hausen_nusselt` (Re <= 2300), laminar
+  `churchill_chu_nusselt` (Ra <= 1e9), `nusselt_film_condensation` (film
+  Reynolds number <= 1800), `stokes_settling_velocity` (Re of the result
+  <= 1), `rehbock_discharge_coefficient` (H/P <= 5) and `pipe_wave_speed`
+  (D/e >= 25). Colebrook in laminar flow, named in the item, needed
+  nothing: it returns 64/Re by design, and the transition range already
+  raises. `lumped_temperature` and `chilton_colburn_mass_transfer` stay
+  unchecked, since their limits need a conductivity or a Prandtl number
+  they are not given. The new warnings found four gallery examples
+  outside a stated range: the Pohlhausen comparison now stops at Pr = 60,
+  the hot-wire anemometer starts at 1.5 m/s (Re Pr = 0.2), the PVC pipe
+  in the water-hammer example has a 12 mm wall (D/e = 25), and the
+  Stokes example silences the warning where the mismatch is its point.
+  The other ten domains have B5.<domain> lines under B5.
 
 - **B2. Dependency floors and Windows tested** (2026-10-31). CI has a
   `test-min-deps` job on Python 3.10 with NumPy 1.24, SciPy 1.10 and

@@ -235,7 +235,7 @@ def test_stokes_settling_balances_drag_with_weight_less_buoyancy():
     weight_less_buoyancy = (rho_p - rho) * f.G * np.pi * d**3 / 6
     assert f.stokes_drag(mu, V, d) == pytest.approx(weight_less_buoyancy)
     assert f.reynolds_number(rho, V, d, mu) < 1
-    assert f.stokes_settling_velocity(1e-3, 50.0, 998.0, 1e-3) < 0  # a light sphere rises
+    assert f.stokes_settling_velocity(1e-5, 50.0, 998.0, 1e-3) < 0  # a light sphere rises
     # The drag coefficient on frontal area is 24/Re.
     Re = 0.05
     v = Re * mu / (rho * d)

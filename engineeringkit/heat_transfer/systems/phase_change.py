@@ -17,6 +17,7 @@ from scipy.optimize import brentq
 
 from engineeringkit._validation import nonnegative as _nonnegative
 from engineeringkit._validation import positive as _positive
+from engineeringkit._validation import validity as _validity
 from engineeringkit.heat_transfer.utils.constants import STANDARD_GRAVITY
 
 __all__ = [
@@ -163,8 +164,10 @@ def nusselt_film_condensation(rho_l, rho_v, mu_l, k_l, h_fg, Tsat, Ts, L, g=STAN
     Notes
     -----
     Inputs are raw SI numbers with no dimensional metadata; see
-    :doc:`/guides/heat_transfer`. Laminar film (film Reynolds number
-    below about 1800); ripples above about 30 raise the coefficient by
+    :doc:`/guides/heat_transfer`. Laminar film: a ``ValidityWarning`` is
+    issued when the film Reynolds number at the bottom of the wall,
+    :math:`Re_\delta = 4\bar h L (T_{sat} - T_s)/(\mu_l h_{fg})`, exceeds
+    1800. Ripples above about 30 raise the coefficient by
     10-20%. Properties at the film temperature.
 
     References
@@ -184,7 +187,10 @@ def nusselt_film_condensation(rho_l, rho_v, mu_l, k_l, h_fg, Tsat, Ts, L, g=STAN
     dT = Tsat - np.asarray(Ts, dtype=float)
     if np.any(dT <= 0):
         raise ValueError("Ts must be below Tsat")
-    return 0.943 * (g * rho_l * (rho_l - rho_v) * k_l**3 * h_fg / (mu_l * np.asarray(L, dtype=float) * dT)) ** 0.25
+    L = np.asarray(L, dtype=float)
+    h = 0.943 * (g * rho_l * (rho_l - rho_v) * k_l**3 * h_fg / (mu_l * L * dT)) ** 0.25
+    _validity("nusselt_film_condensation", "Re_delta", 4 * h * L * dT / (mu_l * h_fg), high=1800)
+    return h
 
 
 def rohsenow_boiling_heat_flux(mu_l, h_fg, rho_l, rho_v, sigma, cp_l, Pr_l, dT_excess, C_sf=0.013, n=1.0, g=STANDARD_GRAVITY):

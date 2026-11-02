@@ -27,6 +27,16 @@ section, so keep that heading format.
   examples used `np.trapezoid`, which needs NumPy 2.0, and now use
   `scipy.integrate.trapezoid`; the tests read UTF-8 pages with an
   explicit encoding (ROADMAP B2).
+- **Behaviour change:** correlations in `heat_transfer` and
+  `fluid_engineering` now issue an `engineeringkit.ValidityWarning` (a
+  `UserWarning`) when an input leaves the range their docstring states,
+  and still return the same number: `dittus_boelter_nusselt`,
+  `flat_plate_nusselt`, `churchill_bernstein_nusselt`,
+  `zukauskas_nusselt`, `hausen_nusselt`, `churchill_chu_nusselt` with
+  `laminar=True`, `nusselt_film_condensation`,
+  `stokes_settling_velocity`, `rehbock_discharge_coefficient` and
+  `pipe_wave_speed`. Code run with warnings as errors will fail on such
+  inputs; CONTRIBUTING.md shows how to silence the warning (ROADMAP B5).
 
 ## [0.2.0] - 2026-10-30
 

@@ -317,7 +317,7 @@ CASES = {
     "fluid_engineering.stokes_drag": [C(0.001, 0.00225008136111, 5e-05), C(0.001, 0.00100200400802, 5e-05)],
     "fluid_engineering.stokes_settling_velocity": [
         C(5e-05, 2650.0, 998.0, 0.001),
-        C(0.001, 50.0, 998.0, 0.001),
+        C(1e-05, 50.0, 998.0, 0.001),
         C(5e-06, 2650.0, 998.0, 0.001),
     ],
     "fluid_engineering.swamee_jain_friction_factor": [C(100000.0, 0.0001)],
@@ -338,7 +338,7 @@ CASES = {
     "heat_transfer.biot_number": [C(10, 0.01, 1)],
     "heat_transfer.blackbody_peak_wavelength": [C(1000)],
     "heat_transfer.chilton_colburn_mass_transfer": [C(9.61009355872, 1.16, 1018.80877743, 0.846153846154)],
-    "heat_transfer.churchill_bernstein_nusselt": [C(0.0, 0.7), C(6071.0, 0.7)],
+    "heat_transfer.churchill_bernstein_nusselt": [C(1.0, 0.7), C(6071.0, 0.7)],
     "heat_transfer.churchill_chu_nusselt": [C(0.0, 0.7)],
     "heat_transfer.convection_heat_rate": [C(10, 2, 400, 300)],
     "heat_transfer.convection_resistance": [C(10, 2)],

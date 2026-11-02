@@ -16,6 +16,7 @@ from engineeringkit._validation import finite as _finite
 from engineeringkit._validation import integer as _integer
 from engineeringkit._validation import nonnegative as _nonnegative
 from engineeringkit._validation import positive as _positive
+from engineeringkit._validation import validity as _validity
 
 __all__ = [
     "flat_plate_nusselt",
@@ -49,7 +50,7 @@ def flat_plate_nusselt(Re, Pr, Re_c=5e5, local=False):
         edge (the plate length for the average) [-], nonnegative.
     Pr : float or array_like
         Prandtl number [-], positive; the :math:`Pr^{1/3}` laws are meant for
-        :math:`0.6 \lesssim Pr \lesssim 60`.
+        :math:`0.6 \le Pr \le 60` (a ``ValidityWarning`` is issued outside).
     Re_c : float, optional
         Transition Reynolds number [-], nonnegative; 0 makes the boundary layer
         turbulent from the leading edge and ``numpy.inf`` keeps it laminar.
@@ -85,6 +86,7 @@ def flat_plate_nusselt(Re, Pr, Re_c=5e5, local=False):
     _positive(Pr=Pr)
     if isinstance(Re_c, bool) or not np.ndim(Re_c) == 0 or not float(Re_c) >= 0:
         raise ValueError("Re_c must be a nonnegative number (inf allowed)")
+    _validity("flat_plate_nusselt", "Pr", Pr, 0.6, 60)
     Re = np.asarray(Re, dtype=float)
     pr3 = np.asarray(Pr, dtype=float) ** (1 / 3)
     laminar = Re <= Re_c
@@ -117,8 +119,8 @@ def churchill_bernstein_nusselt(Re, Pr):
     Notes
     -----
     Inputs are raw SI numbers with no dimensional metadata; see
-    :doc:`/guides/heat_transfer`. Meant for :math:`Re\,Pr \gtrsim 0.2`;
-    properties at the film temperature. One blended expression covers the
+    :doc:`/guides/heat_transfer`. Meant for :math:`Re\,Pr \ge 0.2`, with a
+    ``ValidityWarning`` below; properties at the film temperature. One blended expression covers the
     whole range, from creeping flow to the drag crisis; the authors present it
     as a slight underestimate of most data.
 
@@ -136,6 +138,7 @@ def churchill_bernstein_nusselt(Re, Pr):
     _nonnegative(Re=Re)
     _positive(Pr=Pr)
     Re, Pr = np.asarray(Re, dtype=float), np.asarray(Pr, dtype=float)
+    _validity("churchill_bernstein_nusselt", "Re*Pr", Re * Pr, 0.2)
     laminar = 0.62 * Re**0.5 * Pr ** (1 / 3) / (1 + (0.4 / Pr) ** (2 / 3)) ** 0.25
     return 0.3 + laminar * (1 + (Re / 282000) ** 0.625) ** 0.8
 
@@ -226,7 +229,7 @@ def zukauskas_nusselt(Re, Pr, ST, SL, arrangement="aligned", rows=20, Pr_s=None)
         :func:`tube_bank_max_velocity`) [-], in [10, 2e6].
     Pr : float or array_like
         Prandtl number at the mean fluid temperature [-], positive; meant for
-        :math:`0.7 \lesssim Pr \lesssim 500`.
+        :math:`0.7 \le Pr \le 500`.
     ST, SL : float
         Transverse and longitudinal pitches [m], positive.
     arrangement : {"aligned", "staggered"}, optional
@@ -250,7 +253,8 @@ def zukauskas_nusselt(Re, Pr, ST, SL, arrangement="aligned", rows=20, Pr_s=None)
     and 1000 the table values 0.52 and 0.71 with :math:`m = 0.5` are
     Žukauskas's; Incropera et al. suggest the single-cylinder correlation
     there. Aligned banks with :math:`S_T/S_L < 0.7` transfer heat poorly and
-    are not covered by the correlation. The row correction is interpolated
+    are not covered by the correlation. A ``ValidityWarning`` is issued for
+    either, or for ``Pr`` outside its range. The row correction is interpolated
     linearly between the tabulated row counts.
 
     References
@@ -271,6 +275,9 @@ def zukauskas_nusselt(Re, Pr, ST, SL, arrangement="aligned", rows=20, Pr_s=None)
     Re = np.asarray(Re, dtype=float)
     if np.any((Re < 10) | (Re > 2e6)):
         raise ValueError("Re must lie in [10, 2e6]")
+    _validity("zukauskas_nusselt", "Pr", Pr, 0.7, 500)
+    if arrangement == "aligned":
+        _validity("zukauskas_nusselt", "ST/SL", ST / SL, 0.7)
     Pr_ratio = 1.0
     if Pr_s is not None:
         _positive(Pr_s=Pr_s)
@@ -371,7 +378,8 @@ def hausen_nusselt(Re, Pr, D, L):
     Parameters
     ----------
     Re : float or array_like
-        Reynolds number on the diameter [-], positive; laminar (below 2300).
+        Reynolds number on the diameter [-], positive; laminar (below 2300,
+        with a ``ValidityWarning`` above).
     Pr : float or array_like
         Prandtl number [-], positive.
     D : float or array_like
@@ -400,6 +408,7 @@ def hausen_nusselt(Re, Pr, D, L):
     5.825
     """
     _positive(Re=Re, Pr=Pr, D=D, L=L)
+    _validity("hausen_nusselt", "Re", Re, high=2300)
     Gz = np.asarray(D, dtype=float) / np.asarray(L, dtype=float) * np.asarray(Re, dtype=float) * np.asarray(Pr, dtype=float)
     return 3.66 + 0.0668 * Gz / (1 + 0.04 * Gz ** (2 / 3))
 

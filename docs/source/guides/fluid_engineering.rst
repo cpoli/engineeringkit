@@ -7,6 +7,13 @@ magnitude rho*abs(v)*D/mu. Pressure changes, Poiseuille flow and water-hammer
 velocity changes may be signed. Bernoulli assumes steady incompressible flow
 along a streamline with no losses, pump or turbine work.
 
+Inputs outside a model's stated range that still have an answer give an
+``engineeringkit.ValidityWarning`` instead of an error:
+stokes_settling_velocity when the Reynolds number of the result exceeds 1,
+rehbock_discharge_coefficient above H/P = 5 and pipe_wave_speed for walls
+thicker than D/25. Ranges with no answer, such as the 2300-4000 transition
+in colebrook_friction_factor, raise ValueError as before.
+
 Internal flow
 -------------
 

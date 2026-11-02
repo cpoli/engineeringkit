@@ -14,6 +14,7 @@ import numpy as np
 from engineeringkit._validation import finite as _finite
 from engineeringkit._validation import nonnegative as _nonnegative
 from engineeringkit._validation import positive as _positive
+from engineeringkit._validation import validity as _validity
 from engineeringkit.heat_transfer.utils.constants import STANDARD_GRAVITY
 
 __all__ = [
@@ -101,9 +102,9 @@ def dittus_boelter_nusselt(Re, Pr, heating=True):
     ----------
     Re : float or array_like
         Reynolds number on the tube diameter [-], positive; the correlation
-        is meant for :math:`Re \gtrsim 10^4` (not checked).
+        is meant for :math:`Re \ge 10^4`.
     Pr : float or array_like
-        Prandtl number [-], positive; meant for :math:`0.6 \lesssim Pr \lesssim 160`.
+        Prandtl number [-], positive; meant for :math:`0.6 \le Pr \le 160`.
     heating : bool, optional
         ``True`` (the fluid is heated, :math:`n = 0.4`) or ``False``
         (cooled, :math:`n = 0.3`).
@@ -116,7 +117,8 @@ def dittus_boelter_nusselt(Re, Pr, heating=True):
     Notes
     -----
     Inputs are raw SI numbers with no dimensional metadata; see
-    :doc:`/guides/heat_transfer`. The coefficient 0.023 is McAdams's
+    :doc:`/guides/heat_transfer`. A ``ValidityWarning`` is issued outside
+    the stated ranges of ``Re`` and ``Pr``. The coefficient 0.023 is McAdams's
     rounding; Dittus and Boelter's paper gave 0.0243 (heating) and 0.0265
     (cooling).
 
@@ -133,6 +135,8 @@ def dittus_boelter_nusselt(Re, Pr, heating=True):
     199.4
     """
     _positive(Re=Re, Pr=Pr)
+    _validity("dittus_boelter_nusselt", "Re", Re, 1e4)
+    _validity("dittus_boelter_nusselt", "Pr", Pr, 0.6, 160)
     n = 0.4 if heating else 0.3
     return 0.023 * np.asarray(Re, dtype=float) ** 0.8 * np.asarray(Pr, dtype=float) ** n
 
@@ -184,7 +188,8 @@ def churchill_chu_nusselt(Ra, Pr, laminar=False):
 
     holds for every Rayleigh number. With ``laminar=True`` the more accurate
     laminar form :math:`Nu = 0.68 + 0.670\,Ra^{1/4}/[1 + (0.492/Pr)^{9/16}]^{4/9}`
-    (for :math:`Ra \lesssim 10^9`) is returned instead.
+    (for :math:`Ra \le 10^9`; a ``ValidityWarning`` is issued above) is
+    returned instead.
 
     Parameters
     ----------
@@ -222,5 +227,6 @@ def churchill_chu_nusselt(Ra, Pr, laminar=False):
     Ra = np.asarray(Ra, dtype=float)
     psi = 1 + (0.492 / np.asarray(Pr, dtype=float)) ** (9 / 16)
     if laminar:
+        _validity("churchill_chu_nusselt", "Ra", Ra, high=1e9)
         return 0.68 + 0.670 * Ra**0.25 / psi ** (4 / 9)
     return (0.825 + 0.387 * Ra ** (1 / 6) / psi ** (8 / 27)) ** 2

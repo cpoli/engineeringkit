@@ -34,7 +34,7 @@ from engineeringkit.fluid_engineering import (
 # Water (:math:`K = 2.2` GPa) at 2 m/s in a 300 mm pipe.
 
 K, rho, D, v0 = 2.2e9, 998.0, 0.3, 2.0
-materials = {"steel": (200e9, 0.008), "ductile iron": (170e9, 0.010), "PVC": (3.0e9, 0.015), "rigid": (np.inf, 1.0)}
+materials = {"steel": (200e9, 0.008), "ductile iron": (170e9, 0.010), "PVC": (3.0e9, 0.012), "rigid": (np.inf, 1.0)}
 for name, (E, e) in materials.items():
     a = np.sqrt(K / rho) if np.isinf(E) else pipe_wave_speed(K, rho, D, e, E)
     print(f"{name:>12}: a = {a:6.0f} m/s, surge {water_hammer_pressure(rho, a, v0) / 1e6:.2f} MPa")

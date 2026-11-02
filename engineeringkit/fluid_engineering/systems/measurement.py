@@ -22,6 +22,7 @@ from engineeringkit._validation import finite as _finite
 from engineeringkit._validation import interval as _interval
 from engineeringkit._validation import nonnegative as _nonnegative
 from engineeringkit._validation import positive as _positive
+from engineeringkit._validation import validity as _validity
 from engineeringkit.fluid_engineering.utils.constants import STANDARD_GRAVITY as G
 
 __all__ = [
@@ -283,8 +284,9 @@ def rehbock_discharge_coefficient(head, weir_height):
     -----
     Inputs are raw SI numbers with no dimensional metadata; see
     :doc:`/guides/fluid_engineering`. The :math:`H/P` term accounts for
-    the approach velocity. Fitted for :math:`H/P` up to about 5, as given
-    in Munson et al., *Fundamentals of Fluid Mechanics*.
+    the approach velocity. Fitted for :math:`H/P` up to 5, as given in
+    Munson et al., *Fundamentals of Fluid Mechanics*; a ``ValidityWarning``
+    is issued above.
 
     Examples
     --------
@@ -294,6 +296,7 @@ def rehbock_discharge_coefficient(head, weir_height):
     _finite(head=head, weir_height=weir_height)
     _nonnegative(head=head)
     _positive(weir_height=weir_height)
+    _validity("rehbock_discharge_coefficient", "H/P", np.asarray(head, dtype=float) / weir_height, high=5)
     return 0.611 + 0.075 * head / weir_height
 
 
