@@ -82,6 +82,12 @@ section, so keep that heading format.
   R-134a in Example 11-1 (COP 3.94 against 3.97) and constant specific
   heats in Example 9-6 (turbine exit 805 K against the air tables'
   853 K) (ROADMAP B4.thermodynamics).
+- `communications` has textbook reference tests: six worked examples
+  from Haykin, *Digital Communications* (Wiley, 1988), Examples 2.2,
+  2.3, 5.3, 8.3, 8.5 and 8.7, each checked to the precision printed.
+  All agree; the guide records that Haykin's PCM 6n - 7.2 dB loads the
+  quantizer to four times the rms signal, 9.03 dB below
+  `pcm_sqnr_db`'s full-scale sine (ROADMAP B4.communications).
 
 ## [0.2.0] - 2026-10-30
 

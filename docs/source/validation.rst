@@ -38,7 +38,7 @@ Independent benchmark matrix
    * - Signals
      - Parseval, periodogram integral, cutoff gain, sinc nodes, ADC error bounds, FFT and Welch against NumPy and SciPy, Gibbs limit, Haar energy, Wiener and LMS system identification, Chebyshev and elliptic ripple bounds and orders, bilinear transform and prewarping, Parks-McClellan alternation, overlap-add against direct convolution, interpolation and decimation, Hilbert transform, DCT orthonormality, Levinson-Durbin against a Toeplitz solve, cepstral echo, Oppenheim-Schafer and Proakis-Manolakis worked examples
    * - Communications
-     - Analytic FM phase, unsigned bit handling, linear/log link budgets and noise limits
+     - Analytic FM phase, unsigned bit handling, linear/log link budgets and noise limits, Haykin worked examples
    * - Reliability
      - Survival integral, SciPy distributions, exhaustive independent system states, sensitivities, Monte Carlo fault trees, interference and Kaplan-Meier, Markov matrix exponential, beta-median ranks, SciPy and censored-likelihood Weibull fits, flood-fill network states, simulated standby, Monte Carlo against FORM, numerical gamma-Poisson posterior
 

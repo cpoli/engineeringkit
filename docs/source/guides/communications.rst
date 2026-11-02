@@ -100,7 +100,10 @@ outside the range, writing natural-binary level numbers MSB first;
 pcm_decode returns interval centres, identical to
 engineeringkit.signal_processing.quantize. pcm_sqnr_db is the large-N value
 6.02N+1.76 dB for a full-scale sine; a simulation falls short by about
-2.3*2^(-N/2) dB. mu_law_compress and mu_law_expand use the continuous
+2.3*2^(-N/2) dB. Textbooks that load the quantizer to four times the rms
+signal, such as Haykin's 6N-7.2 dB, are 10*log10(8) = 9.03 dB lower; the
+remaining 0.09 dB at N = 8 is their rounding to 6 dB per bit (see
+test_reference_problems.py). mu_law_compress and mu_law_expand use the continuous
 mu-law curve (mu = 255 by default), not the segmented G.711 table, and
 reject samples beyond full scale. delta_modulate is linear (fixed-step)
 delta modulation without leakage or step adaptation; it is free of slope

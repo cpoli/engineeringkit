@@ -240,6 +240,25 @@ Finished items move here with the release they shipped in, as in
 CHANGELOG.md.
 
 ### Unreleased
+- **B4.communications. Textbook reference problems** (2026-11-02).
+  `communications/tests/test_reference_problems.py` checks six worked
+  examples of Haykin, *Digital Communications* (Wiley, 1988), against
+  the printed answers: Example 2.2 (H = 1.5 bits, 3 bits for the
+  second-order extension), 2.3 (Huffman code, L = 2.2, H = 2.12,
+  variance 0.16), 5.3 (8-bit PCM of 4 kHz, B = 32 kHz, 40.8 dB), 8.3
+  (cyclic (7,4) code, g = 1 + X + X^3, message 1001 to 0111001), 8.5
+  (syndromes 000 and 110) and 8.7 (convolutional encoder, 10011 to
+  11 10 11 11 01 01 11). Section D names Haykin's *Communication
+  Systems* and Proakis and Salehi, but neither text could be consulted,
+  so the examples come from *Digital Communications*, whose example
+  numbers, pages and answers were checked against the FOSSEE Python
+  Textbook Companion (https://tbc-python.fossee.in/book-details/977/).
+  All agree, so nothing was fixed. The guide records the one difference
+  of method: Haykin's 6n - 7.2 dB loads the quantizer to four times the
+  rms signal, 9.03 dB below `pcm_sqnr_db`'s full-scale sine, and rounds
+  to 6 dB per bit (40.8 against 40.89 dB). Examples from the two
+  section D books are left for whoever has copies.
+
 - **B4.fluid_engineering. Textbook reference problems** (2026-11-02).
   `fluid_engineering/tests/test_reference_problems.py` checks five worked
   examples against the printed answers. White, *Fluid Mechanics*, 5th
