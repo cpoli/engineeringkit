@@ -34,13 +34,16 @@ takes over. This example draws the curve and finds how fast sand grains of
 different sizes fall through water
 (:func:`~engineeringkit.fluid_engineering.terminal_velocity`).
 
-.. GENERATED FROM PYTHON SOURCE LINES 20-31
+.. GENERATED FROM PYTHON SOURCE LINES 20-34
 
 .. code-block:: Python
+
+    import warnings
 
     import matplotlib.pyplot as plt
     import numpy as np
 
+    from engineeringkit import ValidityWarning
     from engineeringkit.fluid_engineering import (
         reynolds_number,
         sphere_drag_coefficient,
@@ -56,7 +59,7 @@ different sizes fall through water
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 32-37
+.. GENERATED FROM PYTHON SOURCE LINES 35-40
 
 The sphere drag curve
 ---------------------
@@ -64,7 +67,7 @@ The sphere drag curve
 Stokes's :math:`C_D = 24/Re` is the straight line at the left; the curve
 levels off near 0.4 in Newton's range before the drag crisis.
 
-.. GENERATED FROM PYTHON SOURCE LINES 37-47
+.. GENERATED FROM PYTHON SOURCE LINES 40-50
 
 .. code-block:: Python
 
@@ -90,15 +93,17 @@ levels off near 0.4 in Newton's range before the drag crisis.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 48-53
+.. GENERATED FROM PYTHON SOURCE LINES 51-58
 
 Settling sand
 -------------
 
 Quartz sand (2650 kg/m³) falling through water at 20 °C. Stokes's
-velocity is accurate for silt but overestimates coarse sand badly.
+velocity is accurate for silt but overestimates coarse sand badly. Above
+:math:`Re = 1` it issues a ``ValidityWarning``, silenced here because
+the comparison is the point.
 
-.. GENERATED FROM PYTHON SOURCE LINES 53-60
+.. GENERATED FROM PYTHON SOURCE LINES 58-67
 
 .. code-block:: Python
 
@@ -106,7 +111,9 @@ velocity is accurate for silt but overestimates coarse sand badly.
     rho, mu, rho_p = 998.0, 1.0e-3, 2650.0
     for d in [20e-6, 100e-6, 500e-6, 2e-3]:
         V = terminal_velocity(d, rho_p, rho, mu)
-        V_stokes = stokes_settling_velocity(d, rho_p, rho, mu)
+        with warnings.catch_warnings():
+            warnings.simplefilter("ignore", ValidityWarning)
+            V_stokes = stokes_settling_velocity(d, rho_p, rho, mu)
         print(f"d = {d * 1e6:6.0f} µm: V = {V * 1000:7.3f} mm/s, Stokes {V_stokes * 1000:9.3f} mm/s, Re = {reynolds_number(rho, V, d, mu):.3g}")
 
 
@@ -125,12 +132,12 @@ velocity is accurate for silt but overestimates coarse sand badly.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 61-63
+.. GENERATED FROM PYTHON SOURCE LINES 68-70
 
 The drag on a 20 µm silt grain at its settling speed equals its weight
 less its buoyancy.
 
-.. GENERATED FROM PYTHON SOURCE LINES 63-73
+.. GENERATED FROM PYTHON SOURCE LINES 70-80
 
 .. code-block:: Python
 
@@ -141,7 +148,7 @@ less its buoyancy.
 
     assert np.isclose(stokes_drag(mu, V, d), weight)
     assert np.isclose(terminal_velocity(d, rho_p, rho, mu), V, rtol=1e-2)
-    assert terminal_velocity(2e-3, rho_p, rho, mu) < 0.2 * stokes_settling_velocity(2e-3, rho_p, rho, mu)
+    assert terminal_velocity(2e-3, rho_p, rho, mu) < 0.2 * V_stokes  # V_stokes is the 2 mm grain's
 
     plt.show()
 
@@ -154,7 +161,7 @@ less its buoyancy.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.188 seconds)
+   **Total running time of the script:** (0 minutes 0.225 seconds)
 
 
 .. _sphx_glr_download_api_gallery_fluid_engineering_drag_plot_01_stokes_drag.py:

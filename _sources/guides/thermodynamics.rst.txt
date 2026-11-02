@@ -267,3 +267,33 @@ isenthalpic van der Waals throttle, Curzon-Ahlborn against a numerical
 maximization of power, and the psychrometric functions by round trips and
 against ASHRAE saturated humidity ratios. These tests validate the equations,
 not the accuracy of a real engine prediction.
+
+Textbook reference problems
+---------------------------
+
+engineeringkit/thermodynamics/tests/test_reference_problems.py works ten
+examples from Çengel and Boles (9th ed., 2019) and Moran et al. (9th ed.,
+2018) and checks each published answer to the digits the book prints:
+Çengel and Boles's Rankine plants of Examples 10-1, 10-3 (a to c), 10-4 and
+10-5, the cold-air-standard Brayton efficiency of Example 9-5 (0.448) and the
+octane flame of Example 15-8 (962 K), and Moran's Examples 8.1 and 8.2
+(37.1% and 31.4%). Three answers are met to one digit fewer than printed,
+because the book's tables differ from IF97 in the fourth digit: the bleed
+fraction of Example 10-5 (0.2271 against 0.2270, from an interpolated
+superheat enthalpy) and the turbine exit quality of Moran's Example 8.1
+(0.6748 against 0.6745; Moran's tables give s_g = 5.7432 kJ/(kg K) at 8 MPa
+against IF97's 5.7450).
+
+Two examples differ by method, and the test bounds the gap:
+
+- Example 11-1, the ideal R-134a refrigerator: the compressor work matches
+  (1.81 kW), but the Peng-Robinson latent heat at 0.14 MPa is low, so the
+  refrigeration load is 7.12 kW against 7.18 kW and the COP 3.94 against
+  3.97 (0.8% low).
+- Example 9-6, the gas turbine with an 80% compressor and an 85% turbine:
+  the book reads the air tables, while brayton_cycle uses constant cp
+  (1.005 kJ/(kg K)) and gamma (1.4). The kit gives a back-work ratio of
+  0.615 against 0.592, an efficiency of 0.274 against 0.266, and a turbine
+  exit of 805 K against 853 K, since hot air's larger cp and smaller gamma
+  make the expansion drop less in temperature. Pass cp and gamma for the
+  mean cycle temperature to come closer.

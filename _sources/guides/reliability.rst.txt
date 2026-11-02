@@ -26,6 +26,20 @@ to recover MTTF, enumerate independent component states for system reliability,
 and check k-of-n against a binomial tail. Birnbaum sensitivity is checked with
 a finite difference rather than only its product formula.
 
+test_reference_problems.py checks eight worked examples of the NIST/SEMATECH
+e-Handbook of Statistical Methods, chapter 8 (Arrhenius factors, chi-square
+MTBF bounds, a censored Weibull fit by maximum likelihood and by probability
+plot, a gamma prior from two MTBF percentiles and its posterior, Kaplan-Meier
+and a lognormal projection) against their printed answers. They stand in for
+Ebeling and O'Connor-Kleyner, which the roadmap names but were not at hand.
+Three printed numbers differ from the exact ones only by the handbook's
+rounding: its 1.0 eV Arrhenius factor of 17,597 uses 1/k = 11605 K/eV and
+273.16 K (CODATA k and 273.15 K give 17,600); its Weibull probability-plot
+scale of 657 h comes from the slope rounded to 1.46 and points rounded to
+three decimals, where the unrounded fit gives 667 h; and its maximum-likelihood
+scale of 606.5280 h and gamma prior rate of 1522.46 h stop short of the
+optima, 606.5276 h and 1522.51 h, at the same log-likelihood and quantiles.
+
 System scope
 ------------
 

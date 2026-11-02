@@ -178,3 +178,19 @@ post-fault network cannot hold the rotor at all it raises ``ValueError``.
 electrical power to zero; otherwise bisect on ``swing_response``, as the
 example does. Tests check equal areas, energy conservation after clearing
 and that the critical time separates stable from unstable swings.
+
+Textbook reference problems
+---------------------------
+
+``tests/test_reference_problems.py`` works six examples from Glover, Overbye
+and Sarma's *Power System Analysis and Design* (6th ed. Examples 9.3 and
+11.1; 7th ed. Examples 6.9, 12.4 and 12.5) and checks the printed answers:
+the five-bus Newton-Raphson case, a bolted single-line-to-ground fault, the
+swing angle three cycles after a terminal fault, the maximum swing after a
+cleared fault and the critical clearing time. All agree to the printed
+digit but one. In Example 12.4 the book prints delta2 = 0.7003 rad, solved
+iteratively from 2.4638 cos(delta2) + delta2 = 2.5843, whose root is 0.70020;
+``swing_response`` gives 0.70025 from the unrounded clearing angle. The
+left side is flat there (its derivative is about -0.59), so an iteration
+stopped at a residual of 1e-4 is off by about that much in the angle; the
+test accepts one unit in the last printed digit.

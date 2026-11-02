@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.713** total execution time for 3 files **from api/gallery/signal_processing/sampling**:
+**00:00.891** total execution time for 3 files **from api/gallery/signal_processing/sampling**:
 
 .. container::
 
@@ -32,12 +32,12 @@ Computation times
    * - Example
      - Time
      - Mem (MB)
-   * - :ref:`sphx_glr_api_gallery_signal_processing_sampling_plot_02_shannon_sampling.py` (``plot_02_shannon_sampling.py``)
-     - 00:00.289
+   * - :ref:`sphx_glr_api_gallery_signal_processing_sampling_plot_01_bennett_quantization.py` (``plot_01_bennett_quantization.py``)
+     - 00:00.345
      - 0.0
    * - :ref:`sphx_glr_api_gallery_signal_processing_sampling_plot_03_schafer_rabiner_interpolation.py` (``plot_03_schafer_rabiner_interpolation.py``)
-     - 00:00.231
+     - 00:00.299
      - 0.0
-   * - :ref:`sphx_glr_api_gallery_signal_processing_sampling_plot_01_bennett_quantization.py` (``plot_01_bennett_quantization.py``)
-     - 00:00.194
+   * - :ref:`sphx_glr_api_gallery_signal_processing_sampling_plot_02_shannon_sampling.py` (``plot_02_shannon_sampling.py``)
+     - 00:00.246
      - 0.0

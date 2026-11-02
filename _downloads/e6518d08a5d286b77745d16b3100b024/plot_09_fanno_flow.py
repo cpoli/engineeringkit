@@ -68,6 +68,6 @@ axes[1].annotate("supersonic", (entropy[-60], state.temperature_ratio[-60]))
 fig.tight_layout()
 
 assert np.isclose(M[np.argmax(entropy)], 1.0, atol=0.01)
-assert np.isclose(float(fanno_flow(2.0).friction_parameter) / 4, 0.30500, atol=1e-5)
+assert np.isclose(float(fanno_flow(2.0).friction_parameter), 0.30500, atol=1e-5)
 
 plt.show()

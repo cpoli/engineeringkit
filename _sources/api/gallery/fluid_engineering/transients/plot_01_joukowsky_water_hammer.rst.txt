@@ -68,7 +68,7 @@ Water (:math:`K = 2.2` GPa) at 2 m/s in a 300 mm pipe.
 
 
     K, rho, D, v0 = 2.2e9, 998.0, 0.3, 2.0
-    materials = {"steel": (200e9, 0.008), "ductile iron": (170e9, 0.010), "PVC": (3.0e9, 0.015), "rigid": (np.inf, 1.0)}
+    materials = {"steel": (200e9, 0.008), "ductile iron": (170e9, 0.010), "PVC": (3.0e9, 0.012), "rigid": (np.inf, 1.0)}
     for name, (E, e) in materials.items():
         a = np.sqrt(K / rho) if np.isinf(E) else pipe_wave_speed(K, rho, D, e, E)
         print(f"{name:>12}: a = {a:6.0f} m/s, surge {water_hammer_pressure(rho, a, v0) / 1e6:.2f} MPa")
@@ -83,7 +83,7 @@ Water (:math:`K = 2.2` GPa) at 2 m/s in a 300 mm pipe.
 
            steel: a =   1249 m/s, surge 2.49 MPa
     ductile iron: a =   1260 m/s, surge 2.52 MPa
-             PVC: a =    375 m/s, surge 0.75 MPa
+             PVC: a =    338 m/s, surge 0.67 MPa
            rigid: a =   1485 m/s, surge 2.96 MPa
 
 
@@ -169,7 +169,7 @@ the static pressure; the slow closures stay below it.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.077 seconds)
+   **Total running time of the script:** (0 minutes 0.084 seconds)
 
 
 .. _sphx_glr_download_api_gallery_fluid_engineering_transients_plot_01_joukowsky_water_hammer.py:

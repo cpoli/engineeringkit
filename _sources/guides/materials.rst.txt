@@ -31,7 +31,10 @@ fick_flux is the steady first law. semi_infinite_concentration and
 diffusion_time are the error-function solution for a constant D, a
 uniform initial concentration and a surface held at Cs from t = 0; the
 part must be thicker than a few sqrt(D*t). Concentrations may be in any
-unit, as long as C, C0 and Cs share it.
+unit, as long as C, C0 and Cs share it. diffusion_time inverts the error
+function exactly, where textbooks interpolate a table: for Callister's
+Example 5.2 it gives z = 0.3926 and 25,370 s against the book's z = 0.392
+and 25,400 s (7.1 h), the same to the three figures printed.
 
 lever_rule takes the tie-line compositions read from a phase diagram (no
 diagrams are built in) and returns (W_alpha, W_beta); weight percent gives
@@ -179,7 +182,10 @@ hall_petch holds down to grain sizes of tens of nanometres.
 ramberg_osgood_strain uses the offset form eps = sigma/E +
 offset*(sigma/sigma_y)^n with n >= 1 and is odd in stress.
 
-Tests check the textbook values of copper's density, the (220) reflection
+test_reference_problems.py checks ten worked examples of Callister and
+Rethwisch (9th edition), from copper's density to a brass rod's thermal
+stress, against their printed answers. Tests also check the textbook values
+of copper's density, the (220) reflection
 of iron, Fick's flux, a carburizing time, the lever rule, a Brinell number
 and Shigley's Marin factors; the error-function profile against Fick's
 second law, Avrami fit round trips, Gerber-Goodman-Soderberg ordering,

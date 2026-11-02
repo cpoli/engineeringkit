@@ -18,6 +18,7 @@ timber with a steel plate, using its transformed section
 # %%
 import matplotlib.pyplot as plt
 import numpy as np
+from scipy.integrate import trapezoid
 
 from engineeringkit.structural_engineering import composite_section, i_section, shear_flow, transverse_shear_stress
 
@@ -33,7 +34,7 @@ for ax, section, name in zip(axes, (rect, beam), ("rectangle", "I-beam")):
     y = np.linspace(0, 0.3, 601)
     width = np.array([section.width_at(v) for v in y])
     tau = np.array([transverse_shear_stress(V, section.first_moment(v), section.Iz, w) for v, w in zip(y, width)])
-    total = np.trapezoid(tau * width, y)
+    total = trapezoid(tau * width, y)
     print(f"{name}: peak {tau.max() / 1e6:.2f} MPa, integral of tau t dy = {total / 1e3:.2f} kN")
     assert np.isclose(total, V, rtol=2e-3)
     ax.plot(tau / 1e6, y)

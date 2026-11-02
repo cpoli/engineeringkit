@@ -33,12 +33,13 @@ an internal pressure above the material's strength. The example plots the
 stresses through a gun-barrel wall and finds the radius ratio at which the
 thin-wall formula is 5% low.
 
-.. GENERATED FROM PYTHON SOURCE LINES 19-25
+.. GENERATED FROM PYTHON SOURCE LINES 19-26
 
 .. code-block:: Python
 
     import matplotlib.pyplot as plt
     import numpy as np
+    from scipy.integrate import trapezoid
     from scipy.optimize import brentq
 
     from engineeringkit.structural_engineering import thick_wall_cylinder_stresses, thin_wall_vessel_stresses
@@ -50,12 +51,12 @@ thin-wall formula is 5% low.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 26-28
+.. GENERATED FROM PYTHON SOURCE LINES 27-29
 
 Stresses through a thick wall
 -----------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 28-45
+.. GENERATED FROM PYTHON SOURCE LINES 29-46
 
 .. code-block:: Python
 
@@ -66,7 +67,7 @@ Stresses through a thick wall
     print(f"hoop stress {hoop[0] / 1e6:.0f} MPa at the bore, {hoop[-1] / 1e6:.0f} MPa outside")
     print(f"thin-wall formula {p * ri / (ro - ri) / 1e6:.0f} MPa")
     assert np.isclose(hoop[0], p * (ro**2 + ri**2) / (ro**2 - ri**2))
-    assert np.isclose(np.trapezoid(hoop, r), p * ri)  # the wall carries the bursting force p * 2 ri per unit length
+    assert np.isclose(trapezoid(hoop, r), p * ri)  # the wall carries the bursting force p * 2 ri per unit length
 
     fig, ax = plt.subplots(figsize=(6, 3.5))
     ax.plot(r * 1e3, hoop / 1e6, label="hoop")
@@ -95,12 +96,12 @@ Stresses through a thick wall
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 46-48
+.. GENERATED FROM PYTHON SOURCE LINES 47-49
 
 When is a wall thin?
 --------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 48-68
+.. GENERATED FROM PYTHON SOURCE LINES 49-69
 
 .. code-block:: Python
 
@@ -145,7 +146,7 @@ When is a wall thin?
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.121 seconds)
+   **Total running time of the script:** (0 minutes 0.150 seconds)
 
 
 .. _sphx_glr_download_api_gallery_structural_engineering_vessels_plot_01_lame_thick_cylinder.py:

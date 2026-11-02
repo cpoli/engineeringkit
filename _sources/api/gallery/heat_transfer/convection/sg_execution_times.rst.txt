@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:02.210** total execution time for 8 files **from api/gallery/heat_transfer/convection**:
+**00:02.617** total execution time for 8 files **from api/gallery/heat_transfer/convection**:
 
 .. container::
 
@@ -33,26 +33,26 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_heat_transfer_convection_plot_04_graetz_tube_flow.py` (``plot_04_graetz_tube_flow.py``)
-     - 00:00.505
+     - 00:00.627
      - 0.0
    * - :ref:`sphx_glr_api_gallery_heat_transfer_convection_plot_05_pohlhausen_flat_plate.py` (``plot_05_pohlhausen_flat_plate.py``)
-     - 00:00.502
+     - 00:00.601
      - 0.0
    * - :ref:`sphx_glr_api_gallery_heat_transfer_convection_plot_03_churchill_chu.py` (``plot_03_churchill_chu.py``)
-     - 00:00.240
+     - 00:00.277
      - 0.0
    * - :ref:`sphx_glr_api_gallery_heat_transfer_convection_plot_08_churchill_bernstein_cylinder.py` (``plot_08_churchill_bernstein_cylinder.py``)
-     - 00:00.239
+     - 00:00.265
      - 0.0
    * - :ref:`sphx_glr_api_gallery_heat_transfer_convection_plot_02_dittus_boelter.py` (``plot_02_dittus_boelter.py``)
-     - 00:00.220
+     - 00:00.251
      - 0.0
    * - :ref:`sphx_glr_api_gallery_heat_transfer_convection_plot_01_newton_cooling.py` (``plot_01_newton_cooling.py``)
-     - 00:00.216
+     - 00:00.237
      - 0.0
    * - :ref:`sphx_glr_api_gallery_heat_transfer_convection_plot_06_chilton_colburn_analogy.py` (``plot_06_chilton_colburn_analogy.py``)
-     - 00:00.166
+     - 00:00.200
      - 0.0
    * - :ref:`sphx_glr_api_gallery_heat_transfer_convection_plot_07_zukauskas_tube_banks.py` (``plot_07_zukauskas_tube_banks.py``)
-     - 00:00.122
+     - 00:00.158
      - 0.0

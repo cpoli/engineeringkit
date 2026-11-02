@@ -18,6 +18,7 @@ thin-wall formula is 5% low.
 # %%
 import matplotlib.pyplot as plt
 import numpy as np
+from scipy.integrate import trapezoid
 from scipy.optimize import brentq
 
 from engineeringkit.structural_engineering import thick_wall_cylinder_stresses, thin_wall_vessel_stresses
@@ -32,7 +33,7 @@ radial, hoop, axial = thick_wall_cylinder_stresses(r, ri, ro, p)
 print(f"hoop stress {hoop[0] / 1e6:.0f} MPa at the bore, {hoop[-1] / 1e6:.0f} MPa outside")
 print(f"thin-wall formula {p * ri / (ro - ri) / 1e6:.0f} MPa")
 assert np.isclose(hoop[0], p * (ro**2 + ri**2) / (ro**2 - ri**2))
-assert np.isclose(np.trapezoid(hoop, r), p * ri)  # the wall carries the bursting force p * 2 ri per unit length
+assert np.isclose(trapezoid(hoop, r), p * ri)  # the wall carries the bursting force p * 2 ri per unit length
 
 fig, ax = plt.subplots(figsize=(6, 3.5))
 ax.plot(r * 1e3, hoop / 1e6, label="hoop")
