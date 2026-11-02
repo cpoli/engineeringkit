@@ -240,6 +240,20 @@ Finished items move here with the release they shipped in, as in
 CHANGELOG.md.
 
 ### Unreleased
+- **B4.fluid_engineering. Textbook reference problems** (2026-11-02).
+  `fluid_engineering/tests/test_reference_problems.py` checks five worked
+  examples against the printed answers. White, *Fluid Mechanics*, 5th
+  ed.: Example 6.7 (oil in a sloping cast-iron pipe, V = 6.37 m/s,
+  Re = 127,000, h_f = 117 m), 6.9 (V = 4.84 m/s, Q = 0.342 m^3/s from an
+  8 m head loss), 6.10 (the same worked back to d = 0.300 m) and 10.8
+  (hydraulic jump, Fr1 = 2.285, y2 = 3.46 m, V2 = 2.89 m/s, Fr2 = 0.496,
+  h_f = 0.625 m, 14%, 61 kW/m, 0.0015 K). Munson et al., 6th ed.:
+  Example 2.6 (inclined circular gate, 1.23 MN at 11.6 m, 1.07e5 N m).
+  Nothing was fixed. The guide's new "Reference problems" section records
+  the one difference of method: Example 6.7's pressure drop is 270 kPa
+  with Colebrook's f = 0.0227, against the 265 kPa the book gets from a
+  chart-read f and a rounded head loss.
+
 - **B4.materials. Textbook reference problems** (2026-11-02).
   `materials/tests/test_reference_problems.py` checks ten worked examples
   of Callister and Rethwisch, 9th ed., against the printed answers:

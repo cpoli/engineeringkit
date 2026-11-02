@@ -193,3 +193,17 @@ Poiseuille profile, check the smooth and rough limits of Colebrook, the
 Chezy form of Manning, Korteweg's rigid-pipe limit, the agreement of NPSH
 and cavitation number, Hardy Cross against a direct Newton solve, and that
 every Pi group lies in the null space of the dimension matrix.
+
+Reference problems
+------------------
+
+test_reference_problems.py works five textbook examples with these
+functions and checks each printed answer to the digits the book prints:
+White, *Fluid Mechanics*, 5th ed., Examples 6.7 (oil in a sloping
+cast-iron pipe), 6.9 and 6.10 (flow rate and diameter from a head loss,
+solved by root-finding on Colebrook as the book iterates) and 10.8 (a
+hydraulic jump), and Munson et al., *Fundamentals of Fluid Mechanics*,
+6th ed., Example 2.6 (an inclined circular gate). One answer differs by
+method: in Example 6.7 the book reads f off the Moody chart and subtracts
+its rounded 117 m head loss from the 86.8 m drop, printing a pressure drop
+of about 265 kPa; Colebrook's f = 0.0227 gives the same 117 m but 270 kPa.

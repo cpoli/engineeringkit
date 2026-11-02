@@ -26,7 +26,7 @@ Independent benchmark matrix
    * - Thermodynamics
      - Integrated P dV, T delta_S, four-state cycle balances and COP identities, IF97 verification tables (regions 1 to 5) and Gibbs relations, van der Waals critical inflection and isenthalpic throttle, Curzon-Ahlborn power maximum, Rankine and Brayton plant energy balances and Çengel and Boles plants, Ericsson limit, Stirling and dual four-process balances, Peng-Robinson critical inflection, equal-area rule, Clapeyron slope and R-134a tables, Maxwell relation and Joule-Thomson throttle on IF97 steam, Dalton mixing entropy against isothermal expansions, psychrometric mass and energy balances, Hess heating values, flame-temperature energy balance and JANAF enthalpies
    * - Fluids
-     - Integrated parabolic profile and wall pressure, laminar Darcy equivalence, Colebrook residual and limits, Hardy Cross against Newton, Pi-group null space
+     - Integrated parabolic profile and wall pressure, laminar Darcy equivalence, Colebrook residual and limits, Hardy Cross against Newton, Pi-group null space, White and Munson et al. worked examples
    * - Heat transfer
      - Interface Q*R drops, thin-wall limit, exchanger limits, Planck integral, plane-wall series and finite-difference energy, Blasius-Pohlhausen similarity solution, Graetz eigenvalue, exact crossflow series, effectiveness-NTU against F-LMTD, cylinder and sphere lumped and fixed-surface limits and energy balance, 2-D Fourier series and second-order convergence, shape-factor identities, two- and three-surface radiation networks, Incropera et al. worked examples
    * - Materials

@@ -58,6 +58,13 @@ section, so keep that heading format.
   (Examples 8.1, 9.2 and 13.1), and Gere and Goodno, 7th edition
   (Examples 3-1, 7-2 and 7-3), each checked to the precision the book
   prints. All agree (ROADMAP B4.structural_engineering).
+- `fluid_engineering` has textbook reference tests: five worked
+  examples from White, *Fluid Mechanics*, 5th edition (Examples 6.7,
+  6.9, 6.10 and 10.8), and Munson et al., 6th edition (Example 2.6),
+  each checked to the precision the book prints. All agree except the
+  pressure drop of Example 6.7, where Colebrook's f gives 270 kPa against
+  the book's chart-read 265 kPa; the guide records why
+  (ROADMAP B4.fluid_engineering).
 
 ## [0.2.0] - 2026-10-30
 
