@@ -81,7 +81,7 @@ def test_fanno_friction_parameter_integrates_the_friction_ode():
         return 2 * (1 - m**2) / (gamma * m**3 * (1 + (gamma - 1) / 2 * m**2))
 
     for M in (0.3, 0.8, 1.5, 3.0):
-        assert np.isclose(a.fanno_flow(M, gamma).friction_parameter, 4 * quad(rate, M, 1)[0])
+        assert np.isclose(a.fanno_flow(M, gamma).friction_parameter, quad(rate, M, 1)[0])
 
 
 def test_duct_flows_conserve_mass_momentum_and_energy():

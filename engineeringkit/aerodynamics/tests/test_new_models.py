@@ -167,7 +167,7 @@ def test_prandtl_meyer_tabulated_values_and_inverse():
 
 def test_fanno_and_rayleigh_tables_at_mach_two():
     fanno = a.fanno_flow(2.0)
-    assert np.isclose(fanno.friction_parameter / 4, 0.30500, atol=1e-5)
+    assert np.isclose(fanno.friction_parameter, 0.30500, atol=1e-5)
     assert np.allclose(
         [fanno.temperature_ratio, fanno.pressure_ratio, fanno.stagnation_pressure_ratio], [0.66667, 0.40825, 1.6875], atol=1e-5
     )

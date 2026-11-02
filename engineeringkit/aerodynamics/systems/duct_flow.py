@@ -41,7 +41,8 @@ def fanno_flow(M, gamma=1.4) -> DuctFlowState:
     DuctFlowState
         Ratios to the sonic state, including the friction parameter
         :math:`f L^*/D` with the Darcy friction factor :math:`f`
-        (four times the Fanning factor).
+        (four times the Fanning factor, so this is the
+        :math:`4 f_F L^*/D` of Fanning-factor tables).
 
     Notes
     -----
@@ -59,14 +60,14 @@ def fanno_flow(M, gamma=1.4) -> DuctFlowState:
     --------
     >>> state = fanno_flow(2.0)
     >>> round(float(state.friction_parameter), 5), round(float(state.pressure_ratio), 5)
-    (1.21999, 0.40825)
+    (0.305, 0.40825)
     """
     _positive(M=M)
     check_gamma(gamma)
     M = np.asarray(M, float)
     m2 = M**2
     t = (gamma + 1) / (2 + (gamma - 1) * m2)
-    friction = 4 * ((1 - m2) / (gamma * m2) + (gamma + 1) / (2 * gamma) * np.log((gamma + 1) * m2 / (2 + (gamma - 1) * m2)))
+    friction = (1 - m2) / (gamma * m2) + (gamma + 1) / (2 * gamma) * np.log((gamma + 1) * m2 / (2 + (gamma - 1) * m2))
     return DuctFlowState(
         kind="fanno",
         mach=M,
@@ -108,7 +109,7 @@ def fanno_choking_length(M, D, f, gamma=1.4):
     Examples
     --------
     >>> round(float(fanno_choking_length(0.5, 0.05, 0.02)), 4)
-    10.6906
+    2.6727
     """
     _positive(D=D, f=f)
     return fanno_flow(M, gamma).friction_parameter * np.asarray(D) / f

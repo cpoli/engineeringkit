@@ -240,6 +240,24 @@ Finished items move here with the release they shipped in, as in
 CHANGELOG.md.
 
 ### Unreleased
+
+- **B4.aerodynamics. Textbook reference problems** (2026-11-02).
+  `aerodynamics/tests/test_reference_problems.py` checks ten worked
+  examples from Anderson: *Fundamentals of Aerodynamics*, 3rd ed.,
+  Examples 4.4 (thin-airfoil lift), 4.8 (turbulent skin friction), 5.2
+  (induced drag at a new aspect ratio), 8.5 (stagnation and sonic
+  state), 9.2 (oblique shock) and 9.8 (Prandtl-Meyer expansion), and
+  *Modern Compressible Flow*, 3rd ed., Examples 3.4 (normal shock), 3.10
+  (thermal choking), 3.11 and 3.13 (Fanno pipe flow and choking length).
+  Example 3.13 found a bug: `fanno_flow`'s friction parameter and
+  `fanno_choking_length` were four times too large, since the Darcy form
+  applied the Fanning factor of four twice; the ODE benchmark and the
+  gallery check had been written to agree with it, and are fixed too.
+  Examples 9.2 and 9.8 differ only because Anderson rounds to the nearest
+  table entry (M_n1 = 1.6, M2 = 2.0); the guide says so. The printed
+  answers were taken from the FOSSEE Python Textbook Companion
+  transcriptions of both books, not from the books themselves.
+
 - **B4.reliability. Reference problems** (2026-11-02).
   `reliability/tests/test_reference_problems.py` checks eight worked
   examples of the NIST/SEMATECH e-Handbook of Statistical Methods, ch. 8,

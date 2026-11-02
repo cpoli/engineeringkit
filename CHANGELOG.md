@@ -95,6 +95,21 @@ section, so keep that heading format.
   Ebeling and O'Connor-Kleyner, which were not at hand. All agree; the
   guide notes where the handbook's rounded constants and intermediates
   move its printed answers (ROADMAP B4.reliability).
+- **Behaviour change:** the Fanno friction parameter
+  (`DuctFlowState.friction_parameter` from `fanno_flow`) and
+  `fanno_choking_length` were four times too large in 0.2.0: the Darcy
+  factor already carries the factor of four of the Fanning form, and the
+  code applied it again. The choking length of Anderson's *Modern
+  Compressible Flow* Example 3.13 is now 10.44 ft, as printed, not
+  41.8 ft. The guide's note that the Darcy parameter is four times the
+  tabulated 4fL*/D is corrected: the two are the same number.
+- `aerodynamics` has textbook reference tests: ten worked examples from
+  Anderson's *Fundamentals of Aerodynamics*, 3rd edition (Examples 4.4,
+  4.8, 5.2, 8.5, 9.2 and 9.8), and *Modern Compressible Flow*, 3rd
+  edition (Examples 3.4, 3.10, 3.11 and 3.13), each checked to the
+  precision the book prints. They found the Fanno bug above; the guide
+  records where Anderson's table readings differ from the closed forms
+  (Examples 9.2 and 9.8) (ROADMAP B4.aerodynamics).
 
 ## [0.2.0] - 2026-10-30
 

@@ -58,8 +58,9 @@ Fanno and Rayleigh duct flow
 ``fanno_flow`` and ``rayleigh_flow`` return a ``DuctFlowState`` of ratios to
 the sonic state on the same line, matching the tables in Anderson's *Modern
 Compressible Flow*. The Fanno friction parameter uses the **Darcy** friction
-factor, fL*/D, which is four times the Fanning value 4fL*/D found in most
-compressible-flow tables; pass a Darcy factor (for example from
+factor, fL*/D. The Darcy factor is four times the Fanning factor, so this
+is the same number as the 4fL*/D of compressible-flow tables, which use the
+Fanning factor; pass a Darcy factor (for example from
 ``fluid_engineering.colebrook_friction_factor``) to ``fanno_choking_length``.
 Fanno flow is adiabatic with constant friction factor; Rayleigh flow is
 frictionless, with the heat given per unit mass and constant cp. Neither
@@ -113,5 +114,20 @@ cruise.
 Flat-plate skin friction and boundary-layer thickness assume a smooth plate
 with zero pressure gradient. Re must be positive; transition location, roughness
 and flow separation are not detected by these algebraic helpers.
+
+Textbook reference problems
+---------------------------
+
+``tests/test_reference_problems.py`` works ten examples from Anderson's
+*Fundamentals of Aerodynamics* (3rd ed.) and *Modern Compressible Flow* (3rd
+ed.) and checks the printed answers. Where they differ, the cause is the
+method, not the theory: Anderson reads four-figure tables and charts, and the
+functions here evaluate the closed forms exactly. In Fundamentals Example 9.2
+(M1 = 2, 20 degree wedge) he rounds the normal Mach number 1.606 to the table
+entry 1.6 and prints p2 = 2.82 atm, where ``oblique_shock`` gives 2.843 atm.
+In Example 9.8 (M1 = 1.5, 15 degree corner) he takes the nearest table entry
+M2 = 2.0, where ``prandtl_meyer_expansion`` returns the root 2.019, so p2 is
+0.455 atm, not 0.469 atm. *Modern Compressible Flow* uses the Fanning friction
+factor: f = 0.005 in Examples 3.11 to 3.13 is a Darcy factor of 0.02 here.
 
 Reference: `NASA Glenn normal-shock equations <https://www.grc.nasa.gov/www/BGH/normal.html>`_.
