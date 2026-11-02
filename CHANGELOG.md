@@ -49,6 +49,10 @@ section, so keep that heading format.
   and Manolakis, 4th edition (Examples 1.4.3, 2.3.2, 2.6.1 and 7.2.1),
   each checked to the precision the book prints. All agree
   (ROADMAP B4.signal_processing).
+- `heat_transfer` has textbook reference tests: five worked examples
+  from Incropera, DeWitt, Bergman and Lavine, 6th edition (Examples 1.1,
+  1.2, 5.1, 7.4 and 11.1), each checked to the precision the book
+  prints. All agree (ROADMAP B4.heat_transfer).
 
 ## [0.2.0] - 2026-10-30
 

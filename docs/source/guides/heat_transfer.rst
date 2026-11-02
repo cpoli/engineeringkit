@@ -186,5 +186,8 @@ against the Blasius-Pohlhausen similarity solution, Graetz's eigenvalue,
 the exact crossflow series, the effectiveness-NTU/F-LMTD identity, the
 cylinder and sphere lumped, fixed-surface and energy limits, the 2-D Fourier
 series and its second-order convergence, shape-factor identities and
-the closed-form two- and three-surface networks. Fin
+the closed-form two- and three-surface networks.
+test_reference_problems.py checks five worked examples of Incropera et al.
+(6th edition), from a furnace wall to a counterflow oil cooler, against
+their printed answers. Fin
 formulas assume a straight constant-section fin with an adiabatic tip.

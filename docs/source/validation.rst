@@ -28,7 +28,7 @@ Independent benchmark matrix
    * - Fluids
      - Integrated parabolic profile and wall pressure, laminar Darcy equivalence, Colebrook residual and limits, Hardy Cross against Newton, Pi-group null space
    * - Heat transfer
-     - Interface Q*R drops, thin-wall limit, exchanger limits, Planck integral, plane-wall series and finite-difference energy, Blasius-Pohlhausen similarity solution, Graetz eigenvalue, exact crossflow series, effectiveness-NTU against F-LMTD, cylinder and sphere lumped and fixed-surface limits and energy balance, 2-D Fourier series and second-order convergence, shape-factor identities, two- and three-surface radiation networks
+     - Interface Q*R drops, thin-wall limit, exchanger limits, Planck integral, plane-wall series and finite-difference energy, Blasius-Pohlhausen similarity solution, Graetz eigenvalue, exact crossflow series, effectiveness-NTU against F-LMTD, cylinder and sphere lumped and fixed-surface limits and energy balance, 2-D Fourier series and second-order convergence, shape-factor identities, two- and three-surface radiation networks, Incropera et al. worked examples
    * - Materials
      - Isotropic modulus identities, elastic strain-energy triangle, offset yield, Griffith-Irwin agreement, Paris life against closed form and quadrature, composite bounds, strain-life transition, Fick's second law, Callister and Shigley textbook values, Neuber's product, Halpin-Tsai limits, laminate ABD closed forms, Weibull size effect
    * - Mechanical

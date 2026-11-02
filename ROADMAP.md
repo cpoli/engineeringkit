@@ -253,6 +253,20 @@ CHANGELOG.md.
   inverse error function gives 25,370 s (7.05 h) where the book's table
   interpolation prints 25,400 s (7.1 h). Examples from Dowling are left
   for later.
+
+- **B4.heat_transfer. Textbook reference problems** (2026-11-02).
+  `heat_transfer/tests/test_reference_problems.py` checks five worked
+  examples of Incropera, DeWitt, Bergman and Lavine, 6th ed., against the
+  printed answers: Example 1.1 (furnace wall, 1700 W), 1.2 (steam pipe,
+  E = 2270 W/m^2, 577 + 421 = 998 W/m), 5.1 (thermocouple junction,
+  D = 0.706 mm, Bi = 2.35e-3, 199 C after 5.2 s), 7.4 (Churchill-Bernstein,
+  Nu = 40.6 at Re = 6071) and 11.1 (counterflow oil cooler, 8524 W,
+  40.2 C, LMTD 43.2 C, L = 65.9 m). All agree, so nothing was fixed or
+  added to the guide beyond the test's mention. Example 1.2's irradiation
+  is not checked, since 298 K and 298.15 K round it to 447 and 448 W/m^2
+  and the printed value could not be confirmed. Examples from Çengel and
+  Ghajar are left for later.
+
 - **B4.signal_processing. Textbook reference problems** (2026-11-02).
   `signal_processing/tests/test_reference_problems.py` checks nine worked
   examples against the printed answers. Oppenheim and Schafer, 3rd ed.:
