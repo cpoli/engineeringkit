@@ -323,6 +323,25 @@ CHANGELOG.md.
   least sure). Examples from Franklin, Powell and Emami-Naeini are left
   for later.
 
+- **B4.thermodynamics. Textbook reference problems** (2026-11-02).
+  `thermodynamics/tests/test_reference_problems.py` checks ten worked
+  examples against the printed answers. Çengel and Boles, 9th ed.:
+  Examples 10-1 (26.0%, x = 0.886), 10-3a, b and c (33.4%, 37.3%, 43.0%;
+  x = 0.813, 0.915, 0.804), 10-4 (reheat, 45.0%, x = 0.896), 10-5 (open
+  heater, 46.3%, y = 0.227), 9-5 (cold-air Brayton, 0.448) and 15-8
+  (octane with 400% air, 962 K). Moran et al., 9th ed.: Examples 8.1
+  (37.1%, x = 0.675, 3.77e5 kg/h) and 8.2 (31.4%). Nothing was fixed.
+  Two quantities meet one digit fewer than printed because the book's
+  steam tables differ from IF97 (y = 0.2271 against 0.2270, Moran's
+  x = 0.6748 against 0.6745). The guide's new "Textbook reference
+  problems" section records two differences of method, each bounded by
+  a test: Example 11-1's Peng-Robinson R-134a gives COP 3.94 against
+  3.97, and Example 9-6's constant cp gives a 805 K turbine exit against
+  the air tables' 853 K (r_bw 0.615 against 0.592, 27.4% against 26.6%).
+  The Chapter 10 answers were confirmed against a published
+  reproduction of the examples; the rest were not checked against a
+  printed copy (9-6 and 15-8 least sure).
+
 
 - **B5. ValidityWarning, piloted in heat_transfer and fluid_engineering**
   (2026-11-01). `_validation.py` has `ValidityWarning(UserWarning)`,

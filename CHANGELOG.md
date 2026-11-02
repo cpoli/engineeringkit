@@ -74,6 +74,14 @@ section, so keep that heading format.
   Ackermann's formula in that case. The guide notes where Ogata's
   graphical readings in Example 7-26 differ from `design_lead`
   (ROADMAP B4.control_systems).
+- `thermodynamics` has textbook reference tests: ten worked examples
+  from Çengel and Boles, 9th edition (Examples 9-5, 9-6, 10-1, 10-3,
+  10-4, 10-5, 11-1 and 15-8), and Moran et al., 9th edition (Examples
+  8.1 and 8.2), each checked to the precision the book prints. All agree
+  except where the guide records a difference of method: Peng-Robinson
+  R-134a in Example 11-1 (COP 3.94 against 3.97) and constant specific
+  heats in Example 9-6 (turbine exit 805 K against the air tables'
+  853 K) (ROADMAP B4.thermodynamics).
 
 ## [0.2.0] - 2026-10-30
 
