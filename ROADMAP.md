@@ -253,6 +253,19 @@ CHANGELOG.md.
   inverse error function gives 25,370 s (7.05 h) where the book's table
   interpolation prints 25,400 s (7.1 h). Examples from Dowling are left
   for later.
+- **B4.signal_processing. Textbook reference problems** (2026-11-02).
+  `signal_processing/tests/test_reference_problems.py` checks nine worked
+  examples against the printed answers. Oppenheim and Schafer, 3rd ed.:
+  Example 4.2 (cos 16000πt at 6 kHz aliases to 2 kHz), 7.3 (bilinear
+  Butterworth, N = 6, and Ωc = 0.766 meeting the stopband edge), 7.4
+  (Butterworth 14, Chebyshev 8, elliptic 6), 7.8 (Kaiser β = 5.653,
+  M = 37) and the sec. 7.8.1 Parks-McClellan design (Kaiser's estimate
+  M = 26; M = 26 misses δ2 = 0.001 and M = 27 meets it). Proakis and
+  Manolakis, 4th ed.: Examples 1.4.3 (aliased frequencies at 5 kHz),
+  2.3.2 (linear convolution), 2.6.1 (cross-correlation) and 7.2.1
+  (circular convolution). All agree, so nothing was fixed or added to
+  the guide; `kaiser_order` uses A − 7.95 where the book uses A − 8,
+  which gives the same M here.
 
 - **B5. ValidityWarning, piloted in heat_transfer and fluid_engineering**
   (2026-11-01). `_validation.py` has `ValidityWarning(UserWarning)`,

@@ -36,7 +36,7 @@ Independent benchmark matrix
    * - Aerodynamics
      - Normal and oblique shock mass/momentum/energy balances, sonic and infinite-wing limits, Prandtl-Meyer and Fanno ODE quadrature, Rayleigh-line conservation, exact elliptic lifting line, panel method against the exact cylinder and Kutta-Joukowski lift, built-up moment slope at the neutral point, integrated take-off roll and time-stepped propeller cruise
    * - Signals
-     - Parseval, periodogram integral, cutoff gain, sinc nodes, ADC error bounds, FFT and Welch against NumPy and SciPy, Gibbs limit, Haar energy, Wiener and LMS system identification, Chebyshev and elliptic ripple bounds and orders, bilinear transform and prewarping, Parks-McClellan alternation, overlap-add against direct convolution, interpolation and decimation, Hilbert transform, DCT orthonormality, Levinson-Durbin against a Toeplitz solve, cepstral echo
+     - Parseval, periodogram integral, cutoff gain, sinc nodes, ADC error bounds, FFT and Welch against NumPy and SciPy, Gibbs limit, Haar energy, Wiener and LMS system identification, Chebyshev and elliptic ripple bounds and orders, bilinear transform and prewarping, Parks-McClellan alternation, overlap-add against direct convolution, interpolation and decimation, Hilbert transform, DCT orthonormality, Levinson-Durbin against a Toeplitz solve, cepstral echo, Oppenheim-Schafer and Proakis-Manolakis worked examples
    * - Communications
      - Analytic FM phase, unsigned bit handling, linear/log link budgets and noise limits
    * - Reliability

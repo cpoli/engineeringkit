@@ -43,6 +43,12 @@ section, so keep that heading format.
   precision the book prints. All agree; the guide notes that the exact
   inverse error function gives 25,370 s for Example 5.2, where the book's
   table interpolation prints 25,400 s (ROADMAP B4.materials).
+- `signal_processing` has textbook reference tests: nine worked
+  examples from Oppenheim and Schafer, 3rd edition (Examples 4.2, 7.3,
+  7.4 and 7.8 and the Parks-McClellan design of sec. 7.8.1), and Proakis
+  and Manolakis, 4th edition (Examples 1.4.3, 2.3.2, 2.6.1 and 7.2.1),
+  each checked to the precision the book prints. All agree
+  (ROADMAP B4.signal_processing).
 
 ## [0.2.0] - 2026-10-30
 
