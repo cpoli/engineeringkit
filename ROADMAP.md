@@ -90,7 +90,8 @@ five worked examples from the textbooks listed for that domain in
 section D, each citing author, edition and example number, and checking
 the published answer to the precision the book prints. A disagreement is
 either a bug to fix or a difference of method to document in the guide.
-Twelve sub-items: B4.aerodynamics ... B4.thermodynamics.
+Twelve sub-items: B4.aerodynamics ... B4.thermodynamics, all done (see
+Done).
 
 **B5. Warn outside a model's range of validity, one domain per session.**
 The pilot is done (see Done): `_validation.validity()` issues an
@@ -414,6 +415,23 @@ CHANGELOG.md.
   Shigley's in-text Examples 8-1 (power screw), 8-2 (frustum stiffness)
   and 10-1 could not be checked against a copy and are left for later.
 
+- **B4.electrical_engineering. Textbook reference problems** (2026-11-02).
+  `electrical_engineering/tests/test_reference_problems.py` checks six
+  worked examples from Glover, Overbye and Sarma, *Power System Analysis
+  and Design*: 6th ed. Examples 9.3 (bolted single-line-to-ground fault,
+  I1 = -j1.964 pu) and 11.1 (swing angle 16.75 degrees three cycles after
+  a terminal fault), and 7th ed. (with Birchfield, 2022) Examples 6.9
+  (five-bus Newton-Raphson load flow: Y22, all bus voltages, slack and
+  PV-bus generation), 12.4 (maximum swing 0.7003 rad) and 12.5 (critical
+  clearing time just under 0.19 s). Nothing was fixed. Example 12.4's
+  0.7003 is 1e-4 above the root of the book's own equation (0.70020;
+  `swing_response` gives 0.70025), and the guide's new "Textbook
+  reference problems" section says so. The answers were read from
+  Overbye's ECEN 460 slides (2019, 2025), Lee's Baylor ELC 4340 slides
+  (2022) and two reproductions of Example 11.1, not from a printed book.
+  Hayt, Kemmerly and Durbin, the circuits text named in D4, could not be
+  checked against a copy, so the DC, transient, op-amp, diode and machine
+  models have no reference problems yet.
 
 - **B5. ValidityWarning, piloted in heat_transfer and fluid_engineering**
   (2026-11-01). `_validation.py` has `ValidityWarning(UserWarning)`,

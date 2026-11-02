@@ -118,6 +118,13 @@ section, so keep that heading format.
   guide notes Shigley's rounded K_v in Example 14-1 and Rao's
   low-precision cubic roots in Example 6.11
   (ROADMAP B4.mechanical_engineering).
+- `electrical_engineering` has textbook reference tests: six worked
+  examples from Glover, Overbye and Sarma, *Power System Analysis and
+  Design*, 6th edition (Examples 9.3 and 11.1) and 7th edition (Examples
+  6.9, 12.4 and 12.5), each checked to the precision the book prints.
+  All agree; the guide notes that Example 12.4's printed 0.7003 rad lies
+  1e-4 above the root of its own equal-area equation
+  (ROADMAP B4.electrical_engineering).
 
 ## [0.2.0] - 2026-10-30
 
