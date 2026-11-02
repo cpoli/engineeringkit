@@ -110,6 +110,14 @@ section, so keep that heading format.
   precision the book prints. They found the Fanno bug above; the guide
   records where Anderson's table readings differ from the closed forms
   (Examples 9.2 and 9.8) (ROADMAP B4.aerodynamics).
+- `mechanical_engineering` has textbook reference tests: eight worked
+  problems from Budynas and Nisbett, *Shigley's Mechanical Engineering
+  Design*, 10th edition (Example 14-1 and Problems 7-1, 10-3, 10-5 and
+  11-8 to 11-10), and Rao, *Mechanical Vibrations*, 5th edition (Example
+  6.11), each checked to the precision the book prints. All agree; the
+  guide notes Shigley's rounded K_v in Example 14-1 and Rao's
+  low-precision cubic roots in Example 6.11
+  (ROADMAP B4.mechanical_engineering).
 
 ## [0.2.0] - 2026-10-30
 

@@ -170,3 +170,20 @@ line, Castigliano's spring deflection, the integrated pressure cone, joint
 compatibility, the residual force and couple after balancing, finite
 differences of the linkage positions and of the cam laws, and the instant
 centres.
+
+Textbook reference problems
+---------------------------
+
+``tests/test_reference_problems.py`` checks Budynas and Nisbett, *Shigley's
+Mechanical Engineering Design* (10th ed.), Example 14-1 and the worked
+solutions to Problems 7-1, 10-3, 10-5, 11-8, 11-9 and 11-10, and Rao,
+*Mechanical Vibrations* (5th ed.), Example 6.11, against the printed answers.
+All agree; where they differ in the last digit, the cause is the method, not
+the theory. Shigley rounds intermediates before going on: in Example 14-1 he
+takes K_v = 1.52 and prints W_t = 365 lbf, where the unrounded
+barth_velocity_factor gives 364 lbf, and in Problem 10-5 the unrounded safety
+factor 2.0450 sits on the rounding boundary of the printed 2.04. In Rao's
+Example 6.11, three equal masses on a fixed-free spring chain, normal_modes
+reproduces the first frequency, 0.44504 sqrt(k/m), to every printed digit;
+Rao's roots of the cubic for the other two are low-precision, 1.2471 and
+1.8025 where the exact values are 1.24698 and 1.80194.

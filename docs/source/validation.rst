@@ -32,7 +32,7 @@ Independent benchmark matrix
    * - Materials
      - Isotropic modulus identities, elastic strain-energy triangle, offset yield, Griffith-Irwin agreement, Paris life against closed form and quadrature, composite bounds, strain-life transition, Fick's second law, Callister and Shigley textbook values, Neuber's product, Halpin-Tsai limits, laminate ABD closed forms, Weibull size effect
    * - Mechanical
-     - Undamped energy, damping dissipation, critical solution, gear power, forced equilibrium, simulated forced steady state, modal superposition against direct integration, double-pendulum energy, Rayleigh-Dunkerley bracket, Castigliano spring rate, integrated pressure cone, balancing residuals, finite-difference linkage and cam derivatives
+     - Undamped energy, damping dissipation, critical solution, gear power, forced equilibrium, simulated forced steady state, modal superposition against direct integration, double-pendulum energy, Rayleigh-Dunkerley bracket, Castigliano spring rate, integrated pressure cone, balancing residuals, finite-difference linkage and cam derivatives, Shigley and Rao worked examples
    * - Aerodynamics
      - Normal and oblique shock mass/momentum/energy balances, sonic and infinite-wing limits, Prandtl-Meyer and Fanno ODE quadrature, Rayleigh-line conservation, exact elliptic lifting line, panel method against the exact cylinder and Kutta-Joukowski lift, built-up moment slope at the neutral point, integrated take-off roll and time-stepped propeller cruise, Anderson worked examples
    * - Signals

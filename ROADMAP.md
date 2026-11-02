@@ -396,6 +396,24 @@ CHANGELOG.md.
   reproduction of the examples; the rest were not checked against a
   printed copy (9-6 and 15-8 least sure).
 
+- **B4.mechanical_engineering. Textbook reference problems** (2026-11-02).
+  `mechanical_engineering/tests/test_reference_problems.py` checks eight
+  worked problems. Budynas and Nisbett, *Shigley's Mechanical Engineering
+  Design*, 10th ed.: Example 14-1 (Lewis rating, 365 lbf, 6.95 hp) and
+  the solutions-manual answers to Problems 7-1 (DE-Goodman shaft,
+  27.27 mm), 10-3 and 10-5 (spring rate, Bergsträsser factor, load and
+  stress at solid) and 11-8 to 11-10 (bearing catalog rating). Rao,
+  *Mechanical Vibrations*, 5th ed.: Example 6.11 (three-mass chain).
+  Nothing was fixed. The guide's new "Textbook reference problems"
+  section records Shigley's rounded intermediates (K_v = 1.52 gives
+  365 lbf, unrounded 364 lbf) and Rao's low-precision roots of the
+  cubic (1.2471 and 1.8025 against 1.24698 and 1.80194). The chapter 7,
+  10 and 11 answers were read from the published solutions manual; the
+  Example 14-1 answers from a reproduction of the example, and Example
+  6.11 from a copy of Rao's chapter slides, not from a printed book.
+  Shigley's in-text Examples 8-1 (power screw), 8-2 (frustum stiffness)
+  and 10-1 could not be checked against a copy and are left for later.
+
 
 - **B5. ValidityWarning, piloted in heat_transfer and fluid_engineering**
   (2026-11-01). `_validation.py` has `ValidityWarning(UserWarning)`,
