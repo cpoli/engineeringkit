@@ -18,7 +18,7 @@ Independent benchmark matrix
    * - Domain
      - Independent evidence
    * - Structural
-     - Beam equilibrium/curvature, support values, bar reaction balance, energy derivative, three-moment equation, moment distribution and frame stiffness against one another, method of joints against direct stiffness, mechanism work minimum, Engesser residual, Macaulay beams against handbook cases and superposition, Gauss-quadrature stress resultants of the flexure formula, Jourawski stress integrating to the shear force, Lamé equilibrium residual, stress-tensor invariants, rosette round trip, unit-load against stiffness deflection, slope-deflection against moment distribution, cable arc length by quadrature
+     - Beam equilibrium/curvature, support values, bar reaction balance, energy derivative, three-moment equation, moment distribution and frame stiffness against one another, method of joints against direct stiffness, mechanism work minimum, Engesser residual, Macaulay beams against handbook cases and superposition, Gauss-quadrature stress resultants of the flexure formula, Jourawski stress integrating to the shear force, Lamé equilibrium residual, stress-tensor invariants, rosette round trip, unit-load against stiffness deflection, slope-deflection against moment distribution, cable arc length by quadrature, Hibbeler and Gere-Goodno worked examples
    * - Electrical
      - Closed-form transient current, charge integral, RC and RL energy accounting, resonance, RLC step against SciPy, mesh against nodal analysis, diode load line against Lambert W, Newton-Raphson against Gauss-Seidel load flow, swing-curve energy and equal areas
    * - Controls

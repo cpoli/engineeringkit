@@ -280,6 +280,16 @@ CHANGELOG.md.
   (circular convolution). All agree, so nothing was fixed or added to
   the guide; `kaiser_order` uses A − 7.95 where the book uses A − 8,
   which gives the same M here.
+- **B4.structural_engineering. Textbook reference problems** (2026-11-02).
+  `structural_engineering/tests/test_reference_problems.py` checks six
+  worked examples against the printed answers. Hibbeler, *Mechanics of
+  Materials*, 10th ed.: Example 8.1 (4 ft cylinder at 20 ksi, 417 psi;
+  the sphere 833 psi), 9.2 (element rotated 30° clockwise, -25.8 MPa,
+  -4.15 MPa, -68.8 MPa) and 13.1 (pinned W200x46, 4 m, σcr = 320 MPa
+  below yield). Gere and Goodno, 7th ed.: Examples 3-1 (solid bar in
+  torsion, 4530 psi, 1.62°, T_max = 3980 lb-in), 7-2 (element at 45°)
+  and 7-3 (principal stresses 13,500 and -5,440 psi at -14.8°, τmax =
+  9,490 psi). All agree, so nothing was fixed or added to the guide.
 
 - **B5. ValidityWarning, piloted in heat_transfer and fluid_engineering**
   (2026-11-01). `_validation.py` has `ValidityWarning(UserWarning)`,

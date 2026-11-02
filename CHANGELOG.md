@@ -53,6 +53,11 @@ section, so keep that heading format.
   from Incropera, DeWitt, Bergman and Lavine, 6th edition (Examples 1.1,
   1.2, 5.1, 7.4 and 11.1), each checked to the precision the book
   prints. All agree (ROADMAP B4.heat_transfer).
+- `structural_engineering` has textbook reference tests: six worked
+  examples from Hibbeler, *Mechanics of Materials*, 10th edition
+  (Examples 8.1, 9.2 and 13.1), and Gere and Goodno, 7th edition
+  (Examples 3-1, 7-2 and 7-3), each checked to the precision the book
+  prints. All agree (ROADMAP B4.structural_engineering).
 
 ## [0.2.0] - 2026-10-30
 
