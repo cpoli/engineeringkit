@@ -7,7 +7,7 @@ from engineeringkit import materials as m
 
 # Textbook values: Callister and Rethwisch, *Materials Science and Engineering*, chapters 3, 5,
 # 6, 9 and 10, and Budynas and Nisbett, *Shigley's Mechanical Engineering Design*, chapter 6.
-# Exact example numbers and published answers are the job of ROADMAP item B4.
+# The cited worked examples, with their published answers, are in test_reference_problems.py.
 
 
 def test_callister_copper_density_and_iron_diffraction():

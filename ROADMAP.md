@@ -240,6 +240,20 @@ Finished items move here with the release they shipped in, as in
 CHANGELOG.md.
 
 ### Unreleased
+- **B4.materials. Textbook reference problems** (2026-11-02).
+  `materials/tests/test_reference_problems.py` checks ten worked examples
+  of Callister and Rethwisch, 9th ed., against the printed answers:
+  Example 3.3 (copper, 8.89 g/cm^3), 5.1 (carbon flux, 2.4e-9
+  kg/(m^2 s)), 5.2 (carburizing, 25,400 s), 5.4 (Cu in Al at 500 C,
+  4.2e-14 m^2/s), 6.1 (copper elongation, 0.77 mm), 6.2 (brass rod,
+  eps_z = 7.35e-4, F = 5600 N), 8.1 (glass flaw, 8.2 um), Design Example
+  8.2 (S-590 rupture, 233 h), 9.2 (Pb-Sn fractions, 0.67 and 0.33) and
+  19.1 (brass thermal stress, 106 C). All agree, so nothing was fixed.
+  The guide notes the one difference of method: for Example 5.2 the exact
+  inverse error function gives 25,370 s (7.05 h) where the book's table
+  interpolation prints 25,400 s (7.1 h). Examples from Dowling are left
+  for later.
+
 - **B5. ValidityWarning, piloted in heat_transfer and fluid_engineering**
   (2026-11-01). `_validation.py` has `ValidityWarning(UserWarning)`,
   exported as `engineeringkit.ValidityWarning`, and `validity(model,

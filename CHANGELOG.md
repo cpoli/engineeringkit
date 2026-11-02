@@ -37,6 +37,12 @@ section, so keep that heading format.
   `stokes_settling_velocity`, `rehbock_discharge_coefficient` and
   `pipe_wave_speed`. Code run with warnings as errors will fail on such
   inputs; CONTRIBUTING.md shows how to silence the warning (ROADMAP B5).
+- `materials` has textbook reference tests: ten worked examples from
+  Callister and Rethwisch, 9th edition (Examples 3.3, 5.1, 5.2, 5.4, 6.1,
+  6.2, 8.1, 9.2 and 19.1 and Design Example 8.2), each checked to the
+  precision the book prints. All agree; the guide notes that the exact
+  inverse error function gives 25,370 s for Example 5.2, where the book's
+  table interpolation prints 25,400 s (ROADMAP B4.materials).
 
 ## [0.2.0] - 2026-10-30
 
