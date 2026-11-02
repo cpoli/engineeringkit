@@ -181,8 +181,24 @@ def is_observable(A, C):
     return bool(np.linalg.matrix_rank(observability_matrix(A, C)) == np.asarray(A).shape[0])
 
 
+def _place(A, B, desired_poles):
+    """Gain placing the eigenvalues of ``A - B K``, by Ackermann's formula for one input with repeated poles."""
+    p = np.asarray(desired_poles, complex).ravel()
+    if B.shape[1] > 1 or np.unique(p).size == p.size:
+        return signal.place_poles(A, B, p).gain_matrix
+    n = A.shape[0]
+    coeffs = np.poly(p)
+    if p.size != n or np.any(np.abs(coeffs.imag) > 1e-9 * np.abs(coeffs).max()):
+        raise ValueError("desired_poles must be n values closed under complex conjugation")
+    ctrb = np.hstack([np.linalg.matrix_power(A, k) @ B for k in range(n)])
+    if np.linalg.matrix_rank(ctrb) < n:
+        raise ValueError("the pair is not controllable, so its poles cannot all be placed")
+    phi = sum(c * np.linalg.matrix_power(A, n - k) for k, c in enumerate(coeffs.real))
+    return np.linalg.solve(ctrb.T, np.eye(n)[-1])[None, :] @ phi
+
+
 def state_feedback_poles(A, B, desired_poles):
-    """State-feedback gain :math:`K` placing the eigenvalues of :math:`A - BK`.
+    r"""State-feedback gain :math:`K` placing the eigenvalues of :math:`A - BK`.
 
     Parameters
     ----------
@@ -201,7 +217,12 @@ def state_feedback_poles(A, B, desired_poles):
 
     Notes
     -----
-    Wraps :func:`scipy.signal.place_poles`. See :doc:`/guides/control_systems`.
+    Wraps :func:`scipy.signal.place_poles`, which cannot repeat a pole more
+    often than the rank of :math:`B`. With one input the gain is unique, so a
+    repeated pole is placed by Ackermann's formula
+    :math:`K = [0\ \cdots\ 0\ 1]\,\mathcal{C}^{-1}\phi(A)` instead, where
+    :math:`\mathcal{C}` is the controllability matrix and :math:`\phi` the
+    desired characteristic polynomial. See :doc:`/guides/control_systems`.
 
     References
     ----------
@@ -214,7 +235,7 @@ def state_feedback_poles(A, B, desired_poles):
     [[2.0, 3.0]]
     """
     A, B, _ = state_matrices(A, B=B)
-    return signal.place_poles(A, B, desired_poles).gain_matrix
+    return _place(A, B, desired_poles)
 
 
 def observer_gain(A, C, desired_poles):
@@ -240,7 +261,9 @@ def observer_gain(A, C, desired_poles):
     Notes
     -----
     Computed by duality, placing the poles of :math:`A^\mathsf{T} -
-    C^\mathsf{T} L^\mathsf{T}`. See :doc:`/guides/control_systems`.
+    C^\mathsf{T} L^\mathsf{T}`, so with one output a repeated pole is
+    placed by Ackermann's formula, as in :func:`state_feedback_poles`. See
+    :doc:`/guides/control_systems`.
 
     References
     ----------
@@ -253,7 +276,7 @@ def observer_gain(A, C, desired_poles):
     [[3.0], [2.0]]
     """
     A, _, C = state_matrices(A, C=C)
-    return signal.place_poles(A.T, C.T, desired_poles).gain_matrix.T
+    return _place(A.T, C.T, desired_poles).T
 
 
 def feedforward_gain(A, B, C, K):

@@ -22,7 +22,7 @@ Independent benchmark matrix
    * - Electrical
      - Closed-form transient current, charge integral, RC and RL energy accounting, resonance, RLC step against SciPy, mesh against nodal analysis, diode load line against Lambert W, Newton-Raphson against Gauss-Seidel load flow, swing-curve energy and equal areas
    * - Controls
-     - Analytic scalar LQR/Kalman, matrix Riccati residuals and shape/weight failures
+     - Analytic scalar LQR/Kalman, matrix Riccati residuals and shape/weight failures, Ogata textbook values
    * - Thermodynamics
      - Integrated P dV, T delta_S, four-state cycle balances and COP identities, IF97 verification tables (regions 1 to 5) and Gibbs relations, van der Waals critical inflection and isenthalpic throttle, Curzon-Ahlborn power maximum, Rankine and Brayton plant energy balances and Çengel and Boles plants, Ericsson limit, Stirling and dual four-process balances, Peng-Robinson critical inflection, equal-area rule, Clapeyron slope and R-134a tables, Maxwell relation and Joule-Thomson throttle on IF97 steam, Dalton mixing entropy against isothermal expansions, psychrometric mass and energy balances, Hess heating values, flame-temperature energy balance and JANAF enthalpies
    * - Fluids

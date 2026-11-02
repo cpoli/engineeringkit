@@ -138,3 +138,22 @@ poorly.
 phase_portrait(f, x0, v0, t) integrates xdot=v, vdot=f(x, v) with fixed RK4
 steps on t; a discontinuous f such as a relay is first-order accurate at
 each switch and chatters on a sliding line at the step size.
+
+Pole placement and textbook reference problems
+----------------------------------------------
+
+state_feedback_poles and observer_gain wrap scipy.signal.place_poles, which
+cannot repeat a pole more often than the rank of B (or of C for an
+observer). With one input or one output the gain is unique, so a repeated
+pole is placed by Ackermann's formula instead; Ogata's observer with both
+poles at -10 needs it.
+
+control_systems/tests/test_reference_problems.py checks worked examples
+from Ogata, *Modern Control Engineering*, 5th ed. (Examples 5-1, 5-12, 6-1,
+7-26, 8-1, 10-1 and 10-6) to the precision the book prints. In Example 7-26
+Ogata reads the uncompensated phase margin of 40/(s(s+2)) off the Bode plot
+as 17 deg (it is 17.96 deg) and rounds the new crossover to 9 rad/s
+(8.95 rad/s), so his lead zero and pole, 4.41 and 18.4 rad/s, sit about
+0.05 rad/s from what design_lead computes for the same 38 deg of lead
+(4.36 and 18.34), and his rounded compensator gives a 50.5 deg margin
+rather than 50.

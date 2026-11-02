@@ -304,6 +304,25 @@ CHANGELOG.md.
   torsion, 4530 psi, 1.62°, T_max = 3980 lb-in), 7-2 (element at 45°)
   and 7-3 (principal stresses 13,500 and -5,440 psi at -14.8°, τmax =
   9,490 psi). All agree, so nothing was fixed or added to the guide.
+- **B4.control_systems. Textbook reference problems** (2026-11-02).
+  `control_systems/tests/test_reference_problems.py` checks seven worked
+  examples of Ogata, *Modern Control Engineering*, 5th ed., against the
+  printed answers: Example 5-1 (ζ = 0.6, ωn = 5: tp = 0.785 s,
+  Mp = 0.095, ts = 1.33 s), 5-12 (Routh column 1, 2, 1, -6, 5), 6-1 (root
+  locus of K/(s(s+1)(s+2)): breakaway -0.4226 at K = 0.3849, ±j√2 at
+  K = 6), 7-26 (lead for 4/(s(s+2)), Kv = 20, 50°: α = 0.24, ωc = 9,
+  41.7(s+4.41)/(s+18.4)), 8-1 (Ziegler-Nichols, Kcr = 30, Pcr = 2.8099,
+  6.3223(s+1.4235)^2/s), 10-1 (K = [199 55 8]) and 10-6 (observer
+  Ke = [120.6 20]). Example 10-6 found a bug: `place_poles` rejects a
+  pole repeated more often than rank(B), so `state_feedback_poles` and
+  `observer_gain` now use Ackermann's formula for one input or output
+  with repeated poles. Example 7-26 differs by method: Ogata reads 17°
+  and 9 rad/s off the Bode plot (17.96° and 8.95 rad/s exactly), which
+  moves his zero and pole about 0.05 rad/s; the guide records it. The
+  example numbers were not checked against a printed copy (5-12 and 10-6
+  least sure). Examples from Franklin, Powell and Emami-Naeini are left
+  for later.
+
 
 - **B5. ValidityWarning, piloted in heat_transfer and fluid_engineering**
   (2026-11-01). `_validation.py` has `ValidityWarning(UserWarning)`,

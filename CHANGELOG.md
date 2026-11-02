@@ -65,6 +65,15 @@ section, so keep that heading format.
   pressure drop of Example 6.7, where Colebrook's f gives 270 kPa against
   the book's chart-read 265 kPa; the guide records why
   (ROADMAP B4.fluid_engineering).
+- `control_systems` has textbook reference tests: seven worked examples
+  from Ogata, *Modern Control Engineering*, 5th edition (Examples 5-1,
+  5-12, 6-1, 7-26, 8-1, 10-1 and 10-6), each checked to the precision
+  the book prints. They found that `state_feedback_poles` and
+  `observer_gain` raised `ValueError` for a repeated pole with one input
+  or output (Example 10-6 puts both observer poles at -10); they now use
+  Ackermann's formula in that case. The guide notes where Ogata's
+  graphical readings in Example 7-26 differ from `design_lead`
+  (ROADMAP B4.control_systems).
 
 ## [0.2.0] - 2026-10-30
 
